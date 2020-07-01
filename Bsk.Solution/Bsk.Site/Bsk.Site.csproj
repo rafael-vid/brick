@@ -1,0 +1,488 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E305B863-B6F1-4129-8A61-2799C2B9C51A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bsk.Site</RootNamespace>
+    <AssemblyName>Bsk.Site</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\bsk-visualizar-proposta.aspx" />
+    <Content Include="Admin\cliente-visualizar-proposta.aspx" />
+    <Content Include="Admin\css\animacao.min.css" />
+    <Content Include="Admin\css\animate.css" />
+    <Content Include="Admin\css\bootstrap-theme.css" />
+    <Content Include="Admin\css\bootstrap-theme.min.css" />
+    <Content Include="Admin\css\bootstrap.css" />
+    <Content Include="Admin\css\bootstrap.min.css" />
+    <Content Include="Admin\css\cartao.txt" />
+    <Content Include="Admin\css\component.css" />
+    <Content Include="Admin\css\datatables.min.css" />
+    <Content Include="Admin\css\default.css" />
+    <Content Include="Admin\css\master.css" />
+    <Content Include="Admin\css\style-port.css" />
+    <Content Include="Admin\css\style.css" />
+    <Content Include="Admin\css\style2.css" />
+    <Content Include="Admin\default.aspx" />
+    <Content Include="Admin\Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Admin\img\banners\banner1.png" />
+    <Content Include="Admin\img\banners\banner2.png" />
+    <Content Include="Admin\img\banners\banner3.png" />
+    <Content Include="Admin\img\banners\image1.jpg" />
+    <Content Include="Admin\img\banners\image2.jpg" />
+    <Content Include="Admin\img\banners\image3.jpg" />
+    <Content Include="Admin\img\banners\image4.jpg" />
+    <Content Include="Admin\img\banners\propagandas\1.jpg" />
+    <Content Include="Admin\img\banners\propagandas\2.jpg" />
+    <Content Include="Admin\img\banners\propagandas\3.jpg" />
+    <Content Include="Admin\img\banners\propagandas\4.jpg" />
+    <Content Include="Admin\img\banners\propagandas\propaganda-hellopharma.png" />
+    <Content Include="Admin\img\banners\propagandas\propaganda-monitorpharma.png" />
+    <Content Include="Admin\img\boleto.png" />
+    <Content Include="Admin\img\cadastrar.png" />
+    <Content Include="Admin\img\cartao.png" />
+    <Content Include="Admin\img\cotacao.png" />
+    <Content Include="Admin\img\editar.png" />
+    <Content Include="Admin\img\Infomercfundoescuro.png" />
+    <Content Include="Admin\img\lixeira.png" />
+    <Content Include="Admin\img\load.gif" />
+    <Content Include="Admin\img\login.png" />
+    <Content Include="Admin\img\logo.png" />
+    <Content Include="Admin\img\mapa.png" />
+    <Content Include="Admin\img\mensagens.png" />
+    <Content Include="Admin\img\notaFiscal.png" />
+    <Content Include="Admin\img\oferta.png" />
+    <Content Include="Admin\img\perfil.png" />
+    <Content Include="Admin\img\produto.jpg" />
+    <Content Include="Admin\img\remedio.jpg" />
+    <Content Include="Admin\img\semImagem.png" />
+    <Content Include="Admin\img\telefone.png" />
+    <Content Include="Admin\img\visualizar.png" />
+    <Content Include="Admin\js\bootstrap.js" />
+    <Content Include="Admin\js\bootstrap.min.js" />
+    <Content Include="Admin\js\carrinho.js" />
+    <Content Include="Admin\js\comum.js" />
+    <Content Include="Admin\js\datatables.min.js" />
+    <Content Include="Admin\js\demo5.js" />
+    <Content Include="Admin\js\initPageTransitions.js" />
+    <Content Include="Admin\js\jquery-ui.js" />
+    <Content Include="Admin\js\jquery-ui.min.js" />
+    <Content Include="Admin\js\jquery.js" />
+    <Content Include="Admin\js\jquery.lettering.js" />
+    <Content Include="Admin\js\jquery.mask.js" />
+    <Content Include="Admin\js\jquery.min.js" />
+    <Content Include="Admin\js\lazysizes.min.js" />
+    <Content Include="Admin\js\master.js" />
+    <Content Include="Admin\js\modernizr.custom.js" />
+    <Content Include="Admin\js\npm.js" />
+    <Content Include="Admin\js\pagamento.js" />
+    <Content Include="Admin\js\paper-core.js" />
+    <Content Include="Admin\js\parallax.js" />
+    <Content Include="Admin\js\parallax.min.js" />
+    <Content Include="Admin\js\receitaws.js" />
+    <Content Include="Admin\js\scripts.js" />
+    <Content Include="Admin\js\sweetAlert.js" />
+    <Content Include="Admin\js\tutorial.js" />
+    <Content Include="Admin\js\utils\resizer.js" />
+    <Content Include="Admin\js\utils\util.js" />
+    <Content Include="Admin\js\wow.js" />
+    <Content Include="Admin\lista-proposta.aspx" />
+    <Content Include="Admin\proposta.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="www\cadastro.html" />
+    <Content Include="www\codigo-convite.html" />
+    <Content Include="www\css\bootstrap-theme.css" />
+    <Content Include="www\css\bootstrap-theme.min.css" />
+    <Content Include="www\css\bootstrap.css" />
+    <Content Include="www\css\bootstrap.min.css" />
+    <Content Include="www\css\index.css" />
+    <Content Include="www\css\master.css" />
+    <Content Include="www\extrato.html" />
+    <Content Include="www\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="www\images\cordova.png" />
+    <Content Include="www\images\loading.gif" />
+    <Content Include="www\images\logo.png" />
+    <Content Include="www\index.html" />
+    <Content Include="www\js\bootstrap.js" />
+    <Content Include="www\js\bootstrap.min.js" />
+    <Content Include="www\js\comum.js" />
+    <Content Include="www\js\jquery-3.2.1.min.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\dist\jquery.mask.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\dist\jquery.mask.min.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\Gruntfile.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\package.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\src\jquery.mask.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\jquery.mask.test.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\qunit.css" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\qunit.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\sinon-1.10.3.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\sinon-qunit-1.0.0.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\sinon-qunit.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.11.1.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.7.2.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.8.3.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-1.9.1.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-2.1.1.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-jquery-3.0.0.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\test-for-zepto.html" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\zepto\data.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\zepto\event.js" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\test\zepto\zepto.min.js" />
+    <Content Include="www\js\master.js" />
+    <Content Include="www\js\npm.js" />
+    <Content Include="www\js\qrcode.js" />
+    <Content Include="www\login.html" />
+    <Content Include="www\pagar-com-fiadito.html" />
+    <Content Include="www\qrcode.html" />
+    <Content Include="www\scripts\index.js" />
+    <Content Include="www\scripts\platformOverrides.js" />
+    <Content Include="www\termos.html" />
+    <Content Include="Admin\Master\Layout.Master" />
+    <Content Include="Admin\Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Admin\Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Admin\Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Admin\Fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Admin\Fonts\Raleway-Black.ttf" />
+    <Content Include="Admin\Fonts\Raleway-BlackItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Bold.ttf" />
+    <Content Include="Admin\Fonts\Raleway-BoldItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-ExtraBold.ttf" />
+    <Content Include="Admin\Fonts\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-ExtraLight.ttf" />
+    <Content Include="Admin\Fonts\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Italic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Light.ttf" />
+    <Content Include="Admin\Fonts\Raleway-LightItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Medium.ttf" />
+    <Content Include="Admin\Fonts\Raleway-MediumItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Regular.ttf" />
+    <Content Include="Admin\Fonts\Raleway-SemiBold.ttf" />
+    <Content Include="Admin\Fonts\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="Admin\Fonts\Raleway-Thin.ttf" />
+    <Content Include="Admin\Fonts\Raleway-ThinItalic.ttf" />
+    <Content Include="Admin\css\bootstrap-theme.css.map" />
+    <Content Include="Admin\css\bootstrap-theme.min.css.map" />
+    <Content Include="Admin\css\bootstrap.css.map" />
+    <Content Include="Admin\css\bootstrap.min.css.map" />
+    <Content Include="Admin\js\bower.json" />
+    <Content Include="Admin\js\LICENSE" />
+    <Content Include="Admin\js\package.json" />
+    <Content Include="Admin\js\README.md" />
+    <Content Include="themes\krajee-fa\theme.css" />
+    <Content Include="themes\krajee-fa\theme.js" />
+    <Content Include="themes\krajee-fa\theme.min.css" />
+    <Content Include="themes\krajee-fa\theme.min.js" />
+    <Content Include="themes\krajee-svg\theme.css" />
+    <Content Include="themes\krajee-svg\theme.js" />
+    <Content Include="themes\krajee-svg\theme.min.css" />
+    <Content Include="themes\krajee-svg\theme.min.js" />
+    <Content Include="themes\krajee-uni\theme.css" />
+    <Content Include="themes\krajee-uni\theme.js" />
+    <Content Include="themes\krajee-uni\theme.min.css" />
+    <Content Include="themes\krajee-uni\theme.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="www\css\bootstrap-theme.css.map" />
+    <Content Include="www\css\bootstrap-theme.min.css.map" />
+    <Content Include="www\css\bootstrap.css.map" />
+    <Content Include="www\css\bootstrap.min.css.map" />
+    <Content Include="www\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="www\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="www\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="www\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\.gitignore" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\.jshintrc" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\.ruby-version" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\.travis.yml" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\bower.json" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\CHANGELOG.md" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\component.json" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\composer.json" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\CONTRIBUTING.md" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\deploy.rb" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\docker-compose.yml" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\Dockerfile" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\ISSUE_TEMPLATE.md" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\LICENSE" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\package-lock.json" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\package.json" />
+    <Content Include="www\js\jQuery-Mask-Plugin-master\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\bsk-visualizar-proposta.aspx.cs">
+      <DependentUpon>bsk-visualizar-proposta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\bsk-visualizar-proposta.aspx.designer.cs">
+      <DependentUpon>bsk-visualizar-proposta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\cliente-visualizar-proposta.aspx.cs">
+      <DependentUpon>cliente-visualizar-proposta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\cliente-visualizar-proposta.aspx.designer.cs">
+      <DependentUpon>cliente-visualizar-proposta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\lista-proposta.aspx.cs">
+      <DependentUpon>lista-proposta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\lista-proposta.aspx.designer.cs">
+      <DependentUpon>lista-proposta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Master\Layout.Master.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Master\Layout.Master.designer.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\proposta.aspx.cs">
+      <DependentUpon>proposta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\proposta.aspx.designer.cs">
+      <DependentUpon>proposta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ComumController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Comum\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\GeradorProposta.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Control\" />
+    <Folder Include="Models\" />
+    <Folder Include="perfil\" />
+    <Folder Include="Views\Compra\" />
+    <Folder Include="Views\Estoque\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bsk.BE\Bsk.BE.csproj">
+      <Project>{cc33039c-6377-4460-ac2b-6dc7f6a14ce1}</Project>
+      <Name>Bsk.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bsk.Interface\Bsk.Interface.csproj">
+      <Project>{94c766db-1ec9-4d66-8198-2b0c91f63127}</Project>
+      <Name>Bsk.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bsk.Util\Bsk.Util.csproj">
+      <Project>{27aa66d4-c364-422c-8c85-56df147b464d}</Project>
+      <Name>Bsk.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57634</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57642/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.2\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
