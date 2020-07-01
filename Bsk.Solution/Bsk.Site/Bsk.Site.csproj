@@ -226,6 +226,59 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Fornecedor\avaliacao.html" />
+    <Content Include="Fornecedor\cadastro.aspx" />
+    <Content Include="Fornecedor\cadastroAtuacao.html" />
+    <Content Include="Fornecedor\comentarios.html" />
+    <Content Include="Fornecedor\cotacaoLista.html" />
+    <Content Include="Fornecedor\css\animate.css" />
+    <Content Include="Fornecedor\css\bootstrap.min.css" />
+    <Content Include="Fornecedor\css\datatables.min.css" />
+    <Content Include="Fornecedor\css\default.css" />
+    <Content Include="Fornecedor\css\master.css" />
+    <Content Include="Fornecedor\css\mobile.css" />
+    <Content Include="Fornecedor\finalizado.html" />
+    <Content Include="Fornecedor\historico.html" />
+    <Content Include="Fornecedor\img\aguardandoTransferencia.jpg" />
+    <Content Include="Fornecedor\img\areasAtuacao.jpg" />
+    <Content Include="Fornecedor\img\boleto.jpg" />
+    <Content Include="Fornecedor\img\cartao.jpg" />
+    <Content Include="Fornecedor\img\favico.png" />
+    <Content Include="Fornecedor\img\finalizado.jpg" />
+    <Content Include="Fornecedor\img\fundoHome.png" />
+    <Content Include="Fornecedor\img\historico.jpg" />
+    <Content Include="Fornecedor\img\imagem.jpg" />
+    <Content Include="Fornecedor\img\liberaPagamento.jpg" />
+    <Content Include="Fornecedor\img\listaCotacao.jpg" />
+    <Content Include="Fornecedor\img\logo.png" />
+    <Content Include="Fornecedor\img\meuSaldo.jpg" />
+    <Content Include="Fornecedor\img\negociacoes.jpg" />
+    <Content Include="Fornecedor\img\novaCotacao.jpg" />
+    <Content Include="Fornecedor\img\pagamentoPendente.jpg" />
+    <Content Include="Fornecedor\img\perfil.jpg" />
+    <Content Include="Fornecedor\img\proximaTransferencia.jpg" />
+    <Content Include="Fornecedor\img\servicoAndamento.jpg" />
+    <Content Include="Fornecedor\img\transferido.jpg" />
+    <Content Include="Fornecedor\img\upload.png" />
+    <Content Include="Fornecedor\img\video.png" />
+    <Content Include="Fornecedor\index.html" />
+    <Content Include="Fornecedor\js\bootstrap.min.js" />
+    <Content Include="Fornecedor\js\comum.js" />
+    <Content Include="Fornecedor\js\datatables.min.js" />
+    <Content Include="Fornecedor\js\jquery.mask.js" />
+    <Content Include="Fornecedor\js\jquery.min.js" />
+    <Content Include="Fornecedor\js\master.js" />
+    <Content Include="Fornecedor\js\rating.js" />
+    <Content Include="Fornecedor\js\sweetAlert.js" />
+    <Content Include="Fornecedor\js\wow.js" />
+    <Content Include="Fornecedor\liberaPagamento.html" />
+    <Content Include="Fornecedor\logado.html" />
+    <Content Include="Fornecedor\mensagem.html" />
+    <Content Include="Fornecedor\minhasCotacoes.html" />
+    <Content Include="Fornecedor\pagamento.html" />
+    <Content Include="Fornecedor\servicosAndamento.html" />
+    <Content Include="Fornecedor\solicitaServico.html" />
+    <Content Include="Fornecedor\_index.html" />
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -396,6 +449,21 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ComumController.cs" />
+    <Compile Include="Controllers\FornecedorController.cs" />
+    <Compile Include="Fornecedor\cadastro.aspx.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\cadastro.aspx.designer.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\Master\layout.Master.cs">
+      <DependentUpon>layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\Master\layout.Master.designer.cs">
+      <DependentUpon>layout.Master</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -411,7 +479,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Comum\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <None Include="Properties\PublishProfiles\GeradorProposta.pubxml" />
+    <Content Include="Fornecedor\Master\layout.Master" />
+    <None Include="Properties\PublishProfiles\Brikk.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -426,6 +495,7 @@
     <Folder Include="perfil\" />
     <Folder Include="Views\Compra\" />
     <Folder Include="Views\Estoque\" />
+    <Folder Include="Views\Fornecedor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bsk.BE\Bsk.BE.csproj">

@@ -1,0 +1,14 @@
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Bsk.DAL.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Bsk.DAL.pdb
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Bsk.BE.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\MySql.Data.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Newtonsoft.Json.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\System.Net.Http.Formatting.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Bsk.BE.pdb
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\Newtonsoft.Json.xml
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\bin\Release\System.Net.Http.Formatting.xml
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\obj\Release\Bsk.DAL.csprojAssemblyReference.cache
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\obj\Release\Bsk.DAL.csproj.CoreCompileInputs.cache
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\obj\Release\Bsk.DAL.csproj.CopyComplete
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\obj\Release\Bsk.DAL.dll
+C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.DAL\obj\Release\Bsk.DAL.pdb

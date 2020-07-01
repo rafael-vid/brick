@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fiadito</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css">
+</head>
+
+<body id="roxo">
+
+    <div class="col col-sm-12 col-xs-12 logo">
+        <center><img src="images/logo.png" class="img-responsive" alt=""></center>
+    </div>
+    <div class="col col-sm-12 col-xs-12 codigo">
+        <div class="col col-sm-12 col-xs-12 titulo text-center">
+            Digite seu código<br>convite aqui
+        </div>
+
+        <div class="col col-sm-12 col-xs-12">&nbsp;</div>
+
+        <div class="col col-sm-12 col-xs-12">
+            <input class="form-control cadastro-input" id="txtCodigo" type="text" placeholder="código">
+        </div>
+
+        <div class="col col-sm-12 col-xs-12">&nbsp;</div>
+
+        <div class="col col-sm-12 col-xs-12">
+            <button class="btn btn-app" id="btnEntrar" onclick="codigoConvite();">Enviar</button>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/master.js"></script>
+    <script src="js/comum.js"></script>
+    <script type="text/javascript">
+        function codigoConvite() {
+            var element = document.getElementById("btnEntrar");
+            element.disabled = true;
+            element.innerHTML = '<img src="images/loading.gif" height="20" />';
+            var jsonUser = window.localStorage.getItem("Usuario");
+            var obj = JSON.parse(jsonUser);
+            var parametro = {
+                chave:chaveValidarConta,
+                Codigo: $("#txtCodigo").val(),
+                User: obj.Usuario[0].ChaveInterna
+            };
+
+            comum.postAsync("Fiadito/ValidaConta",parametro,validaRetorno);
+        }
+
+        function validaRetorno(data) {
+            if (data.Mensagem != "Ok") {
+                alert(data.Mensagem);
+                var element = document.getElementById("btnEntrar");
+                element.disabled = false;
+                element.innerHTML = 'ENTRAR';
+            } else {
+                alert("Conta validada com sucesso!");
+                window.location.replace("pagar-com-fiadito.html");
+            }
+        }
+    </script>
+</body>
+
+</html>

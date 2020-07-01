@@ -91,6 +91,39 @@ namespace Bsk.Interface
             db.Delete(_base.Delete(Lista_lg, null));
         }
 
+        ////////////////////////////////////////////// Fornecedor ////////////////////////////////////////////////////////////
+        public List<FornecedorBE> Fornecedor_Get(FornecedorBE lg, string _filtro)
+        {
+
+            List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<FornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Fornecedor_Insert(FornecedorBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.Status = "0";
+            List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Fornecedor_Update(FornecedorBE lg, string filtro)
+        {
+
+            List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Fornecedor_Delete(FornecedorBE lg)
+        {
+            List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
 
     }
 }

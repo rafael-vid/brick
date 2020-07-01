@@ -16,23 +16,33 @@ using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
-using Bsk.Util;
-using Bsk.Interface.Helpers;
+
 
 
 namespace Bsk.Site.Controllers
 {
+    using Bsk.Util;
+    using Bsk.Interface.Helpers;
     public class ComumController : Controller
     {
        
         core _core = new core();
+        FornecedorBE _FornecedorBE = new FornecedorBE();
         public ActionResult Index()
         {
-            Response.Redirect("Admin/default.aspx");
+            Response.Redirect("Fornecedor/cadastro.aspx");
 
             return View();
         }
 
-      
+        [HttpGet]
+        public JsonResult PegaTeste()
+        {
+            return this.Json(new { Result = "Não foi possível inserir o usuário" }, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
     }
 }
