@@ -1,0 +1,79 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="msg.aspx.cs" Inherits="Bsk.Site.Admin.msg" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BRIKK</title>
+    <link rel="icon" type="image/png" href="img/favico.png" />
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <form id="form1" runat="server">
+       <!-- Header site -->
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
+        </div>
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+        </div>
+    </div>
+    <!-- Login site -->
+    <div class="col col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 col-sm-12 col-xs-12 panel panel-default pd-0">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <asp:Label ID="titulo" runat="server" Text=""></asp:Label></h3>
+        </div>
+        <div class="panel-body">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <h2><asp:Label ID="mensagem" runat="server" Text=""></asp:Label></h2>
+                <input type="hidden" id="retorno" runat="server" />
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <hr />
+<%--            <button class="btn btn-danger pull-left">CANCELAR</button>--%>
+        <%--    <button class="btn btn-success pull-right">ACEITAR</button>--%>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Outros scripts -->
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/master.js"></script>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            setTimeout(function () {
+                window.location.href = $("#retorno").val();
+            }, 1800);
+
+        });
+    </script>
+
+</body>
+</html>

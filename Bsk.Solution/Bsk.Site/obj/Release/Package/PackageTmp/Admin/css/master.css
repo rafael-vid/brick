@@ -1,348 +1,189 @@
 html,
 body {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100% !important;
-    width: 100% !important;
+    color: #a4a4a4;
+}
+
+.header-site {
+    padding: 20px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+
+.banner-site {
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-site {
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 70%;
+}
+
+.banner-site h2 {
+    font-size: 43px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.corpo-site {
+    padding: 20px;
+    display: inline;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.corpo-site h2 {
+    text-align: center;
+    width: 100%;
+    color: #b8272c;
+}
+
+.link-brikk {
+    color: #b8272c!important;
+    font-weight: bold;
+}
+
+.link-brikk {
+    color: #b8272c!important;
+    font-weight: bold;
+    text-decoration: none!important;
+}
+
+.corpo-site h2 span {
+    text-decoration: line-through;
+    color: #b8272c;
+    letter-spacing: 10px!important;
+}
+
+.btn-brikk {
+    background: #b8272c!important;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.btn-brikk:hover {
+    background: #b8272c!important;
+    border-radius: 5px;
+    color: #fff;
 }
 
 .pd-0 {
-    padding: 0 !important;
+    padding: 0!important;
 }
 
-.header {
-    position: fixed;
-    top: 0;
-    z-index: 9;
+.l100 {
+    width: 100%!important;
 }
 
-.modal-body {
-    height: auto;
+.pdl-0 {
+    padding-left: 0px!important;
 }
 
-.btn-success {
-    background: #bc233f !important;
-    border-color: #bc233f;
+.pdr-0 {
+    padding-right: 0px!important;
 }
 
-.valor-modal {
-    color: #bc233f;
-    font-size: 1.5vw;
-}
-
-.modal-desc {
-    font-size: 1.2vw;
-}
-
-.innerHead {
-    padding: 20px !important;
-    background: #bc233f;
-    display: inline-flex;
-    align-items: center;
-    color: #ffffff;
-    height: 12vh;
-}
-
-.corpoDetalhe {
-    padding: 20px !important;
-    color: #ffffff;
-    height: 12vh;
-    border: solid 1px #a4a4a4;
-    border-radius: 10px;
-    height: auto;
-}
-
-.corpo {
-    padding: 0;
-    height: 100% !important;
-    display: inline;
-    align-items: center;
-}
-
-.fundoCinza {
-    background: #f7f7f7;
-}
-
-    .fundoCinza h3 {
-        color: #a4a4a4;
-        font-weight: bold;
-    }
-
-.boleto,
-.cartao {
-    cursor: pointer;
-}
-
-.boxResumo {
-    padding: 20px;
-    border: solid 1px #a4a4a4;
-    border-radius: 5px;
-    background: #fff;
-    margin-bottom: 20px;
-    color: #a4a4a4;
-    font-size: 15px;
-}
-
-.valorResumo {
-    color: #bc233f;
-    font-size: 1.3vw;
-    font-weight: bold;
-}
-
-.quantidadeResumo {
+.btn-menu {
     position: absolute;
-    padding: 10px;
-    border: solid 1px #a4a4a4;
-    bottom: -7.5vh;
-    right: -1vh;
-}
-
-.btn-finalizar {
-    width: 70%;
-    background: #bc233f;
-    color: #ffffff;
-    font-size: 1.3vw;
-    font-weight: bold;
-}
-
-.centraliza {
-    padding: 0;
-    height: 100% !important;
-    display: inline-flex;
-    align-items: center;
-}
-
-.corpoInner {
-    padding: 20px !important;
-    display: inline;
-    align-items: center;
-    color: #000000;
-    margin-top: 12vh;
-}
-
-.produto {
-    margin-bottom: 20px;
+    right: -5px;
+    top: 10px;
+    font-size: 25px;
+    color: #b8272c;
     cursor: pointer;
 }
 
-.prodTitle {
-    font-size: 16px;
-    font-weight: bold;
-    color: #a4a4a4;
-}
-
-    .prodTitle small {
-        font-size: 15px;
-        text-align: justify;
-        color: #000000;
-    }
-
-.prodPrice {
-    color: #bc233f;
-    font-size: 20px;
-}
-
-.innerFooter {
-    padding: 1.2vw !important;
-    display: inline-flex;
-    align-items: center;
-    color: #000000;
-}
-
-.btn-comprar {
-    width: 100%;
-}
-
-.icone-user {
-    font-size: 23px;
-    width: 34px;
-    padding: 5px;
-    border-radius: 20px;
-    background: #ffffff;
-    color: #bc233f;
-    line-height: 13px;
-    padding-top: 15px;
-    height: 32px;
-    font-weight: bold;
-}
-
-.icone-cadastro {
-    font-size: 23px;
-    width: 34px;
-    padding: 5px;
-    border-radius: 20px;
-    background: #ffffff;
-    color: #bc233f;
-    line-height: 3px;
-    padding-top: 14px;
-    height: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.icone-home {
-    font-size: 23px;
-    width: 34px;
-    padding: 5px;
-    border-radius: 20px;
-    background: #ffffff;
-    color: #bc233f;
-    line-height: 3px;
-    padding-top: 14px;
-    height: 32px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-.entrar {
+.menu img {
     cursor: pointer;
-    font-weight: bold;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    z-index: 999999;
-}
-
-.carrinho {
-    cursor: pointer;
-    font-weight: bold;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    z-index: 999999;
-}
-
-.entrar {
-    cursor: pointer;
-    font-weight: bold;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    z-index: 999999;
 }
 
 .logo {
     cursor: pointer;
 }
 
-.cadastrar {
-    cursor: pointer;
-    font-weight: bold;
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    z-index: 999999;
+.mr-20 {
+    margin-right: 20px!important;
 }
 
-input.busca {
-    height: 50px;
-    border: none !important;
-    border-radius: 10px 0 0 10px;
-    outline: none !important;
-    box-shadow: none !important;
-}
-
-.btn-buscar {
-    height: 50px;
-    width: 50px;
-    border: none;
-    border-radius: 0 10px 10px 0;
-}
-
-.footer {
-    background: #ffcad4;
-}
-
-.btn-boleto {
-    color: #ffffff;
-    background: #9fbaed;
-    font-size: 1.5vw;
-    padding: 20px;
-    cursor: pointer;
-}
-
-.btn-cartao {
-    color: #ffffff;
-    background: #ed9fb0;
-    font-size: 1.5vw;
-    padding: 20px;
-    cursor: pointer;
-}
-
-.verDetalheAberto {
-    position: absolute;
-    background: #bc233fd6;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    display: inline-grid;
-    text-align: center;
+.menuAberto {
+    width: 100%!important;
+    height: 100%!important;
+    position: fixed;
     left: 0;
-    font-size: 1vw;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
     top: 0;
-    transition: all ease 0.5s;
+    z-index: 9;
+    background: #ffffff;
+    transition: ease all 0.5s;
 }
 
-.verDetalhe {
-    position: absolute;
-    background: #bc233fd6;
-    height: 100%;
-    width: 0%;
-    align-items: center;
-    display: inline-grid;
-    text-align: center;
-    left: 0%;
-    font-size: 0vw;
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 2px;
-    top: 0;
-    transition: all ease 0.5s;
-}
-
-.fundoCarrinho {
+.menuFechado {
+    width: 100%!important;
+    height: 100%!important;
     position: fixed;
+    left: 100%;
+    top: 0;
+    z-index: 9;
+    background: #ffffff;
+    transition: ease all 0.5s;
+}
+
+.btn-fechar-menu {
+    font-size: 25px;
+    color: #b8272c;
+    cursor: pointer;
+}
+
+.btn-pagamento {
+    cursor: pointer;
+}
+
+.corpo-site h2.tableTitle {
     width: 100%;
-    height: 100%;
-    background: #000000bf;
-    z-index: 99;
+    text-align: left!important;
 }
 
-.carrinhoAberto {
-    position: fixed !important;
-    z-index: 999 !important;
-    width: 40% !important;
-    height: 100% !important;
-    background: #fff !important;
-    right: 0 !important;
-    padding: 20px;
-    overflow-y: auto;
-    transition: all ease 0.5s !important;
+.corpo-site h2.tableTitle p {
+    font-size: 20px;
+    color: #b8272c;
 }
 
-.carrinhoFechado {
-    position: fixed;
-    z-index: 999;
-    width: 0;
-    height: 100%;
-    background: #fff;
-    right: -100%;
-    transition: all ease 0.5s;
+.boxDesc {
+    padding: 5px;
+    border: solid 1px #a4a4a4;
 }
 
-.prodCarrinho {
-    margin-bottom: 20px;
-    border: 1px solid #a4a4a4;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 3px #ccc;
+h3 {
+    font-size: 20px;
 }
 
-.valor {
+#rating-1 {
+    font-size: 35px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+    letter-spacing: 11px;
+    position: relative;
+    left: -40px;
+}
+
+.valorServico {
+    display: flex;
+    align-items: center;
+    align-content: center;
     font-weight: bold;
-    color: #bc233f;
-    font-size: 1.5vw;
+}
+
+.btn-upload {
+    background: none;
+    font-size: 20px;
+    color: #b8272c;
+    font-weight: bold;
+}
+
+.mensagem {
+    width: 60%;
 }

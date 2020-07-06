@@ -42,15 +42,6 @@ namespace Bsk.Site.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword senha;
 
         /// <summary>
-        /// btnLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnLogin;
-
-        /// <summary>
         /// msg control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,14 @@ namespace Bsk.Site.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label msg;
+
+        /// <summary>
+        /// btnEntrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnEntrar;
     }
 }

@@ -140,87 +140,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\bsk-visualizar-proposta.aspx" />
-    <Content Include="Admin\cliente-visualizar-proposta.aspx" />
-    <Content Include="Admin\css\animacao.min.css" />
+    <Content Include="Admin\cadastro-fornecedor.aspx" />
+    <Content Include="Admin\cadastro-servico.aspx" />
+    <Content Include="Admin\categoria.aspx" />
     <Content Include="Admin\css\animate.css" />
-    <Content Include="Admin\css\bootstrap-theme.css" />
-    <Content Include="Admin\css\bootstrap-theme.min.css" />
-    <Content Include="Admin\css\bootstrap.css" />
     <Content Include="Admin\css\bootstrap.min.css" />
-    <Content Include="Admin\css\cartao.txt" />
-    <Content Include="Admin\css\component.css" />
     <Content Include="Admin\css\datatables.min.css" />
     <Content Include="Admin\css\default.css" />
     <Content Include="Admin\css\master.css" />
-    <Content Include="Admin\css\style-port.css" />
-    <Content Include="Admin\css\style.css" />
-    <Content Include="Admin\css\style2.css" />
+    <Content Include="Admin\css\mobile.css" />
     <Content Include="Admin\default.aspx" />
-    <Content Include="Admin\Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Admin\img\banners\banner1.png" />
-    <Content Include="Admin\img\banners\banner2.png" />
-    <Content Include="Admin\img\banners\banner3.png" />
-    <Content Include="Admin\img\banners\image1.jpg" />
-    <Content Include="Admin\img\banners\image2.jpg" />
-    <Content Include="Admin\img\banners\image3.jpg" />
-    <Content Include="Admin\img\banners\image4.jpg" />
-    <Content Include="Admin\img\banners\propagandas\1.jpg" />
-    <Content Include="Admin\img\banners\propagandas\2.jpg" />
-    <Content Include="Admin\img\banners\propagandas\3.jpg" />
-    <Content Include="Admin\img\banners\propagandas\4.jpg" />
-    <Content Include="Admin\img\banners\propagandas\propaganda-hellopharma.png" />
-    <Content Include="Admin\img\banners\propagandas\propaganda-monitorpharma.png" />
-    <Content Include="Admin\img\boleto.png" />
-    <Content Include="Admin\img\cadastrar.png" />
-    <Content Include="Admin\img\cartao.png" />
-    <Content Include="Admin\img\cotacao.png" />
-    <Content Include="Admin\img\editar.png" />
-    <Content Include="Admin\img\Infomercfundoescuro.png" />
-    <Content Include="Admin\img\lixeira.png" />
-    <Content Include="Admin\img\load.gif" />
-    <Content Include="Admin\img\login.png" />
+    <Content Include="Admin\home.aspx" />
+    <Content Include="Admin\img\aguardandoTransferencia.jpg" />
+    <Content Include="Admin\img\areasAtuacao.jpg" />
+    <Content Include="Admin\img\boleto.jpg" />
+    <Content Include="Admin\img\cartao.jpg" />
+    <Content Include="Admin\img\categoria.jpg" />
+    <Content Include="Admin\img\favico.png" />
+    <Content Include="Admin\img\finalizado.jpg" />
+    <Content Include="Admin\img\fornacedor.jpg" />
+    <Content Include="Admin\img\fundoHome.png" />
+    <Content Include="Admin\img\historico.jpg" />
+    <Content Include="Admin\img\imagem.jpg" />
+    <Content Include="Admin\img\liberaPagamento.jpg" />
+    <Content Include="Admin\img\listaCotacao.jpg" />
     <Content Include="Admin\img\logo.png" />
-    <Content Include="Admin\img\mapa.png" />
-    <Content Include="Admin\img\mensagens.png" />
-    <Content Include="Admin\img\notaFiscal.png" />
-    <Content Include="Admin\img\oferta.png" />
-    <Content Include="Admin\img\perfil.png" />
-    <Content Include="Admin\img\produto.jpg" />
-    <Content Include="Admin\img\remedio.jpg" />
-    <Content Include="Admin\img\semImagem.png" />
-    <Content Include="Admin\img\telefone.png" />
-    <Content Include="Admin\img\visualizar.png" />
-    <Content Include="Admin\js\bootstrap.js" />
+    <Content Include="Admin\img\meuSaldo.jpg" />
+    <Content Include="Admin\img\negociacoes.jpg" />
+    <Content Include="Admin\img\novaCotacao.jpg" />
+    <Content Include="Admin\img\pagamentoPendente.jpg" />
+    <Content Include="Admin\img\perfil.jpg" />
+    <Content Include="Admin\img\proximaTransferencia.jpg" />
+    <Content Include="Admin\lista-fornecedor.aspx" />
+    <Content Include="Admin\msg.aspx" />
+    <Content Include="RepositoryImg\0.png" />
+    <Content Include="Admin\img\servicoAndamento.jpg" />
+    <Content Include="Admin\img\transferido.jpg" />
+    <Content Include="Admin\img\upload.png" />
+    <Content Include="Admin\img\video.png" />
     <Content Include="Admin\js\bootstrap.min.js" />
-    <Content Include="Admin\js\carrinho.js" />
-    <Content Include="Admin\js\comum.js" />
     <Content Include="Admin\js\datatables.min.js" />
-    <Content Include="Admin\js\demo5.js" />
-    <Content Include="Admin\js\initPageTransitions.js" />
-    <Content Include="Admin\js\jquery-ui.js" />
-    <Content Include="Admin\js\jquery-ui.min.js" />
-    <Content Include="Admin\js\jquery.js" />
-    <Content Include="Admin\js\jquery.lettering.js" />
     <Content Include="Admin\js\jquery.mask.js" />
     <Content Include="Admin\js\jquery.min.js" />
-    <Content Include="Admin\js\lazysizes.min.js" />
     <Content Include="Admin\js\master.js" />
-    <Content Include="Admin\js\modernizr.custom.js" />
-    <Content Include="Admin\js\npm.js" />
-    <Content Include="Admin\js\pagamento.js" />
-    <Content Include="Admin\js\paper-core.js" />
-    <Content Include="Admin\js\parallax.js" />
-    <Content Include="Admin\js\parallax.min.js" />
-    <Content Include="Admin\js\receitaws.js" />
-    <Content Include="Admin\js\scripts.js" />
+    <Content Include="Admin\js\rating.js" />
     <Content Include="Admin\js\sweetAlert.js" />
-    <Content Include="Admin\js\tutorial.js" />
-    <Content Include="Admin\js\utils\resizer.js" />
-    <Content Include="Admin\js\utils\util.js" />
     <Content Include="Admin\js\wow.js" />
-    <Content Include="Admin\lista-proposta.aspx" />
-    <Content Include="Admin\proposta.aspx" />
+    <Content Include="Admin\lista-categoria.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -333,36 +299,6 @@
     <Content Include="www\scripts\platformOverrides.js" />
     <Content Include="www\termos.html" />
     <Content Include="Admin\Master\Layout.Master" />
-    <Content Include="Admin\Fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Admin\Fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Admin\Fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Admin\Fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Admin\Fonts\Raleway-Black.ttf" />
-    <Content Include="Admin\Fonts\Raleway-BlackItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Bold.ttf" />
-    <Content Include="Admin\Fonts\Raleway-BoldItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-ExtraBold.ttf" />
-    <Content Include="Admin\Fonts\Raleway-ExtraBoldItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-ExtraLight.ttf" />
-    <Content Include="Admin\Fonts\Raleway-ExtraLightItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Italic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Light.ttf" />
-    <Content Include="Admin\Fonts\Raleway-LightItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Medium.ttf" />
-    <Content Include="Admin\Fonts\Raleway-MediumItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Regular.ttf" />
-    <Content Include="Admin\Fonts\Raleway-SemiBold.ttf" />
-    <Content Include="Admin\Fonts\Raleway-SemiBoldItalic.ttf" />
-    <Content Include="Admin\Fonts\Raleway-Thin.ttf" />
-    <Content Include="Admin\Fonts\Raleway-ThinItalic.ttf" />
-    <Content Include="Admin\css\bootstrap-theme.css.map" />
-    <Content Include="Admin\css\bootstrap-theme.min.css.map" />
-    <Content Include="Admin\css\bootstrap.css.map" />
-    <Content Include="Admin\css\bootstrap.min.css.map" />
-    <Content Include="Admin\js\bower.json" />
-    <Content Include="Admin\js\LICENSE" />
-    <Content Include="Admin\js\package.json" />
-    <Content Include="Admin\js\README.md" />
     <Content Include="themes\krajee-fa\theme.css" />
     <Content Include="themes\krajee-fa\theme.js" />
     <Content Include="themes\krajee-fa\theme.min.css" />
@@ -405,19 +341,26 @@
     <Content Include="www\js\jQuery-Mask-Plugin-master\README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\bsk-visualizar-proposta.aspx.cs">
-      <DependentUpon>bsk-visualizar-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\cadastro-fornecedor.aspx.cs">
+      <DependentUpon>cadastro-fornecedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\bsk-visualizar-proposta.aspx.designer.cs">
-      <DependentUpon>bsk-visualizar-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\cadastro-fornecedor.aspx.designer.cs">
+      <DependentUpon>cadastro-fornecedor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\cliente-visualizar-proposta.aspx.cs">
-      <DependentUpon>cliente-visualizar-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\cadastro-servico.aspx.cs">
+      <DependentUpon>cadastro-servico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\cliente-visualizar-proposta.aspx.designer.cs">
-      <DependentUpon>cliente-visualizar-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\cadastro-servico.aspx.designer.cs">
+      <DependentUpon>cadastro-servico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\categoria.aspx.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\categoria.aspx.designer.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -426,12 +369,26 @@
     <Compile Include="Admin\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\lista-proposta.aspx.cs">
-      <DependentUpon>lista-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\lista-proposta.aspx.designer.cs">
-      <DependentUpon>lista-proposta.aspx</DependentUpon>
+    <Compile Include="Admin\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\lista-categoria.aspx.cs">
+      <DependentUpon>lista-categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\lista-categoria.aspx.designer.cs">
+      <DependentUpon>lista-categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\lista-fornecedor.aspx.cs">
+      <DependentUpon>lista-fornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\lista-fornecedor.aspx.designer.cs">
+      <DependentUpon>lista-fornecedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Master\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
@@ -440,12 +397,11 @@
     <Compile Include="Admin\Master\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\proposta.aspx.cs">
-      <DependentUpon>proposta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Admin\msg.aspx.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\proposta.aspx.designer.cs">
-      <DependentUpon>proposta.aspx</DependentUpon>
+    <Compile Include="Admin\msg.aspx.designer.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ComumController.cs" />

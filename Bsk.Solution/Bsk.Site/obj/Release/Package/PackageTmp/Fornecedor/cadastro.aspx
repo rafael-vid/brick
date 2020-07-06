@@ -424,7 +424,7 @@
                 var parametro = {
                     Cpf: $('input#cpf').val(),
                     Cnpj: $('input#cnpj').val(),
-                    Nome: $('input#nome').val(),
+                    RazaoSocial: $('input#nome').val(),
                     Situacao: $('input#situacao').val(),
                     Abertura: $('input#abertura').val(),
                     Tipo: $('input#tipo').val(),

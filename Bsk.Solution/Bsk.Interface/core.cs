@@ -125,5 +125,141 @@ namespace Bsk.Interface
             db.Delete(_base.Delete(Lista_lg, null));
         }
 
+
+        ////////////////////////////////////////////// Alert ////////////////////////////////////////////////////////////
+        public List<AlertBE> Alert_Get(AlertBE lg, string _filtro)
+        {
+
+            List<AlertBE> Lista_lg = new List<AlertBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<AlertBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Alert_Insert(AlertBE lg)
+        {
+            
+            List<AlertBE> Lista_lg = new List<AlertBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Alert_Update(AlertBE lg, string filtro)
+        {
+
+            List<AlertBE> Lista_lg = new List<AlertBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Alert_Delete(AlertBE lg)
+        {
+            List<AlertBE> Lista_lg = new List<AlertBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// Categoria ////////////////////////////////////////////////////////////
+        public List<CategoriaBE> Categoria_Get(CategoriaBE lg, string _filtro)
+        {
+
+            List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CategoriaBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Categoria_Insert(CategoriaBE lg)
+        {
+            
+            lg.Status = "1";
+            List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Categoria_Update(CategoriaBE lg, string filtro)
+        {
+
+            List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Categoria_Delete(CategoriaBE lg)
+        {
+            List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// Master ////////////////////////////////////////////////////////////
+        public List<MasterBE> Master_Get(MasterBE lg, string _filtro)
+        {
+
+            List<MasterBE> Lista_lg = new List<MasterBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<MasterBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Master_Insert(MasterBE lg)
+        {
+
+            List<MasterBE> Lista_lg = new List<MasterBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Master_Update(MasterBE lg, string filtro)
+        {
+
+            List<MasterBE> Lista_lg = new List<MasterBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Master_Delete(MasterBE lg)
+        {
+            List<MasterBE> Lista_lg = new List<MasterBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// Servico ////////////////////////////////////////////////////////////
+        public List<ServicoBE> Servico_Get(ServicoBE lg, string _filtro)
+        {
+
+            List<ServicoBE> Lista_lg = new List<ServicoBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<ServicoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Servico_Insert(ServicoBE lg)
+        {
+            
+            lg.Status = "0";
+            List<ServicoBE> Lista_lg = new List<ServicoBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Servico_Update(ServicoBE lg, string filtro)
+        {
+
+            List<ServicoBE> Lista_lg = new List<ServicoBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Servico_Delete(ServicoBE lg)
+        {
+            List<ServicoBE> Lista_lg = new List<ServicoBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+
     }
 }

@@ -10,6 +10,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/bsk-visualizar-proposta.aspx">
       <publishTime>06/30/2020 00:37:46</publishTime>
     </File>
+    <File Include="Admin/cadastro-fornecedor.aspx">
+      <publishTime>06/07/2020 01:23:32</publishTime>
+    </File>
+    <File Include="Admin/cadastro-servico.aspx">
+      <publishTime>07/06/2020 01:37:30</publishTime>
+    </File>
+    <File Include="Admin/categoria.aspx">
+      <publishTime>07/06/2020 01:32:48</publishTime>
+    </File>
     <File Include="Admin/cliente-visualizar-proposta.aspx">
       <publishTime>06/30/2020 01:23:36</publishTime>
     </File>
@@ -17,7 +26,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/animate.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/css/bootstrap-theme.css">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -38,7 +47,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/bootstrap.min.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/css/bootstrap.min.css.map">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -50,13 +59,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/datatables.min.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/css/default.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/css/master.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/css/mobile.css">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/css/style-port.css">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -68,7 +80,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/default.aspx">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 14:16:11</publishTime>
     </File>
     <File Include="Admin/Fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -139,6 +151,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/Fonts/Raleway-ThinItalic.ttf">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/home.aspx">
+      <publishTime>05/07/2020 14:35:59</publishTime>
+    </File>
+    <File Include="Admin/img/aguardandoTransferencia.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/areasAtuacao.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/banners/banner1.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
@@ -178,14 +199,23 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/banners/propagandas/propaganda-monitorpharma.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/boleto.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/boleto.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/cadastrar.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/cartao.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/cartao.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
+    </File>
+    <File Include="Admin/img/categoria.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/img/cotacao.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -193,8 +223,32 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/editar.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/favico.png">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/finalizado.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/fornacedor.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/fundoHome.png">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/historico.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/imagem.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/Infomercfundoescuro.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
+    </File>
+    <File Include="Admin/img/liberaPagamento.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/listaCotacao.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/img/lixeira.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -206,7 +260,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/logo.png">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/img/mapa.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -214,11 +268,26 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/mensagens.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/meuSaldo.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/negociacoes.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/notaFiscal.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/novaCotacao.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/oferta.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
+    </File>
+    <File Include="Admin/img/pagamentoPendente.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/perfil.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/img/perfil.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -226,14 +295,29 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/produto.jpg">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/proximaTransferencia.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/remedio.jpg">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/semImagem.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/img/servicoAndamento.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/img/telefone.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
+    </File>
+    <File Include="Admin/img/transferido.jpg">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/upload.png">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/img/video.png">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/img/visualizar.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -242,7 +326,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/bootstrap.min.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/bower.json">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -254,7 +338,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/datatables.min.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/demo5.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -275,10 +359,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/jquery.mask.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/jquery.min.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/lazysizes.min.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -287,7 +371,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/master.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/modernizr.custom.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -310,6 +394,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/js/parallax.min.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
+    <File Include="Admin/js/rating.js">
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
     <File Include="Admin/js/README.md">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
@@ -320,7 +407,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/sweetAlert.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="Admin/js/tutorial.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -332,13 +419,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/wow.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>05/07/2020 12:00:38</publishTime>
+    </File>
+    <File Include="Admin/lista-categoria.aspx">
+      <publishTime>07/06/2020 01:34:05</publishTime>
+    </File>
+    <File Include="Admin/lista-fornecedor.aspx">
+      <publishTime>06/07/2020 01:04:09</publishTime>
     </File>
     <File Include="Admin/lista-proposta.aspx">
       <publishTime>06/30/2020 01:47:31</publishTime>
     </File>
     <File Include="Admin/Master/Layout.Master">
-      <publishTime>06/30/2020 01:52:42</publishTime>
+      <publishTime>06/07/2020 00:15:52</publishTime>
+    </File>
+    <File Include="Admin/msg.aspx">
+      <publishTime>05/07/2020 16:52:56</publishTime>
     </File>
     <File Include="Admin/proposta.aspx">
       <publishTime>06/30/2020 01:59:12</publishTime>
@@ -350,28 +446,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>01/07/2020 00:10:57</publishTime>
+      <publishTime>06/07/2020 01:24:30</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>01/07/2020 00:10:57</publishTime>
+      <publishTime>06/07/2020 01:24:30</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>01/07/2020 00:10:57</publishTime>
+      <publishTime>06/07/2020 01:24:31</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>01/07/2020 00:10:57</publishTime>
+      <publishTime>06/07/2020 01:24:31</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>01/07/2020 00:10:58</publishTime>
+      <publishTime>07/06/2020 01:39:17</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>01/07/2020 00:10:58</publishTime>
+      <publishTime>07/06/2020 01:39:17</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>07/01/2020 00:12:09</publishTime>
+      <publishTime>07/06/2020 01:39:22</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>07/01/2020 00:12:09</publishTime>
+      <publishTime>07/06/2020 01:39:22</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
       <publishTime>01/07/2020 00:10:58</publishTime>
@@ -560,7 +656,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/30/2020 21:59:27</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>01/07/2020 00:05:28</publishTime>
+      <publishTime>01/07/2020 00:19:53</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.html">
       <publishTime>06/30/2020 21:59:27</publishTime>
@@ -726,6 +822,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="packages.config">
       <publishTime>06/29/2020 22:06:33</publishTime>
+    </File>
+    <File Include="RepositoryImg/0.png">
+      <publishTime>05/07/2020 12:00:38</publishTime>
     </File>
     <File Include="themes/krajee-fa/theme.css">
       <publishTime>06/29/2020 22:06:33</publishTime>
