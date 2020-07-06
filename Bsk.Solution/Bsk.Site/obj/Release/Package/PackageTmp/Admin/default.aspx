@@ -4,70 +4,72 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Loja Julice</title>
-    <link rel="icon" type="image/png" href="../img/logo.png" />
-    <link rel="stylesheet" href="css/bootstrap.css">
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BRIKK</title>
+    <link rel="icon" type="image/png" href="img/favico.png" />
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/master.css">
-    <meta name="title" content="" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="rating" content="General" />
-    <meta name="language" content="portuguese, PT-BR" />
-    <meta name="distribution" content="Global" />
-    <meta name="revisit-after" content="1 Days" />
-    <meta name="author" content="Studio Brasuka - www.studiobrasuka.com.br" />
-    <meta name="publisher" content="Studio Brasuka - www.studiobrasuka.com.br" />
-    <meta name="copyright" content="Studio Brasuka - www.studiobrasuka.com.br" />
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
     <form id="form1" runat="server">
-       <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-    <div class="col col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 col-sm-12 col-xs-12 panel panel-default pd-0">
-        <div class="panel-heading">
-            <h3 class="panel-title">Login</h3>
+        <!-- Header site -->
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
         </div>
-        <div class="panel-body">
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <fieldset class="form-group">
-                    <label for="username">
-                        Entre com seu E-mail:
-                    </label>
-                    <input type="text" class="form-control form-control-lg" name="login" id="login" runat="server" placeholder="E-mail" required="">
-                </fieldset>
-                <fieldset class="form-group">
-                    <label for="password">
-                        Entre com a senha de acesso:
-                    </label>
-                    <input type="password" name="senha" id="senha" class="form-control form-control-lg pass" runat="server" placeholder="********" required="">
-                </fieldset>
-
-                <button class="btn btn-warning btn-block btn-lg" id="btnLogin" runat="server" onserverclick="btnLogin_ServerClick"> Entrar </button>
-                <asp:Label ID="msg" runat="server" Text=""></asp:Label>
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+        </div>
+    </div>
+    <!-- Login site -->
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 login-site pd-0">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right mobile-center-txt">
+                    <a href="cadastro.html" class="link-brikk cadastrar">Não tenho cadastro</a>
+                </div>
+                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input type="text" class="form-control" placeholder="E-mail" runat="server" id="login">
+                </div>
+                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <input type="password" class="form-control" placeholder="Senha" runat="server" id="senha">
+                </div>
+                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 mobile-pd-0 mobile-center-txt">
+                        <asp:Label ID="msg" runat="server" Text=""></asp:Label>
+                        <%--<a href="" class="link-brikk">Esqueci minha senha</a>--%>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+                    <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <button class="btn btn-brikk loga l100" runat="server" id="btnEntrar" onserverclick="btnEntrar_ServerClick">Entrar</button>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+                </div>
             </div>
         </div>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Outros scripts -->
     <script src="js/jquery.mask.js"></script>
-    <script src="js/sweetAlert.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/wow.js"></script>
-    <script src="js/receitaws.js"></script>
     <script src="js/master.js"></script>
-    <script src="js/comum.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-   
     </form>
 </body>
 </html>
-
-
-
-
