@@ -20,8 +20,6 @@ namespace Bsk.Site.Controllers
         public JsonResult CadastroFornecedor(FornecedorBE _fornecedor)
         {
 
-            _fornecedor.Telefone = "";
-
             try
             {
                 _core.Fornecedor_Insert(_fornecedor);
