@@ -11,13 +11,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/30/2020 00:37:46</publishTime>
     </File>
     <File Include="Admin/cadastro-fornecedor.aspx">
-      <publishTime>06/07/2020 01:23:32</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/cadastro-servico.aspx">
-      <publishTime>07/06/2020 01:37:30</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/categoria.aspx">
-      <publishTime>07/06/2020 01:32:48</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/cliente-visualizar-proposta.aspx">
       <publishTime>06/30/2020 01:23:36</publishTime>
@@ -26,7 +26,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/animate.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/css/bootstrap-theme.css">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -47,7 +47,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/bootstrap.min.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/css/bootstrap.min.css.map">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -59,16 +59,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/css/datatables.min.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/css/default.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/css/master.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/css/mobile.css">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/css/style-port.css">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -80,7 +80,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/default.aspx">
-      <publishTime>05/07/2020 14:16:11</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/Fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -152,13 +152,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/home.aspx">
-      <publishTime>05/07/2020 14:35:59</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/aguardandoTransferencia.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/areasAtuacao.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/banners/banner1.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -200,7 +200,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/boleto.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/boleto.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -209,13 +209,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/cartao.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/cartao.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/categoria.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/cotacao.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -224,31 +224,31 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/favico.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/finalizado.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/fornacedor.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/fundoHome.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/historico.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/imagem.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/Infomercfundoescuro.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/liberaPagamento.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/listaCotacao.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/lixeira.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -260,7 +260,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/logo.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/mapa.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -269,25 +269,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/meuSaldo.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/negociacoes.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/notaFiscal.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/novaCotacao.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/oferta.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/pagamentoPendente.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/perfil.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/perfil.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -296,7 +296,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/proximaTransferencia.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/remedio.jpg">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -305,19 +305,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/servicoAndamento.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/telefone.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/transferido.jpg">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/upload.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/video.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/img/visualizar.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -326,7 +326,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/bootstrap.min.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/js/bower.json">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -338,7 +338,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/datatables.min.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/js/demo5.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -359,10 +359,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/jquery.mask.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/js/jquery.min.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/js/lazysizes.min.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -371,7 +371,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/master.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/js/modernizr.custom.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -395,7 +395,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/rating.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/js/README.md">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -407,7 +407,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/sweetAlert.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/js/tutorial.js">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -419,685 +419,685 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/wow.js">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Admin/lista-categoria.aspx">
-      <publishTime>07/06/2020 01:34:05</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/lista-fornecedor.aspx">
-      <publishTime>06/07/2020 01:04:09</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/lista-proposta.aspx">
       <publishTime>06/30/2020 01:47:31</publishTime>
     </File>
     <File Include="Admin/Master/Layout.Master">
-      <publishTime>06/07/2020 00:15:52</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/msg.aspx">
-      <publishTime>05/07/2020 16:52:56</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="Admin/proposta.aspx">
       <publishTime>06/30/2020 01:59:12</publishTime>
     </File>
     <File Include="ApplicationInsights.config">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>06/07/2020 01:24:30</publishTime>
+      <publishTime>07/06/2020 15:28:14</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>06/07/2020 01:24:30</publishTime>
+      <publishTime>07/06/2020 15:28:14</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>06/07/2020 01:24:31</publishTime>
+      <publishTime>07/06/2020 15:28:14</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>06/07/2020 01:24:31</publishTime>
+      <publishTime>07/06/2020 15:28:14</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>07/06/2020 01:39:17</publishTime>
+      <publishTime>07/06/2020 15:28:15</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>07/06/2020 01:39:17</publishTime>
+      <publishTime>07/06/2020 15:28:15</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>07/06/2020 01:39:22</publishTime>
+      <publishTime>07/06/2020 15:28:23</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>07/06/2020 01:39:22</publishTime>
+      <publishTime>07/06/2020 15:28:23</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>01/07/2020 00:10:58</publishTime>
+      <publishTime>07/06/2020 15:28:15</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>01/07/2020 00:10:58</publishTime>
+      <publishTime>07/06/2020 15:28:15</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>01/07/2019 09:54:41</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="bin/netstandard.dll">
-      <publishTime>05/24/2020 14:53:59</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:30</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:30</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe.config">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/csc.rsp">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/csi.rsp">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.AppContext.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe.config">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.rsp">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
-      <publishTime>06/29/2020 22:06:41</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:29</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css.map">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.min.css.map">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap.css.map">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/bootstrap.min.css.map">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/avaliacao.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>01/07/2020 00:19:53</publishTime>
+      <publishTime>07/01/2020 15:06:23</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.html">
       <publishTime>06/30/2020 21:59:27</publishTime>
     </File>
     <File Include="Fornecedor/cadastroAtuacao.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/comentarios.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/cotacaoLista.html">
-      <publishTime>06/30/2020 22:04:07</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/animate.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/bootstrap.min.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/datatables.min.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/default.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/master.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/css/mobile.css">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/finalizado.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/historico.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/aguardandoTransferencia.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/areasAtuacao.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/boleto.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/cartao.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/favico.png">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/finalizado.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/fundoHome.png">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/historico.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/imagem.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/liberaPagamento.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/listaCotacao.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/logo.png">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/meuSaldo.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/negociacoes.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/novaCotacao.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/pagamentoPendente.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/perfil.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/proximaTransferencia.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/servicoAndamento.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/transferido.jpg">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/upload.png">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/img/video.png">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/index.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/bootstrap.min.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/comum.js">
-      <publishTime>01/07/2020 00:07:52</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/datatables.min.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/jquery.mask.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/jquery.min.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/master.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/rating.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/sweetAlert.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/js/wow.js">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/liberaPagamento.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/logado.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>06/30/2020 22:03:34</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/mensagem.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/minhasCotacoes.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/pagamento.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/servicosAndamento.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/solicitaServico.html">
-      <publishTime>06/30/2020 21:59:27</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/_index.html">
-      <publishTime>06/30/2020 22:04:38</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="RepositoryImg/0.png">
-      <publishTime>05/07/2020 12:00:38</publishTime>
+      <publishTime>07/06/2020 11:56:58</publishTime>
     </File>
     <File Include="themes/krajee-fa/theme.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-fa/theme.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-fa/theme.min.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-fa/theme.min.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-svg/theme.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-svg/theme.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-svg/theme.min.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-svg/theme.min.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-uni/theme.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-uni/theme.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-uni/theme.min.css">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="themes/krajee-uni/theme.min.js">
-      <publishTime>06/29/2020 22:06:33</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Views/Comum/Index.cshtml">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/07/2020 00:11:04</publishTime>
+      <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="www/cadastro.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/codigo-convite.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap-theme.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap-theme.css.map">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap-theme.min.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap-theme.min.css.map">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap.css.map">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap.min.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/bootstrap.min.css.map">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/index.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/css/master.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/extrato.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/images/cordova.png">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/images/loading.gif">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/images/logo.png">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/index.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/bootstrap.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/bootstrap.min.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/comum.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jquery-3.2.1.min.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/.gitignore">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/.jshintrc">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/.ruby-version">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/.travis.yml">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/bower.json">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/CHANGELOG.md">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/component.json">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/composer.json">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/CONTRIBUTING.md">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/deploy.rb">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/dist/jquery.mask.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/dist/jquery.mask.min.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/docker-compose.yml">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/Dockerfile">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/Gruntfile.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/ISSUE_TEMPLATE.md">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/LICENSE">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/package-lock.json">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/package.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/package.json">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/README.md">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/src/jquery.mask.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/jquery.mask.test.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/qunit.css">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/qunit.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/sinon-1.10.3.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/sinon-qunit-1.0.0.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/sinon-qunit.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-1.11.1.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-1.7.2.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-1.8.3.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-1.9.1.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-2.1.1.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-jquery-3.0.0.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/test-for-zepto.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/zepto/data.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/zepto/event.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/jQuery-Mask-Plugin-master/test/zepto/zepto.min.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/master.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/npm.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/js/qrcode.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/login.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/pagar-com-fiadito.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/qrcode.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/scripts/index.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/scripts/platformOverrides.js">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
     <File Include="www/termos.html">
-      <publishTime>06/29/2020 22:06:40</publishTime>
+      <publishTime>07/01/2020 10:53:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

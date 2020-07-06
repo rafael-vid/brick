@@ -94,7 +94,7 @@ namespace Bsk.Site.Admin
                 _flpImg.SaveAs(path);
 
             }
-            else if (imagem != "0.png" && String.IsNullOrEmpty(_flpImg.FileName))
+            else if ((!String.IsNullOrEmpty(imagem)) && imagem != "0.png" && String.IsNullOrEmpty(_flpImg.FileName))
             {
                 _imagem = imagem;
             }

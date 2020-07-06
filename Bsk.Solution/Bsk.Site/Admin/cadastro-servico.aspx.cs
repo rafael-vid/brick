@@ -69,6 +69,7 @@ namespace Bsk.Site.Admin
                     {
                         _ServicoBE.IdServico = Convert.ToInt32(Request.QueryString["IdServico"]);
                         _core.Servico_Update(_ServicoBE, $" IdServico={Request.QueryString["IdServico"]}");
+                        Response.Redirect(url);
                     }
                     else
                     {
@@ -78,7 +79,7 @@ namespace Bsk.Site.Admin
                 }
                 else
                 {
-                    lb.Text = "Campo obrigatorio.";
+                    lb.Text = "Campo obrigatório.";
                 }
             }
         }
