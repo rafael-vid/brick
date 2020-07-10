@@ -174,6 +174,48 @@
     <Content Include="Admin\lista-fornecedor.aspx" />
     <Content Include="Admin\msg.aspx" />
     <Content Include="Anexos\Videos\video.mp4" />
+    <Content Include="Cliente\avaliacao.html" />
+    <Content Include="Cliente\cadastro.html" />
+    <Content Include="Cliente\cotacaoLista.html" />
+    <Content Include="Cliente\css\animate.css" />
+    <Content Include="Cliente\css\bootstrap.min.css" />
+    <Content Include="Cliente\css\datatables.min.css" />
+    <Content Include="Cliente\css\default.css" />
+    <Content Include="Cliente\css\master.css" />
+    <Content Include="Cliente\css\mobile.css" />
+    <Content Include="Cliente\default.aspx" />
+    <Content Include="Cliente\finalizado.html" />
+    <Content Include="Cliente\img\aguardandoTransferencia.jpg" />
+    <Content Include="Cliente\img\boleto.jpg" />
+    <Content Include="Cliente\img\cartao.jpg" />
+    <Content Include="Cliente\img\favico.png" />
+    <Content Include="Cliente\img\fundoHome.png" />
+    <Content Include="Cliente\img\historico.jpg" />
+    <Content Include="Cliente\img\imagem.jpg" />
+    <Content Include="Cliente\img\liberaPagamento.jpg" />
+    <Content Include="Cliente\img\listaCotacao.jpg" />
+    <Content Include="Cliente\img\logo.png" />
+    <Content Include="Cliente\img\novaCotacao.jpg" />
+    <Content Include="Cliente\img\perfil.jpg" />
+    <Content Include="Cliente\img\proximaTransferencia.jpg" />
+    <Content Include="Cliente\img\transferido.jpg" />
+    <Content Include="Cliente\img\upload.png" />
+    <Content Include="Cliente\img\video.png" />
+    <Content Include="Cliente\js\bootstrap.min.js" />
+    <Content Include="Cliente\js\datatables.min.js" />
+    <Content Include="Cliente\js\jquery.mask.js" />
+    <Content Include="Cliente\js\jquery.min.js" />
+    <Content Include="Cliente\js\master.js" />
+    <Content Include="Cliente\js\rating.js" />
+    <Content Include="Cliente\js\sweetAlert.js" />
+    <Content Include="Cliente\js\wow.js" />
+    <Content Include="Cliente\liberaPagamento.html" />
+    <Content Include="Cliente\logado.html" />
+    <Content Include="Cliente\login.html" />
+    <Content Include="Cliente\mensagem.html" />
+    <Content Include="Cliente\minhasCotacoes.html" />
+    <Content Include="Cliente\pagamento.html" />
+    <Content Include="Cliente\solicitaServico.html" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -405,6 +447,20 @@
       <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cliente\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Master\Layout.Master.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Master\Layout.Master.designer.cs">
+      <DependentUpon>Layout.Master</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Fornecedor\cadastro.aspx.cs">
@@ -439,6 +495,7 @@
     <Content Include="Fornecedor\Master\layout.Master" />
     <Content Include="Anexos\Documentos\arquivo.pdf" />
     <Content Include="Anexos\Documentos\arquivo2.pdf" />
+    <Content Include="Cliente\Master\Layout.Master" />
     <None Include="Properties\PublishProfiles\Brikk.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -449,7 +506,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Cliente\" />
     <Folder Include="Control\" />
     <Folder Include="Models\" />
     <Folder Include="perfil\" />
