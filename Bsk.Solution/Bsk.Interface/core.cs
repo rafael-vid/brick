@@ -306,7 +306,8 @@ namespace Bsk.Interface
         public string CotacaoAnexos_Insert(CotacaoAnexosBE lg)
         {
             lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
-           List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
+            
+            List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
 
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));

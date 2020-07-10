@@ -176,6 +176,8 @@
     <Content Include="Anexos\Video\video.mp4" />
     <Content Include="Cliente\avaliacao.html" />
     <Content Include="Cliente\buscar-servico.aspx" />
+    <Content Include="Cliente\cadastro-cotacao.aspx" />
+    <Content Include="Cliente\cadastro.aspx" />
     <Content Include="Cliente\cadastro.html" />
     <Content Include="Cliente\cotacaoLista.html" />
     <Content Include="Cliente\css\animate.css" />
@@ -203,6 +205,7 @@
     <Content Include="Cliente\img\upload.png" />
     <Content Include="Cliente\img\video.png" />
     <Content Include="Cliente\js\bootstrap.min.js" />
+    <Content Include="Cliente\js\comum.js" />
     <Content Include="Cliente\js\datatables.min.js" />
     <Content Include="Cliente\js\jquery.mask.js" />
     <Content Include="Cliente\js\jquery.min.js" />
@@ -453,6 +456,20 @@
     </Compile>
     <Compile Include="Cliente\buscar-servico.aspx.designer.cs">
       <DependentUpon>buscar-servico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\cadastro-cotacao.aspx.cs">
+      <DependentUpon>cadastro-cotacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\cadastro-cotacao.aspx.designer.cs">
+      <DependentUpon>cadastro-cotacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\cadastro.aspx.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\cadastro.aspx.designer.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
