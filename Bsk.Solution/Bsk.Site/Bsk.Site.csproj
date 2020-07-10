@@ -173,6 +173,7 @@
     <Content Include="Admin\img\proximaTransferencia.jpg" />
     <Content Include="Admin\lista-fornecedor.aspx" />
     <Content Include="Admin\msg.aspx" />
+    <Content Include="Anexos\Videos\video.mp4" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -436,6 +437,8 @@
     <Content Include="Views\Comum\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Fornecedor\Master\layout.Master" />
+    <Content Include="Anexos\Documentos\arquivo.pdf" />
+    <Content Include="Anexos\Documentos\arquivo2.pdf" />
     <None Include="Properties\PublishProfiles\Brikk.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

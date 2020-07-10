@@ -13,5 +13,7 @@ namespace Bsk.BE
         public int IdServico { get; set; }
         public string Status { get; set; }
         public string DataCriacao { get; set; }
+        public string DataTermino { get; set; }
+        public int IdCotacaoFornecedor { get; set; }
     }
 }
