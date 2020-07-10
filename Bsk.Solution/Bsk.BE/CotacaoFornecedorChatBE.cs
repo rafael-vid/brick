@@ -12,6 +12,6 @@ namespace Bsk.BE
         public int IdCotacaoFornecedor { get; set; }
         public string Tipo { get; set; }
         public string Valor { get; set; }
-        public DateTime DataCriacao { get; set; }
+        public string DataCriacao { get; set; }
     }
 }

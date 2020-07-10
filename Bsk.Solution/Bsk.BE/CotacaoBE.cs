@@ -12,6 +12,6 @@ namespace Bsk.BE
         public int IdCliente { get; set; }
         public int IdServico { get; set; }
         public string Status { get; set; }
-        public DateTime DataCriacao { get; set; }
+        public string DataCriacao { get; set; }
     }
 }

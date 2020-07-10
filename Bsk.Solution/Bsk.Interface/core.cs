@@ -293,5 +293,138 @@ namespace Bsk.Interface
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }
+
+        ////////////////////////////////////////////// CotacaoAnexos ////////////////////////////////////////////////////////////
+        public List<CotacaoAnexosBE> CotacaoAnexos_Get(CotacaoAnexosBE lg, string _filtro)
+        {
+
+            List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CotacaoAnexosBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string CotacaoAnexos_Insert(CotacaoAnexosBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+           List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void CotacaoAnexos_Update(CotacaoAnexosBE lg, string filtro)
+        {
+
+            List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void CotacaoAnexos_Delete(CotacaoAnexosBE lg)
+        {
+            List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// Cotacao ////////////////////////////////////////////////////////////
+        public List<CotacaoBE> Cotacao_Get(CotacaoBE lg, string _filtro)
+        {
+
+            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CotacaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Cotacao_Insert(CotacaoBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.Status = "0";
+            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Cotacao_Update(CotacaoBE lg, string filtro)
+        {
+
+            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Cotacao_Delete(CotacaoBE lg)
+        {
+            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// CotacaoFornecedor ////////////////////////////////////////////////////////////
+        public List<CotacaoFornecedorBE> CotacaoFornecedor_Get(CotacaoFornecedorBE lg, string _filtro)
+        {
+
+            List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CotacaoFornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string CotacaoFornecedor_Insert(CotacaoFornecedorBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void CotacaoFornecedor_Update(CotacaoFornecedorBE lg, string filtro)
+        {
+
+            List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void CotacaoFornecedor_Delete(CotacaoFornecedorBE lg)
+        {
+            List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// CotacaoFornecedorChat ////////////////////////////////////////////////////////////
+        public List<CotacaoFornecedorChatBE> CotacaoFornecedorChat_Get(CotacaoFornecedorChatBE lg, string _filtro)
+        {
+
+            List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CotacaoFornecedorChatBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string CotacaoFornecedorChat_Insert(CotacaoFornecedorChatBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void CotacaoFornecedorChat_Update(CotacaoFornecedorChatBE lg, string filtro)
+        {
+
+            List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void CotacaoFornecedorChat_Delete(CotacaoFornecedorChatBE lg)
+        {
+            List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
     }
 }
