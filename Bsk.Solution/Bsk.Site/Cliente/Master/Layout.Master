@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout"  Inherits="Bsk.Site.Admin.Master.Layout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout"  %>
 
 <!DOCTYPE html>
 
@@ -17,6 +17,19 @@
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/mobile.css">
 
+
+       <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Outros scripts -->
+
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/master.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,8 +39,8 @@
 
 </head>
 <body>
-
     <form id="form1" runat="server">
+
         
          <!-- Header site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
@@ -46,9 +59,12 @@
         </div>
 
     </div>
-
+        
             <asp:ContentPlaceHolder ID="conteudo" runat="server">
             </asp:ContentPlaceHolder>
+    
+        
+
 
         <!-- Menu -->
     <div class="menu menuFechado">
@@ -72,16 +88,8 @@
     <!-- Fim Menu -->
     <!-- Fim Menu -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Outros scripts -->
-    <script src="js/jquery.mask.js"></script>
-    <script src="js/datatables.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/master.js"></script>
+ 
+    
     <script>
 
         $(function () {
@@ -107,8 +115,8 @@
             });
         });
     </script>
-
     </form>
+    
 </body>
 </html>
 

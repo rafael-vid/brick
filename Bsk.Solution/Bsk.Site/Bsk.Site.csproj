@@ -211,10 +211,9 @@
     <Content Include="Cliente\js\sweetAlert.js" />
     <Content Include="Cliente\js\wow.js" />
     <Content Include="Cliente\liberaPagamento.html" />
-    <Content Include="Cliente\logado.html" />
     <Content Include="Cliente\login.html" />
-    <Content Include="Cliente\mensagem.html" />
     <Content Include="Cliente\minhasCotacoes.html" />
+    <Content Include="Cliente\negociar-cotacao.aspx" />
     <Content Include="Cliente\pagamento.html" />
     <Content Include="Cliente\solicitaServico.html" />
     <Content Include="RepositoryImg\0.png" />
@@ -466,6 +465,13 @@
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\negociar-cotacao.aspx.cs">
+      <DependentUpon>negociar-cotacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\negociar-cotacao.aspx.designer.cs">
+      <DependentUpon>negociar-cotacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
