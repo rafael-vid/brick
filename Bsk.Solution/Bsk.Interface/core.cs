@@ -260,6 +260,38 @@ namespace Bsk.Interface
             db.Delete(_base.Delete(Lista_lg, null));
         }
 
+        ////////////////////////////////////////////// Cliente ////////////////////////////////////////////////////////////
+        public List<ClienteBE> Cliente_Get(ClienteBE lg, string _filtro)
+        {
 
+            List<ClienteBE> Lista_lg = new List<ClienteBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<ClienteBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Cliente_Insert(ClienteBE lg)
+        {
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.Status = "0";
+            List<ClienteBE> Lista_lg = new List<ClienteBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Cliente_Update(ClienteBE lg, string filtro)
+        {
+
+            List<ClienteBE> Lista_lg = new List<ClienteBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Cliente_Delete(ClienteBE lg)
+        {
+            List<ClienteBE> Lista_lg = new List<ClienteBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
     }
 }

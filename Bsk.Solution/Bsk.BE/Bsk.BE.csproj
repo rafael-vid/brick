@@ -49,9 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CotacaoAnexosBE.cs" />
+    <Compile Include="CotacaoFornecedorChatBE.cs" />
+    <Compile Include="CotacaoFornecedorBE.cs" />
+    <Compile Include="CotacaoBE.cs" />
     <Compile Include="AdminBE.cs" />
     <Compile Include="AlertBE.cs" />
     <Compile Include="CategoriaBE.cs" />
+    <Compile Include="ClienteBE.cs" />
     <Compile Include="FornecedorBE.cs" />
     <Compile Include="MasterBE.cs" />
     <Compile Include="Model\ComboModel.cs" />
