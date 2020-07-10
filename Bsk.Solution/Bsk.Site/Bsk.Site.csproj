@@ -204,6 +204,7 @@
     <Content Include="Cliente\img\upload.png" />
     <Content Include="Cliente\img\video.png" />
     <Content Include="Cliente\js\bootstrap.min.js" />
+    <Content Include="Cliente\js\comum.js" />
     <Content Include="Cliente\js\datatables.min.js" />
     <Content Include="Cliente\js\jquery.mask.js" />
     <Content Include="Cliente\js\jquery.min.js" />

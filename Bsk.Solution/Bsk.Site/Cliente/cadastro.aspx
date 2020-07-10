@@ -1,7 +1,40 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro" %>
 
-<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server"> 
-     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 cadstro-site pd-0">
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BRIKK</title>
+    <link rel="icon" type="image/png" href="img/favico.png" />
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
+        </div>
+        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+        </div>
+    </div>
+
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 cadstro-site pd-0">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 mobile-pd-0">
@@ -10,51 +43,50 @@
                     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                         <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="escolheCpf" name="escolheCpfCnpj" runat="server" class="custom-control-input" checked>
+                                <input type="radio" id="escolheCpf" name="escolheCpfCnpj" class="custom-control-input" checked>
                                 <label class="custom-control-label" for="escolheCpf">CPF</label>
                             </div>
                         </div>
                         <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="escolheCnpj" runat="server" name="escolheCpfCnpj" class="custom-control-input">
+                                <input type="radio" id="escolheCnpj" name="escolheCpfCnpj" class="custom-control-input">
                                 <label class="custom-control-label" for="escolheCnpj">CNPJ</label>
                             </div>
                         </div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                            <input type="text" class="form-control cnpj" runat="server" id="cnpj" placeholder="CNPJ" che>
-                            <input type="text" class="form-control cpf" runat="server" id="cpf" placeholder="CPF">
+                            <input type="text" class="form-control cnpj" id="cnpj" placeholder="CNPJ" che>
+                            <input type="text" class="form-control cpf" id="cpf" placeholder="CPF">
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
 
 
                         <div id="enderecoEmpresaPessoFisica">
-
                         </div>
 
 
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                            <input type="text" class="form-control" id="nomeResponsavel" runat="server" placeholder="Nome Responsável" required>
+                            <input type="text" class="form-control" id="nomeResponsavel" placeholder="Nome Responsável" required>
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                            <input type="text" class="form-control" id="email" runat="server" placeholder="E-mail" required>
+                            <input type="text" class="form-control" id="email" placeholder="E-mail" required>
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <input type="text" class="form-control " id="whatsapp" runat="server" placeholder="Whatsapp">
+                            <input type="text" class="form-control " id="whatsapp" placeholder="Whatsapp">
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosResponsavel">
-                            <input type="password" class="form-control" id="senha" runat="server" placeholder="Senha" required>
+                            <input type="password" class="form-control" id="senha" placeholder="Senha" required>
                         </div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosResponsavel">
-                            <input type="password" class="form-control" id="confirmaSenha" runat="server" placeholder="Confirmar Senha" required>
+                            <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirmar Senha" required>
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <button class="btn pull-right btn-salvar btn-brikk" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick">Salvar</button>
+                            <button type="button" class="btn pull-right btn-brikk" id="btnSalvar">Salvar</button>
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <input type="hidden" id='fantasia'>
@@ -66,10 +98,21 @@
             </div>
         </div>
     </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Outros scripts -->
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/datatables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/master.js"></script>
+    <script src="js/comum.js"></script>
+    <script>
 
-      <script>
-        $(document).ready(function() {
-            $('.btn-salvar').attr('disabled', true);
+        $(document).ready(function () {
+            // $('.btn-salvar').attr('disabled', true);
 
             if ($('input#escolheCnpj').is(':checked')) {
                 $('input.cnpj').show();
@@ -84,7 +127,7 @@
                 $('#nomeResponsavel').attr('placeholder', 'Nome Completo');
                 $('#whatsapp').attr('placeholder', 'Telefone');
             }
-            $('input[type="radio"]').click(function() {
+            $('input[type="radio"]').click(function () {
                 if ($('input#escolheCnpj').is(':checked')) {
                     $('input.cnpj').show();
                     $('input.cpf').hide();
@@ -99,7 +142,7 @@
                 }
             });
 
-            $('.btn-comprar').click(function() {
+            $('.btn-comprar').click(function () {
                 $('.btn-escolha').fadeOut();
                 $('.form-cad').fadeIn();
                 $('span.quemSou').html('Farmácia');
@@ -119,7 +162,7 @@
                     $('.btn-salvar').attr('disabled', true);
                 }
             });
-            $('.btn-vender').click(function() {
+            $('.btn-vender').click(function () {
                 $('.btn-escolha').fadeOut();
                 $('.form-cad').fadeIn();
                 $('span.quemSou').html('Fornecedor');
@@ -141,15 +184,15 @@
             });
 
             // busca CNPJ
-            (function($) {
-                $.fn.receitaws = function(options) {
+            (function ($) {
+                $.fn.receitaws = function (options) {
                     $this = this;
 
                     $.fn.receitaws.options = {
-                        afterRequest: function() {},
-                        success: function(data) {},
-                        notfound: function(message) {},
-                        fail: function(message) {},
+                        afterRequest: function () { },
+                        success: function (data) { },
+                        notfound: function (message) { },
+                        fail: function (message) { },
                         fields: {},
                         urlRequest: 'https://receitaws.com.br/v1/cnpj/'
                     };
@@ -168,7 +211,7 @@
 
                         var lastRequest = $.fn.receitaws.lastRequest;
 
-                        return new Promise(function(success, fail) {
+                        return new Promise(function (success, fail) {
                             if (lastRequest.cnpj == cnpj) {
                                 success(lastRequest.dados);
                             } else {
@@ -177,25 +220,25 @@
                                     dataType: 'json'
                                 };
 
-                                $.getJSON($.fn.receitaws.options.urlRequest + cnpj + '?callback=?', function(data) {
+                                $.getJSON($.fn.receitaws.options.urlRequest + cnpj + '?callback=?', function (data) {
                                     lastRequest.cnpj = cnpj;
                                     lastRequest.dados = data;
                                     success(data);
                                 })
 
-                                .fail(function(jqxhr, textStatus, error) {
-                                    fail(textStatus + ", " + error);
-                                });
+                                    .fail(function (jqxhr, textStatus, error) {
+                                        fail(textStatus + ", " + error);
+                                    });
                             }
                         });
                     }
 
 
-                    $.fn.receitaws.init = function(options) {
+                    $.fn.receitaws.init = function (options) {
 
                         $.fn.receitaws.options = $.extend({}, $.fn.receitaws.options, options);
 
-                        return $this.keyup(function() {
+                        return $this.keyup(function () {
                             var cnpj = $(this).val().replace(/\D/g, '');
 
                             if (cnpj.length != 14) {
@@ -203,10 +246,10 @@
                             }
                             options.afterRequest();
 
-                            getData(cnpj).then(function(data) {
+                            getData(cnpj).then(function (data) {
 
                                 if (data.status == 'OK') {
-                                    $.each(options.fields, function(index, value) {
+                                    $.each(options.fields, function (index, value) {
                                         if (typeof value == "string") {
                                             $(options.fields[index]).val(data[index]);
                                         } else if (typeof value == 'function') {
@@ -219,7 +262,7 @@
                                     options.notfound('CNPJ "' + $this.val() + '" não encontrado.');
                                 }
 
-                            }, function(error) {
+                            }, function (error) {
                                 options.fail(error);
                             });
                         });
@@ -246,25 +289,25 @@
                     fantasia: '#fantasia'
                 },
 
-                afterRequest: function() {
+                afterRequest: function () {
                     $('#mensagens').html('<div class="alert alert-info" role="alert"><div class="glyphicon glyphicon-search" aria-hidden="true"></div> Buscando CNPJ</div>');
                 },
-                success: function(data) {
+                success: function (data) {
                     $('#mensagens').html('<div class="alert alert-success" role="alert"><div class="glyphicon glyphicon-ok" aria-hidden="true"></div> CNPJ encontrado</div>');
 
                     $('#enderecoEmpresaPessoFisica').html('<div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0 dadosRetira dadosEmpresa" style="display: none;"><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control razaoSocial" id="nome" placeholder="Razão Social" value="' + data.nome + '" disabled></div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                       <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control situacao" id="situacao" placeholder="Situação" value="' + data.situacao + '" disabled>                            </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                           <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control dataAbertura" id="abertura" value="' + data.abertura + '" placeholder="Data de abertura" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control tipo" id="tipo" value="' + data.tipo + '" placeholder="Tipo" disabled>                            </div>      <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                      <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control telefoneEmpresa" id="telefone" value="' + data.telefone + '" placeholder="Telefone">                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <input type="text" class="form-control logradouro" value="' + data.logradouro + '" id="logradouro" placeholder="Endereço" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control" id="cep" value="' + data.cep + '" placeholder="CEP" disabled>                                </div>    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control numero" id="numero" value="' + data.numero + '" placeholder="Número" disabled>                                </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                               <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control complemento" id="complemento" value="' + data.complemento + '" placeholder="Complemento" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control bairro" id="bairro" value="' + data.bairro + '" placeholder="Bairro" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control cidade" id="municipio" value="' + data.municipio + '" placeholder="Cidade" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control uf" id="uf" value="' + data.uf + '" placeholder="UF" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                        </div>');
                     //Dados obtidos
                     console.log(data);
                 },
-                fail: function(message) {
+                fail: function (message) {
                     $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> Falha na requisição</div>');
                 },
-                notfound: function(message) {
+                notfound: function (message) {
                     $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> CNPJ não encontrado ou inválido</div>');
                 }
             });
 
-            $("input#cnpj").focusout(function() {
+            $("input#cnpj").focusout(function () {
                 if ($('input#cnpj').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input#cnpj').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -281,7 +324,7 @@
                 }
             });
 
-            $("input.cpf").focusout(function() {
+            $("input.cpf").focusout(function () {
                 if ($('input.cpf').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input.cpf').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -298,7 +341,7 @@
                     $('.cep').focus();
                 };
 
-                $(".cep").focusout(function() {
+                $(".cep").focusout(function () {
                     var cep = $('input.cep').val().replace(/\D/g, '');
                     if (cep != "") {
                         var validacep = /^[0-9]{8}$/;
@@ -308,7 +351,7 @@
                             $("#bairro").val("...");
                             $("#municipio").val("...");
                             $("#uf").val("...");
-                            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function(dados) {
+                            $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
                                 if (!("erro" in dados)) {
                                     $("#logradouro").val(dados.logradouro);
@@ -336,7 +379,7 @@
 
             });
 
-            $('input#nomeResponsavel').focusout(function() {
+            $('input#nomeResponsavel').focusout(function () {
                 if ($('input#nomeResponsavel').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input#nomeResponsavel').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -345,7 +388,7 @@
                     $('.dadosResponsavel').find('.mensagem').remove();
                 }
             });
-            $('input#email').focusout(function() {
+            $('input#email').focusout(function () {
                 if ($('input#email').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input#email').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -363,7 +406,7 @@
                     }
                 }
             });
-            $('input#senha').focusout(function() {
+            $('input#senha').focusout(function () {
                 if ($('input#senha').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input#senha').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -372,7 +415,7 @@
                     $('.dadosResponsavel').find('.mensagem').remove();
                 }
             });
-            $('input#confirmaSenha').focusout(function() {
+            $('input#confirmaSenha').focusout(function () {
                 if ($('input#confirmaSenha').val() == '') {
                     $('.dadosResponsavel').find('.mensagem').remove();
                     $('input#confirmaSenha').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
@@ -390,16 +433,16 @@
                 }
             });
 
-            $('.btn-salvar').click(function() {
+            $('#btnSalvar').click(function () {
 
                 var parametros = {
                     cpf: $('input#cpf').val(),
                     cnpj: $('input#cnpj').val(),
-                    nome: $('input#nome').val(),
+                    nome: $('input#nomeResponsavel').val(),
                     situacao: $('input#situacao').val(),
                     abertura: $('input#abertura').val(),
                     tipo: $('input#tipo').val(),
-                    telefone: $('input#telefone').val(),
+                    telefone: $('input#whatsapp').val(),
                     logradouro: $('input#logradouro').val(),
                     cep: $('input#cep').val(),
                     numero: $('input#numero').val(),
@@ -409,11 +452,17 @@
                     uf: $('input#uf').val(),
                     nomeResponsavel: $('input#nomeResponsavel').val(),
                     whatsapp: $('input#whatsapp').val(),
-                    senha: $('input#senha').val()
+                    senha: $('input#senha').val(),
+                    email: $("#email").val()
                 }
-                console.log(parametros);
+                comum.post("Comum/InserirCliente", parametros, function (data) {
+                    alert(data.Result);
+                    window.location.href = "default.aspx";
+                });
 
             });
         });
     </script>
-</asp:Content>
+</body>
+
+</html>
