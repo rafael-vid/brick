@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Bsk.Site.Admin.Master
+namespace Bsk.Site.Cliente.Master
 {
     using Bsk.Util;
     using Bsk.Interface.Helpers;
@@ -13,7 +13,6 @@ namespace Bsk.Site.Admin.Master
     using Bsk.BE;
     using System.Net.Configuration;
     using Newtonsoft.Json;
-
     public partial class Layout : System.Web.UI.MasterPage
     {
         core _core = new core();
@@ -22,7 +21,6 @@ namespace Bsk.Site.Admin.Master
         {
 
         }
-
         public MasterBE RetornaUsuario()
         {
             HttpCookie login = Request.Cookies["login"];
@@ -34,10 +32,9 @@ namespace Bsk.Site.Admin.Master
             }
             else
             {
-                Response.Redirect("default.aspx");
+                Response.Redirect("index.aspx");
                 return usuario;
             }
         }
-
     }
 }
