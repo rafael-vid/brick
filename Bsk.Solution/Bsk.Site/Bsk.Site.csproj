@@ -175,6 +175,10 @@
     <Content Include="Admin\msg.aspx" />
     <Content Include="Anexos\Videos\video.mp4" />
     <Content Include="Cliente\avaliacao.html" />
+<<<<<<< HEAD
+=======
+    <Content Include="Cliente\buscar-servico.aspx" />
+>>>>>>> 3380a2ec28f3198ed7fac6c847a610847cbb12a5
     <Content Include="Cliente\cadastro.html" />
     <Content Include="Cliente\cotacaoLista.html" />
     <Content Include="Cliente\css\animate.css" />
@@ -447,16 +451,31 @@
       <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+<<<<<<< HEAD
     <Compile Include="Cliente\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+=======
+    <Compile Include="Cliente\buscar-servico.aspx.cs">
+      <DependentUpon>buscar-servico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\buscar-servico.aspx.designer.cs">
+      <DependentUpon>buscar-servico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+>>>>>>> 3380a2ec28f3198ed7fac6c847a610847cbb12a5
     </Compile>
     <Compile Include="Cliente\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> 3380a2ec28f3198ed7fac6c847a610847cbb12a5
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>
