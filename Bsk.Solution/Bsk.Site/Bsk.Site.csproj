@@ -173,13 +173,15 @@
     <Content Include="Admin\img\proximaTransferencia.jpg" />
     <Content Include="Admin\lista-fornecedor.aspx" />
     <Content Include="Admin\msg.aspx" />
+    <Content Include="Cliente\aguardando-pagamento.aspx" />
     <Content Include="Anexos\Video\video.mp4" />
-    <Content Include="Cliente\avaliacao.html" />
+    <Content Include="Cliente\cotacao-lista.aspx" />
+    <Content Include="Cliente\Html\avaliacao.html" />
     <Content Include="Cliente\buscar-servico.aspx" />
     <Content Include="Cliente\cadastro-cotacao.aspx" />
     <Content Include="Cliente\cadastro.aspx" />
-    <Content Include="Cliente\cadastro.html" />
-    <Content Include="Cliente\cotacaoLista.html" />
+    <Content Include="Cliente\Html\cadastro.html" />
+    <Content Include="Cliente\Html\cotacaoLista.html" />
     <Content Include="Cliente\css\animate.css" />
     <Content Include="Cliente\css\bootstrap.min.css" />
     <Content Include="Cliente\css\datatables.min.css" />
@@ -187,7 +189,43 @@
     <Content Include="Cliente\css\master.css" />
     <Content Include="Cliente\css\mobile.css" />
     <Content Include="Cliente\default.aspx" />
-    <Content Include="Cliente\finalizado.html" />
+    <Content Include="Cliente\em-andamento.aspx" />
+    <Content Include="Cliente\Html\css\animate.css" />
+    <Content Include="Cliente\Html\css\bootstrap.min.css" />
+    <Content Include="Cliente\Html\css\datatables.min.css" />
+    <Content Include="Cliente\Html\css\default.css" />
+    <Content Include="Cliente\Html\css\master.css" />
+    <Content Include="Cliente\Html\css\mobile.css" />
+    <Content Include="Cliente\Html\img\aguardandoTransferencia.jpg" />
+    <Content Include="Cliente\Html\img\boleto.jpg" />
+    <Content Include="Cliente\Html\img\cartao.jpg" />
+    <Content Include="Cliente\Html\img\favico.png" />
+    <Content Include="Cliente\Html\img\fundoHome.png" />
+    <Content Include="Cliente\Html\img\historico.jpg" />
+    <Content Include="Cliente\Html\img\imagem.jpg" />
+    <Content Include="Cliente\Html\img\liberaPagamento.jpg" />
+    <Content Include="Cliente\Html\img\listaCotacao.jpg" />
+    <Content Include="Cliente\Html\img\logo.png" />
+    <Content Include="Cliente\Html\img\novaCotacao.jpg" />
+    <Content Include="Cliente\Html\img\perfil.jpg" />
+    <Content Include="Cliente\Html\img\proximaTransferencia.jpg" />
+    <Content Include="Cliente\Html\img\transferido.jpg" />
+    <Content Include="Cliente\Html\img\upload.png" />
+    <Content Include="Cliente\Html\img\video.png" />
+    <Content Include="Cliente\Html\js\bootstrap.min.js" />
+    <Content Include="Cliente\Html\js\comum.js" />
+    <Content Include="Cliente\Html\js\datatables.min.js" />
+    <Content Include="Cliente\Html\js\jquery.mask.js" />
+    <Content Include="Cliente\Html\js\jquery.min.js" />
+    <Content Include="Cliente\Html\js\master.js" />
+    <Content Include="Cliente\Html\js\rating.js" />
+    <Content Include="Cliente\Html\js\sweetAlert.js" />
+    <Content Include="Cliente\Html\js\wow.js" />
+    <Content Include="Cliente\img\semImagem.jpg" />
+    <Content Include="Cliente\liberar-pagamento.aspx" />
+    <Content Include="Cliente\minhas-cotacoes.aspx" />
+    <Content Include="Cliente\finalizado.aspx" />
+    <Content Include="Cliente\Html\finalizado.html" />
     <Content Include="Cliente\img\aguardandoTransferencia.jpg" />
     <Content Include="Cliente\img\boleto.jpg" />
     <Content Include="Cliente\img\cartao.jpg" />
@@ -213,12 +251,13 @@
     <Content Include="Cliente\js\rating.js" />
     <Content Include="Cliente\js\sweetAlert.js" />
     <Content Include="Cliente\js\wow.js" />
-    <Content Include="Cliente\liberaPagamento.html" />
-    <Content Include="Cliente\login.html" />
-    <Content Include="Cliente\minhasCotacoes.html" />
+    <Content Include="Cliente\Html\liberaPagamento.html" />
+    <Content Include="Cliente\Html\login.html" />
+    <Content Include="Cliente\Html\minhasCotacoes.html" />
     <Content Include="Cliente\negociar-cotacao.aspx" />
-    <Content Include="Cliente\pagamento.html" />
-    <Content Include="Cliente\solicitaServico.html" />
+    <Content Include="Cliente\Html\pagamento.html" />
+    <Content Include="Cliente\Html\solicitaServico.html" />
+    <Content Include="Cliente\pagamento.aspx" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -449,6 +488,13 @@
     <Compile Include="Admin\msg.aspx.designer.cs">
       <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\aguardando-pagamento.aspx.cs">
+      <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\aguardando-pagamento.aspx.designer.cs">
+      <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Cliente\buscar-servico.aspx.cs">
       <DependentUpon>buscar-servico.aspx</DependentUpon>
@@ -471,11 +517,46 @@
     <Compile Include="Cliente\cadastro.aspx.designer.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\cotacao-lista.aspx.cs">
+      <DependentUpon>cotacao-lista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\cotacao-lista.aspx.designer.cs">
+      <DependentUpon>cotacao-lista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\em-andamento.aspx.cs">
+      <DependentUpon>em-andamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\em-andamento.aspx.designer.cs">
+      <DependentUpon>em-andamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\liberar-pagamento.aspx.cs">
+      <DependentUpon>liberar-pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\liberar-pagamento.aspx.designer.cs">
+      <DependentUpon>liberar-pagamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\minhas-cotacoes.aspx.cs">
+      <DependentUpon>minhas-cotacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\minhas-cotacoes.aspx.designer.cs">
+      <DependentUpon>minhas-cotacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\finalizado.aspx.cs">
+      <DependentUpon>finalizado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\finalizado.aspx.designer.cs">
+      <DependentUpon>finalizado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
@@ -489,6 +570,13 @@
     </Compile>
     <Compile Include="Cliente\negociar-cotacao.aspx.designer.cs">
       <DependentUpon>negociar-cotacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\pagamento.aspx.cs">
+      <DependentUpon>pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\pagamento.aspx.designer.cs">
+      <DependentUpon>pagamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />

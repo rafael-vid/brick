@@ -9,6 +9,7 @@ using _base = Bsk.DAL.Helper.Convertions;
 using System.Data;
 using System.Net;
 using System.Xml;
+using Bsk.BE.Model;
 
 namespace Bsk.Interface
 {
@@ -27,7 +28,45 @@ namespace Bsk.Interface
             db.Execute(_filtro);
         }
 
-      
+        public List<CotacaoListaModel> CotacaoListaGet(string idCotacao)
+        {
+            string sql = $@"select 
+                                CT.IdCotacao as CotacaoId, 
+                                FC.RazaoSocial as NomeFornecedor, 
+                                CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
+                                CF.Valor, 
+                                (select 
+                                count(IdCotacaoFornecedorChat) 
+                                from cotacaofornecedorchat 
+                                where IdCotacaoFornecedor = CF.IdCotacaoFornecedor) AS NumeroMensagens, 
+                                (select DataCriacao 
+                                from cotacaofornecedorchat 
+                                where IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
+                                ORDER BY IdCotacaoFornecedorChat DESC LIMIT 1) AS DataUltimaResposta
+                            from cotacao CT 
+                            inner join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao 
+                            inner join fornecedor FC on CF.IdFornecedor = FC.IdFornecedor
+                                where CT.IdCotacao = {idCotacao}";
+            return _base.ToList<CotacaoListaModel>(db.Get(sql));
+        }
+
+        public List<CotacaoPagamentoModel> CotacaoStatusGet(string status)
+        {
+            string sql = $@"select 
+                                CT.IdCotacao as CotacaoId, 
+                                CT.Status,
+                                FC.RazaoSocial as NomeFornecedor, 
+                                CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
+                                CF.Valor
+                                
+                            from cotacao CT 
+                            inner join cotacaofornecedor CF on CT.IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
+                            inner join fornecedor FC on CF.IdFornecedor = FC.IdFornecedor
+                                where CT.Status = {status}";
+            return _base.ToList<CotacaoPagamentoModel>(db.Get(sql));
+        }
+
+
         ////////////////////////////////////////////// Admin ////////////////////////////////////////////////////////////
         public List<AdminBE> Admin_Get(AdminBE lg, string _filtro)
         {
@@ -137,7 +176,7 @@ namespace Bsk.Interface
 
         public string Alert_Insert(AlertBE lg)
         {
-            
+
             List<AlertBE> Lista_lg = new List<AlertBE>();
 
             Lista_lg.Add(lg);
@@ -170,7 +209,7 @@ namespace Bsk.Interface
 
         public string Categoria_Insert(CategoriaBE lg)
         {
-            
+
             lg.Status = "1";
             List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
 
@@ -237,7 +276,7 @@ namespace Bsk.Interface
 
         public string Servico_Insert(ServicoBE lg)
         {
-            
+
             lg.Status = "0";
             List<ServicoBE> Lista_lg = new List<ServicoBE>();
 
@@ -306,7 +345,7 @@ namespace Bsk.Interface
         public string CotacaoAnexos_Insert(CotacaoAnexosBE lg)
         {
             lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
-            
+
             List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
 
             Lista_lg.Add(lg);

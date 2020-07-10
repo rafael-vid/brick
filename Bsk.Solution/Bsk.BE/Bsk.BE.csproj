@@ -60,6 +60,8 @@
     <Compile Include="FornecedorBE.cs" />
     <Compile Include="MasterBE.cs" />
     <Compile Include="Model\ComboModel.cs" />
+    <Compile Include="Model\CotacaoPagamentoModel.cs" />
+    <Compile Include="Model\CotacaoListaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropostaBE.cs" />
     <Compile Include="ServicoBE.cs" />
