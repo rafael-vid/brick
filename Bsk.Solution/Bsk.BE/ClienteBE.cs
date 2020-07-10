@@ -9,12 +9,9 @@ namespace Bsk.BE
     public class ClienteBE
     {
         public int IdCliente { get; set; }
-        public string Cnpj { get; set; }
-        public string RazaoSocial { get; set; }
-        public string NomeFantasia { get; set; }
+        public string Cpf { get; set; }
+        public string Nome { get; set; }
         public string Situacao { get; set; }
-        public string Abertura { get; set; }
-        public string Tipo { get; set; }
         public string Telefone { get; set; }
         public string Logradouro { get; set; }
         public string Cep { get; set; }
@@ -23,7 +20,6 @@ namespace Bsk.BE
         public string Bairro { get; set; }
         public string Municipio { get; set; }
         public string Uf { get; set; }
-        public string Responsavel { get; set; }
         public string WhatsApp { get; set; }
         public string Senha { get; set; }
         public string DataCriacao { get; set; }
