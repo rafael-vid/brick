@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout"  Inherits="Bsk.Site.Admin.Master.Layout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout" %>
 
 <!DOCTYPE html>
 
