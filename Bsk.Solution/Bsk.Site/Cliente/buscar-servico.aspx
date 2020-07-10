@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscar-servico.aspx.cs" Inherits="Bsk.Site.Cliente.buscar_servico" MasterPageFile="~/Admin/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscar-servico.aspx.cs" Inherits="Bsk.Site.Cliente.buscar_servico" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server"> 
 
@@ -9,16 +9,16 @@
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <h2>Um texto bem legal para chamar atenção :)</h2>
+                    <h2>Procure por serviços.</h2>
                 </div>
                 <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12 mobile-pd-0">
-                        <input type="text" class="form-control" placeholder="O que você precisa?">
+                        <input type="text" class="form-control" id="servico" runat="server" placeholder="O que você precisa?">
                     </div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 pd-0">
-                        <button class="btn btn-brikk l100">Buscar</button>
+                        <button class="btn btn-brikk l100" id="btnBuscar" runat="server" onserverclick="btnBuscar_ServerClick">Buscar</button>
                     </div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                 </div>
@@ -33,38 +33,18 @@
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
+            <%var categorias = BuscaCategoria();
+
+                foreach (var item in categorias)
+                {%>
+             <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
+                <h3><%Response.Write(item.Nome); %></h3>
             </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
-            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                <h3>Descrição</h3>
-            </div>
+                <%}
+                %>           
+           
+            
         </div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>

@@ -40,8 +40,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
-        
          <!-- Header site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>

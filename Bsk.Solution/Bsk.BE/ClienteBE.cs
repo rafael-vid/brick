@@ -9,7 +9,7 @@ namespace Bsk.BE
     public class ClienteBE
     {
         public int IdCliente { get; set; }
-        public string Cpf { get; set; }
+        public string Cnpj { get; set; }
         public string Nome { get; set; }
         public string Situacao { get; set; }
         public string Telefone { get; set; }
