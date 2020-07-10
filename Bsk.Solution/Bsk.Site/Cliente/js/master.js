@@ -49,8 +49,6 @@ $(document).ready(function() {
     $('.avaliar').click(function() {
         window.location.href = 'avaliacao.html';
     });
-    $('.mensagem').click(function() {
-        window.location.href = 'mensagem.html';
-    });
+ 
 
 });

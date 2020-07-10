@@ -406,6 +406,7 @@ namespace Bsk.Interface
         public string CotacaoFornecedorChat_Insert(CotacaoFornecedorChatBE lg)
         {
             lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.Status = "1";
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
 
             Lista_lg.Add(lg);

@@ -32,7 +32,7 @@ namespace Bsk.Site.Cliente.Master
             }
             else
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect("default.aspx");
                 return usuario;
             }
         }

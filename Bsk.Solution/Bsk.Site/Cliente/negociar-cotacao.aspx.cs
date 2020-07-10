@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bsk.Site.Admin;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -8,23 +9,105 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Cliente
 {
+    using Bsk.BE;
+    using Bsk.Interface;
+    using System.Runtime.Remoting.Messaging;
+    using M = Bsk.BE.Model;
     public partial class negociar_cotacao : System.Web.UI.Page
     {
+        core _core = new core();
+        FornecedorBE _FornecedorBE = new FornecedorBE();
+        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
+        ClienteBE _ClienteBE = new ClienteBE();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(Request.QueryString["Id"]))
+            {
+                //RetornaUsuario();
+                Response.Redirect("negociar-cotacao.aspx?Id=5");
+            }
+
+            if (!IsPostBack)
+            {
+                CarregaCotacaoFornecedor();
+            }
 
         }
 
+        public void CarregaCotacaoFornecedor()
+        {
+           var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+
+            if(cotacaoFornecedor != null)
+            {
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                if(cotacao!=null)
+                {
+                    titulo.Text = cotacao.Titulo;
+                    descricao.Text = cotacao.Descricao;
+                    valor.Text = string.Format("{0:C}",cotacaoFornecedor.Valor);
+                }
+
+                var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
+                if (fornecedor != null)
+                {
+                  prestador.Text = fornecedor.RazaoSocial;
+                }
+
+            }
+        }
+
+       
+        public ClienteBE RetornaUsuario()
+        {
+            HttpCookie login = Request.Cookies["login"];
+            ClienteBE usuario = new ClienteBE();
+            if (login != null)
+            {
+                usuario = Newtonsoft.Json.JsonConvert.DeserializeObject<ClienteBE>(login.Value.ToString());
+                return usuario;
+            }
+            else
+            {
+                Response.Redirect("default.aspx");
+                return usuario;
+            }
+        }
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
 
-            var x = flpArquivo.FileName;
-            var y = flpVideo.FileName;
-            if (!IsPostBack)
+            var arquivo = GravarArquivo(flpArquivo);
+            var video = GravarVideo(flpVideo);
+            var _msg = msg.InnerHtml;
+
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+
+            if (cotacaoFornecedor != null)
             {
-               // var x = flpArquivo.FileName;
+                _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
+                _CotacaoFornecedorChatBE.Mensagem = _msg;
+                _CotacaoFornecedorChatBE.Video = video;
+                _CotacaoFornecedorChatBE.Arquivo = arquivo;
+
+                _CotacaoFornecedorChatBE.IdCliente = 30; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+
+                _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
+                //DEPOIS COLOCAR MSG
+                Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
         }
+
+
+        public List<CotacaoFornecedorChatBE> CarregaChat()
+        {
+            return _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+
+        }
+
 
 
         public string GravarArquivo(FileUpload _flpImg)
@@ -43,7 +126,7 @@ namespace Bsk.Site.Cliente
                 link = "";
             }
             
-            return link;
+            return nome;
         }
 
         public string GravarVideo(FileUpload _flpImg)

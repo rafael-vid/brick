@@ -28,14 +28,14 @@
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
-                <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea><br>
+                <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
                 <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
             </div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                 <h2>
                     <strong>
                     <p>Valor do serviço:</p>
-                    <br>R$<asp:Label ID="valor" runat="server" Text=""></asp:Label>
+                    <br><asp:Label ID="valor" runat="server" Text=""></asp:Label>
                     </strong>
                 </h2>
             </div>
@@ -46,22 +46,50 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
+                <%
+                    var chat = CarregaChat();
+
+                    var cliente = @"<!--CLIENTE-->
+                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
+                <div class='mensagem boxDesc pull-left'>
+                    {{CLIENTEMSG}}
+                </div>
+                <!--FIM CLIENTE-->";
+
+                    var fornecedor = @"<!--FORNECEDOR-->
+                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
+                <div class='mensagem boxDesc pull-right'>
+                    {{FORNECEDORMSG}}
+                </div>
+                <!--FIM FORNECEDOR-->";
+
+                    var conteudo = "";
+                    foreach (var item in chat)
+                    {
+                        var arquivo = "";
+                        if(!String.IsNullOrEmpty(item.Arquivo))
+                            arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/"+item.Arquivo+"' target='_blank'><img alt='' src='img/upload.png'></a>";
+                        
+                        var video = "";
+                        if(!String.IsNullOrEmpty(item.Video))
+                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/"+item.Video+"' target='_blank'><img alt='' src='img/video.png'></a>";
+
+
+                        if (item.IdCliente == 0)
+                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                        else
+                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                    %>
+
                 <!--CLIENTE-->
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="mensagem boxDesc pull-left">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris a eros tincidunt malesuada vel id ipsum. Vivamus tortor augue, malesuada quis volutpat in, vulputate in est. Suspendisse egestas metus eget nibh imperdiet pretium. Praesent ornare,
-                    nisi vitae suscipit tempor, enim sem semper nisi, vitae blandit quam erat eu diam. Phasellus malesuada nunc non ornare interdum. Cras enim purus, accumsan at justo ullamcorper, porttitor fringilla ex. Curabitur efficitur, quam eu sodales
-                </div>
+                <%Response.Write(conteudo);%>
                 <!--FIM CLIENTE-->
-               
-                <!--FORNECEDOR-->
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="mensagem boxDesc pull-right">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris a eros tincidunt malesuada vel id ipsum. Vivamus tortor augue, malesuada quis volutpat in, vulputate in est. Suspendisse egestas metus eget nibh imperdiet pretium. Praesent ornare,
-                    nisi vitae suscipit tempor, enim sem semper nisi, vitae blandit quam erat eu diam. Phasellus malesuada nunc non ornare interdum. Cras enim purus, accumsan at justo ullamcorper, porttitor fringilla ex. Curabitur efficitur, quam eu sodales
-                </div>
-                <!--FIM FORNECEDOR-->
                 
+                <%
+                    }
+                    %>
+
             </div>
         </div>
 
