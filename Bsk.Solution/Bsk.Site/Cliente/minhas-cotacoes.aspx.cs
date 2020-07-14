@@ -21,7 +21,8 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoBE> PegaCotacoes()
         {
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"1=1");
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente="+login.IdCliente);
             foreach (var item in cotacoes)
             {
                 if (item.Status == StatusCotacao.Aberto)

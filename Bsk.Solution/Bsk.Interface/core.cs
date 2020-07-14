@@ -28,6 +28,17 @@ namespace Bsk.Interface
             db.Execute(_filtro);
         }
 
+        public CotacaoAvaliacaoModel Cotacao_Avaliacao_Get(string idCotacao)
+        {
+            var sql = $@"select CT.IdCotacao, CT.Titulo, CT.Descricao, CT.Depoimento, CT.Nota, CF.Valor, CF.IdCotacaoFornecedor, FC.RazaoSocial as NomeFornecedor
+                            from cotacao CT 
+                            inner join cotacaofornecedor CF 
+                            on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
+                            inner join Fornecedor FC on FC.IdFornecedor = CF.IdFornecedor
+                            where CT.IdCotacao= " + idCotacao;
+            return _base.ToList<CotacaoAvaliacaoModel>(db.Get(sql)).FirstOrDefault();
+        }
+
         public List<CotacaoListaModel> CotacaoListaGet(string idCotacao)
         {
             string sql = $@"select 
@@ -50,7 +61,7 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoListaModel>(db.Get(sql));
         }
 
-        public List<CotacaoPagamentoModel> CotacaoStatusGet(string status)
+        public List<CotacaoPagamentoModel> CotacaoStatusGet(string status, int idCliente)
         {
             string sql = $@"select 
                                 CT.IdCotacao as CotacaoId, 
@@ -62,7 +73,7 @@ namespace Bsk.Interface
                             from cotacao CT 
                             inner join cotacaofornecedor CF on CT.IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
                             inner join fornecedor FC on CF.IdFornecedor = FC.IdFornecedor
-                                where CT.Status = {status}";
+                                where CT.Status = {status} AND CT.IdCliente={idCliente}";
             return _base.ToList<CotacaoPagamentoModel>(db.Get(sql));
         }
 

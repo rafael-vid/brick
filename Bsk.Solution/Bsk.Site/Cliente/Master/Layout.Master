@@ -1,14 +1,14 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout"  %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="Bsk.Site.Cliente.Master.Layout" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BRIKK</title>
-    <link rel="icon" type="image/png" href="img/favico.png" />
+    <link rel="icon" type="image/png" href="../img/favico.png" />    
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/default.css">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../css/mobile.css">
 
 
-       <!-- jQuery -->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -27,8 +27,10 @@
     <script src="js/jquery.mask.js"></script>
     <script src="js/datatables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/rating.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/master.js"></script>
+    <script src="js/comum.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -40,96 +42,105 @@
 </head>
 <body>
     <form id="form1" runat="server">
-         <!-- Header site -->
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
-        </div>
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-            <a href="" class="pull-right link-brikk hidden-sm hidden-xs mr-20"><%
-                                                                                   var usuario = RetornaUsuario();
-                                                                                   Response.Write(usuario.Nome);
-                                                                               %></a>
-            <a href="" class="text-center link-brikk hidden-lg hidden-md">Olá Amiguinho</a>
-            <i class="glyphicon glyphicon-menu-hamburger btn-menu pull-right" title="MENU"></i>
+        <!-- Header site -->
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
+            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
+            </div>
+            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+            <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+                <a href="" class="pull-right link-brikk hidden-sm hidden-xs mr-20"><%
+                                                                                       var usuario = RetornaUsuario();
+                                                                                       Response.Write(usuario.Nome);
+                %></a>
+                <a href="" class="text-center link-brikk hidden-lg hidden-md">Olá Amiguinho</a>
+                <i class="glyphicon glyphicon-menu-hamburger btn-menu pull-right" title="MENU"></i>
+            </div>
+
         </div>
 
-    </div>
-        
-            <asp:ContentPlaceHolder ID="conteudo" runat="server">
-            </asp:ContentPlaceHolder>
-    
-        
+        <asp:ContentPlaceHolder ID="conteudo" runat="server">
+        </asp:ContentPlaceHolder>
+
+
 
 
         <!-- Menu -->
-    <div class="menu menuFechado">
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-            <i class="glyphicon glyphicon-remove btn-fechar-menu pull-right" title="FECHAR MENU"></i>
-            <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Menu<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-            <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                   <a href="minhas-cotacoes.aspx"> <img src="img/listaCotacao.jpg" class="img-responsive listaCotacao" width="100%" alt=""></a>
-                </div>
-                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="cadastro-cotacao.aspx"><img src="img/novaCotacao.jpg" class="img-responsive" width="100%" alt=""></a>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                   <a href="em-andamento.aspx"> <img src="img/semImagem.jpg" class="img-responsive" width="100%" alt=""></a>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                   <a href="liberar-pagamento.aspx"> <img src="img/liberaPagamento.jpg" class="img-responsive liberaPagamento" width="100%" alt=""></a>
-                </div> 
+        <div class="menu menuFechado">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
+                <i class="glyphicon glyphicon-remove btn-fechar-menu pull-right" title="FECHAR MENU"></i>
+                <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Menu<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="finalizado.aspx"><img src="img/semImagem.jpg" class="img-responsive finalizado" width="100%" alt=""></a>
-                </div>
-               
-               
-                <%--<div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+                <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <a href="minhas-cotacoes.aspx">
+                            <img src="img/listaCotacao.jpg" class="img-responsive listaCotacao" width="100%" alt=""></a>
+                    </div>
+                    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <a href="cadastro-cotacao.aspx">
+                            <img src="img/novaCotacao.jpg" class="img-responsive" width="100%" alt=""></a>
+                    </div>
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <a href="em-andamento.aspx">
+                            <img src="img/semImagem.jpg" class="img-responsive" width="100%" alt=""></a>
+                    </div>
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <a href="liberar-pagamento.aspx">
+                            <img src="img/liberaPagamento.jpg" class="img-responsive liberaPagamento" width="100%" alt=""></a>
+                    </div>
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <a href="finalizado.aspx">
+                            <img src="img/semImagem.jpg" class="img-responsive finalizado" width="100%" alt=""></a>
+                    </div>
+                   
+
+                    <%--<div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <img src="img/perfil.jpg" class="img-responsive cadastrar" width="100%" alt="">
                 </div>--%>
+                </div>
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
             </div>
-            <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         </div>
-    </div>
-    <!-- Fim Menu -->
-    <!-- Fim Menu -->
+        <!-- Fim Menu -->
+        <!-- Fim Menu -->
 
- 
-    
-    <script>
 
-        $(function () {
+        <script>
 
-            $('input.logoCliente').change(function () {
-                const file = $(this)[0].files[0];
-                const fileReader = new FileReader();
-                fileReader.onloadend = function () {
-                    $('.logoImg').attr('src', fileReader.result);
-                }
-                fileReader.readAsDataURL(file);
+            $(function () {
+
+                $('input.logoCliente').change(function () {
+                    const file = $(this)[0].files[0];
+                    const fileReader = new FileReader();
+                    fileReader.onloadend = function () {
+                        $('.logoImg').attr('src', fileReader.result);
+                    }
+                    fileReader.readAsDataURL(file);
+                });
+
             });
+            $(document).ready(function () {
 
-        });
-        $(document).ready(function () {
-            $('.btn-carrega').click(function () {
-                $('input.logoCliente').click();
+
+                $('.btn-carrega').click(function () {
+                    $('input.logoCliente').click();
+                });
+
+                $('#tabela').DataTable({
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
+                    }
+                });
+
+               
             });
-            $('#tabela').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
-                }
-            });
-        });
-    </script>
+        </script>
     </form>
-    
+
 </body>
 </html>
 

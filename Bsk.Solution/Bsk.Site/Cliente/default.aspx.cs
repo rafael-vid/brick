@@ -16,7 +16,7 @@ namespace Bsk.Site.Cliente
     public partial class _default : System.Web.UI.Page
     {
         core _core = new core();
-        MasterBE _MasterBE = new MasterBE();
+        ClienteBE _ClienteBE = new ClienteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,8 +27,7 @@ namespace Bsk.Site.Cliente
 
             if ((!String.IsNullOrEmpty(login.Value)) && (!String.IsNullOrEmpty(senha.Value)))
             {
-
-                var _login = _core.Master_Get(_MasterBE, $" Login='{login.Value.ToString()}'").FirstOrDefault();
+                var _login = _core.Cliente_Get(_ClienteBE, $" Email='{login.Value.ToString()}'").FirstOrDefault();
 
                 if (_login != null)
                 {
@@ -52,7 +51,7 @@ namespace Bsk.Site.Cliente
                         //Imprime o valor do cookie
                         //Response.Write(cookie.Value.ToString());
 
-                        Response.Redirect("home.aspx");
+                        Response.Redirect("minhas-cotacoes.aspx");
                     }
                     else
                     {

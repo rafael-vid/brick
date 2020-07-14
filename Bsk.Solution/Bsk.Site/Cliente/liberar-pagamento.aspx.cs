@@ -20,8 +20,9 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoPagamentoModel> PegaCotacaoPagamento()
         {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
             List<CotacaoPagamentoModel> cotacaoPagamentoModels = new List<CotacaoPagamentoModel>();
-            cotacaoPagamentoModels = _core.CotacaoStatusGet(StatusCotacao.AguardandoPagamento);
+            cotacaoPagamentoModels = _core.CotacaoStatusGet(StatusCotacao.AguardandoPagamento,login.IdCliente);
             return cotacaoPagamentoModels;
         }
     }

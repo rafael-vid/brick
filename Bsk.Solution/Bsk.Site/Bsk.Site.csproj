@@ -175,6 +175,7 @@
     <Content Include="Admin\msg.aspx" />
     <Content Include="Cliente\aguardando-pagamento.aspx" />
     <Content Include="Anexos\Video\video.mp4" />
+    <Content Include="Cliente\avaliar.aspx" />
     <Content Include="Cliente\cotacao-lista.aspx" />
     <Content Include="Cliente\Html\avaliacao.html" />
     <Content Include="Cliente\buscar-servico.aspx" />
@@ -484,6 +485,7 @@
     </Compile>
     <Compile Include="Admin\msg.aspx.cs">
       <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\msg.aspx.designer.cs">
       <DependentUpon>msg.aspx</DependentUpon>
@@ -496,6 +498,13 @@
       <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cliente\avaliar.aspx.cs">
+      <DependentUpon>avaliar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\avaliar.aspx.designer.cs">
+      <DependentUpon>avaliar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\buscar-servico.aspx.cs">
       <DependentUpon>buscar-servico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -526,6 +535,7 @@
     </Compile>
     <Compile Include="Cliente\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cliente\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
@@ -560,6 +570,7 @@
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.cs">
       <DependentUpon>Layout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cliente\Master\Layout.Master.designer.cs">
       <DependentUpon>Layout.Master</DependentUpon>

@@ -1,20 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="negociar-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.negociar_cotacao"  MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="negociar-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 
 
-<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server"> 
+<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
-     <!-- Corpo Site -->
+    <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <h2 class="tableTitle">
                 <p>Prestador de Serviço:</p>
-                <br><asp:Label ID="prestador" runat="server" Text=""></asp:Label>
+                <br>
+                <asp:Label ID="prestador" runat="server" Text=""></asp:Label>
             </h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>
-                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label> </h3>
+                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
+                </h3>
             </div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 boxDesc">
@@ -24,7 +26,10 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                 <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
-                <button type="button" class="btn btn-upload" id="btnArquivo"><img src="img/upload.png" alt="">&nbsp;&nbsp;Anexar Arquivos</button>&nbsp;&nbsp;<button type="button" class="btn btn-upload" id="btnVideo"><img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
+                <button type="button" class="btn btn-upload" id="btnArquivo">
+                    <img src="img/upload.png" alt="">&nbsp;&nbsp;Anexar Arquivos</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-upload" id="btnVideo">
+                    <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
@@ -34,10 +39,15 @@
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                 <h2>
                     <strong>
-                    <p>Valor do serviço:</p>
-                    <br><asp:Label ID="valor" runat="server" Text=""></asp:Label>
+                        <p>Valor do serviço:</p>
+                        <br>
+                        <asp:Label ID="valor" runat="server" Text=""></asp:Label>
                     </strong>
                 </h2>
+            </div>
+          
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <button class="btn btn-brikk btn-lg pull-right" id="btnAceitar" runat="server">Aceitar</button>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -67,29 +77,28 @@
                     foreach (var item in chat)
                     {
                         var arquivo = "";
-                        if(!String.IsNullOrEmpty(item.Arquivo))
-                            arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/"+item.Arquivo+"' target='_blank'><img alt='' src='img/upload.png'></a>";
-                        
+                        if (!String.IsNullOrEmpty(item.Arquivo))
+                            arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+
                         var video = "";
-                        if(!String.IsNullOrEmpty(item.Video))
-                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/"+item.Video+"' target='_blank'><img alt='' src='img/video.png'></a>";
+                        if (!String.IsNullOrEmpty(item.Video))
+                            video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
 
 
                         if (item.IdCliente == 0)
                             conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
                         else
                             conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
-                    %>
+                %>
 
                 <!--CLIENTE-->
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <%Response.Write(conteudo);%>
                 <!--FIM CLIENTE-->
-                
+
                 <%
                     }
-                    %>
-
+                %>
             </div>
         </div>
 
@@ -111,6 +120,27 @@
             });
 
         });
+
+        function aceitar() {
+            Swal.fire({
+                title: 'Aceitar?',
+                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceitar!'
+            }).then((result) => {
+                if (result.value) {
+                    var parametro = {
+                        idCotacaoFornecedor: comum.queryString("Id")
+                    };
+                    comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
+                        window.location.href = "em-andamento.aspx";
+                    });
+                }
+            });
+        }
 
     </script>
 

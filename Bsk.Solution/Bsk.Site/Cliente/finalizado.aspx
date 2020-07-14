@@ -13,6 +13,7 @@
                         <td>Nº Cotação</td>
                         <td>Título</td>
                         <td>Depoimento</td>
+                        <td>Nota</td>
                         <td>Status</td>
                         <td>Ação</td>
                     </tr>
@@ -25,9 +26,10 @@
                         <td><%Response.Write(item.IdCotacao); %></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Depoimento); %></td>
+                        <td><%Response.Write(item.Nota); %></td>
                         <td><%Response.Write(item.Status); %></td>
                         <td>
-                            <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Visualizar</a>
+                            <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Visualizar</a>&nbsp;<a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.IdCotacao); %>">Avaliar</a>
                         </td>
 
                     </tr>

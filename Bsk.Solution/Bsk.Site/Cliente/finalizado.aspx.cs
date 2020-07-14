@@ -21,12 +21,14 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoBE> PegaCotacaoFinalizado()
         {
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}'");
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND IdCliente=" + login.IdCliente);
             foreach (var item in cotacoes)
             {
                 item.Status = "Finalizado";
             }
-            return cotacoes;            
+            return cotacoes;
         }
     }
 }

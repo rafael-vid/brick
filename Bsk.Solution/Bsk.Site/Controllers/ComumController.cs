@@ -79,6 +79,14 @@ namespace Bsk.Site.Controllers
             return this.Json(new { Result = "Registro inserido com sucesso!" }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
+        public void NotaCotacao(string nota, string id)
+        {
+            CotacaoBE cotacaoBE = new CotacaoBE(); 
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao="+id).FirstOrDefault();
+            cotacao.Nota = int.Parse(nota);
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
+        }
 
     }
 }

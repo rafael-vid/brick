@@ -9,6 +9,7 @@ namespace Bsk.Site.Cliente
 {
     using Bsk.BE;
     using Bsk.Interface;
+    using Bsk.Util;
     using System.Configuration;
     using System.Runtime.Remoting.Messaging;
     using M = Bsk.BE.Model;
@@ -28,10 +29,11 @@ namespace Bsk.Site.Cliente
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
             var arquivo = GravarArquivo(flpAnexo);
             CotacaoBE _CotacaoBE = new CotacaoBE();
             _CotacaoBE.IdCategoria = 14; // ################################################################################
-            _CotacaoBE.IdCliente = 30; // #################################################################################
+            _CotacaoBE.IdCliente = login.IdCliente; // #################################################################################
             _CotacaoBE.Titulo = titulo.Value;
             _CotacaoBE.Descricao = descricao.InnerHtml;
             var IdCotacao = _core.Cotacao_Insert(_CotacaoBE);
