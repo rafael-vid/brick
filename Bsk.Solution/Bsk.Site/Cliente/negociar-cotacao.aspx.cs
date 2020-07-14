@@ -39,28 +39,42 @@ namespace Bsk.Site.Cliente
 
         public void CarregaCotacaoFornecedor()
         {
-           var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
-            if(cotacaoFornecedor != null)
+            if (cotacaoFornecedor != null)
             {
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                if(cotacao!=null)
+                if (cotacao != null)
                 {
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
-                    valor.Text = string.Format("{0:C}",cotacaoFornecedor.Valor);
+                    valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
+
+                    if (cotacao.IdCotacaoFornecedor != 0)
+                    {
+                        divAceitar.Visible = false;
+                    }
+
+                    if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
+                    {
+                        divTerminado.Visible = true;
+                    }
+                    else
+                    {
+                        divTerminado.Visible = false;
+                    }
                 }
 
                 var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
                 if (fornecedor != null)
                 {
-                  prestador.Text = fornecedor.RazaoSocial;
+                    prestador.Text = fornecedor.RazaoSocial;
                 }
 
             }
         }
 
-       
+
         public ClienteBE RetornaUsuario()
         {
             HttpCookie login = Request.Cookies["login"];
@@ -125,7 +139,7 @@ namespace Bsk.Site.Cliente
             {
                 link = "";
             }
-            
+
             return nome;
         }
 

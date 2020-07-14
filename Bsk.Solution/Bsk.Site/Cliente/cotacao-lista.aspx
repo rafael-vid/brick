@@ -10,7 +10,7 @@
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                        <td>Fornacedor</td>
+                        <td>Fornecedor</td>
                         <td>Mensagem</td>
                         <td>Valor</td>
                         <td>Última resposta</td>
@@ -23,7 +23,8 @@
                         foreach (var item in cotacaoLista)
                         {%>
                     <tr>
-                        <td><%Response.Write(item.NomeFornecedor); %></td>
+                        <td><span id="icone" runat="server">
+                            <img src="img/Exclamation-icon.png" style="width:25px;" /></span> <%Response.Write(item.NomeFornecedor); %></td>
                         <td>
                             <button class="btn btn-brikk mensagem">Mensagem&nbsp;&nbsp;&nbsp;<span class="badge bg-success"><%Response.Write(item.NumeroMensagens); %></span></button>
 

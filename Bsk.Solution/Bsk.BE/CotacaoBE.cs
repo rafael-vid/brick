@@ -20,5 +20,7 @@ namespace Bsk.BE
         public string Descricao { get; set; }
         public string Depoimento { get; set; }
         public int Nota { get; set; }
+        public int FinalizaCliente { get; set; }
+        public int FinalizaFornecedor { get; set; }
     }
 }

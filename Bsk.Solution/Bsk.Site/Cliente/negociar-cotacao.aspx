@@ -45,9 +45,17 @@
                     </strong>
                 </h2>
             </div>
-          
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <button class="btn btn-brikk btn-lg pull-right" id="btnAceitar" runat="server">Aceitar</button>
+            <br />
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divAceitar" runat="server">
+                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar">
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divTerminado" runat="server">
+                <span class="tableTitle">O fornecedor alegou ter terminado o serviço.</span>
+                <br />
+                <br />
+                &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;                
+                 <input type="button" class="btn btn-brikk btn-lg" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
+                 <input type="button" class="btn btn-brikk btn-lg" onclick="terminar('1');" value="Aceitar">
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -137,6 +145,46 @@
                     };
                     comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
                         window.location.href = "em-andamento.aspx";
+                    });
+                }
+            });
+        }
+
+        function terminar(valor) {
+            var titulo = "";
+            var texto = "";
+            var botao = "";
+            if (valor == "0") {
+                titulo = "Negar término?";
+                texto = "Ao não aceitar o término do serviço é aconselhável deixar ao menos uma mensagem para o fornecedor dos motivos que levaram ao não aceite.";
+                botao = "Negar!";
+            } else {
+                titulo = "Aceitar término?";
+                texto = "Você tem certeza que gostaria de aceitar o término do serviço? Esse processo é irreversível.";
+                botao = "Aceitar!";
+            }
+
+            Swal.fire({
+                title: titulo,
+                text: texto,
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: botao
+            }).then((result) => {
+                if (result.value) {
+                    var parametro = {
+                        idCotacaoFornecedor: comum.queryString("Id"),
+                        status: valor
+                    };
+                    comum.postAsync("Comum/AceitarTermino", parametro, function (data) {
+                        if (data.Result == "0") {
+                            window.location.href = "em-andamento.aspx";
+                        } else {
+                            window.location.href = "liberar-pagamento.aspx";
+                        }
+
                     });
                 }
             });

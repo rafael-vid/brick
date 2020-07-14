@@ -222,6 +222,7 @@
     <Content Include="Cliente\Html\js\rating.js" />
     <Content Include="Cliente\Html\js\sweetAlert.js" />
     <Content Include="Cliente\Html\js\wow.js" />
+    <Content Include="Cliente\img\Exclamation-icon.png" />
     <Content Include="Cliente\img\semImagem.jpg" />
     <Content Include="Cliente\liberar-pagamento.aspx" />
     <Content Include="Cliente\minhas-cotacoes.aspx" />

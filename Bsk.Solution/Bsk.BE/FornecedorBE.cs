@@ -28,5 +28,6 @@ namespace Bsk.BE
         public string Senha { get; set; }
         public string DataCriacao { get; set; }
         public string Status { get; set; }
+        public string Email { get; set; }
     }
 }

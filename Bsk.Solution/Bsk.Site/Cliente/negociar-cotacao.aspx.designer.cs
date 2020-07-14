@@ -87,12 +87,21 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.Label valor;
 
         /// <summary>
-        /// btnAceitar control.
+        /// divAceitar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnAceitar;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAceitar;
+
+        /// <summary>
+        /// divTerminado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminado;
     }
 }

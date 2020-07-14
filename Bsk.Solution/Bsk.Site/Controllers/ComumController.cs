@@ -82,10 +82,66 @@ namespace Bsk.Site.Controllers
         [HttpPost]
         public void NotaCotacao(string nota, string id)
         {
-            CotacaoBE cotacaoBE = new CotacaoBE(); 
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao="+id).FirstOrDefault();
+            CotacaoBE cotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
+        }
+
+        [HttpPost]
+        public void AceitarCotacao(string idCotacaoFornecedor)
+        {
+            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
+            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE cotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            cotacao.IdCotacaoFornecedor = cf.IdCotacaoFornecedor;
+            cotacao.Status = StatusCotacao.EmAndamento;
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+        }
+
+        [HttpPost]
+        public JsonResult AceitarTermino(string idCotacaoFornecedor, string status)
+        {
+            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
+            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE cotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            cotacao.FinalizaCliente = int.Parse(status);
+            ClienteBE clienteBE = new ClienteBE();
+            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            FornecedorBE fornecedorBE = new FornecedorBE();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor="+cf.IdFornecedor).FirstOrDefault();
+
+            string titulo = "";
+            string mensagem = "";
+            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string email = "";
+
+            if (String.IsNullOrEmpty(fornecedor.Email))
+            {
+                email = "harrymangiapelo@gmail.com";
+            }
+
+            if (status == "0")
+            {
+                titulo = $"O cliente {cliente.Nome} não aceitou o término do serviço";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.";
+            }
+            else
+            {
+                titulo = $"O cliente {cliente.Nome} aceitou o término do serviço";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.";
+                cotacao.Status = StatusCotacao.AguardandoPagamento;
+            }
+
+            EmailTemplate emailTemplate = new EmailTemplate();
+            string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
+            emailTemplate.enviaEmail(html,titulo,email);
+
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+
+            return this.Json(new { Result = status }, JsonRequestBehavior.AllowGet);
         }
 
     }

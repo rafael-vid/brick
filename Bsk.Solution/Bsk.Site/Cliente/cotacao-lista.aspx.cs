@@ -22,7 +22,36 @@ namespace Bsk.Site.Cliente
             List<CotacaoListaModel> lista = new List<CotacaoListaModel>();
 
             lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
-            return lista;
+
+            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + lista[0].CotacaoId).FirstOrDefault();
+
+            if (cotacao.IdCotacaoFornecedor != 0)
+            {
+                if (cotacao.FinalizaCliente==0 && cotacao.FinalizaFornecedor!=0)
+                {
+                    icone.Visible = true;
+                }
+                else
+                {
+                    icone.Visible = false;
+                }
+
+                List<CotacaoListaModel> listaCT = new List<CotacaoListaModel>();
+
+                foreach (var item in lista)
+                {
+                    if (item.CotacaoFornecedorId == cotacao.IdCotacaoFornecedor)
+                    {
+                        listaCT.Add(item);
+                    }
+                }
+                return listaCT;
+            }
+            else
+            {
+                return lista;
+            }
         }
     }
 }
