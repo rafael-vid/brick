@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Bsk.Site.Cliente
+namespace Bsk.Site.Fornecedor
 {
     using Bsk.BE;
     using Bsk.Interface;
@@ -40,6 +40,7 @@ namespace Bsk.Site.Cliente
 
         public void CarregaCotacaoFornecedor()
         {
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
             if (cotacaoFornecedor != null)
@@ -51,55 +52,51 @@ namespace Bsk.Site.Cliente
                     descricao.Text = cotacao.Descricao;
                     valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-                    if (cotacao.IdCotacaoFornecedor != 0)
+                    if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor==0)
                     {
-                        divAceitar.Visible = false;
-                    }
-
-                    if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
-                    {
-                        divTerminado.Visible = true;
+                        divTerminar.Visible = true;
                     }
                     else
                     {
-                        divTerminado.Visible = false;
+                        divTerminar.Visible = false;
                     }
+
                 }
 
-                var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
-                if (fornecedor != null)
+                var cliente = _core.Cliente_Get(_ClienteBE, $" IdCliente={cotacao.IdCliente.ToString()}").FirstOrDefault();
+                if (cliente != null)
                 {
-                    prestador.Text = fornecedor.RazaoSocial;
+                    prestador.Text = cliente.Nome;
                 }
 
             }
         }
 
-
-        public ClienteBE RetornaUsuario()
+        public FornecedorBE RetornaUsuario()
         {
-            HttpCookie login = Request.Cookies["login"];
-            ClienteBE usuario = new ClienteBE();
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+
             if (login != null)
             {
-                usuario = Newtonsoft.Json.JsonConvert.DeserializeObject<ClienteBE>(login.Value.ToString());
-                return usuario;
+                return login;
             }
             else
             {
                 Response.Redirect("default.aspx");
-                return usuario;
+                return login;
             }
         }
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+
 
             var arquivo = GravarArquivo(flpArquivo);
             var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;
 
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+
             if (cotacaoFornecedor != null)
             {
                 _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
@@ -107,8 +104,8 @@ namespace Bsk.Site.Cliente
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
                 //DEPOIS COLOCAR MSG

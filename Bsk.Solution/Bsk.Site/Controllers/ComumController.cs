@@ -98,6 +98,28 @@ namespace Bsk.Site.Controllers
             cotacao.IdCotacaoFornecedor = cf.IdCotacaoFornecedor;
             cotacao.Status = StatusCotacao.EmAndamento;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+
+            FornecedorBE fornecedorBE = new FornecedorBE();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
+            ClienteBE clienteBE = new ClienteBE();
+            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+
+            string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
+            string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Acesse a plataforma BRIKK para mais detalhes.";
+            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string email = "";
+            EmailTemplate emailTemplate = new EmailTemplate();
+            string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
+
+            if (String.IsNullOrEmpty(fornecedor.Email))
+            {
+                email = "harrymangiapelo@gmail.com";
+            }
+            else
+            {
+                email = fornecedor.Email;
+            }
+            emailTemplate.enviaEmail(html, titulo, email);
         }
 
         [HttpPost]
@@ -111,7 +133,7 @@ namespace Bsk.Site.Controllers
             ClienteBE clienteBE = new ClienteBE();
             var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor="+cf.IdFornecedor).FirstOrDefault();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
 
             string titulo = "";
             string mensagem = "";
@@ -121,6 +143,10 @@ namespace Bsk.Site.Controllers
             if (String.IsNullOrEmpty(fornecedor.Email))
             {
                 email = "harrymangiapelo@gmail.com";
+            }
+            else
+            {
+                email = fornecedor.Email;
             }
 
             if (status == "0")
@@ -137,11 +163,45 @@ namespace Bsk.Site.Controllers
 
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
-            emailTemplate.enviaEmail(html,titulo,email);
+            emailTemplate.enviaEmail(html, titulo, email);
 
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
 
             return this.Json(new { Result = status }, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public void TerminarServico(string idCotacaoFornecedor)
+        {
+            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
+            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE cotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ClienteBE clienteBE = new ClienteBE();
+            var cliente = _core.Cliente_Get(clienteBE,"IdCliente="+cotacao.IdCliente).FirstOrDefault();
+           
+            string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
+            string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.";
+            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string email = "";
+            
+            EmailTemplate emailTemplate = new EmailTemplate();
+            string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
+
+            if (String.IsNullOrEmpty(cliente.Email))
+            {
+                email = "harrymangiapelo@gmail.com";
+            }
+            else
+            {
+                email = cliente.Email;
+            }
+
+            emailTemplate.enviaEmail(html, titulo, email);
+
+            cotacao.FinalizaFornecedor = 1;
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
         }
 
     }

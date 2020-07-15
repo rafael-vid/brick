@@ -61,6 +61,7 @@
     <Compile Include="MasterBE.cs" />
     <Compile Include="Model\ComboModel.cs" />
     <Compile Include="Model\CotacaoAvaliacaoModel.cs" />
+    <Compile Include="Model\CotacaoFornecedorListaModel.cs" />
     <Compile Include="Model\CotacaoPagamentoModel.cs" />
     <Compile Include="Model\CotacaoListaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

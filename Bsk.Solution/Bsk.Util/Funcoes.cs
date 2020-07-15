@@ -21,6 +21,36 @@ namespace Bsk.Util
             return random.Next(minimo, maximo);
         }
 
+        public static FornecedorBE PegaLoginFornecedor(string json)
+        {
+            var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
+            FornecedorBE fornecedorBE = new FornecedorBE()
+            {
+                IdFornecedor = ret["IdFornecedor"],
+                Bairro = ret["Bairro"],
+                Cep = ret["Cep"],
+                Cnpj = ret["Cnpj"],
+                Complemento = ret["Complemento"],
+                DataCriacao = ret["DataCriacao"],
+                Email = ret["Email"],
+                Logradouro = ret["Logradouro"],
+                Municipio = ret["Municipio"],
+                RazaoSocial = ret["RazaoSocial"],
+                Numero = ret["Numero"],
+                Senha = ret["Senha"],
+                Situacao = ret["Situacao"],
+                Status = ret["Status"],
+                Telefone = ret["Telefone"],
+                Uf = ret["Uf"],
+                WhatsApp = ret["WhatsApp"],
+                Abertura = ret["Abertura"],
+                NomeFantasia = ret["NomeFantasia"],
+                Responsavel = ret["Responsavel"],
+                Tipo = ret["Tipo"]
+            };
+            return fornecedorBE;
+        }
+
         public static ClienteBE PegaLoginCliente(string json)
         {
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);

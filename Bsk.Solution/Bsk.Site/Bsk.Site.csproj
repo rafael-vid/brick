@@ -260,6 +260,10 @@
     <Content Include="Cliente\Html\pagamento.html" />
     <Content Include="Cliente\Html\solicitaServico.html" />
     <Content Include="Cliente\pagamento.aspx" />
+    <Content Include="Fornecedor\aguardando-aceite.aspx" />
+    <Content Include="Fornecedor\aguardando-pagamento.aspx" />
+    <Content Include="Fornecedor\cotacao-lista.aspx" />
+    <Content Include="Fornecedor\default.aspx" />
     <Content Include="Fornecedor\Html\css\animate.css" />
     <Content Include="Fornecedor\Html\css\bootstrap.min.css" />
     <Content Include="Fornecedor\Html\css\datatables.min.css" />
@@ -297,6 +301,8 @@
     <Content Include="Fornecedor\Html\js\rating.js" />
     <Content Include="Fornecedor\Html\js\sweetAlert.js" />
     <Content Include="Fornecedor\Html\js\wow.js" />
+    <Content Include="Fornecedor\minhas-cotacoes.aspx" />
+    <Content Include="Fornecedor\negociar-cotacao.aspx" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -629,6 +635,20 @@
     </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
+    <Compile Include="Fornecedor\aguardando-aceite.aspx.cs">
+      <DependentUpon>aguardando-aceite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\aguardando-aceite.aspx.designer.cs">
+      <DependentUpon>aguardando-aceite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\aguardando-pagamento.aspx.cs">
+      <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\aguardando-pagamento.aspx.designer.cs">
+      <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\cadastro.aspx.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -636,12 +656,40 @@
     <Compile Include="Fornecedor\cadastro.aspx.designer.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\cotacao-lista.aspx.cs">
+      <DependentUpon>cotacao-lista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\cotacao-lista.aspx.designer.cs">
+      <DependentUpon>cotacao-lista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\Master\layout.Master.cs">
       <DependentUpon>layout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Fornecedor\Master\layout.Master.designer.cs">
       <DependentUpon>layout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\minhas-cotacoes.aspx.cs">
+      <DependentUpon>minhas-cotacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\minhas-cotacoes.aspx.designer.cs">
+      <DependentUpon>minhas-cotacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\negociar-cotacao.aspx.cs">
+      <DependentUpon>negociar-cotacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\negociar-cotacao.aspx.designer.cs">
+      <DependentUpon>negociar-cotacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
