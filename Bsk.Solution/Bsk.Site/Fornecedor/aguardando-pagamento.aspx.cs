@@ -22,15 +22,21 @@ namespace Bsk.Site.Fornecedor
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaAguardandoPagamentoGet(login.IdFornecedor);
+            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdFornecedor, StatusCotacao.AguardandoPagamento);
+            List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             foreach (var item in cotacoes)
             {
+                bool adciona = true;
                 if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
                     item.Status = "Em andamento";
 
                     if (item.FinalizaCliente == 0 && item.FinalizaFornecedor == 1)
@@ -40,15 +46,26 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
                     item.Status = "Aguardando pagamento";
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
                     item.Status = "Finalizado";
                 }
-
+                if (adciona)
+                {
+                    lista.Add(item);
+                }
             }
-            return cotacoes;
+            return lista;
         }
     }
 }

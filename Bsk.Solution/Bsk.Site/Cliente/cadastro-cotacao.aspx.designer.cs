@@ -15,6 +15,24 @@ namespace Bsk.Site.Cliente
     {
 
         /// <summary>
+        /// flpAnexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpAnexo;
+
+        /// <summary>
+        /// flpVideo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
+
+        /// <summary>
         /// titulo control.
         /// </summary>
         /// <remarks>
@@ -40,14 +58,5 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvar;
-
-        /// <summary>
-        /// flpAnexo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpAnexo;
     }
 }

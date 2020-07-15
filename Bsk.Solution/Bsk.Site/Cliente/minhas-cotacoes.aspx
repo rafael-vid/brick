@@ -5,7 +5,7 @@
         <h2 class="tableTitle">Minhas cotações</h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button class="btn btn-lg btn-brikk pull-right">Nova Cotação</button>
+            <a class="btn btn-lg btn-brikk pull-right" href="buscar-servico.aspx">Nova Cotação</a>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>

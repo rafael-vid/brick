@@ -24,28 +24,53 @@ namespace Bsk.Site.Fornecedor
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cotacoes = _core.CotacaoFornecedorListaGet(login.IdFornecedor);
+            List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
+
             foreach (var item in cotacoes)
             {
+
                 if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
-                    item.Status = "Em andamento";
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        item.Status = "Recusado";
+                    }
+                    else
+                    {
+                        item.Status = "Em andamento";
+                    }
 
-                    if (item.FinalizaCliente==0 && item.FinalizaFornecedor ==1)
+                    if (item.FinalizaCliente == 0 && item.FinalizaFornecedor == 1)
                     {
                         item.Status = "Pendente de finalização do cliente";
                     }
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    item.Status = "Aguardando pagamento";
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        item.Status = "Recusado";
+                    }
+                    else
+                    {
+                        item.Status = "Aguardando pagamento";
+                    }
+
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    item.Status = "Finalizado";
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        item.Status = "Recusado";
+                    }
+                    else
+                    {
+                        item.Status = "Finalizado";
+                    }
                 }
 
             }

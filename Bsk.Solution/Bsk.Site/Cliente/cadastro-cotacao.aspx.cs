@@ -24,30 +24,79 @@ namespace Bsk.Site.Cliente
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["Del"]!=null)
+            {
+                var anexo = _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacaoAnexos=" + Request.QueryString["Del"]).FirstOrDefault();
+                _core.CotacaoAnexos_Delete(anexo);
+                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + Request.QueryString["Cotacao"]);
+            }
 
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["Cotacao"] == null)
+                {
+                    var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+                    _CotacaoBE = new CotacaoBE()
+                    {
+                        IdCategoria = int.Parse(Request.QueryString["Id"]),
+                        DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
+                        DataTermino = "",
+                        Depoimento = "",
+                        Descricao = "",
+                        FinalizaCliente = 0,
+                        FinalizaFornecedor = 0,
+                        IdCliente = login.IdCliente,
+                        IdCotacaoFornecedor = 0,
+                        Nota = 0,
+                        Observacao = "",
+                        Status = "1",
+                        Titulo = ""
+                    };
+
+                    var id = _core.Cotacao_Insert(_CotacaoBE);
+
+                    Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + id);
+                }
+                else
+                {
+                    var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+                    titulo.Value = cotacao.Titulo;
+                    descricao.Value = cotacao.Descricao;
+                }
+            }
         }
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var arquivo = GravarArquivo(flpAnexo);
-            CotacaoBE _CotacaoBE = new CotacaoBE();
-            _CotacaoBE.IdCategoria = 14; // ################################################################################
-            _CotacaoBE.IdCliente = login.IdCliente; // #################################################################################
-            _CotacaoBE.Titulo = titulo.Value;
-            _CotacaoBE.Descricao = descricao.InnerHtml;
-            var IdCotacao = _core.Cotacao_Insert(_CotacaoBE);
 
-            _CotacaoAnexosBE.Anexo = arquivo;
-            _CotacaoAnexosBE.IdCotacao = Convert.ToInt32(IdCotacao);
-            _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
+            if (flpAnexo.PostedFile.FileName != "")
+            {
+                GravarArquivo(flpAnexo, "Anexo");
+            }
+
+            if (flpVideo.PostedFile.FileName != "")
+            {
+                GravarArquivo(flpVideo, "Video");
+            }
+
+            CotacaoBE _CotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+
+            cotacao.Titulo = titulo.Value;
+            cotacao.Descricao = descricao.InnerHtml;
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
 
             // ####################################### ENVIAR PARA MSG ##########################################
-            Response.Redirect("cadastro-cotacao?Id=" + IdCotacao);
+            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + cotacao.IdCotacao);
         }
 
+        public List<CotacaoAnexosBE> PegaAnexo()
+        {
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
+        }
 
-        public string GravarArquivo(FileUpload _flpImg)
+        public void GravarArquivo(FileUpload _flpImg, string tipo)
         {
             var nome = "";
             var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
@@ -63,7 +112,15 @@ namespace Bsk.Site.Cliente
                 link = "";
             }
 
-            return nome;
+            _CotacaoAnexosBE = new CotacaoAnexosBE()
+            {
+                Anexo = nome,
+                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
+                Tipo = tipo
+            };
+
+            _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
         }
 
     }

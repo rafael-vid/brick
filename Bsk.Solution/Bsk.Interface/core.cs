@@ -30,19 +30,19 @@ namespace Bsk.Interface
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(int idFornecedor)
         {
-            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor
+            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
                         from cotacaofornecedor CF 
                         inner join cotacao CT
                         on CT.IdCotacao = CF.IdCotacao
                         inner join cliente CL
                         on CL.IdCliente = CT.IdCliente
-                        where CF.IdFornecedor =" + idFornecedor;
+                        where CF.IdFornecedor = " + idFornecedor;
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaAguardandoAceiteGet(int idFornecedor)
         {
-            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor
+            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
                         from cotacaofornecedor CF 
                         inner join cotacao CT
                         on CT.IdCotacao = CF.IdCotacao
@@ -52,15 +52,15 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
-        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaAguardandoPagamentoGet(int idFornecedor)
+        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaStatusGet(int idFornecedor, string status)
         {
-            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor
+            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
                         from cotacaofornecedor CF 
                         inner join cotacao CT
                         on CT.IdCotacao = CF.IdCotacao
                         inner join cliente CL
                         on CL.IdCliente = CT.IdCliente
-                        where CT.Status = 3 and CF.IdFornecedor =" + idFornecedor;
+                        where CT.Status = {status} and CF.IdFornecedor =" + idFornecedor;
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
@@ -207,6 +207,37 @@ namespace Bsk.Interface
         public void Fornecedor_Delete(FornecedorBE lg)
         {
             List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
+        ////////////////////////////////////////////// AreaFornecedor ////////////////////////////////////////////////////////////
+        public List<AreaFornecedorBE> AreaFornecedor_Get(AreaFornecedorBE lg, string _filtro)
+        {
+
+            List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<AreaFornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string AreaFornecedor_Insert(AreaFornecedorBE lg)
+        {
+            List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void AreaFornecedor_Update(AreaFornecedorBE lg, string filtro)
+        {
+
+            List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void AreaFornecedor_Delete(AreaFornecedorBE lg)
+        {
+            List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }

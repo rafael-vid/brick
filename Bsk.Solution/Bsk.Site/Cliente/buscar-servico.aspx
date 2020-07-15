@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="buscar-servico.aspx.cs" Inherits="Bsk.Site.Cliente.buscar_servico" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
-<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server"> 
+<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
 
-     <!-- BUSCAR -->
+    <!-- BUSCAR -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 banner-site pd-0">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
@@ -37,14 +37,14 @@
 
                 foreach (var item in categorias)
                 {%>
-             <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
-                <h3><%Response.Write(item.Nome); %></h3>
+            <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <a href="cadastro-cotacao.aspx?Id=<%Response.Write(item.IdCategoria); %>">
+                    <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
+                    <h3><%Response.Write(item.Nome); %></h3>
+                </a>
             </div>
-                <%}
-                %>           
-           
-            
+            <%}
+            %>
         </div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>

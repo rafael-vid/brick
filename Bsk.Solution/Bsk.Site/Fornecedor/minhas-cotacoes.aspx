@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="minhas-cotacoes.aspx.cs" Inherits="Bsk.Site.Fornecedor.minhas_cotacoes" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h3 class="tableTitle">Minhas cotações em negociação</h3>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -25,7 +25,14 @@
                         <td><%Response.Write(item.Nome); %></td>
                         <td><%Response.Write(item.Status); %></td>
                         <td>
+                            <%if (item.Status == "Recusado")
+                                {%>
+                            <center>-</center>
+                            <%}
+                                else
+                                {%>
                             <a class="btn btn-brikk mensagem" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar &nbsp;</a>
+                            <%} %>                            
                         </td>
 
                     </tr>

@@ -63,7 +63,14 @@
                     <%Response.Write(cot.Descricao); %>
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+                    <%if (cot.Nota == 0)
+                        {%>
                     <span id="rating-1" data-star='0'></span>
+                    <%}
+                        else
+                        {%>
+                    <img src="img/estrelas/<%Response.Write(cot.Nota); %>.png" />
+                        <%} %>
                 </div>
 
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
