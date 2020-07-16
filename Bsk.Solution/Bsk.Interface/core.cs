@@ -40,6 +40,16 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
+        public List<CotacaoListaFronecedorModel> CotacaoListaFronecedorGet(string categorias)
+        {
+            var sql = $@"select CT.IdCotacao, CT.Titulo, CA.Nome as Categoria
+                            from cotacao CT 
+                            inner join categoria CA on CA.IdCategoria = CT.IdCategoria
+                            where CT.Status='1' 
+                            and CT.IdCategoria in ({categorias});";
+            return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
+        }
+
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaAguardandoAceiteGet(int idFornecedor)
         {
             var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
@@ -113,11 +123,9 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoPagamentoModel>(db.Get(sql));
         }
 
-
         ////////////////////////////////////////////// Admin ////////////////////////////////////////////////////////////
         public List<AdminBE> Admin_Get(AdminBE lg, string _filtro)
         {
-
             List<AdminBE> Lista_lg = new List<AdminBE>();
             Lista_lg.Add(lg);
             return _base.ToList<AdminBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -125,16 +133,13 @@ namespace Bsk.Interface
 
         public string Admin_Insert(AdminBE lg)
         {
-
             List<AdminBE> Lista_lg = new List<AdminBE>();
-
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));
         }
 
         public void Admin_Update(AdminBE lg, string filtro)
         {
-
             List<AdminBE> Lista_lg = new List<AdminBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -146,25 +151,24 @@ namespace Bsk.Interface
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }
+
         public List<PropostaBE> Proposta_Get(PropostaBE lg, string _filtro)
         {
-
             List<PropostaBE> Lista_lg = new List<PropostaBE>();
             Lista_lg.Add(lg);
             return _base.ToList<PropostaBE>(db.Get(_base.Query(Lista_lg, _filtro)));
         }
+
         public string Proposta_Insert(PropostaBE lg)
         {
-
             List<PropostaBE> Lista_lg = new List<PropostaBE>();
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));
         }
 
         public void Proposta_Update(PropostaBE lg, string filtro)
         {
-
             List<PropostaBE> Lista_lg = new List<PropostaBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -180,7 +184,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Fornecedor ////////////////////////////////////////////////////////////
         public List<FornecedorBE> Fornecedor_Get(FornecedorBE lg, string _filtro)
         {
-
             List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
             Lista_lg.Add(lg);
             return _base.ToList<FornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -188,7 +191,7 @@ namespace Bsk.Interface
 
         public string Fornecedor_Insert(FornecedorBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             lg.Status = "0";
             List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
 
@@ -198,7 +201,6 @@ namespace Bsk.Interface
 
         public void Fornecedor_Update(FornecedorBE lg, string filtro)
         {
-
             List<FornecedorBE> Lista_lg = new List<FornecedorBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -214,7 +216,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// AreaFornecedor ////////////////////////////////////////////////////////////
         public List<AreaFornecedorBE> AreaFornecedor_Get(AreaFornecedorBE lg, string _filtro)
         {
-
             List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
             Lista_lg.Add(lg);
             return _base.ToList<AreaFornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -229,7 +230,6 @@ namespace Bsk.Interface
 
         public void AreaFornecedor_Update(AreaFornecedorBE lg, string filtro)
         {
-
             List<AreaFornecedorBE> Lista_lg = new List<AreaFornecedorBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -246,7 +246,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Alert ////////////////////////////////////////////////////////////
         public List<AlertBE> Alert_Get(AlertBE lg, string _filtro)
         {
-
             List<AlertBE> Lista_lg = new List<AlertBE>();
             Lista_lg.Add(lg);
             return _base.ToList<AlertBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -254,7 +253,6 @@ namespace Bsk.Interface
 
         public string Alert_Insert(AlertBE lg)
         {
-
             List<AlertBE> Lista_lg = new List<AlertBE>();
 
             Lista_lg.Add(lg);
@@ -263,7 +261,6 @@ namespace Bsk.Interface
 
         public void Alert_Update(AlertBE lg, string filtro)
         {
-
             List<AlertBE> Lista_lg = new List<AlertBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -279,7 +276,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Categoria ////////////////////////////////////////////////////////////
         public List<CategoriaBE> Categoria_Get(CategoriaBE lg, string _filtro)
         {
-
             List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
             Lista_lg.Add(lg);
             return _base.ToList<CategoriaBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -287,7 +283,6 @@ namespace Bsk.Interface
 
         public string Categoria_Insert(CategoriaBE lg)
         {
-
             lg.Status = "1";
             List<CategoriaBE> Lista_lg = new List<CategoriaBE>();
 
@@ -313,7 +308,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Master ////////////////////////////////////////////////////////////
         public List<MasterBE> Master_Get(MasterBE lg, string _filtro)
         {
-
             List<MasterBE> Lista_lg = new List<MasterBE>();
             Lista_lg.Add(lg);
             return _base.ToList<MasterBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -321,7 +315,6 @@ namespace Bsk.Interface
 
         public string Master_Insert(MasterBE lg)
         {
-
             List<MasterBE> Lista_lg = new List<MasterBE>();
 
             Lista_lg.Add(lg);
@@ -330,7 +323,6 @@ namespace Bsk.Interface
 
         public void Master_Update(MasterBE lg, string filtro)
         {
-
             List<MasterBE> Lista_lg = new List<MasterBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -346,7 +338,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Servico ////////////////////////////////////////////////////////////
         public List<ServicoBE> Servico_Get(ServicoBE lg, string _filtro)
         {
-
             List<ServicoBE> Lista_lg = new List<ServicoBE>();
             Lista_lg.Add(lg);
             return _base.ToList<ServicoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -354,7 +345,6 @@ namespace Bsk.Interface
 
         public string Servico_Insert(ServicoBE lg)
         {
-
             lg.Status = "0";
             List<ServicoBE> Lista_lg = new List<ServicoBE>();
 
@@ -364,7 +354,6 @@ namespace Bsk.Interface
 
         public void Servico_Update(ServicoBE lg, string filtro)
         {
-
             List<ServicoBE> Lista_lg = new List<ServicoBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -380,7 +369,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Cliente ////////////////////////////////////////////////////////////
         public List<ClienteBE> Cliente_Get(ClienteBE lg, string _filtro)
         {
-
             List<ClienteBE> Lista_lg = new List<ClienteBE>();
             Lista_lg.Add(lg);
             return _base.ToList<ClienteBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -388,7 +376,7 @@ namespace Bsk.Interface
 
         public string Cliente_Insert(ClienteBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             lg.Status = "0";
             List<ClienteBE> Lista_lg = new List<ClienteBE>();
 
@@ -398,7 +386,6 @@ namespace Bsk.Interface
 
         public void Cliente_Update(ClienteBE lg, string filtro)
         {
-
             List<ClienteBE> Lista_lg = new List<ClienteBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -414,7 +401,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// CotacaoAnexos ////////////////////////////////////////////////////////////
         public List<CotacaoAnexosBE> CotacaoAnexos_Get(CotacaoAnexosBE lg, string _filtro)
         {
-
             List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
             Lista_lg.Add(lg);
             return _base.ToList<CotacaoAnexosBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -422,7 +408,7 @@ namespace Bsk.Interface
 
         public string CotacaoAnexos_Insert(CotacaoAnexosBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 
             List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
 
@@ -432,7 +418,6 @@ namespace Bsk.Interface
 
         public void CotacaoAnexos_Update(CotacaoAnexosBE lg, string filtro)
         {
-
             List<CotacaoAnexosBE> Lista_lg = new List<CotacaoAnexosBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -448,7 +433,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// Cotacao ////////////////////////////////////////////////////////////
         public List<CotacaoBE> Cotacao_Get(CotacaoBE lg, string _filtro)
         {
-
             List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
             Lista_lg.Add(lg);
             return _base.ToList<CotacaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -456,8 +440,6 @@ namespace Bsk.Interface
 
         public string Cotacao_Insert(CotacaoBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
-            lg.Status = "0";
             List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
 
             Lista_lg.Add(lg);
@@ -466,7 +448,6 @@ namespace Bsk.Interface
 
         public void Cotacao_Update(CotacaoBE lg, string filtro)
         {
-
             List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -482,7 +463,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// CotacaoFornecedor ////////////////////////////////////////////////////////////
         public List<CotacaoFornecedorBE> CotacaoFornecedor_Get(CotacaoFornecedorBE lg, string _filtro)
         {
-
             List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
             Lista_lg.Add(lg);
             return _base.ToList<CotacaoFornecedorBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -490,7 +470,7 @@ namespace Bsk.Interface
 
         public string CotacaoFornecedor_Insert(CotacaoFornecedorBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
 
             Lista_lg.Add(lg);
@@ -499,7 +479,6 @@ namespace Bsk.Interface
 
         public void CotacaoFornecedor_Update(CotacaoFornecedorBE lg, string filtro)
         {
-
             List<CotacaoFornecedorBE> Lista_lg = new List<CotacaoFornecedorBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
@@ -515,7 +494,6 @@ namespace Bsk.Interface
         ////////////////////////////////////////////// CotacaoFornecedorChat ////////////////////////////////////////////////////////////
         public List<CotacaoFornecedorChatBE> CotacaoFornecedorChat_Get(CotacaoFornecedorChatBE lg, string _filtro)
         {
-
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
             Lista_lg.Add(lg);
             return _base.ToList<CotacaoFornecedorChatBE>(db.Get(_base.Query(Lista_lg, _filtro)));
@@ -523,7 +501,7 @@ namespace Bsk.Interface
 
         public string CotacaoFornecedorChat_Insert(CotacaoFornecedorChatBE lg)
         {
-            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:s");
+            lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             lg.Status = "1";
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
 
@@ -533,7 +511,6 @@ namespace Bsk.Interface
 
         public void CotacaoFornecedorChat_Update(CotacaoFornecedorChatBE lg, string filtro)
         {
-
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));

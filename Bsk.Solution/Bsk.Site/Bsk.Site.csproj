@@ -269,6 +269,7 @@
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
     <Content Include="Fornecedor\cadastra-atuacao.aspx" />
     <Content Include="Fornecedor\cotacao-lista.aspx" />
+    <Content Include="Fornecedor\cotacao.aspx" />
     <Content Include="Fornecedor\default.aspx" />
     <Content Include="Fornecedor\finalizado.aspx" />
     <Content Include="Fornecedor\Html\css\animate.css" />
@@ -677,6 +678,13 @@
     </Compile>
     <Compile Include="Fornecedor\cotacao-lista.aspx.designer.cs">
       <DependentUpon>cotacao-lista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\cotacao.aspx.cs">
+      <DependentUpon>cotacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\cotacao.aspx.designer.cs">
+      <DependentUpon>cotacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

@@ -10,21 +10,22 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
-                    <img src="img/imagem.jpg" class="img-responsive" width="100%" alt="">
-                    <h3>Ar condicionado</h3>
+                    <%var cat = PegaCategoria(); %>
+                    <img src="img/<%Response.Write(cat.Imagem); %>" class="img-responsive" width="100%" alt="">
+                    <h3><%Response.Write(cat.Nome); %></h3>
                 </div>
             </div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
                     <h3>Ar condicionado</h3>
                     <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 pdl-0">
-                        <select name="" id="" class="form-control">
-                            <option value="">Categoria</option>
+                        <select name="" id="slcAtu" runat="server" class="form-control">
+                            <option value="">Selecione um serviço</option>                           
                         </select>
                     </div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 pd-0">
-                        <button class="btn btn-brikk">Adcionar</button>
+                        <button class="btn btn-brikk" id="btnAdicionar" runat="server" onserverclick="btnAdicionar_ServerClick">Adcionar</button>
                     </div>
                 </div>
             </div>

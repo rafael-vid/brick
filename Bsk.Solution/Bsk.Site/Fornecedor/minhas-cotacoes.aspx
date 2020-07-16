@@ -29,9 +29,10 @@
                                 {%>
                             <center>-</center>
                             <%}
-                                else
+                                else if (item.Status=="Aberto")
                                 {%>
-                            <a class="btn btn-brikk mensagem" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar &nbsp;</a>
+                            <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Negociar</a>
                             <%} %>                            
                         </td>
 

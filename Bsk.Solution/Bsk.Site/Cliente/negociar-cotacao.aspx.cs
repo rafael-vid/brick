@@ -47,6 +47,11 @@ namespace Bsk.Site.Cliente
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                 {
+                    if (cotacao.Status == StatusCotacao.Finalizado)
+                    {
+                        btnEnviar.Visible = false;
+                    }
+
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
                     valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
@@ -93,7 +98,6 @@ namespace Bsk.Site.Cliente
         }
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-
             var arquivo = GravarArquivo(flpArquivo);
             var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;

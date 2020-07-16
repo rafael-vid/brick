@@ -7,7 +7,7 @@
     <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" id="divUpload" runat="server">
                 <button type="button" id="btnVideo" class="btn btn-upload">
                     <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
 
@@ -27,6 +27,7 @@
                 <canvas id="picture-canvas"></canvas> -->
 
             </div>
+            <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnSubmeter" onclick="cadastrar();" runat="server">Submeter serviço</button>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Título</h3>
                 <input type="text" class="form-control" id="titulo" runat="server">
@@ -73,13 +74,43 @@
                 </table>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick">Enviar</button>
+                    <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick">Salvar dados</button>&nbsp;
+                    
                 </div>
             </div>
         </div>
 
     </div>
     <script>
+
+        function cadastrar() {
+            if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
+
+                Swal.fire({
+                    title: 'Submeter?',
+                    text: "Você tem certeza que gostaria de submeter esse serviço? Não será possível fazer mais nenhuma alteração.",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Aceitar!'
+                }).then((result) => {
+                    if (result.value) {
+                        var parametro = {
+                            id: comum.queryString("Cotacao"),
+                            descricao: $("#conteudo_descricao").val(),
+                            titulo: $("#conteudo_titulo").val()
+                        };
+                        comum.postAsync("Comum/SubmeterCotacao", parametro, function (data) {
+                            window.location.href = "minhas-cotacoes.aspx";
+                        });
+                    }
+                });
+            } else {
+                Swal.fire("Preencha todos os campos.");
+            }
+        }
+
         $(document).ready(function () {
 
             $("#btnAnexo").click(function () {

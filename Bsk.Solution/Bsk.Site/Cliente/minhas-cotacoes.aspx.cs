@@ -22,10 +22,14 @@ namespace Bsk.Site.Cliente
         public List<CotacaoBE> PegaCotacoes()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente="+login.IdCliente);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente=" + login.IdCliente+ " order by DataCriacao desc");
             foreach (var item in cotacoes)
             {
-                if (item.Status == StatusCotacao.Aberto)
+                if (item.Status == StatusCotacao.Criacao)
+                {
+                    item.Status = "Criação";
+                }
+                else if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
                 }
@@ -41,6 +45,7 @@ namespace Bsk.Site.Cliente
                 {
                     item.Status = "Finalizado";
                 }
+
 
             }
             return cotacoes;

@@ -36,7 +36,15 @@
                 <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
                 <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
             </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico">
+                <label>Informe uma data para terminar o serviço</label>
+                <input type="date" class="from-control" id="dataEntrega" />
+                <label>Informe o valor que você vai cobrar pelo serviço</label>
+                <input type="text" class="from-control" id="valorServico" />
+            </div>
+
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico" id="divValor" runat="server">
                 <h2>
                     <strong>
                         <p>Valor do serviço:</p>
@@ -49,6 +57,7 @@
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divTerminar" runat="server">
                 <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término">
             </div>
+
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Últimas Perguntas</h3>
@@ -142,7 +151,7 @@
             });
         }
 
-   
+
     </script>
 
 </asp:Content>

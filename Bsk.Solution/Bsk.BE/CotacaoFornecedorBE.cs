@@ -13,5 +13,6 @@ namespace Bsk.BE
         public int IdFornecedor { get; set; }
         public double Valor { get; set; }
         public string DataCriacao { get; set; }
+        public string DataEntrega { get; set; }
     }
 }

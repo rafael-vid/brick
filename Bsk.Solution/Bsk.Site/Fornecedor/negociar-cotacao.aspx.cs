@@ -52,7 +52,13 @@ namespace Bsk.Site.Fornecedor
                     descricao.Text = cotacao.Descricao;
                     valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-                    if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor==0)
+                    if (cotacao.Status==StatusCotacao.Aberto)
+                    {
+                        divTerminar.Visible = false;
+                        divValor.Visible = false;
+
+                    }
+                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor==0)
                     {
                         divTerminar.Visible = true;
                     }

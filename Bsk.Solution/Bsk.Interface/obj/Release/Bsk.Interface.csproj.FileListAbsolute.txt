@@ -14,3 +14,19 @@ C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csp
 C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
 C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
 C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\MySql.Data.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.xml
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.xml
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csprojAssemblyReference.cache
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CoreCompileInputs.cache
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb

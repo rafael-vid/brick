@@ -13,5 +13,23 @@ namespace Bsk.Site.Fornecedor
 
     public partial class cadastra_atuacao
     {
+
+        /// <summary>
+        /// slcAtu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect slcAtu;
+
+        /// <summary>
+        /// btnAdicionar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnAdicionar;
     }
 }

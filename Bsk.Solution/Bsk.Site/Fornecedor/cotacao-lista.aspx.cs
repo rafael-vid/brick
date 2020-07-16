@@ -1,5 +1,7 @@
-﻿using Bsk.BE.Model;
+﻿using Bsk.BE;
+using Bsk.BE.Model;
 using Bsk.Interface;
+using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,32 +19,20 @@ namespace Bsk.Site.Fornecedor
             nrCotacao.InnerText = Request.QueryString["Id"];
         }
 
-        public List<CotacaoListaModel> PegaCotacaoLista()
+        public List<CotacaoListaFronecedorModel> PegaCotacaoLista()
         {
-            List<CotacaoListaModel> lista = new List<CotacaoListaModel>();
-
-            lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
-
-            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + lista[0].CotacaoId).FirstOrDefault();
-
-            if (cotacao.IdCotacaoFornecedor != 0)
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
+            List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE,"IdFornecedor="+login.IdFornecedor);
+            string cats = "";
+            foreach (var item in categorias)
             {
-                List<CotacaoListaModel> listaCT = new List<CotacaoListaModel>();
+                cats += item.IdCategoria + ",";
+            }
+            lista = _core.CotacaoListaFronecedorGet(cats+"0");
 
-                foreach (var item in lista)
-                {
-                    if (item.CotacaoFornecedorId == cotacao.IdCotacaoFornecedor)
-                    {
-                        listaCT.Add(item);
-                    }
-                }
-                return listaCT;
-            }
-            else
-            {
-                return lista;
-            }
+            return lista;
         }
     }
 }

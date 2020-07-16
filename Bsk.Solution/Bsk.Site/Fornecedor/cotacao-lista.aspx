@@ -10,10 +10,8 @@
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                        <td>Cliente</td>
-                        <td>Mensagem</td>
-                        <td>Valor</td>
-                        <td>Última resposta</td>
+                        <td>Título</td>
+                        <td>Categoria</td>
                         <td>Ação</td>
                     </tr>
                 </thead>
@@ -23,17 +21,13 @@
                         foreach (var item in cotacaoLista)
                         {%>
                     <tr>
-                        <td><%Response.Write(item.NomeFornecedor); %></td>
+                        <td><%Response.Write(item.Titulo); %></td>
+                        <td><%Response.Write(item.Categoria); %></td>
                         <td>
-                            <button class="btn btn-brikk mensagem">Mensagem&nbsp;&nbsp;&nbsp;<span class="badge bg-success"><%Response.Write(item.NumeroMensagens); %></span></button>
+                            <a class="btn btn-brikk mensagem" href="cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Visualizar</a>
 
                         </td>
-                        <td>R$<%Response.Write(item.Valor); %>
-
-                        </td>
-                        <td><%Response.Write(item.DataUltimaResposta); %></td>
-                        <td>
-                            <a class="btn btn-brikk mensagem" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar &nbsp;</a></td>
+                       
                     </tr>
                     <% }
                     %>

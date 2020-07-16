@@ -24,7 +24,15 @@ namespace Bsk.Site.Cliente
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["Del"]!=null)
+            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+            if (cotacao.Status!= StatusCotacao.Criacao)
+            {
+                btnSalvar.Visible = false;
+                btnSubmeter.Visible = false;
+                divUpload.Visible = false;
+            }
+
+            if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
             {
                 var anexo = _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacaoAnexos=" + Request.QueryString["Del"]).FirstOrDefault();
                 _core.CotacaoAnexos_Delete(anexo);
@@ -33,35 +41,17 @@ namespace Bsk.Site.Cliente
 
             if (!IsPostBack)
             {
-                if (Request.QueryString["Cotacao"] == null)
+                if (Request.QueryString["Cotacao"] != null)
                 {
-                    var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-                    _CotacaoBE = new CotacaoBE()
-                    {
-                        IdCategoria = int.Parse(Request.QueryString["Id"]),
-                        DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
-                        DataTermino = "",
-                        Depoimento = "",
-                        Descricao = "",
-                        FinalizaCliente = 0,
-                        FinalizaFornecedor = 0,
-                        IdCliente = login.IdCliente,
-                        IdCotacaoFornecedor = 0,
-                        Nota = 0,
-                        Observacao = "",
-                        Status = "1",
-                        Titulo = ""
-                    };
 
-                    var id = _core.Cotacao_Insert(_CotacaoBE);
-
-                    Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + id);
+                    
+                    titulo.Value = cotacao.Titulo;
+                    descricao.Value = cotacao.Descricao;
                 }
                 else
                 {
-                    var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
-                    titulo.Value = cotacao.Titulo;
-                    descricao.Value = cotacao.Descricao;
+                    divUpload.Visible = false;
+                    btnSubmeter.Visible = false;
                 }
             }
         }
@@ -69,26 +59,53 @@ namespace Bsk.Site.Cliente
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            string cot = "";
 
-            if (flpAnexo.PostedFile.FileName != "")
+            if (Request.QueryString["Cotacao"] != null)
             {
-                GravarArquivo(flpAnexo, "Anexo");
-            }
+                cot = Request.QueryString["Cotacao"];
 
-            if (flpVideo.PostedFile.FileName != "")
+                if (flpAnexo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpAnexo, "Anexo");
+                }
+
+                if (flpVideo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpVideo, "Video");
+                }
+
+                CotacaoBE _CotacaoBE = new CotacaoBE();
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+
+                cotacao.Titulo = titulo.Value;
+                cotacao.Descricao = descricao.InnerHtml;
+                _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+            }
+            else
             {
-                GravarArquivo(flpVideo, "Video");
+                 _CotacaoBE = new CotacaoBE()
+                {
+                    IdCategoria = int.Parse(Request.QueryString["Id"]),
+                    DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    DataTermino = "",
+                    Depoimento = "",
+                    Descricao = "",
+                    FinalizaCliente = 0,
+                    FinalizaFornecedor = 0,
+                    IdCliente = login.IdCliente,
+                    IdCotacaoFornecedor = 0,
+                    Nota = 0,
+                    Observacao = "",
+                    Status = "0",
+                    Titulo = ""
+                };
+
+                cot = _core.Cotacao_Insert(_CotacaoBE);
             }
-
-            CotacaoBE _CotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
-
-            cotacao.Titulo = titulo.Value;
-            cotacao.Descricao = descricao.InnerHtml;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
 
             // ####################################### ENVIAR PARA MSG ##########################################
-            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + cotacao.IdCotacao);
+            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + cot);
         }
 
         public List<CotacaoAnexosBE> PegaAnexo()
@@ -103,7 +120,17 @@ namespace Bsk.Site.Cliente
             if (!String.IsNullOrEmpty(_flpImg.FileName))
             {
                 nome = Guid.NewGuid().ToString() + _flpImg.FileName;
-                var path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
+                var path = "";
+
+                if (tipo == "Anexo")
+                {
+                    path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
+                }
+                else
+                {
+                    path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
+                }
+
                 _flpImg.SaveAs(path);
                 link = link.Replace("{{ARQ}}", nome);
             }

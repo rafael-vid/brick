@@ -105,6 +105,7 @@
     <!-- Outros scripts -->
     <script src="js/jquery.mask.js"></script>
     <script src="js/datatables.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/master.js"></script>
@@ -456,7 +457,7 @@
                     email: $("#email").val()
                 }
                 comum.post("Comum/InserirCliente", parametros, function (data) {
-                    alert(data.Result);
+                    Swal.fire(data.Result);
                     window.location.href = "default.aspx";
                 });
 

@@ -82,9 +82,11 @@ namespace Bsk.Util
 
     public static class StatusCotacao
     {
+        public const string Criacao = "0";
         public const string Aberto = "1";
         public const string EmAndamento = "2";
         public const string AguardandoPagamento = "3";
         public const string Finalizado = "4";
+
     }
 }

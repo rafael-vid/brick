@@ -179,13 +179,13 @@ namespace Bsk.Site.Controllers
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             ClienteBE clienteBE = new ClienteBE();
-            var cliente = _core.Cliente_Get(clienteBE,"IdCliente="+cotacao.IdCliente).FirstOrDefault();
-           
+            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+
             string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
             string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
             string email = "";
-            
+
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
 
@@ -202,6 +202,17 @@ namespace Bsk.Site.Controllers
 
             cotacao.FinalizaFornecedor = 1;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+        }
+
+        [HttpPost]
+        public void SubmeterCotacao(string id, string descricao, string titulo)
+        {
+            CotacaoBE cotacaoBE = new CotacaoBE();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
+            cotacao.Status = StatusCotacao.Aberto;
+            cotacao.Titulo = titulo;
+            cotacao.Descricao = descricao;
+            _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
     }

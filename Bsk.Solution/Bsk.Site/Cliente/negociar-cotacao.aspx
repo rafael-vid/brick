@@ -94,9 +94,9 @@
 
 
                         if (item.IdCliente == 0)
-                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
                         else
-                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
                 %>
 
                 <!--CLIENTE-->

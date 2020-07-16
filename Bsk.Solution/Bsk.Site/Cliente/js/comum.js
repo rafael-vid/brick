@@ -1,5 +1,7 @@
 ﻿var host = "http://localhost:57642/";
 var rdc = "http://localhost:57642/";
+//var host = "http://brikk.areadecompras.com.br/";
+//var rdc = "http://brikk.areadecompras.com.br/";
 
 
 

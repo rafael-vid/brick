@@ -24,7 +24,7 @@ namespace Bsk.Site.Cliente
             lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
 
             Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + lista[0].CotacaoId).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
 
             if (cotacao.IdCotacaoFornecedor != 0)
             {
