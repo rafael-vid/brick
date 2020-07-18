@@ -22,5 +22,6 @@ namespace Bsk.BE
         public int Nota { get; set; }
         public int FinalizaCliente { get; set; }
         public int FinalizaFornecedor { get; set; }
+        public int NotaFornecedor { get; set; }
     }
 }

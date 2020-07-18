@@ -28,15 +28,7 @@ namespace Bsk.Site.Cliente
 
             if (cotacao.IdCotacaoFornecedor != 0)
             {
-                if (cotacao.FinalizaCliente==0 && cotacao.FinalizaFornecedor!=0)
-                {
-                    icone.Visible = true;
-                }
-                else
-                {
-                    icone.Visible = false;
-                }
-
+               
                 List<CotacaoListaModel> listaCT = new List<CotacaoListaModel>();
 
                 foreach (var item in lista)

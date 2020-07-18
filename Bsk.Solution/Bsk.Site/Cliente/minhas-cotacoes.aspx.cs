@@ -36,6 +36,15 @@ namespace Bsk.Site.Cliente
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
                     item.Status = "Em andamento";
+
+                    if (item.FinalizaFornecedor==1 && item.FinalizaCliente==0)
+                    {
+                        item.Status = "Pendente de aceite do cliente";
+                    }
+                    else if (item.FinalizaFornecedor == 1 && item.FinalizaCliente == 1)
+                    {
+                        item.Status = "Aguardando liberação do pagamento";
+                    }
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {

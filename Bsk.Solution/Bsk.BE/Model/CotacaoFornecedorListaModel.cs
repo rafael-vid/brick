@@ -17,5 +17,6 @@ namespace Bsk.BE.Model
         public int FinalizaFornecedor { get; set; }      
         public int CotacaoId { get; set; }
         public int CFId { get; set; }
+        public int Nota { get; set; }
     }
 }

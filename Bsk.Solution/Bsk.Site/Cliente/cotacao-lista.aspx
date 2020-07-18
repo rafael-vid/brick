@@ -23,10 +23,9 @@
                         foreach (var item in cotacaoLista)
                         {%>
                     <tr>
-                        <td><span id="icone" runat="server">
-                            <img src="img/Exclamation-icon.png" style="width:25px;" /></span> <%Response.Write(item.NomeFornecedor); %></td>
+                        <td> <%Response.Write(item.NomeFornecedor); %></td>
                         <td>
-                            <button class="btn btn-brikk mensagem">Mensagem&nbsp;&nbsp;&nbsp;<span class="badge bg-success"><%Response.Write(item.NumeroMensagens); %></span></button>
+                            <%Response.Write(item.NumeroMensagens); %>
 
                         </td>
                         <td>R$<%Response.Write(item.Valor); %>
@@ -34,7 +33,7 @@
                         </td>
                         <td><%Response.Write(item.DataUltimaResposta); %></td>
                         <td>
-                            <a class="btn btn-brikk mensagem" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar &nbsp;</a></td>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar</a></td>
                     </tr>
                     <% }
                     %>

@@ -80,10 +80,10 @@
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                     <h2>
-                        <strong>
-                            <p>Valor do serviço:</p>
+                       <strong>
+                            <p>Data término:</p>
                             <br>
-                            R$<%Response.Write(cot.Valor); %>
+                            <%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %>
                         </strong>
                     </h2>
                 </div>

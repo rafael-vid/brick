@@ -31,10 +31,7 @@ namespace Bsk.Site.Fornecedor
                 Response.Redirect("negociar-cotacao.aspx?Id=5");
             }
 
-            if (!IsPostBack)
-            {
-                CarregaCotacaoFornecedor();
-            }
+            CarregaCotacaoFornecedor();
 
         }
 
@@ -48,25 +45,48 @@ namespace Bsk.Site.Fornecedor
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                 {
+                    if (cotacao.Status==StatusCotacao.Finalizado)
+                    {
+                        btnEnviar.Visible = false;
+                        divUpload.Visible = false;
+                        msg.Visible = false;
+                    }
+
+                    if (!IsPostBack)
+                    {
+                        valorServico.Value = cotacaoFornecedor.Valor.ToString();
+                        dataEntrega.Value = cotacaoFornecedor.DataEntrega;                        
+                    }
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
                     valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
+                    try
+                    {
+                        entrega.Text = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
+                    }
+                    catch (Exception)
+                    {
+                        entrega.Text = cotacaoFornecedor.DataEntrega;
+                    }
+                    
 
-                    if (cotacao.Status==StatusCotacao.Aberto)
+                    if (cotacao.Status == StatusCotacao.Aberto)
                     {
                         divTerminar.Visible = false;
                         divValor.Visible = false;
 
                     }
-                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor==0)
+                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
+                        divDadosCobranca.Visible = false;
+                        divValor.Visible = true;
                     }
                     else
                     {
                         divTerminar.Visible = false;
+                        divDadosCobranca.Visible = false;
                     }
-
                 }
 
                 var cliente = _core.Cliente_Get(_ClienteBE, $" IdCliente={cotacao.IdCliente.ToString()}").FirstOrDefault();
@@ -74,7 +94,6 @@ namespace Bsk.Site.Fornecedor
                 {
                     prestador.Text = cliente.Nome;
                 }
-
             }
         }
 
@@ -92,6 +111,7 @@ namespace Bsk.Site.Fornecedor
                 return login;
             }
         }
+
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
@@ -119,14 +139,10 @@ namespace Bsk.Site.Fornecedor
             }
         }
 
-
         public List<CotacaoFornecedorChatBE> CarregaChat()
         {
             return _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
-
         }
-
-
 
         public string GravarArquivo(FileUpload _flpImg)
         {
@@ -164,6 +180,31 @@ namespace Bsk.Site.Fornecedor
             }
 
             return link;
+        }
+
+        protected void btnSalvarDados_ServerClick(object sender, EventArgs e)
+        {
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            cotacaoFornecedor.DataEntrega = dataEntrega.Value;
+
+            try
+            {
+                cotacaoFornecedor.Valor = double.Parse(valorServico.Value);
+            }
+            catch (Exception)
+            {
+                cotacaoFornecedor.Valor = 0;
+            }
+            _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
+
+            var cotacao = _core.Cotacao_Get(_CotacaoBE, "").FirstOrDefault();
+            var cliente = _core.Cliente_Get(_ClienteBE, "").FirstOrDefault();
+
+            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
+            var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK", imagem);
+            emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
         }
     }
 }

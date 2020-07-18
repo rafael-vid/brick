@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  validateRequest="false" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 
 
@@ -88,7 +88,7 @@
 
                 Swal.fire({
                     title: 'Submeter?',
-                    text: "Você tem certeza que gostaria de submeter esse serviço? Não será possível fazer mais nenhuma alteração.",
+                    text: "Você tem certeza que gostaria de submeter esse serviço? Toda alteração, anexo ou video não salvos serão perdidos. Não será possível fazer mais nenhuma alteração.",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

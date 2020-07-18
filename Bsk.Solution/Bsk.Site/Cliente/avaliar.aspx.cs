@@ -20,7 +20,6 @@ namespace Bsk.Site.Cliente
         {
            
         }
-        //http://localhost:57642/Cliente/avaliar.aspx?Id=5
       
         public ClienteBE RetornaUsuario()
         {

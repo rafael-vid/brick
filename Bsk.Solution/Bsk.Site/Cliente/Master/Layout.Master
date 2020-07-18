@@ -81,7 +81,7 @@
                     </div>
                     <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                     <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="cadastro-cotacao.aspx">
+                        <a href="buscar-servico.aspx">
                             <img src="img/novaCotacao.jpg" class="img-responsive" width="100%" alt=""></a>
                     </div>
                     <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">

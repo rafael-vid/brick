@@ -23,7 +23,7 @@
                 <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
                 <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                 <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                 <button type="button" class="btn btn-upload" id="btnArquivo">
@@ -35,6 +35,15 @@
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
                 <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
                 <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+                <h2>
+                    <strong>
+                        <p>Data entrega:</p>
+                        <br>
+                        <asp:Label ID="entrega" runat="server" Text=""></asp:Label>
+                    </strong>
+                </h2>
             </div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                 <h2>
@@ -94,9 +103,9 @@
 
 
                         if (item.IdCliente == 0)
-                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
+                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                         else
-                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
+                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                 %>
 
                 <!--CLIENTE-->
@@ -132,7 +141,7 @@
         function aceitar() {
             Swal.fire({
                 title: 'Aceitar?',
-                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas.",
+                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -144,7 +153,7 @@
                         idCotacaoFornecedor: comum.queryString("Id")
                     };
                     comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
-                        window.location.href = "em-andamento.aspx";
+                        window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
                     });
                 }
             });
@@ -160,7 +169,7 @@
                 botao = "Negar!";
             } else {
                 titulo = "Aceitar término?";
-                texto = "Você tem certeza que gostaria de aceitar o término do serviço? Esse processo é irreversível.";
+                texto = "Você tem certeza que gostaria de aceitar o término do serviço? O pagamento será liberado ao prestador. Esse processo é irreversível.";
                 botao = "Aceitar!";
             }
 
@@ -182,7 +191,11 @@
                         if (data.Result == "0") {
                             window.location.href = "em-andamento.aspx";
                         } else {
-                            window.location.href = "liberar-pagamento.aspx";
+                            if (data.Liberado == "4") {
+                                window.location.href = "finalizado.aspx";
+                            } else {
+                                window.location.href = "liberar-pagamento.aspx";
+                            }
                         }
 
                     });

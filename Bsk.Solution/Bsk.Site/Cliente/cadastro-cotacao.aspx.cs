@@ -24,12 +24,17 @@ namespace Bsk.Site.Cliente
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
-            if (cotacao.Status!= StatusCotacao.Criacao)
+            CotacaoBE cotacao = new CotacaoBE();
+            if (!String.IsNullOrEmpty(Request.QueryString["Cotacao"]))
             {
-                btnSalvar.Visible = false;
-                btnSubmeter.Visible = false;
-                divUpload.Visible = false;
+                cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+
+                if (cotacao.Status != StatusCotacao.Criacao)
+                {
+                    btnSalvar.Visible = false;
+                    btnSubmeter.Visible = false;
+                    divUpload.Visible = false;
+                }
             }
 
             if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
@@ -44,7 +49,7 @@ namespace Bsk.Site.Cliente
                 if (Request.QueryString["Cotacao"] != null)
                 {
 
-                    
+
                     titulo.Value = cotacao.Titulo;
                     descricao.Value = cotacao.Descricao;
                 }
@@ -84,13 +89,13 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                 _CotacaoBE = new CotacaoBE()
+                _CotacaoBE = new CotacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     DataTermino = "",
                     Depoimento = "",
-                    Descricao = "",
+                    Descricao = descricao.Value,
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
                     IdCliente = login.IdCliente,
@@ -98,7 +103,7 @@ namespace Bsk.Site.Cliente
                     Nota = 0,
                     Observacao = "",
                     Status = "0",
-                    Titulo = ""
+                    Titulo = titulo.Value
                 };
 
                 cot = _core.Cotacao_Insert(_CotacaoBE);

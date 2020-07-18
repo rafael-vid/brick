@@ -30,3 +30,9 @@ D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Comtele.Sdk.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\netstandard.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.xml

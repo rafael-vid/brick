@@ -61,6 +61,7 @@
     <Compile Include="FornecedorBE.cs" />
     <Compile Include="MasterBE.cs" />
     <Compile Include="Model\ComboModel.cs" />
+    <Compile Include="Model\CotacaoAvaliacaoFornecedorModel.cs" />
     <Compile Include="Model\CotacaoAvaliacaoModel.cs" />
     <Compile Include="Model\CotacaoFornecedorListaModel.cs" />
     <Compile Include="Model\CotacaoListaFronecedorModel.cs" />

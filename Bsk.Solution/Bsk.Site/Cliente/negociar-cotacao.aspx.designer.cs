@@ -42,6 +42,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.Label descricao;
 
         /// <summary>
+        /// divUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+
+        /// <summary>
         /// flpArquivo control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
+
+        /// <summary>
+        /// entrega control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label entrega;
 
         /// <summary>
         /// valor control.

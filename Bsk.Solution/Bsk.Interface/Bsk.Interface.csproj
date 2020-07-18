@@ -65,6 +65,10 @@
       <Project>{057dd972-14bf-47f5-b1ff-810feb4fe076}</Project>
       <Name>Bsk.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Bsk.Util\Bsk.Util.csproj">
+      <Project>{27aa66d4-c364-422c-8c85-56df147b464d}</Project>
+      <Name>Bsk.Util</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

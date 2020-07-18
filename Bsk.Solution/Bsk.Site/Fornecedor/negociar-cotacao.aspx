@@ -9,7 +9,7 @@
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <h2 class="tableTitle">
-                <p>Prestador de Serviço:</p>
+                <p>Cliente:</p>
                 <br>
                 <asp:Label ID="prestador" runat="server" Text=""></asp:Label>
             </h2>
@@ -23,7 +23,7 @@
                 <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
                 <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                 <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                 <button type="button" class="btn btn-upload" id="btnArquivo">
@@ -37,14 +37,25 @@
                 <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
             </div>
 
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico">
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
                 <label>Informe uma data para terminar o serviço</label>
-                <input type="date" class="from-control" id="dataEntrega" />
+                <input type="date" class="from-control" id="dataEntrega" runat="server" />
                 <label>Informe o valor que você vai cobrar pelo serviço</label>
-                <input type="text" class="from-control" id="valorServico" />
-            </div>
+                <input type="number" class="from-control" id="valorServico" runat="server" /><br /><br />
 
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico" id="divValor" runat="server">
+                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvarDados" onserverclick="btnSalvarDados_ServerClick" runat="server">Salvar dados do serviço</button>
+            </div>
+            <div  id="divValor" runat="server">
+              <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+                <h2>
+                    <strong>
+                        <p>Data entrega:</p>
+                        <br>
+                        <asp:Label ID="entrega" runat="server" Text=""></asp:Label>
+                    </strong>
+                </h2>
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                 <h2>
                     <strong>
                         <p>Valor do serviço:</p>
@@ -52,6 +63,7 @@
                         <asp:Label ID="valor" runat="server" Text=""></asp:Label>
                     </strong>
                 </h2>
+            </div>
             </div>
             <br />
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divTerminar" runat="server">
@@ -95,9 +107,9 @@
 
 
                         if (item.IdCliente == 0)
-                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
                         else
-                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo);
+                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo+"<span class='pull-right'>"+item.DataCriacao+"</span>");
                 %>
 
                 <!--CLIENTE-->

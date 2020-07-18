@@ -177,6 +177,7 @@
     <Content Include="Anexos\Video\video.mp4" />
     <Content Include="Cliente\avaliar.aspx" />
     <Content Include="Cliente\cotacao-lista.aspx" />
+    <Content Include="Cliente\finalizar-pagamento.aspx" />
     <Content Include="Cliente\Html\avaliacao.html" />
     <Content Include="Cliente\buscar-servico.aspx" />
     <Content Include="Cliente\cadastro-cotacao.aspx" />
@@ -267,10 +268,12 @@
     <Content Include="Cliente\pagamento.aspx" />
     <Content Include="Fornecedor\aguardando-aceite.aspx" />
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
+    <Content Include="Fornecedor\avaliar.aspx" />
     <Content Include="Fornecedor\cadastra-atuacao.aspx" />
     <Content Include="Fornecedor\cotacao-lista.aspx" />
     <Content Include="Fornecedor\cotacao.aspx" />
     <Content Include="Fornecedor\default.aspx" />
+    <Content Include="Fornecedor\em-andamento.aspx" />
     <Content Include="Fornecedor\finalizado.aspx" />
     <Content Include="Fornecedor\Html\css\animate.css" />
     <Content Include="Fornecedor\Html\css\bootstrap.min.css" />
@@ -309,6 +312,12 @@
     <Content Include="Fornecedor\Html\js\rating.js" />
     <Content Include="Fornecedor\Html\js\sweetAlert.js" />
     <Content Include="Fornecedor\Html\js\wow.js" />
+    <Content Include="Fornecedor\img\estrelas\1.png" />
+    <Content Include="Fornecedor\img\estrelas\2.png" />
+    <Content Include="Fornecedor\img\estrelas\3.png" />
+    <Content Include="Fornecedor\img\estrelas\4.png" />
+    <Content Include="Fornecedor\img\estrelas\5.png" />
+    <Content Include="Fornecedor\img\semImagem.jpg" />
     <Content Include="Fornecedor\minhas-areas.aspx" />
     <Content Include="Fornecedor\minhas-cotacoes.aspx" />
     <Content Include="Fornecedor\negociar-cotacao.aspx" />
@@ -600,6 +609,13 @@
     <Compile Include="Cliente\em-andamento.aspx.designer.cs">
       <DependentUpon>em-andamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\finalizar-pagamento.aspx.cs">
+      <DependentUpon>finalizar-pagamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\finalizar-pagamento.aspx.designer.cs">
+      <DependentUpon>finalizar-pagamento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\liberar-pagamento.aspx.cs">
       <DependentUpon>liberar-pagamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -658,6 +674,13 @@
     <Compile Include="Fornecedor\aguardando-pagamento.aspx.designer.cs">
       <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\avaliar.aspx.cs">
+      <DependentUpon>avaliar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\avaliar.aspx.designer.cs">
+      <DependentUpon>avaliar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\cadastra-atuacao.aspx.cs">
       <DependentUpon>cadastra-atuacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -692,6 +715,13 @@
     </Compile>
     <Compile Include="Fornecedor\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\em-andamento.aspx.cs">
+      <DependentUpon>em-andamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\em-andamento.aspx.designer.cs">
+      <DependentUpon>em-andamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\finalizado.aspx.cs">
       <DependentUpon>finalizado.aspx</DependentUpon>
