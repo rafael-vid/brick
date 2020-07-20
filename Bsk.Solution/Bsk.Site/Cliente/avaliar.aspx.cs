@@ -38,6 +38,10 @@ namespace Bsk.Site.Cliente
         {
             CotacaoAvaliacaoModel cotacao = _core.Cotacao_Avaliacao_Get(Request.QueryString["Id"]);
             depoimento.Value = cotacao.Depoimento;
+            if (!String.IsNullOrEmpty(cotacao.Depoimento))
+            {
+                btnDepoimento.Visible = false;
+            }
             return cotacao;
         }
 

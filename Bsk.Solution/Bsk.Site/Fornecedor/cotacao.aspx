@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cotacao.aspx.cs" Inherits="Bsk.Site.Fornecedor.cotacao" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cotacao.aspx.cs" validateRequest="false" Inherits="Bsk.Site.Fornecedor.cotacao" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
      <!-- Corpo Site -->

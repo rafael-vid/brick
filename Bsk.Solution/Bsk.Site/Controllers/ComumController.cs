@@ -283,13 +283,11 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public void SubmeterCotacao(string id, string descricao, string titulo)
+        public void SubmeterCotacao(string id)
         {
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Status = StatusCotacao.Aberto;
-            cotacao.Titulo = titulo;
-            cotacao.Descricao = descricao;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 

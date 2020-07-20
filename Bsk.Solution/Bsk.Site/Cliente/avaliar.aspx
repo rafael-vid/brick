@@ -70,7 +70,7 @@
                         else
                         {%>
                     <img src="img/estrelas/<%Response.Write(cot.Nota); %>.png" />
-                        <%} %>
+                    <%} %>
                 </div>
 
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                     <h2>
-                       <strong>
+                        <strong>
                             <p>Data término:</p>
                             <br>
                             <%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %>
@@ -103,25 +103,26 @@
             <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="minhas-cotacoes.aspx">
-                        <img src="img/listaCotacao.jpg" class="img-responsive listaCotacao" width="100%" alt=""></a>
+                        <img src="img/status/minhasCotacoes.jpeg" class="img-responsive" width="100%" />
+                    </a>
                 </div>
                 <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="cadastro-cotacao.aspx">
-                        <img src="img/novaCotacao.jpg" class="img-responsive" width="100%" alt=""></a>
+                    <a href="buscar-servico.aspx">
+                        <img src="img/status/novaCotacao.jpg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="em-andamento.aspx">
-                        <img src="img/semImagem.jpg" class="img-responsive" width="100%" alt=""></a>
+                        <img src="img/status/emAndamento.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="liberar-pagamento.aspx">
-                        <img src="img/liberaPagamento.jpg" class="img-responsive liberaPagamento" width="100%" alt=""></a>
+                        <img src="img/status/liberaPagamento.jpg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="finalizado.aspx">
-                        <img src="img/semImagem.jpg" class="img-responsive finalizado" width="100%" alt=""></a>
+                        <img src="img/status/finalizado.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
 
 
