@@ -31,7 +31,7 @@ namespace Bsk.Site.Cliente
             nrCotacao.Text = cotacao.IdCotacao.ToString();
             titulo.Text = cotacao.Titulo;
             valor.Text = cotacaoFornecedor.Valor.ToString();
-            prestador.Text = fornecedor.NomeFantasia;
+            fornecedorNome.InnerText = fornecedor.NomeFantasia;
 
         }
 

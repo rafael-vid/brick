@@ -13,8 +13,7 @@
             </div>
             <h2 class="tableTitle">
                 <p>Prestador de Serviço:</p>
-                <br>
-                <asp:Label ID="prestador" runat="server" Text=""></asp:Label>
+                <p id="fornecedorNome" runat="server" Text=""></p>
             </h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>
@@ -34,11 +33,11 @@
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="btnBoleto" runat="server" onserverclick="btnBoleto_ServerClick">
+            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnBoleto" runat="server" onserverclick="btnBoleto_ServerClick">
                 <img src="img/boleto.jpg" class="img-responsive center-block btn-pagamento" alt="">
             </button>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="btnCartao" runat="server" onserverclick="btnCartao_ServerClick">
+            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnCartao" runat="server" onserverclick="btnCartao_ServerClick">
                 <img src="img/cartao.jpg" class="img-responsive center-block btn-pagamento" alt="">
             </button>
         </div>

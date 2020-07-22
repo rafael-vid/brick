@@ -187,3 +187,7 @@ h3 {
 .mensagem {
     width: 60%;
 }
+.botaoPagamento {
+    border: none!important;
+    background: transparent!important;
+} 
