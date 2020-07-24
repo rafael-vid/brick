@@ -74,7 +74,7 @@ namespace Bsk.Util
         public const string SuspeitaAtaque = "Bad request";
         public static string EstabelecimentoInativo = "O estabelecimento {0} está inativo ou desligado";
         public static string FiaditoInativo = "O fiadito {0} está inativo ou desligado";
-        public static string ContaExistente ="Já existe uma conta com esse CPF nesse estabelecimento";
+        public static string ContaExistente = "Já existe uma conta com esse CPF nesse estabelecimento";
         public static string ContaJaAtivada = "Essa conta já foi ativada";
         public static string ContaInexistente = "Número de conta não encontrado";
         public static object ContaBloqueada;
@@ -87,5 +87,11 @@ namespace Bsk.Util
         public const string AguardandoPagamento = "2";
         public const string EmAndamento = "3";
         public const string Finalizado = "4";
+    }
+
+    public static class VariaveisGlobais
+    {
+        public const int DiasBoleto = 2;
+
     }
 }

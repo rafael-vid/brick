@@ -33,13 +33,13 @@
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnBoleto" runat="server" onserverclick="btnBoleto_ServerClick">
+            <a class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnBoleto" href="pagamento-boleto.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">
                 <img src="img/boleto.jpg" class="img-responsive center-block btn-pagamento" alt="">
-            </button>
+            </a>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <button class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnCartao" runat="server" onserverclick="btnCartao_ServerClick">
+            <a class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" id="btnCartao" href="pagamento-cartao.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">
                 <img src="img/cartao.jpg" class="img-responsive center-block btn-pagamento" alt="">
-            </button>
+            </a>
         </div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>

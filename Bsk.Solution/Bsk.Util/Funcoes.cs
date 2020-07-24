@@ -72,7 +72,8 @@ namespace Bsk.Util
                 Status= ret["Status"],
                 Telefone= ret["Telefone"],
                 Uf= ret["Uf"],
-                WhatsApp= ret["WhatsApp"]
+                WhatsApp= ret["WhatsApp"],
+                ZoopID = ret["ZoopID"]
             };
             return clienteBE;
         }

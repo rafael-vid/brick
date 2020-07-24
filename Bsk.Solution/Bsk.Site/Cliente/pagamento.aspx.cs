@@ -37,7 +37,8 @@ namespace Bsk.Site.Cliente
 
         protected void btnBoleto_ServerClick(object sender, EventArgs e)
         {
-            pagaCotacao();
+            
+            //pagaCotacao();
         }
 
         private void pagaCotacao()
@@ -70,7 +71,7 @@ namespace Bsk.Site.Cliente
 
         protected void btnCartao_ServerClick(object sender, EventArgs e)
         {
-            pagaCotacao();
+            
         }
     }
 }

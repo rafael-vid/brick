@@ -457,8 +457,8 @@
                     email: $("#email").val()
                 }
                 comum.post("Comum/InserirCliente", parametros, function (data) {
-                    Swal.fire(data.Result);
-                    window.location.href = "default.aspx";
+                    Swal.fire("Cadastro efetuado com sucesso.");
+                    setTimeout(function () { window.location.href = "default.aspx"; }, 3000);
                 });
 
             });

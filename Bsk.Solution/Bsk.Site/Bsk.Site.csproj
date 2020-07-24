@@ -223,6 +223,9 @@
     <Content Include="Cliente\Html\js\rating.js" />
     <Content Include="Cliente\Html\js\sweetAlert.js" />
     <Content Include="Cliente\Html\js\wow.js" />
+    <Content Include="Cliente\Html\nav.html" />
+    <Content Include="Cliente\Html\pagamentoBoleto.html" />
+    <Content Include="Cliente\Html\pagamentoCartao.html" />
     <Content Include="Cliente\img\estrelas\1.png" />
     <Content Include="Cliente\img\estrelas\2.png" />
     <Content Include="Cliente\img\estrelas\3.png" />
@@ -271,6 +274,7 @@
     <Content Include="Cliente\negociar-cotacao.aspx" />
     <Content Include="Cliente\Html\pagamento.html" />
     <Content Include="Cliente\Html\solicitaServico.html" />
+    <Content Include="Cliente\pagamento-boleto.aspx" />
     <Content Include="Cliente\pagamento.aspx" />
     <Content Include="Fornecedor\aguardando-aceite.aspx" />
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
@@ -338,6 +342,7 @@
     <Content Include="Fornecedor\minhas-areas.aspx" />
     <Content Include="Fornecedor\minhas-cotacoes.aspx" />
     <Content Include="Fornecedor\negociar-cotacao.aspx" />
+    <Content Include="Cliente\nav.html" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -667,6 +672,13 @@
     </Compile>
     <Compile Include="Cliente\negociar-cotacao.aspx.designer.cs">
       <DependentUpon>negociar-cotacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\pagamento-boleto.aspx.cs">
+      <DependentUpon>pagamento-boleto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\pagamento-boleto.aspx.designer.cs">
+      <DependentUpon>pagamento-boleto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\pagamento.aspx.cs">
       <DependentUpon>pagamento.aspx</DependentUpon>

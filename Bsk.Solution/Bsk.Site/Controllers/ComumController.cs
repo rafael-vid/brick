@@ -31,7 +31,7 @@ namespace Bsk.Site.Controllers
         ClienteBE ClienteBE = new ClienteBE();
         public ActionResult Index()
         {
-            Response.Redirect("Fornecedor/cadastro.aspx");
+            Response.Redirect("Cliente/nav.html");
 
             return View();
         }
