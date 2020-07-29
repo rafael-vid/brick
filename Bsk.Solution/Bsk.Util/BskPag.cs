@@ -16,16 +16,17 @@ namespace Bsk.Util
     public class BskPag
     {
 
-        public string autenticar(string sellerLogin, string sellerSenha)
+        public string autenticar(string sellerLogin, string sellerSenha, string sellerId)
         {
             sellerLogin = "brikk@email.com";
             sellerSenha = "9b38cb15-3675-4aea-89eb-bae1c17bbe62";
+            sellerId = "586de6c5-f696-49d6-8b0c-592d3a038524";
             var api = ConfigurationManager.AppSettings["Api"];
             var login = sellerLogin;
             var senha = sellerSenha;
             var tk = ApiGet($"{api}Seller/autenticacao?BskPagLogin={login}&BskPagSenha={senha}", "");
             var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(tk);
-            var token = Base64Encode(ConfigurationManager.AppSettings["SellerID"] + ":" + obj["codigo"].ToString());
+            var token = Base64Encode(sellerId + ":" + obj["codigo"].ToString());
             return token.ToString();
         }
 
@@ -33,7 +34,7 @@ namespace Bsk.Util
         {
             var api = ConfigurationManager.AppSettings["Api"];
             //var token = autenticar(seller.Email, seller.Senha); Autenticar com valores reais depois
-            var token = autenticar("", "");
+            var token = autenticar("", "", "");
             string tp = "";
 
             if (pagamento == "B")
@@ -46,17 +47,17 @@ namespace Bsk.Util
             }
 
             var json = @"{
-                          'DataVencimento': '" + data + @"',
+                          'DataVencimento': '" + DateTime.Parse(data).ToString("yyyy-MM-dd") + @"',
                           'ValorTransacao': '" + valorTransacao.Replace(".", "#").Replace(",", ".").Replace("#", "") + @"',
                           'IdSeller': '" + seller.SellerID + @"',
-                          'Empresa': 'Infomerc',
+                          'Empresa': '"+seller.RazaoSocial+@"',
                           'TipoPagamento': '" + tp + @"',
                           'IdBuyer': '" + item.IdCliente + @"',
                           'Email': '" + item.Email + @"',
                           'IdTransacao': 0,
                           'NomeBuyer': '" + item.Nome + @"',
                           'CodigoProduto': '" + ConfigurationManager.AppSettings["ProdutoID"] + @"',
-                          'MeioPagamento': '" + item.ZoopID + @"',
+                          'MeioPagamento': '" + item.MeioPagamento + @"',
                           'Token': '" + item.ZoopID + @"',
                           'InformacoesPagamento': '" + obs + @"',
                           'IdReferencia': '" + guid + @"',
@@ -77,11 +78,18 @@ namespace Bsk.Util
 
         }
 
-        public string SobreporZoop(ClienteBE cli)
+        public string ConsultaMeioPagamento(ClienteBE cliente)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
-            var token = autenticar("","");
+            var token = autenticar("", "", "");
+            var ret = ApiGet($"{api}MeioPagamento/ConsultaMeioPagamento?autenticacao={token}&meioPagamento={cliente.MeioPagamento}", token);
+            return ret;
+        }
+
+        public string SobreporZoop(ClienteBE cli, string seller)
+        {
+            var api = ConfigurationManager.AppSettings["Api"];
+            var token = autenticar("", "", "");
 
             Usuario usuario = new Usuario();
             Endereco endereco = new Endereco();
@@ -109,21 +117,21 @@ namespace Bsk.Util
             string codigo = "";
             string mensagem = "";
 
-            var ret = CadastrarComprador(usuario);
+            var ret = CadastrarComprador(usuario, seller);
             if (ret.Contains("Falha na autenticação"))
             {
-                 ret = CadastrarComprador(usuario);
+                ret = CadastrarComprador(usuario, seller);
             }
 
             return ret;
         }
 
-        public string CadastrarComprador(Usuario usuario)
+        public string CadastrarComprador(Usuario usuario, string seller)
         {
             try
             {
-                string autentica = autenticar("", "");
-                var retApi = CadastrarBuyer(usuario, autentica);
+                string autentica = autenticar("", "", "");
+                var retApi = CadastrarBuyer(usuario, autentica, seller);
                 var requestBuyer = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retApi);
                 if (!String.IsNullOrEmpty(requestBuyer["BuyerID"].ToString()))
                 {
@@ -134,7 +142,7 @@ namespace Bsk.Util
                     //{
 
                     //}
-                    return IntegrarBuyer(BuyerId, usuario.IdUsuario.ToString(), autentica);
+                    return IntegrarBuyer(BuyerId, usuario.IdUsuario.ToString(), autentica, seller);
                 }
                 else
                 {
@@ -144,14 +152,13 @@ namespace Bsk.Util
             catch (Exception)
             {
 
-                return " Thread CadastrarBuyer";
+                return "Erro";
             }
         }
 
-        public string IntegrarBuyer(string BuyerID, string SellerKey, string autentica)
+        public string IntegrarBuyer(string BuyerID, string SellerKey, string autentica, string seller)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
 
             //#### MAP ###############################################
             return ApiPost("", $"{api}Buyer/IntegrarBuyerSobrepor?autenticacao={autentica}&BuyerID={BuyerID}&SellerID={seller}&SellerKey={SellerKey}", autentica);
@@ -160,7 +167,6 @@ namespace Bsk.Util
         public string CadastrarEnderecoCobrancaBuyer(Endereco endereco, string BuiyerID, string autentica)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
 
             //#### MAP ###############################################
             var par = @"{
@@ -178,11 +184,10 @@ namespace Bsk.Util
             return ApiPost(par, $"{api}EnderecoCobranca/InserirEnderecoCobranca?autenticacao={autentica}&SellerKey={endereco.IdUsuario}", autentica);
         }
 
-        public string CadastrarBuyer(Usuario usuario, string autentica)
+        public string CadastrarBuyer(Usuario usuario, string autentica, string seller)
         {
-           
+
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
 
             //#### MAP ###############################################
             var par = @"{
@@ -202,8 +207,7 @@ namespace Bsk.Util
         public string EnviarEmailBoleto(string id)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
-            var token = autenticar("", "");
+            var token = autenticar("", "", "");
             var ret = ApiPost("", $"{api}Transacao/EnviarCobranca?autenticacao={token}&id={id}", token);
             var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
             if (retApi["status"] != "200")
@@ -216,11 +220,10 @@ namespace Bsk.Util
             }
         }
 
-        public string cadastraCartao(string nomeCompleto, string numeroCartao, string numSeg, string mes, string ano, string buyerId)
+        public string cadastraCartao(string nomeCompleto, string numeroCartao, string numSeg, string mes, string ano, string buyerId, string seller)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
-            var token = autenticar("", "");
+            var token = autenticar("", "", "");
             var ret = ApiPost("", $"{api}MeioPagamento/InserirMeioPagamentoCartao?autenticacao={token}&buyerId={buyerId}&sellerId={seller}&tipo=1&nome={nomeCompleto}&mesExpira={mes}&anoExpira={ano}&numeroCartao={numeroCartao}&codigoSeguranca={numSeg}", token);
             var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
             if (retApi["status"] != "200")
@@ -296,8 +299,7 @@ namespace Bsk.Util
         public string RenderizaRecibo(string idPag)
         {
             var api = ConfigurationManager.AppSettings["Api"];
-            var seller = ConfigurationManager.AppSettings["SellerID"];
-            var token = autenticar("", "");
+            var token = autenticar("", "", "");
             var ret = ApiGet($"{api}MeioPagamento/RenderizarRecibo?autenticacao={token}&transacao={idPag}", token);
             var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
             return retApi["mensagem"];

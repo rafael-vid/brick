@@ -275,6 +275,7 @@
     <Content Include="Cliente\Html\pagamento.html" />
     <Content Include="Cliente\Html\solicitaServico.html" />
     <Content Include="Cliente\pagamento-boleto.aspx" />
+    <Content Include="Cliente\pagamento-cartao.aspx" />
     <Content Include="Cliente\pagamento.aspx" />
     <Content Include="Fornecedor\aguardando-aceite.aspx" />
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
@@ -679,6 +680,13 @@
     </Compile>
     <Compile Include="Cliente\pagamento-boleto.aspx.designer.cs">
       <DependentUpon>pagamento-boleto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\pagamento-cartao.aspx.cs">
+      <DependentUpon>pagamento-cartao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\pagamento-cartao.aspx.designer.cs">
+      <DependentUpon>pagamento-cartao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\pagamento.aspx.cs">
       <DependentUpon>pagamento.aspx</DependentUpon>

@@ -1,14 +1,3 @@
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.pdb
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Newtonsoft.Json.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\System.Net.Http.Formatting.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Newtonsoft.Json.xml
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\System.Net.Http.Formatting.xml
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csprojAssemblyReference.cache
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csproj.CoreCompileInputs.cache
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csproj.CopyComplete
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Newtonsoft.Json.dll

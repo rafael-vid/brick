@@ -8,22 +8,19 @@ namespace Bsk.BE
 {
     public class TransacaoBE
     {
-        /*CREATE TABLE `transacao` (
-  `IdTransacao` int(11) NOT NULL AUTO_INCREMENT,
-  `GuidTransacao` varchar(45) DEFAULT NULL,
-  `Status` varchar(45) DEFAULT NULL,
-  `IdCotacao` int(11) DEFAULT NULL,
-  `Url` varchar(45) DEFAULT NULL,
-  `DataVencimento` varchar(45) DEFAULT NULL,
-  `IdExterno` varchar(45) DEFAULT NULL,
-  `DataEnvio` varchar(45) DEFAULT NULL,
-  `Parcelas` int(11) DEFAULT NULL,
-  `TipoPagamento` varchar(45) DEFAULT NULL,
-  `Observacao` varchar(645) DEFAULT NULL,
-  `ObservacaoStatus` varchar(645) DEFAULT NULL,
-  `Boleto` text,
-  PRIMARY KEY (`IdTransacao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-*/
+        public int IdTransacao { get; set; }
+        public string GuidTransacao { get; set; }
+        public string Status { get; set; }
+        public int IdCotacao { get; set; }
+        public string Url { get; set; }
+        public string DataVencimento { get; set; }
+        public string IdExterno { get; set; }
+        public string DataEnvio { get; set; }
+        public int Parcelas { get; set; }
+        public string TipoPagamento { get; set; }
+        public string Observacao { get; set; }
+        public string ObservacaoStatus { get; set; }
+        public string Boleto { get; set; }
+ 
     }
 }

@@ -30,6 +30,5 @@ namespace Bsk.BE
         public string Status { get; set; }
         public string Email { get; set; }
         public string SellerID { get; set; }
-        public string PgZoopID { get; set; }
     }
 }

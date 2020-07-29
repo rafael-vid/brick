@@ -455,64 +455,64 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>07/18/2020 12:35:22</publishTime>
+      <publishTime>07/28/2020 21:16:09</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>07/18/2020 12:35:22</publishTime>
+      <publishTime>07/28/2020 21:16:09</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>07/18/2020 12:35:23</publishTime>
+      <publishTime>07/28/2020 21:16:09</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>07/18/2020 12:35:23</publishTime>
+      <publishTime>07/28/2020 21:16:09</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>07/18/2020 12:35:25</publishTime>
+      <publishTime>07/28/2020 21:16:11</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>07/18/2020 12:35:25</publishTime>
+      <publishTime>07/28/2020 21:16:11</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>07/24/2020 12:22:58</publishTime>
+      <publishTime>07/28/2020 21:17:01</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>07/24/2020 12:22:58</publishTime>
+      <publishTime>07/28/2020 21:17:01</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>07/18/2020 12:35:25</publishTime>
+      <publishTime>07/28/2020 21:16:10</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>07/18/2020 12:35:25</publishTime>
+      <publishTime>07/28/2020 21:16:10</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
-      <publishTime>07/09/2020 21:19:04</publishTime>
+      <publishTime>10/29/2018 13:44:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>11/30/2016 16:07:42</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.DependencyCollector.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>06/06/2016 15:40:16</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.PerfCounterCollector.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>06/06/2016 15:40:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.ServerTelemetryChannel.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>06/06/2016 10:45:24</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Web.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>06/06/2016 15:40:34</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.WindowsServer.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>06/06/2016 15:40:34</publishTime>
     </File>
     <File Include="bin/Microsoft.ApplicationInsights.dll">
-      <publishTime>07/09/2020 21:19:04</publishTime>
+      <publishTime>06/06/2016 10:42:24</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>08/31/2016 03:39:40</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>07/09/2020 21:19:11</publishTime>
+      <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
       <publishTime>04/20/2020 16:40:45</publishTime>
@@ -521,118 +521,118 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/18/2020 01:28:57</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/09/2020 21:19:13</publishTime>
+      <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
-      <publishTime>07/09/2020 21:19:14</publishTime>
+      <publishTime>10/15/2018 17:58:54</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe.config">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/csc.rsp">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/csi.exe">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/csi.rsp">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.AppContext.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe.config">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.rsp">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>07/09/2020 21:19:06</publishTime>
+      <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
-      <publishTime>07/09/2020 21:19:10</publishTime>
+      <publishTime>02/19/2015 20:10:46</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:02:42</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
-      <publishTime>07/09/2020 21:19:10</publishTime>
+      <publishTime>02/19/2015 20:10:46</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:03:04</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:02:18</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:02:32</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>07/09/2020 21:19:05</publishTime>
+      <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="Cliente/aguardando-pagamento.aspx">
       <publishTime>07/16/2020 15:26:35</publishTime>
@@ -647,7 +647,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/17/2020 18:25:17</publishTime>
     </File>
     <File Include="Cliente/cadastro.aspx">
-      <publishTime>07/15/2020 17:21:08</publishTime>
+      <publishTime>07/24/2020 12:59:53</publishTime>
     </File>
     <File Include="Cliente/cotacao-lista.aspx">
       <publishTime>07/17/2020 18:31:06</publishTime>
@@ -665,7 +665,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/css/master.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
+      <publishTime>07/23/2020 11:17:13</publishTime>
     </File>
     <File Include="Cliente/css/mobile.css">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -683,7 +683,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/17/2020 16:11:15</publishTime>
     </File>
     <File Include="Cliente/Html/avaliacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/13/2020 15:32:00</publishTime>
     </File>
     <File Include="Cliente/Html/cadastro.html">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -796,8 +796,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Cliente/Html/minhasCotacoes.html">
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
+    <File Include="Cliente/Html/nav.html">
+      <publishTime>07/24/2020 13:05:49</publishTime>
+    </File>
     <File Include="Cliente/Html/pagamento.html">
       <publishTime>07/09/2020 23:12:14</publishTime>
+    </File>
+    <File Include="Cliente/Html/pagamentoBoleto.html">
+      <publishTime>07/24/2020 13:05:49</publishTime>
+    </File>
+    <File Include="Cliente/Html/pagamentoCartao.html">
+      <publishTime>07/24/2020 13:05:49</publishTime>
     </File>
     <File Include="Cliente/Html/solicitaServico.html">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -920,7 +929,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/js/master.js">
-      <publishTime>07/13/2020 19:01:19</publishTime>
+      <publishTime>07/24/2020 12:41:28</publishTime>
     </File>
     <File Include="Cliente/js/rating.js">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -946,8 +955,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Cliente/negociar-cotacao.aspx">
       <publishTime>07/19/2020 12:27:03</publishTime>
     </File>
+    <File Include="Cliente/pagamento-boleto.aspx">
+      <publishTime>07/24/2020 16:09:44</publishTime>
+    </File>
+    <File Include="Cliente/pagamento-cartao.aspx">
+      <publishTime>07/28/2020 19:50:25</publishTime>
+    </File>
     <File Include="Cliente/pagamento.aspx">
-      <publishTime>07/23/2020 11:17:13</publishTime>
+      <publishTime>07/28/2020 18:12:13</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -992,7 +1007,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/16/2020 16:27:45</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>07/24/2020 13:01:25</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.html">
       <publishTime>06/30/2020 21:59:27</publishTime>
@@ -1445,7 +1460,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/18/2020 13:02:03</publishTime>
+      <publishTime>07/28/2020 21:16:22</publishTime>
     </File>
     <File Include="www/cadastro.html">
       <publishTime>07/09/2020 21:19:04</publishTime>

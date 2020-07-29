@@ -10,14 +10,15 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Cliente
 {
-    public partial class pagamento_boleto : System.Web.UI.Page
+    public partial class pagamento_cartao : System.Web.UI.Page
     {
         Bsk.Interface.core _core = new Interface.core();
         Bsk.BE.CotacaoBE CotacaoBE = new BE.CotacaoBE();
         Bsk.BE.CotacaoFornecedorBE CotacaoFornecedorBE = new BE.CotacaoFornecedorBE();
         BskPag bskPag = new BskPag();
-        ClienteBE clienteBE = new ClienteBE();
-        FornecedorBE fornecedorBE = new FornecedorBE();
+        Bsk.BE.ClienteBE clienteBE = new Bsk.BE.ClienteBE();
+        Bsk.BE.FornecedorBE fornecedorBE = new Bsk.BE.FornecedorBE();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
@@ -27,10 +28,17 @@ namespace Bsk.Site.Cliente
             {
                 Response.Redirect("minhas-cotacoes.aspx");
             }
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + login.IdCliente).FirstOrDefault();
+            if (Request.QueryString["Deleta"] != null)
+            {
+                cliente.MeioPagamento = "";
+                _core.Cliente_Update(cliente, "IdCliente="+cliente.IdCliente);
+                Response.Redirect("pagamento-cartao.aspx?Id="+Request.QueryString["Id"]);
+            }
 
             if (!IsPostBack)
             {
-                var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
                 nome.Value = login.Nome;
                 email.Value = login.Email;
                 cpf.Value = login.Cnpj;
@@ -43,10 +51,43 @@ namespace Bsk.Site.Cliente
                 cidade.Value = login.Municipio;
                 uf.Value = login.Uf;
                 valor.InnerText = String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor);
+
+
+                if (!String.IsNullOrEmpty(cliente.MeioPagamento))
+                {
+                    preencheDadosCartao(cliente);
+                }
+                else
+                {
+                    divCartao.Visible = false;
+                }
+
             }
         }
 
-        protected void btnGerar_ServerClick(object sender, EventArgs e)
+        private void preencheDadosCartao(ClienteBE cliente)
+        {
+            var ret = bskPag.ConsultaMeioPagamento(cliente);
+            var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
+            try
+            {
+                numeroCartao.Value = "**** **** **** " + retApi["ultimosDigitos"] + "      (" + retApi["bandeira"] + ")";
+                mes.Value = retApi["mes"];
+                ano.Value = retApi["ano"];
+                nomeCartao.Value = retApi["nome"];
+                codigo.Value = "***";
+                numeroCartao.Disabled = true;
+                mes.Disabled = true;
+                ano.Disabled = true;
+                codigo.Disabled = true;
+                nomeCartao.Disabled = true;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        protected void btnPagamento_ServerClick(object sender, EventArgs e)
         {
             lbMsg.InnerText = "";
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
@@ -58,57 +99,15 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-              
+                BskPag bskPag = new BskPag();
+                clienteBE = new Bsk.BE.ClienteBE();
+                fornecedorBE = new Bsk.BE.FornecedorBE();
                 var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
                 var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
                 string guidTransacao = Guid.NewGuid().ToString();
                 var vencimento = DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString("yyyy-MM-dd");
-                if (!String.IsNullOrEmpty(cliente.ZoopID))
-                {
-                    var retTran = bskPag.Transacao(cliente, vencimento, guidTransacao, "1", "B", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
-                    var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retTran);
 
-                    string status = "";
-                    string url = "";
-                    if (ret["status"] == "200")
-                    {
-                        status = "2";
-                        var msg = ret["mensagem"].ToString().Split(';');
-                        url = msg[1];
-                    }
-                    else
-                    {
-                        status = "3";
-                    }
-
-                    TransacaoBE transacaoBE = new TransacaoBE()
-                    {
-                        Boleto = "",
-                        DataEnvio = DateTime.Now.ToString("yyyy-MM-dd"),
-                        DataVencimento = vencimento,
-                        GuidTransacao = guidTransacao,
-                        IdCotacao = cotacao.IdCotacao,
-                        Observacao = $"Pagamento {cotacao.Titulo}",
-                        ObservacaoStatus = "",
-                        Parcelas = 1,
-                        Status = status,
-                        TipoPagamento = "Boleto",
-                        Url = url,
-                        IdExterno = ret["codigo"]
-                    };
-
-                    if (status == "2")
-                    { 
-                        _core.Transacao_Insert(transacaoBE);
-                        Response.Redirect("pagamento.aspxId=" + cotacao.IdCotacaoFornecedor);                       
-                    }
-                    else
-                    {
-                        lbMsg.InnerText = ret["mensagem"].ToString().Split(';')[0];
-                    }
-
-                }
-                else
+                if (String.IsNullOrEmpty(cliente.ZoopID))
                 {
                     Endereco endereco = new Endereco()
                     {
@@ -149,27 +148,49 @@ namespace Bsk.Site.Cliente
                     {
                         _core.Cliente_Update(cliente, "IdCliente=" + cotacao.IdCliente);
 
-                        bskPag.Transacao(cliente, DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString(), guidTransacao, "1", "B", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
+                    }
+                }
+
+                if (!String.IsNullOrEmpty(cliente.ZoopID))
+                {
+                    if (String.IsNullOrEmpty(cliente.MeioPagamento))
+                    {
+                        var cadastraCartao = bskPag.cadastraCartao(nomeCartao.Value, numeroCartao.Value, codigo.Value, mes.Value, ano.Value, cliente.IdCliente.ToString(), fornecedor.SellerID);
+                        if (!cadastraCartao.Contains("erro"))
+                        {
+                            cliente.MeioPagamento = cadastraCartao;
+                            _core.Cliente_Update(cliente, "IdCliente=" + cliente.IdCliente);
+                        }
+                        else
+                        {
+                            cliente.MeioPagamento = "";
+                        }
+
+                    }
 
 
-
-                        var tran = bskPag.Transacao(cliente, DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString(), guidTransacao, "1", "B", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
-                        var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(tran);
+                    if (String.IsNullOrEmpty(cliente.MeioPagamento))
+                    {
+                        lbMsg.InnerText = "Cartão inválido.";
+                    }
+                    else
+                    {
+                        var retTran = bskPag.Transacao(cliente, vencimento, guidTransacao, "1", "C", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
+                        var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retTran);
 
                         string status = "";
                         string url = "";
-                        if (obj["status"] == "200")
+                        if (ret["status"] == "200")
                         {
-                            status = "2";
-                            var msg = obj["mensagem"].ToString().Split(';');
-                            url = msg[1];
+                            status = "1";
+                            var msg = ret["mensagem"].ToString();
                         }
                         else
                         {
                             status = "3";
                         }
 
-                        TransacaoBE transacaoBE = new TransacaoBE()
+                        Bsk.BE.TransacaoBE transacaoBE = new Bsk.BE.TransacaoBE()
                         {
                             Boleto = "",
                             DataEnvio = DateTime.Now.ToString("yyyy-MM-dd"),
@@ -182,26 +203,38 @@ namespace Bsk.Site.Cliente
                             Status = status,
                             TipoPagamento = "Boleto",
                             Url = url,
-                            IdExterno = ""
+                            IdExterno = ret["codigo"]
                         };
 
-                        if (status == "2")
-                        { 
+                        if (status == "1")
+                        {
                             _core.Transacao_Insert(transacaoBE);
-                            Response.Redirect("pagamento.aspxId=" + cotacao.IdCotacaoFornecedor);                           
+                            cotacao.Status = StatusCotacao.EmAndamento;
+                            _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+                            Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);
                         }
                         else
                         {
-                            lbMsg.InnerText = obj["mensagem"].ToString().Split(';')[0];
+                            lbMsg.InnerText = ret["mensagem"].ToString().Split(';')[0];
                         }
-
                     }
-                    else
-                    {
-                        lbMsg.InnerText = "Dados inválidos, por favor confira seus dados cadastrais e tente novamente.";
-                    }
-
                 }
+                else
+                {
+                    lbMsg.InnerText = "Não foi possível completar a transação. Por favor confira seus dados cadastrais e tente novamente.";
+                }
+            }
+        }
+
+        private bool validaCartao(BE.ClienteBE cliente)
+        {
+            if (String.IsNullOrEmpty(cliente.MeioPagamento))
+            {
+                return false;
+            }
+            else
+            {
+                return false;
             }
         }
     }

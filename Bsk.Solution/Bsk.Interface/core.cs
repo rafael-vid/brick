@@ -534,5 +534,36 @@ namespace Bsk.Interface
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }
+
+        ////////////////////////////////////////////// Transacao ////////////////////////////////////////////////////////////
+        public List<TransacaoBE> Transacao_Get(TransacaoBE lg, string _filtro)
+        {
+            List<TransacaoBE> Lista_lg = new List<TransacaoBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<TransacaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Transacao_Insert(TransacaoBE lg)
+        {
+            List<TransacaoBE> Lista_lg = new List<TransacaoBE>();
+
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Transacao_Update(TransacaoBE lg, string filtro)
+        {
+            List<TransacaoBE> Lista_lg = new List<TransacaoBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Transacao_Delete(TransacaoBE lg)
+        {
+            List<TransacaoBE> Lista_lg = new List<TransacaoBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
+
     }
 }

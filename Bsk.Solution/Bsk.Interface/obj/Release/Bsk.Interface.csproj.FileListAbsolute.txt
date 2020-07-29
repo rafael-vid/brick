@@ -1,38 +1,22 @@
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.pdb
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\MySql.Data.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.pdb
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.pdb
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.xml
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.xml
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csprojAssemblyReference.cache
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CoreCompileInputs.cache
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
-C:\Projetos\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\MySql.Data.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Comtele.Sdk.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\netstandard.dll
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.xml
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.xml
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.xml
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csprojAssemblyReference.cache
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CoreCompileInputs.cache
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.dll
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Comtele.Sdk.dll
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\netstandard.dll
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.dll
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.pdb
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.xml

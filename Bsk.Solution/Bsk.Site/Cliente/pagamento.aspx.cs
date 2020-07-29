@@ -5,6 +5,7 @@ using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,14 +18,40 @@ namespace Bsk.Site.Cliente
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
         FornecedorBE _FornecedorBE = new FornecedorBE();
+        TransacaoBE _TransacaoBE = new TransacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
 
-            if (cotacao.Status != Bsk.Util.StatusCotacao.AguardandoPagamento)
+            var transacao = _core.Transacao_Get(_TransacaoBE, " Status=1 AND IdCotacao=" + cotacao.IdCotacao).FirstOrDefault();
+
+            if (transacao != null)
             {
-                Response.Redirect("minhas-cotacoes.aspx");
+                divPagamento.Visible = false;
+                BskPag bskPag = new BskPag();
+                var recibo = bskPag.RenderizaRecibo(transacao.IdExterno);
+                WebClient cl = new WebClient();
+                try
+                {
+                    ltRecibo.Text = cl.DownloadString(recibo.ToString());
+                }
+                catch (Exception)
+                {
+
+                }
+
+            }
+            else
+            {
+                var tran = _core.Transacao_Get(_TransacaoBE, " Status=2 AND IdCotacao=" + cotacao.IdCotacao);
+
+                if (tran.Count > 0)
+                {
+                    divPagamento.Visible = false;
+                    WebClient cl = new WebClient();
+                    ltBoleto.Text = cl.DownloadString(tran.LastOrDefault().Url);
+                }
             }
 
             var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
@@ -37,7 +64,7 @@ namespace Bsk.Site.Cliente
 
         protected void btnBoleto_ServerClick(object sender, EventArgs e)
         {
-            
+
             //pagaCotacao();
         }
 
@@ -71,7 +98,7 @@ namespace Bsk.Site.Cliente
 
         protected void btnCartao_ServerClick(object sender, EventArgs e)
         {
-            
+
         }
     }
 }
