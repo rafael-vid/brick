@@ -11,7 +11,7 @@ namespace Bsk.Site.Cliente
 {
 
 
-    public partial class pagamento_boleto
+    public partial class perfil
     {
 
         /// <summary>
@@ -121,32 +121,5 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnAlterar;
-
-        /// <summary>
-        /// valor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl valor;
-
-        /// <summary>
-        /// btnGerar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnGerar;
-
-        /// <summary>
-        /// lbMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbMsg;
     }
 }

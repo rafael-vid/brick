@@ -124,7 +124,10 @@
                     <a href="finalizado.aspx">
                         <img src="img/status/finalizado.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
-
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <a href="perfil.aspx">
+                        <img src="img/status/perfil.jpg" class="img-responsive" width="100%" /></a>
+                </div>
 
                 <%--<div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <img src="img/perfil.jpg" class="img-responsive cadastrar" width="100%" alt="">

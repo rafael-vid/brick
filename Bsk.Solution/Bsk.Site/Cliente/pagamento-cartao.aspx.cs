@@ -237,5 +237,10 @@ namespace Bsk.Site.Cliente
                 return false;
             }
         }
+
+        protected void btnAlterar_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("perfil.aspx?Red=pagamento-cartao&Id=" + Request.QueryString["Id"]);
+        }
     }
 }

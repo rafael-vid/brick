@@ -231,6 +231,7 @@
     <Content Include="Cliente\img\estrelas\4.png" />
     <Content Include="Cliente\img\estrelas\5.png" />
     <Content Include="Cliente\img\Exclamation-icon.png" />
+    <Content Include="Cliente\img\status\perfil.jpg" />
     <Content Include="Cliente\img\status\semImagem.jpg" />
     <Content Include="Cliente\img\status\emAndamento.jpeg" />
     <Content Include="Cliente\img\status\buscarCotacao.jpeg" />
@@ -276,6 +277,7 @@
     <Content Include="Cliente\pagamento-boleto.aspx" />
     <Content Include="Cliente\pagamento-cartao.aspx" />
     <Content Include="Cliente\pagamento.aspx" />
+    <Content Include="Cliente\perfil.aspx" />
     <Content Include="Fornecedor\aguardando-aceite.aspx" />
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
     <Content Include="Fornecedor\avaliar.aspx" />
@@ -693,6 +695,13 @@
     </Compile>
     <Compile Include="Cliente\pagamento.aspx.designer.cs">
       <DependentUpon>pagamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\perfil.aspx.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\perfil.aspx.designer.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />

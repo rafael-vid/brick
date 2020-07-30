@@ -49,6 +49,8 @@
                     <input type="text" class="form-control" id="uf" runat="server" placeholder="UF" disabled>
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                <button class="btn btn-brikk btn-lg center-block" style="float: right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick">Alterar dados</button>
+
             </div>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">

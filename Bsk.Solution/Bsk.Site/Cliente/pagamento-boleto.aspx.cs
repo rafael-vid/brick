@@ -204,5 +204,10 @@ namespace Bsk.Site.Cliente
                 }
             }
         }
+
+        protected void btnAlterar_ServerClick(object sender, EventArgs e)
+        {
+            Response.Redirect("perfil.aspx?Red=pagamento-boleto&Id="+Request.QueryString["Id"]);
+        }
     }
 }

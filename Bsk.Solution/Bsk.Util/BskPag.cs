@@ -50,7 +50,7 @@ namespace Bsk.Util
                           'DataVencimento': '" + DateTime.Parse(data).ToString("yyyy-MM-dd") + @"',
                           'ValorTransacao': '" + valorTransacao.Replace(".", "#").Replace(",", ".").Replace("#", "") + @"',
                           'IdSeller': '" + seller.SellerID + @"',
-                          'Empresa': '"+seller.RazaoSocial+@"',
+                          'Empresa': '" + seller.RazaoSocial + @"',
                           'TipoPagamento': '" + tp + @"',
                           'IdBuyer': '" + item.IdCliente + @"',
                           'Email': '" + item.Email + @"',
@@ -138,10 +138,6 @@ namespace Bsk.Util
                     var BuyerId = requestBuyer["BuyerID"].ToString();
                     var RequestEndereco = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(CadastrarEnderecoCobrancaBuyer(usuario.Enderecos[0], BuyerId, autentica));
 
-                    //if (RequestEndereco)
-                    //{
-
-                    //}
                     return IntegrarBuyer(BuyerId, usuario.IdUsuario.ToString(), autentica, seller);
                 }
                 else
