@@ -100,7 +100,7 @@ namespace Bsk.Site.Cliente
                     if (status == "2")
                     { 
                         _core.Transacao_Insert(transacaoBE);
-                        Response.Redirect("pagamento.aspxId=" + cotacao.IdCotacaoFornecedor);                       
+                        Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);                       
                     }
                     else
                     {
@@ -188,7 +188,7 @@ namespace Bsk.Site.Cliente
                         if (status == "2")
                         { 
                             _core.Transacao_Insert(transacaoBE);
-                            Response.Redirect("pagamento.aspxId=" + cotacao.IdCotacaoFornecedor);                           
+                            Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);                           
                         }
                         else
                         {

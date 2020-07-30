@@ -84,3 +84,4 @@ D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Site\obj\Release\Bsk.S
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Site\obj\Release\Bsk.Site.csproj.CopyComplete
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Site\obj\Release\Bsk.Site.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Site\obj\Release\Bsk.Site.pdb
+D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Site\bin\System.Net.Http.dll

@@ -100,11 +100,9 @@ D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\Bsk.B
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\Comtele.Sdk.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\Newtonsoft.Json.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\RestSharp.dll
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\System.Net.Http.Formatting.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\Bsk.BE.pdb
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\Newtonsoft.Json.xml
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\RestSharp.xml
-D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\bin\Release\System.Net.Http.Formatting.xml
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\obj\Release\Bsk.Util.csprojAssemblyReference.cache
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\obj\Release\Bsk.Util.csproj.CoreCompileInputs.cache
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Util\obj\Release\Bsk.Util.csproj.CopyComplete
