@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  validateRequest="false" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 
 
@@ -6,28 +6,21 @@
 
     <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
+        <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" id="divUpload" runat="server">
-                <button type="button" id="btnVideo" class="btn btn-upload">
-                    <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
-
-                <button type="button" id="btnAnexo" class="btn btn-upload">
-                    <img src="img/upload.png" alt="">&nbsp;&nbsp;Anexar Arquivos</button>
-
-                <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" />
-                <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" />
-
-                <!-- <div class="btn record-audio" title='Enviar um áudio'> 🎤 </div>
-                <div class="btn start-video" title='Câmera'>Câmera</div>
-                <div class="btn stop-video" title='Stop'>Parar</div>
-                <div class="btn take-picture" title='Tirar uma foto'> 📷 </div>
-                <div class="btn record-video" title='Gravar vídeo'> ⏺ </div>
-
-                <video src="" id="videoFeed" autoplay></video>
-                <canvas id="picture-canvas"></canvas> -->
-
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button type="button" class="btn btn-primary btn-lg pull-right" id="btnSubmeter" onclick="cadastrar();" runat="server">
+                    Solicitar cotações para nossos parceiros
+                </button>
             </div>
-            <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnSubmeter" onclick="cadastrar();" runat="server">Submeter serviço</button>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" id="alerts" runat="server">
+                <div class="alert alert-success alert-dismissible" role="alert" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Legal!!</strong> Agora você já pode solicitar uma cotação para nossos paceiros e aproveitar as melhores ofertas
+                </div>
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Título</h3>
                 <input type="text" class="form-control" id="titulo" runat="server">
@@ -38,7 +31,40 @@
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick" style="width: 100%;">Salvar dados para cotação</button>
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
+                    <button type="button" id="btnVideo" class="btn btn-upload">
+                        <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
+
+                    <button type="button" id="btnAnexo" class="btn btn-upload">
+                        <img src="img/upload.png" alt="">&nbsp;&nbsp;Anexar Arquivos</button>
+
+                    <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" />
+                    <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" />
+
+                    <!-- <div class="btn record-audio" title='Enviar um áudio'> 🎤 </div>
+                <div class="btn start-video" title='Câmera'>Câmera</div>
+                <div class="btn stop-video" title='Stop'>Parar</div>
+                <div class="btn take-picture" title='Tirar uma foto'> 📷 </div>
+                <div class="btn record-video" title='Gravar vídeo'> ⏺ </div>
+
+                <video src="" id="videoFeed" autoplay></video>
+                <canvas id="picture-canvas"></canvas> -->
+
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" id="alerts2" runat="server">
+                    <div class="alert alert-success alert-dismissible" role="alert" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>Legal!!</strong> Agora você já pode anexar arquivos para facilitar o entendimento de sua solicitação
+                    </div>
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <h3>Arquivos anexos</h3>
+
+                <hr style="width: 100%;" />
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                     <thead>
                         <tr class="linha1">
@@ -62,8 +88,7 @@
                                 <% }
                                     else
                                     {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                 <% } %>
                             </td>
                         </tr>
@@ -73,13 +98,10 @@
                     </tbody>
                 </table>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick">Salvar dados</button>&nbsp;
-                    
-                </div>
+
             </div>
         </div>
-
+        <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
     </div>
     <script>
 
@@ -121,6 +143,9 @@
                 $(".flpVideo").click();
             });
 
+            if (comum.queryString("Cotacao") != undefined && comum.queryString("Cotacao") != "") {
+                $('.alert').slideToggle('slow');
+            }
         });
     </script>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="negociar-cotacao.aspx.cs" validateRequest="false" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="negociar-cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 
 
@@ -10,8 +10,7 @@
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <h2 class="tableTitle">
                 <p>Prestador de Serviço:</p>
-                <br>
-                <asp:Label ID="prestador" runat="server" Text=""></asp:Label>
+                <div id="parceiro" runat="server" text=""></div>
             </h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>
@@ -19,8 +18,25 @@
                 </h3>
             </div>
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 boxDesc">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size: 18px; line-height: 30px;">
                 <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
+                    <h2>
+                        <strong>
+                            <p>Data entrega: <strong id="dataEntrega" runat="server" text=""></strong></p>
+                        </strong>
+                    </h2>
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+                    <h2>
+                        <strong>
+                            <p>Valor do serviço: <strong id="vlr" runat="server" text=""></strong></p>
+                        </strong>
+                    </h2>
+                </div>
+                <br />
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
@@ -32,91 +48,73 @@
                     <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
+
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0" id="descricaoHide" runat="server">
                 <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
-                <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width: 100%;">Enviar</button>
             </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
-                <h2>
-                    <strong>
-                        <p>Data entrega:</p>
-                        <br>
-                        <asp:Label ID="entrega" runat="server" Text=""></asp:Label>
-                    </strong>
-                </h2>
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
-                <h2>
-                    <strong>
-                        <p>Valor do serviço:</p>
-                        <br>
-                        <asp:Label ID="valor" runat="server" Text=""></asp:Label>
-                    </strong>
-                </h2>
-            </div>
-            <br />
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divAceitar" runat="server">
-                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar">
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divTerminado" runat="server">
-                <span class="tableTitle">O fornecedor alegou ter terminado o serviço.</span>
-                <br />
-                <br />
-                &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;                
-                 <input type="button" class="btn btn-brikk btn-lg" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
-                 <input type="button" class="btn btn-brikk btn-lg" onclick="terminar('1');" value="Aceitar">
-            </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>Últimas Perguntas</h3>
-            </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h3 style="margin-top: 0; border-bottom: 1px solid #b8272c;">Mensagens</h3>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
+                    <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                        O fornecedor alegou ter terminado o serviço.</span><br />
+                    <br />
+                    <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
+                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
+                    <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                        Gostaria de aceitar a oferta deste Parceiro?.</span><br />
+                    <br />
+                    <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-                <%
-                    var chat = CarregaChat();
+                    <%
+                        var chat = CarregaChat();
 
-                    var cliente = @"<!--CLIENTE-->
-                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
-                <div class='mensagem boxDesc pull-left'>
+                        var cliente = @"<!--CLIENTE-->
+                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
                     {{CLIENTEMSG}}
                 </div>
                 <!--FIM CLIENTE-->";
 
-                    var fornecedor = @"<!--FORNECEDOR-->
-                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
-                <div class='mensagem boxDesc pull-right'>
+                        var fornecedor = @"<!--FORNECEDOR-->
+                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
                     {{FORNECEDORMSG}}
                 </div>
                 <!--FIM FORNECEDOR-->";
 
-                    var conteudo = "";
-                    foreach (var item in chat)
-                    {
-                        var arquivo = "";
-                        if (!String.IsNullOrEmpty(item.Arquivo))
-                            arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+                        var conteudo = "";
+                        foreach (var item in chat)
+                        {
+                            var arquivo = "";
+                            if (!String.IsNullOrEmpty(item.Arquivo))
+                                arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
 
-                        var video = "";
-                        if (!String.IsNullOrEmpty(item.Video))
-                            video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+                            var video = "";
+                            if (!String.IsNullOrEmpty(item.Video))
+                                video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
 
 
-                        if (item.IdCliente == 0)
-                            conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                        else
-                            conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                %>
+                            if (item.IdCliente == 0)
+                                conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                            else
+                                conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                    %>
 
-                <!--CLIENTE-->
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <%Response.Write(conteudo);%>
-                <!--FIM CLIENTE-->
+                    <!--CLIENTE-->
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                    <%Response.Write(conteudo);%>
+                    <!--FIM CLIENTE-->
 
-                <%
-                    }
-                %>
+                    <%
+                        }
+                    %>
+                </div>
             </div>
+
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         </div>
 
 

@@ -92,7 +92,7 @@ body {
 .btn-menu {
     position: absolute;
     right: -5px;
-    top: 10px;
+    top: 0px;
     font-size: 25px;
     color: #b8272c;
     cursor: pointer;
@@ -185,7 +185,11 @@ h3 {
 }
 
 .mensagem {
-    width: 60%;
+    width: 90%;
+    border: none!important;
+    box-shadow: 1px 1px 3px #ccc;
+    margin: 0!important;
+    padding: 15px!important;
 }
 .botaoPagamento {
     border: none!important;

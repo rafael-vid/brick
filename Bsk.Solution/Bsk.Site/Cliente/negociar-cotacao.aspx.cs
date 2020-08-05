@@ -56,19 +56,20 @@ namespace Bsk.Site.Cliente
                         btnEnviar.Visible = false;
                         divUpload.Visible = false;
                         msg.Visible = false;
+                        descricaoHide.Visible = false;
                     }
 
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
-                    valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
+                    vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
                     try
                     {
-                        entrega.Text = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
+                        dataEntrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
                     }
                     catch (Exception)
                     {
-                        entrega.Text = cotacaoFornecedor.DataEntrega;
+                        dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
                     }
 
 
@@ -90,7 +91,7 @@ namespace Bsk.Site.Cliente
                 var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
                 if (fornecedor != null)
                 {
-                    prestador.Text = fornecedor.RazaoSocial;
+                    parceiro.InnerText = fornecedor.RazaoSocial;
                 }
 
             }
