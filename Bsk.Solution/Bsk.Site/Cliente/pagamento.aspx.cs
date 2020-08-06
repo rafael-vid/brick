@@ -56,8 +56,8 @@ namespace Bsk.Site.Cliente
 
             var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
             nrCotacao.Text = cotacao.IdCotacao.ToString();
-            titulo.Text = cotacao.Titulo;
-            valor.Text = cotacaoFornecedor.Valor.ToString();
+            tituloServ.InnerText = cotacao.Titulo;
+            valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
             fornecedorNome.InnerText = fornecedor.NomeFantasia;
 
         }

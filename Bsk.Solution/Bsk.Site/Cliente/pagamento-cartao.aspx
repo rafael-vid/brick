@@ -4,11 +4,14 @@
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pagamento Cartão de Crédito&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <p>Confira seus dados pessoais e o valor, informe os dados do cartão e se tudo estiver correto clique em "Gerar Boleto"</p>
         <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h2>Dados Pessoais</h2>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" style="width: 100%;">
+                    Confira seus dados pessoais, dados do cartão de crédito e o valor e se tudo estiver correto clique em "Finalizar Pagamento"
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
                     <input type="text" class="form-control" id="nome" runat="server" placeholder="Nome" disabled>
                 </div>

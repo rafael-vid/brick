@@ -4,10 +4,13 @@
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pagamento Boleto&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <p>Confira seus dados pessoais e o valor e se tudo estiver correto clique em "Gerar Boleto"</p>
         <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" style="width: 100%;">
+                    Confira seus dados pessoais e o valor e se tudo estiver correto clique em "Gerar Boleto"
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <h2>Dados Pessoais</h2>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
                     <input type="text" class="form-control" id="nome" placeholder="Nome" runat="server" disabled>
@@ -49,8 +52,8 @@
                     <input type="text" class="form-control" id="uf" placeholder="UF" runat="server" disabled>
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                  <button class="btn btn-brikk btn-lg center-block" style="float:right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick" >Alterar dados</button>
-              
+                <button class="btn btn-brikk btn-lg center-block" style="float: right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick">Alterar dados</button>
+
             </div>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">

@@ -38,55 +38,55 @@ body {
     margin-bottom: 20px;
 }
 
-.corpo-site h2 {
-    text-align: center;
-    width: 100%;
-    color: #b8272c;
-}
+    .corpo-site h2 {
+        text-align: center;
+        width: 100%;
+        color: #b8272c;
+    }
 
 .link-brikk {
-    color: #b8272c!important;
+    color: #b8272c !important;
     font-weight: bold;
 }
 
 .link-brikk {
-    color: #b8272c!important;
+    color: #b8272c !important;
     font-weight: bold;
-    text-decoration: none!important;
+    text-decoration: none !important;
 }
 
 .corpo-site h2 span {
     text-decoration: line-through;
     color: #b8272c;
-    letter-spacing: 10px!important;
+    letter-spacing: 10px !important;
 }
 
 .btn-brikk {
-    background: #b8272c!important;
+    background: #b8272c !important;
     border-radius: 5px;
     color: #fff;
 }
 
-.btn-brikk:hover {
-    background: #b8272c!important;
-    border-radius: 5px;
-    color: #fff;
-}
+    .btn-brikk:hover {
+        background: #b8272c !important;
+        border-radius: 5px;
+        color: #fff;
+    }
 
 .pd-0 {
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .l100 {
-    width: 100%!important;
+    width: 100% !important;
 }
 
 .pdl-0 {
-    padding-left: 0px!important;
+    padding-left: 0px !important;
 }
 
 .pdr-0 {
-    padding-right: 0px!important;
+    padding-right: 0px !important;
 }
 
 .btn-menu {
@@ -107,12 +107,12 @@ body {
 }
 
 .mr-20 {
-    margin-right: 20px!important;
+    margin-right: 20px !important;
 }
 
 .menuAberto {
-    width: 100%!important;
-    height: 100%!important;
+    width: 100% !important;
+    height: 100% !important;
     position: fixed;
     left: 0;
     top: 0;
@@ -122,8 +122,8 @@ body {
 }
 
 .menuFechado {
-    width: 100%!important;
-    height: 100%!important;
+    width: 100% !important;
+    height: 100% !important;
     position: fixed;
     left: 100%;
     top: 0;
@@ -144,13 +144,13 @@ body {
 
 .corpo-site h2.tableTitle {
     width: 100%;
-    text-align: left!important;
+    text-align: left !important;
 }
 
-.corpo-site h2.tableTitle p {
-    font-size: 20px;
-    color: #b8272c;
-}
+    .corpo-site h2.tableTitle p {
+        font-size: 20px;
+        color: #b8272c;
+    }
 
 .boxDesc {
     padding: 5px;
@@ -186,12 +186,39 @@ h3 {
 
 .mensagem {
     width: 90%;
-    border: none!important;
+    border: none !important;
     box-shadow: 1px 1px 3px #ccc;
-    margin: 0!important;
-    padding: 15px!important;
+    margin: 0 !important;
+    padding: 15px !important;
 }
+
 .botaoPagamento {
-    border: none!important;
-    background: transparent!important;
-} 
+    border: none !important;
+    background: transparent !important;
+}
+
+.notaFiscal {
+    background: #fffdce;
+    box-shadow: -10px 10px 16px;
+}
+
+.borda {
+    border-bottom: 1px solid #ccc;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e9e9e9;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #b8272c;
+        cursor: pointer;
+    }
