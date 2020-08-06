@@ -40,7 +40,7 @@
             <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <a href="cadastro-cotacao.aspx?Id=<%Response.Write(item.IdCategoria); %>">
                     <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
-                    <h3><%Response.Write(item.Nome); %></h3>
+                    <h3 class="tituloServico"><%Response.Write(item.Nome); %></h3>
                 </a>
             </div>
             <%}
