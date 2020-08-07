@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h3 class="tableTitle">Minhas cotações em negociação</h3>
+        <h2 class="tableTitle">Minhas cotações em negociação</h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">

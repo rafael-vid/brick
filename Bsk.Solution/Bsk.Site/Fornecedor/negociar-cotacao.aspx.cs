@@ -50,6 +50,7 @@ namespace Bsk.Site.Fornecedor
                         btnEnviar.Visible = false;
                         divUpload.Visible = false;
                         msg.Visible = false;
+                        comentarios.Visible = false;
                     }
 
                     if (!IsPostBack)
@@ -59,14 +60,14 @@ namespace Bsk.Site.Fornecedor
                     }
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
-                    valor.Text = string.Format("{0:C}", cotacaoFornecedor.Valor);
+                    valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
                     try
                     {
-                        entrega.Text = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
+                        entrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
                     }
                     catch (Exception)
                     {
-                        entrega.Text = cotacaoFornecedor.DataEntrega;
+                        entrega.InnerText = cotacaoFornecedor.DataEntrega;
                     }
                     
 
@@ -92,7 +93,7 @@ namespace Bsk.Site.Fornecedor
                 var cliente = _core.Cliente_Get(_ClienteBE, $" IdCliente={cotacao.IdCliente.ToString()}").FirstOrDefault();
                 if (cliente != null)
                 {
-                    prestador.Text = cliente.Nome;
+                    ClienteServ.InnerText = cliente.Nome;
                 }
             }
         }

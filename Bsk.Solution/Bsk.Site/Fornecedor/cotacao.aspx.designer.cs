@@ -30,7 +30,7 @@ namespace Bsk.Site.Fornecedor
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText titulo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titulo;
 
         /// <summary>
         /// descricao control.
@@ -39,7 +39,7 @@ namespace Bsk.Site.Fornecedor
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea descricao;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descricao;
 
         /// <summary>
         /// btnAdicionar control.

@@ -3,15 +3,16 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
      <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h1>Cotação: <span id="nrCotacao" runat="server"></span></h1>
+        <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
+            <h2>Cotação: <strong id="nrCotacao" runat="server"></strong></h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Título</h3>
-                <input type="text" class="form-control" id="titulo" runat="server" readonly>
+                <span id="titulo" runat="server"></span>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>Descreva sua necessidade</h3>
-                <textarea class="form-control" cols="30" rows="10" id="descricao" runat="server" readonly></textarea>
+                <h3>Descrição do serviço</h3>
+                <p id="descricao" runat="server"></p>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -34,12 +35,12 @@
                                 <%if (item.Tipo == "Anexo"||item.Tipo == "Documento")
                                     {%>
                                 <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                    Visualizar</a>
                                 <% }
                                     else
                                     {%>
                                 <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                    Visualizar</a>
                                 <% } %>
                             </td>
                         </tr>
@@ -56,7 +57,7 @@
             
             </div>
         </div>
-
+        <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
     </div>
     <script>
 

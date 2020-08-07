@@ -19,8 +19,8 @@ namespace Bsk.Site.Fornecedor
         protected void Page_Load(object sender, EventArgs e)
         {
             var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
-            titulo.Value = cotacao.Titulo;
-            descricao.Value = cotacao.Descricao;
+            titulo.InnerText = cotacao.Titulo;
+            descricao.InnerText = cotacao.Descricao;
             nrCotacao.InnerText = cotacao.IdCotacao.ToString();
 
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);

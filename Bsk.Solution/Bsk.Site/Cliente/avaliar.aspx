@@ -35,11 +35,13 @@
         </div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-            <a href="" class="pull-right link-brikk hidden-sm hidden-xs mr-20"><%
-                                                                                   var usuario = RetornaUsuario();
-                                                                                   Response.Write(usuario.Nome);
-            %></a>
-            <a href="" class="text-center link-brikk hidden-lg hidden-md">Olá Amiguinho</a>
+            <a href="" class="pull-right link-brikk hidden-sm hidden-xs mr-20">
+                <%var usuario = RetornaUsuario();
+                Response.Write(usuario.Nome);%>
+            </a>
+            <a href="" class="text-center link-brikk hidden-lg hidden-md">
+               Olá
+            </a>
             <i class="glyphicon glyphicon-menu-hamburger btn-menu pull-right" title="MENU"></i>
         </div>
 
@@ -59,9 +61,10 @@
                     <h3>Título da prestação de serviço: <%Response.Write(cot.Titulo); %></h3>
                 </div>
 
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 boxDesc">
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <%Response.Write(cot.Descricao); %>
                 </div>
+                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                     <%if (cot.Nota == 0)
                         {%>
@@ -75,14 +78,14 @@
 
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
-                    <textarea name="" id="depoimento" class="form-control" cols="30" runat="server" rows="10"></textarea><br>
+                    <h3>Comentário</h3>
+                    <p name="" id="depoimento" runat="server"></p><br>
                     <button class="btn btn-brikk btn-lg center-block" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar Depoimento</button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
                     <h2>
                         <strong>
                             <p>Data término:</p>
-                            <br>
                             <%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %>
                         </strong>
                     </h2>

@@ -6,12 +6,13 @@
 
     <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
+        <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Negociação<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <h2 class="tableTitle">
                 <p>Cliente:</p>
-                <br>
-                <asp:Label ID="prestador" runat="server" Text=""></asp:Label>
+                <div id="ClienteServ" runat="server" Text=""></div>
             </h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>
@@ -19,8 +20,24 @@
                 </h3>
             </div>
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 boxDesc">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size: 18px; line-height: 30px;">
                 <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divValor" runat="server">
+              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
+                <h2>
+                    <strong>
+                        <p>Data entrega: <strong id="entrega" runat="server" Text=""></strong></p>
+                    </strong>
+                </h2>
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+                <h2>
+                    <strong>
+                        <p>Valor do serviço: <strong id="valor" runat="server" Text=""></strong></p>
+                    </strong>
+                </h2>
+            </div>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
@@ -32,64 +49,30 @@
                     <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0" id="comentarios" runat="server">
                 <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
-                <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width: 100%;">Enviar</button>
             </div>
-
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
-                <label>Informe uma data para terminar o serviço</label>
-                <input type="date" class="from-control" id="dataEntrega" runat="server" />
-                <label>Informe o valor que você vai cobrar pelo serviço</label>
-                <input type="number" class="from-control" id="valorServico" runat="server" /><br /><br />
-
-                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvarDados" onserverclick="btnSalvarDados_ServerClick" runat="server">Salvar dados do serviço</button>
-            </div>
-            <div  id="divValor" runat="server">
-              <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
-                <h2>
-                    <strong>
-                        <p>Data entrega:</p>
-                        <br>
-                        <asp:Label ID="entrega" runat="server" Text=""></asp:Label>
-                    </strong>
-                </h2>
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
-                <h2>
-                    <strong>
-                        <p>Valor do serviço:</p>
-                        <br>
-                        <asp:Label ID="valor" runat="server" Text=""></asp:Label>
-                    </strong>
-                </h2>
-            </div>
-            </div>
-            <br />
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" id="divTerminar" runat="server">
-                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término">
-            </div>
-
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" style="height: 379px; overflow-y: scroll;">
+                <h3 style="margin-top: 0; border-bottom: 1px solid #b8272c;">Mensagens:</h3>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h3>Últimas Perguntas</h3>
-            </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminar" runat="server" style="width: 100%;">
+                    <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                        <strong>Legal!!</strong> Agora falta pouco para concluirem. Informe seu cliente que o serviço já foi finalizado.<br />Uma dica, se possível envie uma foto para ele. Assim fica mais fácil para todos.</span><br />
+                    <br />
+                    <input type="button" class="btn btn-success btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término" style="width: 100%;">
+                </div>
                 <%
                     var chat = CarregaChat();
 
                     var cliente = @"<!--CLIENTE-->
-                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
-                <div class='mensagem boxDesc pull-left'>
+                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
                     {{CLIENTEMSG}}
                 </div>
                 <!--FIM CLIENTE-->";
 
                     var fornecedor = @"<!--FORNECEDOR-->
-                <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>
-                <div class='mensagem boxDesc pull-right'>
+                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
                     {{FORNECEDORMSG}}
                 </div>
                 <!--FIM FORNECEDOR-->";
@@ -120,6 +103,15 @@
                 <%
                     }
                 %>
+            </div>
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
+                <label>Informe uma data para terminar o serviço</label>
+                <input type="date" class="from-control" id="dataEntrega" runat="server" />
+                <label>Informe o valor que você vai cobrar pelo serviço</label>
+                <input type="number" class="from-control" id="valorServico" runat="server" /><br /><br />
+
+                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvarDados" onserverclick="btnSalvarDados_ServerClick" runat="server">Salvar dados do serviço</button>
             </div>
         </div>
 

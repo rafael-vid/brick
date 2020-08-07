@@ -15,13 +15,13 @@ namespace Bsk.Site.Fornecedor
     {
 
         /// <summary>
-        /// prestador control.
+        /// ClienteServ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prestador;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClienteServ;
 
         /// <summary>
         /// titulo control.
@@ -40,6 +40,33 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label descricao;
+
+        /// <summary>
+        /// divValor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divValor;
+
+        /// <summary>
+        /// entrega control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl entrega;
+
+        /// <summary>
+        /// valor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl valor;
 
         /// <summary>
         /// divUpload control.
@@ -69,6 +96,15 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.WebControls.FileUpload flpVideo;
 
         /// <summary>
+        /// comentarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comentarios;
+
+        /// <summary>
         /// msg control.
         /// </summary>
         /// <remarks>
@@ -85,6 +121,15 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
+
+        /// <summary>
+        /// divTerminar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminar;
 
         /// <summary>
         /// divDadosCobranca control.
@@ -121,41 +166,5 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvarDados;
-
-        /// <summary>
-        /// divValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divValor;
-
-        /// <summary>
-        /// entrega control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label entrega;
-
-        /// <summary>
-        /// valor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label valor;
-
-        /// <summary>
-        /// divTerminar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminar;
     }
 }

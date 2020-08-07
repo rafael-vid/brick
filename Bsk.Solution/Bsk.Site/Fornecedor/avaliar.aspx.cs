@@ -40,7 +40,7 @@ namespace Bsk.Site.Fornecedor
         public CotacaoAvaliacaoFornecedorModel PegaCotacao()
         {
             CotacaoAvaliacaoFornecedorModel cotacao = _core.Cotacao_Avaliacao_Fornecedor_Get(Request.QueryString["Id"]);
-            depoimento.Value = cotacao.Observacao;
+            depoimento.InnerText = cotacao.Observacao;
 
             if (!String.IsNullOrEmpty(cotacao.Observacao))
             {
@@ -54,7 +54,7 @@ namespace Bsk.Site.Fornecedor
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor="+Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
-            cotacao.Observacao = depoimento.Value;
+            cotacao.Observacao = depoimento.InnerText;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
             Response.Redirect("finalizado.aspx");
         }
