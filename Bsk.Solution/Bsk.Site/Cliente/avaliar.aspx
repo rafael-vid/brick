@@ -79,7 +79,7 @@
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
                     <h3>Comentário</h3>
-                    <p name="" id="depoimento" runat="server"></p><br>
+                    <textarea name="" id="depoimentoCliente" class="form-control" rows="8" runat="server"></textarea><br>
                     <button class="btn btn-brikk btn-lg center-block" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar Depoimento</button>
                 </div>
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">

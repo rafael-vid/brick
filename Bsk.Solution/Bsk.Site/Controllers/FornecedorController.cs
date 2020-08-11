@@ -22,9 +22,20 @@ namespace Bsk.Site.Controllers
 
             try
             {
+                var fornecCnpj = _core.Fornecedor_Get(_FornecedorBE, $"Cnpj='{_fornecedor.Cnpj}' or Cnpj='{_fornecedor.Cnpj.Replace(".", "").Replace("-", "").Replace("/", "")}'");
+                if (fornecCnpj.Count > 0)
+                {
+                    return this.Json(new { Msg = "Esse cnpj já foi cadastrado" }, JsonRequestBehavior.AllowGet);
+                }
+
+                var fornecEmail = _core.Fornecedor_Get(_FornecedorBE,$"Email='{_fornecedor.Email}'");
+                if (fornecEmail.Count>0)
+                {
+                    return this.Json(new { Msg = "Esse email já foi cadastrado" }, JsonRequestBehavior.AllowGet);
+                }
                 _core.Fornecedor_Insert(_fornecedor);
 
-                return this.Json(new { Result = "OK" }, JsonRequestBehavior.AllowGet);
+                return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

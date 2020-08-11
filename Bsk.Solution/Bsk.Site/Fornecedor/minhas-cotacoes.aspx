@@ -4,6 +4,15 @@
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2 class="tableTitle">Minhas cotações em negociação</h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+         <select class="form-control" onchange="filtraTabela();" id="slcStatus">
+                <option value="0">Selecione um status</option>
+                <option value="1">Recusado</option>
+                <option value="2">Aberto</option>
+                <option value="3">Aguardando pagamento</option>
+                <option value="4">Em andamento</option>
+                <option value="5">Pendente de finalização do cliente</option>
+                <option value="6">Finalizado</option>
+            </select>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
@@ -12,19 +21,70 @@
                         <td>Título</td>
                         <td>Nome cliente</td>
                         <td>Status</td>
-                        <td>Ação</td>
+                        <%--<td>Ação</td>--%>
                     </tr>
                 </thead>
                 <tbody>
                     <%var cotacoes = PegaCotacoes();
                         foreach (var item in cotacoes)
-                        { %>
-                    <tr>
+                        {
+                            string link = "";
+                            if (item.Status == "Recusado")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Aberto")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Aguardando pagamento")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Em andamento")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Pendente de finalização do cliente")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Finalizado")
+                            {
+                                link = "avaliar.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                    %>
+                    <tr onclick="redirecionar('<%Response.Write(link); %>')">
                         <td><%Response.Write(item.CotacaoId); %></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Nome); %></td>
-                        <td><%Response.Write(item.Status); %></td>
                         <td>
+                            <%if (item.Status == "Recusado")
+                                {%>
+                            Recusado
+                            <%}
+                                else if (item.Status == "Aberto")
+                                {%>
+                            Em cotação
+                            <%}
+                                else if (item.Status == "Aguardando pagamento")
+                                {%>
+                           Aguardando pagamento
+                            <%}
+                                else if (item.Status == "Em andamento")
+                                {%>
+                           Em andamento
+                            <%}
+                                else if (item.Status == "Pendente de finalização do cliente")
+                                {%>
+                          Pendente de finalização do cliente
+                            <%}
+                                else if (item.Status == "Finalizado")
+                                {%>
+                           Finalizado
+                            <%} %>
+                        </td>
+                        <%-- <td>
                             <%if (item.Status == "Recusado")
                                 {%>
                             <center>-</center>
@@ -57,9 +117,8 @@
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
                             <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Mensagens</a>
                             <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Avaliação</a>
-                            <%} %>                               
-                        </td>
-
+                            <%} %>                              
+                        </td>--%>
                     </tr>
                     <%  }
                     %>
@@ -69,4 +128,30 @@
 
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
+        <script>
+        function redirecionar(valor) {
+            window.location.href = valor;
+        }
+
+        function filtraTabela() {
+            var table = $('#tabela').DataTable();
+
+            if ($("#slcStatus").val() == "0") {
+                table.search("").draw();
+            } else if ($("#slcStatus").val() == "1") {
+                table.search("Recusado").draw();
+            } else if ($("#slcStatus").val() == "2") {
+                table.search("Aberto").draw();
+            } else if ($("#slcStatus").val() == "3") {
+                table.search("Aguardando pagamento").draw();
+            } else if ($("#slcStatus").val() == "4") {
+                table.search("Em andamento").draw();
+            } else if ($("#slcStatus").val() == "5") {
+                table.search("Pendente de finalização do cliente").draw();
+            } else if ($("#slcStatus").val() == "6") {
+                table.search("Finalizado").draw();
+            } 
+        }
+    </script>
 </asp:Content>
+

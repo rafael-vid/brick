@@ -4,6 +4,7 @@ using Bsk.Interface.Helpers;
 using Bsk.Util;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -77,7 +78,8 @@ namespace Bsk.Site.Cliente
             var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
 
             string titulo = $"A cotação Nº {cotacao.IdCotacao}, teve seu status alterado para pago.";
-            string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacaoFornecedor;
+            string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();

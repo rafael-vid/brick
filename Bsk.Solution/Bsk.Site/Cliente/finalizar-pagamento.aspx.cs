@@ -3,6 +3,7 @@ using Bsk.Interface;
 using Bsk.Interface.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -41,10 +42,13 @@ namespace Bsk.Site.Cliente
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
 
-            string titulo = $"O seu pagamento foi liberado!";
-            string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes";
+            string titulo = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
+            string link = ConfigurationManager.AppSettings["host"].ToString()+ "Fornecedor/negociar-cotacao.aspx?Id="+cf.IdCotacaoFornecedor;
+            string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
-            string email = "";
+            ClienteBE clienteBE = new ClienteBE();
+            var forn = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
+            string email = forn.Email;
 
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);

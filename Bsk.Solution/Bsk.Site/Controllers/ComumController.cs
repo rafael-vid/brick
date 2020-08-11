@@ -54,6 +54,19 @@ namespace Bsk.Site.Controllers
             {
                 documento = cpf;
             }
+
+            var clienteDoc = _core.Cliente_Get(ClienteBE, $"Cnpj='{cnpj}' or Cnpj='{cnpj.Replace(".", "").Replace("-", "").Replace("/", "")}'");
+            if (clienteDoc.Count > 0)
+            {
+                return this.Json(new { Msg = "Esse cnpj/cpf já foi cadastrado" }, JsonRequestBehavior.AllowGet);
+            }
+
+            var clienteEmail = _core.Cliente_Get(ClienteBE, $"Email='{email}'");
+            if (clienteEmail.Count > 0)
+            {
+                return this.Json(new { Msg = "Esse email já foi cadastrado" }, JsonRequestBehavior.AllowGet);
+            }
+
             ClienteBE = new ClienteBE()
             {
                 Bairro = bairro,
@@ -76,7 +89,7 @@ namespace Bsk.Site.Controllers
             };
 
             _core.Cliente_Insert(ClienteBE);
-            return this.Json(new { Result = "Registro inserido com sucesso!" }, JsonRequestBehavior.AllowGet);
+            return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -92,7 +105,7 @@ namespace Bsk.Site.Controllers
         public void NotaCotacaoFornecedor(string nota, string id)
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor="+id).FirstOrDefault();
+            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.NotaFornecedor = int.Parse(nota);
@@ -116,7 +129,8 @@ namespace Bsk.Site.Controllers
             var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
 
             string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
-            string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
+            string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();
@@ -161,15 +175,18 @@ namespace Bsk.Site.Controllers
                 email = fornecedor.Email;
             }
 
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
+
+
             if (status == "0")
             {
                 titulo = $"O cliente {cliente.Nome} não aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             }
             else
             {
                 titulo = $"O cliente {cliente.Nome} aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
                 cotacao.Status = StatusCotacao.AguardandoPagamento;
             }
 
@@ -206,8 +223,9 @@ namespace Bsk.Site.Controllers
         {
             //colocar liberação de pagamento
 
-            string titulo = $"O seu pagamento foi liberado!";
-            string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes";
+            string titulo = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
+            string mensagem = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
             string email = "";
 
@@ -259,7 +277,8 @@ namespace Bsk.Site.Controllers
             var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
 
             string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
-            string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
+            string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = "http://studiobrasuka.com.br/logoBrik.png";
             string email = "";
 

@@ -457,8 +457,16 @@
                     email: $("#email").val()
                 }
                 comum.post("Comum/InserirCliente", parametros, function (data) {
-                    Swal.fire("Cadastro efetuado com sucesso.");
-                    setTimeout(function () { window.location.href = "default.aspx"; }, 3000);
+                    if (data.Msg == "Ok") {
+                        Swal.fire("Cadastro efetuado com sucesso! Você será redirecionado...");
+                        setTimeout(function () { window.location.href = host + "/Cliente/default.aspx"; }, 5000);
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: data.Msg
+                        });
+                    }
                 });
 
             });

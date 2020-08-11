@@ -37,7 +37,7 @@ namespace Bsk.Site.Cliente
         public CotacaoAvaliacaoModel PegaCotacao()
         {
             CotacaoAvaliacaoModel cotacao = _core.Cotacao_Avaliacao_Get(Request.QueryString["Id"]);
-            depoimento.InnerText = cotacao.Depoimento;
+            depoimentoCliente.InnerText = cotacao.Depoimento;
             if (!String.IsNullOrEmpty(cotacao.Depoimento))
             {
                 btnDepoimento.Visible = false;
@@ -48,7 +48,7 @@ namespace Bsk.Site.Cliente
         protected void btnDepoimento_ServerClick(object sender, EventArgs e)
         {
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
-            cotacao.Depoimento = depoimento.InnerText;
+            cotacao.Depoimento = depoimentoCliente.InnerText;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + Request.QueryString["Id"]);
             Response.Redirect("finalizado.aspx");
         }

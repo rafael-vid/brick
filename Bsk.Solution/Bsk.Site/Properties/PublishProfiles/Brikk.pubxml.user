@@ -224,7 +224,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/favico.png">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:56:00</publishTime>
     </File>
     <File Include="Admin/img/finalizado.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -260,7 +260,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/img/logo.png">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:56:00</publishTime>
     </File>
     <File Include="Admin/img/mapa.png">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -473,10 +473,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/30/2020 17:36:45</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>07/30/2020 17:37:53</publishTime>
+      <publishTime>08/10/2020 10:34:03</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>07/30/2020 17:37:53</publishTime>
+      <publishTime>08/10/2020 10:34:03</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
       <publishTime>07/30/2020 17:36:44</publishTime>
@@ -485,7 +485,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/30/2020 17:36:44</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>10/29/2018 13:44:00</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -641,13 +641,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/16/2020 15:26:35</publishTime>
     </File>
     <File Include="Cliente/avaliar.aspx">
-      <publishTime>07/30/2020 17:44:19</publishTime>
+      <publishTime>08/10/2020 10:24:54</publishTime>
     </File>
     <File Include="Cliente/buscar-servico.aspx">
-      <publishTime>07/15/2020 15:00:17</publishTime>
+      <publishTime>08/08/2020 19:56:23</publishTime>
     </File>
     <File Include="Cliente/cadastro-cotacao.aspx">
-      <publishTime>07/17/2020 18:25:17</publishTime>
+      <publishTime>08/08/2020 19:56:25</publishTime>
     </File>
     <File Include="Cliente/cadastro.aspx">
       <publishTime>07/24/2020 12:59:53</publishTime>
@@ -668,13 +668,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/css/master.css">
-      <publishTime>07/23/2020 11:17:13</publishTime>
+      <publishTime>08/08/2020 19:57:11</publishTime>
     </File>
     <File Include="Cliente/css/mobile.css">
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/default.aspx">
-      <publishTime>07/10/2020 01:23:03</publishTime>
+      <publishTime>08/08/2020 19:57:13</publishTime>
     </File>
     <File Include="Cliente/em-andamento.aspx">
       <publishTime>07/16/2020 15:20:57</publishTime>
@@ -686,7 +686,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/17/2020 16:11:15</publishTime>
     </File>
     <File Include="Cliente/Html/avaliacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>07/13/2020 15:32:00</publishTime>
     </File>
     <File Include="Cliente/Html/cadastro.html">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -818,10 +818,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/img/boleto.jpg">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:13</publishTime>
     </File>
     <File Include="Cliente/img/cartao.jpg">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:13</publishTime>
     </File>
     <File Include="Cliente/img/estrelas/1.png">
       <publishTime>07/15/2020 14:24:06</publishTime>
@@ -842,7 +842,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/14/2020 12:58:46</publishTime>
     </File>
     <File Include="Cliente/img/favico.png">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:14</publishTime>
     </File>
     <File Include="Cliente/img/fundoHome.png">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -860,7 +860,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/img/logo.png">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:14</publishTime>
     </File>
     <File Include="Cliente/img/novaCotacao.jpg">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -884,28 +884,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/19/2020 12:42:56</publishTime>
     </File>
     <File Include="Cliente/img/status/emAndamento.jpeg">
-      <publishTime>07/19/2020 12:42:56</publishTime>
+      <publishTime>08/08/2020 19:57:14</publishTime>
     </File>
     <File Include="Cliente/img/status/finalizado.jpeg">
-      <publishTime>07/19/2020 12:42:56</publishTime>
+      <publishTime>08/08/2020 19:57:14</publishTime>
     </File>
     <File Include="Cliente/img/status/historico.jpg">
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/img/status/liberaPagamento.jpg">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/img/status/minhasAreas.jpeg">
       <publishTime>07/19/2020 12:42:56</publishTime>
     </File>
     <File Include="Cliente/img/status/minhasCotacoes.jpeg">
-      <publishTime>07/19/2020 12:42:56</publishTime>
+      <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/img/status/novaCotacao.jpg">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/img/status/perfil.jpg">
-      <publishTime>07/09/2020 23:12:14</publishTime>
+      <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/img/status/semImagem.jpg">
       <publishTime>07/10/2020 19:03:32</publishTime>
@@ -959,16 +959,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/24/2020 12:19:07</publishTime>
     </File>
     <File Include="Cliente/negociar-cotacao.aspx">
-      <publishTime>07/19/2020 12:27:03</publishTime>
+      <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/pagamento-boleto.aspx">
-      <publishTime>07/30/2020 14:52:45</publishTime>
+      <publishTime>08/08/2020 19:57:17</publishTime>
     </File>
     <File Include="Cliente/pagamento-cartao.aspx">
-      <publishTime>07/30/2020 17:16:22</publishTime>
+      <publishTime>08/08/2020 19:57:17</publishTime>
     </File>
     <File Include="Cliente/pagamento.aspx">
-      <publishTime>07/28/2020 18:12:13</publishTime>
+      <publishTime>08/08/2020 19:57:18</publishTime>
     </File>
     <File Include="Cliente/perfil.aspx">
       <publishTime>07/30/2020 17:06:14</publishTime>
@@ -1010,10 +1010,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/avaliar.aspx">
-      <publishTime>07/20/2020 10:43:09</publishTime>
+      <publishTime>08/10/2020 10:24:34</publishTime>
     </File>
     <File Include="Fornecedor/cadastra-atuacao.aspx">
-      <publishTime>07/16/2020 16:27:45</publishTime>
+      <publishTime>08/08/2020 19:57:20</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
       <publishTime>07/24/2020 13:01:25</publishTime>
@@ -1031,7 +1031,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/16/2020 17:43:37</publishTime>
     </File>
     <File Include="Fornecedor/cotacao.aspx">
-      <publishTime>07/19/2020 12:25:44</publishTime>
+      <publishTime>08/08/2020 19:57:21</publishTime>
     </File>
     <File Include="Fornecedor/cotacaoLista.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1049,13 +1049,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/css/master.css">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:57:24</publishTime>
     </File>
     <File Include="Fornecedor/css/mobile.css">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/default.aspx">
-      <publishTime>07/14/2020 16:09:13</publishTime>
+      <publishTime>08/08/2020 19:57:24</publishTime>
     </File>
     <File Include="Fornecedor/em-andamento.aspx">
       <publishTime>07/17/2020 21:48:56</publishTime>
@@ -1226,16 +1226,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/aguardandoTransferencia.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:57:59</publishTime>
     </File>
     <File Include="Fornecedor/img/areasAtuacao.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/boleto.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:57:59</publishTime>
     </File>
     <File Include="Fornecedor/img/cartao.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/estrelas/1.png">
       <publishTime>07/17/2020 21:24:18</publishTime>
@@ -1253,7 +1253,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/17/2020 21:24:18</publishTime>
     </File>
     <File Include="Fornecedor/img/favico.png">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/finalizado.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -1268,13 +1268,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/liberaPagamento.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/listaCotacao.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/logo.png">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/meuSaldo.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -1283,13 +1283,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/novaCotacao.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/pagamentoPendente.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/img/perfil.jpg">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/proximaTransferencia.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -1304,31 +1304,31 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/19/2020 12:51:33</publishTime>
     </File>
     <File Include="Fornecedor/img/status/aguardandoTransferencia.jpg">
-      <publishTime>07/19/2020 12:51:33</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/buscarCotacao.jpeg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/emAndamento.jpeg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/finalizado.jpeg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/historico.jpg">
       <publishTime>07/19/2020 12:51:34</publishTime>
     </File>
     <File Include="Fornecedor/img/status/liberaPagamento.jpg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/minhasAreas.jpeg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/minhasCotacoes.jpeg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/novaCotacao.jpg">
-      <publishTime>07/19/2020 12:51:34</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/img/status/semImagem.jpg">
       <publishTime>07/19/2020 12:51:34</publishTime>
@@ -1385,16 +1385,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/minhas-areas.aspx">
-      <publishTime>07/15/2020 14:11:27</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/minhas-cotacoes.aspx">
-      <publishTime>07/17/2020 20:26:54</publishTime>
+      <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/minhasCotacoes.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
-      <publishTime>07/19/2020 12:27:25</publishTime>
+      <publishTime>08/08/2020 19:58:01</publishTime>
     </File>
     <File Include="Fornecedor/pagamento.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
