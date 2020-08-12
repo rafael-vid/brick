@@ -35,14 +35,14 @@
         </div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-            <a href="" class="pull-right link-brikk hidden-sm hidden-xs mr-20">
+            &nbsp;<button class="btn btn-brikk pull-right sair" title="SAIR"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</button>
+            <a href="perfil.aspx" class="pull-right link-brikk hidden-sm hidden-xs mr-20">
                 <%var usuario = RetornaUsuario();
-                Response.Write(usuario.Nome);%>
+                Response.Write(usuario.Nome);%>&nbsp;<i class="glyphicon glyphicon-user pull-right"></i>
             </a>
-            <a href="" class="text-center link-brikk hidden-lg hidden-md">
+            <a href="perfil.aspx" class="text-center link-brikk hidden-lg hidden-md">
                Olá
             </a>
-            <i class="glyphicon glyphicon-menu-hamburger btn-menu pull-right" title="MENU"></i>
         </div>
 
     </div>

@@ -22,5 +22,8 @@ $(document).ready(function() {
         $('body').css('overflow', '');
     });
 
+    $('.logo').click(function () {
+        window.location.href = 'minhas-cotacoes.aspx';
+    });
 
 });

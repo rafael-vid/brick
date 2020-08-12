@@ -61,6 +61,7 @@ namespace Bsk.Site.Fornecedor
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
+
                     try
                     {
                         entrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");

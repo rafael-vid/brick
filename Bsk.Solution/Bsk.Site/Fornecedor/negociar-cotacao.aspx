@@ -10,18 +10,19 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            <button class="btn btn-brikk pull-right"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</button>
             <h2 class="tableTitle">
                 <p>Cliente:</p>
                 <div id="ClienteServ" runat="server" Text=""></div>
             </h2>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">                
                 <h3>
-                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
+                    Título Serviço: <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
                 </h3>
             </div>
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size: 18px; line-height: 30px;">
-                <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" style="font-size: 18px; line-height: 30px;">
+               Descrição Serviço: <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divValor" runat="server">
               <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
@@ -109,10 +110,48 @@
                 <label>Informe uma data para terminar o serviço</label>
                 <input type="date" class="from-control" id="dataEntrega" runat="server" />
                 <label>Informe o valor que você vai cobrar pelo serviço</label>
-                <input type="number" class="from-control" id="valorServico" runat="server" /><br /><br />
+                <input type="text" class="from-control dinheiro" id="valorServico" runat="server" /><br /><br />
 
                 <button class="btn btn-brikk btn-lg pull-right" id="btnSalvarDados" onserverclick="btnSalvarDados_ServerClick" runat="server">Salvar dados do serviço</button>
             </div>
+
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                <h3>Arquivos anexos</h3>
+
+                <hr style="width: 100%;" />
+                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                    <thead>
+                        <tr class="linha1">
+                            <td>Tipo de documento</td>
+                            <td>Ações</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--LOOP DOCUMENTO-->
+                       <%-- <%var anexos = PegaAnexo();
+                            foreach (var item in anexos)
+                            {%>
+                        <tr>
+                            <td><%Response.Write(item.Anexo); %></td>
+                            <td>
+                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                                <%if (item.Tipo == "Anexo")
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
+                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <% }
+                                    else
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <%}
+                        %>--%>
+                        <!-- FIM LOOP DOCUMENTO-->
+                    </tbody>
+                </table>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         </div>
 
 

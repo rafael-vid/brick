@@ -3,8 +3,11 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2 class="tableTitle">Minhas cotações em negociação</h2>
+        <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação</a>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-         <select class="form-control" onchange="filtraTabela();" id="slcStatus">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pd-0">
+            <label>Filtro de Status:</label>
+            <select class="form-control" onchange="filtraTabela();" id="slcStatus">
                 <option value="0">Selecione um status</option>
                 <option value="1">Recusado</option>
                 <option value="2">Aberto</option>
@@ -13,6 +16,8 @@
                 <option value="5">Pendente de finalização do cliente</option>
                 <option value="6">Finalizado</option>
             </select>
+        </div>
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
@@ -128,7 +133,7 @@
 
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
-        <script>
+    <script>
         function redirecionar(valor) {
             window.location.href = valor;
         }
@@ -150,7 +155,7 @@
                 table.search("Pendente de finalização do cliente").draw();
             } else if ($("#slcStatus").val() == "6") {
                 table.search("Finalizado").draw();
-            } 
+            }
         }
     </script>
 </asp:Content>

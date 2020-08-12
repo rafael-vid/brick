@@ -7,16 +7,20 @@
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <a class="btn btn-lg btn-brikk pull-right" href="buscar-servico.aspx">Nova Cotação</a>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <select class="form-control" onchange="filtraTabela();" id="slcStatus">
-                <option value="0">Selecione um status</option>
-                <option value="1">Pendente de submissão</option>
-                <option value="2">Em andamento</option>
-                <option value="3">Aguardando pagamento</option>
-                <option value="4">Em cotação</option>
-                <option value="5">Aguardando liberação do pagamento</option>
-                <option value="6">Aguardando aceite</option>
-                <option value="7">Finalizado</option>
-            </select>
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pd-0">
+                <label>Filtro de Status:</label>
+                <select class="form-control" onchange="filtraTabela();" id="slcStatus">
+                    <option value="0">Selecione um status</option>
+                    <option value="1">Pendente de submissão</option>
+                    <option value="2">Em andamento</option>
+                    <option value="3">Aguardando pagamento</option>
+                    <option value="4">Em cotação</option>
+                    <option value="5">Aguardando liberação do pagamento</option>
+                    <option value="6">Aguardando aceite</option>
+                    <option value="7">Finalizado</option>
+                </select>
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">

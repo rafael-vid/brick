@@ -29,7 +29,7 @@ $(document).ready(function() {
         window.location.href = 'logado.html';
     });
     $('.logo').click(function() {
-        window.location.href = 'buscar-servico.aspx';
+        window.location.href = 'minhas-cotacoes.aspx';
     });
     $('.btn-salvar').click(function() {
         window.location.href = 'login.html';
