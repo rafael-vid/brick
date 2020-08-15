@@ -19,7 +19,7 @@ namespace Bsk.Site.Cliente
         ClienteBE _ClienteBE = new ClienteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+       
         }
 
         protected void btnEntrar_ServerClick(object sender, EventArgs e)

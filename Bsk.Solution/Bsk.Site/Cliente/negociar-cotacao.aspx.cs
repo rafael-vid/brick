@@ -22,7 +22,7 @@ namespace Bsk.Site.Cliente
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
-
+        CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(Request.QueryString["Id"]))
@@ -182,6 +182,26 @@ namespace Bsk.Site.Cliente
             }
 
             return link;
+        }
+
+        public List<CotacaoAnexosBE> PegaAnexo()
+        {
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+        }
+
+        public string pegaStatus()
+        {
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+            if (cotacao.Status == "1")
+            {
+                return "cotacao-lista.aspx?Id="+cotacao.IdCotacao;
+            }
+            else
+            {
+                return "minhas-cotacoes.aspx";
+            }
         }
     }
 }

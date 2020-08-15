@@ -467,16 +467,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/28/2020 21:16:09</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>07/30/2020 17:36:45</publishTime>
+      <publishTime>08/12/2020 19:01:41</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>07/30/2020 17:36:45</publishTime>
+      <publishTime>08/12/2020 19:01:41</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>08/10/2020 10:34:03</publishTime>
+      <publishTime>08/13/2020 11:50:39</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>08/10/2020 10:34:03</publishTime>
+      <publishTime>08/13/2020 11:50:39</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
       <publishTime>07/30/2020 17:36:44</publishTime>
@@ -641,7 +641,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/16/2020 15:26:35</publishTime>
     </File>
     <File Include="Cliente/avaliar.aspx">
-      <publishTime>08/10/2020 10:24:54</publishTime>
+      <publishTime>08/12/2020 19:01:57</publishTime>
     </File>
     <File Include="Cliente/buscar-servico.aspx">
       <publishTime>08/08/2020 19:56:23</publishTime>
@@ -650,7 +650,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2020 19:56:25</publishTime>
     </File>
     <File Include="Cliente/cadastro.aspx">
-      <publishTime>07/24/2020 12:59:53</publishTime>
+      <publishTime>08/11/2020 12:13:47</publishTime>
     </File>
     <File Include="Cliente/cotacao-lista.aspx">
       <publishTime>07/17/2020 18:31:06</publishTime>
@@ -935,7 +935,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/js/master.js">
-      <publishTime>07/24/2020 12:41:28</publishTime>
+      <publishTime>08/13/2020 11:31:52</publishTime>
     </File>
     <File Include="Cliente/js/rating.js">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -950,16 +950,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/10/2020 18:52:31</publishTime>
     </File>
     <File Include="Cliente/Master/Layout.Master">
-      <publishTime>07/30/2020 17:44:19</publishTime>
+      <publishTime>08/13/2020 11:36:27</publishTime>
     </File>
     <File Include="Cliente/minhas-cotacoes.aspx">
-      <publishTime>07/17/2020 15:47:25</publishTime>
+      <publishTime>08/12/2020 19:01:57</publishTime>
     </File>
     <File Include="Cliente/nav.html">
       <publishTime>07/24/2020 12:19:07</publishTime>
     </File>
     <File Include="Cliente/negociar-cotacao.aspx">
-      <publishTime>08/08/2020 19:57:15</publishTime>
+      <publishTime>08/13/2020 11:31:53</publishTime>
     </File>
     <File Include="Cliente/pagamento-boleto.aspx">
       <publishTime>08/08/2020 19:57:17</publishTime>
@@ -1010,13 +1010,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/avaliar.aspx">
-      <publishTime>08/10/2020 10:24:34</publishTime>
+      <publishTime>08/12/2020 19:01:57</publishTime>
     </File>
     <File Include="Fornecedor/cadastra-atuacao.aspx">
       <publishTime>08/08/2020 19:57:20</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>07/24/2020 13:01:25</publishTime>
+      <publishTime>08/11/2020 11:58:00</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.html">
       <publishTime>06/30/2020 21:59:27</publishTime>
@@ -1361,7 +1361,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/js/master.js">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/12/2020 19:01:57</publishTime>
     </File>
     <File Include="Fornecedor/js/rating.js">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -1379,7 +1379,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>07/20/2020 10:30:14</publishTime>
+      <publishTime>08/13/2020 11:43:55</publishTime>
     </File>
     <File Include="Fornecedor/mensagem.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1388,13 +1388,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2020 19:58:00</publishTime>
     </File>
     <File Include="Fornecedor/minhas-cotacoes.aspx">
-      <publishTime>08/08/2020 19:58:00</publishTime>
+      <publishTime>08/12/2020 19:01:57</publishTime>
     </File>
     <File Include="Fornecedor/minhasCotacoes.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
-      <publishTime>08/08/2020 19:58:01</publishTime>
+      <publishTime>08/13/2020 11:46:38</publishTime>
     </File>
     <File Include="Fornecedor/pagamento.html">
       <publishTime>07/01/2020 10:53:24</publishTime>

@@ -10,7 +10,7 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <button class="btn btn-brikk pull-right"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</button>
+            <a class="btn btn-brikk pull-right voltarCotacoes" href="<%Response.Write(pegaStatus());%>"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</a>
             <h2 class="tableTitle">
                 <p>Prestador de Serviço:</p>
                 <div id="parceiro" runat="server" text=""></div>
@@ -132,13 +132,12 @@
                     </thead>
                     <tbody>
                         <!--LOOP DOCUMENTO-->
-                        <%--<%var anexos = PegaAnexo();
+                        <%var anexos = PegaAnexo();
                             foreach (var item in anexos)
                             {%>
                         <tr>
                             <td><%Response.Write(item.Anexo); %></td>
                             <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                 <%if (item.Tipo == "Anexo")
                                     {%>
                                 <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
@@ -151,7 +150,7 @@
                             </td>
                         </tr>
                         <%}
-                        %>--%>
+                        %>
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>
                 </table>

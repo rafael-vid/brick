@@ -63,18 +63,18 @@
                             </div>
                             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosResponsavel">
-                                <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                                <input type="password" class="form-control" id="senha" placeholder="Senha" required />
                             </div>
                             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosResponsavel">
-                                <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirmar Senha" required>
+                                <input type="password" class="form-control" id="confirmaSenha" placeholder="Confirmar Senha" required />
                             </div>
                             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <button class="btn pull-right btn-salvar btn-brikk">Salvar</button>
+                                <button type="button" class="btn pull-right btn-salvar btn-brikk">Salvar</button>
                             </div>
                             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <input type="hidden" id='fantasia'>
+                                <input type="hidden" id='fantasia' />
                             </div>
                         </div>
                         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -437,12 +437,22 @@
                         Uf: $('input#uf').val(),
                         Responsavel: $('input#nomeResponsavel').val(),
                         Whatsapp: $('input#whatsapp').val(),
-                        Senha: $('input#senha').val()
+                        Senha: $('input#senha').val(),
+                        Email: $('input#email').val(),
+                        NomeFantasia: $('input#fantasia').val()
                     }
 
                     comum.post("Fornecedor/CadastroFornecedor", parametro, function (data) {
-                        Swal.fire("Cadastro efetuado com sucesso.");
-                        setTimeout(function () { window.location.href = "default.aspx"; }, 3000);
+                        if (data.Msg == "Ok") {
+                            Swal.fire("Cadastro efetuado com sucesso! Você será redirecionado...");
+                            setTimeout(function () { window.location.href = host + "/Fornecedor/default.aspx"; }, 5000);
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data.Msg
+                            });
+                        }
 
                     });
 

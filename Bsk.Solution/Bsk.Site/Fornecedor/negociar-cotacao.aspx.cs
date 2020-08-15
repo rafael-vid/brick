@@ -22,6 +22,7 @@ namespace Bsk.Site.Fornecedor
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
+        CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +33,6 @@ namespace Bsk.Site.Fornecedor
             }
 
             CarregaCotacaoFornecedor();
-
         }
 
         public void CarregaCotacaoFornecedor()
@@ -209,6 +209,12 @@ namespace Bsk.Site.Fornecedor
         
             var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
             emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
+        }
+
+        public List<CotacaoAnexosBE> PegaAnexo()
+        {
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
         }
     }
 }

@@ -10,7 +10,7 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <button class="btn btn-brikk pull-right"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</button>
+            <a class="btn btn-brikk pull-right" href="minhas-cotacoes.aspx"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</a>
             <h2 class="tableTitle">
                 <p>Cliente:</p>
                 <div id="ClienteServ" runat="server" Text=""></div>
@@ -128,7 +128,7 @@
                     </thead>
                     <tbody>
                         <!--LOOP DOCUMENTO-->
-                       <%-- <%var anexos = PegaAnexo();
+                        <%var anexos = PegaAnexo();
                             foreach (var item in anexos)
                             {%>
                         <tr>
@@ -147,7 +147,7 @@
                             </td>
                         </tr>
                         <%}
-                        %>--%>
+                        %>
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>
                 </table>

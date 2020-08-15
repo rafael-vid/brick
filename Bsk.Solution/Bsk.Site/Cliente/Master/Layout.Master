@@ -51,7 +51,7 @@
             </div>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
             <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-                &nbsp;<button class="btn btn-brikk pull-right sair" title="SAIR"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</button>
+                &nbsp;<a class="btn btn-brikk pull-right sair" title="SAIR" href="default.aspx"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a>
                 <a href="perfil.aspx" class="pull-right link-brikk hidden-sm hidden-xs mr-20"><%
                                                                                        var usuario = RetornaUsuario();
                                                                                        Response.Write(usuario.Nome);
