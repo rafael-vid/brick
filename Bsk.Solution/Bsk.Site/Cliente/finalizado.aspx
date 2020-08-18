@@ -2,20 +2,16 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2 class="tableTitle">Finalizado</h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button class="btn btn-lg btn-brikk pull-right">Nova Cotação</button>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                        <td>Nº Cotação</td>
-                        <td style="display: none;">Data criação</td>
-                        <td>Título</td>
-                        <td>Nota</td>
-                        <td>Status</td>
-                        <td>Ação</td>
+                        <td>Nº Cotação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td style="display: none;">Data criação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Título <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Nota <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Status <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Ação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                     </tr>
                 </thead>
                 <tbody>

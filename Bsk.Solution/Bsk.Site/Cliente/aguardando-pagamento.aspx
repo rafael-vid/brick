@@ -10,10 +10,10 @@
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                         <td>Nº Cotação</td>
-                        <td style="display:none;">Data criação</td>
-                        <td>Título</td>
-                        <td>Status</td>
+                         <td>Nº Cotação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td style="display:none;">Data criação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Título <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Status <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <td>Ação</td>
                     </tr>
                 </thead>

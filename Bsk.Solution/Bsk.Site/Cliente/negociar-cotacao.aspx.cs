@@ -130,6 +130,11 @@ namespace Bsk.Site.Cliente
 
                 _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                
+                //Atualiza data alteracao da cotação
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                if (cotacao != null)
+                    _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
                 //DEPOIS COLOCAR MSG

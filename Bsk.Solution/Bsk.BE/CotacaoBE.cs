@@ -23,5 +23,6 @@ namespace Bsk.BE
         public int FinalizaCliente { get; set; }
         public int FinalizaFornecedor { get; set; }
         public int NotaFornecedor { get; set; }
+        public DateTime DataAlteracao { get; set; }
     }
 }

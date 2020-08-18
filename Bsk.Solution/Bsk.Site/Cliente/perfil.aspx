@@ -2,9 +2,6 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pagamento Boleto&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2>Dados Pessoais</h2>

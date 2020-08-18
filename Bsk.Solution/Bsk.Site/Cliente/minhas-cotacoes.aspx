@@ -2,16 +2,12 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2 class="tableTitle">Minhas cotações</h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a class="btn btn-lg btn-brikk pull-right" href="buscar-servico.aspx">Nova Cotação</a>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pd-0">
                 <label>Filtro de Status:</label>
                 <select class="form-control" onchange="filtraTabela();" id="slcStatus">
                     <option value="0">Selecione um status</option>
-                    <option value="1">Pendente de submissão</option>
+                    <option value="1">Pendente de envio</option>
                     <option value="2">Em andamento</option>
                     <option value="3">Aguardando pagamento</option>
                     <option value="4">Em cotação</option>
@@ -24,10 +20,11 @@
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                        <td>Nº Cotação</td>
-                        <td style="display: none;">Data criação</td>
-                        <td>Título</td>
-                        <td>Status</td>
+                        <td>Nº Cotação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Data criação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Título <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Data Atualização <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Status <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <%-- <td>Ação</td>--%>
                     </tr>
                 </thead>
@@ -68,12 +65,13 @@
                     %>
                     <tr onclick="redirecionar('<%Response.Write(link);%>');">
                         <td><%Response.Write(item.IdCotacao); %></td>
-                        <td style="display: none;"><%Response.Write(item.DataCriacao); %></td>
+                        <td><%Response.Write(item.DataCriacao); %></td>
                         <td><%Response.Write(item.Titulo); %></td>
+                        <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00","")); %></td>
                         <%  
                             if (item.Status == "Criação")
                             {%>
-                        <td>Pendente de submissão
+                        <td>Pendente de envio
                         </td>
                         <%}
                             else if (item.Status == "Aberto")
@@ -160,17 +158,19 @@
     </div>
 
     <script>
+
         function redirecionar(valor) {
             window.location.href = valor;
         }
 
         function filtraTabela() {
+    
             var table = $('#tabela').DataTable();
 
             if ($("#slcStatus").val() == "0") {
                 table.search("").draw();
             } else if ($("#slcStatus").val() == "1") {
-                table.search("Pendente de submissão").draw();
+                table.search("Pendente de envio").draw();
             } else if ($("#slcStatus").val() == "2") {
                 table.search("Em andamento").draw();
             } else if ($("#slcStatus").val() == "3") {

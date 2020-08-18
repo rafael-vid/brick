@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2 class="tableTitle">Cotação <span id="nrCotacao" runat="server"></span></h2>
+        <h2 class="tableTitle">Cod. <strong id="nrCotacao" runat="server"></strong></h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h3>Título da cotação</h3>
@@ -10,11 +10,11 @@
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
                     <tr class="linha1">
-                        <td>Fornecedor</td>
-                        <td>Mensagem</td>
-                        <td>Valor</td>
-                        <td>Última resposta</td>
-                        <td>Ação</td>
+                        <td>Fornecedor <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Mensagem <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Valor <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Última resposta <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Ação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                     </tr>
                 </thead>
                 <tbody>

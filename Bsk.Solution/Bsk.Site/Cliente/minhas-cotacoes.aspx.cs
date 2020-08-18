@@ -22,7 +22,7 @@ namespace Bsk.Site.Cliente
         public List<CotacaoBE> PegaCotacoes()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente=" + login.IdCliente+ " order by DataCriacao desc");
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente=" + login.IdCliente+ " order by DataAlteracao desc");
             foreach (var item in cotacoes)
             {
                 if (item.Status == StatusCotacao.Criacao)

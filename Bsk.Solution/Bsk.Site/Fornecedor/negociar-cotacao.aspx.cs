@@ -136,6 +136,11 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
+
+                //Atualiza data alteracao da cotação
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                if(cotacao!=null)
+                _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
                 //DEPOIS COLOCAR MSG
                 Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }

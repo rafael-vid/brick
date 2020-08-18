@@ -126,7 +126,7 @@
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                     <thead>
                         <tr class="linha1">
-                            <td>Tipo de documento</td>
+                            <td>Tipo de documento <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                             <td>Ações</td>
                         </tr>
                     </thead>

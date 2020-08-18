@@ -210,7 +210,7 @@ namespace Bsk.DAL.Helper
                     if (valor == "null")
                         tipo = "#VALOR";
                     else
-                        valor = Convert.ToDateTime(valor).ToString("yyyy-MM-dd H:mm:ss");
+                        valor = "'"+Convert.ToDateTime(valor).ToString("yyyy-MM-dd H:mm:ss")+"'";
 
                 }
                 else

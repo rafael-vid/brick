@@ -9,6 +9,7 @@
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                
                 <button type="button" class="btn btn-primary btn-lg pull-right" id="btnSubmeter" onclick="cadastrar();" runat="server">
                     Solicitar cotações para nossos parceiros
                 </button>
@@ -19,6 +20,9 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Legal!!</strong> Agora você já pode solicitar uma cotação para nossos paceiros e aproveitar as melhores ofertas
                 </div>
+                <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnSalvarMaisTarde" runat="server" onserverclick="btnSalvarMaisTarde_ServerClick" runat="server">
+                   <i class="glyphicon glyphicon-save"></i>&nbsp;Salvar para enviar mais tarde
+                </button>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -109,8 +113,8 @@
             if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
 
                 Swal.fire({
-                    title: 'Submeter?',
-                    text: "Você tem certeza que gostaria de submeter esse serviço? Toda alteração, anexo ou video não salvos serão perdidos. Não será possível fazer mais nenhuma alteração.",
+                    title: 'Enviar?',
+                    text: "Você tem certeza que gostaria de enviar solicitação de cotação para este serviço? Toda alteração, anexo ou video não salvos serão perdidos. Não será possível fazer mais nenhuma alteração.",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

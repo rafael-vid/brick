@@ -65,6 +65,13 @@ namespace Bsk.Site.Cliente
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
+            
+            // ####################################### ENVIAR PARA MSG ##########################################
+            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + salvarCotacao());
+        }
+
+        private string salvarCotacao()
+        {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
             string cot = "";
 
@@ -110,9 +117,7 @@ namespace Bsk.Site.Cliente
 
                 cot = _core.Cotacao_Insert(_CotacaoBE);
             }
-
-            // ####################################### ENVIAR PARA MSG ##########################################
-            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + cot);
+            return cot;
         }
 
         public List<CotacaoAnexosBE> PegaAnexo()
@@ -157,5 +162,11 @@ namespace Bsk.Site.Cliente
             _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
         }
 
+        protected void btnSalvarMaisTarde_ServerClick(object sender, EventArgs e)
+        {
+            salvarCotacao();
+            // ####################################### ENVIAR PARA MSG ##########################################
+            Response.Redirect("minhas-cotacoes.aspx");
+        }
     }
 }
