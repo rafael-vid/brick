@@ -20,3 +20,25 @@ D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
 D:\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Interface.pdb
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\MySql.Data.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Comtele.Sdk.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\netstandard.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.BE.pdb
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.DAL.pdb
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Bsk.Util.pdb
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\Newtonsoft.Json.xml
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\System.Net.Http.Formatting.xml
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\bin\Release\RestSharp.xml
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csprojAssemblyReference.cache
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CoreCompileInputs.cache
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.csproj.CopyComplete
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.dll
+D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.Interface\obj\Release\Bsk.Interface.pdb
