@@ -92,6 +92,7 @@ namespace Bsk.Util
     public static class VariaveisGlobais
     {
         public const int DiasBoleto = 2;
+        public const string Logo = "http://brikk.areadecompras.com.br/Cliente/img/logo.png";
 
     }
 }

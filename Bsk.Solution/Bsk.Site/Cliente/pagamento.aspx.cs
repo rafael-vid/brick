@@ -80,7 +80,7 @@ namespace Bsk.Site.Cliente
             string titulo = $"A cotação Nº {cotacao.IdCotacao}, teve seu status alterado para pago.";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacaoFornecedor;
             string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);

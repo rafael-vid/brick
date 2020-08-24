@@ -208,7 +208,7 @@ namespace Bsk.Site.Fornecedor
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "").FirstOrDefault();
             var cliente = _core.Cliente_Get(_ClienteBE, "").FirstOrDefault();
 
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
         

@@ -131,7 +131,7 @@ namespace Bsk.Site.Controllers
             string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
             string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
@@ -163,7 +163,7 @@ namespace Bsk.Site.Controllers
 
             string titulo = "";
             string mensagem = "";
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             string email = "";
 
             if (String.IsNullOrEmpty(fornecedor.Email))
@@ -226,7 +226,7 @@ namespace Bsk.Site.Controllers
             string titulo = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
             string mensagem = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             string email = "";
 
             if (String.IsNullOrEmpty(fornecedor.Email))
@@ -279,7 +279,7 @@ namespace Bsk.Site.Controllers
             string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
             string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
-            string imagem = "http://studiobrasuka.com.br/logoBrik.png";
+            string imagem = VariaveisGlobais.Logo;
             string email = "";
 
             EmailTemplate emailTemplate = new EmailTemplate();
