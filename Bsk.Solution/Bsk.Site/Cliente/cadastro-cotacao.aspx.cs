@@ -67,7 +67,16 @@ namespace Bsk.Site.Cliente
         {
             
             // ####################################### ENVIAR PARA MSG ##########################################
-            Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + salvarCotacao());
+             var redi = salvarCotacao();
+
+            if (!String.IsNullOrEmpty(hdLink.Value))
+            {
+                Response.Redirect(hdLink.Value);
+            }
+            else
+            {
+                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + redi);
+            }
         }
 
         private string salvarCotacao()

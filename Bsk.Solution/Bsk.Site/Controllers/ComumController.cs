@@ -329,5 +329,83 @@ namespace Bsk.Site.Controllers
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
         }
 
+        [HttpGet]
+        public string CarregaChat(string id, string tipo)
+        {
+            CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
+            var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            string html = "";
+            if (tipo == "F")
+            {
+                var cliente = @"<!--CLIENTE-->
+                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
+                    {{CLIENTEMSG}}
+                </div>
+                <!--FIM CLIENTE-->";
+
+                var fornecedor = @"<!--FORNECEDOR-->
+                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
+                    {{FORNECEDORMSG}}
+                </div>
+                <!--FIM FORNECEDOR-->";
+
+                var conteudo = "";
+                foreach (var item in lista)
+                {
+                    var arquivo = "";
+                    if (!String.IsNullOrEmpty(item.Arquivo))
+                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+
+                    var video = "";
+                    if (!String.IsNullOrEmpty(item.Video))
+                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+
+
+                    if (item.IdCliente == 0)
+                        conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                    else
+                        conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+
+                    html += conteudo + " <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>";
+
+                }
+            }
+            else
+            {
+                var cliente = @"<!--CLIENTE-->
+                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
+                    {{CLIENTEMSG}}
+                </div>
+                <!--FIM CLIENTE-->";
+
+                var fornecedor = @"<!--FORNECEDOR-->
+                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
+                    {{FORNECEDORMSG}}
+                </div>
+                <!--FIM FORNECEDOR-->";
+
+                var conteudo = "";
+                foreach (var item in lista)
+                {
+                    var arquivo = "";
+                    if (!String.IsNullOrEmpty(item.Arquivo))
+                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+
+                    var video = "";
+                    if (!String.IsNullOrEmpty(item.Video))
+                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+
+
+                    if (item.IdCliente == 0)
+                        conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                    else
+                        conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+
+                    html += conteudo + " <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>";
+
+                }
+            }
+            return html;
+        }
     }
 }

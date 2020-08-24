@@ -20,9 +20,9 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Legal!!</strong> Agora você já pode solicitar uma cotação para nossos paceiros e aproveitar as melhores ofertas
                 </div>
-                <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnSalvarMaisTarde" runat="server" onserverclick="btnSalvarMaisTarde_ServerClick" runat="server">
+               <%-- <button type="button" class="btn btn-brikk btn-lg pull-right" ClientIDMode="static" id="btnSalvarMaisTarde" runat="server" onserverclick="btnSalvarMaisTarde_ServerClick" runat="server">
                    <i class="glyphicon glyphicon-save"></i>&nbsp;Salvar para enviar mais tarde
-                </button>
+                </button>--%>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -35,7 +35,8 @@
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" runat="server" onserverclick="btnSalvar_ServerClick" style="width: 100%;">Salvar dados para cotação</button>
+                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" ClientIDMode="static" runat="server" onserverclick="btnSalvar_ServerClick" style="width: 100%;">Salvar dados para cotação</button>
+                <input type="hidden" id="hdLink" ClientIDMode="static" runat="server" value="" />
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -17,7 +17,6 @@
             </div>
             <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 pd-0">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                    <h3>Ar condicionado</h3>
                     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                         <select name="" id="slcAtu" runat="server" class="form-control">
                             <option value="">Selecione um serviço</option>                           

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="negociar-cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="negociar-cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 
 
@@ -7,7 +7,7 @@
     <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Negociação<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
             <a class="btn btn-brikk pull-right voltarCotacoes" href="<%Response.Write(pegaStatus());%>"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</a>
@@ -16,13 +16,14 @@
                 <div id="parceiro" runat="server" text=""></div>
             </h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                <h3>
-                    Título Serviço: <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
+                <h3>Título Serviço:
+                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
                 </h3>
             </div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size: 18px; line-height: 30px;">
-                Descrição Serviço: <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
+                Descrição Serviço:
+                <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
@@ -72,89 +73,90 @@
                     <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div id="divChat">
+                        <%
+                            var chat = CarregaChat();
 
-                    <%
-                        var chat = CarregaChat();
-
-                        var cliente = @"<!--CLIENTE-->
+                            var cliente = @"<!--CLIENTE-->
                 <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
                     {{CLIENTEMSG}}
                 </div>
                 <!--FIM CLIENTE-->";
 
-                        var fornecedor = @"<!--FORNECEDOR-->
+                            var fornecedor = @"<!--FORNECEDOR-->
                 <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
                     {{FORNECEDORMSG}}
                 </div>
                 <!--FIM FORNECEDOR-->";
 
-                        var conteudo = "";
-                        foreach (var item in chat)
-                        {
-                            var arquivo = "";
-                            if (!String.IsNullOrEmpty(item.Arquivo))
-                                arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+                            var conteudo = "";
+                            foreach (var item in chat)
+                            {
+                                var arquivo = "";
+                                if (!String.IsNullOrEmpty(item.Arquivo))
+                                    arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
 
-                            var video = "";
-                            if (!String.IsNullOrEmpty(item.Video))
-                                video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+                                var video = "";
+                                if (!String.IsNullOrEmpty(item.Video))
+                                    video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
 
 
-                            if (item.IdCliente == 0)
-                                conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                            else
-                                conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                    %>
+                                if (item.IdCliente == 0)
+                                    conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                                else
+                                    conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                        %>
 
-                    <!--CLIENTE-->
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                    <%Response.Write(conteudo);%>
-                    <!--FIM CLIENTE-->
+                        <!--CLIENTE-->
+                        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                        <%Response.Write(conteudo);%>
+                        <!--FIM CLIENTE-->
 
-                    <%
-                        }
-                    %>
+                        <%
+                            }
+                        %>
+                    </div>
                 </div>
             </div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <h3>Arquivos anexos</h3>
+            <h3>Arquivos anexos</h3>
 
-                <hr style="width: 100%;" />
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
-                    <thead>
-                        <tr class="linha1">
-                            <td>Tipo de documento <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
-                            <td>Ações</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--LOOP DOCUMENTO-->
-                        <%var anexos = PegaAnexo();
-                            foreach (var item in anexos)
-                            {%>
-                        <tr>
-                            <td><%Response.Write(item.Anexo); %></td>
-                            <td>
-                                <%if (item.Tipo == "Anexo")
-                                    {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
-                                <% }
-                                    else
-                                    {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
-                                <% } %>
-                            </td>
-                        </tr>
-                        <%}
-                        %>
-                        <!-- FIM LOOP DOCUMENTO-->
-                    </tbody>
-                </table>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <hr style="width: 100%;" />
+            <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <thead>
+                    <tr class="linha1">
+                        <td>Tipo de documento <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Ações</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--LOOP DOCUMENTO-->
+                    <%var anexos = PegaAnexo();
+                        foreach (var item in anexos)
+                        {%>
+                    <tr>
+                        <td><%Response.Write(item.Anexo); %></td>
+                        <td>
+                            <%if (item.Tipo == "Anexo")
+                                {%>
+                            <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
+                                <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                            <% }
+                                else
+                                {%>
+                            <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                            <% } %>
+                        </td>
+                    </tr>
+                    <%}
+                    %>
+                    <!-- FIM LOOP DOCUMENTO-->
+                </tbody>
+            </table>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         </div>
 
 
@@ -162,6 +164,17 @@
     </div>
 
     <script type="text/javascript">
+        setInterval(function () {
+            var parametro = {
+                tipo: "C",
+                id: comum.queryString("Id")
+            };
+            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
+                $("#divChat").empty();
+                $("#divChat").append(data);
+            });
+        }, 10000);
+
         $(document).ready(function () {
             $(".flpArquivo").css("display", "none");
             $(".flpVideo").css("display", "none");

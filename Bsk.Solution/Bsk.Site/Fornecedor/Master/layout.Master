@@ -79,7 +79,7 @@
                         <a href="minhas-cotacoes.aspx">
                             <img src="img/status/minhasCotacoes.jpeg"  class="img-responsive" width="100%" /></a>
                     </div>
-                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                   <%-- <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <a href="aguardando-pagamento.aspx">
                             <img src="img/status/aguardandoTransferencia.jpg"  class="img-responsive" width="100%" /></a>
                     </div>
@@ -92,7 +92,7 @@
                         <a href="finalizado.aspx"> 
                             <img src="img/status/finalizado.jpeg"  class="img-responsive" width="100%" /></a>
                     </div>
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>--%>
                     <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                         <a href="minhas-areas.aspx">
                             <img src="img/status/minhasAreas.jpeg"  class="img-responsive" width="100%" /></a>
@@ -143,6 +143,6 @@
             });
         </script>
     </form>
-
+    <script type="text/javascript" id="lzdefsc" src="//brikk.areadecompras.com.br/suporte/script.php?id=lzdefsc" defer></script>
 </body>
 </html>
