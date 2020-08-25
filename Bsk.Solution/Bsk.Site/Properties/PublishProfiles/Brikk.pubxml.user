@@ -11,10 +11,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/30/2020 00:37:46</publishTime>
     </File>
     <File Include="Admin/cadastro-fornecedor.aspx">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/25/2020 12:12:10</publishTime>
     </File>
     <File Include="Admin/cadastro-servico.aspx">
       <publishTime>07/09/2020 21:18:56</publishTime>
+    </File>
+    <File Include="Admin/cadastro.aspx">
+      <publishTime>08/25/2020 12:41:19</publishTime>
     </File>
     <File Include="Admin/categoria.aspx">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -152,7 +155,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/home.aspx">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/24/2020 19:24:30</publishTime>
     </File>
     <File Include="Admin/img/aguardandoTransferencia.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -286,6 +289,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/pagamentoPendente.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
+    <File Include="Admin/img/pagamentos.jpg">
+      <publishTime>08/24/2020 19:20:54</publishTime>
+    </File>
     <File Include="Admin/img/perfil.jpg">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
@@ -335,7 +341,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/js/comum.js">
-      <publishTime>06/29/2020 22:06:32</publishTime>
+      <publishTime>08/25/2020 11:30:12</publishTime>
     </File>
     <File Include="Admin/js/datatables.min.js">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -425,16 +431,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Admin/lista-fornecedor.aspx">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/25/2020 12:33:27</publishTime>
     </File>
     <File Include="Admin/lista-proposta.aspx">
       <publishTime>06/30/2020 01:47:31</publishTime>
     </File>
     <File Include="Admin/Master/Layout.Master">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>08/25/2020 12:25:10</publishTime>
     </File>
     <File Include="Admin/msg.aspx">
       <publishTime>07/09/2020 21:18:56</publishTime>
+    </File>
+    <File Include="Admin/pagamento-transacao.aspx">
+      <publishTime>08/25/2020 12:33:12</publishTime>
     </File>
     <File Include="Admin/proposta.aspx">
       <publishTime>06/30/2020 01:59:12</publishTime>
@@ -455,34 +464,34 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>08/21/2020 15:59:10</publishTime>
+      <publishTime>08/25/2020 12:44:30</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>08/21/2020 15:59:10</publishTime>
+      <publishTime>08/25/2020 12:44:30</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>08/21/2020 16:06:58</publishTime>
+      <publishTime>08/25/2020 12:44:33</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>08/21/2020 16:06:58</publishTime>
+      <publishTime>08/25/2020 12:44:33</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>08/24/2020 17:25:36</publishTime>
+      <publishTime>08/25/2020 12:44:39</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>08/24/2020 17:25:36</publishTime>
+      <publishTime>08/25/2020 12:44:39</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>08/24/2020 17:26:31</publishTime>
+      <publishTime>08/25/2020 12:44:59</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>08/24/2020 17:26:31</publishTime>
+      <publishTime>08/25/2020 12:44:59</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>08/24/2020 17:25:35</publishTime>
+      <publishTime>08/25/2020 12:44:36</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>08/24/2020 17:25:35</publishTime>
+      <publishTime>08/25/2020 12:44:36</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>10/29/2018 13:44:00</publishTime>
@@ -908,7 +917,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/08/2020 19:57:15</publishTime>
     </File>
     <File Include="Cliente/img/status/semImagem.jpg">
-      <publishTime>07/10/2020 19:03:32</publishTime>
+      <publishTime>08/24/2020 19:20:23</publishTime>
     </File>
     <File Include="Cliente/img/transferido.jpg">
       <publishTime>07/09/2020 23:12:14</publishTime>

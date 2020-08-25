@@ -141,6 +141,7 @@
   <ItemGroup>
     <Content Include="Admin\cadastro-fornecedor.aspx" />
     <Content Include="Admin\cadastro-servico.aspx" />
+    <Content Include="Admin\cadastro.aspx" />
     <Content Include="Admin\categoria.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\bootstrap.min.css" />
@@ -170,6 +171,9 @@
     <Content Include="Admin\img\pagamentoPendente.jpg" />
     <Content Include="Admin\img\perfil.jpg" />
     <Content Include="Admin\img\proximaTransferencia.jpg" />
+    <Content Include="Admin\img\pagamentos.jpg" />
+    <Content Include="Admin\js\comum.js" />
+    <Content Include="Admin\pagamento-transacao.aspx" />
     <Content Include="Admin\lista-fornecedor.aspx" />
     <Content Include="Admin\msg.aspx" />
     <Content Include="Cliente\aguardando-pagamento.aspx" />
@@ -911,6 +915,13 @@
     <Compile Include="Admin\cadastro-servico.aspx.designer.cs">
       <DependentUpon>cadastro-servico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\cadastro.aspx.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\cadastro.aspx.designer.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\categoria.aspx.cs">
       <DependentUpon>categoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -931,6 +942,13 @@
     </Compile>
     <Compile Include="Admin\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\pagamento-transacao.aspx.cs">
+      <DependentUpon>pagamento-transacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\pagamento-transacao.aspx.designer.cs">
+      <DependentUpon>pagamento-transacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\lista-categoria.aspx.cs">
       <DependentUpon>lista-categoria.aspx</DependentUpon>

@@ -7,7 +7,7 @@
         <h3 class="tableTitle">Meus Fornecedores</h3>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a class="btn btn-brikk pull-right btn-lg">Novo Fornecedor</a>
+            <a class="btn btn-brikk pull-right btn-lg" href="cadastro.aspx">Novo Fornecedor</a>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>

@@ -310,6 +310,17 @@ namespace Bsk.Site.Controllers
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
+
+        [HttpPost]
+        public void MudaStatusTransacao(string status, string id)
+        {
+            TransacaoBE transacaoBE = new TransacaoBE();
+            var trans = _core.Transacao_Get(transacaoBE, " IdTransacao="+id).FirstOrDefault();
+            trans.Status = status;
+            _core.Transacao_Update(trans, " IdTransacao=" + id);
+        }
+            
+
         [HttpPost]
         public void SalvarDadosCobrancaCotacao(string data, string valor)
         {

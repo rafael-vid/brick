@@ -11,6 +11,7 @@ using System.Net;
 using System.Xml;
 using Bsk.BE.Model;
 using Bsk.Util;
+using Bsk.BE.Pag;
 
 namespace Bsk.Interface
 {
@@ -27,6 +28,29 @@ namespace Bsk.Interface
         public void ExecFree(string _filtro)
         {
             db.Execute(_filtro);
+        }
+
+        public List<TransacaoModel> TransacaoModel_Get(string filtro)
+        {
+            var sql = $@"select 
+                        T.IdTransacao, 
+                        T.Status, 
+                        T.IdCotacao, 
+                        T.DataEnvio as DataCriacao, 
+                        T.DataVencimento,
+                        T.Url,
+                        C.Titulo,
+                        CF.Valor,
+                        CL.Nome as Cliente,
+                        F.RazaoSocial as Fornecedor,
+                        CT.Nome as Categoria
+                        from transacao T 
+                        INNER JOIN cotacao C on C.IdCotacao = T.IdCotacao
+                        INNER JOIN cotacaofornecedor CF on CF.IdCotacaoFornecedor = C.IdCotacaoFornecedor
+                        INNER JOIN cliente CL on CL.IdCliente = C.IdCliente
+                        INNER JOIN fornecedor F on F.IdFornecedor = CF.IdFornecedor
+                        INNER JOIN categoria CT on CT.IdCategoria = C.IdCategoria where "+filtro;
+            return _base.ToList<TransacaoModel>(db.Get(sql));
         }
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(int idFornecedor)

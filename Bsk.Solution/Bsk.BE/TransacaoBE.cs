@@ -21,6 +21,5 @@ namespace Bsk.BE
         public string Observacao { get; set; }
         public string ObservacaoStatus { get; set; }
         public string Boleto { get; set; }
- 
     }
 }

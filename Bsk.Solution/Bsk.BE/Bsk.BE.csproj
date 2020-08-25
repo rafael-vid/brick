@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AreaFornecedorBE.cs" />
+    <Compile Include="Model\TransacaoModel.cs" />
     <Compile Include="TransacaoBE.cs" />
     <Compile Include="CotacaoAnexosBE.cs" />
     <Compile Include="CotacaoFornecedorChatBE.cs" />

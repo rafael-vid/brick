@@ -12,10 +12,14 @@
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="lista-categoria.aspx"><img src="img/categoria.jpg" class="img-responsive categoria" width="100%" alt=""></a>
                 </div>
-                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+                <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="lista-fornecedor.aspx"><img src="img/fornacedor.jpg" class="img-responsive fornecedor" width="100%" alt=""></a>
-                </div>                
+                </div>         
+                 <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <a href="pagamento-transacao.aspx"><img src="img/pagamentos.jpg" class="img-responsive fornecedor" width="100%" alt=""></a>
+                </div>    
             </div>
             <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
         </div>
