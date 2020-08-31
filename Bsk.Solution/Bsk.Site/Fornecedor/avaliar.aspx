@@ -106,16 +106,16 @@
                         <img src="img/status/minhasCotacoes.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="aguardando-pagamento.aspx">
+                    <a href="minhas-cotacoes.aspx">
                         <img src="img/status/aguardandoTransferencia.jpg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="em-andamento.aspx">
+                    <a href="minhas-cotacoes.aspx">
                         <img src="img/status/emAndamento.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
 
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="finalizado.aspx">
+                    <a href="minhas-cotacoes.aspx">
                         <img src="img/status/finalizado.jpeg" class="img-responsive" width="100%" /></a>
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>

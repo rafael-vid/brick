@@ -56,7 +56,7 @@ namespace Bsk.Site.Fornecedor
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.Observacao = depoimentoFornecedor.InnerText;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
-            Response.Redirect("finalizado.aspx");
+            Response.Redirect("minhas-cotacoes.aspx");
         }
     }
 }

@@ -240,12 +240,12 @@
                     };
                     comum.postAsync("Comum/AceitarTermino", parametro, function (data) {
                         if (data.Result == "0") {
-                            window.location.href = "em-andamento.aspx";
+                            window.location.href = "minhas-cotacoes.aspx";
                         } else {
                             if (data.Liberado == "4") {
-                                window.location.href = "finalizado.aspx";
+                                window.location.href = "minhas-cotacoes.aspx";
                             } else {
-                                window.location.href = "liberar-pagamento.aspx";
+                                window.location.href = "minhas-cotacoes.aspx";
                             }
                         }
 

@@ -206,7 +206,7 @@
                         idCotacaoFornecedor: comum.queryString("Id")
                     };
                     comum.postAsync("Comum/TerminarServico", parametro, function (data) {
-                        window.location.href = "aguardando-aceite.aspx";
+                        window.location.href = "minhas-cotacoes.aspx";
                     });
                 }
             });

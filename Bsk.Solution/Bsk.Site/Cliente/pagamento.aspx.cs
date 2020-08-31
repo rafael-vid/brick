@@ -95,7 +95,7 @@ namespace Bsk.Site.Cliente
             }
             emailTemplate.enviaEmail(html, titulo, email);
 
-            Response.Redirect("em-andamento.aspx");
+            Response.Redirect("minhas-cotacoes.aspx");
         }
 
         protected void btnCartao_ServerClick(object sender, EventArgs e)

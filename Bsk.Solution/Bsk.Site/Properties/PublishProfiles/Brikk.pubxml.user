@@ -482,10 +482,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/25/2020 12:44:39</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>08/25/2020 12:44:59</publishTime>
+      <publishTime>08/31/2020 11:26:10</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>08/25/2020 12:44:59</publishTime>
+      <publishTime>08/31/2020 11:26:10</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
       <publishTime>08/25/2020 12:44:36</publishTime>
@@ -968,7 +968,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/24/2020 16:36:34</publishTime>
     </File>
     <File Include="Cliente/negociar-cotacao.aspx">
-      <publishTime>08/24/2020 15:02:45</publishTime>
+      <publishTime>08/31/2020 11:23:15</publishTime>
     </File>
     <File Include="Cliente/pagamento-boleto.aspx">
       <publishTime>08/08/2020 19:57:17</publishTime>
@@ -1019,7 +1019,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/avaliar.aspx">
-      <publishTime>08/12/2020 19:01:57</publishTime>
+      <publishTime>08/31/2020 11:23:13</publishTime>
     </File>
     <File Include="Fornecedor/cadastra-atuacao.aspx">
       <publishTime>08/23/2020 19:52:39</publishTime>
@@ -1388,7 +1388,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>08/21/2020 16:06:33</publishTime>
+      <publishTime>08/31/2020 11:23:15</publishTime>
     </File>
     <File Include="Fornecedor/mensagem.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1403,7 +1403,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
-      <publishTime>08/24/2020 15:02:46</publishTime>
+      <publishTime>08/31/2020 11:23:12</publishTime>
     </File>
     <File Include="Fornecedor/pagamento.html">
       <publishTime>07/01/2020 10:53:24</publishTime>

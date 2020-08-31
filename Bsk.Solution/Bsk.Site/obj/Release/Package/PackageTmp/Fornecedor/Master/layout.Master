@@ -56,7 +56,7 @@
                                                                                        var usuario = RetornaUsuario();
                                                                                        Response.Write(usuario.RazaoSocial);
                 %>&nbsp;<i class="glyphicon glyphicon-user pull-right"></i></a>
-                <a href="perfil.aspx" class="text-center link-brikk hidden-lg hidden-md">Olá Amiguinho</a>
+                <a href="perfil.aspx" class="text-center link-brikk hidden-lg hidden-md"></a>
             </div>
 
         </div>

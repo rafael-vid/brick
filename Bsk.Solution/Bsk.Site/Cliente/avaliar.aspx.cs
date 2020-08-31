@@ -50,7 +50,7 @@ namespace Bsk.Site.Cliente
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             cotacao.Depoimento = depoimentoCliente.InnerText;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + Request.QueryString["Id"]);
-            Response.Redirect("finalizado.aspx");
+            Response.Redirect("minhas-cotacoes.aspx");
         }
     }
 }
