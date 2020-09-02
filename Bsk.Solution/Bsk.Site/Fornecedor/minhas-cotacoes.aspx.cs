@@ -17,7 +17,24 @@ namespace Bsk.Site.Fornecedor
         CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
+            List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
+            string cats = "";
+            foreach (var item in categorias)
+            {
+                cats += item.IdCategoria + ",";
+            }
+            lista = _core.CotacaoListaFronecedorGet(cats + "0");
+            if (lista.Count>0)
+            {
+                temCotacao.InnerText = "N";
+            }
+            else
+            {
+                temCotacao.InnerText = "";
+            }
         }
 
         public List<CotacaoFornecedorListaModel> PegaCotacoes()

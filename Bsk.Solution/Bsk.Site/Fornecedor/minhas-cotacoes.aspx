@@ -4,7 +4,7 @@
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2 class="tableTitle">Minhas cotações em negociação</h2>
         <a class="btn btn-lg btn-brikk pull-right" href="minhas-areas.aspx">Minhas Áreas</a> <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right">&nbsp;</div>
-        <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação</a>
+        <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação</a><span style="color:red;" id="temCotacao" runat="server"></span>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pd-0">
             <label>Filtro de Status:</label>
