@@ -48,7 +48,8 @@ namespace Bsk.Site.Fornecedor
                 IdFornecedor = login.IdFornecedor,
                 Valor = 0,
                 DataEntrega = "",
-                Ativo = 1
+                Ativo = 1,
+                Novo = 1
             };
 
             var id = _core.CotacaoFornecedor_Insert(cotacaoFornecedorBE);
