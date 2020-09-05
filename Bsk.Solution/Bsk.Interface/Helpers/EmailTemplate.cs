@@ -34,9 +34,9 @@ namespace Bsk.Interface.Helpers
             return html;
 
         }
-        public void enviaEmail(string html, string area, string email)
+        public bool enviaEmail(string html, string area, string email)
         {
-
+            bool sucesso = true;
             SmtpClient smtpClient = new SmtpClient(ConfigurationManager.AppSettings["smtp"].ToString(), 587);
             smtpClient.EnableSsl = false;
             MailMessage message = new MailMessage(new MailAddress(ConfigurationManager.AppSettings["email"].ToString(), area), new MailAddress(email, area));
@@ -54,9 +54,10 @@ namespace Bsk.Interface.Helpers
             }
             catch (Exception ex)
             {
+                sucesso = false;
                 Console.WriteLine("Exceção:" + ((object)ex).ToString());
             }
-
+            return sucesso;
         }
     }
 

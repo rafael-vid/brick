@@ -15,6 +15,7 @@
                 <p>Prestador de Serviço:</p>
                 <div id="parceiro" runat="server" text=""></div>
             </h2>
+            <div> Média das cotacoes recebidas: <strong id="valorMedioCotacoes" runat="server"></strong></div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>Título Serviço:
                     <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
@@ -204,7 +205,18 @@
                         idCotacaoFornecedor: comum.queryString("Id")
                     };
                     comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
-                        window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
+                        if (data == "Ok") {
+                            window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data
+                            }).then((result) => {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            });
+                        }
+
                     });
                 }
             });

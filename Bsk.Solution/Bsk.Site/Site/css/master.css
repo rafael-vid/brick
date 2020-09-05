@@ -1,0 +1,244 @@
+html,
+body {
+    color: #a4a4a4;
+}
+
+.header-site {
+    padding: 20px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+
+.banner-site {
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.login-site {
+    padding: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 70%;
+}
+
+.banner-site h2 {
+    font-size: 43px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.corpo-site {
+    padding: 20px;
+    display: inline;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .corpo-site h2 {
+        text-align: center;
+        width: 100%;
+        color: #b8272c;
+    }
+
+.link-brikk {
+    color: #b8272c !important;
+    font-weight: bold;
+}
+
+.link-brikk {
+    color: #b8272c !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.corpo-site h2 span {
+    text-decoration: line-through;
+    color: #b8272c;
+    letter-spacing: 10px !important;
+}
+
+.btn-brikk {
+    background: #b8272c !important;
+    border-radius: 5px;
+    color: #fff;
+}
+
+    .btn-brikk:hover {
+        background: #b8272c !important;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+.pd-0 {
+    padding: 0 !important;
+}
+
+.l100 {
+    width: 100% !important;
+}
+
+.pdl-0 {
+    padding-left: 0px !important;
+}
+
+.pdr-0 {
+    padding-right: 0px !important;
+}
+
+.btn-menu {
+    position: absolute;
+    right: -5px;
+    top: 0px;
+    font-size: 25px;
+    color: #b8272c;
+    cursor: pointer;
+}
+
+.menu img {
+    cursor: pointer;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.mr-20 {
+    margin-right: 20px !important;
+}
+
+.menuAberto {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    background: #ffffff;
+    transition: ease all 0.5s;
+}
+
+.menuFechado {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    z-index: 9;
+    background: #ffffff;
+    transition: ease all 0.5s;
+}
+
+.btn-fechar-menu {
+    font-size: 25px;
+    color: #b8272c;
+    cursor: pointer;
+}
+
+.btn-pagamento {
+    cursor: pointer;
+}
+
+.corpo-site h2.tableTitle {
+    width: 100%;
+    text-align: left !important;
+}
+
+    .corpo-site h2.tableTitle p {
+        font-size: 20px;
+        color: #b8272c;
+    }
+
+.boxDesc {
+    padding: 5px;
+    border: solid 1px #a4a4a4;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+#rating-1 {
+    font-size: 35px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+    letter-spacing: 11px;
+    position: relative;
+    left: -40px;
+}
+
+.valorServico {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    font-weight: bold;
+}
+
+.btn-upload {
+    background: none;
+    font-size: 20px;
+    color: #b8272c;
+    font-weight: bold;
+}
+
+.mensagem {
+    width: 90%;
+    border: none !important;
+    box-shadow: 1px 1px 3px #ccc;
+    margin: 0 !important;
+    padding: 15px !important;
+}
+
+.botaoPagamento {
+    border: none !important;
+    background: transparent !important;
+}
+
+.notaFiscal {
+    background: #fffdce;
+    box-shadow: -10px 10px 16px;
+}
+
+.borda {
+    border-bottom: 1px solid #ccc;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #d8d8d8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b8272c;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #750407;
+        cursor: pointer;
+    }
+
+.tituloServico {
+    position: relative;
+    width: 100%;
+    float: left;
+    height: 60px;
+    bottom: 80px;
+    padding: 20px;
+    color: #fff;
+    background: #b8272c;
+    text-align: center;
+    box-shadow: 0px -1px 3px #909090;
+    margin-bottom: -60px;
+    transition: all ease 0.5s;
+}
+
+    .tituloServico:hover {
+        background: #750407;
+        transition: all ease 0.5s;
+    }

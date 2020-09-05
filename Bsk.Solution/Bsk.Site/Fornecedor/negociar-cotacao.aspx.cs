@@ -39,13 +39,17 @@ namespace Bsk.Site.Fornecedor
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            if (cotacaoFornecedor.Ativo==0)
+            {
+                Response.Redirect("minhas-cotacoes.aspx");
+            }
 
             if (cotacaoFornecedor != null)
             {
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                 {
-                    if (cotacao.Status==StatusCotacao.Finalizado)
+                    if (cotacao.Status == StatusCotacao.Finalizado)
                     {
                         btnEnviar.Visible = false;
                         divUpload.Visible = false;
@@ -55,9 +59,10 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = cotacaoFornecedor.Valor.ToString();
-                        dataEntrega.Value = cotacaoFornecedor.DataEntrega;                        
+                        valorServico.Value = string.Format("{0:N2}%", cotacaoFornecedor.Valor);
+                        dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
+
                     titulo.Text = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
@@ -70,7 +75,7 @@ namespace Bsk.Site.Fornecedor
                     {
                         entrega.InnerText = cotacaoFornecedor.DataEntrega;
                     }
-                    
+
 
                     if (cotacao.Status == StatusCotacao.Aberto)
                     {
@@ -134,13 +139,14 @@ namespace Bsk.Site.Fornecedor
 
                 _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.LidaFornecedor = 1;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                if(cotacao!=null)
-                _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+                if (cotacao != null)
+                    _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
                 //DEPOIS COLOCAR MSG
                 Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
@@ -148,7 +154,15 @@ namespace Bsk.Site.Fornecedor
 
         public List<CotacaoFornecedorChatBE> CarregaChat()
         {
-            return _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var msg =_core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var msgNl = msg.Where(x => x.LidaFornecedor == 0).ToList();
+            foreach (var item in msgNl)
+            {
+                item.LidaFornecedor = 1;
+                _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat="+item.IdCotacaoFornecedorChat);
+            }
+            
+            return msg;
         }
 
         public string GravarArquivo(FileUpload _flpImg)
@@ -205,21 +219,30 @@ namespace Bsk.Site.Fornecedor
             }
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
 
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "").FirstOrDefault();
-            var cliente = _core.Cliente_Get(_ClienteBE, "").FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao="+cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente="+cotacao.IdCliente).FirstOrDefault();
 
             string imagem = VariaveisGlobais.Logo;
             Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
-        
+
             var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
             emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
         }
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            try
+            {
+                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            }
+            catch (Exception)
+            {
+                List<CotacaoAnexosBE> cotacaoAnexosBEs = new List<CotacaoAnexosBE>();
+                return cotacaoAnexosBEs;
+            }
+
         }
     }
 }

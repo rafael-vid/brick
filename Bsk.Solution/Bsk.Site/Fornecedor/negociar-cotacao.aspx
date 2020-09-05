@@ -113,12 +113,12 @@
             </div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
                 <label>Informe uma data para terminar o serviço</label>
-                <input type="date" class="from-control" id="dataEntrega" runat="server" />
+                <input type="date" class="from-control" clientidmode="static" id="dataEntrega" onchange="salvaDados();" runat="server" />
                 <label>Informe o valor que você vai cobrar pelo serviço</label>
-                <input type="text" class="from-control dinheiro" id="valorServico" runat="server" /><br />
-                <br />
+                <input type="text" class="from-control dinheiro" clientidmode="static" id="valorServico" onblur="salvaDados();" runat="server" /><br />
+                <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
 
-                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvarDados" onserverclick="btnSalvarDados_ServerClick" runat="server">Salvar dados do serviço</button>
+                <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
             </div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -168,8 +168,8 @@
 
         setInterval(function () {
             var parametro = {
-                tipo:"F",
-                id:comum.queryString("Id")
+                tipo: "F",
+                id: comum.queryString("Id")
             };
             comum.getAsync("Comum/CarregaChat", parametro, function (data) {
                 $("#divChat").empty();
@@ -212,6 +212,46 @@
             });
         }
 
+        function salvaDados() {
+
+            $("#loadGif").show();
+            var parametro = {
+                valor: $("#valorServico").val(),
+                data: $("#dataEntrega").val(),
+                id: comum.queryString("Id")
+            };
+
+            comum.postAsync("Comum/SalvarDadosCobrancaCotacao", parametro, function (data) {
+                $("#loadGif").hide();
+            });
+        }
+
+        function desistirCotacao() {
+            Swal.fire({
+                title: 'Você tem certeza que gostaria de desistir dessa cotação?',
+                text: "Ela não vai mais ficar visível para você e não será possível retomá-la. Essa ação é irreversível.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Desistir!'
+            }).then((result) => {
+                if (result.value) {
+                    var parametro = {
+                        id: comum.queryString("Id")
+                    };
+                    comum.post("Comum/DesistirCotacao", parametro, function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Sucesso',
+                            text: 'Essa cotação não vai mais aparecer para você.'
+                        }).then((result) => {
+                            window.location.href = "minhas-cotacoes.aspx";
+                            });
+                });
+        }
+            });
+        }
 
     </script>
 

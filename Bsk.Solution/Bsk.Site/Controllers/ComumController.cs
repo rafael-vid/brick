@@ -92,12 +92,23 @@ namespace Bsk.Site.Controllers
             return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
         }
 
+
+        [HttpPost]
+        public void DesistirCotacao(string id)
+        {
+            CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+            var cf = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
+            cf.Ativo = 0;
+            _core.CotacaoFornecedor_Update(cf, "IdCotacaoFornecedor=" + id);
+        }
+
         [HttpPost]
         public void NotaCotacao(string nota, string id)
         {
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
+            cotacao.Status = StatusCotacao.Avaliado;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
@@ -113,10 +124,15 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public void AceitarCotacao(string idCotacaoFornecedor)
+        public string AceitarCotacao(string idCotacaoFornecedor)
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+
+            if (cf.Ativo == 0)
+            {
+                return "O fornecedor desistiu da cotação";
+            }
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.IdCotacaoFornecedor = cf.IdCotacaoFornecedor;
@@ -145,6 +161,7 @@ namespace Bsk.Site.Controllers
                 email = fornecedor.Email;
             }
             emailTemplate.enviaEmail(html, titulo, email);
+            return "Ok";
         }
 
         [HttpPost]
@@ -315,18 +332,106 @@ namespace Bsk.Site.Controllers
         public void MudaStatusTransacao(string status, string id)
         {
             TransacaoBE transacaoBE = new TransacaoBE();
-            var trans = _core.Transacao_Get(transacaoBE, " IdTransacao="+id).FirstOrDefault();
+            var trans = _core.Transacao_Get(transacaoBE, " IdTransacao=" + id).FirstOrDefault();
             trans.Status = status;
             _core.Transacao_Update(trans, " IdTransacao=" + id);
         }
-            
 
         [HttpPost]
-        public void SalvarDadosCobrancaCotacao(string data, string valor)
+        public JsonResult RecuperaSenha(string tipo, string email)
         {
-            CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Site/redefinir-senha.aspx?log=";
+            string logo = VariaveisGlobais.Logo;
+            if (tipo == "F")
+            {
+                var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" Email='{email}'").FirstOrDefault();
+                if (fornecedor == null)
+                {
+                    return this.Json(new { Result = "O email informado não foi encontrado em nossa base." }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    RedefinirSenhaBE redefinirSenhaBE = new RedefinirSenhaBE()
+                    {
+                        Ativo = 1,
+                        DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        Guid = Guid.NewGuid().ToString(),
+                        Id = fornecedor.IdFornecedor,
+                        Tipo = tipo
+                    };
+                    _core.RedefinirSenha_Insert(redefinirSenhaBE);
+
+                    EmailTemplate emailTemplate = new EmailTemplate();
+
+                    string html = emailTemplate.emailPadrao("Redefinição de senha", $"Alguém, provavelmente você solicitou uma redefinição de senha na plataforma Brikk.<br>Para redefinir a senha acesse: {link + redefinirSenhaBE.Guid} Caso não seja você basta apenas ignorar essa mensagem.", logo);
+
+                    var ret = emailTemplate.enviaEmail(html, "Redefinição de senha", email);
+                    if (ret)
+                    {
+                        return this.Json(new { Result = "Ok" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return this.Json(new { Result = "Aconteceu algum problema ao enviar o email, por favor confira os dados e tente novamente." }, JsonRequestBehavior.AllowGet);
+                    }
+
+                }
+            }
+            else
+            {
+                ClienteBE _ClienteBE = new ClienteBE();
+                var cliente = _core.Cliente_Get(_ClienteBE, $" Email='{email}'").FirstOrDefault();
+                if (cliente == null)
+                {
+                    return this.Json(new { Result = "O email informado não foi encontrado em nossa base." }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    RedefinirSenhaBE redefinirSenhaBE = new RedefinirSenhaBE()
+                    {
+                        Ativo = 1,
+                        DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                        Guid = Guid.NewGuid().ToString(),
+                        Id = cliente.IdCliente,
+                        Tipo = tipo
+                    };
+                    _core.RedefinirSenha_Insert(redefinirSenhaBE);
+
+                    EmailTemplate emailTemplate = new EmailTemplate();
+
+                    string html = emailTemplate.emailPadrao("Redefinição de senha", $"Alguém, provavelmente você solicitou uma redefinição de senha na plataforma Brikk.<br>Para redefinir a senha acesse: {link + redefinirSenhaBE.Guid} <br> Caso não seja você basta apenas ignorar essa mensagem.", logo);
+
+                    var ret = emailTemplate.enviaEmail( html,"Redefinição de senha", email);
+                    if (ret)
+                    {
+                        return this.Json(new { Result = "Ok" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        return this.Json(new { Result = "Aconteceu algum problema ao enviar o email, por favor confira os dados e tente novamente." }, JsonRequestBehavior.AllowGet);
+                    }
+
+                }
+            }
+        }
+
+
+        [HttpPost]
+        public void SalvarDadosCobrancaCotacao(string data, string valor, string id)
+        {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={id}").FirstOrDefault();
+            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE()
+            {
+                Valor = cotacaoFornecedor.Valor,
+                DataCriacao = cotacaoFornecedor.DataCriacao,
+                DataEntrega = cotacaoFornecedor.DataEntrega,
+                IdCotacao = cotacaoFornecedor.IdCotacao,
+                IdCotacaoFornecedor = cotacaoFornecedor.IdCotacaoFornecedor,
+                IdFornecedor = cotacaoFornecedor.IdFornecedor
+            };
+
             cotacaoFornecedor.DataEntrega = data;
 
             try
@@ -338,6 +443,26 @@ namespace Bsk.Site.Controllers
                 cotacaoFornecedor.Valor = 0;
             }
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
+
+            if (!String.IsNullOrEmpty(cotacaoFornecedor.DataEntrega) && cotacaoFornecedor.Valor != 0)
+            {
+                if (cotacaoFornecedorBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != cotacaoFornecedorBE.DataEntrega)
+                {
+                    CotacaoBE _CotacaoBE = new CotacaoBE();
+                    ClienteBE _ClienteBE = new ClienteBE();
+                    var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+                    var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+
+                    string imagem = VariaveisGlobais.Logo;
+                    Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
+                    string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
+
+                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
+                    emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
+
+                }
+
+            }
         }
 
         [HttpGet]
@@ -345,6 +470,26 @@ namespace Bsk.Site.Controllers
         {
             CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
             var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var listaNlF = lista.Where(x => x.LidaFornecedor == 0).ToList();
+            var listaNlC = lista.Where(x => x.LidaCliente == 0).ToList();
+
+            if (tipo == "F")
+            {
+                foreach (var item in listaNlF)
+                {
+                    item.LidaFornecedor = 1;
+                    _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
+                }
+            }
+            else if (tipo == "C")
+            {
+                foreach (var item in listaNlC)
+                {
+                    item.LidaCliente = 1;
+                    _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
+                }
+            }
+
             string html = "";
             if (tipo == "F")
             {

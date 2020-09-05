@@ -25,7 +25,7 @@ namespace Bsk.Site.Fornecedor
 
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cf = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, $" IdCotacao={Request.QueryString["Cotacao"]} and IdFornecedor={login.IdFornecedor}").FirstOrDefault();
-            if (cf!=null)
+            if (cf != null)
             {
                 btnAdicionar.Visible = false;
             }
@@ -46,12 +46,13 @@ namespace Bsk.Site.Fornecedor
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
                 IdFornecedor = login.IdFornecedor,
-                Valor =0,
-                DataEntrega=""
+                Valor = 0,
+                DataEntrega = "",
+                Ativo = 1
             };
 
             var id = _core.CotacaoFornecedor_Insert(cotacaoFornecedorBE);
-            Response.Redirect("negociar-cotacao.aspx?Id="+id);
+            Response.Redirect("negociar-cotacao.aspx?Id=" + id);
         }
     }
 }

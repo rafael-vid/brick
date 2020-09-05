@@ -26,7 +26,7 @@ namespace Bsk.Site.Fornecedor
             {
                 cats += item.IdCategoria + ",";
             }
-            lista = _core.CotacaoListaFronecedorGet(cats + "0");
+            lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
             if (lista.Count>0)
             {
                 temCotacao.InnerText = "N";
@@ -42,9 +42,13 @@ namespace Bsk.Site.Fornecedor
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cotacoes = _core.CotacaoFornecedorListaGet(login.IdFornecedor);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
-
+            double total = 0;
             foreach (var item in cotacoes)
             {
+                if (!String.IsNullOrEmpty(item.DataEntrega))
+                {
+
+                }
 
                 if (item.Status == StatusCotacao.Aberto)
                 {
@@ -58,6 +62,7 @@ namespace Bsk.Site.Fornecedor
                     }
                     else
                     {
+                        total += item.Valor;
                         item.Status = "Em andamento";
                     }
 
@@ -74,6 +79,7 @@ namespace Bsk.Site.Fornecedor
                     }
                     else
                     {
+                        total += item.Valor;
                         item.Status = "Aguardando pagamento";
                     }
 
@@ -86,11 +92,13 @@ namespace Bsk.Site.Fornecedor
                     }
                     else
                     {
+                        total += item.Valor;
                         item.Status = "Finalizado";
                     }
                 }
 
             }
+            totalReceber.InnerText = string.Format("{0:C}", total);
             return cotacoes;
         }
     }

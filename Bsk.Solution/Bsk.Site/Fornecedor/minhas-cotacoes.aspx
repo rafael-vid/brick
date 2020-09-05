@@ -3,6 +3,7 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2 class="tableTitle">Minhas cotações em negociação</h2>
+        Total a receber: <span class="pull-right" id="totalReceber" runat="server">R$0,00</span>
         <a class="btn btn-lg btn-brikk pull-right" href="minhas-areas.aspx">Minhas Áreas</a> <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right">&nbsp;</div>
         <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação</a><span style="color:red;" id="temCotacao" runat="server"></span>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -26,6 +27,9 @@
                         <td>Nº Cotação</td>
                         <td>Título</td>
                         <td>Nome cliente</td>
+                        <td>Entrega</td>
+                        <td>Valor</td>
+                        <td>Última atualização</td>
                         <td>Status</td>
                         <%--<td>Ação</td>--%>
                     </tr>
@@ -61,9 +65,12 @@
                             }
                     %>
                     <tr onclick="redirecionar('<%Response.Write(link); %>')">
-                        <td><%Response.Write(item.CotacaoId); %></td>
+                        <td><%Response.Write(item.CotacaoId); %><span style="color:red;"><%Response.Write(item.Mensagens); %></span></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Nome); %></td>
+                        <td><%Response.Write(item.DataEntrega); %></td>
+                        <td><%Response.Write(string.Format("{0:C}", item.Valor)); %></td>
+                        <td><%Response.Write(item.DataAlteracao); %></td>
                         <td>
                             <%if (item.Status == "Recusado")
                                 {%>

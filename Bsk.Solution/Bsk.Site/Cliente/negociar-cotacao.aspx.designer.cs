@@ -24,6 +24,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl parceiro;
 
         /// <summary>
+        /// valorMedioCotacoes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl valorMedioCotacoes;
+
+        /// <summary>
         /// titulo control.
         /// </summary>
         /// <remarks>

@@ -41,11 +41,23 @@ namespace Bsk.Site.Cliente
         public void CarregaCotacaoFornecedor()
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+
+            if (cotacaoFornecedor.Novo==1)
+            {
+                cotacaoFornecedor.Novo = 0;
+                _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
+            }
+
+            if (cotacaoFornecedor.Ativo == 0)
+            {
+                Response.Redirect("minhas-cotacoes.aspx");
+            }
+
             if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
             {
                 divAceitar.Visible = false;
             }
-
+            mediaCotacoes();
             if (cotacaoFornecedor != null)
             {
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
@@ -97,6 +109,34 @@ namespace Bsk.Site.Cliente
             }
         }
 
+        private void mediaCotacoes()
+        {
+            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+
+            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var lista = _core.CotacaoListaGet(cotacaoFornecedor.IdCotacao.ToString());
+            if (cotacao.IdCotacaoFornecedor != 0)
+            {
+                foreach (var item in lista)
+                {
+                    if (item.CotacaoFornecedorId == cotacaoFornecedor.IdCotacaoFornecedor)
+                    {
+                        valorMedioCotacoes.InnerText = string.Format("{0:C}", item.Valor);
+                    }
+                }
+            }
+            else
+            {
+                double valor = 0;
+                foreach (var item in lista)
+                {
+                    valor += item.Valor;
+                }
+                valor = valor / lista.Count;
+                valorMedioCotacoes.InnerText = string.Format("{0:C}", valor);
+            }
+        }
 
         public ClienteBE RetornaUsuario()
         {
@@ -130,7 +170,7 @@ namespace Bsk.Site.Cliente
 
                 _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
-                
+                _CotacaoFornecedorChatBE.LidaCliente = 1;
                 //Atualiza data alteracao da cotação
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
@@ -145,7 +185,14 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoFornecedorChatBE> CarregaChat()
         {
-            return _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var msg = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var msgNl = msg.Where(x => x.LidaCliente == 0).ToList();
+            foreach (var item in msgNl)
+            {
+                item.LidaCliente = 1;
+                _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
+            }
+            return msg;
 
         }
 
@@ -201,7 +248,7 @@ namespace Bsk.Site.Cliente
             var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
             if (cotacao.Status == "1")
             {
-                return "cotacao-lista.aspx?Id="+cotacao.IdCotacao;
+                return "cotacao-lista.aspx?Id=" + cotacao.IdCotacao;
             }
             else
             {

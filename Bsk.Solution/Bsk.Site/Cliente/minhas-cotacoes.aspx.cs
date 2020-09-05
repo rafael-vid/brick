@@ -1,4 +1,5 @@
 ﻿using Bsk.BE;
+using Bsk.BE.Model;
 using Bsk.Interface;
 using Bsk.Util;
 using System;
@@ -19,11 +20,11 @@ namespace Bsk.Site.Cliente
 
         }
 
-        public List<CotacaoBE> PegaCotacoes()
+        public List<CotacaoListaClienteModel> PegaCotacoes()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" IdCliente=" + login.IdCliente+ " order by DataAlteracao desc");
-            foreach (var item in cotacoes)
+            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " order by DataAlteracao desc");
+            foreach (var item in cotCliente)
             {
                 if (item.Status == StatusCotacao.Criacao)
                 {
@@ -37,7 +38,7 @@ namespace Bsk.Site.Cliente
                 {
                     item.Status = "Em andamento";
 
-                    if (item.FinalizaFornecedor==1 && item.FinalizaCliente==0)
+                    if (item.FinalizaFornecedor == 1 && item.FinalizaCliente == 0)
                     {
                         item.Status = "Pendente de aceite do cliente";
                     }
@@ -54,10 +55,8 @@ namespace Bsk.Site.Cliente
                 {
                     item.Status = "Finalizado";
                 }
-
-
             }
-            return cotacoes;
+            return cotCliente;
         }
     }
 }

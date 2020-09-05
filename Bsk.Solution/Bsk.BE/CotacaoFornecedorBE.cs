@@ -14,5 +14,7 @@ namespace Bsk.BE
         public double Valor { get; set; }
         public string DataCriacao { get; set; }
         public string DataEntrega { get; set; }
+        public int Ativo { get; set; }
+        public int Novo { get; set; }
     }
 }

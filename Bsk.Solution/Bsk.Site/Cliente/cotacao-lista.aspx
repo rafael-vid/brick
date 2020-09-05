@@ -5,7 +5,8 @@
         <h2 class="tableTitle">Cod. <strong id="nrCotacao" runat="server"></strong></h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h3>Título da cotação</h3>
+            <strong id="titulo" runat="server"></strong>
+             <div> Média das cotacoes recebidas: <strong id="valorMedioCotacoes" runat="server"></strong></div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>
@@ -23,17 +24,28 @@
                         foreach (var item in cotacaoLista)
                         {%>
                     <tr>
-                        <td> <%Response.Write(item.NomeFornecedor); %></td>
-                        <td>
-                            <%Response.Write(item.NumeroMensagens); %>
+                        <td><%Response.Write(item.NomeFornecedor); %><span style="color:red;"><% if (item.Novo==1)
+                                                                                                  {
+                                                                                                    Response.Write("N");
+                                                                                                  }  %></span></td>
+                        <td style="color:red;">
+                            <%Response.Write(item.Mensagens); %>
 
                         </td>
                         <td>R$<%Response.Write(item.Valor); %>
 
                         </td>
                         <td><%Response.Write(item.DataUltimaResposta); %></td>
+                        <%if (item.Ativo == 0)
+                            {%>
+                        <td>Fornecedor desistiu da cotação</td>
+                          <%}
+                              else
+                              {%>
                         <td>
                             <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar</a></td>
+
+                        <%  } %>
                     </tr>
                     <% }
                     %>
@@ -43,5 +55,5 @@
 
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
-   
+
 </asp:Content>

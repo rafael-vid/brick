@@ -18,5 +18,7 @@ namespace Bsk.BE
         public string DataCriacao { get; set; }
 
         public string Status { get; set; }
+        public int LidaFornecedor { get; set; }
+        public int LidaCliente { get; set; }
     }
 }
