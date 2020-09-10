@@ -3,9 +3,10 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <h2 class="tableTitle">Minhas cotações em negociação</h2>
-        Total a receber: <span class="pull-right" id="totalReceber" runat="server">R$0,00</span>
+        Total a receber: <span id="totalReceber" runat="server">R$0,00</span>
         <a class="btn btn-lg btn-brikk pull-right" href="minhas-areas.aspx">Minhas Áreas</a> <div class="col col-lg-1 col-md-1 col-sm-1 col-xs-1 pull-right">&nbsp;</div>
-        <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação</a><span style="color:red;" id="temCotacao" runat="server"></span>
+        <a class="btn btn-lg btn-brikk pull-right" href="cotacao-lista.aspx">Buscar Cotação <span style="color:#ffffff; font-weight: lighter!important;">
+            <asp:Label ID="icone" runat="server" Text="Label"></asp:Label></span></a>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pd-0">
             <label>Filtro de Status:</label>

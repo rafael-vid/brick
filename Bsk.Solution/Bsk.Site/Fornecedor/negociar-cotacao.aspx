@@ -111,14 +111,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
-                <label>Informe uma data para terminar o serviço</label>
-                <input type="date" class="from-control" clientidmode="static" id="dataEntrega" onchange="salvaDados();" runat="server" />
-                <label>Informe o valor que você vai cobrar pelo serviço</label>
-                <input type="text" class="from-control dinheiro" clientidmode="static" id="valorServico" onblur="salvaDados();" runat="server" /><br />
-                <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosServico" runat="server" id="divDadosCobranca">
 
-                <button type="button" class="btn btn-brikk btn-lg pull-right" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label>Informe uma data para terminar o serviço</label><br />
+                    <input type="date" class="form-control" clientidmode="static" id="dataEntrega" onchange="salvaDados();" runat="server" />
+                </div>
+                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label>Informe o valor que você vai cobrar pelo serviço</label><br />
+                    <input type="text" class="form-control dinheiro" clientidmode="static" id="valorServico" onblur="salvaDados();" runat="server" />
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
+                    <button type="button" class="btn btn-brikk btn-lg" id="btnDesistir" onclick="desistirCotacao();" style="width: 100%;">Desistir da cotação</button>
+                </div>
             </div>
 
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -247,9 +254,9 @@
                             text: 'Essa cotação não vai mais aparecer para você.'
                         }).then((result) => {
                             window.location.href = "minhas-cotacoes.aspx";
-                            });
-                });
-        }
+                        });
+                    });
+                }
             });
         }
 

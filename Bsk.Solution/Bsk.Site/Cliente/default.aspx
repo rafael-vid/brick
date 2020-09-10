@@ -55,7 +55,7 @@
                         </div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                         <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                            <button class="btn btn-brikk loga l100" runat="server" id="btnEntrar" onserverclick="btnEntrar_ServerClick">Entrar</button>
+                            <button class="btn btn-brikk loga l100" runat="server" id="Button1" onserverclick="btnEntrar_ServerClick">Entrar</button>
                         </div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
                           <img src="img/loading.gif" style="display:none;" id="loadGif" />

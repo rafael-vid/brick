@@ -9,7 +9,7 @@
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                
+
                 <button type="button" class="btn btn-primary btn-lg pull-right" id="btnSubmeter" onclick="cadastrar();" runat="server">
                     Solicitar cotações para nossos parceiros
                 </button>
@@ -20,7 +20,7 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <strong>Legal!!</strong> Agora você já pode solicitar uma cotação para nossos paceiros e aproveitar as melhores ofertas
                 </div>
-               <%-- <button type="button" class="btn btn-brikk btn-lg pull-right" ClientIDMode="static" id="btnSalvarMaisTarde" runat="server" onserverclick="btnSalvarMaisTarde_ServerClick" runat="server">
+                <%-- <button type="button" class="btn btn-brikk btn-lg pull-right" ClientIDMode="static" id="btnSalvarMaisTarde" runat="server" onserverclick="btnSalvarMaisTarde_ServerClick" runat="server">
                    <i class="glyphicon glyphicon-save"></i>&nbsp;Salvar para enviar mais tarde
                 </button>--%>
             </div>
@@ -32,11 +32,6 @@
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Descreva sua necessidade</h3>
                 <textarea class="form-control" cols="30" rows="10" id="descricao" runat="server"></textarea>
-            </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" ClientIDMode="static" runat="server" onserverclick="btnSalvar_ServerClick" style="width: 100%;">Salvar dados para cotação</button>
-                <input type="hidden" id="hdLink" ClientIDMode="static" runat="server" value="" />
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -65,6 +60,11 @@
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <strong>Legal!!</strong> Agora você já pode anexar arquivos para facilitar o entendimento de sua solicitação
                     </div>
+                </div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button class="btn btn-brikk btn-lg pull-right" id="btnSalvar" clientidmode="static" runat="server" onserverclick="btnSalvar_ServerClick" style="width: 100%;">Salvar dados para cotação</button>
+                    <input type="hidden" id="hdLink" clientidmode="static" runat="server" value="" />
                 </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
                 <h3>Arquivos anexos</h3>

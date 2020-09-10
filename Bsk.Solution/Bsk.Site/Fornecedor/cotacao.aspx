@@ -1,12 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cotacao.aspx.cs" validateRequest="false" Inherits="Bsk.Site.Fornecedor.cotacao" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Fornecedor.cotacao" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-     <!-- Corpo Site -->
+    <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <h2>Cotação: <strong id="nrCotacao" runat="server"></strong></h2>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <a class="btn btn-brikk pull-right" href="minhas-cotacoes.aspx"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</a>
                 <h3>Título</h3>
                 <span id="titulo" runat="server"></span>
             </div>
@@ -14,6 +15,11 @@
                 <h3>Descrição do serviço</h3>
                 <p id="descricao" runat="server"></p>
             </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
+                <button class="btn btn-brikk btn-lg" id="btnAdicionar" onserverclick="btnAdicionar_ServerClick" runat="server" style="width:100%;">Tenho interesse</button>
+            </div>
+
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h3>Arquivos anexos</h3>
@@ -32,15 +38,13 @@
                         <tr>
                             <td><%Response.Write(item.Anexo); %></td>
                             <td>
-                                <%if (item.Tipo == "Anexo"||item.Tipo == "Documento")
+                                <%if (item.Tipo == "Anexo" || item.Tipo == "Documento")
                                     {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    Visualizar</a>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                 <% }
                                     else
                                     {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    Visualizar</a>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                 <% } %>
                             </td>
                         </tr>
@@ -49,12 +53,8 @@
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>
                 </table>
-                  <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                        <button class="btn btn-brikk pull-right" id="btnAdicionar" onserverclick="btnAdicionar_ServerClick" runat="server">Tenho interesse</button>
-                    </div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            
+
             </div>
         </div>
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12">&nbsp;</div>

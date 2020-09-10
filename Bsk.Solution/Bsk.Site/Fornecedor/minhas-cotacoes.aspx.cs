@@ -29,11 +29,11 @@ namespace Bsk.Site.Fornecedor
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
             if (lista.Count>0)
             {
-                temCotacao.InnerText = "N";
+                icone.Text = "<i class='glyphicon glyphicon-check'></i>";
             }
             else
             {
-                temCotacao.InnerText = "";
+                icone.Text = "";
             }
         }
 

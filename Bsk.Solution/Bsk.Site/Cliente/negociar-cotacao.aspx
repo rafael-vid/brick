@@ -15,7 +15,6 @@
                 <p>Prestador de Serviço:</p>
                 <div id="parceiro" runat="server" text=""></div>
             </h2>
-            <div> Média das cotacoes recebidas: <strong id="valorMedioCotacoes" runat="server"></strong></div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
                 <h3>Título Serviço:
                     <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
@@ -30,14 +29,21 @@
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
                     <h2>
                         <strong>
-                            <p>Data entrega: <strong id="dataEntrega" runat="server" text=""></strong></p>
+                            <p>Data entrega:<br /><strong id="dataEntrega" runat="server" text=""></strong></p>
                         </strong>
                     </h2>
                 </div>
-                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
                     <h2>
                         <strong>
-                            <p>Valor do serviço: <strong id="vlr" runat="server" text=""></strong></p>
+                            <p>Valor do serviço:<br /><strong id="vlr" runat="server" text=""></strong></p>
+                        </strong>
+                    </h2>
+                </div>
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
+                    <h2>
+                        <strong>
+                            <p>Média das cotação:<br /><strong id="valorMedioCotacoes" runat="server"></strong></p>
                         </strong>
                     </h2>
                 </div>
@@ -59,7 +65,7 @@
                 <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width: 100%;">Enviar</button>
             </div>
             <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" style="height: 379px; overflow-y: scroll;">
-                <h3 style="margin-top: 0; border-bottom: 1px solid #b8272c;">Mensagens</h3>
+                <h3 style="margin-top: 0; border-bottom: 1px solid #b8272c;">Fale com o nosso parceiro</h3>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
                     <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                         O fornecedor alegou ter terminado o serviço.</span><br />

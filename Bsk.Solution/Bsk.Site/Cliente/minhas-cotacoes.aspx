@@ -24,6 +24,7 @@
                         <td>Data criação <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <td>Título <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <td>Data Atualização <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
+                        <td>Mensagem <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <td>Status <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
                         <%-- <td>Ação</td>--%>
                     </tr>
@@ -68,6 +69,7 @@
                         <td><%Response.Write(item.DataCriacao); %></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00","")); %></td>
+                        <td>213</td>
                         <%  
                             if (item.Status == "Criação")
                             {%>

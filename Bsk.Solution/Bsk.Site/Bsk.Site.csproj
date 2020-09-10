@@ -244,6 +244,7 @@
     <Content Include="Cliente\img\status\minhasAreas.jpeg" />
     <Content Include="Cliente\img\status\aguardandoLiberacao.jpeg" />
     <Content Include="Cliente\img\status\minhasCotacoes.jpeg" />
+    <Content Include="Cliente\img\voltar.png" />
     <Content Include="Cliente\liberar-pagamento.aspx" />
     <Content Include="Cliente\minhas-cotacoes.aspx" />
     <Content Include="Cliente\finalizado.aspx" />
