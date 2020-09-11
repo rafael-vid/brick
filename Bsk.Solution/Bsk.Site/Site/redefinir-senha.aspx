@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>BRIKK</title>
@@ -34,23 +34,72 @@
     <script src="js/comum.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <div id="msg" runat="server">
-
+    <form id="form1" runat="server" style="height: 100%;">
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
+            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <img src="img/logo.png" class="img-responsive logo" alt="BRIKK" />
             </div>
-            <div id="campos" runat="server">
-                <label>Informe a nova senha</label>
-                <input type="password" id="senha1" runat="server" /><br />
-                <label>Confirme a senha</label>
-                <input type="password" id="senha2" runat="server" /><br />
-                <button type="button" id="btnAltera" runat="server" onserverclick="btnAltera_ServerClick">Salvar</button>
+            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
+            <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
+            </div>
+        </div>
+        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 login-site pd-0" style="height: 100%!important; position: absolute; left: 0; top: -20px;">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+                    </div>
+
+                    <div id="msg" runat="server">
+                    </div>
+                    <div id="campos" runat="server">
+                        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>Informe a nova senha</label>
+                            <input type="password" class="form-control" id="senha1" runat="server" />
+                        </div>
+
+                        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
+
+                        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label>Confirme a senha</label>
+                            <input type="password" class="form-control" id="senha2" runat="server" /><br />
+                            <button type="button" class="btn btn-brikk loga l100" id="btnAltera" runat="server" onserverclick="btnAltera_ServerClick">Salvar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <script>
-            if (comum.queryString("Acao")!=null) {
+            if (comum.queryString("Acao") != null) {
                 var acao = comum.queryString("Acao");
-                if (acao=="Expirado") {
+                if (acao == "Expirado") {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
