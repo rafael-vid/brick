@@ -26,10 +26,11 @@
                     <tr>
                         <td><%Response.Write(item.NomeFornecedor); %></td>
                         <td style="color: red; text-align: center;">
-                            <%Response.Write(item.Mensagens); %>
-                            <span style="color: red;"><% if (item.Novo == 1)
+                            <%if (!String.IsNullOrEmpty(item.Mensagens))
+                                {Response.Write("<i class='center-block glyphicon glyphicon-envelope'></i>");} %>
+                              <span style="color: red;"><% if (item.Novo == 1)
                                                           {
-                                                              Response.Write("<i class='center-block glyphicon glyphicon-envelope'></i>");
+                                                              Response.Write("<i class='center-block glyphicon glyphicon-check'></i>");
                                                           }  %></span>
                         </td>
                         <td>R$<%Response.Write(item.Valor); %>

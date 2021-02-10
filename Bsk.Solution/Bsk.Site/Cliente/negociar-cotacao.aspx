@@ -43,7 +43,7 @@
                 <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
                     <h2>
                         <strong>
-                            <p>Média das cotação:<br /><strong id="valorMedioCotacoes" runat="server"></strong></p>
+                            <p>Média das cotações:<br /><strong id="valorMedioCotacoes" runat="server"></strong></p>
                         </strong>
                     </h2>
                 </div>

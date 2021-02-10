@@ -65,7 +65,8 @@
                             }
                     %>
                     <tr onclick="redirecionar('<%Response.Write(link);%>');">
-                        <td><%Response.Write(item.IdCotacao); %><span style="color:red;"><%Response.Write(item.Mensagens); %></span></td>
+                        <td><%Response.Write(item.IdCotacao); %><span style="color:red;"> <%if (!String.IsNullOrEmpty(item.Mensagens))
+                                {Response.Write("<i class='center-block glyphicon glyphicon-envelope'></i>");} %></span></td>
                         <td><%Response.Write(item.DataCriacao); %></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00","")); %></td>
