@@ -1,0 +1,246 @@
+@font-face {
+    font-family: "RajBold";
+    src: url("/fonts/Rajdhani-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "RajSemiBold";
+    src: url("/fonts/Rajdhani-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Raj";
+    src: url("/fonts/Rajdhani-Medium.ttf") format("truetype");
+}
+
+header {
+    background: #770E18;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-image: url(../images/fundo.png);
+    background-size: auto;
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    font-family: "RajSemiBold"!important;
+    font-size: 18pt;
+}
+
+header .menu {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.wc-5 {
+    width: calc(100% / 5);
+}
+
+.pd-0 {
+    padding: 0!important;
+}
+
+header .menu .menu-bar {
+    display: inline-block;
+    align-items: center;
+    align-content: center;
+}
+
+header .menu .btn-menu {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 2vh;
+    border: none;
+    text-transform: uppercase;
+    padding: 5px 15px;
+}
+
+.btn-footer {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 2vh;
+    border: none;
+    text-transform: uppercase;
+    padding: 5px 15px;
+}
+
+header .menu .btn-login {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 2vh;
+    border: solid 1pt #F08F00;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 5px 15px;
+}
+
+header input {
+    height: 51px!important;
+    border-radius: 50px 0px 0px 50px!important;
+    background: #ffffff57!important;
+    border: 2px solid #ffffff!important;
+    border-right: 0px solid transparent!important;
+    border-right-width: 0px !important;
+    border-right-style: solid !important;
+    border-right-color: transparent !important;
+    font-size: 3vh!important;
+    color: #ffffff!important;
+    line-height: 51px!important;
+    padding-left: 30px!important;
+}
+
+header input::placeholder {
+    font-size: 3vh;
+    color: #ffffff!important;
+}
+
+header .btn-buscar {
+    height: 51px;
+    border-radius: 0px 50px 50px 0px!important;
+    background: #ffffff57!important;
+    border: 2px solid #ffffff!important;
+    border-left: none!important;
+    padding-right: 30px!important;
+}
+
+content {}
+
+content .img-fundo-banner {
+    position: relative!important;
+    z-index: 0;
+}
+
+content .banner-content {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+content .banner-content .text-banner {
+    position: absolute!important;
+}
+
+content .banner-content h2 {
+    color: #770E18;
+    font-family: "RajBold"!important;
+    font-size: 5vh;
+}
+
+content .banner-content P {
+    color: #575756;
+    font-family: "Raj"!important;
+    font-size: 2vh;
+}
+
+content .beneficios-content {
+    background: #E3E2E1;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    padding: 80px 0px!important;
+}
+
+content .beneficios-content .img-cel {
+    position: absolute;
+    top: -210%;
+    left: 0;
+    width: 50%;
+    z-index: 1;
+}
+
+content .beneficios-content h2 {
+    color: #770E18;
+    font-family: "RajBold"!important;
+    font-size: 4vh;
+}
+
+content .beneficios-content .beneficios-box {
+    color: #770E18;
+    font-family: "Raj"!important;
+    font-size: 1.5vh;
+}
+
+content .beneficios-content .beneficios-box .beneficios {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.beneficios span {
+    font-family: "RajBold"!important;
+}
+
+.img-fundo-banner {
+    position: relative!important;
+    z-index: 0;
+}
+
+.cliente-content {}
+
+.cliente-text {
+    position: absolute!important;
+    top: 100px;
+}
+
+.cliente-text h1 {
+    color: #770E18;
+    font-family: "RajBold"!important;
+    font-size: 7vh;
+}
+
+.cliente-text h2 {
+    color: #770E18;
+    font-family: "RajBold"!important;
+    font-size: 5vh;
+}
+
+.cliente-text p span {
+    color: #770E18;
+    font-family: "RajBold"!important;
+    font-size: 2.2vh;
+}
+
+.cliente-text p {
+    color: #575756;
+    font-family: "Raj"!important;
+    font-size: 2vh;
+}
+
+.cliente-text h1 span {
+    font-family: "RajSemiBold"!important;
+}
+
+.cliente-text .btn-orcamento {
+    font-family: "RajBold"!important;
+    background-color: #F08F00;
+    border-radius: 20px;
+    text-transform: uppercase;
+    padding: 8px 45px;
+    font-size: 2vh;
+    border: none;
+    color: #770E18;
+    box-shadow: 2px 2px 5px #9e9e9e;
+}
+
+.footer-content {
+    height: 140px;
+    background: url(../images/fundo-footer.png);
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.redes {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    width: 22%;
+    padding-top: 9px;
+    padding-right: 10px;
+}
