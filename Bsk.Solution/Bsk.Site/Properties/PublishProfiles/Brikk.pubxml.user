@@ -443,7 +443,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Admin/pagamento-transacao.aspx">
-      <publishTime>08/25/2020 12:33:12</publishTime>
+      <publishTime>03/22/2021 19:27:00</publishTime>
     </File>
     <File Include="Admin/proposta.aspx">
       <publishTime>06/30/2020 01:59:12</publishTime>
@@ -464,34 +464,34 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>10/28/2020 19:21:37</publishTime>
+      <publishTime>03/22/2021 19:28:21</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>10/28/2020 19:21:37</publishTime>
+      <publishTime>03/22/2021 19:28:21</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>10/28/2020 19:21:41</publishTime>
+      <publishTime>03/22/2021 19:28:22</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>10/28/2020 19:21:41</publishTime>
+      <publishTime>03/22/2021 19:28:22</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>10/28/2020 19:21:44</publishTime>
+      <publishTime>03/22/2021 19:28:25</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>10/28/2020 19:21:44</publishTime>
+      <publishTime>03/22/2021 19:28:25</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>10/28/2020 19:22:00</publishTime>
+      <publishTime>03/22/2021 19:28:36</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>10/28/2020 19:22:00</publishTime>
+      <publishTime>03/22/2021 19:28:36</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>10/28/2020 19:21:43</publishTime>
+      <publishTime>03/22/2021 19:28:25</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>10/28/2020 19:21:43</publishTime>
+      <publishTime>03/22/2021 19:28:25</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>10/29/2018 13:44:00</publishTime>
@@ -527,7 +527,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/20/2020 16:40:45</publishTime>
     </File>
     <File Include="bin/netstandard.dll">
-      <publishTime>03/18/2020 01:28:57</publishTime>
+      <publishTime>12/07/2020 16:31:59</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -614,7 +614,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>03/18/2020 01:28:57</publishTime>
+      <publishTime>12/07/2020 16:31:59</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>02/19/2015 20:10:46</publishTime>
@@ -1367,7 +1367,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Fornecedor/js/comum.js">
-      <publishTime>10/28/2020 19:19:17</publishTime>
+      <publishTime>11/24/2020 22:02:19</publishTime>
     </File>
     <File Include="Fornecedor/js/datatables.min.js">
       <publishTime>07/09/2020 21:18:56</publishTime>

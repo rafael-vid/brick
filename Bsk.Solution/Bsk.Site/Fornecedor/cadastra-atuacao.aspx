@@ -11,7 +11,7 @@
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
                     <%var cat = PegaCategoria(); %>
-                    <img src="img/<%Response.Write(cat.Imagem); %>" class="img-responsive" width="100%" alt="">
+                    <img src="../RepositoryImg/<%Response.Write(cat.Imagem); %>" class="img-responsive" width="100%" alt="">
                     <h3><%Response.Write(cat.Nome); %></h3>
                 </div>
             </div>

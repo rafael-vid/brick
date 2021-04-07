@@ -4,10 +4,9 @@
 
     <!-- Corpo Site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h3 class="tableTitle">Minhas Categorias</h3>
+        <h3 class="tableTitle">Pagamentos</h3>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <a href="categoria.aspx" class="btn btn-brikk pull-right btn-lg">Nova Categoria</a>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
                 <thead>

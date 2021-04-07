@@ -13,7 +13,7 @@
                     {%>
                 <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                        <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
+                        <img src="../RepositoryImg/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
                         <h3 class="tituloServico"><%Response.Write(item.Nome); %></h3>
                     </a>
                 </div>
@@ -59,7 +59,7 @@
                 {%>
             <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                    <img src="img/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
+                    <img src="../RepositoryImg/<%Response.Write(item.Imagem); %>" class="img-responsive" width="100%" alt="">
                     <h3 class="tituloServico"><%Response.Write(item.Nome); %></h3>
                 </a>
             </div>
