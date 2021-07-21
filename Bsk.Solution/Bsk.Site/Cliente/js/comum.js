@@ -25,7 +25,7 @@ function loadParameters() {
     if (localStorage.getItem("token") !== "" || localStorage.getItem("token") !== null) {
         validaLogin();
     } else {
-        window.location.href = "Login.html";
+        window.location.href = "login.aspx";
     }
 }
 
@@ -37,7 +37,7 @@ function validaLogin() {
 
     comum.get("Agenda/ValidaToken", parametro, function (data) {
         if (data.Msg !== "Ok") {
-            window.location.href = "Login.html";
+            window.location.href = "login.aspx";
         }
     });
 }

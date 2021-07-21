@@ -34,7 +34,7 @@
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
             <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right mobile-center-txt">
-                    <a href="cadastro.html" class="link-brikk cadastrar">Não tenho cadastro</a>
+                    <a href="cadastro.aspx" class="link-brikk cadastrar">Não tenho cadastro</a>
                 </div>
                 <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">

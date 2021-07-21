@@ -1,70 +1,111 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pagamento-boleto.aspx.cs" Inherits="Bsk.Site.Cliente.pagamento_boleto" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pagamento Boleto&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" style="width: 100%;">
-                    Confira seus dados pessoais e o valor e se tudo estiver correto clique em "Gerar Boleto"
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <h2>Dados Pessoais</h2>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="email" placeholder="E-mail" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="cpf" placeholder="CPF" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="telefone" placeholder="Telefone" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 dadosResponsavel">
-                    <input type="text" class="form-control" id="cep" placeholder="CEP" runat="server" disabled>
-                </div>
-                <div class="col col-lg-9 col-md-9 col-sm-9 col-xs-9 dadosResponsavel">
-                    <input type="text" class="form-control" id="rua" placeholder="Rua" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="numero" placeholder="Número" runat="server" disabled>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="complemento" placeholder="Complemento" runat="server" disabled>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="bairro" placeholder="Bairro" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6 dadosResponsavel">
-                    <input type="text" class="form-control" id="cidade" placeholder="Cidade" runat="server" disabled>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6 dadosResponsavel">
-                    <input type="text" class="form-control" id="uf" placeholder="UF" runat="server" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <button class="btn btn-brikk btn-lg center-block" style="float: right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick">Alterar dados</button>
 
+    <div class="conteudo-dash cotacao cotacoes-cli">
+
+        <div class="acessos">
+            <a class="btn_card" href="buscar-servico.aspx">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+                Nova Cotação
+            </a>
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            </a>
+            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
+            </a>
+        </div>
+
+        <div class="card boleto">
+            <div class="titulo_card">
+                <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
+                <h2 class="subtitulo_1">Cotações/ Cod.<span id="nrcotacao" runat="server"></span> / Gerar Boleto</h2>
             </div>
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h2>Valor Boleto</h2>
-                <h1 class="text-center">
-                    <p id="valor" runat="server"></p>
-                </h1>
-                <button class="btn btn-brikk btn-lg center-block" style="width: 100%;" id="btnGerar" runat="server" onserverclick="btnGerar_ServerClick">Gerar Boleto</button>
+            <div class="titulo_card" style="margin-top: 30px;">
+                <h2 class="subtitulo_1">Confira seus Dados Cadastrais</h2>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Nome Completo </h2>
+                <p id="nomeBol" runat="server"></p>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">E-mail </h2>
+                <p id="email" runat="server"></p>
+            </div>
+
+            <div class="card-cl2">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Documento</h2>
+                    <p id="cpf" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Telefone</h2>
+                    <p id="telefone" runat="server"></p>
+                </div>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Endereço</h2>
+                <p id="rua" runat="server"></p>
+            </div>
+
+            <div class="grupo-pg-boleto">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Bairro</h2>
+                    <p id="bairro" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Número</h2>
+                    <p id="numero" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">CEP</h2>
+                    <p id="cep" runat="server"></p>
+                </div>
+            </div>
+
+            <div class="grupo-pg-boleto">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Complemento</h2>
+                    <p id="complemento" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Cidade</h2>
+                    <p id="cidade" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Estado</h2>
+                    <p id="uf" runat="server"></p>
+                </div>
+            </div>
+
+            <button id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick" class="btn_card" style="width: 140px; margin-top: 30px;">Alterar Dados</button>
+
+            <div class="item_content_card">
+                <div class="titulo_card">
+                    <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+                    <h2 class="subtitulo_1">Valor do Boleto</h2>
+                </div>
+            </div>
+
+
+
+            <div class="item_content_card card_boleto_valor  ">
+                <span class="valor_" id="valor" runat="server"></span>
+                <button class="btn_card" id="btnGerar" runat="server" onserverclick="btnGerar_ServerClick">Baixar Boleto</button>
                 <label id="lbMsg" runat="server" style="color: red;"></label>
             </div>
+
+            <div class="footer_card" style="margin-top: 36p;">
+              
+                <a href="" class="item_notifica">
+                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                    <span class="notificacao">02</span>
+                </a>
+            </div>
+
         </div>
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
+
 </asp:Content>

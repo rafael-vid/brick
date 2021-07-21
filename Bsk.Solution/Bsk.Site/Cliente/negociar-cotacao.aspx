@@ -3,172 +3,261 @@
 
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-
-    <!-- Corpo Site -->
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Negociação<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
-            <a class="btn btn-brikk pull-right voltarCotacoes" href="<%Response.Write(pegaStatus());%>"><i class="glyphicon glyphicon-circle-arrow-left" title="VOLTAR" style="padding: 10px;"></i>&nbsp;Voltar</a>
-            <h2 class="tableTitle">
-                <p>Prestador de Serviço:</p>
-                <div id="parceiro" runat="server" text=""></div>
-            </h2>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                <h3>Título Serviço:
-                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
-                </h3>
+    <div class="conteudo-dash cotacao dados-cotacao cotacoes-cli">
+        <div class="acessos">
+            <a class="btn_card" href="buscar-servico.aspx">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+                Nova Cotação
+            </a>
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            </a>
+            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
+            </a>
+        </div>
+        <div class="card card-cotacao-dados">
+            <div class="titulo_card">
+                <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
+                <h2 class="subtitulo_1">Cotações/ Cotação <span id="nrCotacao" runat="server"></span> Marcenaria Gomes</h2>
             </div>
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12" style="font-size: 18px; line-height: 30px;">
-                Descrição Serviço:
-                <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <p id="tituloCot" runat="server"></p>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
-                    <h2>
-                        <strong>
-                            <p>Data entrega:<br /><strong id="dataEntrega" runat="server" text=""></strong></p>
-                        </strong>
-                    </h2>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
-                    <h2>
-                        <strong>
-                            <p>Valor do serviço:<br /><strong id="vlr" runat="server" text=""></strong></p>
-                        </strong>
-                    </h2>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 valorServico">
-                    <h2>
-                        <strong>
-                            <p>Média das cotações:<br /><strong id="valorMedioCotacoes" runat="server"></strong></p>
-                        </strong>
-                    </h2>
-                </div>
-                <br />
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <p id="descricaoCot" runat="server"></p>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0" id="divUpload" runat="server">
-                <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
-                <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
-                <button type="button" class="btn btn-upload" id="btnArquivo">
-                    <img src="img/upload.png" alt="">&nbsp;&nbsp;Anexar Arquivos</button>&nbsp;&nbsp;
-                <button type="button" class="btn btn-upload" id="btnVideo">
-                    <img src="img/video.png" alt="">&nbsp;&nbsp;Gravar um vídeo explicativo</button>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1"></h2>
+                <p id="parceiro" runat="server"></p>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
 
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0" id="descricaoHide" runat="server">
-                <textarea name="" id="msg" runat="server" class="form-control" cols="30" rows="10"></textarea><br>
-                <button class="btn btn-brikk btn-lg pull-right" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width: 100%;">Enviar</button>
-            </div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12" style="height: 379px; overflow-y: scroll;">
-                <h3 style="margin-top: 0; border-bottom: 1px solid #b8272c;">Fale com o nosso parceiro</h3>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
-                    <span class="tableTitle"><small>Mensagem do sistema:</small><br />
-                        O fornecedor alegou ter terminado o serviço.</span><br />
-                    <br />
-                    <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
-                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
+            <div class="cli-infos-values">
+                <div class="cli-infos-value">
+                    <div class="item_content_card ">
+                        <div class="subtitulo-com-icone">
+                            <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
+                            <h2 class="subtitulo_card_1 subtitulo_1">Data de Entrega</h2>
+                        </div>
+                        <div class="expo-info-values">
+                            <span class="dt" id="dataEntrega" runat="server"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
-                    <span class="tableTitle"><small>Mensagem do sistema:</small><br />
-                        Gostaria de aceitar a oferta deste Parceiro?.</span><br />
-                    <br />
-                    <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
+
+                <div class="cli-infos-value">
+                    <div class="item_content_card ">
+                        <div class="subtitulo-com-icone">
+                            <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+                            <h2 class="subtitulo_card_1 subtitulo_1">Valor do Serviço</h2>
+                        </div>
+                        <div class="expo-info-values">
+                            <span id="vlr" runat="server"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div id="divChat">
-                        <%
-                            var chat = CarregaChat();
 
-                            var cliente = @"<!--CLIENTE-->
-                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
-                    {{CLIENTEMSG}}
-                </div>
-                <!--FIM CLIENTE-->";
-
-                            var fornecedor = @"<!--FORNECEDOR-->
-                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
-                    {{FORNECEDORMSG}}
-                </div>
-                <!--FIM FORNECEDOR-->";
-
-                            var conteudo = "";
-                            foreach (var item in chat)
-                            {
-                                var arquivo = "";
-                                if (!String.IsNullOrEmpty(item.Arquivo))
-                                    arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
-
-                                var video = "";
-                                if (!String.IsNullOrEmpty(item.Video))
-                                    video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
-
-
-                                if (item.IdCliente == 0)
-                                    conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                                else
-                                    conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
-                        %>
-
-                        <!--CLIENTE-->
-                        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                        <%Response.Write(conteudo);%>
-                        <!--FIM CLIENTE-->
-
-                        <%
-                            }
-                        %>
+                <div class="cli-infos-value">
+                    <div class="item_content_card ">
+                        <div class="subtitulo-com-icone">
+                            <img src="../assets/imagens/media-laranja.svg" alt="ícone" style="width: 20px;">
+                            <h2 class="subtitulo_card_1 subtitulo_1">Média das cotações</h2>
+                        </div>
+                        <div class="expo-info-values">
+                            <span id="valorMedioCotacoes" runat="server"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
+                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                    O fornecedor alegou ter terminado o serviço.</span><br />
+                <br />
+                <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
+                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
+            </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
+                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                    Gostaria de aceitar a oferta deste Parceiro?.</span><br />
+                <br />
+                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
+            </div>
+        
+            <div class="item_content_card ">
+                <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
+                <div class="card-content-chat">
+                    <div class="chat">
+                        <div class="bp" id="divChat">
+                            <%
+                                var chat = CarregaChat();
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                                var cliente = @"<!--CLIENTE-->
+                                 <div class='enviado'>
+                                    <h3 class=titulo-msg'>Você</h3>
+                                      <div class='conteudo-msg'>
+                                        <p>
+                                          {{CLIENTEMSG}}
+                                        </p>
+                                      </div>
+                                     </div>
+                
+                <!--FIM CLIENTE-->";
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <h3>Arquivos anexos</h3>
+                                var fornecedor = @"<!--FORNECEDOR-->
+                                            <div class='enviado'>
+                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                              <div class='conteudo-msg'>
+                                                <p>
+                                                  {{FORNECEDORMSG}}
+                                                </p>
+                                              </div>
+                                            </div>
+             
+                                             <!--FIM FORNECEDOR-->";
 
-            <hr style="width: 100%;" />
-            <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
-                <thead>
-                    <tr class="linha1">
-                        <td>Tipo de documento <i class="glyphicon glyphicon-arrow-down pull-right"></i></td>
-                        <td>Ações</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!--LOOP DOCUMENTO-->
-                    <%var anexos = PegaAnexo();
-                        foreach (var item in anexos)
-                        {%>
-                    <tr>
-                        <td><%Response.Write(item.Anexo); %></td>
-                        <td>
-                            <%if (item.Tipo == "Anexo")
-                                {%>
-                            <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
-                            <% }
-                                else
-                                {%>
-                            <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
-                            <% } %>
-                        </td>
-                    </tr>
-                    <%}
-                    %>
-                    <!-- FIM LOOP DOCUMENTO-->
-                </tbody>
-            </table>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
+                                var conteudo = "";
+                                foreach (var item in chat)
+                                {
+                                    var arquivo = "";
+                                    if (!String.IsNullOrEmpty(item.Arquivo))
+                                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='../assets/imagens/anexar.svg' style='width: 30px;' alt='anexar'></a>";
+
+                                    var video = "";
+                                    if (!String.IsNullOrEmpty(item.Video))
+                                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
+
+
+                                    if (item.IdCliente != 0)
+                                        conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem  + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span><br>");
+                                    else
+                                        conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem  + video  + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span><br>");
+                            %>
+
+                            <!--CLIENTE-->
+                            <%Response.Write(conteudo);%>
+                            <!--FIM CLIENTE-->
+
+                            <%
+                                }
+                            %>
+                        </div>
+                        <div id="descricaoHide" runat="server">
+                            <textarea class="enviar-msg" name="enviar" id="msg" runat="server" cols="30" rows="10"></textarea>
+                        </div>
+
+
+                        <div class="bp-acoes">
+                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                        </div>
+                    </div>
+                    <div>
+                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
+                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
+                        <div class="item_content_card" id="divUpload" runat="server">
+                            <div class="subtitulo-com-icone">
+                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
+                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
+                            </div>
+                            <div class="files-upload cotacao-dados-upload">
+                                <div class="file" id="btnArquivo">
+                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
+                                    <label for="selecao-arquivo">Anexar arquivos</label>
+                                    <input id="selecao-arquivo" type="file">
+                                </div>
+                                <div class="gravar-video" id="btnVideo">
+                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+                                    <button class="btn-gravar">Gravar um vídeo explicativo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
+                <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
+                <span>Arquivos anexos</span>
+            </a>
+
+            <div class="filtros_card cota-info" style="margin-top: 10px;">
+                <div class="resultado">
+                    <span class="numero_card">04</span>
+
+                    <p class="texto-resultado">
+                        Resultado por página
+                    </p>
+                </div>
+
+                <div class="pesquisar">
+                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
+                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                </div>
+            </div>
+
+            <div class="card-tabela " style="overflow-x: auto;">
+                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                    <thead id="cabecalho-tabela">
+                        <tr>
+                            <th>Tipo de documento </th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!--LOOP DOCUMENTO-->
+                        <%var anexos = PegaAnexo();
+                            foreach (var item in anexos)
+                            {%>
+                        <tr>
+                            <td><%Response.Write(item.Anexo); %></td>
+                            <td>
+                                <%if (item.Tipo == "Anexo")
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
+                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <% }
+                                    else
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <%}
+                        %>
+                        <!-- FIM LOOP DOCUMENTO-->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="paginas_card">
+                <p>
+                    Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
+                </p>
+
+                <div class="paginas">
+                    <button class="anterior">
+                        &lt;&lt; anterior</button>
+                    <span class="numero_card">10</span>
+                    <button class="proximo">próximo &gt;&gt;</button>
+                </div>
+            </div>
+
+            <div class="footer_card">
+                <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
+                <a href="/" class="item_notifica">
+                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                    <span class="notificacao">02</span>
+                </a>
+            </div>
+
         </div>
-
-
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
+
 
     <script type="text/javascript">
         setInterval(function () {

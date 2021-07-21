@@ -1,93 +1,144 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pagamento-cartao.aspx.cs" Inherits="Bsk.Site.Cliente.pagamento_cartao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-        <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pagamento Cartão de Crédito&nbsp;<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h2>Dados Pessoais</h2>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" style="width: 100%;">
-                    Confira seus dados pessoais, dados do cartão de crédito e o valor e se tudo estiver correto clique em "Finalizar Pagamento"
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="nome" runat="server" placeholder="Nome" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="email" runat="server" placeholder="E-mail" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="cpf" runat="server" placeholder="CPF" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="telefone" runat="server" placeholder="Telefone" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-3 col-xs-3 dadosResponsavel">
-                    <input type="text" class="form-control" id="cep" runat="server" placeholder="CEP" disabled>
-                </div>
-                <div class="col col-lg-9 col-md-9 col-sm-9 col-xs-9 dadosResponsavel">
-                    <input type="text" class="form-control" id="rua" runat="server" placeholder="Rua" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="numero" runat="server" placeholder="Número" disabled>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="complemento" runat="server" placeholder="Complemento" disabled>
-                </div>
-                <div class="col col-lg-4 col-md-4 col-sm-4 col-xs-4 dadosResponsavel">
-                    <input type="text" class="form-control" id="bairro" runat="server" placeholder="Bairro" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6 dadosResponsavel">
-                    <input type="text" class="form-control" id="cidade" runat="server" placeholder="Cidade" disabled>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6 dadosResponsavel">
-                    <input type="text" class="form-control" id="uf" runat="server" placeholder="UF" disabled>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <button class="btn btn-brikk btn-lg center-block" style="float: right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick">Alterar dados</button>
 
+    <div class="conteudo-dash cotacao cotacoes-cli">
+
+        <div class="acessos">
+            <a class="btn_card" href="buscar-servico.aspx">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+                Nova Cotação
+            </a>
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            </a>
+            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
+            </a>
+        </div>
+
+        <div class="card boleto">
+            <div class="titulo_card">
+                <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
+                <h2 class="subtitulo_1">Cotações/ Cod.<span id="nrcotacao" runat="server"></span> Pagamento Cartão</h2>
             </div>
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <h2>Dados do cartão</h2>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="nomeCartao" runat="server" placeholder="Nome do Cartão" required>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="numeroCartao" runat="server" placeholder="Número do cartão" required>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="mes" runat="server" placeholder="Mês" maxlength="2" required>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="ano" runat="server" placeholder="Ano" maxlength="2" required>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 dadosResponsavel">
-                    <input type="text" class="form-control" id="codigo" runat="server" placeholder="CVV" required>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div id="divCartao" runat="server">
-                    <button type="button" class="btn btn-brikk btn-lg center-block" id="btnNovoCartão" style="width: 30%; float: left;" onclick="deletarCartao();">Deletar cartão</button>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <h1 class="text-center" id="valor" style="width: 100%;" runat="server"></h1>
+            <div class="titulo_card" style="margin-top: 30px;">
+                <h2 class="subtitulo_1">Confira seus Dados Cadastrais</h2>
+            </div>
 
-                <button class="btn btn-brikk btn-lg center-block" id="btnPagamento" runat="server" onserverclick="btnPagamento_ServerClick" style="width: 100%;">Finalizar Pagamento</button>
-                <label id="lbMsg" runat="server" style="color: red;"></label>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Nome Completo </h2>
+                <p id="nome" runat="server"></p>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">E-mail </h2>
+                <p id="email" runat="server"></p>
+            </div>
+
+            <div class="card-cl2">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">CPF</h2>
+                    <p id="cpf" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Telefone</h2>
+                    <p id="telefone" runat="server"></p>
+                </div>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Endereço</h2>
+                <p id="rua" runat="server"></p>
+            </div>
+
+            <div class="grupo-pg-boleto">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Bairro</h2>
+                    <p id="bairro" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Número</h2>
+                    <p id="numero" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">CEP</h2>
+                    <p id="cep" runat="server"></p>
+                </div>
+            </div>
+
+            <div class="grupo-pg-boleto">
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Complemento</h2>
+                    <p id="complemento" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Cidade</h2>
+                    <p id="cidade" runat="server"></p>
+                </div>
+                <div class="item_content_card">
+                    <h2 class="subtitulo_card_1 subtitulo_1">Estado</h2>
+                    <p id="uf" runat="server"></p>
+                </div>
+            </div>
+
+            <button id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick" class="btn_card" style="width: 140px; margin-top: 30px;">Alterar Dados</button>
+
+            <div class="item_content_card">
+                <div class="titulo_card">
+                    <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+                    <h2 class="subtitulo_1">Dados do Cartão</h2>
+                </div>
+            </div>
+
+            <div class="item_content_card   ">
+                <div class="area_comentario boleto_ca">
+                    <div class="item_content_card">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Nome do Cartão</h2>
+                        <input type="text" class="card-input-add" id="nomeCartao" runat="server">
+                    </div>
+                    <div class="item_content_card">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Número do Cartão</h2>
+                        <input type="text" class="card-input-add" id="numeroCartao" runat="server">
+                    </div>
+                </div>
+            </div>
+            <div class="item_content_card   ">
+                <div class="area_comentario_g3">
+                    <div class="item_content_card">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Mês</h2>
+                        <input type="text" class="card-input-add" id="mes" runat="server">
+                    </div>
+                    <div class="item_content_card">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Ano</h2>
+                        <input type="text" class="card-input-add" id="ano" runat="server">
+                    </div>
+                    <div class="item_content_card">
+                        <h2 class="subtitulo_card_1 subtitulo_1">CVV</h2>
+                        <input type="text" class="card-input-add" id="codigo" runat="server">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item_content_card card_boleto_valor  ">
+                <span class="valor_" id="valor" runat="server">
+                </span>
+                <div id="divCartao" runat="server">
+                    <button class="btn_card" id="btnNovoCartão" onclick="deletarCartao();">Deletar Cartão</button>
+                </div>
+                <button class="btn_card" id="btnPagamento" runat="server" onserverclick="btnPagamento_ServerClick">Finalizar Pagamento</button>
+           <label id="lbMsg" runat="server" style="color: red;"></label>
+                </div>
+
+            <div class="footer_card" style="margin-top: 36p;">
+                <a class="voltar btn" href="aguardando-pagamento.aspx"><< voltar
+                </a>
+                <a href="" class="item_notifica">
+                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                    <span class="notificacao">02</span>
+                </a>
             </div>
         </div>
-        <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
+
     <script>
         function deletarCartao() {
             Swal.fire({

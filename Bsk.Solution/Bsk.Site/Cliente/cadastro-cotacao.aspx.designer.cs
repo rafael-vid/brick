@@ -15,24 +15,6 @@ namespace Bsk.Site.Cliente
     {
 
         /// <summary>
-        /// btnSubmeter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSubmeter;
-
-        /// <summary>
-        /// alerts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alerts;
-
-        /// <summary>
         /// titulo control.
         /// </summary>
         /// <remarks>
@@ -42,6 +24,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText titulo;
 
         /// <summary>
+        /// hdLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdLink;
+
+        /// <summary>
         /// descricao control.
         /// </summary>
         /// <remarks>
@@ -49,15 +40,6 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea descricao;
-
-        /// <summary>
-        /// divUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
 
         /// <summary>
         /// flpAnexo control.
@@ -78,13 +60,13 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.FileUpload flpVideo;
 
         /// <summary>
-        /// alerts2 control.
+        /// divUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alerts2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
 
         /// <summary>
         /// btnSalvar control.
@@ -96,12 +78,12 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSalvar;
 
         /// <summary>
-        /// hdLink control.
+        /// btnSubmeter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdLink;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnSubmeter;
     }
 }

@@ -54,6 +54,9 @@ namespace Bsk.Site.Cliente
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
                     item.Status = "Finalizado";
+                }else if (item.Status == StatusCotacao.Avaliado)
+                {
+                    item.Status = "Avaliado";
                 }
             }
             return cotCliente;

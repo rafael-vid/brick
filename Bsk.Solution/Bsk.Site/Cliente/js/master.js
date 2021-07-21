@@ -22,7 +22,7 @@ $(document).ready(function() {
         $('body').css('overflow', '');
     });
     $('.comoFunciona').click(function() {
-        window.location.href = 'login.html';
+        window.location.href = 'login.aspx';
     });
 
     $('.loga').click(function() {
@@ -32,7 +32,7 @@ $(document).ready(function() {
         window.location.href = 'minhas-cotacoes.aspx';
     });
     $('.btn-salvar').click(function() {
-        window.location.href = 'login.html';
+        window.location.href = 'login.aspx';
     });
     $('.listaCotacao').click(function() {
         window.location.href = 'cotacaoLista.html';
@@ -41,7 +41,7 @@ $(document).ready(function() {
         window.location.href = 'solicitaServico.html';
     });
     $('.minhasCotacoes').click(function() {
-        window.location.href = 'minhasCotacoes.html';
+        window.location.href = 'minhasminhas-cotacoes.aspx';
     });
     $('.liberaPagamento').click(function() {
         window.location.href = 'liberaPagamento.html';

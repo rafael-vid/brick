@@ -31,7 +31,7 @@ namespace Bsk.Site.Controllers
         ClienteBE ClienteBE = new ClienteBE();
         public ActionResult Index()
         {
-            Response.Redirect("Cliente/nav.html");
+            Response.Redirect("Geral/login.aspx");
 
             return View();
         }
@@ -43,7 +43,7 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public JsonResult InserirCliente(string cpf, string email, string cnpj, string nome, string situacao, string abertura, string tipo, string telefone, string logradouro, string cep, string numero, string complemento, string bairro, string municipio, string uf, string nomeResponsavel, string whatsapp, string senha)
+        public JsonResult InserirCliente(string cpf, string email, string cnpj, string nome, string situacao, string abertura, string tipo, string telefone, string logradouro, string cep, string numero, string complemento, string bairro, string municipio, string uf, string nomeResponsavel, string whatsapp, string senha, string sobrenome, string fantasia, string CpfResponsavel)
         {
             string documento = "";
             if (String.IsNullOrEmpty(cpf))
@@ -84,7 +84,11 @@ namespace Bsk.Site.Controllers
                 Status = "1",
                 Telefone = telefone,
                 Uf = uf,
-                WhatsApp = whatsapp
+                WhatsApp = whatsapp,
+                Fantasia = fantasia,
+                SobreNome = sobrenome,
+                NomeResponsavel = nomeResponsavel,
+                CpfResponsavel = CpfResponsavel
 
             };
 
@@ -146,7 +150,7 @@ namespace Bsk.Site.Controllers
 
             string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
-            string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();
@@ -198,12 +202,12 @@ namespace Bsk.Site.Controllers
             if (status == "0")
             {
                 titulo = $"O cliente {cliente.Nome} não aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             }
             else
             {
                 titulo = $"O cliente {cliente.Nome} aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.:<br> <a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
                 cotacao.Status = StatusCotacao.AguardandoPagamento;
             }
 
@@ -242,7 +246,7 @@ namespace Bsk.Site.Controllers
 
             string titulo = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
-            string mensagem = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string mensagem = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
 
@@ -295,7 +299,7 @@ namespace Bsk.Site.Controllers
 
             string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
-            string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
 
@@ -457,7 +461,7 @@ namespace Bsk.Site.Controllers
                     Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
                     string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
 
-                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
+                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
                     emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
 
                 }
@@ -494,70 +498,94 @@ namespace Bsk.Site.Controllers
             if (tipo == "F")
             {
                 var cliente = @"<!--CLIENTE-->
-                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
-                    {{CLIENTEMSG}}
-                </div>
+                                 <div class='enviado'>
+                                    <h3 class=titulo-msg'>Você</h3>
+                                      <div class='conteudo-msg'>
+                                        <p>
+                                          {{CLIENTEMSG}}
+                                        </p>
+                                      </div>
+                                     </div>
+                
                 <!--FIM CLIENTE-->";
 
                 var fornecedor = @"<!--FORNECEDOR-->
-                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
-                    {{FORNECEDORMSG}}
-                </div>
-                <!--FIM FORNECEDOR-->";
+                                            <div class='enviado'>
+                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                              <div class='conteudo-msg'>
+                                                <p>
+                                                  {{FORNECEDORMSG}}
+                                                </p>
+                                              </div>
+                                            </div>
+             
+                                             <!--FIM FORNECEDOR-->";
 
                 var conteudo = "";
                 foreach (var item in lista)
                 {
                     var arquivo = "";
                     if (!String.IsNullOrEmpty(item.Arquivo))
-                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='../assets/imagens/anexar.svg' style='width: 30px;' alt='anexar'></a>";
 
                     var video = "";
                     if (!String.IsNullOrEmpty(item.Video))
-                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
 
 
-                    if (item.IdCliente == 0)
+                    if (item.IdCliente != 0)
                         conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                     else
                         conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
 
-                    html += conteudo + " <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>";
+                    html += conteudo;
 
                 }
             }
             else
             {
                 var cliente = @"<!--CLIENTE-->
-                <div class='mensagem alert alert-info bg-warning pull-left' style='border-radius: 200px 200px 200px 0px;'>
-                    {{CLIENTEMSG}}
-                </div>
+                                 <div class='enviado'>
+                                    <h3 class=titulo-msg'>Você</h3>
+                                      <div class='conteudo-msg'>
+                                        <p>
+                                          {{CLIENTEMSG}}
+                                        </p>
+                                      </div>
+                                     </div>
+                
                 <!--FIM CLIENTE-->";
 
                 var fornecedor = @"<!--FORNECEDOR-->
-                <div class='mensagem alert alert-danger bg-danger pull-right' style='border-radius: 200px 200px 0px 200px;'>
-                    {{FORNECEDORMSG}}
-                </div>
-                <!--FIM FORNECEDOR-->";
+                                            <div class='enviado'>
+                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                              <div class='conteudo-msg'>
+                                                <p>
+                                                  {{FORNECEDORMSG}}
+                                                </p>
+                                              </div>
+                                            </div>
+             
+                                             <!--FIM FORNECEDOR-->";
 
                 var conteudo = "";
                 foreach (var item in lista)
                 {
                     var arquivo = "";
                     if (!String.IsNullOrEmpty(item.Arquivo))
-                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='img/upload.png'></a>";
+                        arquivo = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Documento/" + item.Arquivo + "' target='_blank'><img alt='' src='../assets/imagens/anexar.svg' style='width: 30px;' alt='anexar'></a>";
 
                     var video = "";
                     if (!String.IsNullOrEmpty(item.Video))
-                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='img/video.png'></a>";
+                        video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
 
 
-                    if (item.IdCliente == 0)
-                        conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                    if (item.IdCliente != 0)
+                        conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                     else
-                        conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
+                        conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
 
-                    html += conteudo + " <div class='col col-lg-12 col-md-12 col-sm-12 col-xs-12'>&nbsp;</div>";
+                    html += conteudo;
 
                 }
             }

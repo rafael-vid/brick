@@ -17,6 +17,7 @@ namespace Bsk.Site.Cliente.Master
     {
         core _core = new core();
         MasterBE _MasterBE = new MasterBE();
+        ServicoBE ServicoBE = new ServicoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -36,5 +37,7 @@ namespace Bsk.Site.Cliente.Master
                 return usuario;
             }
         }
+
+       
     }
 }

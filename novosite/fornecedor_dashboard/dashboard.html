@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+  <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+
+  <title>BRIKK </title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body>
+  <header>
+    <div class="menu-topo container">
+      <a href="index.html">
+        <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+      </a>
+      <nav class="menu" id="nav">
+        <button id="btn-mobile">Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul class="menu-itens">
+          <li>
+            <a href="sobre.html"> sobre nós</a>
+          </li>
+          <li><a href="parceiros.html"> para parceiros</a></li>
+          <li><a href="clientes.html"> PARA CLIENTES</a></li>
+          <li><a href="ajuda.html"> ajuda</a></li>
+          <li><button class="btn-cadastro">ENTRAR / CADASTRAR</button></li>
+          <li data-dropdow-perfil>
+            <div class="perfil">
+              <img src="../assets/imagens/avatar.png"  alt="avatar">
+              <span>Olá, Felipe.</span>
+            </div>
+            <ul class="dropdown-perfil" >
+              <li>
+                <a href="listar-servicos.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Meus Dados
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Configurações
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img  style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Sair
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+      </nav>
+
+      
+    </div>
+
+    <div class="filtro">
+      <div class="container">
+        <input type="text" placeholder="Qual serviço você procisa?      ">
+        <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+      </div>
+    </div>
+  </header>
+
+  <section class="app">
+    
+    <nav class="menu-dashboard">
+      <button class="open-menu">
+        <
+      </button>
+      <ul class="menu-dash">
+        <li>
+          <a href="dashboard.html" class="dash-ativo"> 
+            <img src="../assets/imagens/dashboard.svg" style="width:  20px;" alt="ícone">
+            <span>Dashboard</span>
+          </a>
+        </li> 
+        <li><a href="cotacoes.html">
+            <img src="../assets/imagens/cotacao.svg" style="width:  20px;" alt="ícone"><span>Cotações</span></a>
+        </li>
+        <li><a href="andamento.html">
+            <img src="../assets/imagens/andamento.svg" style="width:  20px;" alt="ícone"><span>Em Andamento</span></a>
+        </li>
+        <li><a href="#">
+            <img src="../assets/imagens/financeiro.svg" style="width:  20px;" alt="ícone"><span>Financeiro</span></a>
+        </li>
+        <li><a href="#">
+            <img src="../assets/imagens/documentacao.svg" style="width:  20px;" alt="ícone"><span>Documentação</span></a>
+        </li>
+        <li><a href="#">
+            <img src="../assets/imagens/meubrikk.svg" style="width:  20px;" alt="ícone"><span>Meu Brikk</span></a>
+        </li>
+        <li><a href="#">
+            <img src="../assets/imagens/oportunidades.svg" style="width:  20px;" alt="ícone"><span>Oportunidades</span></a>
+        </li>
+      </ul>
+
+      <ul class="infos-dash">
+        <li>
+          <a href="#"> 
+            <img src="../assets/imagens/calendario.svg" alt="ícone" style="width:  20px;">
+            <span>Calendário</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../assets/imagens/central.svg" alt="ícone" style="width:  20px;">
+            <span>Central de Comunicação</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../assets/imagens/notifica.svg" alt="ícone" style="width:  20px;">
+            <span>Notificação</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="conteudo-dash dashboard">
+      
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Cotação</h2>
+        </div>
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Status</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </div>
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">10</span>
+              <p>Solicitadas</p>
+            </li>
+            <li>
+              <span class="numero_card">02</span>
+              <p>Em Negociação</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Fechadas</p>
+            </li>
+            <li>
+              <span class="numero_card">10%</span>
+              <p style="display: flex; gap: 3px;">Economia Média <img src="../assets/imagens/i.svg" alt="ícone"
+                  style="width: 15px;"></p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Áreas de Atuação</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            
+          </div>
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">01</span>
+              <p>Elétrica</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Hidraulica</p>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Orçamentos Recentes</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </div>
+          <ul class="card_lista orcamento_lista">
+            <li>
+              <span class="numero_card orcamento">LA</span>
+              <div class="orcamento-empresa">
+                <p>Elétrica</p>
+                <span>Limpa Ar</span>
+              </div>
+
+              <div class="reais">
+                <span>R$</span>
+                <p>80</p>
+              </div>
+            </li>
+            <li>
+              <span class="numero_card orcamento">MJ</span>
+              <div class="orcamento-empresa">
+                <p>Portas</p>
+                <span>Marceneiro João</span>
+              </div>
+              <div class="reais">
+                <span>R$</span>
+                <p>78</p>
+              </div>
+            </li>
+            <li>
+              <span class="numero_card orcamento">MG</span>
+              <div class="orcamento-empresa">
+                <p>Portas</p>
+                <span>Marceneiro Gomes</span>
+              </div>
+              <div class="reais">
+                <span>R$</span>
+                <p>66</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="item_card">
+          <a href="#" class="vertodos">ver todos</a>
+        </div>
+
+        <div class="item_card">
+          <button class="btn_card">
+            <img src="../assets/imagens/lupa.png" alt="botão" style="width: 15px;">
+            Realizar nova cotação
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Em Andamento</h2>
+        </div>
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Status</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </div>
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">10</span>
+              <p>Aguardando início</p>
+            </li>
+            <li>
+              <span class="numero_card">02</span>
+              <p>Iniciado</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Aguardando Pagamento</p>
+            </li>
+            <li>
+              <span class="numero_card">10</span>
+              <p>Aguardando Informação</p>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Áreas de Atuação</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </div>
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">01</span>
+              <p>Elétrica</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Hidraulica</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Limpeza</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Marcenaria</p>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="item_card">
+          <div class="subtitulo_card">
+            <h3>Seguro</h3>
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </div>
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">01</span>
+              <p>Sem Seguro</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Com Seguro</p>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="item_card">
+          <a href="#" class="vertodos">ver todos</a>
+        </div>
+      
+      </div>
+
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Financeiro</h2>
+        </div>
+        <div class="item_card">
+          <ul class="card_lista">
+            <li>
+              <span class="numero_card">10</span>
+              <p>Contas a pagar</p>
+            </li>
+            <li>
+              <span class="numero_card">02</span>
+              <p>Próximo Pagamento</p>
+            </li>
+            <li>
+              <span class="numero_card">05</span>
+              <p>Total a vencer nos próximos 60 dias</p>
+            </li>
+            <li>
+              <span class="numero_card">10%</span>
+              <p style="display: flex; gap: 3px;">Economia Média <img src="../assets/imagens/i.svg" alt="ícone"
+                  style="width: 15px;"></p>
+            </li>
+          </ul>
+        </div>
+        
+      <div class="item_card item_btn">
+        <button class="btn_card">
+          <img src="../assets/imagens/financeiro-branco.svg"  alt="botão" style="width: 15px;">
+          Quero Adiantar Recebiveis
+        </button>
+        <a href="/" class="item_notifica">
+          <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+          <span class="notificacao">02</span>
+        </a>
+        <a href="/" class="item_notifica">
+          <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+          <span class="notificacao">02</span>
+        </a >
+      </div>
+      </div>
+      
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/documentacao.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Documentação</h2>
+        </div>
+        <div class="item_card">
+          <ul class="card_lista no-grid">
+            <li>
+              <p>Dados Cadastrais</p>
+            </li>
+            <li>
+              <p>Histórico de Negociação</p>
+            </li>
+            <li>
+              <p>Acompanhamento do Serviços</p>
+            </li>
+            <li>
+              <p>Contratos</p>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="item_card item_btn">
+          <a href="/" class="item_notifica">
+            <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </a>
+          <a href="/" class="item_notifica">
+            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <span class="notificacao">02</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <a href="/"><img src="../assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+    <div>
+      <a href="#"><img src="../assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+      </a>
+      <a href="#"><img src="../assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+      <a href="#"><img src="../assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <script>
+    AOS.init();
+  </script>
+  
+  <script async src="../assets/js/script.js"></script>
+
+</body>
+
+</html>

@@ -5,6 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>C:\Publish\Brikk</_PublishTargetUrl>
+    <History>True|2021-07-19T13:02:49.4822680Z;True|2021-04-27T15:45:39.7353996-03:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Admin/bsk-visualizar-proposta.aspx">
@@ -83,7 +84,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/29/2020 22:06:32</publishTime>
     </File>
     <File Include="Admin/default.aspx">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>07/17/2021 12:24:28</publishTime>
     </File>
     <File Include="Admin/Fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/29/2020 22:06:32</publishTime>
@@ -460,38 +461,335 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="ApplicationInsights.config">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
+    <File Include="assets/css/cadastros.css">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/css/dashboard.css">
+      <publishTime>07/17/2021 15:30:19</publishTime>
+    </File>
+    <File Include="assets/css/sobre.css">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/css/style.css">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/css/tabsmenu.css">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Poppins-Light.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Poppins-Medium.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Poppins-Regular.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Poppins-SemiBold.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Rajdhani-Bold.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Rajdhani-Medium.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Rajdhani-SemiBold.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Ubuntu-Bold.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/fonts/Ubuntu-Regular.ttf">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/abrir-faq.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/acompanhe.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/andamento.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/anexar.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/anexo.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/aquisicao.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/atuacao.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/avatar.png">
+      <publishTime>07/18/2021 21:31:55</publishTime>
+    </File>
+    <File Include="assets/imagens/banner1.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/bg-faq.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/bg-sobre.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/bg.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/calendario.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/celular.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/central.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/chat-icon.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/chat-notifica.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/contato-icon.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/cotacao.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/dados-icon.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/dashboard.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/documentacao.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/documento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/escoder.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/estrela.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/facebook.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/file.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/financeiro-branco.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/financeiro.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/fundo-footer.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/fundo.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/garantia.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/gravar.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/i.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/icon-faq.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/icone-contatos.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/instagram.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/lixeira.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/logo-footer.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/logo.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/lupa-cinza.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/lupa.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/media-laranja.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/media.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/meubrikk.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/notifica.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/oportunidades.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/orcamento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/prestador.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/real.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/recebimento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/select.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/sino-notifica.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/sino.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/souCLiente.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/souParceiro.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/Vector.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imagens/whatsapp.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/abrir-faq.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/aquisicao.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/bg-faq.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/bg-sobre.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/bg.jpg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/celular.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/chat-icon.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/contato-icon.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/dados-icon.svg">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/documento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/facebook.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/fundo-footer.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/fundo.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/garantia.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/icon-faq.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/icone-contatos.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/instagram.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/logo-footer.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/logo.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/lupa.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/orcamento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/prestador.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/real.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/recebimento.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/souCLiente.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/imgages/whatsapp.png">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
+    <File Include="assets/js/script.js">
+      <publishTime>07/17/2021 14:00:19</publishTime>
+    </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>03/22/2021 19:28:21</publishTime>
+      <publishTime>07/19/2021 10:02:24</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>03/22/2021 19:28:21</publishTime>
+      <publishTime>07/19/2021 10:02:24</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>03/22/2021 19:28:22</publishTime>
+      <publishTime>07/20/2021 00:18:03</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>03/22/2021 19:28:22</publishTime>
+      <publishTime>07/20/2021 00:18:03</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>03/22/2021 19:28:25</publishTime>
+      <publishTime>07/20/2021 00:18:04</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>03/22/2021 19:28:25</publishTime>
+      <publishTime>07/20/2021 00:18:04</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>03/22/2021 19:28:36</publishTime>
+      <publishTime>07/20/2021 00:18:09</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>03/22/2021 19:28:36</publishTime>
+      <publishTime>07/20/2021 00:18:09</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>03/22/2021 19:28:25</publishTime>
+      <publishTime>07/20/2021 00:18:03</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>03/22/2021 19:28:25</publishTime>
+      <publishTime>07/20/2021 00:18:03</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>10/29/2018 13:44:00</publishTime>
@@ -527,7 +825,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/20/2020 16:40:45</publishTime>
     </File>
     <File Include="bin/netstandard.dll">
-      <publishTime>12/07/2020 16:31:59</publishTime>
+      <publishTime>05/20/2021 01:29:53</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -614,7 +912,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/27/2016 14:50:24</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
-      <publishTime>12/07/2020 16:31:59</publishTime>
+      <publishTime>05/20/2021 01:29:53</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>02/19/2015 20:10:46</publishTime>
@@ -647,22 +945,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="Cliente/aguardando-pagamento.aspx">
-      <publishTime>08/21/2020 15:59:10</publishTime>
+      <publishTime>07/18/2021 20:04:55</publishTime>
     </File>
     <File Include="Cliente/avaliar.aspx">
-      <publishTime>08/12/2020 19:01:57</publishTime>
+      <publishTime>07/19/2021 21:09:51</publishTime>
     </File>
     <File Include="Cliente/buscar-servico.aspx">
-      <publishTime>08/08/2020 19:56:23</publishTime>
+      <publishTime>07/17/2021 19:04:03</publishTime>
     </File>
     <File Include="Cliente/cadastro-cotacao.aspx">
-      <publishTime>09/11/2020 10:02:50</publishTime>
+      <publishTime>07/18/2021 20:15:49</publishTime>
     </File>
     <File Include="Cliente/cadastro.aspx">
-      <publishTime>08/11/2020 12:13:47</publishTime>
+      <publishTime>05/12/2021 18:00:05</publishTime>
+    </File>
+    <File Include="Cliente/cliente-dashboard.aspx">
+      <publishTime>07/17/2021 16:04:16</publishTime>
     </File>
     <File Include="Cliente/cotacao-lista.aspx">
-      <publishTime>09/11/2020 14:35:49</publishTime>
+      <publishTime>07/18/2021 19:27:50</publishTime>
     </File>
     <File Include="Cliente/css/animate.css">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -686,7 +987,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/11/2020 10:02:50</publishTime>
     </File>
     <File Include="Cliente/em-andamento.aspx">
-      <publishTime>08/21/2020 15:59:10</publishTime>
+      <publishTime>07/18/2021 19:27:50</publishTime>
     </File>
     <File Include="Cliente/finalizado.aspx">
       <publishTime>08/21/2020 15:59:10</publishTime>
@@ -938,7 +1239,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/js/comum.js">
-      <publishTime>07/15/2020 16:34:59</publishTime>
+      <publishTime>07/17/2021 12:14:48</publishTime>
     </File>
     <File Include="Cliente/js/datatables.min.js">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -950,7 +1251,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 23:12:14</publishTime>
     </File>
     <File Include="Cliente/js/master.js">
-      <publishTime>08/13/2020 11:31:52</publishTime>
+      <publishTime>07/17/2021 16:06:59</publishTime>
     </File>
     <File Include="Cliente/js/rating.js">
       <publishTime>07/09/2020 23:12:14</publishTime>
@@ -964,29 +1265,326 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Cliente/liberar-pagamento.aspx">
       <publishTime>08/21/2020 15:59:10</publishTime>
     </File>
+    <File Include="Cliente/Master/assets/css/cadastros.css">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/css/dashboard.css">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/css/sobre.css">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/css/style.css">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/css/tabsmenu.css">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Poppins-Light.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Poppins-Medium.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Poppins-Regular.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Poppins-SemiBold.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Rajdhani-Bold.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Rajdhani-Medium.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Rajdhani-SemiBold.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Ubuntu-Bold.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/fonts/Ubuntu-Regular.ttf">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/abrir-faq.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/acompanhe.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/andamento.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/anexar.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/anexo.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/aquisicao.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/atuacao.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/avatar.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/banner1.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/bg-faq.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/bg-sobre.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/bg.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/calendario.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/celular.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/central.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/chat-icon.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/chat-notifica.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/contato-icon.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/cotacao.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/dados-icon.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/dashboard.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/documentacao.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/documento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/escoder.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/estrela.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/facebook.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/file.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/financeiro-branco.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/financeiro.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/fundo-footer.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/fundo.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/garantia.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/gravar.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/i.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/icon-faq.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/icone-contatos.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/instagram.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/lixeira.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/logo-footer.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/logo.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/lupa-cinza.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/lupa.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/media-laranja.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/media.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/meubrikk.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/notifica.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/oportunidades.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/orcamento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/prestador.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/real.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/recebimento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/select.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/sino-notifica.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/sino.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/souCLiente.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/souParceiro.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/Vector.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imagens/whatsapp.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/abrir-faq.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/aquisicao.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/bg-faq.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/bg-sobre.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/bg.jpg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/celular.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/chat-icon.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/contato-icon.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/dados-icon.svg">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/documento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/facebook.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/fundo-footer.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/fundo.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/garantia.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/icon-faq.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/icone-contatos.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/instagram.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/logo-footer.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/logo.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/lupa.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/orcamento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/prestador.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/real.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/recebimento.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/souCLiente.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/imgages/whatsapp.png">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
+    <File Include="Cliente/Master/assets/js/script.js">
+      <publishTime>07/17/2021 16:36:17</publishTime>
+    </File>
     <File Include="Cliente/Master/Layout.Master">
-      <publishTime>09/11/2020 10:02:50</publishTime>
+      <publishTime>07/18/2021 21:44:54</publishTime>
     </File>
     <File Include="Cliente/minhas-cotacoes.aspx">
-      <publishTime>09/11/2020 14:37:05</publishTime>
+      <publishTime>07/18/2021 20:45:22</publishTime>
     </File>
     <File Include="Cliente/nav.html">
       <publishTime>08/24/2020 16:36:34</publishTime>
     </File>
     <File Include="Cliente/negociar-cotacao.aspx">
-      <publishTime>09/11/2020 15:23:52</publishTime>
+      <publishTime>07/19/2021 22:33:20</publishTime>
     </File>
     <File Include="Cliente/pagamento-boleto.aspx">
-      <publishTime>08/08/2020 19:57:17</publishTime>
+      <publishTime>07/18/2021 19:48:14</publishTime>
     </File>
     <File Include="Cliente/pagamento-cartao.aspx">
-      <publishTime>08/08/2020 19:57:17</publishTime>
+      <publishTime>07/18/2021 19:46:33</publishTime>
     </File>
     <File Include="Cliente/pagamento.aspx">
-      <publishTime>08/08/2020 19:57:18</publishTime>
+      <publishTime>07/18/2021 19:27:50</publishTime>
     </File>
     <File Include="Cliente/perfil.aspx">
-      <publishTime>08/21/2020 15:59:11</publishTime>
+      <publishTime>07/18/2021 19:20:14</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -1021,17 +1619,314 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Fornecedor/aguardando-pagamento.aspx">
       <publishTime>07/17/2020 21:49:43</publishTime>
     </File>
+    <File Include="Fornecedor/assets/css/cadastros.css">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/css/dashboard.css">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/css/sobre.css">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/css/style.css">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/css/tabsmenu.css">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Poppins-Light.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Poppins-Medium.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Poppins-Regular.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Poppins-SemiBold.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Rajdhani-Bold.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Rajdhani-Medium.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Rajdhani-SemiBold.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Ubuntu-Bold.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/fonts/Ubuntu-Regular.ttf">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/abrir-faq.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/acompanhe.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/andamento.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/anexar.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/anexo.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/aquisicao.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/atuacao.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/avatar.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/banner1.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/bg-faq.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/bg-sobre.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/bg.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/calendario.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/celular.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/central.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/chat-icon.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/chat-notifica.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/contato-icon.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/cotacao.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/dados-icon.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/dashboard.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/documentacao.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/documento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/escoder.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/estrela.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/facebook.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/file.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/financeiro-branco.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/financeiro.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/fundo-footer.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/fundo.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/garantia.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/gravar.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/i.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/icon-faq.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/icone-contatos.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/instagram.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/lixeira.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/logo-footer.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/logo.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/lupa-cinza.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/lupa.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/media-laranja.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/media.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/meubrikk.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/notifica.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/oportunidades.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/orcamento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/prestador.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/real.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/recebimento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/select.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/sino-notifica.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/sino.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/souCLiente.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/souParceiro.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/Vector.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imagens/whatsapp.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/abrir-faq.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/aquisicao.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/bg-faq.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/bg-sobre.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/bg.jpg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/celular.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/chat-icon.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/contato-icon.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/dados-icon.svg">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/documento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/facebook.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/fundo-footer.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/fundo.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/garantia.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/icon-faq.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/icone-contatos.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/instagram.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/logo-footer.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/logo.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/lupa.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/orcamento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/prestador.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/real.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/recebimento.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/souCLiente.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/imgages/whatsapp.png">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
+    <File Include="Fornecedor/assets/js/script.js">
+      <publishTime>07/18/2021 22:36:25</publishTime>
+    </File>
     <File Include="Fornecedor/avaliacao.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/avaliar.aspx">
-      <publishTime>08/31/2020 11:23:13</publishTime>
+      <publishTime>07/19/2021 22:58:04</publishTime>
     </File>
     <File Include="Fornecedor/cadastra-atuacao.aspx">
-      <publishTime>08/23/2020 19:52:39</publishTime>
+      <publishTime>07/19/2021 23:46:44</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>08/11/2020 11:58:00</publishTime>
+      <publishTime>05/12/2021 18:00:53</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.html">
       <publishTime>06/30/2020 21:59:27</publishTime>
@@ -1043,10 +1938,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/cotacao-lista.aspx">
-      <publishTime>07/16/2020 17:43:37</publishTime>
+      <publishTime>07/19/2021 21:09:51</publishTime>
     </File>
     <File Include="Fornecedor/cotacao.aspx">
-      <publishTime>09/11/2020 10:02:50</publishTime>
+      <publishTime>07/19/2021 21:09:51</publishTime>
     </File>
     <File Include="Fornecedor/cotacaoLista.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1069,17 +1964,50 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Fornecedor/css/mobile.css">
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
+    <File Include="Fornecedor/dashboard.aspx">
+      <publishTime>07/18/2021 22:51:22</publishTime>
+    </File>
     <File Include="Fornecedor/default.aspx">
       <publishTime>09/04/2020 14:46:47</publishTime>
     </File>
     <File Include="Fornecedor/em-andamento.aspx">
-      <publishTime>07/17/2020 21:48:56</publishTime>
+      <publishTime>07/19/2021 22:11:00</publishTime>
     </File>
     <File Include="Fornecedor/finalizado.aspx">
       <publishTime>07/17/2020 21:44:35</publishTime>
     </File>
     <File Include="Fornecedor/finalizado.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/adicionar-servico.html">
+      <publishTime>07/17/2021 19:31:51</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/agendamento.html">
+      <publishTime>07/17/2021 16:06:59</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/andamento.html">
+      <publishTime>07/18/2021 23:55:31</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/areas-de-atuacao.html">
+      <publishTime>07/17/2021 19:31:51</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/avaliacao.html">
+      <publishTime>07/17/2021 19:31:51</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/cotacao-info.html">
+      <publishTime>07/18/2021 23:55:31</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/cotacao.html">
+      <publishTime>07/18/2021 23:55:31</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/cotacoes.html">
+      <publishTime>07/18/2021 23:55:31</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/dashboard.html">
+      <publishTime>07/17/2021 19:31:51</publishTime>
+    </File>
+    <File Include="Fornecedor/fornecedor_dashboard/listar-servicos.html">
+      <publishTime>07/17/2021 19:31:51</publishTime>
     </File>
     <File Include="Fornecedor/historico.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1187,7 +2115,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/14/2020 15:44:58</publishTime>
     </File>
     <File Include="Fornecedor/Html/index.html">
-      <publishTime>07/09/2020 21:18:56</publishTime>
+      <publishTime>07/17/2021 12:24:28</publishTime>
     </File>
     <File Include="Fornecedor/Html/js/bootstrap.min.js">
       <publishTime>07/14/2020 15:44:58</publishTime>
@@ -1397,25 +2325,28 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>09/11/2020 10:02:50</publishTime>
+      <publishTime>07/19/2021 21:09:50</publishTime>
     </File>
     <File Include="Fornecedor/mensagem.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/minhas-areas.aspx">
-      <publishTime>08/08/2020 19:58:00</publishTime>
+      <publishTime>07/20/2021 00:04:08</publishTime>
     </File>
     <File Include="Fornecedor/minhas-cotacoes.aspx">
-      <publishTime>09/11/2020 10:02:50</publishTime>
+      <publishTime>07/20/2021 00:07:22</publishTime>
     </File>
     <File Include="Fornecedor/minhasCotacoes.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
-      <publishTime>09/11/2020 10:02:51</publishTime>
+      <publishTime>07/19/2021 22:15:15</publishTime>
     </File>
     <File Include="Fornecedor/pagamento.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
+    </File>
+    <File Include="Fornecedor/perfil.aspx">
+      <publishTime>07/20/2021 00:06:26</publishTime>
     </File>
     <File Include="Fornecedor/servicosAndamento.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
@@ -1425,6 +2356,324 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Fornecedor/_index.html">
       <publishTime>07/01/2020 10:53:24</publishTime>
+    </File>
+    <File Include="Geral/ajuda.html">
+      <publishTime>07/17/2021 12:14:48</publishTime>
+    </File>
+    <File Include="Geral/assets/css/cadastros.css">
+      <publishTime>07/17/2021 12:36:40</publishTime>
+    </File>
+    <File Include="Geral/assets/css/dashboard.css">
+      <publishTime>07/17/2021 11:05:58</publishTime>
+    </File>
+    <File Include="Geral/assets/css/sobre.css">
+      <publishTime>07/17/2021 11:05:57</publishTime>
+    </File>
+    <File Include="Geral/assets/css/style.css">
+      <publishTime>07/17/2021 11:05:57</publishTime>
+    </File>
+    <File Include="Geral/assets/css/tabsmenu.css">
+      <publishTime>07/17/2021 11:46:37</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Poppins-Light.ttf">
+      <publishTime>07/17/2021 11:06:03</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Poppins-Medium.ttf">
+      <publishTime>07/17/2021 11:06:03</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Poppins-Regular.ttf">
+      <publishTime>07/17/2021 11:06:02</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Poppins-SemiBold.ttf">
+      <publishTime>07/17/2021 11:06:01</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Rajdhani-Bold.ttf">
+      <publishTime>07/17/2021 11:06:02</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Rajdhani-Medium.ttf">
+      <publishTime>07/17/2021 11:06:01</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Rajdhani-SemiBold.ttf">
+      <publishTime>07/17/2021 11:06:00</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Ubuntu-Bold.ttf">
+      <publishTime>07/17/2021 11:05:59</publishTime>
+    </File>
+    <File Include="Geral/assets/fonts/Ubuntu-Regular.ttf">
+      <publishTime>07/17/2021 11:05:59</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/abrir-faq.png">
+      <publishTime>07/17/2021 11:06:34</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/acompanhe.png">
+      <publishTime>07/17/2021 11:06:34</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/andamento.svg">
+      <publishTime>07/17/2021 11:06:33</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/anexar.svg">
+      <publishTime>07/17/2021 11:06:33</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/anexo.svg">
+      <publishTime>07/17/2021 11:06:33</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/aquisicao.png">
+      <publishTime>07/17/2021 11:06:33</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/atuacao.svg">
+      <publishTime>07/17/2021 11:06:32</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/avatar.png">
+      <publishTime>07/17/2021 11:06:32</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/banner1.jpg">
+      <publishTime>07/17/2021 11:06:32</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/bg-faq.jpg">
+      <publishTime>07/17/2021 11:06:31</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/bg-sobre.jpg">
+      <publishTime>07/17/2021 11:06:29</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/bg.jpg">
+      <publishTime>07/17/2021 11:06:29</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/calendario.svg">
+      <publishTime>07/17/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/celular.png">
+      <publishTime>07/17/2021 11:06:27</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/central.svg">
+      <publishTime>07/17/2021 11:06:26</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/chat-icon.png">
+      <publishTime>07/17/2021 11:06:25</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/chat-notifica.svg">
+      <publishTime>07/17/2021 11:06:25</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/contato-icon.png">
+      <publishTime>07/17/2021 11:06:24</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/cotacao.svg">
+      <publishTime>07/17/2021 11:06:23</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/dados-icon.svg">
+      <publishTime>07/17/2021 11:06:23</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/dashboard.svg">
+      <publishTime>07/17/2021 11:06:22</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/documentacao.svg">
+      <publishTime>07/17/2021 11:06:22</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/documento.png">
+      <publishTime>07/17/2021 11:06:21</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/escoder.svg">
+      <publishTime>07/17/2021 11:06:20</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/estrela.svg">
+      <publishTime>07/17/2021 11:06:20</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/facebook.png">
+      <publishTime>07/17/2021 11:06:19</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/file.svg">
+      <publishTime>07/17/2021 11:06:18</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/financeiro-branco.svg">
+      <publishTime>07/17/2021 11:06:18</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/financeiro.svg">
+      <publishTime>07/17/2021 11:06:17</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/fundo-footer.png">
+      <publishTime>07/17/2021 11:06:17</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/fundo.png">
+      <publishTime>07/17/2021 11:06:16</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/garantia.png">
+      <publishTime>07/17/2021 11:06:16</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/gravar.svg">
+      <publishTime>07/17/2021 11:06:15</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/i.svg">
+      <publishTime>07/17/2021 11:06:14</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/icon-faq.png">
+      <publishTime>07/17/2021 11:06:14</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/icone-contatos.png">
+      <publishTime>07/17/2021 11:06:13</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/instagram.png">
+      <publishTime>07/17/2021 11:06:13</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/lixeira.svg">
+      <publishTime>07/17/2021 11:06:12</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/logo-footer.png">
+      <publishTime>07/17/2021 11:06:11</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/logo.png">
+      <publishTime>07/17/2021 11:06:11</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/lupa-cinza.svg">
+      <publishTime>07/17/2021 11:06:10</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/lupa.png">
+      <publishTime>07/17/2021 11:06:09</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/media-laranja.svg">
+      <publishTime>07/17/2021 11:06:30</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/media.svg">
+      <publishTime>07/17/2021 11:06:09</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/meubrikk.svg">
+      <publishTime>07/17/2021 11:06:08</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/notifica.svg">
+      <publishTime>07/17/2021 11:06:08</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/oportunidades.svg">
+      <publishTime>07/17/2021 11:06:08</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/orcamento.png">
+      <publishTime>07/17/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/prestador.png">
+      <publishTime>07/17/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/real.png">
+      <publishTime>07/17/2021 11:06:07</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/recebimento.png">
+      <publishTime>07/17/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/select.svg">
+      <publishTime>07/17/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/sino-notifica.svg">
+      <publishTime>07/17/2021 11:06:06</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/sino.svg">
+      <publishTime>07/17/2021 11:06:05</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/souCLiente.png">
+      <publishTime>07/17/2021 11:06:05</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/souParceiro.png">
+      <publishTime>07/17/2021 11:06:04</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/Vector.svg">
+      <publishTime>07/17/2021 11:06:04</publishTime>
+    </File>
+    <File Include="Geral/assets/imagens/whatsapp.png">
+      <publishTime>07/17/2021 11:06:04</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/abrir-faq.png">
+      <publishTime>07/17/2021 11:06:43</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/aquisicao.png">
+      <publishTime>07/17/2021 11:06:42</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/bg-faq.jpg">
+      <publishTime>07/17/2021 11:06:43</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/bg-sobre.jpg">
+      <publishTime>07/17/2021 11:06:42</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/bg.jpg">
+      <publishTime>07/17/2021 11:06:42</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/celular.png">
+      <publishTime>07/17/2021 11:06:41</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/chat-icon.png">
+      <publishTime>07/17/2021 11:06:41</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/contato-icon.png">
+      <publishTime>07/17/2021 11:06:40</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/dados-icon.svg">
+      <publishTime>07/17/2021 11:06:40</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/documento.png">
+      <publishTime>07/17/2021 11:06:40</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/facebook.png">
+      <publishTime>07/17/2021 11:06:39</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/fundo-footer.png">
+      <publishTime>07/17/2021 11:06:39</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/fundo.png">
+      <publishTime>07/17/2021 11:06:39</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/garantia.png">
+      <publishTime>07/17/2021 11:06:39</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/icon-faq.png">
+      <publishTime>07/17/2021 11:06:38</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/icone-contatos.png">
+      <publishTime>07/17/2021 11:06:38</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/instagram.png">
+      <publishTime>07/17/2021 11:06:38</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/logo-footer.png">
+      <publishTime>07/17/2021 11:06:38</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/logo.png">
+      <publishTime>07/17/2021 11:06:37</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/lupa.png">
+      <publishTime>07/17/2021 11:06:37</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/orcamento.png">
+      <publishTime>07/17/2021 11:06:37</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/prestador.png">
+      <publishTime>07/17/2021 11:06:36</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/real.png">
+      <publishTime>07/17/2021 11:06:37</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/recebimento.png">
+      <publishTime>07/17/2021 11:06:35</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/souCLiente.png">
+      <publishTime>07/17/2021 11:06:35</publishTime>
+    </File>
+    <File Include="Geral/assets/imgages/whatsapp.png">
+      <publishTime>07/17/2021 11:06:35</publishTime>
+    </File>
+    <File Include="Geral/assets/js/script.js">
+      <publishTime>07/17/2021 11:06:44</publishTime>
+    </File>
+    <File Include="Geral/cadastro.aspx">
+      <publishTime>07/17/2021 13:48:24</publishTime>
+    </File>
+    <File Include="Geral/clientes.html">
+      <publishTime>07/17/2021 16:05:19</publishTime>
+    </File>
+    <File Include="Geral/index.html">
+      <publishTime>07/17/2021 12:14:48</publishTime>
+    </File>
+    <File Include="Geral/login.aspx">
+      <publishTime>07/17/2021 12:27:35</publishTime>
+    </File>
+    <File Include="Geral/parceiros.html">
+      <publishTime>07/17/2021 16:05:19</publishTime>
+    </File>
+    <File Include="Geral/sobre.html">
+      <publishTime>07/17/2021 12:14:48</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>07/09/2020 21:18:56</publishTime>
@@ -3176,7 +4425,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:18:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/11/2020 10:36:17</publishTime>
+      <publishTime>04/27/2021 15:45:32</publishTime>
     </File>
     <File Include="www/cadastro.html">
       <publishTime>07/09/2020 21:19:04</publishTime>
@@ -3371,7 +4620,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/09/2020 21:19:04</publishTime>
     </File>
     <File Include="www/js/master.js">
-      <publishTime>07/09/2020 21:19:04</publishTime>
+      <publishTime>07/17/2021 12:24:28</publishTime>
     </File>
     <File Include="www/js/npm.js">
       <publishTime>07/09/2020 21:19:04</publishTime>

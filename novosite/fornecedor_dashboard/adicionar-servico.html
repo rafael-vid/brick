@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+  <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+
+  <title>BRIKK </title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+</head>
+
+<body>
+  <header>
+    <div class="menu-topo container">
+      <a href="index.html">
+        <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+      </a>
+      <nav class="menu" id="nav">
+        <button id="btn-mobile">Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul class="menu-itens">
+          <li>
+            <a href="sobre.html"> sobre nós</a>
+          </li>
+          <li><a href="parceiros.html"> para parceiros</a></li>
+          <li><a href="clientes.html"> PARA CLIENTES</a></li>
+          <li><a href="ajuda.html"> ajuda</a></li>
+          <li><button class="btn-cadastro">ENTRAR / CADASTRAR</button></li>
+          <li data-dropdow-perfil>
+            <div class="perfil">
+              <img src="../assets/imagens/avatar.png" alt="avatar">
+              <span>Olá, Felipe.</span>
+            </div>
+            <ul class="dropdown-perfil">
+              <li>
+                <a href="listar-servicos.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Meus Dados
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Configurações
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Sair
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  
+      </nav>
+  
+  
+    </div>
+  
+    <div class="filtro">
+      <div class="container">
+        <input type="text" placeholder="Qual serviço você procisa?      ">
+        <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+      </div>
+    </div>
+  </header>
+
+  <section class="app">
+    <nav class="menu-dashboard">
+      <button class="open-menu">
+        < </button>
+          <ul class="menu-dash">
+            <li>
+              <a href="dashboard.html">
+                <img src="../assets/imagens/dashboard.svg" style="width:  20px;" alt="ícone">
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li><a href="cotacoes.html">
+                <img src="../assets/imagens/cotacao.svg" style="width:  20px;" alt="ícone"><span>Cotações</span></a>
+            </li>
+            <li><a href="andamento.html">
+                <img src="../assets/imagens/andamento.svg" style="width:  20px;" alt="ícone"><span>Em Andamento</span></a>
+            </li>
+            <li><a href="#">
+                <img src="../assets/imagens/financeiro.svg" style="width:  20px;" alt="ícone"><span>Financeiro</span></a>
+            </li>
+            <li><a href="#">
+                <img src="../assets/imagens/documentacao.svg" style="width:  20px;"
+                  alt="ícone"><span>Documentação</span></a>
+            </li>
+            <li><a href="#">
+                <img src="../assets/imagens/meubrikk.svg" style="width:  20px;" alt="ícone"><span>Meu Brikk</span></a>
+            </li>
+            <li><a href="#">
+                <img src="../assets/imagens/oportunidades.svg" style="width:  20px;"
+                  alt="ícone"><span>Oportunidades</span></a>
+            </li>
+          </ul>
+    
+          <ul class="infos-dash">
+            <li>
+              <a href="#">
+                <img src="../assets/imagens/calendario.svg" alt="ícone" style="width:  20px;">
+                <span>Calendário</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="../assets/imagens/central.svg" alt="ícone" style="width:  20px;">
+                <span>Central de Comunicação</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="../assets/imagens/notifica.svg" alt="ícone" style="width:  20px;">
+                <span>Notificação</span>
+              </a>
+            </li>
+          </ul>
+    </nav>
+
+
+    <div class="conteudo-dash listar-servicos">
+
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Minhas áreas de atuação</h2>
+        </div>
+
+        <div class="item_content_card">
+          <h2 class="subtitulo_card subtitulo_1">Meus serviços </h2>
+          <p>Ar condicionado</p>
+        </div>
+
+        <div class="filtros_card">
+          <div class="select-card">
+            <select >
+              <option>Especifique sua área de atuação</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+        </div>
+
+        <h2 class="subtitulo_card subtitulo_1">Meus serviços</h2>
+
+        <div class="servicos_atuacao lista-even">
+          <div class="servico_item">
+            <ul>
+              <li>Limpeza</li>
+              <li>Instalação</li>
+              <li>Manutenção</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card-acoes">
+          <button class="btn" style="margin-top: 20px; ">Adicionar serviço</button>
+        </div>
+        <div class="footer_card">
+          <a class="voltar btn" href="dashboard.html">
+            << voltar </a>
+              <a href="/" class="item_notifica">
+                <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                <span class="notificacao">02</span>
+              </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <a href="/"><img src="../assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+    <div>
+      <a href="#"><img src="../assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+      </a>
+      <a href="#"><img src="../assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+      <a href="#"><img src="../assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    AOS.init();
+  </script>
+
+  <script async src="../assets/js/script.js"></script>
+</body>
+
+</html>

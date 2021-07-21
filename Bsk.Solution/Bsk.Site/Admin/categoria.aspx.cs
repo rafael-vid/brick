@@ -20,8 +20,8 @@ namespace Bsk.Site.Admin
         ServicoBE _ServicoBE = new ServicoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if(!IsPostBack)
+
+            if (!IsPostBack)
             {
                 CarregaCategoria();
             }
@@ -31,15 +31,15 @@ namespace Bsk.Site.Admin
 
         public void CarregaCategoria()
         {
-            
+
             if (!String.IsNullOrEmpty(Request.QueryString["Categoria"]))
             {
                 _CategoriaBE = _core.Categoria_Get(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}").FirstOrDefault();
                 if (_CategoriaBE != null)
                 {
                     titulo.Value = _CategoriaBE.Nome;
-                    chkStatus.Checked = (_CategoriaBE.Status =="1") ? true : false;
-                    imgRep.ImageUrl = "../RepositoryImg/"+ _CategoriaBE.Imagem;
+                    chkStatus.Checked = (_CategoriaBE.Status == "1") ? true : false;
+                    imgRep.ImageUrl = "../RepositoryImg/" + _CategoriaBE.Imagem;
                 }
             }
         }
@@ -47,27 +47,34 @@ namespace Bsk.Site.Admin
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
-            
-            if(!String.IsNullOrEmpty(titulo.Value))
-            { 
-            if (!String.IsNullOrEmpty(Request.QueryString["Categoria"]))
-            {  
-                _CategoriaBE = _core.Categoria_Get(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}").FirstOrDefault();
-                _CategoriaBE.Nome = titulo.Value;
-                _CategoriaBE.Status = (chkStatus.Checked) ?"1" : "0";
-                _CategoriaBE.Imagem = GravarArquivo(flpImg, _CategoriaBE.Imagem);
-                _core.Categoria_Update(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}");
-                Response.Redirect("msg.aspx?Chave=AtualizaCategoria");
-            }
-            else
+
+            if (!String.IsNullOrEmpty(titulo.Value))
             {
+                if (flpImg.HasFile)
+                {
+                    if (!String.IsNullOrEmpty(Request.QueryString["Categoria"]))
+                    {
+                        _CategoriaBE = _core.Categoria_Get(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}").FirstOrDefault();
+                        _CategoriaBE.Nome = titulo.Value;
+                        _CategoriaBE.Status = (chkStatus.Checked) ? "1" : "0";
+                        _CategoriaBE.Imagem = GravarArquivo(flpImg, _CategoriaBE.Imagem);
+                        _core.Categoria_Update(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}");
+                        Response.Redirect("msg.aspx?Chave=AtualizaCategoria");
+                    }
+                    else
+                    {
 
-                _CategoriaBE.Nome = titulo.Value;
-                _CategoriaBE.Imagem = GravarArquivo(flpImg, "");
-                _core.Categoria_Insert(_CategoriaBE);
-                Response.Redirect("msg.aspx?Chave=InserirCategoria");
+                        _CategoriaBE.Nome = titulo.Value;
+                        _CategoriaBE.Imagem = GravarArquivo(flpImg, "");
+                        _core.Categoria_Insert(_CategoriaBE);
+                        Response.Redirect("msg.aspx?Chave=InserirCategoria");
 
-            }
+                    }
+                }
+                else
+                {
+                    lb.Text = "É necessário o upload de uma foto para efetuar o cadastro.";
+                }
             }
             else
             {
@@ -80,13 +87,13 @@ namespace Bsk.Site.Admin
 
         public string GravarArquivo(FileUpload _flpImg, string imagem)
         {
-            var _imagem="";
+            var _imagem = "";
 
             if (!String.IsNullOrEmpty(_flpImg.FileName))
             {
-                if((!String.IsNullOrEmpty(_flpImg.FileName))&&(imagem != "0.png") && (imagem != ""))
-                { 
-                    System.IO.File.Delete(Server.MapPath($"~/RepositoryImg")+"\\"+imagem);
+                if ((!String.IsNullOrEmpty(_flpImg.FileName)) && (imagem != "0.png") && (imagem != ""))
+                {
+                    System.IO.File.Delete(Server.MapPath($"~/RepositoryImg") + "\\" + imagem);
                 }
 
                 _imagem = Guid.NewGuid().ToString() + flpImg.FileName;
@@ -109,10 +116,10 @@ namespace Bsk.Site.Admin
 
         protected void btnDel_ServerClick(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(Request.QueryString["Categoria"]))
+            if (!String.IsNullOrEmpty(Request.QueryString["Categoria"]))
             {
                 var cat = _core.Categoria_Get(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}").FirstOrDefault();
-                if(cat != null)
+                if (cat != null)
                 {
                     var servico = _core.Servico_Get(_ServicoBE, $" IdCategoria={cat.IdCategoria}");
                     foreach (var item in servico)

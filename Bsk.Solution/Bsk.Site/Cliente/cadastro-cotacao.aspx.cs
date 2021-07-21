@@ -34,8 +34,8 @@ namespace Bsk.Site.Cliente
                     btnSalvar.Visible = false;
                     btnSubmeter.Visible = false;
                     divUpload.Visible = false;
-                    alerts.Visible = false;
-                    alerts2.Visible = false;
+                   // alerts.Visible = false;
+                   // alerts2.Visible = false;
                 }
             }
 

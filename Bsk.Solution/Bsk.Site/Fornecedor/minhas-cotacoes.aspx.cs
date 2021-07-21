@@ -27,14 +27,7 @@ namespace Bsk.Site.Fornecedor
                 cats += item.IdCategoria + ",";
             }
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
-            if (lista.Count>0)
-            {
-                icone.Text = "<i class='glyphicon glyphicon-check'></i>";
-            }
-            else
-            {
-                icone.Text = "";
-            }
+            
         }
 
         public List<CotacaoFornecedorListaModel> PegaCotacoes()

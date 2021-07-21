@@ -33,6 +33,24 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.Label nrCotacao;
 
         /// <summary>
+        /// tituloServ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloServ;
+
+        /// <summary>
+        /// descricao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descricao;
+
+        /// <summary>
         /// fornecedorNome control.
         /// </summary>
         /// <remarks>
@@ -42,13 +60,22 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl fornecedorNome;
 
         /// <summary>
-        /// tituloServ control.
+        /// nrServico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloServ;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nrServico;
+
+        /// <summary>
+        /// dtEntrega control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dtEntrega;
 
         /// <summary>
         /// valorServ control.

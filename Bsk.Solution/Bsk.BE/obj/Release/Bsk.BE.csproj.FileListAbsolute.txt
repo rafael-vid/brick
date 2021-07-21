@@ -20,3 +20,14 @@ D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csp
 D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csproj.CopyComplete
 D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.dll
 D:\OneDrive\Documentos\projetos\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.pdb
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.dll
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Bsk.BE.pdb
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Newtonsoft.Json.dll
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\Newtonsoft.Json.xml
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csprojAssemblyReference.cache
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csproj.CoreCompileInputs.cache
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.csproj.CopyComplete
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.dll
+C:\Users\harry\OneDrive\Projetos Brasuka\Brikk\brikk\Bsk.Solution\Bsk.BE\obj\Release\Bsk.BE.pdb

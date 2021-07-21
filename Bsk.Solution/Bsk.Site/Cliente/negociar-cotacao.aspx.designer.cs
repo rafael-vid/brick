@@ -15,6 +15,33 @@ namespace Bsk.Site.Cliente
     {
 
         /// <summary>
+        /// nrCotacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nrCotacao;
+
+        /// <summary>
+        /// tituloCot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloCot;
+
+        /// <summary>
+        /// descricaoCot control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descricaoCot;
+
+        /// <summary>
         /// parceiro control.
         /// </summary>
         /// <remarks>
@@ -22,24 +49,6 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl parceiro;
-
-        /// <summary>
-        /// titulo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titulo;
-
-        /// <summary>
-        /// descricao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label descricao;
 
         /// <summary>
         /// dataEntrega control.
@@ -69,31 +78,22 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl valorMedioCotacoes;
 
         /// <summary>
-        /// divUpload control.
+        /// divTerminado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminado;
 
         /// <summary>
-        /// flpArquivo control.
+        /// divAceitar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
-
-        /// <summary>
-        /// flpVideo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAceitar;
 
         /// <summary>
         /// descricaoHide control.
@@ -123,21 +123,30 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
 
         /// <summary>
-        /// divTerminado control.
+        /// flpArquivo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminado;
+        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
 
         /// <summary>
-        /// divAceitar control.
+        /// flpVideo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAceitar;
+        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
+
+        /// <summary>
+        /// divUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
     }
 }

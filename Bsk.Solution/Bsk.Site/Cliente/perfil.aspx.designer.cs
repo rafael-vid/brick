@@ -51,15 +51,6 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText telefone;
 
         /// <summary>
-        /// cep control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cep;
-
-        /// <summary>
         /// rua control.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText rua;
+
+        /// <summary>
+        /// bairro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText bairro;
 
         /// <summary>
         /// numero control.
@@ -78,6 +78,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText numero;
 
         /// <summary>
+        /// cep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cep;
+
+        /// <summary>
         /// complemento control.
         /// </summary>
         /// <remarks>
@@ -85,15 +94,6 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText complemento;
-
-        /// <summary>
-        /// bairro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText bairro;
 
         /// <summary>
         /// cidade control.

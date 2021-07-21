@@ -1,0 +1,278 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro.aspx.cs" Inherits="Bsk.Site.Geral.cadastro" %>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+    <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+
+    <title>BRIKK - PARA CLIENTES</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/cadastros.css">
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="menu-topo container">
+                <a href="index.html">
+                    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                </a>
+                <nav class="menu" id="nav">
+                    <button id="btn-mobile">
+                        Menu
+          <span id="hamburger"></span>
+                    </button>
+                    <ul class="menu-itens">
+                        <li>
+                            <a href="sobre.html">sobre nós</a>
+                        </li>
+                        <li><a href="index.html#parceiros">para parceiros</a></li>
+                        <li><a href="index.html#clientes">PARA CLIENTES</a></li>
+                        <li><a href="ajuda.html">ajuda</a></li>
+                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="filtro">
+                <div class="container">
+                    <input type="text" placeholder="Qual serviço você precisa?      ">
+                    <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+                </div>
+            </div>
+        </header>
+
+        <div class="cadastro container">
+            <div class="controles">
+                <div>
+                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf">
+                    <label for="pf">Pessoa Física</label>
+                </div>
+                <div>
+                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj">
+                    <label for="pj">Pessoa Jurídica</label>
+                </div>
+            </div>
+            <div class="dados-cliente ativo" id="pessoa_fisica">
+
+                <div class="dados-cadastrais">
+                    <img src="assets/imagens/dados-icon.svg" alt="dados" style="width: 14px;">
+                    <h1 class="subtitulo_1">Dados Cadastrais
+                    </h1>
+                </div>
+
+                <div class="campos">
+                    <div>
+                        <label for="nome" class="subtitulo_1">Nome</label>
+                        <input type="text" name="nome" id="nome" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="sobrenome" class="subtitulo_1">Sobrenome</label>
+                        <input type="text" name="sobrenome" id="sobrenome" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="email" class="subtitulo_1">E-mail</label>
+                        <input type="email" name="email" id="email" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="cpf" class="subtitulo_1">CPF</label>
+                        <input type="text" name="cpf" id="cpf" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="telefone" class="subtitulo_1">Telefone</label>
+                        <input type="text" name="telefone" id="telefone" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="endereco" class="subtitulo_1">Endereço</label>
+                        <input type="text" name="endereco" id="endereco" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="bairro" class="subtitulo_1">Bairro</label>
+                        <input type="text" name="bairro" id="bairro" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="numero" class="subtitulo_1">Número</label>
+                        <input type="number" name="numero" id="numero" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="cep" class="subtitulo_1">CEP</label>
+                        <input type="number" name="cep" id="cep" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="complemento" class="subtitulo_1">Complemento</label>
+                        <input type="text" name="complemento" id="complemento" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="cidade" class="subtitulo_1">Cidade</label>
+                        <input type="text" name="cidade" id="cidade" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="estado" class="subtitulo_1">Estado</label>
+                        <input type="text" name="estado" id="estado" runat="server" required>
+                    </div>
+                     <div>
+                        <label for="senha" class="subtitulo_1">Senha</label>
+                        <input type="text" name="senha" id="senha" runat="server" required>
+                    </div>
+                     <div>
+                        <label for="validaSenha" class="subtitulo_1">Estado</label>
+                        <input type="text" name="validaSenha" id="validaSenha" runat="server" required>
+                    </div>
+                </div>
+
+                <div class="voltar-chat">
+                    <a href="login.aspx" class="voltar btn"><< voltar</a>
+
+                        
+
+                    <div class="subtitulo_contato">
+                        <button runat="server" id="btnFisica" onserverclick="btnFisica_ServerClick" class="cadastro btn">>> salvar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dados-cliente" id="pessoa_juridica">
+
+                <div class="dados-cadastrais">
+                    <img src="assets/imagens/dados-icon.svg" alt="dados" style="width: 14px;">
+                    <h1 class="subtitulo_1">Dados Cadastrais
+                    </h1>
+                </div>
+
+                <div class="campos">
+                    <div>
+                        <label for="nomeJuridica" class="subtitulo_1">Nome</label>
+                        <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="sobrenomeJuridica" class="subtitulo_1">Sobrenome</label>
+                        <input type="text" name="sobrenomeJuridica" id="sobrenomeJuridica" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="emailJuridica" class="subtitulo_1">E-mail</label>
+                        <input type="email" name="emailJuridica" id="emailJuridica" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="cnpj" class="subtitulo_1">CNPJ</label>
+                        <input type="text" name="cnpj" id="cnpj" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="razao" class="subtitulo_1">Razão Social</label>
+                        <input type="text" name="razao" id="razao" runat="server" required>
+                    </div>
+                    <div class="queda">
+                        <label for="fantasia" class="subtitulo_1">Nome Fantasia</label>
+                        <input type="text" name="fantasia" id="fantasia" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="situacao" class="subtitulo_1">Situação</label>
+                        <input type="text" name="situacao" id="situacao" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="abertura" class="subtitulo_1">Data de Abertura</label>
+                        <input type="date" name="abertura" id="abertura" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="matriz" class="subtitulo_1">Matriz</label>
+                        <input type="text" name="matriz" id="matriz" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="telefoneJuridica" class="subtitulo_1">Telefone</label>
+                        <input type="tel" name="telefoneJuridica" id="telefoneJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="bairroJuridica" class="subtitulo_1">Bairro</label>
+                        <input type="text" name="bairroJuridica" id="bairroJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="numeroJuridica" class="subtitulo_1">Número</label>
+                        <input type="number" name="numeroJuridica" id="numeroJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="cepJuridica" class="subtitulo_1">CEP</label>
+                        <input type="text" name="cepJuridica" id="cepJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="complementoJuridica" class="subtitulo_1">Complemento</label>
+                        <input type="text" name="complementoJuridica" id="complementoJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="cidadeJuridica" class="subtitulo_1">Cidade</label>
+                        <input type="text" name="cidadeJuridica" id="cidadeJuridica" runat="server" required>
+                    </div>
+                    <div>
+                        <label for="estadoJuridica" class="subtitulo_1">Estado</label>
+                        <input type="text" name="estadoJuridica" id="estadoJuridica" runat="server" required>
+                    </div>
+                     <div>
+                        <label for="senhaJuridica" class="subtitulo_1">Senha</label>
+                        <input type="text" name="senhaJuridica" id="senhaJuridica" runat="server" required>
+                    </div>
+                     <div>
+                        <label for="validaSenhaJuridica" class="subtitulo_1">Estado</label>
+                        <input type="text" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
+                    </div>
+                </div>
+
+                <div class="voltar-chat">
+                    <a href="login.aspx" class="voltar btn"><< voltar</a>
+
+                        
+
+                    <div class="subtitulo_contato">
+                        <button runat="server" id="btnJuridica" onserverclick="btnJuridica_ServerClick" class="cadastro btn">>> salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <asp:Label ID="msg" runat="server" Text=""></asp:Label>
+        <!-- footer -->
+        <footer>
+            <a href="/">
+                <img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+            <div>
+                <a href="#">
+                    <img src="./assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+                </a>
+                <a href="#">
+                    <img src="./assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+                <a href="#">
+                    <img src="./assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+            </div>
+        </footer>
+    </form>
+    <script async src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        AOS.init();
+    </script>
+
+    <script>
+        const tabMenu = document.querySelectorAll('.checar')
+        const tabContent = document.querySelectorAll('.dados-cliente')
+
+        function activeTab(index) {
+            tabContent.forEach(content => {
+                content.classList.remove('ativo')
+            })
+            tabContent[index].classList.add('ativo')
+        }
+
+        tabMenu.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                activeTab(index)
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>

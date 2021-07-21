@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+  <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+
+  <title>BRIKK -  TUDO EM SUAS MÃOS!</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    /* capa */
+    .capa {
+      background: url(./assets/imagens/banner1.jpg) no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 100vh;
+    }
+    .capa .container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .contenudo-capa {
+      width: 40%;
+      padding-left: 111px;
+    }
+    .contenudo-capa .titulo {
+      margin-bottom: 30px;
+    }
+    .contenudo-capa p {
+      width: 60%;
+    }
+
+    @media only screen and (min-width: 551px) and (max-width: 787px) {
+      .contenudo-capa {padding-left: 0; width: 100%;}
+      .capa {
+        height: calc(100vh - 213px);
+      }
+    }
+
+    @media only screen and (max-width: 550px) {
+      .contenudo-capa {padding-left: 0; width: 100%;}
+      .capa {
+        height: calc(100vh - 213px);
+      }
+      .contenudo-capa p{
+        width: 100%;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <!-- header -->
+  <header>
+      <div class="menu-topo container">
+        <a href="index.html">
+          <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+        </a>
+        <nav class="menu" id="nav">
+          <button id="btn-mobile">Menu
+            <span id="hamburger"></span>
+          </button>
+          <ul class="menu-itens">
+            <li>
+              <a href="sobre.html"> sobre nós</a>
+            </li>
+            <li><a href="#parceiros"> para parceiros</a></li>
+            <li><a href="#clientes"> PARA CLIENTES</a></li>
+            <li><a href="ajuda.html"> ajuda</a></li>
+            <li><a href="login.html" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+          </ul>
+        </nav>
+      </div>
+  
+      <div class="filtro">
+        <div class="container">
+          <input type="text" placeholder="Qual serviço você procisa?      ">
+          <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+        </div>
+      </div>
+  </header>
+
+  <!-- capa -->
+  <section class="capa">
+    <div class="container">
+      <div class="contenudo-capa animar">
+        <h1 class="titulo">
+          TUDO EM SUAS MÃOS!
+          MANUTENÇÃO RÁPIDA,
+          SEGURA E SEM DOR
+          DE CABEÇA
+        </h1>
+        <p>
+          Plataforma de contratação que une os
+          interesses dos clientes comerciais e
+          corporativos aos fornecedores de
+          serviços e equipamentos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- beneficios -->
+  <section class="beneficios">
+    <div class="container">
+        <img src="./assets/imagens/celular.png"  data-aos="flip-left" alt="celular" class="celular">
+      <div class="beneficios-itens">
+        <div class="beneficio-item">
+          <h2 class="subtitulo_1">BENEFÍCIOS PARA CLIENTES </h2>
+          <ul>
+            <li>
+              <img src="./assets/imagens/prestador.png" alt="prestador" data-aos="flip-left">
+              <p>Prestadores de serviço
+                qualificados
+                </p>
+            </li>
+            <li>
+              <img src="./assets/imagens/garantia.png" alt="garantia" data-aos="flip-left">
+              <p>Garantia <strong>BRIKK</strong> até a
+                finalização do serviço                
+                </p>
+            </li>
+            <li>
+              <img src="./assets/imagens/orcamento.png" alt="orcamento" data-aos="flip-left">
+              <p>Orçamentos e
+                comparação de precos.
+                </p>
+            </li>
+          </ul>
+        </div>
+        <div class="beneficio-item">
+          <h2 class="subtitulo_1">BENEFÍCIOS PARA FORNECEDOR
+          </h2>
+          <ul>
+            <li>
+              <img src="./assets/imagens/aquisicao.png" alt="aquisição" data-aos="flip-left">
+              <p>Aquisição de clientes
+                comerciais, corporativos
+                e condomínios
+                </p>
+            </li>
+            <li>
+              <img src="./assets/imagens/documento.png" alt="documento" data-aos="flip-left">
+              <p>Todo processo
+                documentado              
+                </p>
+            </li>
+            <li>
+              <img src="./assets/imagens/recebimento.png" alt="recebimento" data-aos="flip-left">
+              <p>Garantia de recebimento
+                ao final do serviço
+                </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cliente -->
+  <section class="cliente" id="clientes">
+    <div class="container">
+      <div data-aos="fade-right">
+        <h2 class="subtitulo_2">SOU
+          CLIENTE</h2>
+        <h3>Otimize seu tempo nas
+          manutenções de seu
+          estabelecimento</h3>
+    
+          <p>
+            Especialistas em cada área de atuação.
+            Contratados através de um processo
+            profissional e garantido.
+            Os prestadores são avaliados, e o cliente
+            só paga quando aceita o serviço concluído.
+          </p>
+    
+        <a href="#" class="btn">Quero orçar</a>
+      </div>
+      <iframe width="810" height="443" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000"
+      src="https://www.youtube.com/embed/P73REgj-3UE"
+       title="YouTube video player" frameborder="0" 
+       allow="accelerometer; autoplay; clipboard-write;
+        encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- parceiro -->
+  <section class="parceiro" id="parceiros">
+    <div class="container">
+      <div data-aos="fade-left">
+        <h2 class="subtitulo_2">SOU
+          PARCEIRO
+          </h2>
+        <h3>Valorize seu serviço
+        </h3>
+    
+          <p>
+            Na BRIKK você tem acesso a clientes
+            comerciais, corporativos e condomínios
+            que pagam antecipadamente pelos seus
+            serviços, equipamentos e materiais.
+            Todo o processo coberto por seguro de
+            responsabilidade civil e documentado,
+            para sua tranquilidade.
+          </p>
+    
+        <a href="#" class="btn">Quero me cadastrar
+        </a>
+      </div>
+      <iframe width="810" height="443" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000"
+      src="https://www.youtube.com/embed/P73REgj-3UE"
+       title="YouTube video player" frameborder="0" 
+       allow="accelerometer; autoplay; clipboard-write;
+        encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- acompanhe -->
+  <section class="acompanhe ">
+    <div class="container">
+      <h2 class="subtitulo_1" data-aos="fade-right">ACOMPANHE AS ATIVIDADES E
+        RESOVA TUDO EM TEMPO REAL</h2>
+        <img src="./assets/imagens/acompanhe.png" data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="1000" alt="acompanhe" class="img-acompanhe">
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <a href="/"><img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+    <div>
+      <a href="#"><img src="./assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+      </a>
+      <a href="#"><img src="./assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+        <a href="#"><img src="./assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    AOS.init();
+  </script>
+
+  <script async src="assets/js/script.js"></script>
+</body>
+</html>

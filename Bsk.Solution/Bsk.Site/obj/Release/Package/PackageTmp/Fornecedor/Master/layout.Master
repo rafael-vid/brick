@@ -4,10 +4,15 @@
 
 <html>
 <head runat="server">
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BRIKK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+    <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+
+    <title>BRIKK </title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
     <link rel="icon" type="image/png" href="../img/favico.png" />
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -43,74 +48,147 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!-- Header site -->
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
+        <header>
+            <div class="menu-topo container">
+                <a href="index.html">
+                    <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                </a>
+                <nav class="menu" id="nav">
+                    <button id="btn-mobile">
+                        Menu
+          <span id="hamburger"></span>
+                    </button>
+                    <ul class="menu-itens">
+
+                        <li data-dropdow-perfil>
+                            <div class="perfil">
+                                <img src="../assets/imagens/avatar.png" alt="avatar">
+
+                                <span>Olá,  <%
+                                                var usuario = RetornaUsuario();
+                                                Response.Write(usuario.RazaoSocial);
+                                %>.</span>
+                            </div>
+                            <ul class="dropdown-perfil">
+                                <li>
+                                    <a href="listar-servicos.html">
+                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                        Meus Dados
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="meusdados.html">
+                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                        Configurações
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="meusdados.html">
+                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                        Sair
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+
+
             </div>
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-                &nbsp;<a class="btn btn-brikk pull-right sair" href="default.aspx" title="SAIR"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</a>
-                <a href="perfil.aspx" class="pull-right link-brikk hidden-sm hidden-xs mr-20"><%
-                                                                                       var usuario = RetornaUsuario();
-                                                                                       Response.Write(usuario.RazaoSocial);
-                %>&nbsp;<i class="glyphicon glyphicon-user pull-right"></i></a>
-                <a href="perfil.aspx" class="text-center link-brikk hidden-lg hidden-md"></a>
-            </div>
 
-        </div>
-
-        <asp:ContentPlaceHolder ID="conteudo" runat="server">
-        </asp:ContentPlaceHolder>
-
-
-
-
-        <!-- Menu -->
-        <div class="menu menuFechado">
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-                <i class="glyphicon glyphicon-remove btn-fechar-menu pull-right" title="FECHAR MENU"></i>
-                <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Menu<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-                <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="minhas-cotacoes.aspx">
-                            <img src="img/status/minhasCotacoes.jpeg"  class="img-responsive" width="100%" /></a>
-                    </div>
-                   <%-- <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="aguardando-pagamento.aspx">
-                            <img src="img/status/aguardandoTransferencia.jpg"  class="img-responsive" width="100%" /></a>
-                    </div>
-                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="em-andamento.aspx">
-                            <img src="img/status/emAndamento.jpeg"  class="img-responsive" width="100%" /></a>
-                    </div>
-
-                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="finalizado.aspx"> 
-                            <img src="img/status/finalizado.jpeg"  class="img-responsive" width="100%" /></a>
-                    </div>
-                    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>--%>
-                    <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="minhas-areas.aspx">
-                            <img src="img/status/minhasAreas.jpeg"  class="img-responsive" width="100%" /></a>
-                    </div>
-                       <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <a href="cotacao-lista.aspx">
-                            <img src="img/status/buscarCotacao.jpeg"  class="img-responsive" width="100%" /></a>
-                    </div>
-                    <%--<div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <img src="img/perfil.jpg" class="img-responsive cadastrar" width="100%" alt="">
-                </div>--%>
+            <div class="filtro">
+                <div class="container">
+                    <input type="text" id="servico" runat="server" placeholder="Qual serviço você precisa?      ">
+                   <button id="btnBuscaCatSel" runat="server" onserverclick="btnBuscaCatSel_ServerClick"> <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;"></button>
                 </div>
-                <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
             </div>
-        </div>
-        <!-- Fim Menu -->
-        <!-- Fim Menu -->
+        </header>
 
+        <section class="app">
+            <nav class="menu-dashboard">
+                <a class="open-menu">< </a>
+                <ul class="menu-dash">
+                    <li>
+                        <a href="dashboard.aspx">
+                            <img src="../assets/imagens/dashboard.svg" style="width: 20px;" alt="ícone">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="minhas-cotacoes.aspx" class="dash-ativo">
+                        <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Cotações</span></a>
+                    </li>
+                    <li><a href="em-andamento.aspx">
+                        <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
+                            alt="ícone"><span>Documentação</span></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../assets/imagens/meubrikk.svg" style="width: 20px;" alt="ícone"><span>Meu Brikk</span></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../assets/imagens/oportunidades.svg" style="width: 20px;"
+                            alt="ícone"><span>Oportunidades</span></a>
+                    </li>
+                </ul>
+
+                <ul class="infos-dash">
+                    <li>
+                        <a href="#">
+                            <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
+                            <span>Calendário</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../assets/imagens/central.svg" alt="ícone" style="width: 20px;">
+                            <span>Central de Comunicação</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../assets/imagens/notifica.svg" alt="ícone" style="width: 20px;">
+                            <span>Notificação</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <asp:ContentPlaceHolder ID="conteudo" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+
+
+
+        <footer>
+            <a href="/">
+                <img src="../assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+            <div>
+                <a href="#">
+                    <img src="../assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+                </a>
+                <a href="#">
+                    <img src="../assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+                <a href="#">
+                    <img src="../assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <script>
+            AOS.init();
+        </script>
+
+        <script async src="../assets/js/script.js"></script>
 
         <script>
 
@@ -143,16 +221,16 @@
             });
         </script>
     </form>
-        <script type="text/javascript">
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function () {
-                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-                s1.async = true;
-                s1.src = 'https://embed.tawk.to/5f5a9b264704467e89edf3c3/default';
-                s1.charset = 'UTF-8';
-                s1.setAttribute('crossorigin', '*');
-                s0.parentNode.insertBefore(s1, s0);
-            })();
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5f5a9b264704467e89edf3c3/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
 </body>
 </html>

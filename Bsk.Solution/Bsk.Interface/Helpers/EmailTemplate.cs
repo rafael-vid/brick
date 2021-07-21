@@ -34,18 +34,19 @@ namespace Bsk.Interface.Helpers
             return html;
 
         }
+
         public bool enviaEmail(string html, string area, string email)
         {
             bool sucesso = true;
             SmtpClient smtpClient = new SmtpClient(ConfigurationManager.AppSettings["smtp"].ToString(), 587);
-            smtpClient.EnableSsl = false;
+            smtpClient.EnableSsl = true;
             MailMessage message = new MailMessage(new MailAddress(ConfigurationManager.AppSettings["email"].ToString(), area), new MailAddress(email, area));
             message.IsBodyHtml = true;
             string str = html;
             message.Body = str;
             message.Subject = area;
             NetworkCredential networkCredential = new NetworkCredential(ConfigurationManager.AppSettings["email"].ToString(), ConfigurationManager.AppSettings["emailsenha"].ToString(), "");
-            smtpClient.Credentials = (ICredentialsByHost)networkCredential;
+            smtpClient.Credentials = new NetworkCredential(ConfigurationManager.AppSettings["email"].ToString(), ConfigurationManager.AppSettings["emailsenha"].ToString());// (ICredentialsByHost)networkCredential;
             Console.WriteLine("Enviando...");
             try
             {

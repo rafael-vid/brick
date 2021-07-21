@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+    <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>BRIKK </title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/sobre.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="menu-topo container">
+            <a href="index.html">
+                <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+            </a>
+            <nav class="menu" id="nav">
+                <button id="btn-mobile">
+                    Menu
+                    <span id="hamburger"></span>
+                </button>
+                <ul class="menu-itens">
+                    <li>
+                        <a href="sobre.html"> sobre nós</a>
+                    </li>
+                    <li><a href="parceiros.html"> para parceiros</a></li>
+                    <li><a href="clientes.html"> PARA CLIENTES</a></li>
+                    <li><a href="ajuda.html"> ajuda</a></li>
+                    <li><button class="btn-cadastro">ENTRAR / CADASTRAR</button></li>
+                    <li data-dropdow-perfil>
+                        <div class="perfil">
+                            <img src="../assets/imagens/avatar.png" alt="avatar">
+                            <span>Olá, Felipe.</span>
+                        </div>
+                        <ul class="dropdown-perfil">
+                            <li>
+                                <a href="listar-servicos.html">
+                                    <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                    Meus Dados
+                                </a>
+                            </li>
+                            <li>
+                                <a href="meusdados.html">
+                                    <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                    Configurações
+                                </a>
+                            </li>
+                            <li>
+                                <a href="meusdados.html">
+                                    <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+
+
+        </div>
+
+        <div class="filtro">
+            <div class="container">
+                <input type="text" placeholder="Qual serviço você procisa?      ">
+                <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+            </div>
+        </div>
+    </header>
+
+    <section class="app pagamento-app">
+        <div class="conteudo-dash cotacao cotacoes-cli">
+
+            <div class="acessos">
+                <a class="btn_card" href="nova-cotacao.html">
+                    <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+                    Nova Cotação
+                </a>
+                <button class="btn_card">
+                    Minhas Cotações
+                </button>
+                <button class="btn_card">
+                    Pagamentos
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="titulo_card">
+                    <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
+                    <h2 class="subtitulo_1">Dados Cadastrais</h2>
+                </div>
+
+                <form action="" class="form-boleto-cadastro">
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Nome</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Sobrenome</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card quebra">
+                        <label class="subtitulo_card_1 subtitulo_1">E-mail</label>
+                        <input type="email" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">CPF</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Telefone</label>
+                        <input type="tel" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card quebra">
+                        <label class="subtitulo_card_1 subtitulo_1">Endereço</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Bairro</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Número</label>
+                        <input type="number" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">CEP</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Complemento</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Cidade</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                    <div class="item_content_card">
+                        <label class="subtitulo_card_1 subtitulo_1">Estado</label>
+                        <input type="text" class="card-input-add" required>
+                    </div>
+                </form>
+
+                <div class="footer_card" style="margin-top: 36p;">
+                    <a class="voltar btn" href="gerar-boleto.html">
+                        << voltar
+                    </a>
+                    <a href="" class="item_notifica">
+                        <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                        <span class="notificacao">02</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="/"><img src="../assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+        <div>
+            <a href="#">
+                <img src="../assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+            </a>
+            <a href="#"><img src="../assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+            <a href="#"><img src="../assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+        </div>
+    </footer>
+    <script async src="../assets/js/script.js"></script>
+</body>
+
+</html>

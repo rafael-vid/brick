@@ -70,5 +70,7 @@ namespace Bsk.Site.Cliente
                 Response.Cookies.Add(lg);
             }
         }
+
+      
     }
 }

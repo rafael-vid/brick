@@ -45,7 +45,7 @@ namespace Bsk.Site.Cliente
 
             string titulo = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
             string link = ConfigurationManager.AppSettings["host"].ToString()+ "Fornecedor/negociar-cotacao.aspx?Id="+cf.IdCotacaoFornecedor;
-            string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             ClienteBE clienteBE = new ClienteBE();
             var forn = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();

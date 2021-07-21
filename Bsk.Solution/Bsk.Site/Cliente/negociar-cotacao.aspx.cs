@@ -27,13 +27,20 @@ namespace Bsk.Site.Cliente
         {
             if (String.IsNullOrEmpty(Request.QueryString["Id"]))
             {
-                //RetornaUsuario();
-                Response.Redirect("negociar-cotacao.aspx?Id=5");
+                Response.Redirect("minhas-cotacoes.aspx");
             }
 
             if (!IsPostBack)
             {
-                CarregaCotacaoFornecedor();
+                try
+                {
+                    CarregaCotacaoFornecedor();
+                }
+                catch (Exception)
+                {
+                    Response.Redirect("nav.html");
+                }
+
             }
 
         }
@@ -42,7 +49,7 @@ namespace Bsk.Site.Cliente
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
-            if (cotacaoFornecedor.Novo==1)
+            if (cotacaoFornecedor.Novo == 1)
             {
                 cotacaoFornecedor.Novo = 0;
                 _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
@@ -71,8 +78,8 @@ namespace Bsk.Site.Cliente
                         descricaoHide.Visible = false;
                     }
 
-                    titulo.Text = cotacao.Titulo;
-                    descricao.Text = cotacao.Descricao;
+                    tituloCot.InnerText = cotacao.Titulo;
+                    descricaoCot.InnerText = cotacao.Descricao;
                     vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
                     try
@@ -82,6 +89,11 @@ namespace Bsk.Site.Cliente
                     catch (Exception)
                     {
                         dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
+                    }
+
+                    if (String.IsNullOrEmpty(dataEntrega.InnerText))
+                    {
+                        dataEntrega.InnerText = "-";
                     }
 
 

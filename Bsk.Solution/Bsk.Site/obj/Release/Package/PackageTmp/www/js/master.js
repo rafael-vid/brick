@@ -3,7 +3,7 @@ $(document).ready(function() {
         window.location.href = 'index.html';
     });
     $('.btn-cadastro').click(function() {
-        window.location.href = 'cadastro.html';
+        window.location.href = 'cadastro.aspx';
     });
     $('.btn-acessa').click(function() {
         window.location.href = 'pagar-com-fiadito.html';
@@ -22,6 +22,6 @@ $(document).ready(function() {
         $('.fundo-menu').slideToggle();
     });
     $('.btn-login').click(function () {
-        window.location.href = 'login.html';
+        window.location.href = 'login.aspx';
     });
 });

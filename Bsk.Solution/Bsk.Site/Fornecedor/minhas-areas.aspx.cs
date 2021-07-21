@@ -44,31 +44,6 @@ namespace Bsk.Site.Fornecedor
                 return _core.Categoria_Get(CategoriaBE, "1=1");
             }
 
-        }
-
-        protected void btnBuscar_ServerClick(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(servico.Value))
-            {
-                var servi = _core.Servico_Get(ServicoBE, $" Nome like '%{servico.Value}%'");
-                string categorias = "";
-                if (servi.Count > 0)
-                {
-                    foreach (var item in servi)
-                    {
-                        categorias += item.IdCategoria + ",";
-                    }
-                    Response.Redirect("minhas-areas.aspx?Cat=" + categorias + "0");
-                }
-                else
-                {
-                    Response.Redirect("minhas-areas.aspx?Cat=0");
-                }
-            }
-            else
-            {
-                Response.Redirect("minhas-areas.aspx");
-            }
-        }
+        }       
     }
 }

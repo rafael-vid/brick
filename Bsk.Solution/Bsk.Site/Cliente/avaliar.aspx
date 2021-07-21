@@ -1,209 +1,261 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="avaliar.aspx.cs" Inherits="Bsk.Site.Cliente.avaliar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="avaliar.aspx.cs" Inherits="Bsk.Site.Cliente.avaliar" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
-<!DOCTYPE html>
-<html lang="">
+<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BRIKK</title>
-    <link rel="icon" type="image/png" href="img/favico.png" />
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/default.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/datatables.min.css" />
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        div.chart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-</head>
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
 
-<body>
-    <!-- Header site -->
-    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
-        </div>
-        <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12 text-center">
-            &nbsp;<button class="btn btn-brikk pull-right sair" title="SAIR"><i class="glyphicon glyphicon-log-out"></i>&nbsp;Sair</button>
-            <a href="perfil.aspx" class="pull-right link-brikk hidden-sm hidden-xs mr-20">
-                <%var usuario = RetornaUsuario();
-                Response.Write(usuario.Nome);%>&nbsp;<i class="glyphicon glyphicon-user pull-right"></i>
+        span.marcacao {
+            color: #770e18;
+            display: block;
+            line-height: 150px;
+            text-align: center;
+            width: 150px;
+            font-family: sans-serif;
+            font-size: 40px;
+            font-weight: 100;
+            margin-left: 5px;
+        }
+
+        .estrelas {
+            margin-top: 10px;
+        }
+
+            .estrelas input[type=radio] {
+                display: none;
+            }
+
+            .estrelas label i.fa {
+                font-size: 2.5em;
+                cursor: pointer;
+            }
+
+                .estrelas label i.fa:before {
+                    content: '\f005';
+                    color: #FC0;
+                }
+
+            .estrelas input[type=radio]:checked ~ label i.fa:before {
+                color: #CCC;
+            }
+    </style>
+
+    <div class="conteudo-dash avaliacao">
+         <div class="acessos">
+            <a class="btn_card" href="buscar-servico.aspx">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+                Nova Cotação
             </a>
-            <a href="perfil.aspx" class="text-center link-brikk hidden-lg hidden-md">
-               Olá
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            </a>
+            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>
         </div>
+        <%var cot = PegaCotacao(); %>
+        <div class="card">
+            <div class="titulo_card">
+                <img src="../assets/imagens/estrela.svg" alt="ícone" style="width: 20px;">
+                <h2 class="subtitulo_1">Avaliação</h2>
+            </div>
 
-    </div>
-    <!-- Corpo Site -->
-    <form id="form1" runat="server">
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-            <%var cot = PegaCotacao(); %>
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-            <div class="col col-lg-8 col-md-8 col-sm-12 col-xs-12">
-                <h2 class="tableTitle">
-                    <p>Prestador de Serviço:</p>
-                    <br>
-                    <%Response.Write(cot.NomeFornecedor); %>
-                </h2>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                    <h3>Título da prestação de serviço: <%Response.Write(cot.Titulo); %></h3>
-                </div>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Prestador de Serviço </h2>
+                <p><%Response.Write(cot.NomeFornecedor); %></p>
+            </div>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <p><%Response.Write(cot.Titulo); %></p>
+            </div>
 
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <%Response.Write(cot.Descricao); %>
-                </div>
-                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
-                    <%if (cot.Nota == 0)
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição do serviço </h2>
+                <p><%Response.Write(cot.Descricao); %></p>
+            </div>
+
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Avalie o Prestador de Serviço </h2>
+                <div class="avaliacao-estrelas">
+                      <%if (cot.Nota == 0)
                         {%>
-                    <span id="rating-1" data-star='0'></span>
+                    <div class="estrelas">
+                        <input type="radio" id="cm_star-empty" name="fb" onchange="atribuirNota('0');" value="" checked />
+                        <label for="cm_star-1"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-1" name="fb" onchange="atribuirNota('1');" value="1" />
+                        <label for="cm_star-2"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-2" name="fb" onchange="atribuirNota('2');" value="2" />
+                        <label for="cm_star-3"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-3" name="fb" onchange="atribuirNota('3');" value="3" />
+                        <label for="cm_star-4"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-4" name="fb" onchange="atribuirNota('4');" value="4" />
+                        <label for="cm_star-5"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-5" name="fb" onchange="atribuirNota('5');" value="5" />
+                    </div>
                     <%}
                         else
-                        {%>
-                    <img src="img/estrelas/<%Response.Write(cot.Nota); %>.png" />
+                        {
+                            string check1 = "";
+                            string check2 = "";
+                            string check3 = "";
+                            string check4 = "";
+                            string check5 = "";
+
+                            if (cot.Nota==1)
+                            {
+                                check1 = "checked";
+                            }
+                            else if (cot.Nota==2)
+                            {
+                                check2 = "checked";
+                            }else if (cot.Nota==3)
+                            {
+                                check3 = "checked";
+                            }else if (cot.Nota==4)
+                            {
+                                check4 = "checked";
+                            }else if (cot.Nota==5)
+                            {
+                                check5 = "checked";
+                            }
+                            %>
+                    
+                   <div class="estrelas">
+                        <input type="radio" id="cm_star-empty" name="fb" disabled value="" />
+                        <label for="cm_star-1"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-1" name="fb" value="1" disabled <%Response.Write(check1); %>/>
+                        <label for="cm_star-2"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-2" name="fb" value="2" disabled <%Response.Write(check2); %>/>
+                        <label for="cm_star-3"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-3" name="fb" value="3" disabled <%Response.Write(check3); %>/>
+                        <label for="cm_star-4"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-4" name="fb"  value="4" disabled <%Response.Write(check4); %>/>
+                        <label for="cm_star-5"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-5" name="fb" value="5" disabled <%Response.Write(check5); %>/>
+                    </div>
                     <%} %>
+                    
                 </div>
-
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 pd-0">
-                    <h3>Comentário</h3>
-                    <textarea name="" id="depoimentoCliente" class="form-control" rows="8" runat="server"></textarea><br>
-                    <button class="btn btn-brikk btn-lg center-block" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar Depoimento</button>
-                </div>
-                <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 valorServico">
-                    <h2>
-                        <strong>
-                            <p>Data término:</p>
-                            <%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %>
-                        </strong>
-                    </h2>
+            </div>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Depoimento </h2>
+                <div class="area_comentario">
+                    <div class="comentarios_area">
+                        <textarea name="comentario" id="depoimentoCliente" runat="server" placeholder="Digite aqui seu depoimento" cols="30"
+                            rows="10"></textarea>
+                    </div>
+                    <div class="percent">
+                        <div class="porcentagem">
+                            <%--<div class="chart" id="graph" data-percent="100"></div>--%>
+                            <div>
+                                <p class="titulo_percent">Data do término do serviço</p>
+                                <span class="data_percent"><%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-        </div>
-    </form>
 
-    <!-- Menu -->
-    <div class="menu menuFechado">
-        <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 corpo-site">
-            <i class="glyphicon glyphicon-remove btn-fechar-menu pull-right" title="FECHAR MENU"></i>
-            <h2><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Menu<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-            <div class="col col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="minhas-cotacoes.aspx">
-                        <img src="img/status/minhasCotacoes.jpeg" class="img-responsive" width="100%" />
-                    </a>
-                </div>
-                <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="buscar-servico.aspx">
-                        <img src="img/status/novaCotacao.jpg" class="img-responsive" width="100%" /></a>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="em-andamento.aspx">
-                        <img src="img/status/emAndamento.jpeg" class="img-responsive" width="100%" /></a>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="liberar-pagamento.aspx">
-                        <img src="img/status/liberaPagamento.jpg" class="img-responsive" width="100%" /></a>
-                </div>
-                <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="finalizado.aspx">
-                        <img src="img/status/finalizado.jpeg" class="img-responsive" width="100%" /></a>
-                </div>
-                <div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <a href="perfil.aspx">
-                        <img src="img/status/perfil.jpg" class="img-responsive" width="100%" /></a>
-                </div>
 
-                <%--<div class="col col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <img src="img/perfil.jpg" class="img-responsive cadastrar" width="100%" alt="">
-                </div>--%>
+            <div class="footer_card">
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
+                <button class="btn" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar</button>
+                <a href="/" class="item_notifica">
+                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                    <span class="notificacao">02</span>
+                </a>
             </div>
-            <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+
         </div>
     </div>
-    <!-- Fim Menu -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Outros scripts -->
-    <script src="js/jquery.mask.js"></script>
-    <script src="js/datatables.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/rating.js"></script>
-    <script src="js/master.js"></script>
-    <script src="js/comum.js"></script>
+   
     <script>
 
-        setTimeout(function () {
-            $("#rating-1").data('stars').val("2");
-            alert(document.getElementById("hdNota").value);
-        }, 1000);
+        function atribuirNota(valor) {
+            var parametros = {
+                nota: valor,
+                id: comum.queryString("Id")
+            };
 
-        $(document).ready(function () {
-            $('#tabela').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
-                }
+            comum.postAsync("Comum/NotaCotacao", parametros, function (data) {
             });
-
-            $.ratePicker("#rating-1", {
-                max: 5,
-                rgbOn: "#e74c3c",
-                rgbSelection: "#e74c3c",
-                cursor: "pointer",
-                rate: function (stars) {
-                    var parametros = {
-                        nota: stars,
-                        id: comum.queryString("Id")
-                    };
-
-                    comum.postAsync("Comum/NotaCotacao", parametros, function (data) {
-                    });
-                }
-            });
-
-            $('.liberarPagamento').click(function () {
-                swal({
-                    title: "Tem certeza que podemos liberar o pagamento?",
-                    text: "Após o aceite a quantia acordada será liberada para o prestador de serviço!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            swal("Pagamento liberado com sucesso!", {
-                                icon: "success",
-                            });
-                        } else {
-                            swal("Ok, vamos aguardar mais um pouco para liberar o pagamento!");
-                        }
-                    });
-            });
-
+        } 
+        
+        $('.liberarPagamento').click(function () {
+            swal({
+                title: "Tem certeza que podemos liberar o pagamento?",
+                text: "Após o aceite a quantia acordada será liberada para o prestador de serviço!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Pagamento liberado com sucesso!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Ok, vamos aguardar mais um pouco para liberar o pagamento!");
+                    }
+                });
         });
-    </script>
-</body>
+        var el = document.getElementById('graph'); // get canvas
 
-</html>
+        var options = {
+            percent: el.getAttribute('data-percent') || 25,
+            size: el.getAttribute('data-size') || 150,
+            lineWidth: el.getAttribute('data-line') || 15,
+            rotate: el.getAttribute('data-rotate') || 0
+        }
+
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span');
+        span.classList.add('marcacao')
+        span.textContent = options.percent + '% ';
+
+        if (typeof (G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+
+        el.appendChild(span);
+        el.appendChild(canvas);
+
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+        //imd = ctx.getImageData(0, 0, 240, 24a0);
+        var radius = (options.size - options.lineWidth) / 2;
+
+        var drawCircle = function (color, lineWidth, percent) {
+            percent = Math.min(Math.max(0, percent || 1), 1);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+            ctx.strokeStyle = color;
+            ctx.lineCap = 'round'; // butt, round or square
+            ctx.lineWidth = lineWidth
+            ctx.stroke();
+        };
+
+        drawCircle('#efefef', options.lineWidth, 100 / 100);
+        drawCircle('#770e18', options.lineWidth, options.percent / 100);
+    </script>
+    <script async src="../assets/js/script.js"></script>
+
+</asp:Content>
+
+

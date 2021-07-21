@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+  <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <title>BRIKK </title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+
+  <style>
+    div.chart {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    canvas {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+    }
+
+    span.marcacao {
+      color: #770e18;
+      display: block;
+      line-height: 150px;
+      text-align: center;
+      width: 150px;
+      font-family: sans-serif;
+      font-size: 40px;
+      font-weight: 100;
+      margin-left: 5px;
+    }
+
+    .estrelas {
+      margin-top: 10px;
+    }
+
+    .estrelas input[type=radio] {
+      display: none;
+    }
+
+    .estrelas label i.fa {
+      font-size: 2.5em;
+      cursor: pointer;
+    }
+
+    .estrelas label i.fa:before {
+      content: '\f005';
+      color: #FC0;
+    }
+
+    .estrelas input[type=radio]:checked~label i.fa:before {
+      color: #CCC;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="menu-topo container">
+      <a href="index.html">
+        <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+      </a>
+      <nav class="menu" id="nav">
+        <button id="btn-mobile">Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul class="menu-itens">
+          <li>
+            <a href="sobre.html"> sobre nós</a>
+          </li>
+          <li><a href="parceiros.html"> para parceiros</a></li>
+          <li><a href="clientes.html"> PARA CLIENTES</a></li>
+          <li><a href="ajuda.html"> ajuda</a></li>
+          <li><button class="btn-cadastro">ENTRAR / CADASTRAR</button></li>
+          <li data-dropdow-perfil>
+            <div class="perfil">
+              <img src="../assets/imagens/avatar.png" alt="avatar">
+              <span>Olá, Felipe.</span>
+            </div>
+            <ul class="dropdown-perfil">
+              <li>
+                <a href="listar-servicos.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Meus Dados
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Configurações
+                </a>
+              </li>
+              <li>
+                <a href="meusdados.html">
+                  <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                  Sair
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  
+      </nav>
+  
+  
+    </div>
+  
+    <div class="filtro">
+      <div class="container">
+        <input type="text" placeholder="Qual serviço você procisa?      ">
+        <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+      </div>
+    </div>
+  </header>
+
+  <section class="app pagamento-app">
+  
+
+
+    <div class="conteudo-dash avaliacao">
+      <div class="card">
+        <div class="titulo_card">
+          <img src="../assets/imagens/estrela.svg" alt="ícone" style="width: 20px;">
+          <h2 class="subtitulo_1">Avaliação</h2>
+        </div>
+
+        <div class="item_content_card">
+          <h2 class="subtitulo_card_1 subtitulo_1">Prestador de Serviço </h2>
+          <p>Marcenaria Gomes</p>
+        </div>
+        <div class="item_content_card">
+          <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+          <p>Pintura de Parede</p>
+        </div>
+
+        <div class="item_content_card">
+          <h2 class="subtitulo_card_1 subtitulo_1">Descrição do serviço </h2>
+          <p>Pintura de Parede do escritório</p>
+        </div>
+
+        <div class="item_content_card">
+          <h2 class="subtitulo_card_1 subtitulo_1">Avalie o Prestador de Serviço </h2>
+          <div class="avaliacao-estrelas">
+            <div class="estrelas">
+              <input type="radio" id="cm_star-empty" name="fb" value="" checked />
+              <label for="cm_star-1"><i class="fa"></i></label>
+              <input type="radio" id="cm_star-1" name="fb" value="1" />
+              <label for="cm_star-2"><i class="fa"></i></label>
+              <input type="radio" id="cm_star-2" name="fb" value="2" />
+              <label for="cm_star-3"><i class="fa"></i></label>
+              <input type="radio" id="cm_star-3" name="fb" value="3" />
+              <label for="cm_star-4"><i class="fa"></i></label>
+              <input type="radio" id="cm_star-4" name="fb" value="4" />
+              <label for="cm_star-5"><i class="fa"></i></label>
+              <input type="radio" id="cm_star-5" name="fb" value="5" />
+            </div>
+          </div>
+        </div>
+        <div class="item_content_card">
+          <h2 class="subtitulo_card_1 subtitulo_1">Depoimento </h2>
+          <div class="area_comentario">
+            <div class="comentarios_area">
+              <textarea name="comentario" id="comentario" placeholder="Digite aqui seu depoimento" cols="30"
+                rows="10"></textarea>
+            </div>
+            <div class="percent">
+              <div class="porcentagem">
+                <div class="chart" id="graph" data-percent="100"></div>
+                <div>
+                  <p class="titulo_percent">Data do término do serviço</p>
+                  <span class="data_percent">10/12/2020</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="footer_card">
+          <a class="voltar btn" href="andamento.html">
+            << voltar </a>
+              <button class="btn">Enviar</button>
+              <a href="/" class="item_notifica">
+                <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                <span class="notificacao">02</span>
+              </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <a href="/"><img src="../assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+    <div>
+      <a href="#"><img src="../assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+      </a>
+      <a href="#"><img src="../assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+      <a href="#"><img src="../assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    AOS.init();
+  </script>
+
+  <script>
+    var el = document.getElementById('graph'); // get canvas
+
+    var options = {
+      percent: el.getAttribute('data-percent') || 25,
+      size: el.getAttribute('data-size') || 150,
+      lineWidth: el.getAttribute('data-line') || 15,
+      rotate: el.getAttribute('data-rotate') || 0
+    }
+
+    var canvas = document.createElement('canvas');
+    var span = document.createElement('span');
+    span.classList.add('marcacao')
+    span.textContent = options.percent + '% ';
+
+    if (typeof (G_vmlCanvasManager) !== 'undefined') {
+      G_vmlCanvasManager.initElement(canvas);
+    }
+
+    var ctx = canvas.getContext('2d');
+    canvas.width = canvas.height = options.size;
+
+    el.appendChild(span);
+    el.appendChild(canvas);
+
+    ctx.translate(options.size / 2, options.size / 2); // change center
+    ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+
+    //imd = ctx.getImageData(0, 0, 240, 24a0);
+    var radius = (options.size - options.lineWidth) / 2;
+
+    var drawCircle = function (color, lineWidth, percent) {
+      percent = Math.min(Math.max(0, percent || 1), 1);
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+      ctx.strokeStyle = color;
+      ctx.lineCap = 'round'; // butt, round or square
+      ctx.lineWidth = lineWidth
+      ctx.stroke();
+    };
+
+    drawCircle('#efefef', options.lineWidth, 100 / 100);
+    drawCircle('#770e18', options.lineWidth, options.percent / 100);
+  </script>
+  <script async src="../assets/js/script.js"></script>
+</body>
+
+</html>

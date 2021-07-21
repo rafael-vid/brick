@@ -24,11 +24,14 @@ namespace Bsk.BE
         public string Municipio { get; set; }
         public string Uf { get; set; }
         public string Responsavel { get; set; }
+        public string SobreNome { get; set; }
         public string WhatsApp { get; set; }
         public string Senha { get; set; }
         public string DataCriacao { get; set; }
         public string Status { get; set; }
         public string Email { get; set; }
         public string SellerID { get; set; }
+        public string CpfResponsavel { get; set; }
+        public string Matriz { get; set; }
     }
 }

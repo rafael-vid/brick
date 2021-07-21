@@ -16,7 +16,23 @@ namespace Bsk.Site.Cliente
         ServicoBE ServicoBE = new ServicoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!String.IsNullOrEmpty(Request.QueryString["CatSel"]))
+            {
+                var servi = _core.Servico_Get(ServicoBE, $" Nome like '%{Request.QueryString["CatSel"]}%'");
+                string categorias = "";
+                if (servi.Count > 0)
+                {
+                    foreach (var item in servi)
+                    {
+                        categorias += item.IdCategoria + ",";
+                    }
+                    Response.Redirect("buscar-servico.aspx?Cat=" + categorias + "0");
+                }
+                else
+                {
+                    Response.Redirect("buscar-servico.aspx?Cat=0");
+                }
+            }
         }
 
         public List<CategoriaBE> BuscaCategoria()
@@ -32,29 +48,6 @@ namespace Bsk.Site.Cliente
 
         }
 
-        protected void btnBuscar_ServerClick(object sender, EventArgs e)
-        {
-            if (!String.IsNullOrEmpty(servico.Value))
-            {
-                var servi = _core.Servico_Get(ServicoBE, $" Nome like '%{servico.Value}%'");
-                string categorias = "";
-                if (servi.Count > 0)
-                {
-                    foreach (var item in servi)
-                    {
-                        categorias += item.IdCategoria + ",";
-                    }
-                    Response.Redirect("buscar-servico.aspx?Cat=" + categorias + "0");
-                }
-                else
-                {
-                    Response.Redirect("buscar-servico.aspx?Cat=0");
-                }
-            }
-            else
-            {
-                Response.Redirect("buscar-servico.aspx");
-            }
-        }
+       
     }
 }

@@ -26,6 +26,7 @@ namespace Bsk.Site.Cliente
                     if (item.CotacaoFornecedorId == cotacao.IdCotacaoFornecedor)
                     {
                         valorMedioCotacoes.InnerText = string.Format("{0:C}", item.Valor);
+
                     }
                 }
             }
@@ -38,6 +39,11 @@ namespace Bsk.Site.Cliente
                 }
                 valor = valor / lista.Count;
                 valorMedioCotacoes.InnerText = string.Format("{0:C}", valor);
+            }
+
+            if (valorMedioCotacoes.InnerText.ToLower() == "nan")
+            {
+                valorMedioCotacoes.InnerText = "0";
             }
 
         }

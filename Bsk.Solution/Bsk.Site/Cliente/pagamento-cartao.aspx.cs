@@ -23,7 +23,7 @@ namespace Bsk.Site.Cliente
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
-
+            nrcotacao.InnerText = cotacao.IdCotacao.ToString();
             if (cotacao.Status != Bsk.Util.StatusCotacao.AguardandoPagamento)
             {
                 Response.Redirect("minhas-cotacoes.aspx");
@@ -39,17 +39,17 @@ namespace Bsk.Site.Cliente
 
             if (!IsPostBack)
             {
-                nome.Value = login.Nome;
-                email.Value = login.Email;
-                cpf.Value = login.Cnpj;
-                telefone.Value = login.Telefone;
-                cep.Value = login.Cep;
-                rua.Value = login.Logradouro;
-                numero.Value = login.Numero;
-                complemento.Value = login.Complemento;
-                bairro.Value = login.Bairro;
-                cidade.Value = login.Municipio;
-                uf.Value = login.Uf;
+                nome.InnerText = login.Nome;
+                email.InnerText = login.Email;
+                cpf.InnerText = login.Cnpj;
+                telefone.InnerText = login.Telefone;
+                cep.InnerText = login.Cep;
+                rua.InnerText = login.Logradouro;
+                numero.InnerText = login.Numero;
+                complemento.InnerText = login.Complemento;
+                bairro.InnerText = login.Bairro;
+                cidade.InnerText = login.Municipio;
+                uf.InnerText = login.Uf;
                 valor.InnerText = String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor);
 
 

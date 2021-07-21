@@ -60,7 +60,17 @@ namespace Bsk.Site.Cliente
             tituloServ.InnerText = cotacao.Titulo;
             valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
             fornecedorNome.InnerText = fornecedor.NomeFantasia;
+            descricao.InnerText = cotacao.Descricao;
+            try
+            {
+                dtEntrega.InnerText = DateTime.Parse(cotacao.DataTermino).ToString("dd/MM/yyyy");
+            }
+            catch (Exception)
+            {
+                dtEntrega.InnerText = "-";
+            }
 
+            nrServico.InnerText = cotacao.IdCotacao.ToString();
         }
 
         protected void btnBoleto_ServerClick(object sender, EventArgs e)
@@ -79,7 +89,7 @@ namespace Bsk.Site.Cliente
 
             string titulo = $"A cotação Nº {cotacao.IdCotacao}, teve seu status alterado para pago.";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacaoFornecedor;
-            string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a>href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();
