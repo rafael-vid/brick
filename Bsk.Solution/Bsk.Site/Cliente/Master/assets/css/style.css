@@ -139,9 +139,10 @@ header {
   background-color: #770e18;
 }
 .menu-topo {
-  display: grid;
+  display: flex;
   height: 120px;
-  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
 }
 .filtro {
@@ -151,7 +152,6 @@ header {
   width: 100%;
 }
 .menu {
-  flex: 1;
   display: flex;
 }
 .menu ul {

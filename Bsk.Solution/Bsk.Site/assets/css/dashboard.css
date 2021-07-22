@@ -300,7 +300,8 @@ nav.menu-dashboard {
 }
 .btn_card:hover,
 .vertodos.hover {
-  filter: brightness(80%);
+    filter: brightness(80%);
+    color: #770e18;
 }
 .item_card.item_btn {
   display: flex !important;
@@ -534,12 +535,15 @@ nav.menu-dashboard {
   margin-top: 40px;
 }
 .voltar.btn {
-  background-color: #d7d7d7;
-  color: #3c3c3b;
-  width: 115px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  border: none;
+    background-color: #d7d7d7;
+    color: #3c3c3b;
+    width: 115px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    font-size:21px;
+    font-weight:bold;
 }
 
 /* agendamento ******************************************** */

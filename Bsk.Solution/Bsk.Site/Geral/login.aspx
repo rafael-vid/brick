@@ -13,6 +13,31 @@
     <title>BRIKK - LOGIN</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/tabsmenu.css">
+
+    <style>
+        .tab-content.ativo  {
+            display: flex;
+            flex-direction: column;
+        }
+        .tab-content  input {
+            width: 100%;
+            height: 60px;
+            background: #770e18;
+            border: none;
+            outline: none;
+            margin: 17px 0;
+            font-size: 24px;
+            color: #f4f3f2;
+            font-family: Rajdhani;
+            padding: 18px 32px;
+            border-radius: 30px;
+            transition: 0.3s ease;
+        }
+        .tab-content   .acessos {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 
 <body>
@@ -64,8 +89,10 @@
                 <div class="tab-content ativo">
                     <h2>Para clientes</h2>
 
-                    <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
-                    <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
+                    <form>
+                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
+                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
+                    </form>
 
                     <div class="acessos">
                         <div>
@@ -80,8 +107,10 @@
                 <div class="tab-content ">
                     <h2>Para parceiros</h2>
 
-                    <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
-                    <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
+                    <form>
+                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
+                        <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
+                    </form>
 
                     <div class="acessos">
                         <div>
@@ -113,6 +142,7 @@
             </div>
         </footer>
 
+        
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 

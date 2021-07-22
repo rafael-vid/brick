@@ -33,19 +33,19 @@
                     </select>
                 </div>
 
-                <div class="pesquisar">
+                <%--<div class="pesquisar">
                     <img src="../assets/imagens/lupa-cinza.svg" class="dash-lupa" alt="lupa" style="width: 15px;">
                     <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                </div>
+                </div>--%>
             </div>
 
-            <div class="resultado">
+           <%-- <div class="resultado">
                 <span class="numero_card">10</span>
 
                 <p class="texto-resultado">
                     Resultado por página
                 </p>
-            </div>
+            </div>--%>
 
             <div class="card-tabela " style="overflow-x: auto;">
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
@@ -152,18 +152,7 @@
                 </table>
             </div>
 
-            <div class="paginas_card">
-                <p>
-                    Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
-                </p>
-
-                <div class="paginas">
-                    <button class="anterior">
-                        << anterior</button>
-                    <span class="numero_card">10</span>
-                    <button class="proximo">próximo >></button>
-                </div>
-            </div>
+            
 
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
@@ -177,8 +166,8 @@
     </div>
 
 
-
     <script>
+        
 
         function redirecionar(valor) {
             window.location.href = valor;

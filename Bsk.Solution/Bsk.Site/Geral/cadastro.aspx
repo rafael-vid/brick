@@ -131,8 +131,13 @@
                         
 
                     <div class="subtitulo_contato">
-                        <button runat="server" id="btnFisica" onserverclick="btnFisica_ServerClick" class="cadastro btn">>> salvar</button>
+                        <button runat="server" id="btnFisica" onserverclick="btnFisica_ServerClick" class="cadastro btn">salvar</button>
                     </div>
+
+                    <div class="subtitulo_contato">
+                        <img src="assets/imagens/chat-icon.png" style="width: 50px;" alt="ícone contato">
+                        <span class="notificacao">01</span>
+                     </div>
                 </div>
             </div>
 
@@ -225,8 +230,13 @@
                         
 
                     <div class="subtitulo_contato">
-                        <button runat="server" id="btnJuridica" onserverclick="btnJuridica_ServerClick" class="cadastro btn">>> salvar</button>
+                        <button runat="server" id="btnJuridica" onserverclick="btnJuridica_ServerClick" class="cadastro btn">salvar</button>
                     </div>
+
+                    <div class="subtitulo_contato">
+                        <img src="assets/imagens/chat-icon.png" style="width: 50px;" alt="ícone contato">
+                        <span class="notificacao">01</span>
+                     </div>
                 </div>
             </div>
         </div>
@@ -246,6 +256,15 @@
             </div>
         </footer>
     </form>
+
+    <style>
+        .cadastro.btn{
+            border:none;
+            text-align:center;
+            padding-left:0;
+            cursor:pointer
+        }
+    </style>
     <script async src="assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -255,21 +274,7 @@
     </script>
 
     <script>
-        const tabMenu = document.querySelectorAll('.checar')
-        const tabContent = document.querySelectorAll('.dados-cliente')
-
-        function activeTab(index) {
-            tabContent.forEach(content => {
-                content.classList.remove('ativo')
-            })
-            tabContent[index].classList.add('ativo')
-        }
-
-        tabMenu.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                activeTab(index)
-            })
-        })
+        
     </script>
 
 
