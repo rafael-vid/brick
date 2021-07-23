@@ -30,6 +30,9 @@
                     <div class="comentarios_area">
                         <textarea name="comentario" placeholder="Digite aqui seu depoimento" cols="30"
                             rows="10" id="descricao" runat="server"></textarea>
+                        <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
+                    Salvar dados da cotação
+                </button>
                     </div>
                     <div>
                         <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" />
@@ -52,9 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
-                    Salvar dados da cotação
-                </button>
+                
                 <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();">Enviar Cotação</a>
             </div>
 
@@ -136,6 +137,16 @@
         </div>
     </div>
 
+    <style>
+        .btn.enviar-cotacao{
+            border-radius: 30px;
+            margin-bottom:30px;
+            justify-content: flex-end
+        }
+        .btn.enviar-cotacao:hover{
+            color:#fff;
+        }
+    </style>
 
     <script>
 

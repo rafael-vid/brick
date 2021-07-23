@@ -46,6 +46,16 @@
         <![endif]-->
 
     <style>
+
+        .acessos{
+            display:flex;
+            justify-content:space-evenly;
+            flex-wrap:wrap;
+            grid-gap:30px !important;
+        }
+        .acessos .btn_card{
+            width:250px;
+        }
         .menu-topo {
             display: flex;
             align-items: center;
