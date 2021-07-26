@@ -151,7 +151,7 @@
                                 <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
                             </div>
-                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" onblur="salvaDados();" runat="server" placeholder="0,00">
+                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" onblur="salvaDados();" runat="server" placeholder="0,00" >
                         </div>
                         <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
 
@@ -255,6 +255,151 @@
 
         </div>
     </div>
+
+    <style>
+        .card-content-chat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10%;
+        }
+        .chat {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        .bp {
+            height: 350px;
+            overflow-y: scroll;
+            margin-top: 40px;
+            padding: 0 25px 25px 0;
+        }
+        .enviado, .recebido {
+            display: block !important;
+            grid-template-columns: 35px 1fr;
+            grid-gap: 20px;
+            align-items: center;
+            background: #fff;
+            padding: 7px 25px;
+            margin-top: 15px;
+            border-radius: 15px 0;
+            box-shadow: 10px 6px rgb(0 0 0 / 11%);
+            position: relative;
+            max-width:500px;
+            width:100%;
+            height:auto;
+        }
+        .simbol {
+            position: absolute;
+            font-weight: bold;
+            color: #f08f00;
+            right: 15px;
+            top: 7px;
+        }
+        .avatar-msg {
+            font-size: 25px;
+            font-family: Rajdhani-Bold, sans-serif;
+            color: #770e18;
+        }
+        .titulo-msg {
+            font-family: Rajdhani-semi;
+            font-size: 16px;
+            color: #770e18;
+            margin-bottom: 10px;
+        }
+        .conteudo-msg p, .recebido p {
+            color: #706f6f;
+            width: 90%;
+        }
+        .recebido {
+            display: block;
+            margin-top: 25px;
+            border-radius: 15px 50px 50px 0;
+        }
+        .enviar-msg {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            margin-top: 25px;
+            outline: none;
+            border: none;
+            resize: none;
+            padding: 7px 25px;
+            font-size: 16px;
+            font-family: Rajdhani-semi;
+            color: #706f6f;
+        }
+        .enviado, .recebido {
+            display: grid;
+            grid-template-columns: 35px 1fr;
+            grid-gap: 20px;
+            align-items: center;
+            background: #fff;
+            padding: 7px 25px;
+            border-radius: 15px 0;
+            box-shadow: 10px 6px rgb(0 0 0 / 11%);
+            position: relative;
+        }
+        .bp-acoes {
+            display: flex;
+            justify-content: flex-end;
+        }
+        button.btn.bp-cotacao {
+            width: 150px !important;
+        }
+        .chat .btn {
+            margin-right: 30px;
+            align-self: flex-end;
+            width: 100px !important;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            cursor: pointer;
+            margin-top: 25px;
+            font-weight: normal;
+        }
+        select-card, .input-cinza, .pesquisar_input {
+    border: 0;
+    color: #3c3c3b;
+    background: #d7d7d7;
+    font-size: 16px;
+    font-family: Rajdhani-semi, sans-serif;
+    width: 50%;
+    padding: 15px 25px;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 30px;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+    box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+}
+        .select-card select {
+    width: 100%;
+    background: transparent;
+    height: 100%;
+    border: none;
+    outline: none;
+    color: #3c3c3b;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 15px;
+}
+        .select-card::after {
+    content: "";
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background-color: #9a9a99;
+    display: inline-block;
+    right: 60px;
+    top: 0;
+}
+        input#dataEntrega {
+    background: #d7d7d7;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+    </style>
 
 
     <script type="text/javascript">

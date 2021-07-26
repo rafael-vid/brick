@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/mobile.css">
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -44,6 +49,263 @@
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+     <style>
+         .voltar.btn {
+            background-color: #d7d7d7;
+            color: #3c3c3b;
+            width: 115px;
+            box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+            cursor: pointer;
+            border: none;
+            border-radius: 20px;
+            font-size: 21px;
+            font-weight: bold;
+}
+         .btn-brikk {
+            background: #b8272c !important;
+            border-radius: 5px !important;
+            color: #fff !important;
+            border-radius: 20px !important;
+            display: flex !important;
+        }
+        .btn-brikk:hover{
+            border-radius: 20px !important;
+        }
+        .btn{
+            border-radius:20px;
+        }
+         button#btnBuscaCatSel {
+            border: none;
+            background: none;
+        }
+         .filtro .container input {
+            width: 85%;
+            height: 54px;
+            border-radius: 30px;
+            border: 2px solid #fff;
+            font-weight: bold;
+            font-size: 1.25rem;
+            outline: none;
+            background: rgba(137, 66, 80, 0.6);
+            padding: 15px 30px;
+            color: #fff;
+            transition: 0.3s ease;
+            letter-spacing: 0.1em;
+        }
+        .acessos{
+            display:flex;
+            justify-content:space-evenly;
+            flex-wrap:wrap;
+            grid-gap:30px !important;
+        }
+        .acessos .btn_card{
+            width:250px;
+        }
+        .menu-topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between !important;
+        }
+        .menu{
+            flex:0 !important;
+            position:absolute;
+            right:70px;
+        }
+        header{
+            position:relative;
+        }
+        .menu-topo > a{
+            position:absolute;
+            left:70px;
+        }
+        .perfil > img{
+            width:57px;
+            height:57px;
+            object-fit:cover;
+        }
+        a{
+            text-decoration:none !important;
+        }
+        .lupa {
+            right: 40px;
+        }
+        footer{
+            display:flex !important;
+        }
+
+      
+        @media (max-width: 1151px){
+            #nav.active ul {
+                height: calc(100vh - 120px);
+                visibility: visible;
+                overflow-y: auto;
+            }
+            .menu ul {
+                display: block !important;
+                position: absolute !important;
+                width: 100% !important;
+                top: 120px !important;
+                right: 0 !important;
+                background: #770e18;
+                z-index: 100;
+                transition: 0.3s !important;
+                visibility: hidden;
+                overflow-y: hidden;
+            }
+        }
+        div#tabela_paginate {
+            margin-top: 20px !important;
+        }
+        div#tabela_filter {
+            top: 20px !important;
+        }
+        /*------------------*/
+
+div#tabela_filter {
+    position: absolute;
+    right: 300px;
+    top: -20px;
+}
+
+    div#tabela_filter input[type="search"] {
+        height: 55px;
+        width: 340px !important;
+        position: absolute;
+        margin-left: -88px;
+        background: #d7d7d7;
+        border-radius: 30px;
+        border: 0;
+        outline: none;
+        box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+        padding: 15px 35px;
+        color: #3c3c3b;
+        font-family: Rajdhani-semi, sans-serif;
+        font-size: 16px;
+    }
+
+    div#tabela_filter::before {
+        content: '🔍︎';
+        z-index: 400;
+        position: absolute;
+        top: 16px;
+        display: block
+    }
+
+.dataTables_wrapper {
+    position: relative;
+}
+
+.dataTables_length {
+    margin-top: 50px;
+    position: relative;
+}
+
+.dataTables_length label {
+    width: 250px !important;
+    background: #d7d7d7;
+    font-family: Rajdhani-semi, sans-serif;
+    border-radius: 15px;
+    font-size: 16px;
+    display: flex !important;
+    height: 30px;
+    align-items: center !important;
+    justify-content: space-around;
+}
+
+.dataTables_length label select {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #fff;
+    background: #f08f00;
+    position: absolute;
+    z-index: 200;
+    left: 0px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+}
+
+.dataTables_info {
+    font-size: 13px;
+    color: #770e18 !important;
+    font-family: Rajdhani-semi, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+}
+
+div#tabela_paginate {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 13px;
+    margin-top:-20px;
+}
+
+a#tabela_previous, a#tabela_next {
+    color: #770e18 !important;
+    background: #efefef;
+    padding: 1px 10px;
+    cursor: pointer;
+    transition: filter .4s
+}
+
+a#tabela_previous:hover, a#tabela_next:hover {
+    filter: brightness(80%)
+}
+
+div#tabela_paginate span a {
+    font-size: 18px;
+    color: #fff !important;
+    font-weight: bold;
+    background: #f08f00;
+    border-radius: 50%;
+    width: 35px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    margin: 0 10px;
+}
+
+@media (max-width:1000px){
+    .dataTables_length{
+        display:flex;
+        flex-direction:column;
+        position:static;
+    }
+    div#tabela_filter {
+        position: relative;
+        right:0;
+        margin-top: 30px;
+        margin-left: 20px;
+        margin-bottom:20px
+    }
+    div#tabela_filter input[type="search"], .dataTables_length label{
+        width:50%;
+    }
+}
+
+@media (max-width:780px) {
+    div#tabela_filter input[type="search"], .dataTables_length label{
+        width:100% !important;
+    }
+    div#tabela_paginate {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+}
+a.btn.btn-brikk.mensagem {
+    color: #fff !important;
+}
+/*---------------*/
+
+    </style>
 
 </head>
 <body>

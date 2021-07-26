@@ -109,6 +109,13 @@
         </div>
     </div>
 
+    <style>
+        button#conteudo_btnAdicionar {
+            max-width: 250px;
+            margin: 30px auto;
+        }
+    </style>
+
     <script>
 
         function cadastrar() {

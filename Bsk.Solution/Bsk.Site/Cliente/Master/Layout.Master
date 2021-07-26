@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="../css/datatables.min.css" />
     <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/mobile.css">--%>
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
 
 
     <!-- jQuery -->
@@ -84,7 +88,9 @@
         footer{
             display:flex !important;
         }
-
+        .btn{
+            border-radius:20px !important;
+        }
       
         @media (max-width: 1151px){
             #nav.active ul {
@@ -105,6 +111,7 @@
                 overflow-y: hidden;
             }
         }
+        
 
         /*------------------*/
 
@@ -123,6 +130,7 @@ div#tabela_filter {
         border-radius: 30px;
         border: 0;
         outline: none;
+        top:-20px !important;
         box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
         padding: 15px 35px;
         color: #3c3c3b;
@@ -134,9 +142,11 @@ div#tabela_filter {
         content: '🔍︎';
         z-index: 400;
         position: absolute;
-        top: 16px;
-        display: block
+        top: 0;
+        display: block;
+        left: 10px;
     }
+
 
 .dataTables_wrapper {
     position: relative;

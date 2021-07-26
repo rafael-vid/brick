@@ -5,6 +5,7 @@
 .app.mini-menu {
   grid-template-columns: 80px 1fr;
 }
+
 @keyframes menu {
   from {
     opacity: 0;

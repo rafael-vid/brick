@@ -29,27 +29,23 @@
             margin-left: 5px;
         }
 
-        .estrelas {
-            margin-top: 10px;
+        .estrelas{
+          margin-top: 10px;
         }
-
-            .estrelas input[type=radio] {
-                display: none;
-            }
-
-            .estrelas label i.fa {
-                font-size: 2.5em;
-                cursor: pointer;
-            }
-
-                .estrelas label i.fa:before {
-                    content: '\f005';
-                    color: #FC0;
-                }
-
-            .estrelas input[type=radio]:checked ~ label i.fa:before {
-                color: #CCC;
-            }
+        .estrelas input[type=radio] {
+          display: none;
+        }
+        .estrelas label i.fa{
+          font-size: 2.5em;
+          cursor: pointer;
+        }
+        .estrelas label i.fa:before {
+          content:'\f005';
+          color: #FC0;
+        }
+        .estrelas input[type=radio]:checked ~ label i.fa:before {
+          color: #CCC;
+        }
     </style>
     <div class="conteudo-dash atuacao">
         <%var cot = PegaCotacao(); %>
@@ -91,17 +87,17 @@
                     <%if (cot.Nota == 0)
                         {%>
                     <div class="estrelas">
-                        <input type="radio" id="cm_star-empty" name="fb" onchange="atribuirNota('0');" value="" checked />
+                        <input type="radio" id="cm_star-empty" name="fb" value="" checked="">
                         <label for="cm_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-1" name="fb" onchange="atribuirNota('1');" value="1" />
+                        <input type="radio" id="cm_star-1" name="fb" value="1">
                         <label for="cm_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-2" name="fb" onchange="atribuirNota('2');" value="2" />
+                        <input type="radio" id="cm_star-2" name="fb" value="2">
                         <label for="cm_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-3" name="fb" onchange="atribuirNota('3');" value="3" />
+                        <input type="radio" id="cm_star-3" name="fb" value="3">
                         <label for="cm_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-4" name="fb" onchange="atribuirNota('4');" value="4" />
+                        <input type="radio" id="cm_star-4" name="fb" value="4">
                         <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" onchange="atribuirNota('5');" value="5" />
+                        <input type="radio" id="cm_star-5" name="fb" value="5">
                     </div>
                     <%}
                         else

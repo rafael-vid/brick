@@ -32,18 +32,12 @@
 
 
             <div class="filtros_card cota-info" style="margin-top: 40px;">
-                <div class="resultado">
-                    <span class="numero_card">04</span>
+        
 
-                    <p class="texto-resultado">
-                        Resultado por página
-                    </p>
-                </div>
-
-                <div class="pesquisar">
+                <%--<div class="pesquisar">
                     <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
                     <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                </div>
+                </div>--%>
             </div>
             <div class="card-tabela " style="overflow-x: auto;">
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
@@ -74,7 +68,7 @@
                 </table>
             </div>
 
-            <div class="paginas_card">
+            <%--<div class="paginas_card">
                 <p>
                     Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
                 </p>
@@ -85,7 +79,7 @@
                     <span class="numero_card">10</span>
                     <button class="proximo">próximo >></button>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="footer_card">
                 <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
