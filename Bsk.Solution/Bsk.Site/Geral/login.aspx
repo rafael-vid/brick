@@ -107,10 +107,10 @@
                 <div class="tab-content ">
                     <h2>Para parceiros</h2>
 
-                    <form>
+                    <div>
                         <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
                         <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
-                    </form>
+                    </div>
 
                     <div class="acessos">
                         <div>
