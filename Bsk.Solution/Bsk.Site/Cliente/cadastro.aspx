@@ -104,6 +104,13 @@
             </div>
         </div>
     </div>
+
+    <style>
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
+    </style>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->

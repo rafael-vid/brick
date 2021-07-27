@@ -399,6 +399,10 @@
     outline: none;
     box-shadow: none;
 }
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
     </style>
 
 

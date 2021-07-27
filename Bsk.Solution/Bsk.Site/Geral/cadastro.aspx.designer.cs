@@ -138,7 +138,7 @@ namespace Bsk.Site.Geral
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText senha;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword senha;
 
         /// <summary>
         /// validaSenha control.
@@ -147,7 +147,7 @@ namespace Bsk.Site.Geral
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText validaSenha;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword validaSenha;
 
         /// <summary>
         /// btnFisica control.

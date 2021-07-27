@@ -38,4 +38,11 @@
         <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
     </div>
 
+    <style>
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
+    </style>
+
 </asp:Content>

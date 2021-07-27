@@ -84,6 +84,10 @@
             transform: rotate(360deg);
             top: 0;
         }
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
 
         @media (max-width: 787px) {
 

@@ -50,6 +50,10 @@
             .estrelas input[type=radio]:checked ~ label i.fa:before {
                 color: #CCC;
             }
+            a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
     </style>
 
     <div class="conteudo-dash avaliacao">

@@ -113,6 +113,11 @@
         </div>
     </div>
 
-
+    <style>
+        a.andamento{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
+    </style>
 
 </asp:Content>

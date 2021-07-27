@@ -259,6 +259,10 @@
     </div>
 
      <style>
+         a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
         .card-content-chat {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -411,7 +415,12 @@
     border: none;
     outline: none;
     box-shadow: none;
+
 }
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
     </style>
 
     <script type="text/javascript">
