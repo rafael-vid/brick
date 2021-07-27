@@ -309,7 +309,7 @@ namespace Bsk.Site.Geral
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText senhaJuridica;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword senhaJuridica;
 
         /// <summary>
         /// validaSenhaJuridica control.
@@ -318,7 +318,7 @@ namespace Bsk.Site.Geral
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText validaSenhaJuridica;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword validaSenhaJuridica;
 
         /// <summary>
         /// btnJuridica control.

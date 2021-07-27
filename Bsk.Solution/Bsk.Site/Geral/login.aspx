@@ -76,7 +76,7 @@
         <main class="loginCadastro">
             <div class="tabs-menu container">
                 <nav>
-                    <a href="#" class="tab">
+                    <a href="#" class="tab ativo">
                         <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
                         <span>Sou Cliente</span>
                     </a>
@@ -142,6 +142,13 @@
             </div>
         </footer>
 
+        <style>
+            .tab.ativo {
+                box-shadow:  3px 6px 10px rgba(119, 14, 24, 0.5);
+                transition:ease .5s
+            }
+        </style>
+
         
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -153,21 +160,43 @@
         <script async src="assets/js/script.js"></script>
 
         <script>
-            const tabMenu = document.querySelectorAll('.tab')
-            const tabContent = document.querySelectorAll('.tab-content')
+            function tabs() {
+                const tabMenu = document.querySelectorAll('.tab')
+                const tabContent = document.querySelectorAll('.tab-content')
 
-            function activeTab(index) {
-                tabContent.forEach(content => {
-                    content.classList.remove('ativo')
+                function activeTab(index) {
+                    tabContent.forEach(content => {
+                        content.classList.remove('ativo')
+                    })
+                    tabContent[index].classList.add('ativo')
+                }
+
+                tabMenu.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        activeTab(index)
+                        index.classList.toggle('ativo')
+                    })
                 })
-                tabContent[index].classList.add('ativo')
+
+            } tabs()
+
+            //menu active
+            function menuActive() {
+                const links = document.querySelectorAll('.tab')
+
+                const handleLink = (event) => {
+                    links.forEach(link => {
+                        link.classList.remove('ativo')
+                    })
+                    event.currentTarget.classList.add('ativo')
+                }
+
+                links.forEach(link => {
+                    link.addEventListener('click', handleLink)
+                })
             }
-
-            tabMenu.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    activeTab(index)
-                })
-            })
+            menuActive();
+            
         </script>
     </form>
 </body>

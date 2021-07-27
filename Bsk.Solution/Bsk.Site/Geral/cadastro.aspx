@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro.aspx.cs" Inherits="Bsk.Site.Geral.cadastro" %>
+﻿ <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastro.aspx.cs" Inherits="Bsk.Site.Geral.cadastro" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -120,7 +120,7 @@
                         <input type="text" name="senha" id="senha" runat="server" required>
                     </div>
                      <div>
-                        <label for="validaSenha" class="subtitulo_1">Estado</label>
+                        <label for="validaSenha" class="subtitulo_1">Confirmar senha</label>
                         <input type="text" name="validaSenha" id="validaSenha" runat="server" required>
                     </div>
                 </div>
@@ -188,7 +188,7 @@
                     </div>
                     <div>
                         <label for="telefoneJuridica" class="subtitulo_1">Telefone</label>
-                        <input type="tel" name="telefoneJuridica" id="telefoneJuridica" runat="server" required>
+                        <input type="tel" name="telefoneJuridica" id="telefoneJuridica"  runat="server" required>
                     </div>
                     <div>
                         <label for="bairroJuridica" class="subtitulo_1">Bairro</label>
@@ -216,11 +216,11 @@
                     </div>
                      <div>
                         <label for="senhaJuridica" class="subtitulo_1">Senha</label>
-                        <input type="text" name="senhaJuridica" id="senhaJuridica" runat="server" required>
+                        <input type="password" name="senhaJuridica" id="senhaJuridica" runat="server" required>
                     </div>
                      <div>
-                        <label for="validaSenhaJuridica" class="subtitulo_1">Estado</label>
-                        <input type="text" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
+                        <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha</label>
+                        <input type="password" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
                     </div>
                 </div>
 
@@ -274,7 +274,124 @@
     </script>
 
     <script>
-        
+        function validarCpf(cpf) {
+            const cpf = document.getElementById(cpf)
+
+            if (typeof cpf !== 'string') return false
+            cpf = cpf.replace(/[^\d]+/g, '')
+            if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false
+            cpf = cpf.split('')
+            const validator = cpf
+                .filter((digit, index, array) => index >= array.length - 2 && digit)
+                .map(el => +el)
+            const toValidate = pop => cpf
+                .filter((digit, index, array) => index < array.length - pop && digit)
+                .map(el => +el)
+            const rest = (count, pop) => (toValidate(pop)
+                .reduce((soma, el, i) => soma + el * (count - i), 0) * 10) % 11 % 10
+            return !(rest(10, 2) !== validator[0] || rest(11, 1) !== validator[1])
+
+        } validarCpf('cpf')
+
+        function validarCNPJ(cnpj) {
+            const cpf = document.getElementById('cpf')
+
+            cnpj = cnpj.replace(/[^\d]+/g, '');
+
+            if (cnpj == '') return false;
+
+            if (cnpj.length != 14)
+                return false;
+
+         
+            if (cnpj == "00000000000000" ||
+                cnpj == "11111111111111" ||
+                cnpj == "22222222222222" ||
+                cnpj == "33333333333333" ||
+                cnpj == "44444444444444" ||
+                cnpj == "55555555555555" ||
+                cnpj == "66666666666666" ||
+                cnpj == "77777777777777" ||
+                cnpj == "88888888888888" ||
+                cnpj == "99999999999999")
+                return false;
+
+            tamanho = cnpj.length - 2
+            numeros = cnpj.substring(0, tamanho);
+            digitos = cnpj.substring(tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado != digitos.charAt(0))
+                return false;
+
+            tamanho = tamanho + 1;
+            numeros = cnpj.substring(0, tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2)
+                    pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado != digitos.charAt(1))
+                return false;
+
+            return true;
+
+        } validarCNPJ('cnpj')
+
+        function validarTelefone(telefone) {
+            const telefone = document.getElementById(telefone)
+
+            const brazilianPhoneRegex = /^\(\d{2}\) \d{4,5}-\d{4}$/gi;
+            return brazilianPhoneRegex.test(telefone);
+        } validarTelefone('telefoneJuridica'); validarTelefone('telefone')
+
+        function validacaoEmail(email) {
+            const email = document.getElementById(emailJuridica)
+            usuario = email.value.substring(0, email.value.indexOf("@"));
+            dominio = email.value.substring(email.value.indexOf("@") + 1, email.value.length);
+
+            if ((usuario.length >= 1) &&
+                (dominio.length >= 3) &&
+                (usuario.search("@") == -1) &&
+                (dominio.search("@") == -1) &&
+                (usuario.search(" ") == -1) &&
+                (dominio.search(" ") == -1) &&
+                (dominio.search(".") != -1) &&
+                (dominio.indexOf(".") >= 1) &&
+                (dominio.lastIndexOf(".") < dominio.length - 1)) {
+                document.getElementById("msgemail").innerHTML = "E-mail válido";
+                alert("E-mail valido");
+            }
+            else {
+                document.getElementById("msgemail").innerHTML = "<font color='red'>E-mail inválido </font>";
+                alert("E-mail invalido");
+            } validacaoEmail('emailJuridica'); validacaoEmail('email')
+        }
+
+        function validarSenha(senha, confirmacao) {
+            var password = document.getElementById(senha)
+                , confirm_password = document.getElementById(confirmacao);
+
+            function validar() {
+                if (password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("as senhas estão diferentes!");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+            }
+
+            password.addEventListener('onChange', validar)
+            confirm_password.addEventListener('onkeyup', validar)
+        } validarSenha('senhaJuridica', 'validaSenhaJuridica')
     </script>
 
 
