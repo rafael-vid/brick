@@ -31,7 +31,7 @@ namespace Bsk.Site.Controllers
         ClienteBE ClienteBE = new ClienteBE();
         public ActionResult Index()
         {
-            Response.Redirect("Geral/login.aspx");
+            Response.Redirect("Geral/index.html");
 
             return View();
         }
