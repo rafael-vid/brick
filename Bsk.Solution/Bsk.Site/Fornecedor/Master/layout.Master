@@ -333,19 +333,19 @@ a.btn.btn-brikk.mensagem {
                             </div>
                             <ul class="dropdown-perfil">
                                 <li>
-                                    <a href="listar-servicos.html">
+                                    <a href="perfil.aspx">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Meus Dados
                                     </a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <a href="meusdados.html">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Configurações
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
-                                    <a href="meusdados.html">
+                                    <a href="/Geral/logout.aspx">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Sair
                                     </a>

@@ -23,7 +23,7 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1">Pendente de envio</option>
+                        <option value="1" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "0") { Response.Write("selected"); }  %> >Pendente de envio</option>
                         <option value="2">Em andamento</option>
                         <option value="3">Aguardando pagamento</option>
                         <option value="4">Em cotação</option>

@@ -134,10 +134,6 @@
            
             </div>
 
-          
-
-       
-    
             <div class="footer_card">
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
                 <a href="/" class="item_notifica">

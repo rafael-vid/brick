@@ -107,7 +107,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                _CotacaoBE = new CotacaoBE()
+                CotacaoBE _CotacaoBE = new CotacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),

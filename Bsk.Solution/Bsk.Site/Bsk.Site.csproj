@@ -637,6 +637,7 @@
     <Content Include="Fornecedor\perfil.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
+    <Content Include="Geral\logout.aspx" />
     <Content Include="Geral\parceiros.html" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
@@ -1571,6 +1572,13 @@
     </Compile>
     <Compile Include="Geral\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

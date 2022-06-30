@@ -285,19 +285,19 @@ div#tabela_paginate span a {
                         </div>
                         <ul class="dropdown-perfil">
                             <li>
-                                <a href="listar-servicos.html">
+                                <a href="perfil.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Meus Dados
                                 </a>
                             </li>
-                            <li>
-                                <a href="meusdados.html">
+                            <!--<li>
+                                <a href="configuracao.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Configurações
                                 </a>
-                            </li>
+                            </li>-->
                             <li>
-                                <a href="meusdados.html">
+                                <a href="/Geral/logout.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Sair
                                 </a>
@@ -334,7 +334,7 @@ div#tabela_paginate span a {
                 <li><a href="builts.html" class="asbuilt">
                     <img src="../assets/imagens/oportunidades.svg" style="width: 20px;" alt="ícone"><span>As Built</span></a>
                 </li>
-                <li><a href="manutencao.html" class="plano_manutencao">
+                <li style="display:none"><a href="manutencao.html" class="plano_manutencao">
                     <img src="../assets/imagens/meubrikk.svg" style="width: 20px;" alt="ícone"><span>Plano
                   Manutenção</span></a>
                 </li>
@@ -347,7 +347,7 @@ div#tabela_paginate span a {
                 <li><a href="financeiro.html" class="financeiro">
                     <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
                 </li>
-                <li><a href="documentacao.html" class="documentacao">
+                <li style="display:none"><a href="documentacao.html" class="documentacao">
                     <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
                         alt="ícone"><span>Documentação</span></a>
                 </li>

@@ -35,7 +35,7 @@
             </div>
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <table class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Cotação</th>

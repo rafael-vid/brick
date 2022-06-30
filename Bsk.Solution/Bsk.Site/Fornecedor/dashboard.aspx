@@ -103,12 +103,7 @@
           <a href="#" class="vertodos">ver todos</a>
         </div>
 
-        <div class="item_card">
-          <button class="btn_card">
-            <img src="../assets/imagens/lupa.png" alt="botão" style="width: 15px;">
-            Realizar nova cotação
-          </button>
-        </div>
+
       </div>
 
       <div class="card">
