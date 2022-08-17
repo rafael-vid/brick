@@ -383,6 +383,7 @@ a.btn.btn-brikk.mensagem {
                     <li><a href="em-andamento.aspx" class="andamento">
                         <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
                     </li>
+                    <!--
                     <li><a href="#" class="financeiro">
                         <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
                     </li>
@@ -397,6 +398,7 @@ a.btn.btn-brikk.mensagem {
                         <img src="../assets/imagens/oportunidades.svg" style="width: 20px;"
                             alt="ícone"><span>Oportunidades</span></a>
                     </li>
+                    -->
                 </ul>
 
                 <ul class="infos-dash">

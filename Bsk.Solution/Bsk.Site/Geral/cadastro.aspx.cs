@@ -100,10 +100,10 @@ namespace Bsk.Site.Geral
 
         private void salvaFisicaFornecedor()
         {
-            DateTime dt = DateTime.MinValue;
-            if (String.IsNullOrEmpty(abertura.Value))
+            DateTime dt = DateTime.Now;
+            if (!String.IsNullOrEmpty(abertura.Value))
             {
-                dt = DateTime.Parse(abertura.Value);
+                dt = Convert.ToDateTime(abertura.Value);
             }
             _FornecedorBE = new FornecedorBE()
             {

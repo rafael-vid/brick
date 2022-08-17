@@ -135,6 +135,7 @@
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
                         </div>
                     </div>
+                   
                     <div>
                         <div class="item_content_card " id="divDadosCobranca" runat="server">
                             <div class="subtitulo-com-icone">
@@ -175,7 +176,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                       </div>
+
 
             </div>
 
@@ -191,7 +193,7 @@
                 </div>
 
                 <div class="pesquisar">
-                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
+                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 1rem;"> &nbsp;
                     <input type="text" placeholder="Pesquisar" class="pesquisar_input">
                 </div>
             </div>
@@ -217,7 +219,7 @@
                                 <%if (item.Tipo == "Anexo")
                                     {%>
                             <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <img alt='' src='img/upload.png' class="ver-imagem">&nbsp;Visualizar</a>
                             <% }
                                 else
                                 {%>
@@ -257,11 +259,41 @@
     </div>
 
     <style>
+
+        @media (max-width:767px) {
+            .lado-direito{
+                width:100%;
+                color:red
+            }
+        }
+
+        .ver-imagem{
+            width:1.5rem;
+            height:auto;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%) !important;
+        }
+
+.card-tabela tr td a.btn {
+    color: #fff !important;
+}
+
+.pesquisar, .resultado {
+    position: relative;
+    width: max-content;
+}
+
         .card-content-chat {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 10%;
         }
+
+        @media (max-width: 950px) {
+            .card-content-chat{
+                grid-template-columns: 1fr 
+            }
+        }
+
         .chat {
             display: flex !important;
             flex-direction: column !important;

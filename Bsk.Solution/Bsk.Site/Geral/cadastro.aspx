@@ -87,7 +87,40 @@
                         <label for="telefone" class="subtitulo_1">Telefone</label>
                         <input type="text" name="telefone" id="telefone" runat="server"  onkeyup="mascaraTel()" required>
                     </div>
-                    <div class="queda">
+
+                    <div>
+                        <label for="cep" class="subtitulo_1">CEP</label>
+                        <input type="number" name="cep" class="cep" id="cep"  runat="server" required>
+                    </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                                      <script>
+                                          document.querySelector("#cep").onchange = function () {
+                                              var txtCep = document.querySelector("#cep").value
+                                              if (txtCep && (txtCep.length == 9 || txtCep.length == 8)) {
+                                                  txtCep = txtCep.replace(/[^0-9]/, '');
+                                                  var url = 'https://viacep.com.br/ws/' + txtCep + '/json/';
+                                                  $.ajax({
+                                                      url: url,
+                                                      dataType: 'jsonp',
+                                                      crossDomain: true,
+                                                      contentType: "application/json",
+                                                      success: function (json) {
+                                                          console.log(json)
+                                                          if (json.logradouro) {
+                                                              $("input[name=endereco]").val(json.logradouro);
+                                                              $("input[name=bairro]").val(json.bairro);
+                                                              $("input[name=cidade]").val(json.localidade);
+                                                              $("input[name=estado]").val(json.uf);
+                                                              $("input[name=numero]").val('');
+                                                              $("input[name=complemento]").val('');
+                                                          }
+                                                      }
+                                                  });
+                                              }
+                                          }
+                                      </script>
+
+                    <div>
                         <label for="endereco" class="subtitulo_1">Endereço</label>
                         <input type="text" name="endereco" id="endereco" runat="server" required>
                     </div>
@@ -98,10 +131,6 @@
                     <div>
                         <label for="numero" class="subtitulo_1">Número</label>
                         <input type="number" name="numero" id="numero" runat="server" required>
-                    </div>
-                    <div>
-                        <label for="cep" class="subtitulo_1">CEP</label>
-                        <input type="number" name="cep" id="cep" onblur="validarCPF(this)" runat="server" required>
                     </div>
                     <div>
                         <label for="complemento" class="subtitulo_1">Complemento</label>
@@ -149,7 +178,19 @@
                     </h1>
                 </div>
 
-                <div class="campos">
+                <script>
+                    $('#pj').change(function () {
+                        $('#campos_empresa').show()
+                    })
+                </script>
+
+                <style>
+                    .campos {
+                        display:block !important;
+                    }
+                </style>
+
+                <div class="campos" id ="campos_empresa">
                     <div>
                         <label for="nomeJuridica" class="subtitulo_1">Nome</label>
                         <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>
