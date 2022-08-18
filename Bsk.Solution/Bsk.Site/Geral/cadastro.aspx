@@ -11,11 +11,24 @@
     <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
 
     <title>BRIKK - PARA CLIENTES</title>
+
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/cadastros.css">
+
+     <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Outros scripts -->
+
+
 </head>
 
 <body>
+
+
+    
+
     <form id="form1" runat="server">
         <header>
             <div class="menu-topo container">
@@ -58,7 +71,7 @@
                     <label for="pj">Pessoa Jurídica</label>
                 </div>
             </div>
-            <div class="dados-cliente ativo" id="pessoa_fisica">
+            <div class="dados-cliente" id="pessoa_fisica">
 
                 <div class="dados-cadastrais">
                     <img src="assets/imagens/dados-icon.svg" alt="dados" style="width: 14px;">
@@ -274,7 +287,22 @@
     </script>
 
     <script> 
-       
+
+
+        $("#pessoa_fisica").show();
+        $("#pessoa_juridica").hide();
+
+        $("#pf").change(function () {
+            $("#pessoa_fisica").show();
+            $("#pessoa_juridica").hide();
+        });
+
+        $("#pj").change(function () {
+            $("#pessoa_fisica").hide();
+            $("#pessoa_juridica").show();
+        });
+        
+
         function validatePhone(phone) {
             var regex = new RegExp('^((1[1-9])|([2-9][0-9]))((3[0-9]{3}[0-9]{4})|(9[0-9]{3}[0-9]{5}))$');
             return regex.test(phone);
