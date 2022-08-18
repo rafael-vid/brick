@@ -353,12 +353,15 @@ nav.menu-dashboard {
 .acessos .btn_card {
   width: 100%;
 }
+
 .total_a_receber {
-  background: #770e18;
-  border-radius: 30px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  position: relative;
+    background: #770e18;
+    border-radius: 30px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    width: 185px;
+    padding-top: 10px;
 }
 .total_a_receber span {
   color: #f08f00;
@@ -371,14 +374,15 @@ nav.menu-dashboard {
   padding-bottom: 5px;
 }
 .eleva_sifra {
-  position: absolute;
-  top: -15px;
-  background: #f08f00;
-  border-radius: 50%;
-  padding: 5px 13px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-  left: 0;
+    position: absolute;
+    top: 2px;
+    background: #f08f00;
+    border-radius: 50%;
+    padding: 5px 13px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    left: 5px;
 }
+
 .filtros_card {
   display: flex;
   margin-top: 46px;
