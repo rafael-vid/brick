@@ -243,7 +243,7 @@ namespace Bsk.Site.Cliente
                 var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
                 string guidTransacao = Guid.NewGuid().ToString();
 
-                cotacao.Status = StatusCotacao.Finalizado;
+                cotacao.Status = StatusCotacao.EmAndamento;
                 _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
                 Response.Redirect("minhas-cotacoes.aspx");
                
