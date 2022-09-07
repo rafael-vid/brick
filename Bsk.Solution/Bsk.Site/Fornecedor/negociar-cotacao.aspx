@@ -154,6 +154,7 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" onblur="salvaDados();" runat="server" placeholder="0,00" >
                         </div>
+
                         <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
 
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
@@ -440,6 +441,15 @@
 
     <script type="text/javascript">
 
+        $(function () {
+            $('#valorServico').maskMoney({
+                prefix: ’R$’,
+                allowNegative: false,
+                thousands: '.', decimal: ',',
+                affixesStay: true
+            });
+        })
+
         setInterval(function () {
             var parametro = {
                 tipo: "F",
@@ -528,5 +538,7 @@
         }
 
     </script>
+
+    <script src="js/money.js"></script>"
 
 </asp:Content>

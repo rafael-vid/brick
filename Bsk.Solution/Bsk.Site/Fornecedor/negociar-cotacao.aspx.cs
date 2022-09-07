@@ -66,7 +66,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = string.Format("{0:N2}%", cotacaoFornecedor.Valor);
+                        valorServico.Value = "0,00";
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 

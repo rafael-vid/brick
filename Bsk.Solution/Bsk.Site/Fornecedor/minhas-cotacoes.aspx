@@ -194,6 +194,10 @@
             color: #770e18 !important;
         }
 
+                div#tabela_paginate > span {
+            display: flex
+        }
+
         .total_a_receber-new {
     width: 185px;
     padding-top: 10px;

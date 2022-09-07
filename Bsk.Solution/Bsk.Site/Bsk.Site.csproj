@@ -448,6 +448,7 @@
     <Content Include="Fornecedor\assets\imgages\whatsapp.png" />
     <Content Include="Fornecedor\assets\js\script.js" />
     <Content Include="Fornecedor\dashboard.aspx" />
+    <Content Include="Fornecedor\js\money.js" />
     <Content Include="Geral\ajuda.html" />
     <Content Include="Geral\assets\css\cadastros.css" />
     <Content Include="Geral\assets\css\dashboard.css" />

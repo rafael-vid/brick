@@ -312,7 +312,7 @@ a.btn.btn-brikk.mensagem {
     <form id="form1" runat="server">
         <header>
             <div class="menu-topo container">
-                <a href="index.html">
+                <a href="dashboard.aspx">
                     <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
                 </a>
                 <nav class="menu" id="nav">

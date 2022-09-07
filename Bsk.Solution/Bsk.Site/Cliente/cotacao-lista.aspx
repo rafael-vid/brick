@@ -127,5 +127,11 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        .card-tabela tr td a.btn {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
     </style>
 </asp:Content>

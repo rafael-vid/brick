@@ -170,6 +170,10 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        div#tabela_paginate > span {
+            display: flex
+        }
     </style>
 
     <script>

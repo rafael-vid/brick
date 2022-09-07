@@ -266,7 +266,7 @@ div#tabela_paginate span a {
 
     <header>
         <div class="menu-topo container">
-            <a href="index.html" >
+            <a href="cliente-dashboard.aspx" >
                 <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
             </a>
             <nav class="menu" id="nav">
@@ -331,9 +331,11 @@ div#tabela_paginate span a {
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <!--
                 <li><a href="builts.html" class="asbuilt">
                     <img src="../assets/imagens/oportunidades.svg" style="width: 20px;" alt="ícone"><span>As Built</span></a>
                 </li>
+                -->
                 <li style="display:none"><a href="manutencao.html" class="plano_manutencao">
                     <img src="../assets/imagens/meubrikk.svg" style="width: 20px;" alt="ícone"><span>Plano
                   Manutenção</span></a>
