@@ -401,6 +401,7 @@ a.btn.btn-brikk.mensagem {
                     -->
                 </ul>
 
+                <!--
                 <ul class="infos-dash">
                     <li>
                         <a href="#">
@@ -421,6 +422,7 @@ a.btn.btn-brikk.mensagem {
                         </a>
                     </li>
                 </ul>
+                -->
             </nav>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
