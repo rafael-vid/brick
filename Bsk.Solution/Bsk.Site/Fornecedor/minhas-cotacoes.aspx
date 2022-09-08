@@ -43,12 +43,12 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1">Recusado</option>
-                        <option value="2">Aberto</option>
-                        <option value="3">Aguardando pagamento</option>
-                        <option value="4">Em andamento</option>
-                        <option value="5">Pendente de finalização do cliente</option>
-                        <option value="6">Finalizado</option>
+                        <option value="1" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Recusado</option>
+                        <option value="2" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Aberto</option>
+                        <option value="3" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Aguardando pagamento</option>
+                        <option value="4" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Em andamento</option>
+                        <option value="5" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Pendente de finalização do cliente</option>
+                        <option value="6" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
                     </select>
                 </div>
             </div>

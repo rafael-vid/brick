@@ -12,10 +12,38 @@
         <div class="item_card">
           <div class="subtitulo_card">
             <h3>Status</h3>
-            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+            <!--  
+              <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
             <span class="notificacao">02</span>
+          -->
+
+                                  <% 
+                        var cotacoes = PegaCotacoes();
+                    %>
+
+
           </div>
           <ul class="card_lista">
+
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
+                        <p></p>
+                        <p><a href="minhas-cotacoes.aspx?status=1">Solicitadas</a></p>
+                    </li>
+
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
+                        <p>Em Negociação</p>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Pendente de envio</a></p>
+                    </li>
+
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "6").ToList().Count().ToString()); %></span>
+                        <p>Fechadas</p>
+                        <p><a href="minhas-cotacoes.aspx?status=6">Pendente de envio</a></p>
+                    </li>  
+
+              <!--
             <li>
               <span class="numero_card">10</span>
               <p>Solicitadas</p>
@@ -24,10 +52,12 @@
               <span class="numero_card">02</span>
               <p>Em Negociação</p>
             </li>
+
             <li>
               <span class="numero_card">05</span>
               <p>Fechadas</p>
             </li>
+              -->
             <li>
               <span class="numero_card">10%</span>
               <p style="display: flex; gap: 3px;">Economia Média <img src="../assets/imagens/i.svg" alt="ícone"
@@ -35,7 +65,7 @@
             </li>
           </ul>
         </div>
-
+          <!--
         <div class="item_card">
           <div class="subtitulo_card">
             <h3>Áreas de Atuação</h3>
@@ -263,6 +293,7 @@
           </a>
         </div>
       </div>
+     -->
     </div>
 
     <style>

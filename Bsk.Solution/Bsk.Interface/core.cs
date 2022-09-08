@@ -79,6 +79,35 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
 
+        public List<CotacaoListaFronecedorModel> CotacaoFornecedorGet(string filtro)
+        {
+            string sql = $@"SELECT 
+                                CT.IdCotacao, 
+                                CT.Titulo, 
+                                CT.DataCriacao,
+                                CT.DataAlteracao,
+                                CT.Status, 
+                                CT.FinalizaFornecedor,
+                                CT.FinalizaCliente,
+                                CT.IdCotacaoFornecedor,
+                                    CASE
+                                        WHEN 
+			                                    (select count(IdCotacaoFornecedorChat) 
+			                                    from cotacaofornecedorchat 
+			                                    where IdFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=0)  > 0 
+		                                    THEN 'N'
+
+                                        ELSE ''
+                                    END 
+                                as Mensagens
+                            FROM cotacao CT
+    
+                             INNER JOIN CotacaoFornecedor CF on CT.IdCotacao = CF.IdCotacao
+    
+                            where " + filtro;
+            return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
+        }
+
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(int idFornecedor)
         {
             var sql = $@"select 
