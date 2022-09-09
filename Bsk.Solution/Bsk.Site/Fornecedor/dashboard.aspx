@@ -25,24 +25,37 @@
           </div>
           <ul class="card_lista">
 
+
+
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p></p>
-                        <p><a href="minhas-cotacoes.aspx?status=1">Solicitadas</a></p>
+                        <p><a href="minhas-cotacoes.aspx?status=1">Em cotação</a></p>
+                    </li>
+                    
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=2">Aguardando pagamento</a></p>
                     </li>
 
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=3">Em andamento</a></p>
+                    </li>
+                    <!--
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
+                    </li>   
+                   
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
+                    </li>  
+                        --> 
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p>Em Negociação</p>
-                        <p><a href="minhas-cotacoes.aspx?status=4">Pendente de envio</a></p>
-                    </li>
-
-                    <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "6").ToList().Count().ToString()); %></span>
-                        <p>Fechadas</p>
-                        <p><a href="minhas-cotacoes.aspx?status=6">Pendente de envio</a></p>
-                    </li>  
-
+                        <p><a href="minhas-cotacoes.aspx?status=4">Finalizado</a></p>
+                    </li>   
               <!--
             <li>
               <span class="numero_card">10</span>
@@ -57,12 +70,12 @@
               <span class="numero_card">05</span>
               <p>Fechadas</p>
             </li>
-              -->
+             
             <li>
               <span class="numero_card">10%</span>
               <p style="display: flex; gap: 3px;">Economia Média <img src="../assets/imagens/i.svg" alt="ícone"
                   style="width: 15px;"></p>
-            </li>
+            </li> -->
           </ul>
         </div>
           <!--

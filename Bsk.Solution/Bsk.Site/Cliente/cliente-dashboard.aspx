@@ -20,42 +20,39 @@
                         var cotacoes = PegaCotacoes();
                     %>
                                       
-<li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "0").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=0">Pendente de envio</a></p>
-                    </li>
 
-                    <li>
+
+                                       <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p>Em cotação</p>
+                        <p><a href="minhas-cotacoes.aspx?status=1">Em cotação</a></p>
                     </li>
                     
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p>Aguardando pagamento</p>
+                        <p><a href="minhas-cotacoes.aspx?status=2">Aguardando pagamento</a></p>
                     </li>
 
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p>Em andamento</p>
+                        <p><a href="minhas-cotacoes.aspx?status=3">Em andamento</a></p>
                     </li>
-                    
+                    <!--
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p>Aguardando liberação do pagamento</p>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
                     </li>   
-                    
+                   
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
-                        <p>Aguardando aceite</p>
+                        <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
                     </li>  
-
+                        --> 
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "6").ToList().Count().ToString()); %></span>
-                        <p>Finalizado</p>
-                    </li>  
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Finalizado</a></p>
+                    </li>   
 
-                    <!-- Deixar apenas os 3 primeiros -->
+                    <!-- Deixar apenas os 3 primeiros 
                     
 
                     <li>
@@ -305,7 +302,7 @@
         </div>
     </div>
     </section>
-
+                        -->
     <style>
         a.dash {
             background: #f4f3f2;
