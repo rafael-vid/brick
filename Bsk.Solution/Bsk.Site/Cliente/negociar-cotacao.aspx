@@ -79,6 +79,8 @@
                 <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
                  <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
             </div>
+            
+
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     Gostaria de aceitar a oferta deste Parceiro?.</span><br />

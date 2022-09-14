@@ -64,6 +64,7 @@ namespace Bsk.Interface
                                 CT.FinalizaFornecedor,
                                 CT.FinalizaCliente,
                                 CT.IdCotacaoFornecedor,
+                                CT.EnviarProposta,
                                     CASE
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
@@ -78,6 +79,13 @@ namespace Bsk.Interface
                             where "+filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
+
+        public void AtualizaEnviaPropostaCotacao(int idCotacao)
+        {
+            string sql = $@"update cotacaofornecedor set EnviarProposta = 1 where IdCotacaoFornecedor = {idCotacao}";
+            db.Execute(sql);
+        }
+
 
         public List<CotacaoListaFronecedorModel> CotacaoFornecedorGet(string filtro)
         {

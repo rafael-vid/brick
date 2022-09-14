@@ -23,13 +23,13 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "0") { Response.Write("selected"); }  %> >Pendente de envio</option>
-                        <option value="2" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Em andamento</option>
-                        <option value="3 <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>">Aguardando pagamento</option>
-                        <option value="4" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Em cotação</option>
-                        <option value="5" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Aguardando liberação do pagamento</option>
-                        <option value="6" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Aguardando aceite</option>
-                        <option value="7" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
+                        <option value="1" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "0") { Response.Write("selected"); }  %> >Pendente de envio</option>
+                        <option value="2" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Em andamento</option>
+                        <option value="3 <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>">Aguardando pagamento</option>
+                        <option value="4" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Em cotação</option>
+                        <option value="5" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Aguardando liberação do pagamento</option>
+                        <option value="6" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Aguardando aceite</option>
+                        <option value="7" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
                     </select>
                 </div>
 
@@ -99,6 +99,7 @@
                                     link = "avaliar.aspx?Id=" + item.IdCotacao;
                                 }
                         %>
+
                         <tr onclick="redirecionar('<%Response.Write(link);%>');">
                             <td><%Response.Write(item.IdCotacao); %></td>
                             <td><%Response.Write(item.DataCriacao); %></td>
@@ -113,7 +114,7 @@
                             <%}
                                 else if (item.Status == "Aberto")
                                 {%>
-                            <td class="status">Em cotação
+                            <td class="status">Em cotação 
                             </td>
                             <% }
                                 else if (item.Status == "Em andamento")
@@ -140,13 +141,14 @@
                                 {%>
                             <td class="status">Aguardando liberação do pagamento
                             </td>
-                            <% }else if (item.Status == "Avaliado")
+                            <% }
+                                else if (item.Status == "Avaliado")
                                 {%>
                             <td class="status">Avaliado
                             </td>
-                            <% }%>
                         </tr>
                         <%  }
+                            }
                         %>
                     </tbody>
                 </table>

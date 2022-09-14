@@ -469,6 +469,12 @@ namespace Bsk.Site.Controllers
             }
         }
 
+        [HttpPost]
+        public void AtualizaEnviarProposta(int idCotacao)
+        {
+            _core.AtualizaEnviaPropostaCotacao(idCotacao);
+        }
+
         [HttpGet]
         public string CarregaChat(string id, string tipo)
         {

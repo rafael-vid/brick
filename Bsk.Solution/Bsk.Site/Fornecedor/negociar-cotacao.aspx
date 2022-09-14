@@ -132,7 +132,7 @@
 
                         <div class="bp-acoes">
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
-                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
                         </div>
                     </div>
                    
@@ -143,7 +143,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" onchange="salvaDados();" runat="server" />
+                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server" onblur="salvaDados()"/>
                             </div>
                         </div>
 
@@ -152,8 +152,11 @@
                                 <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
                             </div>
-                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" onblur="salvaDados();" runat="server" placeholder="0,00" >
+                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"  onblur="salvaDados()">
                         </div>
+
+
+
 
                         <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
 
@@ -174,8 +177,13 @@
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                     <button class="btn-gravar">Gravar um vídeo explicativo</button>
                                 </div>
+
                             </div>
                         </div>
+                                    <hr />
+                                <div class="gravar-video" id="finalizarCotacao">
+                            <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="AtualizaEnviarProposta()"> Confirmar Proposta </button>
+                                </div>
                     </div>
                        </div>
 
@@ -445,7 +453,6 @@
 
         $(function () {
             $('#valorServico').maskMoney({
-                prefix: ’R$’,
                 allowNegative: false,
                 thousands: '.', decimal: ',',
                 affixesStay: true
@@ -498,8 +505,8 @@
             });
         }
 
-        function salvaDados() {
 
+        function salvaDados() {
             $("#loadGif").show();
             var parametro = {
                 valor: $("#valorServico").val(),
@@ -508,6 +515,19 @@
             };
 
             comum.postAsync("Comum/SalvarDadosCobrancaCotacao", parametro, function (data) {
+                $("#loadGif").hide();
+            });
+
+
+        }
+
+        function AtualizaEnviarProposta(e) {
+
+            var parametro = {
+                id: comum.queryString("Id")
+            };
+
+            comum.post("Comum/AtualizaEnviarProposta?idCotacao=" + comum.queryString("Id"), null, function (data) {
                 $("#loadGif").hide();
             });
         }
