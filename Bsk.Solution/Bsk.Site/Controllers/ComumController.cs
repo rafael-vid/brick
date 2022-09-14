@@ -440,7 +440,8 @@ namespace Bsk.Site.Controllers
 
             try
             {
-                cotacaoFornecedor.Valor = double.Parse(valor);
+                valor = valor.Replace(".", "");
+                cotacaoFornecedor.Valor = float.Parse(valor);
             }
             catch (Exception)
             {
