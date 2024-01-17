@@ -11,8 +11,7 @@
             <div class="item_card">
                 <div class="subtitulo_card">
                     <h3>Status</h3>
-                    <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
-                    <span class="notificacao">02</span>
+                   
                 </div>
                 <ul class="card_lista">
 

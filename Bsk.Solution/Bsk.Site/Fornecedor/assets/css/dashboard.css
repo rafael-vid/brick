@@ -103,7 +103,7 @@ nav.menu-dashboard {
   font-family: Rajdhani, sans-serif;
 }
 .conteudo-dash {
-  min-height: 100vh;
+  min-height: 65.5vh;
   padding: 30px 35px 40px 35px;
   animation: show 0.5s forwards;
 }
@@ -614,7 +614,7 @@ nav.menu-dashboard {
   margin-top: 15px;
 }
 .item_content_card {
-  margin-top: 30px;
+  --margin-top: 30px;
 }
 .item_content_card > p {
   color: #3c3c3b;
@@ -869,7 +869,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
   .conteudo-dash {
-    min-height: 100vh;
+    min-height: 58vh;
     width: 70vw;
   }
   .app.mini-menu .conteudo-dash {
@@ -1410,4 +1410,8 @@ label.subtitulo_card_1.subtitulo_1 {
   .cli-cotacao .acessos {
     flex-direction: column;
   }
+}
+
+.cursor {
+    cursor: pointer;
 }

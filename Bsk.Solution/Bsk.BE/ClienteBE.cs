@@ -32,7 +32,7 @@ namespace Bsk.BE
         public string NomeResponsavel { get; set; }
         public string CpfResponsavel { get; set; }
         public string RazaoSocial { get; set; }
-        public DateTime DataAbertura { get; set; }
+        public string DataAbertura { get; set; }
         public string Matriz { get; set; }
     }
 }

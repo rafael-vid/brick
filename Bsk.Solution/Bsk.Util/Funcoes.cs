@@ -23,6 +23,9 @@ namespace Bsk.Util
 
         public static FornecedorBE PegaLoginFornecedor(string json)
         {
+
+            byte[] bytes = Encoding.Default.GetBytes(json);
+            json = Encoding.UTF8.GetString(bytes);
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
             FornecedorBE fornecedorBE = new FornecedorBE();
 
@@ -54,6 +57,8 @@ namespace Bsk.Util
 
         public static ClienteBE PegaLoginCliente(string json)
         {
+            byte[] bytes = Encoding.Default.GetBytes(json);
+            json = Encoding.UTF8.GetString(bytes);
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
             ClienteBE clienteBE = new ClienteBE()
             {

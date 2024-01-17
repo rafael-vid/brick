@@ -25,6 +25,11 @@
             .item-faq form {
                 display: none;
             }
+            .item-faq label {
+                font-size: 17px;
+                color: #771218;
+                font-family: Rajdhani-semi, sans-serif;
+            }
 
             .item-faq input:checked + .checkbox-wrapper form {
                 display: block;
@@ -64,7 +69,7 @@
                 }
 
             .item-faq input {
-                display: none;
+                margin-right:10px
             }
 
         .servico-nome {
@@ -120,15 +125,15 @@
                     foreach (var item in categorias)
                     {%>
                 <div class="item-faq">
-                    <input type="checkbox" id="item1">
+
                     <div class="checkbox-wrapper">
-                        <label for="item1">
-                            <a href="cadastro-cotacao.aspx?Id=<%Response.Write(item.IdCategoria); %>">
-                                <h2 class="tituloServico"><%Response.Write(item.Nome); %></h2>
-                            </a>
+                        <label>
+                            <input type="radio" name="rdo" value="<%Response.Write(item.IdCategoria); %>" /><%Response.Write(item.Nome); %>
+                            
                         </label>
                     </div>
                 </div>
+                
                 <%}
                 %>
            
@@ -142,6 +147,14 @@
                     <span class="notificacao">02</span>
                 </a>
                 -->
+                <a id="btnProximo" class="btn btn-brikk" href="#">
+                    Próximo >>
+                </a>
+                <script>
+                    $('#btnProximo').click(function () {
+                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=rdo]:checked').val();
+                    })
+</script>
             </div>
 
         </div>

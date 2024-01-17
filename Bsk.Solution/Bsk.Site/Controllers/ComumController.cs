@@ -104,6 +104,20 @@ namespace Bsk.Site.Controllers
             var cf = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
             cf.Ativo = 0;
             _core.CotacaoFornecedor_Update(cf, "IdCotacaoFornecedor=" + id);
+
+            var cotacao = _core.Cotacao_Get(new CotacaoBE(), $" IdCotacao={cf.IdCotacao}").FirstOrDefault();
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Fornecedor desistiu da cotação";
+            notif.mensagem = "O fornecedor desistiu da contação";
+            notif.data = DateTime.Now;
+            notif.link = $"negociar-cotacao.aspx?Id={id}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao.IdCliente;
+
+            _core.NotificacaoInsert(notif);
+
         }
 
         [HttpPost]

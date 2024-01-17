@@ -99,7 +99,7 @@
                                 link = "avaliar.aspx?Id=" + item.CotacaoFornecedorId;
                             }
                     %>
-                    <tr onclick="redirecionar('<%Response.Write(link); %>')">
+                    <tr class="cursor" onclick="redirecionar('<%Response.Write(link); %>')">
                         <td><%Response.Write(item.CotacaoId); %><span style="color: red;"><%Response.Write(item.Mensagens); %></span></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Nome); %></td>

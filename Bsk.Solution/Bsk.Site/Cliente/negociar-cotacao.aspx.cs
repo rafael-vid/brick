@@ -38,7 +38,7 @@ namespace Bsk.Site.Cliente
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("nav.html");
+                    Response.Redirect("minhas-cotacoes.aspx");
                 }
 
             }

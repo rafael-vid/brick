@@ -28,3 +28,7 @@ html {
 .clearfix:after {
     clear: both;
 }
+
+.cursor{
+    cursor:pointer;
+}

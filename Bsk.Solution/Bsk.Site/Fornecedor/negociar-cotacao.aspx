@@ -59,10 +59,14 @@
                 <br />
                 <input type="button" class="btn btn-success btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término" style="width: 100%;">
             </div>
+
+            <div style="clear:both"></div>
             <div class="item_content_card ">
-                <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
+                
                 <div class="card-content-chat">
+                    
                     <div class="chat">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
                         <div class="bp" id="divChat">
                             <%
                                 var chat = CarregaChat();
@@ -129,6 +133,28 @@
                         <div id="comentarios" runat="server">
                             <textarea class="enviar-msg" name="enviar" id="msg" runat="server" cols="30" rows="10"></textarea>
                         </div>
+                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
+                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
+                        <div class="item_content_card ">
+                            <div class="subtitulo-com-icone" id="divUpload" runat="server">
+                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
+                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
+                            </div>
+                            <div class="files-upload">
+                                <div class="file" id="btnArquivo">
+                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
+                                    <label for='selecao-arquivo'>Anexar arquivos</label>
+                                </div>
+                                <div class="gravar-video" id="btnVideo">
+                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+                                    <button class="btn-gravar">Gravar um vídeo explicativo</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
 
                         <div class="bp-acoes">
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
@@ -158,41 +184,15 @@
 
 
 
-                        <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
+                        <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
-                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
-                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
-                        <div class="item_content_card ">
-                            <div class="subtitulo-com-icone" id="divUpload" runat="server">
-                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
-                            </div>
-                            <div class="files-upload">
-                                <div class="file" id="btnArquivo">
-                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
-                                    <label for='selecao-arquivo'>Anexar arquivos</label>
-                                    <input id='selecao-arquivo' type='file'>
-                                </div>
-                                <div class="gravar-video" id="btnVideo">
-                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
-                                    <button class="btn-gravar">Gravar um vídeo explicativo</button>
-                                </div>
-
-                            </div>
-                        </div>
+                        
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                            <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="AtualizaEnviarProposta()"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="AtualizaEnviarProposta()"> Confirmar Proposta </button>
                                 </div>
-                    </div>
-                       </div>
 
-
-            </div>
-
-
-
-            <div class="filtros_card cota-info" style="margin-top: 40px;">
+                        <div class="filtros_card cota-info" style="margin-top: 40px;">
                 <div class="resultado">
                     <span class="numero_card">04</span>
 
@@ -256,6 +256,19 @@
                 </div>
             </div>
 
+
+
+
+
+                    </div>
+                       </div>
+
+
+            </div>
+
+
+
+            
             <div class="footer_card">
                 <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
                 <!--

@@ -24,6 +24,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText nome;
 
         /// <summary>
+        /// msgnome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgnome;
+
+        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText email;
+
+        /// <summary>
+        /// msgemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgemail;
 
         /// <summary>
         /// cpf control.
@@ -42,6 +60,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText cpf;
 
         /// <summary>
+        /// msgcpf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgcpf;
+
+        /// <summary>
         /// telefone control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText telefone;
+
+        /// <summary>
+        /// msgtelefone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgtelefone;
 
         /// <summary>
         /// rua control.
@@ -60,13 +96,31 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText rua;
 
         /// <summary>
+        /// msgrua control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgrua;
+
+        /// <summary>
         /// bairro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText bairro;
+        protected global::System.Web.UI.WebControls.TextBox bairro;
+
+        /// <summary>
+        /// msgbairro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgbairro;
 
         /// <summary>
         /// numero control.
@@ -78,6 +132,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText numero;
 
         /// <summary>
+        /// msgnumero control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgnumero;
+
+        /// <summary>
         /// cep control.
         /// </summary>
         /// <remarks>
@@ -85,6 +148,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText cep;
+
+        /// <summary>
+        /// msgcep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgcep;
 
         /// <summary>
         /// complemento control.
@@ -105,6 +177,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlInputText cidade;
 
         /// <summary>
+        /// msgcidade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgcidade;
+
+        /// <summary>
         /// uf control.
         /// </summary>
         /// <remarks>
@@ -112,6 +193,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText uf;
+
+        /// <summary>
+        /// msguf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msguf;
 
         /// <summary>
         /// btnAlterar control.

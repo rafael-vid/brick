@@ -81,7 +81,7 @@ namespace Bsk.Site.Geral
                 Uf = estado.Value,
                 ZoopID = "",
                 WhatsApp = telefone.Value,
-                DataAbertura = dt,
+                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
                 RazaoSocial = razao.Value
 
@@ -195,7 +195,7 @@ namespace Bsk.Site.Geral
         private void salvaJuridicaCliente()
         {
             DateTime dt = DateTime.MinValue;
-            if (String.IsNullOrEmpty(abertura.Value))
+            if (!String.IsNullOrEmpty(abertura.Value))
             {
                 dt = DateTime.Parse(abertura.Value);
             }
@@ -223,7 +223,7 @@ namespace Bsk.Site.Geral
                 Uf = estadoJuridica.Value,
                 ZoopID = "",
                 WhatsApp = telefoneJuridica.Value,
-                DataAbertura = dt,
+                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
                 RazaoSocial = razao.Value
 

@@ -105,6 +105,33 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.HtmlControls.HtmlTextArea msg;
 
         /// <summary>
+        /// flpArquivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
+
+        /// <summary>
+        /// flpVideo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
+
+        /// <summary>
+        /// divUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+
+        /// <summary>
         /// btnEnviar control.
         /// </summary>
         /// <remarks>
@@ -139,32 +166,5 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText valorServico;
-
-        /// <summary>
-        /// flpArquivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
-
-        /// <summary>
-        /// flpVideo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
-
-        /// <summary>
-        /// divUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
     }
 }

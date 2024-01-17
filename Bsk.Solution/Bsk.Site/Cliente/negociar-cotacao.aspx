@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     O fornecedor alegou ter terminado o serviço.</span><br />
                 <br />
@@ -151,11 +151,6 @@
                         </div>
 
 
-                        <div class="bp-acoes">
-                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
-                        </div>
-                    </div>
-                    <div>
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                         <div class="item_content_card" id="divUpload" runat="server">
@@ -167,7 +162,6 @@
                                 <div class="file" id="btnArquivo">
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <label for="selecao-arquivo">Anexar arquivos</label>
-                                    <input id="selecao-arquivo" type="file">
                                 </div>
                                 <div class="gravar-video" id="btnVideo">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
@@ -175,13 +169,17 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="bp-acoes">
+                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                        </div>
                     </div>
 
-                </div>
 
-            </div>
 
-            <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
+
+                    <div>
+                        <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
                 <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
                 <span>Arquivos anexos</span>
             </a>
@@ -248,6 +246,13 @@
                     <button class="proximo">próximo &gt;&gt;</button>
                 </div>
             </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-info.html"><< voltar </a>

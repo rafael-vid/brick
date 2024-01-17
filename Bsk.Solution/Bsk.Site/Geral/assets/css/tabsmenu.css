@@ -8,7 +8,6 @@
 .tabs-menu {
   width: 50%;
   min-width: 300px;
-  background: #f4f3f2;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
@@ -40,13 +39,13 @@
   animation: 0.5s show forwards;
 }
 
-.tab-content.ativo {
-  display: block;
-  padding: 31px 46px 77px 48px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
+    .tab-content.ativo {
+        display: block;
+        padding: 31px 46px 77px 48px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 0px 50px 50px 50px;
+        background-color: #f4f3f2;
+    }
 
 @keyframes show {
   from {

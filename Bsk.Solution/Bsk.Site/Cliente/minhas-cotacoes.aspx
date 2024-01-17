@@ -55,7 +55,6 @@
                             <th>Data da Criação</th>
                             <th>Título</th>
                             <th>Data Atualizada</th>
-                            <th>Mensagem</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
                     </thead>
@@ -100,12 +99,12 @@
                                 }
                         %>
 
-                        <tr onclick="redirecionar('<%Response.Write(link);%>');">
+                        <tr class="cursor" onclick="redirecionar('<%Response.Write(link);%>');">
                             <td><%Response.Write(item.IdCotacao); %></td>
                             <td><%Response.Write(item.DataCriacao); %></td>
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>
-                            <td><%Response.Write(item.Mensagens); %></td>
+
                             <%  
                                 if (item.Status == "Criação")
                                 {%>
@@ -119,7 +118,7 @@
                             <% }
                                 else if (item.Status == "Em andamento")
                                 {%>
-                            <td>Em andamento
+                            <td class="status">Em andamento
                             </td>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")

@@ -66,7 +66,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = "0,00";
+                        valorServico.Value = cotacaoFornecedor.Valor.ToString();
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
@@ -154,6 +154,21 @@ namespace Bsk.Site.Fornecedor
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+
+
+
+                NotificacaoBE notif = new NotificacaoBE();
+
+                notif.titulo = "Nova mensagem no chat";
+                notif.mensagem = _msg;
+                notif.data = DateTime.Now;
+                notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
+                notif.visualizado = "0";
+                notif.idcliente = cotacao.IdCliente;
+
+                _core.NotificacaoInsert(notif); 
+
+
                 //DEPOIS COLOCAR MSG
                 Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
@@ -182,6 +197,10 @@ namespace Bsk.Site.Fornecedor
                 var path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
                 _flpImg.SaveAs(path);
                 link = link.Replace("{{ARQ}}", nome);
+
+
+                
+
             }
             else
             {

@@ -17,6 +17,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        
     }
 
     .controles input[type="radio"] {
@@ -79,9 +80,27 @@
     padding-left: 25px;
 }
 
+.col-md-6 {
+    width: 50%;
+}
+.col-md-4 {
+    width: 33.33%;
+}
+.col-md-3 {
+    width: 25%;
+}
+.olho {
+    width: 20px;
+    margin-left: calc(100% - 40px);
+    margin-top: -46px;
+}
+
     .campos > div {
         display: flex;
         flex-direction: column;
+        float: left;
+        
+        padding:5px;
     }
 
     .campos label.subtitulo_1 {

@@ -351,6 +351,10 @@ div#tabela_paginate span a {
                     <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
                 </li>
                     -->
+                <li style=""><a href="notificacoes.aspx" class="notificacoes">
+                    <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone"><span>Notificações</span></a>
+                </li>
+
                 <li style="display:none"><a href="documentacao.html" class="documentacao">
                     <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
                         alt="ícone"><span>Documentação</span></a>
