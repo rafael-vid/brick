@@ -470,7 +470,7 @@ namespace Bsk.Site.Controllers
             notif.titulo = "Valor e data de término";
             notif.mensagem = "O fornecedor alterou o valor e data de termino";
             notif.data = DateTime.Now;
-            notif.link = $"negociar-cotacao.aspx?Id={cotacao2.IdCotacaoFornecedor}";
+            notif.link = $"cotacao-lista.aspx?Id={cotacao2.IdCotacao}";
             notif.visualizado = "0";
             notif.idcliente = cotacao2.IdCliente;
 
