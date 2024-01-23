@@ -62,9 +62,7 @@
 
             <div style="clear:both"></div>
             <div class="item_content_card ">
-                
-                <div class="card-content-chat">
-                    
+                 <div class="card-content-chat">
                     <div class="chat">
                         <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
                         <div class="bp" id="divChat">

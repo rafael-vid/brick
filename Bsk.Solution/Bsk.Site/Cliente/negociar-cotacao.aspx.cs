@@ -192,6 +192,17 @@ namespace Bsk.Site.Cliente
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+                
+                NotificacaoBE notif = new NotificacaoBE();
+
+                notif.titulo = "Nova mensagem no chat";
+                notif.mensagem = _msg;
+                notif.data = DateTime.Now;
+                notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
+                notif.visualizado = "0";
+                notif.idcliente = cotacaoFornecedor.IdFornecedor;
+
+                _core.NotificacaoInsert(notif);
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
                 //DEPOIS COLOCAR MSG
