@@ -383,10 +383,10 @@ a.btn.btn-brikk.mensagem {
                     <li><a href="em-andamento.aspx" class="andamento">
                         <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
                     </li>
-                    <!--
-                    <li><a href="#" class="financeiro">
-                        <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
-                    </li>
+                    
+                    <li><a href="notificacoes.aspx" class="notificacoes">
+                        <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone"><span>Notificações</span></a>
+                    </li><!--
                     <li><a href="#" class="documentacao">
                         <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
                             alt="ícone"><span>Documentação</span></a>

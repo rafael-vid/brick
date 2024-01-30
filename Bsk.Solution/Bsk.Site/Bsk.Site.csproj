@@ -410,7 +410,9 @@
     <Content Include="Cliente\Master\assets\imgages\souCLiente.png" />
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
+    <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
+    <Content Include="Fornecedor\notificacoes.aspx" />
     <Content Include="Cliente\notificacoes.aspx" />
     <Content Include="Fornecedor\assets\css\cadastros.css" />
     <Content Include="Fornecedor\assets\css\dashboard.css" />
@@ -1452,12 +1454,26 @@
     <Compile Include="Cliente\liberar-pagamento.aspx.designer.cs">
       <DependentUpon>liberar-pagamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\notificacao.aspx.cs">
+      <DependentUpon>notificacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\notificacao.aspx.designer.cs">
+      <DependentUpon>notificacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\notificacao.aspx.cs">
       <DependentUpon>notificacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cliente\notificacao.aspx.designer.cs">
       <DependentUpon>notificacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\notificacoes.aspx.cs">
+      <DependentUpon>notificacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\notificacoes.aspx.designer.cs">
+      <DependentUpon>notificacoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\notificacoes.aspx.cs">
       <DependentUpon>notificacoes.aspx</DependentUpon>

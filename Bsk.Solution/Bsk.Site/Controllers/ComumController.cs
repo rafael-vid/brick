@@ -179,6 +179,23 @@ namespace Bsk.Site.Controllers
                 email = fornecedor.Email;
             }
             emailTemplate.enviaEmail(html, titulo, email);
+
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Cotação Aceita";
+            notif.mensagem = "A cotação foi aceita pelo cliente";
+            notif.data = DateTime.Now;
+            notif.link = $"negociar-cotacao.aspx?Id={cotacao.IdCotacao}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao.IdCliente;
+            
+
+            _core.NotificacaoInsert(notif);
+
+
+
+
             return "Ok";
         }
 
