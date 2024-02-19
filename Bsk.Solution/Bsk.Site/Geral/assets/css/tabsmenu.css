@@ -1,9 +1,10 @@
 .loginCadastro {
-  background: #770e18;
-  height: calc(100vh - 213px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #770e18;
+    height: calc(100vh - 213px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagens/fundo.png);
 }
 .tabs-menu {
   width: 50%;
@@ -12,7 +13,7 @@
   border-bottom-right-radius: 50px;
 }
 .tabs-menu nav {
-  background: #770e18;
+
   display: flex;
   gap: 5px;
 }

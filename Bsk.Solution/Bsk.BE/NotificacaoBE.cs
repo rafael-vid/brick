@@ -10,6 +10,7 @@ namespace Bsk.BE
     {
         public int idnotificacao { get; set; }
         public int idcliente { get; set; }
+        public int idfornecedor { get; set; }
         public string titulo { get; set; }
         public string mensagem { get; set; }
         public string link { get; set; }

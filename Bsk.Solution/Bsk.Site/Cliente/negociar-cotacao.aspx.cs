@@ -200,7 +200,7 @@ namespace Bsk.Site.Cliente
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idcliente = cotacaoFornecedor.IdFornecedor;
+                notif.idfornecedor = cotacaoFornecedor.IdFornecedor;
 
                 _core.NotificacaoInsert(notif);
 

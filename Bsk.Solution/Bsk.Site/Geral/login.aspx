@@ -41,6 +41,24 @@
             justify-content: space-between;
             font-size: 12px;
         }
+        .tab.ativo {
+            box-shadow: none !important;
+            transition: ease .5s;
+            z-index: 99;
+        }
+        .tab-content.ativo {
+            display: block;
+            padding: 31px 46px 77px 48px;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
+            border-radius: 0px 50px 50px 50px;
+            background-color: #f4f3f2;
+        }
+        .filtro {
+            height: 93px;
+            background: url(../imagens/fundo.png) ;
+            background-size: auto !important;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -150,12 +168,7 @@
             </div>
         </footer>
 
-        <style>
-            .tab.ativo {
-                box-shadow:  3px 6px 10px rgba(119, 14, 24, 0.5);
-                transition:ease .5s
-            }
-        </style>
+
 
         
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

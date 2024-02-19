@@ -22,8 +22,8 @@ namespace Bsk.Site.Fornecedor
 
         public List<NotificacaoModel> Notificacoes()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var nofi = _core.NotificacaoGet($" CT.idcliente=" + login.IdCliente + " ORDER BY idnotificacao DESC");
+            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var nofi = _core.NotificacaoGet($" CT.idFornecedor=" + login.IdFornecedor + " ORDER BY idnotificacao DESC");
             
 
             return nofi;
