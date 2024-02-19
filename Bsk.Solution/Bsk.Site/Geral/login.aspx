@@ -39,6 +39,7 @@
         .tab-content   .acessos {
             display: flex;
             justify-content: space-between;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -85,7 +86,7 @@
                     </a>
                     <a href="#" class="tab">
                         <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Paceiro</span>
+                        <span>Sou Parceiro</span>
                     </a>
                 </nav>
 
