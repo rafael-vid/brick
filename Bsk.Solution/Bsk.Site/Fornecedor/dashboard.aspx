@@ -29,17 +29,17 @@
 
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=1">Em cotação</a></p>
+                        <p><a href="minhas-cotacoes.aspx?status=2">Em cotação</a></p>
                     </li>
                     
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=2">Aguardando pagamento</a></p>
+                        <p><a href="minhas-cotacoes.aspx?status=3">Aguardando pagamento</a></p>
                     </li>
 
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=3">Em andamento</a></p>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Em andamento</a></p>
                     </li>
                     <!--
                     <li>
@@ -54,7 +54,7 @@
                         --> 
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=4">Finalizado</a></p>
+                        <p><a href="minhas-cotacoes.aspx?status=6">Finalizado</a></p>
                     </li>   
               <!--
             <li>

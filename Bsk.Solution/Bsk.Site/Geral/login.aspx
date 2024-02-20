@@ -115,6 +115,7 @@
                         <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
                         <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
+
                     </form>
 
                     <div class="acessos">
@@ -220,5 +221,24 @@
             
         </script>
     </form>
+    <script>
+        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
+            }
+        });
+    });
+
+    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
+            }
+        });
+    });
+</script>
 </body>
 </html>
