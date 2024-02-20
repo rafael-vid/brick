@@ -328,7 +328,7 @@ a.btn.btn-brikk.mensagem {
 
                                 <span>Olá,  <%
                                                 var usuario = RetornaUsuario();
-                                                Response.Write(usuario.RazaoSocial);
+                                                Response.Write(usuario.NomeFantasia.Split(' ')[0]);
                                 %>.</span>
                             </div>
                             <ul class="dropdown-perfil">
