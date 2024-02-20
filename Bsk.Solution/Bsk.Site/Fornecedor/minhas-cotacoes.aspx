@@ -44,7 +44,7 @@
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
                         <option value="1" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Recusado</option>
-                        <option value="2" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Aberto</option>
+                        <option value="2" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Em cotação</option>
                         <option value="3" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Aguardando pagamento</option>
                         <option value="4" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Em andamento</option>
                         <option value="5" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Pendente de finalização do cliente</option>
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            
+            <onload >
 
             <div class="card-tabela " style="overflow-x: auto;">
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
@@ -224,7 +224,7 @@
             } else if ($("#slcStatus").val() == "1") {
                 table.search("Recusado").draw();
             } else if ($("#slcStatus").val() == "2") {
-                table.search("Aberto").draw();
+                table.search("Em cotação").draw();
             } else if ($("#slcStatus").val() == "3") {
                 table.search("Aguardando pagamento").draw();
             } else if ($("#slcStatus").val() == "4") {
@@ -236,5 +236,6 @@
             }
         }
     </script>
+    <body onload="filtraTabela()">
 </asp:Content>
 
