@@ -61,7 +61,7 @@ namespace Bsk.Site.Cliente
 
             if (valorMedioCotacoes.InnerText.ToLower() == "nan")
             {
-                valorMedioCotacoes.InnerText = "0";
+                valorMedioCotacoes.InnerText = "R$ 0,00";
             }
 
         }
