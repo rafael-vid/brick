@@ -45,10 +45,10 @@ namespace Bsk.Site.Fornecedor
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            if (cotacaoFornecedor.Ativo == 0)
+            /*if (cotacaoFornecedor.Ativo == 0)
             {
                 Response.Redirect("minhas-cotacoes.aspx");
-            }
+            }*/
 
             if (cotacaoFornecedor != null)
             {
