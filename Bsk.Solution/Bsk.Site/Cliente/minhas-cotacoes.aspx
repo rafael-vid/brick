@@ -85,7 +85,7 @@
                                 {
                                     link = "avaliar.aspx?Id=" + item.IdCotacao;
                                 }
-                                else if (item.Status == "Pendente de aceite do cliente")
+                                else if (item.Status == "Aguardando aceite")
                                 {
                                     link = "negociar-cotacao.aspx?Id=" + item.IdCotacaoFornecedor;
                                 }

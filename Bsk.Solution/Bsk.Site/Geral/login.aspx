@@ -89,11 +89,11 @@
             </div>
 
             <div class="filtro">
-                <div class="container">
-                    <input type="text" placeholder="Qual serviço você precisa?      ">
-                    <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
-                </div>
-            </div>
+    <div class="container">
+        <input type="text" id="catSelBusca" placeholder="Qual serviço você precisa?      ">
+        <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;" onclick="buscaCats();">
+    </div>
+</div>
         </header>
         <main class="loginCadastro">
             <div class="tabs-menu container">

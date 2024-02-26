@@ -410,6 +410,7 @@ div#tabela_paginate span a {
     </footer>
 
      <script>
+
          function menuActive() {
              const links = document.querySelectorAll(".menu-dash li a");
 
