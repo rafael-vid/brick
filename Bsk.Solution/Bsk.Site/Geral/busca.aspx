@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="busca.aspx.cs" Inherits="Bsk.Site.Geral.busca" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -89,68 +89,31 @@
             </div>
 
             <div class="filtro">
-    <div class="container" style="display:none">
+    <div class="container">
         <input type="text" id="catSelBusca" placeholder="Qual serviço você precisa?      ">
         <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;" onclick="buscaCats();">
     </div>
 </div>
         </header>
         <main class="loginCadastro">
-            <div class="tabs-menu container">
-                <nav>
-                    <a href="#" class="tab ativo">
-                        <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Cliente</span>
-                    </a>
-                    <a href="#" class="tab">
-                        <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Parceiro</span>
-                    </a>
-                </nav>
+            
 
-                <div class="tab-content ativo">
-                    <h2>Para clientes</h2>
+            <div class="servico_item">
+                    <ul>
+                        <%foreach (var item in items)
+                            {%>
+                        <li>
+                            <div>
+                                <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCotacao);%>">
+                                    <p><%Response.Write(item.Titulo); %></p>
 
-                    <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
-                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
-
-                    </form>
-
-                    <div class="acessos">
-                        <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div>
-                        <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
-                    </div>
-
+                                    <img src="../assets/imagens/lixeira.svg" alt="lixeira" style="width: 15px;">
+                                </a>
+                            </div>
+                        </li>
+                        <% } %>
+                    </ul>
                 </div>
-
-                <div class="tab-content ">
-                    <h2>Para parceiros</h2>
-
-                    <div>
-                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
-                        <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
-                        <asp:Label ID="lblMsgParceiro" runat="server"></asp:Label>
-                    </div>
-
-                    <div class="acessos">
-                        <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div> 
-                        <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
-                    </div>
-
-
-                </div>
-
-            </div>
 
         </main>
 
@@ -222,23 +185,7 @@
         </script>
     </form>
     <script>
-        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
-            }
-        });
-    });
 
-    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
-            }
-        });
-    });
 </script>
 </body>
 </html>

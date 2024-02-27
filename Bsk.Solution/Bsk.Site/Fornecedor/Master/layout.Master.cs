@@ -14,7 +14,7 @@ namespace Bsk.Site.Fornecedor.Master
     public partial class layout : System.Web.UI.MasterPage
     {
         core _core = new core();
-        ServicoBE ServicoBE = new ServicoBE();
+        CotacaoBE CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -38,27 +38,9 @@ namespace Bsk.Site.Fornecedor.Master
 
         protected void btnBuscaCatSel_ServerClick(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(servico.Value))
-            {
-                var servi = _core.Servico_Get(ServicoBE, $" Nome like '%{servico.Value}%'");
-                string categorias = "";
-                if (servi.Count > 0)
-                {
-                    foreach (var item in servi)
-                    {
-                        categorias += item.IdCategoria + ",";
-                    }
-                    Response.Redirect("minhas-areas.aspx?Cat=" + categorias + "0");
-                }
-                else
-                {
-                    Response.Redirect("minhas-areas.aspx?Cat=0");
-                }
-            }
-            else
-            {
-                Response.Redirect("minhas-areas.aspx");
-            }
+            Response.Redirect("busca.aspx?palavra=" + servico.Value);
+            
+            
         }
     }
 }

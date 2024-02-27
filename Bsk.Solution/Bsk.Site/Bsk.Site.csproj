@@ -410,6 +410,7 @@
     <Content Include="Cliente\Master\assets\imgages\souCLiente.png" />
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
+    <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
     <Content Include="Fornecedor\notificacoes.aspx" />
@@ -693,6 +694,7 @@
     <Content Include="Fornecedor\negociar-cotacao.aspx" />
     <Content Include="Cliente\nav.html" />
     <Content Include="Fornecedor\perfil.aspx" />
+    <Content Include="Geral\busca.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
     <Content Include="Geral\logout.aspx" />
@@ -1454,6 +1456,13 @@
     <Compile Include="Cliente\liberar-pagamento.aspx.designer.cs">
       <DependentUpon>liberar-pagamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Fornecedor\busca.aspx.cs">
+      <DependentUpon>busca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\busca.aspx.designer.cs">
+      <DependentUpon>busca.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\notificacao.aspx.cs">
       <DependentUpon>notificacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1651,6 +1660,13 @@
     </Compile>
     <Compile Include="Geral\cadastro.aspx.designer.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\busca.aspx.cs">
+      <DependentUpon>busca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\busca.aspx.designer.cs">
+      <DependentUpon>busca.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
