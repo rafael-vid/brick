@@ -18,7 +18,8 @@
           -->
 
                                   <% 
-                        var cotacoes = PegaCotacoes();
+                                      var cotacoes = PegaCotacoes();
+                                      var cotacoesemandamento = PegaCotacoesEmAndamento();
                     %>
 
 
@@ -38,8 +39,8 @@
                     </li>
 
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=4">Em andamento</a></p>
+                        <span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
+                        <p><a href="em-andamento.aspx">Em andamento</a></p>
                     </li>
                     <!--
                     <li>
