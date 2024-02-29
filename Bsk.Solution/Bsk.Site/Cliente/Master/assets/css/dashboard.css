@@ -58,6 +58,7 @@ textarea {
   right: -40px;
   transition: 0.3s ease;
   opacity: 0.4;
+    display: flex;
 }
 .open-menu:hover {
   color: #770e18;
