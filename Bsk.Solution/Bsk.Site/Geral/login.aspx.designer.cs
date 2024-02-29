@@ -24,6 +24,15 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// usuarioCliente control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace Bsk.Site.Geral
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnCliente;
+
+        /// <summary>
+        /// UpdatePanelParceiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelParceiro;
 
         /// <summary>
         /// usuarioParceiro control.

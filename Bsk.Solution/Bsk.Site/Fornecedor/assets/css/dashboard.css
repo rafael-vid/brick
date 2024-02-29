@@ -23,11 +23,12 @@ textarea {
 }
 
 .app.mini-menu .open-menu {
-  transform: rotate(180deg);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+    transform: rotate(180deg);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
 }
 .app.mini-menu .menu-dashboard ul li a {
   margin: 0 auto;
@@ -42,28 +43,32 @@ textarea {
   display: none;
 }
 .open-menu {
-  position: absolute;
-  width: 40px;
-  top: 50px;
-  background: transparent;
-  font-size: 25px;
-  outline: none;
-  cursor: pointer !important;
-  z-index: 99;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  height: 40px;
-  color: #9a9a99;
-  border: 1px solid #9a9a9a;
-  right: -40px;
-  transition: 0.3s ease;
-  opacity: 0.4;
+    position: absolute;
+    width: 40px;
+    top: 50px;
+    background: transparent;
+    font-size: 25px;
+    outline: none;
+    cursor: pointer !important;
+    z-index: 99;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 40px;
+    color: #9a9a99;
+    border: 1px solid #9a9a9a;
+    right: -40px;
+    transition: 0.3s ease;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .open-menu:hover {
   color: #770e18;
   opacity: 1;
   border-color: #770e18;
   background: #f08f00;
+
 }
 
 .menu ul li {

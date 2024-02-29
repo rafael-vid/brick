@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
 
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -64,6 +66,7 @@
 
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <!-- header -->
         <header>
 
@@ -132,6 +135,8 @@
                 <div class="tab-content ">
                     <h2>Para parceiros</h2>
 
+                    <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
+                            <ContentTemplate>
                     <div>
                         <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
                         <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
@@ -146,10 +151,12 @@
                         </div> 
                         <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
                     </div>
+                            </ContentTemplate>
+                    </asp:UpdatePanel>
 
 
                 </div>
-
+       
             </div>
 
         </main>
