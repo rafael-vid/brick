@@ -184,11 +184,16 @@
 
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
+                            <div id="labelConfirmacao" style="display: none; margin-top: 10px;">
+                            <small>Proposta confirmada!</small>
+                            </div>
                         
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
                                     <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="AtualizaEnviarProposta()"> Confirmar Proposta </button>
                                 </div>
+
+                    
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
                 <div class="resultado">
@@ -519,6 +524,7 @@
 
         function salvaDados() {
             $("#loadGif").show();
+            $("#labelConfirmacao").hide();
             var parametro = {
                 valor: $("#valorServico").val(),
                 data: $("#dataEntrega").val(),
@@ -527,6 +533,7 @@
 
             comum.postAsync("Comum/SalvarDadosCobrancaCotacao", parametro, function (data) {
                 $("#loadGif").hide();
+                $("#labelConfirmacao").show();
             });
 
 
@@ -540,7 +547,9 @@
 
             comum.post("Comum/AtualizaEnviarProposta?idCotacao=" + comum.queryString("Id"), null, function (data) {
                 $("#loadGif").hide();
+
             });
+
         }
 
         function desistirCotacao() {
