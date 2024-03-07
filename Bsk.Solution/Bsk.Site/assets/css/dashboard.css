@@ -190,6 +190,7 @@ nav.menu-dashboard {
   font-family: Rajdhani-semi, sans-serif;
   font-size: 15px;
   color: #3c3c3b;
+  margin: 0 !important;
 }
 .card_lista li {
   display: grid;
