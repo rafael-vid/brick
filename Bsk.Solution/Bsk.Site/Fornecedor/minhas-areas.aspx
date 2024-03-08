@@ -126,9 +126,12 @@
                         <li>
                             <div>
                                 <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                    <p><%Response.Write(item.Nome); %></p>
+                                    <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 15px;
+                                                                                                        float: left;
+                                                                                                        margin-top: 7px;
+                                                                                                        margin-right: 10px;"><%Response.Write(item.Nome); %></p>
 
-                                    <img src="../assets/imagens/lixeira.svg" alt="lixeira" style="width: 15px;">
+                                    
                                 </a>
                             </div>
                         </li>
@@ -148,9 +151,12 @@
                     <li>
                         <div>
                             <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                <p><%Response.Write(item.Nome); %></p>
+                                <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 15px;
+                                                                                                float: left;
+                                                                                                margin-top: 7px;
+                                                                                                margin-right: 10px;"><%Response.Write(item.Nome); %></p>
 
-                                <img src="../assets/imagens/lixeira.svg" alt="lixeira" style="width: 15px;">
+                                
                             </a>
                         </div>
                     </li>
