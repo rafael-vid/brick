@@ -29,18 +29,18 @@
 
 
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=2">Em cotação</a></p>
+                        <a href="minhas-cotacoes.aspx?status=2"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
+                        <p>Em cotação</a></p>
                     </li>
                     
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=3">Aguardando pagamento</a></p>
+                        <a href="minhas-cotacoes.aspx?status=3"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p>Aguardando pagamento</a></p>
                     </li>
 
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p><a href="em-andamento.aspx">Em andamento</a></p>
+                        <a href="em-andamento.aspx"><span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
+                        <p>Em andamento</a></p>
                     </li>
                     <!--
                     <li>
@@ -54,8 +54,8 @@
                     </li>  
                         --> 
                     <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=6">Finalizado</a></p>
+                        <a href="minhas-cotacoes.aspx?status=6"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
+                        <p>Finalizado</a></p>
                     </li>   
               <!--
             <li>
