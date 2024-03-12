@@ -1361,6 +1361,7 @@ label.subtitulo_card_1.subtitulo_1 {
   justify-content: flex-start !important;
   flex-direction: column;
   padding-bottom: 10px;
+  border-radius: 0 0 20px 20px;
   animation: show 0.6s forwards;
 }
 [data-dropdow-perfil] .dropdown-perfil {
