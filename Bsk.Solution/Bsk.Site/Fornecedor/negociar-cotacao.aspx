@@ -580,7 +580,4 @@
         }
 
     </script>
-
-    <script src="js/money.js"></script>"
-
 </asp:Content>
