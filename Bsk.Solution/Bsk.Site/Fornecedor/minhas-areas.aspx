@@ -170,19 +170,6 @@
 
 
 
-        <div class="paginas_card">
-            <p>
-                Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
-            </p>
-
-            <div class="paginas">
-                <button class="anterior">
-                    << anterior</button>
-                <span class="numero_card">10</span>
-                <button class="proximo">próximo >></button>
-            </div>
-        </div>
-
         <div class="footer_card">
             <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
             <!--
