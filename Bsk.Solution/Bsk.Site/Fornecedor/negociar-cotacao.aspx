@@ -65,11 +65,6 @@
                  <div class="card-content-chat">
                     <div class="chat">
                         <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
-                        <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
-                        <asp:UpdatePanel ID="upp" runat="server">
-                            <ContentTemplate>
-
-                            
                         <div class="bp" id="divChat">
                             <%
                                 var chat = CarregaChat();
@@ -124,10 +119,7 @@
                                 }
                             %>
                         </div>
-                      
-                        
-                        
-                        <%--  <div id="descricaoHide" runat="server">
+                      <%--  <div id="descricaoHide" runat="server">
                             <textarea class="enviar-msg" name="enviar" id="Textarea1" runat="server" cols="30" rows="10"></textarea>
                         </div>
 
@@ -166,9 +158,6 @@
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
                         </div>
-
-                                </ContentTemplate>
-                        </asp:UpdatePanel>
                     </div>
                    
                     <div>
