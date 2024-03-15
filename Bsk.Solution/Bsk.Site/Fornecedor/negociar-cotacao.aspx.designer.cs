@@ -87,6 +87,24 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminar;
 
         /// <summary>
+        /// scr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scr;
+
+        /// <summary>
+        /// upp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upp;
+
+        /// <summary>
         /// comentarios control.
         /// </summary>
         /// <remarks>
