@@ -284,7 +284,7 @@
 
             
             <div class="footer_card">
-                <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
@@ -571,7 +571,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Desistir!'
+                confirmButtonText: 'Desistir!',
+                cancelButtonText: 'Cancelar',
             }).then((result) => {
                 if (result.value) {
                     var parametro = {
@@ -591,7 +592,4 @@
         }
 
     </script>
-
-    <script src="js/money.js"></script>"
-
 </asp:Content>

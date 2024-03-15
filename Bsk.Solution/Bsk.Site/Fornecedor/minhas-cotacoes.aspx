@@ -179,7 +179,7 @@
          
 
             <div class="footer_card">
-                <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar
+                <a href="dashboard.aspx" class="voltar btn"><< voltar
                 </a>
                 <!--
                 <a href="/" class="item_notifica">

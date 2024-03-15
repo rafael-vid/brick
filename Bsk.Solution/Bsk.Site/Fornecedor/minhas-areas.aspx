@@ -112,7 +112,7 @@
             </a>
         </div>
         <div class="card">
-            <div class="titulo_card">
+            <div class="subtitulo_card subtitulo_1">
                 <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
                 <h2 class="subtitulo_1">Minhas áreas de atuação</h2>
             </div>
@@ -126,7 +126,7 @@
                         <li>
                             <div>
                                 <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                    <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 15px;
+                                    <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 20px;
                                                                                                         float: left;
                                                                                                         margin-top: 7px;
                                                                                                         margin-right: 10px;"><%Response.Write(item.Nome); %></p>
@@ -139,9 +139,10 @@
                     </ul>
                 </div>
             </div>
-            <h2 class="subtitulo_card subtitulo_1">
-                <img src="../assets/imagens/andamento.svg" style="width: 15px;" alt="andamento">
-                Serviços Prestados</h2>
+                <div class="subtitulo_card subtitulo_1">
+                    <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
+                    <h2 class="subtitulo_1">Serviços Prestados</h2>
+                </div>
             <!-- Corpo Site -->
             <%var categorias = BuscaCategoria();%>
             <div class="servico_item">
@@ -151,7 +152,7 @@
                     <li>
                         <div>
                             <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 15px;
+                                <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 20px;
                                                                                                 float: left;
                                                                                                 margin-top: 7px;
                                                                                                 margin-right: 10px;"><%Response.Write(item.Nome); %></p>
@@ -170,7 +171,7 @@
 
 
         <div class="footer_card">
-            <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
+            <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
             <!--
             <a href="/" class="item_notifica">
                 <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">

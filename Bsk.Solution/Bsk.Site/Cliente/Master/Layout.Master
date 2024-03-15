@@ -186,6 +186,7 @@ div#tabela_filter {
     left: 0px;
     border-radius: 50%;
     outline: none;
+    text-align: center;
     border: none;
 }
 
