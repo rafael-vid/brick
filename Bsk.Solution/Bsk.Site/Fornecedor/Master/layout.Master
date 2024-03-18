@@ -318,9 +318,6 @@ a.btn.btn-brikk.mensagem {
                 <a href="dashboard.aspx">
                     <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
                 </a>
-                 <h3>
-                    <font color="#ffffff">Área Parceiro</font>
-                 </h3>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">
                         Menu
