@@ -81,6 +81,16 @@ namespace Bsk.Interface
         }
 
 
+        public List<ClienteBE> EsqueciASenha(string filtro)
+        {
+            string sql = $@"SELECT 
+                                Nome,
+                                Senha
+                            FROM cliente
+                            where " + filtro;
+            return _base.ToList<ClienteBE>(db.Get(sql));
+        }
+
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {
