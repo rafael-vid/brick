@@ -11,7 +11,7 @@ using System.Web;
 
 
 [assembly: AllowPartiallyTrustedCallers]
-namespace Monitor.classes
+namespace Bsk.Site.Controllers
 {
     public class Email
     {
