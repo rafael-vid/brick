@@ -10,8 +10,8 @@
           <h2 class="subtitulo_1">Cotação</h2>
         </div>
         <div class="item_card">
-          <div class="subtitulo_card">
-            <h3>Status</h3>
+          <div class="subtitulo_1">
+            <h2>Status</h2>
             <!--  
               <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
             <span class="notificacao">02</span>
