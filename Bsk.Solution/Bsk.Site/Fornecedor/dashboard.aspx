@@ -42,7 +42,7 @@
                         <a href="em-andamento.aspx"><span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
                         <p>Em andamento</a></p>
                     </li>
-                    <!--
+                    
                     <li>
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
                         <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
@@ -52,7 +52,7 @@
                         <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
                         <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
                     </li>  
-                        --> 
+                        
                     <li>
                         <a href="minhas-cotacoes.aspx?status=6"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
                         <p>Finalizado</a></p>
@@ -314,6 +314,12 @@
         a.dash{
             background: #f4f3f2;
             color: #770e18 !important;
+        }
+        .card_lista li p {
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 15px;
+            color: #3c3c3b;
+            margin: 0 !important;
         }
     </style>
 </asp:Content>
