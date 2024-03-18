@@ -273,6 +273,11 @@ div#tabela_paginate span a {
             <a href="cliente-dashboard.aspx" >
                 <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
             </a>
+            <div class="subtitulo_card">
+                <h3> 
+                   <font color="#ffffff">Área Cliente</font>
+                </h3>
+            </div>
             <nav class="menu" id="nav">
                 <button id="btn-mobile">
                     Menu
