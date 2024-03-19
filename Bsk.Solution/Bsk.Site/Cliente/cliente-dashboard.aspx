@@ -9,8 +9,8 @@
                 <h2 class="subtitulo_1">Cotação</h2>
             </div>
             <div class="item_card">
-                <div class="subtitulo_card">
-                    <h3>Status</h3>
+                <div class="subtitulo_1">
+                    <h2>Status</h2>
                    
                 </div>
                 <ul class="card_lista">
