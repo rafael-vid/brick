@@ -48,7 +48,7 @@
             </div>--%>
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
