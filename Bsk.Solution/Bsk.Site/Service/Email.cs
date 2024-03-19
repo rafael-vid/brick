@@ -10,8 +10,8 @@ using System.Web;
 
 
 
-[assembly: AllowPartiallyTrustedCallers]
-namespace Bsk.Site.Controllers
+
+namespace Bsk.Site.Service
 {
     public class Email
     {

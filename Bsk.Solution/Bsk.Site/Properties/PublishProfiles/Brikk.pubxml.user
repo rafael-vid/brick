@@ -771,46 +771,46 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 11:01:49</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>03/15/2024 14:26:25</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll.config">
-      <publishTime>01/22/2024 11:01:48</publishTime>
+      <publishTime>03/18/2024 14:22:26</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>03/15/2024 14:26:25</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>03/15/2024 14:26:26</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll.config">
-      <publishTime>01/22/2024 11:01:48</publishTime>
+      <publishTime>03/18/2024 14:22:26</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>03/15/2024 14:26:26</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>03/18/2024 09:14:59</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll.config">
-      <publishTime>01/22/2024 11:01:48</publishTime>
+      <publishTime>03/18/2024 14:22:26</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>03/18/2024 09:14:59</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>03/18/2024 13:52:55</publishTime>
+      <publishTime>03/19/2024 12:16:36</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>03/18/2024 13:52:55</publishTime>
+      <publishTime>03/19/2024 12:16:36</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>03/15/2024 14:26:26</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll.config">
-      <publishTime>01/22/2024 11:01:49</publishTime>
+      <publishTime>03/18/2024 14:22:26</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>03/15/2024 14:26:26</publishTime>
+      <publishTime>03/18/2024 14:22:37</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -992,11 +992,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
       <publishTime>01/22/2024 11:01:49</publishTime>
     </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>10/20/2023 17:33:50</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>01/22/2024 10:57:54</publishTime>
+      <publishTime>10/20/2023 17:34:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>10/20/2023 17:34:06</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -2778,7 +2784,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/07/2024 14:25:31</publishTime>
+      <publishTime>03/18/2024 14:22:27</publishTime>
     </File>
     <File Include="RepositoryImg/0.png">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -4524,7 +4530,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/18/2024 13:52:56</publishTime>
+      <publishTime>03/18/2024 14:39:30</publishTime>
     </File>
     <File Include="www/cadastro.html">
       <publishTime>01/22/2024 10:57:54</publishTime>

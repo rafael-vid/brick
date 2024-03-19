@@ -1,6 +1,6 @@
 ﻿using Bsk.BE;
 using Bsk.Interface;
-
+using Bsk.Site.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +29,7 @@ namespace Bsk.Site.Geral
         {
 
             _ClienteBE = _core.EsqueciASenha("Email = '"+usuarioCliente.Text+"'");
-            //Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", _ClienteBE[0].Senha);
+            Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", _ClienteBE[0].Senha);
         }
     }
 }

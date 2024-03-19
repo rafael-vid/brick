@@ -1703,6 +1703,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Email.cs" />
     <Compile Include="Site\redefinir-senha.aspx.cs">
       <DependentUpon>redefinir-senha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
