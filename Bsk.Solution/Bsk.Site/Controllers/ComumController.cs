@@ -86,7 +86,7 @@ namespace Bsk.Site.Controllers
                 Uf = uf,
                 WhatsApp = whatsapp,
                 Fantasia = fantasia,
-                SobreNome = sobrenome,
+                Sobrenome = sobrenome,
                 NomeResponsavel = nomeResponsavel,
                 CpfResponsavel = CpfResponsavel
 

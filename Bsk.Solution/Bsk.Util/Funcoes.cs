@@ -49,6 +49,7 @@ namespace Bsk.Util
             fornecedorBE.WhatsApp = ret["WhatsApp"];
             fornecedorBE.Abertura = ret["Abertura"];
             fornecedorBE.NomeFantasia = ret["NomeFantasia"];
+            fornecedorBE.SobreNome = ret["SobreNome"];
             fornecedorBE.Responsavel = ret["Responsavel"];
             //fornecedorBE.Tipo = ret["Tipo"];
             
@@ -72,6 +73,7 @@ namespace Bsk.Util
                 Logradouro = ret["Logradouro"],
                 Municipio = ret["Municipio"],
                 Nome= ret["Nome"],
+                Sobrenome= ret["Sobrenome"],
                 Numero= ret["Numero"],
                 Senha= ret["Senha"],
                 Situacao= ret["Situacao"],

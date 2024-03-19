@@ -20,6 +20,7 @@ namespace Bsk.Site.Fornecedor
             {
                 var login = Funcoes.PegaLoginFornecedor(Request.Cookies["loginFornecedor"].Value);
                 nome.Value = login.NomeFantasia;
+                sobrenome.Value = login.SobreNome;
                 email.Value = login.Email;
                 cpf.Value = login.Cnpj;
                 telefone.Value = login.Telefone;
@@ -56,6 +57,15 @@ namespace Bsk.Site.Fornecedor
             if (String.IsNullOrEmpty(nome.Value))
             {
                 msgnome.InnerText = "Erro: favor inserir um nome.";
+                AtualizarCampos = false;
+            }
+            else
+            {
+                msgnome.InnerText = "";
+            }
+            if (String.IsNullOrEmpty(sobrenome.Value))
+            {
+                msgsobrenome.InnerText = "Erro: favor inserir um sobrenome.";
                 AtualizarCampos = false;
             }
             else

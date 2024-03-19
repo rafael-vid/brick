@@ -29,12 +29,11 @@
                     <input type="text" class="card-input-add" id="nome" runat="server" required>
                     <label id="msgnome" runat="server" class="card_erro subtitulo_3"></label>
                 </div>
-                <!--
                 <div class="item_content_card">
                     <label class="subtitulo_card_1 subtitulo_1">Sobrenome</label>
                     <input type="text" class="card-input-add" id="sobrenome" runat="server" required>
+                    <label id="msgsobrenome" runat="server" class="card_erro subtitulo_3"></label>
                 </div>
-                -->
                 <div class="item_content_card">
                     <label class="subtitulo_card_1 subtitulo_1">E-mail</label>
                     <input type="text" class="card-input-add" id="email" runat="server" required>

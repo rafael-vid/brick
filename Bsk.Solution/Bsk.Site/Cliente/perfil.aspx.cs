@@ -19,6 +19,7 @@ namespace Bsk.Site.Cliente
 
                 var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
                 nome.Value = login.Nome;
+                sobrenome.Value = login.Sobrenome;
                 email.Value = login.Email;
                 cpf.Value = login.Cnpj;
                 telefone.Value = login.Telefone;
@@ -60,6 +61,15 @@ namespace Bsk.Site.Cliente
             else
             {
                 msgnome.InnerText = "";
+            }
+            if (String.IsNullOrEmpty(sobrenome.Value))
+            {
+                msgsobrenome.InnerText = "Erro: favor inserir um sobrenome.";
+                AtualizarCampos = false;
+            }
+            else
+            {
+                msgsobrenome.InnerText = "";
             }
             if (String.IsNullOrEmpty(email.Value))
             {
@@ -148,6 +158,7 @@ namespace Bsk.Site.Cliente
                 cliente.Logradouro = rua.Value;
                 cliente.Municipio = cidade.Value;
                 cliente.Nome = nome.Value;
+                cliente.Sobrenome = sobrenome.Value;
                 cliente.Numero = numero.Value;
                 cliente.Telefone = telefone.Value;
                 cliente.Uf = uf.Value;

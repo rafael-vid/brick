@@ -28,7 +28,7 @@ namespace Bsk.BE
         public string ZoopID { get; set; }
         public string MeioPagamento { get; set; }
         public string Fantasia { get; set; }
-        public string SobreNome { get; set; }
+        public string Sobrenome { get; set; }
         public string NomeResponsavel { get; set; }
         public string CpfResponsavel { get; set; }
         public string RazaoSocial { get; set; }

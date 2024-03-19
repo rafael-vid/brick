@@ -25,7 +25,7 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadstro efetuado com sucesso!";
+                    msg.Text = "Cadastro efetuado com sucesso!";
                 }
             }
         }
@@ -75,7 +75,7 @@ namespace Bsk.Site.Geral
                 Numero = numero.Value,
                 Senha = senha.Value,
                 Situacao = situacao.Value,
-                SobreNome = sobrenome.Value,
+                Sobrenome = sobrenome.Value,
                 Status = "",
                 Telefone = telefone.Value,
                 Uf = estado.Value,
@@ -217,7 +217,7 @@ namespace Bsk.Site.Geral
                 Numero = numeroJuridica.Value,
                 Senha = senhaJuridica.Value,
                 Situacao = situacao.Value,
-                SobreNome = sobrenomeJuridica.Value,
+                Sobrenome = sobrenomeJuridica.Value,
                 Status = "",
                 Telefone = telefoneJuridica.Value,
                 Uf = estadoJuridica.Value,
