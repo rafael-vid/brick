@@ -178,7 +178,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server" onblur="salvaDados()"/>
+                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
                             </div>
                         </div>
 
@@ -187,7 +187,7 @@
                                 <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
                             </div>
-                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"  onblur="salvaDados()">
+                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
 
 
@@ -201,7 +201,7 @@
                         
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="AtualizaEnviarProposta()"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
                                 </div>
 
                     
