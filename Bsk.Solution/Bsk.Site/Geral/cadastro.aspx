@@ -60,9 +60,11 @@
                 </div>
             </div>
         </header>
-
-        <div class="cadastro container">
+        
+        <div class="cadastro container">            
             <div class="controles">
+                <label id="paramLabel" style="display: none;" class="titulo">Cadastro de fornecedor</label>
+                <label id="paramLabel2" style="display: none;" class="titulo">Cadastro de cliente</label>
                 <div>
                     <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf">
                     <label for="pf">Pessoa Física</label>
@@ -370,7 +372,9 @@
                 </div>
             </div>
         </div>
-         <asp:Label ID="msg" runat="server" Text=""></asp:Label>
+        <div class="minhaclasse2"
+                    <asp:Label ID="msg" runat="server" Text="teste"></asp:Label>
+        </div>
         <!-- footer -->
         <footer>
             <a href="/">
@@ -469,7 +473,22 @@
         } validarSenha('senha', 'validaSenha'); validarSenha('senhaJuridica', 'validaSenhaJuridica')
 
     </script>
+    <script>
+        // Função para verificar se um parâmetro na URL tem um valor específico
+        function checkURLParameter(parameter, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.has(parameter) && urlParams.get(parameter) === value;
+        }
 
+        // Verificar se o parâmetro 'Tipo' tem o valor 'for'
+        if (checkURLParameter('Tipo', 'for')) {
+            // Se estiver presente, mostrar a label
+            document.getElementById('paramLabel').style.display = 'block';
+        }
+        if (checkURLParameter('Tipo', 'cli')) {
+            document.getElementById('paramLabel2').style.display = 'block';
+        }
+    </script>
 
 </body>
 

@@ -3,11 +3,15 @@
     margin-bottom: 27px;
 }
 
+.titulo {    
+    font-size: 40px;
+}
+
 .controles {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding: 50px 0;
-    font-size: 18px;
+    font-size: 25px;
     font-family: Rajdhani-semi, sans-serif;
     color: #770e18;
     gap: 90px;
