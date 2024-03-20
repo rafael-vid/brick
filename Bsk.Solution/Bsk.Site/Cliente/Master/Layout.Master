@@ -94,6 +94,9 @@
         .btn{
             border-radius:20px !important;
         }
+        .btn {
+            display: inline-flex;
+        }
       
         @media (max-width: 1151px){
             #nav.active ul {
