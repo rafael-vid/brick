@@ -430,6 +430,17 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+        }
+
     </style>
 
     <script type="text/javascript">
@@ -507,10 +518,10 @@
             Swal.fire({
                 title: titulo,
                 text: texto,
-                type: 'warning',
+                icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                cconfirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18", 
                 confirmButtonText: botao
             }).then((result) => {
                 if (result.value) {
