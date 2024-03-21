@@ -473,6 +473,17 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+        }
+
     </style>
 
 
@@ -515,10 +526,10 @@
             Swal.fire({
                 title: 'Terminar?',
                 text: "Você tem certeza que gostaria de informar que completou o serviço? Essa ação é irreversível.",
-                type: 'warning',
+                icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18",
                 confirmButtonText: 'Terminei!'
             }).then((result) => {
                 if (result.value) {
@@ -567,11 +578,10 @@
             Swal.fire({
                 title: 'Você tem certeza que gostaria de desistir dessa cotação?',
                 text: "Ela não vai mais ficar visível para você e não será possível retomá-la. Essa ação é irreversível.",
-                icon:  "info",
+                icon: "info",
                 showCancelButton: true,
                 confirmButtonColor: '#f08f00',
                 cancelButtonColor: "#770e18",
-                backgroundborder: "20px",
                 iconColor: "#770e18",
                 confirmButtonText: 'Desistir!',
                 cancelButtonText: 'Cancelar',
@@ -583,7 +593,9 @@
                     comum.post("Comum/DesistirCotacao", parametro, function (data) {
                         Swal.fire({
                             icon: 'success',
+                            iconColor: "#770e18",
                             title: 'Sucesso',
+                            confirmButtonColor:"#770e18",
                             text: 'Essa cotação não vai mais aparecer para você.'
                         }).then((result) => {
                             window.location.href = "minhas-cotacoes.aspx";
