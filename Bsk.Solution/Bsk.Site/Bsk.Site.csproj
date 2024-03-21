@@ -628,7 +628,6 @@
     <Content Include="Cliente\js\jquery.min.js" />
     <Content Include="Cliente\js\master.js" />
     <Content Include="Cliente\js\rating.js" />
-    <Content Include="Cliente\js\sweetAlert.js" />
     <Content Include="Cliente\js\wow.js" />
     <Content Include="Cliente\negociar-cotacao.aspx" />
     <Content Include="Cliente\pagamento-boleto.aspx" />
@@ -771,7 +770,6 @@
     <Content Include="Fornecedor\js\jquery.min.js" />
     <Content Include="Fornecedor\js\master.js" />
     <Content Include="Fornecedor\js\rating.js" />
-    <Content Include="Fornecedor\js\sweetAlert.js" />
     <Content Include="Fornecedor\js\wow.js" />
     <Content Include="Fornecedor\Html\liberaPagamento.html" />
     <Content Include="Fornecedor\Html\logado.html" />

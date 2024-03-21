@@ -567,10 +567,12 @@
             Swal.fire({
                 title: 'Você tem certeza que gostaria de desistir dessa cotação?',
                 text: "Ela não vai mais ficar visível para você e não será possível retomá-la. Essa ação é irreversível.",
-                type: 'warning',
+                icon:  "info",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18",
+                backgroundborder: "20px",
+                iconColor: "#770e18",
                 confirmButtonText: 'Desistir!',
                 cancelButtonText: 'Cancelar',
             }).then((result) => {
