@@ -141,27 +141,7 @@
                         </div>
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
-                        <div class="item_content_card ">
-                            <div class="subtitulo-com-icone" id="divUpload" runat="server">
-                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
-                            </div>
-                            <div class="files-upload">
-                                <div class="file" id="btnArquivo">
-                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
-                                    <label for='selecao-arquivo'>Anexar arquivos</label>
-                                </div>
-                                <div class="gravar-video" id="btnVideo">
-                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
-                                    <button class="btn-gravar">Gravar um vídeo explicativo</button>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-
+                       
                         <div class="bp-acoes">
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
@@ -172,6 +152,25 @@
                     </div>
                    
                     <div>
+
+                            <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()"  />
+                            <asp:FileUpload ID="FileUpload1" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()" />
+                            <div class="item_content_card card-content-desc" style="margin-top: 0 !important;" id="divUpload" runat="server">
+                                <div class="subtitulo-com-icone">
+                                    <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
+                                    <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
+                                </div>
+                                <div class="files-upload">
+                                    <div class="file">
+                                        <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
+                                        <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
+                                    </div>
+                                    <div class="gravar-video">
+                                        <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+                                        <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
+                                    </div>
+                                </div>
+                            </div>
                         <div class="item_content_card " id="divDadosCobranca" runat="server">
                             <div class="subtitulo-com-icone">
                                 <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
