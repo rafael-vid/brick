@@ -582,7 +582,7 @@
                 confirmButtonColor: '#f08f00',
                 cancelButtonColor: "#770e18",
                 iconColor: "#770e18",
-                confirmButtonText: 'Desistir!',
+                confirmButtonText: 'Sim, quero desistir',
                 cancelButtonText: 'Cancelar',
             }).then((result) => {
                 if (result.value) {
