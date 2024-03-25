@@ -319,7 +319,7 @@ a.btn.btn-brikk.mensagem {
                 </a>
                   <div>
                      <h1 class="titulo" >
-                         <font color="#ffffff">Área Fornecedor</font>
+                         <font color="#ffffff">Fornecedor</font>
                      </h1>
                  </div>
                 <nav class="menu" id="nav">
