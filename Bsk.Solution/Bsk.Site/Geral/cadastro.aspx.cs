@@ -25,7 +25,7 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadastro xuado com sucesso!";
+                    msg.Text = "Cadastro efetuado com sucesso!";
                 }
             }
         }
