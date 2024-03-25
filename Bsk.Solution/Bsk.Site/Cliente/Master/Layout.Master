@@ -355,6 +355,9 @@ div#tabela_paginate span a {
                 <li><a href="em-andamento.aspx" class="andamento">
                     <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
                 </li>
+                <li><a href="finalizadas.aspx" class="finalizada">
+                    <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Finalizado</span></a>
+                </li>
                 <!--
                 <li><a href="financeiro.html" class="financeiro">
                     <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>

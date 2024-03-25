@@ -419,6 +419,7 @@
     <Content Include="Cliente\Master\assets\imgages\souCLiente.png" />
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
+    <Content Include="Cliente\finalizadas.aspx" />
     <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
@@ -1465,6 +1466,13 @@
     </Compile>
     <Compile Include="Cliente\liberar-pagamento.aspx.designer.cs">
       <DependentUpon>liberar-pagamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\finalizadas.aspx.cs">
+      <DependentUpon>finalizadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\finalizadas.aspx.designer.cs">
+      <DependentUpon>finalizadas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\busca.aspx.cs">
       <DependentUpon>busca.aspx</DependentUpon>

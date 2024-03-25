@@ -20,6 +20,13 @@ namespace Bsk.Site.Cliente
             titulo.InnerText = cotacao.Titulo;
             descricao.Text = cotacao.Descricao;
             var lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
+
+
+            valorMedioCotacoes.InnerText = "R$ 0,00";
+            valorMaximoCotacoes.InnerText = "R$ 0,00";
+            valorMinimoCotacoes.InnerText = "R$ 0,00";
+
+
             if (cotacao.IdCotacaoFornecedor != 0)
             {
                 foreach (var item in lista)
