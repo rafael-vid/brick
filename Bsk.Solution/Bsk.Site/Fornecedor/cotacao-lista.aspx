@@ -82,11 +82,13 @@
             </div>--%>
 
             <div class="footer_card">
-                <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
+                <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+               <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
@@ -96,6 +98,10 @@
         a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
+        }
+
+                div#tabela_paginate > span {
+            display: flex
         }
     </style>
 </asp:Content>

@@ -59,10 +59,17 @@
                 <br />
                 <input type="button" class="btn btn-success btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término" style="width: 100%;">
             </div>
+
+            <div style="clear:both"></div>
             <div class="item_content_card ">
-                <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
-                <div class="card-content-chat">
+                 <div class="card-content-chat">
                     <div class="chat">
+                        <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
+                        <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="upp" runat="server">
+                            <ContentTemplate>
+
+                            
                         <div class="bp" id="divChat">
                             <%
                                 var chat = CarregaChat();
@@ -117,7 +124,10 @@
                                 }
                             %>
                         </div>
-                      <%--  <div id="descricaoHide" runat="server">
+                      
+                        
+                        
+                        <%--  <div id="descricaoHide" runat="server">
                             <textarea class="enviar-msg" name="enviar" id="Textarea1" runat="server" cols="30" rows="10"></textarea>
                         </div>
 
@@ -129,32 +139,6 @@
                         <div id="comentarios" runat="server">
                             <textarea class="enviar-msg" name="enviar" id="msg" runat="server" cols="30" rows="10"></textarea>
                         </div>
-
-                        <div class="bp-acoes">
-                            <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
-                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="item_content_card " id="divDadosCobranca" runat="server">
-                            <div class="subtitulo-com-icone">
-                                <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
-                            </div>
-                            <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" onchange="salvaDados();" runat="server" />
-                            </div>
-                        </div>
-
-                        <div class="item_content_card ">
-                            <div class="subtitulo-com-icone">
-                                <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
-                            </div>
-                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" onblur="salvaDados();" runat="server" placeholder="0,00" >
-                        </div>
-                        <img src="img/loading.gif" width="100" id="loadGif" style="display: none;" />
-
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                         <div class="item_content_card ">
@@ -166,22 +150,63 @@
                                 <div class="file" id="btnArquivo">
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <label for='selecao-arquivo'>Anexar arquivos</label>
-                                    <input id='selecao-arquivo' type='file'>
                                 </div>
                                 <div class="gravar-video" id="btnVideo">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                     <button class="btn-gravar">Gravar um vídeo explicativo</button>
                                 </div>
+
                             </div>
                         </div>
+
+
+
+
+                        <div class="bp-acoes">
+                            <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
+                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
+                        </div>
+
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
-                </div>
+                   
+                    <div>
+                        <div class="item_content_card " id="divDadosCobranca" runat="server">
+                            <div class="subtitulo-com-icone">
+                                <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
+                                <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
+                            </div>
+                            <div class="select-card ">
+                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
+                            </div>
+                        </div>
 
-            </div>
+                        <div class="item_content_card ">
+                            <div class="subtitulo-com-icone">
+                                <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+                                <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
+                            </div>
+                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
+                        </div>
 
 
 
-            <div class="filtros_card cota-info" style="margin-top: 40px;">
+
+                        <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
+
+                            <div id="labelConfirmacao" style="display: none; margin-top: 10px;">
+                            <small>Proposta confirmada!</small>
+                            </div>
+                        
+                                    <hr />
+                                <div class="gravar-video" id="finalizarCotacao">
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
+                                </div>
+
+                    
+
+                        <div class="filtros_card cota-info" style="margin-top: 40px;">
                 <div class="resultado">
                     <span class="numero_card">04</span>
 
@@ -191,7 +216,7 @@
                 </div>
 
                 <div class="pesquisar">
-                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
+                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 1rem;"> &nbsp;
                     <input type="text" placeholder="Pesquisar" class="pesquisar_input">
                 </div>
             </div>
@@ -217,7 +242,7 @@
                                 <%if (item.Tipo == "Anexo")
                                     {%>
                             <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <img alt='' src='img/upload.png' class="ver-imagem">&nbsp;Visualizar</a>
                             <% }
                                 else
                                 {%>
@@ -245,23 +270,68 @@
                 </div>
             </div>
 
+
+
+
+
+                    </div>
+                       </div>
+
+
+            </div>
+
+
+
+            
             <div class="footer_card">
-                <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
     </div>
 
     <style>
+
+        @media (max-width:767px) {
+            .lado-direito{
+                width:100%;
+                color:red
+            }
+        }
+
+        .ver-imagem{
+            width:1.5rem;
+            height:auto;
+            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%) !important;
+        }
+
+.card-tabela tr td a.btn {
+    color: #fff !important;
+}
+
+.pesquisar, .resultado {
+    position: relative;
+    width: max-content;
+}
+
         .card-content-chat {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 10%;
         }
+
+        @media (max-width: 950px) {
+            .card-content-chat{
+                grid-template-columns: 1fr 
+            }
+        }
+
         .chat {
             display: flex !important;
             flex-direction: column !important;
@@ -408,6 +478,14 @@
 
     <script type="text/javascript">
 
+        $(function () {
+            $('#valorServico').maskMoney({
+                allowNegative: false,
+                thousands: '.', decimal: ',',
+                affixesStay: true
+            });
+        })
+
         setInterval(function () {
             var parametro = {
                 tipo: "F",
@@ -454,9 +532,10 @@
             });
         }
 
-        function salvaDados() {
 
+        function salvaDados() {
             $("#loadGif").show();
+            $("#labelConfirmacao").hide();
             var parametro = {
                 valor: $("#valorServico").val(),
                 data: $("#dataEntrega").val(),
@@ -465,7 +544,23 @@
 
             comum.postAsync("Comum/SalvarDadosCobrancaCotacao", parametro, function (data) {
                 $("#loadGif").hide();
+                $("#labelConfirmacao").show();
             });
+
+
+        }
+
+        function AtualizaEnviarProposta(e) {
+
+            var parametro = {
+                id: comum.queryString("Id")
+            };
+
+            comum.post("Comum/AtualizaEnviarProposta?idCotacao=" + comum.queryString("Id"), null, function (data) {
+                $("#loadGif").hide();
+
+            });
+
         }
 
         function desistirCotacao() {
@@ -476,7 +571,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Desistir!'
+                confirmButtonText: 'Desistir!',
+                cancelButtonText: 'Cancelar',
             }).then((result) => {
                 if (result.value) {
                     var parametro = {
@@ -496,5 +592,4 @@
         }
 
     </script>
-
 </asp:Content>

@@ -47,11 +47,13 @@ namespace Bsk.Site.Geral
                         //Imprime o valor do cookie
                         //Response.Write(cookie.Value.ToString());
 
-                        Response.Redirect("../Fornecedor/minhas-cotacoes.aspx");
+                        Response.Redirect("../Fornecedor/dashboard.aspx");
                     }
                     else
                     {
+
                         msg.Text = "Login ou senha, inválidos.";
+                        lblMsgParceiro.Text = msg.Text;
                     }
                 }
 
@@ -84,11 +86,12 @@ namespace Bsk.Site.Geral
                     //Imprime o valor do cookie
                     //Response.Write(cookie.Value.ToString());
 
-                    Response.Redirect("../Cliente/minhas-cotacoes.aspx");
+                    Response.Redirect("../Cliente/cliente-dashboard.aspx");
                 }
                 else
                 {
                     msg.Text = "Login ou senha, inválidos.";
+                    lblMsg.Text = msg.Text;
                 }
             }
 

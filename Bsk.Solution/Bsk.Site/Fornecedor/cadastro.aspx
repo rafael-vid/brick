@@ -439,8 +439,9 @@
                     }
                 });
 
-                $('.btn-salvar').click(function () {
-
+                $('.btn-salvar').click(function (e) {
+                    e.preventDefault()
+                    debugger
                     var parametro = {
                         Cpf: $('input#cpf').val(),
                         Cnpj: $('input#cnpj').val(),

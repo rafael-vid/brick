@@ -1,19 +1,19 @@
 .loginCadastro {
-  background: #770e18;
-  height: calc(100vh - 213px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #770e18;
+    height: calc(100vh - 353px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagens/fundo.png);
 }
 .tabs-menu {
   width: 50%;
   min-width: 300px;
-  background: #f4f3f2;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
 .tabs-menu nav {
-  background: #770e18;
+
   display: flex;
   gap: 5px;
 }
@@ -40,13 +40,13 @@
   animation: 0.5s show forwards;
 }
 
-.tab-content.ativo {
-  display: block;
-  padding: 31px 46px 77px 48px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
+    .tab-content.ativo {
+        display: block;
+        padding: 31px 46px 77px 48px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 0px 50px 50px 50px;
+        background-color: #f4f3f2;
+    }
 
 @keyframes show {
   from {
@@ -96,7 +96,7 @@
 }
 .naotemacesso,
 .esqueceusenha {
-  font-size: 18px;
+  font-size: 14px;
   line-height: 24px;
   color: #575756;
   transition: ease 0.8s;

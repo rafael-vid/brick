@@ -99,10 +99,12 @@
 
             <div class="footer_card" style="margin-top: 36p;">
               
+                <!--
                 <a href="" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
