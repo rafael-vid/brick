@@ -29,14 +29,30 @@ namespace Bsk.Site.Cliente
 
             if (cotacao.IdCotacaoFornecedor != 0)
             {
+                double valor = 0;
+                double valorMax = 0;
+                double valorMin = 0;
                 foreach (var item in lista)
                 {
-                    if (item.CotacaoFornecedorId == cotacao.IdCotacaoFornecedor)
+                    valor += item.Valor;
+                    if (item.Valor > valorMax)
                     {
-                        valorMedioCotacoes.InnerText = string.Format("{0:C}", item.Valor);
-
+                        valorMax = item.Valor;
                     }
+                    if (valorMin == 0)
+                    {
+                        valorMin = item.Valor;
+                        if (item.Valor < valorMin)
+                        {
+                            valorMin = item.Valor;
+                        }
+                    }
+
                 }
+                valor = valor / lista.Count;
+                valorMedioCotacoes.InnerText = string.Format("{0:C}", valor);
+                valorMaximoCotacoes.InnerText = string.Format("{0:C}", valorMax);
+                valorMinimoCotacoes.InnerText = string.Format("{0:C}", valorMin);
             }
             else
             {
