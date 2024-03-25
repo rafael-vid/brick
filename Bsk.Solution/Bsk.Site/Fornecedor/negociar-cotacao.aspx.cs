@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Fornecedor
 {
+    using AjaxControlToolkit;
     using Bsk.BE;
     using Bsk.Interface;
     using Bsk.Util;
@@ -40,6 +41,108 @@ namespace Bsk.Site.Fornecedor
                 Response.Redirect("../Geral/login.aspx");
             }
         }
+        protected void btnSalvar_ServerClick(object sender, EventArgs e)
+        {
+
+            // ####################################### ENVIAR PARA MSG ##########################################
+            var redi = salvarCotacao();
+
+            if (!String.IsNullOrEmpty(hdLink.Value))
+            {
+                Response.Redirect(hdLink.Value);
+            }
+            else
+            {
+                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + redi);
+            }
+        }
+
+        private string salvarCotacao()
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            string cot = "";
+
+            if (Request.QueryString["Cotacao"] != null)
+            {
+                cot = Request.QueryString["Cotacao"];
+
+                if (flpAnexo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpAnexo, "Anexo");
+                }
+
+                if (flpVideo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpVideo, "Video");
+                }
+
+                CotacaoBE _CotacaoBE = new CotacaoBE();
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+
+                cotacao.Titulo = titulofornecedor.Value;
+                cotacao.Descricao = descricao.Text;
+                _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+            }
+            else
+            {
+                CotacaoBE _CotacaoBE = new CotacaoBE()
+                {
+                    IdCategoria = int.Parse(Request.QueryString["Id"]),
+                    DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+                    DataTermino = "",
+                    Depoimento = "",
+                    Descricao = descricao.Text,
+                    FinalizaCliente = 0,
+                    FinalizaFornecedor = 0,
+                    IdCliente = login.IdCliente,
+                    IdCotacaoFornecedor = 0,
+                    Nota = 0,
+                    Observacao = "",
+                    Status = "0",
+                    Titulo = titulofornecedor.Value
+                };
+
+                cot = _core.Cotacao_Insert(_CotacaoBE);
+            }
+            return cot;
+        }
+
+        public void GravarArquivo(FileUpload _flpImg, string tipo)
+        {
+            var nome = "";
+            var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
+            if (!String.IsNullOrEmpty(_flpImg.FileName))
+            {
+                nome = Guid.NewGuid().ToString() + _flpImg.FileName;
+                var path = "";
+
+                if (tipo == "Anexo")
+                {
+                    path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
+                }
+                else
+                {
+                    path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
+                }
+
+                _flpImg.SaveAs(path);
+                link = link.Replace("{{ARQ}}", nome);
+            }
+            else
+            {
+                link = "";
+            }
+
+            _CotacaoAnexosBE = new CotacaoAnexosBE()
+            {
+                Anexo = nome,
+                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
+                Tipo = tipo
+            };
+
+            _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
+        }
 
         public void CarregaCotacaoFornecedor()
         {
@@ -70,7 +173,7 @@ namespace Bsk.Site.Fornecedor
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
-                    titulo.Text = cotacao.Titulo;
+                    titulofornecedor.Value = cotacao.Titulo;
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
@@ -269,6 +372,54 @@ namespace Bsk.Site.Fornecedor
                 return cotacaoAnexosBEs;
             }
 
+        }
+
+        protected void btnEnviarAnexoFornecedor_ServerClick(object sender, EventArgs e)
+        {
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+
+
+            var arquivo = GravarArquivo(flpArquivo);
+            var video = GravarVideo(flpVideo);
+            var _msg = msg.InnerHtml;
+
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+
+            if (cotacaoFornecedor != null)
+            {
+                _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
+                _CotacaoFornecedorChatBE.Mensagem = _msg;
+                _CotacaoFornecedorChatBE.Video = video;
+                _CotacaoFornecedorChatBE.Arquivo = arquivo;
+
+                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.LidaFornecedor = 1;
+
+                _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
+
+                //Atualiza data alteracao da cotação
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                if (cotacao != null)
+                    _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+
+
+
+                NotificacaoBE notif = new NotificacaoBE();
+
+                notif.titulo = "Nova mensagem no chat";
+                notif.mensagem = _msg;
+                notif.data = DateTime.Now;
+                notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
+                notif.visualizado = "0";
+                notif.idcliente = cotacao.IdCliente;
+
+                _core.NotificacaoInsert(notif);
+
+
+                //DEPOIS COLOCAR MSG
+                Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
+            }
         }
     }
 }

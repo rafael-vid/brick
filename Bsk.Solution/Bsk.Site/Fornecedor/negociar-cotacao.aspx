@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="negociar-cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Fornecedor.negociar_cotacao" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
+
+    <input type="hidden" id="hdLink" clientidmode="static" runat="server" value="" />
+
     <div class="conteudo-dash cotacao">
         <div class="acessos">
             <a href="minhas-cotacoes.aspx" class="btn_card">
@@ -26,7 +29,7 @@
             <div class="item_content_card">
                 <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
                 <p>
-                    <asp:Label ID="titulo" runat="server" Text=""></asp:Label>
+                    <input type="text" placeholder="Digite aqui um título para o serviço que você procura" class="card-input-add" id="titulofornecedor" runat="server">
                 </p>
             </div>
 
@@ -152,9 +155,8 @@
                     </div>
                    
                     <div>
-
-                            <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()"  />
-                            <asp:FileUpload ID="FileUpload1" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()" />
+                            <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexoFornecedor').click()"  />
+                            <asp:FileUpload ID="FileUpload1" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexoFornecedor').click()" />
                             <div class="item_content_card card-content-desc" style="margin-top: 0 !important;" id="divUpload" runat="server">
                                 <div class="subtitulo-com-icone">
                                     <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
@@ -171,6 +173,10 @@
                                     </div>
                                 </div>
                             </div>
+                        <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexoFornecedor" ClientIDMode="Static" onserverclick="btnEnviarAnexoFornecedor_ServerClick" runat="server" style="display:none">
+                            Enviar anexo
+                       
+                        </button>
                         <div class="item_content_card " id="divDadosCobranca" runat="server">
                             <div class="subtitulo-com-icone">
                                 <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
@@ -488,13 +494,13 @@
 
     <script type="text/javascript">
 
-        $(function () {
-            $('#valorServico').maskMoney({
-                allowNegative: false,
-                thousands: '.', decimal: ',',
-                affixesStay: true
-            });
-        })
+        //$(function () {
+        //    $('#valorServico').maskMoney({
+        //        allowNegative: false,
+        //        thousands: '.', decimal: ',',
+        //        affixesStay: true
+        //    });
+        //})
 
         setInterval(function () {
             var parametro = {
@@ -508,11 +514,9 @@
         }, 10000);
 
         $(document).ready(function () {
-            $(".flpArquivo").css("display", "none");
-            $(".flpVideo").css("display", "none");
 
-            $("#btnArquivo").click(function () {
-                $(".flpArquivo").click();
+            $("#btnAnexo").click(function () {
+                $(".flpAnexo").click();
             });
 
             $("#btnVideo").click(function () {
