@@ -99,15 +99,20 @@
             }
         }
     </style>
-
+    
     <div class="conteudo-dash atuacao">
         
-        <div class="card">
-            <div class="subtitulo_card subtitulo_1">
-                <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Serviços prestados</h2>
-            </div>
-            <div class="button" 
+     <div class="subtitulo_card subtitulo_1" style="position: relative;">
+    <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
+    <h2 class="subtitulo_1">Serviços prestados</h2>
+    <div class="buttons_container">
+        <a href="gerenciar-servicos.aspx" class="btn_card2">Gerenciar serviços prestados</a>
+    </div>
+</div>
+
+
+
+
             <%var areas = BuscaAreas(); %>
             
             <div class="servicos_atuacao">
@@ -117,49 +122,21 @@
                             {%>
                             <p><%Response.Write(item.Nome); %></p>
                             <%var servicos = PegaServico(item);%>
-                    <ul>
-                            <%foreach (var j in servicos)
-                                {%>
-                                <p><%Response.Write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+j.Nome); %></p>
-                            <% } %>
-                    </ul>
+                            <ul class="nested-list">
+                                <%foreach (var j in servicos)
+                                    {%>
+                                    <li><%Response.Write(j.Nome); %></li>
+                                <% } %>
+                            </ul>
                         <% } %>
                     
                 </div>
             </div>
-                <div class="subtitulo_card subtitulo_1">
-                    <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
-                    <h2 class="subtitulo_1">Outra coisa</h2>
-                </div>
-            <!-- Corpo Site -->
-            <%var categorias = BuscaCategoria();%>
-            <div class="servico_item">
-                <ul>
-                    <%  foreach (var item in categorias)
-                        {%>
-                    <li>
-                        <div>
-                            <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 20px;
-                                                                                                float: left;
-                                                                                                margin-top: 7px;
-                                                                                                margin-right: 10px;"><%Response.Write(item.Nome); %></p>
-
-                                
-                            </a>
-                        </div>
-                    </li>
-                    <%}
-                    %>
-                </ul>
-            </div>
+               <div class="footer_card">
+    <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a> 
         </div>
 
-
-
-
-        <div class="footer_card">
-            <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+        
             <!--
             <a href="/" class="item_notifica">
                 <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">

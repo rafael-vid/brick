@@ -193,17 +193,17 @@
 
 
 
-                        <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
-
-                            <div id="labelConfirmacao" style="display: none; margin-top: 10px;">
-                            <small>Proposta confirmada!</small>
-                            </div>
+                        
                         
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
                                     <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
                                 </div>
+                        <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
+    <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
+    <text>Proposta confirmada!</text>
+    </div>
                     
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
