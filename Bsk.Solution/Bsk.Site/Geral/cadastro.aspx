@@ -373,7 +373,7 @@
             </div>
         </div>
         <div class="minhaclasse2"
-                    <asp:Label ID="msg" runat="server" Text="teste"></asp:Label>
+                    <asp:Label ID="msg" runat="server" Text=""></asp:Label>
         </div>
         <!-- footer -->
         <footer>
@@ -493,4 +493,3 @@
 </body>
 
 </html>
-C:\Users\gvidi\Downloads\solution\Bsk.Solution\Bsk.Site\Geral\cadastro.aspx

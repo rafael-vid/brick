@@ -330,8 +330,8 @@ namespace Bsk.Site.Geral
     !string.IsNullOrEmpty(senhaJuridica.Value)
 )
             {
-                var id = _core.Fornecedor_Insert(_FornecedorBE);
-                var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
+                var id = _core.Cliente_Insert(_ClienteBE);
+                var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
