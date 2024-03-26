@@ -376,7 +376,7 @@ a.btn.btn-brikk.mensagem {
 
         <section class="app">
             <nav class="menu-dashboard">
-                <a class="open-menu"> <img src="../assets/imagens/seta_esquerda.svg" style="width: 20px;" alt="ícone"> </a>
+                <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px;" alt="ícone"> </a>
                 <ul class="menu-dash">
                     <li>
                         <a href="dashboard.aspx" class="dash">
