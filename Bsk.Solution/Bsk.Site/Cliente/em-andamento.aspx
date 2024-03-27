@@ -20,13 +20,17 @@
                 <h2 class="subtitulo_1">Em Andamento</h2>
             </div>
             <div class="filtros_card">
-                <div class="resultado">
-                    <span class="numero_card">04</span>
+             <div class="dataTables_length" id="tabela_length">
+                 <label>
+                     <select name="tabela_length" aria-controls="tabela" class="">
+                         <option value="10">10</option>
+                          <option value="25">25</option>
+                          <option value="50">50</option>
+                          <option value="100">100</option>
+                     </select> resultados por página
 
-                    <p class="texto-resultado">
-                        Resultado por página
-                    </p>
-                </div>
+                 </label>
+             </div>
 
                 <div class="pesquisar">
                     <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
