@@ -262,7 +262,11 @@ div#tabela_paginate span a {
         margin-top: 20px;
     }
 }
+/* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+ .uppercase {
+     text-transform: capitalize;
 
+        }
 /*---------------*/
 
     </style>
@@ -292,7 +296,7 @@ div#tabela_paginate span a {
                             <img src="../assets/imagens/avatar.png" alt="avatar">
                             <%var user = RetornaUsuario(); %>
                             <%var nomes = user.Nome.Split(' ');  %>
-                            <span>Olá, <%Response.Write(nomes[0]); %>.</span>
+                            <span class="uppercase">Olá, <%Response.Write(nomes[0]); %>.</span>
                         </div>
                         <ul class="dropdown-perfil">
                             <li>

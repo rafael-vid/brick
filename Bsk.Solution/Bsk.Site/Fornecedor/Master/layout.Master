@@ -305,6 +305,12 @@ div#tabela_paginate span a {
 a.btn.btn-brikk.mensagem {
     color: #fff !important;
 }
+
+/* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+ .uppercase {
+     text-transform: capitalize;
+
+        }
 /*---------------*/
 
     </style>
@@ -333,7 +339,7 @@ a.btn.btn-brikk.mensagem {
                             <div class="perfil">
                                 <img src="../assets/imagens/avatar.png" alt="avatar">
 
-                                <span>Olá,  <%
+                                <span class="uppercase">Olá,  <%
                                                 var usuario = RetornaUsuario();
                                                 Response.Write(usuario.NomeFantasia.Split(' ')[0]);
                                 %>.</span>
