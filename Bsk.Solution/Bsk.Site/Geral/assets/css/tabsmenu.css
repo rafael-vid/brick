@@ -96,13 +96,13 @@
 }
 .naotemacesso,
 .esqueceusenha {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 24px;
   color: #575756;
   transition: ease 0.8s;
 }
 .esqueceusenha {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 21px;
 }
 .acessos .btn {
