@@ -111,6 +111,7 @@
     <Compile Include="AreaFornecedorBE.cs" />
     <Compile Include="Model\CotacaoListaClienteModel.cs" />
     <Compile Include="Model\TransacaoModel.cs" />
+    <Compile Include="ServicoCategoria.cs" />
     <Compile Include="TransacaoBE.cs" />
     <Compile Include="CotacaoAnexosBE.cs" />
     <Compile Include="CotacaoFornecedorChatBE.cs" />

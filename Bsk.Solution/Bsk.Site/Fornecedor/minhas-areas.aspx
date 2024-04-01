@@ -99,79 +99,46 @@
             }
         }
     </style>
-
+    
     <div class="conteudo-dash atuacao">
-        <div class="acessos">
-            <a href="cotacao-lista.aspx" class="btn_card">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Buscar nova cotação
-            </a>
-            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação
-            </a>
-            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
-            </a>
-        </div>
-        <div class="card">
-            <div class="subtitulo_card subtitulo_1">
-                <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Minhas áreas de atuação</h2>
-            </div>
+        
+     <div class="subtitulo_card subtitulo_1" style="position: relative;">
+    <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
+    <h2 class="subtitulo_1">Serviços prestados</h2>
+    <div class="buttons_container">
+        <a href="gerenciar-servicos.aspx" class="btn_card2">Gerenciar serviços prestados</a>
+    </div>
+</div>
+
+
+
 
             <%var areas = BuscaAreas(); %>
+            
             <div class="servicos_atuacao">
                 <div class="servico_item">
-                    <ul>
+                    
                         <%foreach (var item in areas)
                             {%>
-                        <li>
-                            <div>
-                                <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                    <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 20px;
-                                                                                                        float: left;
-                                                                                                        margin-top: 7px;
-                                                                                                        margin-right: 10px;"><%Response.Write(item.Nome); %></p>
-
-                                    
-                                </a>
-                            </div>
-                        </li>
+                            <div class="col-md-6">
+                            <p><%Response.Write(item.Nome); %></p>
+                            <%var servicos = PegaServico(item);%>
+                            <ul class="nested-list">
+                                <%foreach (var j in servicos)
+                                    {%>
+                                    <li><%Response.Write(j.Nome); %></li>
+                                <% } %>
+                            </ul>
+                                </div>
                         <% } %>
-                    </ul>
+                    
                 </div>
             </div>
-                <div class="subtitulo_card subtitulo_1">
-                    <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
-                    <h2 class="subtitulo_1">Serviços Prestados</h2>
-                </div>
-            <!-- Corpo Site -->
-            <%var categorias = BuscaCategoria();%>
-            <div class="servico_item">
-                <ul>
-                    <%  foreach (var item in categorias)
-                        {%>
-                    <li>
-                        <div>
-                            <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCategoria);%>">
-                                <p><img src="../assets/imagens/lixeira.svg" alt="lixeira" style="    width: 20px;
-                                                                                                float: left;
-                                                                                                margin-top: 7px;
-                                                                                                margin-right: 10px;"><%Response.Write(item.Nome); %></p>
-
-                                
-                            </a>
-                        </div>
-                    </li>
-                    <%}
-                    %>
-                </ul>
-            </div>
+               <div class="footer_card">
+    <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a> 
         </div>
 
-
-
-
-        <div class="footer_card">
-            <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+        
             <!--
             <a href="/" class="item_notifica">
                 <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">

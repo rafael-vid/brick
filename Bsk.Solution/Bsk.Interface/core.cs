@@ -12,6 +12,7 @@ using System.Xml;
 using Bsk.BE.Model;
 using Bsk.Util;
 using Bsk.BE.Pag;
+using ZstdSharp.Unsafe;
 
 namespace Bsk.Interface
 {
@@ -551,8 +552,10 @@ namespace Bsk.Interface
             List<ClienteBE> Lista_lg = new List<ClienteBE>();
 
             Lista_lg.Add(lg);
-            return db.Insert(_base.Insert(Lista_lg, null));
+            string sql = _base.Insert(Lista_lg, null);
+            return db.Insert(sql);
         }
+
 
         public void Cliente_Update(ClienteBE lg, string filtro)
         {

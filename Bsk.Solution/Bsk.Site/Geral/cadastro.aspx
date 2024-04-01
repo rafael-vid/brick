@@ -372,7 +372,7 @@
                 </div>
             </div>
         </div>
-        <div class="minhaclasse2">
+        <div class="minhaclasse2"
                     <asp:Label ID="msg" runat="server" Text=""></asp:Label>
         </div>
         <!-- footer -->

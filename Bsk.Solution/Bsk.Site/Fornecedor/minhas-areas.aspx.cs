@@ -4,6 +4,7 @@ using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +20,17 @@ namespace Bsk.Site.Fornecedor
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        public List<ServicoBE> PegaServico(CategoriaBE categoria)
+        {
+            List<ServicoBE> servicos = new List<ServicoBE>();
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdFornecedor={login.IdFornecedor}").FirstOrDefault();
+            if (cat != null)
+            {
+                servicos = _core.Servico_Get(ServicoBE, $"IdServico in ({cat.IdServico}0)");
+            }
+            return servicos;
         }
 
         public List<CategoriaBE> BuscaAreas()

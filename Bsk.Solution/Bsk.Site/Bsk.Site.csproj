@@ -420,6 +420,7 @@
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
     <Content Include="Fornecedor\busca.aspx" />
+    <Content Include="Fornecedor\gerenciar-servicos.aspx" />
     <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
     <Content Include="Fornecedor\notificacoes.aspx" />
@@ -1470,6 +1471,13 @@
     </Compile>
     <Compile Include="Fornecedor\busca.aspx.designer.cs">
       <DependentUpon>busca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\gerenciar-servicos.aspx.cs">
+      <DependentUpon>gerenciar-servicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\gerenciar-servicos.aspx.designer.cs">
+      <DependentUpon>gerenciar-servicos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\notificacao.aspx.cs">
       <DependentUpon>notificacao.aspx</DependentUpon>

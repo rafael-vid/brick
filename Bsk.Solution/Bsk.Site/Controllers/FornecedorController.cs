@@ -10,6 +10,7 @@ namespace Bsk.Site.Controllers
     using Bsk.Interface.Helpers;
     using Bsk.Interface;
     using Bsk.BE;
+    using Bsk.Site.Geral;
 
     public class FornecedorController : Controller
     {
@@ -28,8 +29,8 @@ namespace Bsk.Site.Controllers
                     return this.Json(new { Msg = "Esse cnpj já foi cadastrado" }, JsonRequestBehavior.AllowGet);
                 }
 
-                var fornecEmail = _core.Fornecedor_Get(_FornecedorBE,$"Email='{_fornecedor.Email}'");
-                if (fornecEmail.Count>0)
+                var fornecEmail = _core.Fornecedor_Get(_FornecedorBE, $"Email='{_fornecedor.Email}'");
+                if (fornecEmail.Count > 0)
                 {
                     return this.Json(new { Msg = "Esse email já foi cadastrado" }, JsonRequestBehavior.AllowGet);
                 }
@@ -42,7 +43,42 @@ namespace Bsk.Site.Controllers
 
                 return this.Json(new { Result = "ERRO" }, JsonRequestBehavior.AllowGet);
             }
-            
+
+        }
+        [HttpPost]
+        public JsonResult AdicionarServico(string service)
+        {
+            var servicos = service.Split(',');
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            List<ServicoCategoria> lista = new List<ServicoCategoria>();
+            foreach (var servico in servicos)
+            {
+                if (!string.IsNullOrEmpty(servico))
+                {
+                    lista.Add(new ServicoCategoria()
+                    {
+
+                        IdCategoria = int.Parse(servico.Split(';').LastOrDefault()),
+                        IdServico = int.Parse(servico.Split(';').FirstOrDefault())
+                    });
+                }
+
+            }
+            var categorias = lista.GroupBy(x => x.IdCategoria);
+            _core.ExecFree($"delete from areafornecedor where IdFornecedor = {login.IdFornecedor}");
+            foreach (var categoria in categorias)
+            {
+                var servs = lista.Where(x => x.IdCategoria == categoria.Key).ToList();
+                
+                
+                string idservicos = "";
+                foreach (var item in servs)
+                {
+                    idservicos += item.IdServico + ",";
+                }
+                _core.AreaFornecedor_Insert(new AreaFornecedorBE { IdCategoria = categoria.Key, IdServico = idservicos,IdFornecedor=login.IdFornecedor });
+            }
+            return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
         }
     }
 }
