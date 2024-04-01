@@ -60,7 +60,8 @@ namespace Bsk.Interface
                                 CT.Titulo, 
                                 CT.DataCriacao,
                                 CT.DataAlteracao,
-                                CT.Status, 
+                                CT.Status,
+                                s.nome, 
                                 CT.FinalizaFornecedor,
                                 CT.FinalizaCliente,
                                 CT.IdCotacaoFornecedor,
@@ -76,6 +77,8 @@ namespace Bsk.Interface
                                     END 
                                 as Mensagens
                             FROM cotacao CT
+                                inner join status_cliente s
+		                            on CT.status = s.id
                             where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }

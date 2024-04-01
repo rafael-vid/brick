@@ -22,12 +22,31 @@
                         foreach(var d in dash)
                         {
                             var cot = PegaCotacoes(d.id);
-                            %>
-                                <li>
-                                    <a href="minhas-cotacoes.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
-                                    <p><% Response.Write(d.nome); %> </a> </p>
-                                </li>
-                            <%
+                            if (d.id == 1 || d.id == 2 || d.id == 3)
+                            {
+                                %>
+                                    <li>
+                                        <a href="minhas-cotacoes.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }else if(d.id == 4 || d.id == 5 || d.id == 6)
+                            {
+                                %>
+                                    <li>
+                                        <a href="em-andamento.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }else if(d.id == 7)
+                            {
+                                %>
+                                    <li>
+                                        <a href="finalizadas.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }
                         }
                     %>
                                 

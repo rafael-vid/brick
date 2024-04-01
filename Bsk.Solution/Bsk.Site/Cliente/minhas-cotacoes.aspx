@@ -111,49 +111,14 @@
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>
 
-                            <%  
-                                if (item.Status == "Criação")
-                                {%>
-                            <td class="status">Pendente de envio
+                           
+
+                            <td class="status"><%Response.Write(item.nome); %>
                             </td>
-                            <%}
-                                else if (item.Status == "Aberto")
-                                {%>
-                            <td class="status">Em cotação 
-                            </td>
-                            <% }
-                                else if (item.Status == "Em andamento")
-                                {%>
-                            <td class="status">Em andamento
-                            </td>
-                            <%}
-                                else if (item.Status == "Aguardando pagamento")
-                                {%>
-                            <td class="status">Aguardando pagamento
-                            </td>
-                            <%}
-                                else if (item.Status == "Finalizado")
-                                {%>
-                            <td class="status fechado">Finalizado
-                            </td>
-                            <% }
-                                else if (item.Status == "Pendente de aceite do cliente")
-                                {%>
-                            <td class="status">Aguardando aceite
-                            </td>
-                            <% }
-                                else if (item.Status == "Aguardando liberação do pagamento")
-                                {%>
-                            <td class="status">Aguardando liberação do pagamento
-                            </td>
-                            <% }
-                                else if (item.Status == "Avaliado")
-                                {%>
-                            <td class="status">Avaliado
-                            </td>
+                           
                         </tr>
                         <%  }
-                            }
+                            
                         %>
                     </tbody>
                 </table>
