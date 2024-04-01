@@ -17,5 +17,6 @@ namespace Bsk.BE.Model
         public int FinalizaFornecedor { get; set; }
         public int FinalizaCliente { get; set; }    
         public int IdCotacaoFornecedor { get; set; }
+        public int EnviarProposta { get; set; }
     }
 }

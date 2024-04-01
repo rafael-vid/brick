@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
 
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,8 +15,11 @@
     <title>BRIKK - LOGIN</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/tabsmenu.css">
-
-    <style>
+    <!--
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    -->
+        <style>
         .tab-content.ativo  {
             display: flex;
             flex-direction: column;
@@ -36,12 +41,32 @@
         .tab-content   .acessos {
             display: flex;
             justify-content: space-between;
+            font-size: 12px;
+        }
+        .tab.ativo {
+            box-shadow: none !important;
+            transition: ease .5s;
+            z-index: 99;
+        }
+        .tab-content.ativo {
+            display: block;
+            padding: 31px 46px 77px 48px;
+            box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
+            border-radius: 0px 50px 50px 50px;
+            background-color: #f4f3f2;
+        }
+        .filtro {
+            height: 93px;
+            background: url(../imagens/fundo.png) ;
+            background-size: auto !important;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <!-- header -->
         <header>
 
@@ -67,11 +92,11 @@
             </div>
 
             <div class="filtro">
-                <div class="container">
-                    <input type="text" placeholder="Qual serviço você precisa?      ">
-                    <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
-                </div>
-            </div>
+    <div class="container" style="display:none">
+        <input type="text" id="catSelBusca" placeholder="Qual serviço você precisa?      ">
+        <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;" onclick="buscaCats();">
+    </div>
+</div>
         </header>
         <main class="loginCadastro">
             <div class="tabs-menu container">
@@ -82,7 +107,7 @@
                     </a>
                     <a href="#" class="tab">
                         <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Paceiro</span>
+                        <span>Sou Parceiro</span>
                     </a>
                 </nav>
 
@@ -92,12 +117,15 @@
                     <form>
                         <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
                         <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
+                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
+
                     </form>
 
                     <div class="acessos">
                         <div>
-                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
                             <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
+                            
                         </div>
                         <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
                     </div>
@@ -107,22 +135,28 @@
                 <div class="tab-content ">
                     <h2>Para parceiros</h2>
 
+                    <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
+                            <ContentTemplate>
                     <div>
                         <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
                         <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
+                        <asp:Label ID="lblMsgParceiro" runat="server"></asp:Label>
                     </div>
 
                     <div class="acessos">
                         <div>
-                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
                             <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
+                            
                         </div> 
                         <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
                     </div>
+                            </ContentTemplate>
+                    </asp:UpdatePanel>
 
 
                 </div>
-
+       
             </div>
 
         </main>
@@ -142,12 +176,7 @@
             </div>
         </footer>
 
-        <style>
-            .tab.ativo {
-                box-shadow:  3px 6px 10px rgba(119, 14, 24, 0.5);
-                transition:ease .5s
-            }
-        </style>
+
 
         
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -199,5 +228,24 @@
             
         </script>
     </form>
+    <script>
+        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
+            }
+        });
+    });
+
+    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
+            }
+        });
+    });
+</script>
 </body>
 </html>

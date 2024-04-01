@@ -23,13 +23,13 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1">Pendente de envio</option>
-                        <option value="2">Em andamento</option>
-                        <option value="3">Aguardando pagamento</option>
-                        <option value="4">Em cotação</option>
-                        <option value="5">Aguardando liberação do pagamento</option>
-                        <option value="6">Aguardando aceite</option>
-                        <option value="7">Finalizado</option>
+                        <option value="1" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "0") { Response.Write("selected"); }  %> >Pendente de envio</option>
+                        <option value="2" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Em andamento</option>
+                        <option value="3" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Aguardando pagamento</option>
+                        <option value="4" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Em cotação</option>
+                        <option value="5" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Aguardando liberação do pagamento</option>
+                        <option value="6" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Aguardando aceite</option>
+                        <option value="7" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
                     </select>
                 </div>
 
@@ -48,14 +48,13 @@
             </div>--%>
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
                             <th>Data da Criação</th>
                             <th>Título</th>
                             <th>Data Atualizada</th>
-                            <th>Mensagem</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
                     </thead>
@@ -86,7 +85,7 @@
                                 {
                                     link = "avaliar.aspx?Id=" + item.IdCotacao;
                                 }
-                                else if (item.Status == "Pendente de aceite do cliente")
+                                else if (item.Status == "Aguardando aceite")
                                 {
                                     link = "negociar-cotacao.aspx?Id=" + item.IdCotacaoFornecedor;
                                 }
@@ -99,12 +98,13 @@
                                     link = "avaliar.aspx?Id=" + item.IdCotacao;
                                 }
                         %>
-                        <tr onclick="redirecionar('<%Response.Write(link);%>');">
+
+                        <tr class="cursor" onclick="redirecionar('<%Response.Write(link);%>');">
                             <td><%Response.Write(item.IdCotacao); %></td>
                             <td><%Response.Write(item.DataCriacao); %></td>
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>
-                            <td><%Response.Write(item.Mensagens); %></td>
+
                             <%  
                                 if (item.Status == "Criação")
                                 {%>
@@ -113,12 +113,12 @@
                             <%}
                                 else if (item.Status == "Aberto")
                                 {%>
-                            <td class="status">Em cotação
+                            <td class="status">Em cotação 
                             </td>
                             <% }
                                 else if (item.Status == "Em andamento")
                                 {%>
-                            <td>Em andamento
+                            <td class="status">Em andamento
                             </td>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")
@@ -140,13 +140,14 @@
                                 {%>
                             <td class="status">Aguardando liberação do pagamento
                             </td>
-                            <% }else if (item.Status == "Avaliado")
+                            <% }
+                                else if (item.Status == "Avaliado")
                                 {%>
                             <td class="status">Avaliado
                             </td>
-                            <% }%>
                         </tr>
                         <%  }
+                            }
                         %>
                     </tbody>
                 </table>
@@ -156,10 +157,12 @@
 
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
@@ -169,6 +172,10 @@
         a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
+        }
+
+        div#tabela_paginate > span {
+            display: flex
         }
     </style>
 

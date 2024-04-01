@@ -86,7 +86,7 @@ namespace Bsk.Site.Controllers
                 Uf = uf,
                 WhatsApp = whatsapp,
                 Fantasia = fantasia,
-                SobreNome = sobrenome,
+                Sobrenome = sobrenome,
                 NomeResponsavel = nomeResponsavel,
                 CpfResponsavel = CpfResponsavel
 
@@ -104,6 +104,20 @@ namespace Bsk.Site.Controllers
             var cf = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
             cf.Ativo = 0;
             _core.CotacaoFornecedor_Update(cf, "IdCotacaoFornecedor=" + id);
+
+            var cotacao = _core.Cotacao_Get(new CotacaoBE(), $" IdCotacao={cf.IdCotacao}").FirstOrDefault();
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Fornecedor desistiu da cotação";
+            notif.mensagem = "O fornecedor desistiu da contação";
+            notif.data = DateTime.Now;
+            notif.link = $"negociar-cotacao.aspx?Id={id}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao.IdCliente;
+
+            _core.NotificacaoInsert(notif);
+
         }
 
         [HttpPost]
@@ -165,6 +179,23 @@ namespace Bsk.Site.Controllers
                 email = fornecedor.Email;
             }
             emailTemplate.enviaEmail(html, titulo, email);
+
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Cotação Aceita";
+            notif.mensagem = "A cotação foi aceita pelo cliente";
+            notif.data = DateTime.Now;
+            notif.link = $"negociar-cotacao.aspx?Id={cotacao.IdCotacao}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao.IdCliente;
+            
+
+            _core.NotificacaoInsert(notif);
+
+
+
+
             return "Ok";
         }
 
@@ -440,19 +471,35 @@ namespace Bsk.Site.Controllers
 
             try
             {
-                cotacaoFornecedor.Valor = double.Parse(valor);
+                valor = valor.Replace(".", "");
+                cotacaoFornecedor.Valor = float.Parse(valor);
             }
             catch (Exception)
             {
                 cotacaoFornecedor.Valor = 0;
             }
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
+            CotacaoBE _CotacaoBE = new CotacaoBE();
+            var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Valor e data de término";
+            notif.mensagem = "O fornecedor alterou o valor e data de termino";
+            notif.data = DateTime.Now;
+            notif.link = $"cotacao-lista.aspx?Id={cotacao2.IdCotacao}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao2.IdCliente;
+
+            _core.NotificacaoInsert(notif);
+
+
 
             if (!String.IsNullOrEmpty(cotacaoFornecedor.DataEntrega) && cotacaoFornecedor.Valor != 0)
             {
                 if (cotacaoFornecedorBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != cotacaoFornecedorBE.DataEntrega)
                 {
-                    CotacaoBE _CotacaoBE = new CotacaoBE();
+                    _CotacaoBE = new CotacaoBE();
                     ClienteBE _ClienteBE = new ClienteBE();
                     var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
                     var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
@@ -464,9 +511,18 @@ namespace Bsk.Site.Controllers
                     var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
                     emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
 
+
+                    
+
                 }
 
             }
+        }
+
+        [HttpPost]
+        public void AtualizaEnviarProposta(int idCotacao)
+        {
+            _core.AtualizaEnviaPropostaCotacao(idCotacao);
         }
 
         [HttpGet]

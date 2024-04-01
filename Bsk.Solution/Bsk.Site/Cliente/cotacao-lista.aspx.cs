@@ -18,6 +18,7 @@ namespace Bsk.Site.Cliente
             Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             titulo.InnerText = cotacao.Titulo;
+            descricao.Text = cotacao.Descricao;
             var lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
             if (cotacao.IdCotacaoFornecedor != 0)
             {
@@ -33,17 +34,34 @@ namespace Bsk.Site.Cliente
             else
             {
                 double valor = 0;
+                double valorMax=0;
+                double valorMin = 0;
                 foreach (var item in lista)
                 {
                     valor += item.Valor;
+                    if(item.Valor > valorMax)
+                    {
+                        valorMax = item.Valor;
+                    }
+                    if (valorMin == 0)
+                    {
+                        valorMin = item.Valor;
+                        if (item.Valor < valorMin)
+                        {
+                            valorMin = item.Valor;
+                        }
+                    }
+
                 }
                 valor = valor / lista.Count;
                 valorMedioCotacoes.InnerText = string.Format("{0:C}", valor);
+                valorMaximoCotacoes.InnerText = string.Format("{0:C}", valorMax);
+                valorMinimoCotacoes.InnerText = string.Format("{0:C}", valorMin);
             }
 
             if (valorMedioCotacoes.InnerText.ToLower() == "nan")
             {
-                valorMedioCotacoes.InnerText = "0";
+                valorMedioCotacoes.InnerText = "R$ 0,00";
             }
 
         }

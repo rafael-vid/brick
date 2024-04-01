@@ -15,6 +15,15 @@ namespace Bsk.Site.Fornecedor
     {
 
         /// <summary>
+        /// hdLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdLink;
+
+        /// <summary>
         /// nrCotacao control.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,13 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClienteServ;
 
         /// <summary>
-        /// titulo control.
+        /// titulofornecedor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label titulo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText titulofornecedor;
 
         /// <summary>
         /// descricao control.
@@ -87,6 +96,24 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminar;
 
         /// <summary>
+        /// scr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scr;
+
+        /// <summary>
+        /// upp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upp;
+
+        /// <summary>
         /// comentarios control.
         /// </summary>
         /// <remarks>
@@ -105,6 +132,24 @@ namespace Bsk.Site.Fornecedor
         protected global::System.Web.UI.HtmlControls.HtmlTextArea msg;
 
         /// <summary>
+        /// flpArquivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
+
+        /// <summary>
+        /// flpVideo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
+
+        /// <summary>
         /// btnEnviar control.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,42 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
+
+        /// <summary>
+        /// flpAnexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload flpAnexo;
+
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// divUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+
+        /// <summary>
+        /// btnEnviarAnexoFornecedor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviarAnexoFornecedor;
 
         /// <summary>
         /// divDadosCobranca control.
@@ -139,32 +220,5 @@ namespace Bsk.Site.Fornecedor
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText valorServico;
-
-        /// <summary>
-        /// flpArquivo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpArquivo;
-
-        /// <summary>
-        /// flpVideo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload flpVideo;
-
-        /// <summary>
-        /// divUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
     }
 }

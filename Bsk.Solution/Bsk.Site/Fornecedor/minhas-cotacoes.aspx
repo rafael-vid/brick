@@ -12,13 +12,13 @@
             </a>
             <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
             </a>
-            <div class="total_a_receber">
+            <div class="total_a_receber total_a_receber-new">
                 <span>Total a receber</span>
                 <p>
                     <span id="totalReceber" runat="server"></span>
                 </p>
-                <div class="eleva_sifra">
-                    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="eleva_sifra eleva_sifra-new">
+                    <svg width="16" height="24" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M2.32003 19.05C3.39875 19.8816 4.66035 20.4439 6.00003 20.69V21.8C6.00266 22.1324 6.13657 22.4503 6.37258 22.6844C6.60859 22.9186 6.92759 23.05 7.26004 23.05H8.82003C8.98502 23.0513 9.14863 23.0199 9.30145 22.9577C9.45426 22.8955 9.59325 22.8036 9.71038 22.6874C9.82752 22.5712 9.92047 22.4329 9.98391 22.2806C10.0474 22.1283 10.08 21.9649 10.08 21.8V20.69C11.1751 20.5061 12.2224 20.1049 13.16 19.51C13.9004 19.0616 14.5118 18.4287 14.9342 17.6732C15.3567 16.9177 15.5758 16.0655 15.57 15.1999C15.6258 14.1098 15.2688 13.0386 14.57 12.1999C13.3873 10.9185 11.7828 10.1057 10.05 9.90995V8.03996C10.1898 8.13104 10.3235 8.23125 10.45 8.33995C10.7268 8.58046 11.0835 8.70886 11.45 8.69995C11.6973 8.6867 11.9392 8.622 12.16 8.50996H12.21L13.96 7.40995C14.128 7.32534 14.2687 7.19508 14.366 7.03411C14.4633 6.87315 14.5132 6.688 14.51 6.49995C14.5157 6.35127 14.4881 6.20321 14.4293 6.06654C14.3705 5.92987 14.2819 5.80805 14.17 5.70996C13.0984 4.49587 11.6581 3.66682 10.07 3.34995V2.03996C10.0714 1.87412 10.0397 1.70966 9.97683 1.55619C9.91398 1.40272 9.82121 1.26329 9.70394 1.14602C9.58668 1.02875 9.44726 0.935997 9.29379 0.873148C9.14032 0.810299 8.97586 0.778615 8.81002 0.779948H7.25003C6.91585 0.779948 6.59536 0.912701 6.35906 1.149C6.12277 1.38529 5.99002 1.70578 5.99002 2.03996V3.29995C5.32019 3.41035 4.66789 3.60873 4.05001 3.88995C1.80001 4.88995 0.680026 6.47995 0.720026 8.54995C0.727931 9.52861 1.0505 10.4788 1.64004 11.26C2.72883 12.5981 4.28926 13.4678 6.00003 13.69V16.3899C5.33113 16.0325 4.72895 15.5623 4.22003 14.9999C4.10419 14.8448 3.95309 14.7194 3.7792 14.6342C3.60531 14.549 3.41363 14.5064 3.22003 14.51C3.00158 14.5286 2.78822 14.5862 2.59002 14.68V14.68L1.00003 15.6099C0.814799 15.7017 0.659817 15.8448 0.553461 16.022C0.447106 16.1993 0.393838 16.4033 0.400019 16.6099C0.406865 16.8674 0.502238 17.1146 0.670038 17.3099C1.13357 17.9662 1.68928 18.5523 2.32003 19.05V19.05ZM1.32003 16.35L2.89004 15.43C2.98284 15.3863 3.08005 15.3528 3.18002 15.33C3.2503 15.3274 3.32009 15.3426 3.38299 15.374C3.44589 15.4055 3.49989 15.4522 3.54003 15.51C4.26398 16.3372 5.18116 16.9727 6.21002 17.3599C6.26658 17.3915 6.33026 17.408 6.39501 17.408C6.45977 17.408 6.52345 17.3915 6.58001 17.3599C6.63291 17.3228 6.67602 17.2733 6.70562 17.2159C6.73523 17.1584 6.75047 17.0946 6.75003 17.0299V13.3599C6.7487 13.2626 6.71275 13.1689 6.64862 13.0956C6.58449 13.0223 6.49636 12.9742 6.40002 12.96C4.78022 12.8235 3.28063 12.0504 2.23004 10.8099C1.74067 10.166 1.47709 9.37875 1.48004 8.56996C1.48004 6.82996 2.38001 5.56995 4.33001 4.66995C4.98844 4.37782 5.68566 4.18246 6.40002 4.08995C6.49806 4.07545 6.58754 4.02593 6.65188 3.95056C6.71623 3.87518 6.75109 3.77906 6.75003 3.67996V2.07995C6.75 1.96232 6.79602 1.84935 6.87826 1.76524C6.9605 1.68113 7.07242 1.63257 7.19003 1.62995H8.75002C8.86937 1.62995 8.98384 1.67737 9.06823 1.76176C9.15262 1.84615 9.20004 1.9606 9.20004 2.07995V3.68995C9.19857 3.78495 9.23097 3.87737 9.29144 3.95066C9.3519 4.02395 9.43647 4.07333 9.53002 4.08995C11.0793 4.32052 12.4966 5.09296 13.53 6.26995V6.26995C13.5595 6.29012 13.5839 6.31689 13.6013 6.34814C13.6186 6.37938 13.6285 6.41424 13.63 6.44995C13.63 6.44995 13.63 6.57995 13.45 6.68995L11.72 7.77995C11.6153 7.82874 11.5042 7.86241 11.39 7.87995V7.87995C11.2192 7.88492 11.0523 7.82811 10.92 7.71995C10.5746 7.41348 10.1874 7.1576 9.77001 6.95996C9.71012 6.92757 9.64313 6.91061 9.57504 6.91061C9.50695 6.91061 9.43992 6.92757 9.38003 6.95996C9.32187 6.99802 9.27406 7.04992 9.2409 7.111C9.20774 7.17209 9.19026 7.24044 9.19003 7.30995V10.24C9.18896 10.3391 9.22383 10.4352 9.28817 10.5106C9.35252 10.5859 9.44199 10.6355 9.54003 10.65C11.1969 10.7675 12.7493 11.5026 13.89 12.71C14.4463 13.3858 14.7282 14.246 14.68 15.1199C14.6846 15.8526 14.4979 16.5738 14.1384 17.2122C13.7788 17.8506 13.2589 18.3841 12.63 18.76C11.6925 19.3585 10.6336 19.7411 9.53002 19.88C9.4329 19.8946 9.34456 19.9445 9.28185 20.0201C9.21915 20.0957 9.18647 20.1918 9.19003 20.29V21.74C9.18741 21.8576 9.13885 21.9695 9.05474 22.0517C8.97063 22.1339 8.85765 22.18 8.74002 22.18H7.18002C7.06332 22.18 6.95141 22.1336 6.86889 22.0511C6.78638 21.9686 6.74002 21.8566 6.74002 21.74V20.29C6.73908 20.194 6.70457 20.1015 6.64245 20.0284C6.58033 19.9553 6.49453 19.9063 6.40002 19.8899C5.08305 19.683 3.8387 19.1502 2.78002 18.3399C2.17612 17.8966 1.64334 17.3639 1.20004 16.76V16.76C1.14929 16.7097 1.12051 16.6414 1.12002 16.57C1.12002 16.57 1.12003 16.46 1.32003 16.35V16.35Z"
                             fill="#770e18" />
@@ -43,20 +43,22 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1">Recusado</option>
-                        <option value="2">Aberto</option>
-                        <option value="3">Aguardando pagamento</option>
-                        <option value="4">Em andamento</option>
-                        <option value="5">Pendente de finalização do cliente</option>
-                        <option value="6">Finalizado</option>
+                        <option value="1" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Recusado</option>
+                        <option value="2" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Em cotação</option>
+                        <option value="3" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Aguardando pagamento</option>
+                        <!--
+                        <option value="4" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Em andamento</option>
+                        <option value="5" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Pendente de finalização do cliente</option>-->
+                        
+                        <option value="6" <% if(Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
                     </select>
                 </div>
             </div>
 
-            
+            <onload >
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
@@ -99,7 +101,7 @@
                                 link = "avaliar.aspx?Id=" + item.CotacaoFornecedorId;
                             }
                     %>
-                    <tr onclick="redirecionar('<%Response.Write(link); %>')">
+                    <tr class="cursor" onclick="redirecionar('<%Response.Write(link); %>')">
                         <td><%Response.Write(item.CotacaoId); %><span style="color: red;"><%Response.Write(item.Mensagens); %></span></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Nome); %></td>
@@ -177,12 +179,14 @@
          
 
             <div class="footer_card">
-                <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar
+                <a href="dashboard.aspx" class="voltar btn"><< voltar
                 </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
@@ -193,6 +197,20 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+                div#tabela_paginate > span {
+            display: flex
+        }
+
+        .total_a_receber-new {
+    width: 185px;
+    padding-top: 10px;
+}
+
+        .eleva_sifra-new {
+    top: 4px;
+    left: 5px;
+}
     </style>
 
     <script>
@@ -208,7 +226,7 @@
             } else if ($("#slcStatus").val() == "1") {
                 table.search("Recusado").draw();
             } else if ($("#slcStatus").val() == "2") {
-                table.search("Aberto").draw();
+                table.search("Em cotação").draw();
             } else if ($("#slcStatus").val() == "3") {
                 table.search("Aguardando pagamento").draw();
             } else if ($("#slcStatus").val() == "4") {
@@ -220,5 +238,6 @@
             }
         }
     </script>
+    <body onload="filtraTabela()">
 </asp:Content>
 

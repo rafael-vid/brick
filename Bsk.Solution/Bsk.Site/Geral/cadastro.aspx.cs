@@ -25,7 +25,7 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadstro efetuado com sucesso!";
+                    msg.Text = "Cadastro efetuado com sucesso!";
                 }
             }
         }
@@ -75,13 +75,13 @@ namespace Bsk.Site.Geral
                 Numero = numero.Value,
                 Senha = senha.Value,
                 Situacao = situacao.Value,
-                SobreNome = sobrenome.Value,
+                Sobrenome = sobrenome.Value,
                 Status = "",
                 Telefone = telefone.Value,
                 Uf = estado.Value,
                 ZoopID = "",
                 WhatsApp = telefone.Value,
-                DataAbertura = dt,
+                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
                 RazaoSocial = razao.Value
 
@@ -100,10 +100,10 @@ namespace Bsk.Site.Geral
 
         private void salvaFisicaFornecedor()
         {
-            DateTime dt = DateTime.MinValue;
-            if (String.IsNullOrEmpty(abertura.Value))
+            DateTime dt = DateTime.Now;
+            if (!String.IsNullOrEmpty(abertura.Value))
             {
-                dt = DateTime.Parse(abertura.Value);
+                dt = Convert.ToDateTime(abertura.Value);
             }
             _FornecedorBE = new FornecedorBE()
             {
@@ -195,7 +195,7 @@ namespace Bsk.Site.Geral
         private void salvaJuridicaCliente()
         {
             DateTime dt = DateTime.MinValue;
-            if (String.IsNullOrEmpty(abertura.Value))
+            if (!String.IsNullOrEmpty(abertura.Value))
             {
                 dt = DateTime.Parse(abertura.Value);
             }
@@ -217,13 +217,13 @@ namespace Bsk.Site.Geral
                 Numero = numeroJuridica.Value,
                 Senha = senhaJuridica.Value,
                 Situacao = situacao.Value,
-                SobreNome = sobrenomeJuridica.Value,
+                Sobrenome = sobrenomeJuridica.Value,
                 Status = "",
                 Telefone = telefoneJuridica.Value,
                 Uf = estadoJuridica.Value,
                 ZoopID = "",
                 WhatsApp = telefoneJuridica.Value,
-                DataAbertura = dt,
+                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
                 RazaoSocial = razao.Value
 

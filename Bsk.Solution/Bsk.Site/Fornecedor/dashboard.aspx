@@ -10,12 +10,54 @@
           <h2 class="subtitulo_1">Cotação</h2>
         </div>
         <div class="item_card">
-          <div class="subtitulo_card">
-            <h3>Status</h3>
-            <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
+          <div class="subtitulo_1">
+            <h2>Status</h2>
+            <!--  
+              <img src="../assets/imagens/sino.svg" alt="notificação" style="width: 43px;">
             <span class="notificacao">02</span>
+          -->
+
+                                  <% 
+                                      var cotacoes = PegaCotacoes();
+                                      var cotacoesemandamento = PegaCotacoesEmAndamento();
+                    %>
+
+
           </div>
           <ul class="card_lista">
+
+
+
+                    <li>
+                        <a href="minhas-cotacoes.aspx?status=2"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
+                        <p>Em cotação</a></p>
+                    </li>
+                    
+                    <li>
+                        <a href="minhas-cotacoes.aspx?status=3"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p>Aguardando pagamento</a></p>
+                    </li>
+
+                    <li>
+                        <a href="em-andamento.aspx"><span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
+                        <p>Em andamento</a></p>
+                    </li>
+                    
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
+                    </li>   
+                   
+                    <li>
+                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
+                        <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
+                    </li>  
+                        
+                    <li>
+                        <a href="minhas-cotacoes.aspx?status=6"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
+                        <p>Finalizado</a></p>
+                    </li>   
+              <!--
             <li>
               <span class="numero_card">10</span>
               <p>Solicitadas</p>
@@ -24,18 +66,20 @@
               <span class="numero_card">02</span>
               <p>Em Negociação</p>
             </li>
+
             <li>
               <span class="numero_card">05</span>
               <p>Fechadas</p>
             </li>
+             
             <li>
               <span class="numero_card">10%</span>
               <p style="display: flex; gap: 3px;">Economia Média <img src="../assets/imagens/i.svg" alt="ícone"
                   style="width: 15px;"></p>
-            </li>
+            </li> -->
           </ul>
         </div>
-
+          <!--
         <div class="item_card">
           <div class="subtitulo_card">
             <h3>Áreas de Atuação</h3>
@@ -103,12 +147,7 @@
           <a href="#" class="vertodos">ver todos</a>
         </div>
 
-        <div class="item_card">
-          <button class="btn_card">
-            <img src="../assets/imagens/lupa.png" alt="botão" style="width: 15px;">
-            Realizar nova cotação
-          </button>
-        </div>
+
       </div>
 
       <div class="card">
@@ -268,12 +307,19 @@
           </a>
         </div>
       </div>
+     -->
     </div>
 
     <style>
         a.dash{
             background: #f4f3f2;
             color: #770e18 !important;
+        }
+        .card_lista li p {
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 15px;
+            color: #3c3c3b;
+            margin: 0 !important;
         }
     </style>
 </asp:Content>

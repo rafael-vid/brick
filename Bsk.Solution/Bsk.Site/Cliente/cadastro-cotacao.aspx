@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash  cli-cotacao">
         <div class="acessos">
@@ -25,18 +26,27 @@
             <input type="hidden" id="hdLink" clientidmode="static" runat="server" value="" />
 
             <div class="item_content_card card-line">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+
                 <div class="area_comentario">
                     <div class="comentarios_area">
-                        <textarea name="comentario" placeholder="Digite aqui seu depoimento" cols="30"
-                            rows="10" id="descricao" runat="server"></textarea>
+                        <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                        <asp:TextBox ID="descricao" runat="server" placeholder="Digite aqui seu depoimento" TextMode="MultiLine" ></asp:TextBox>
+               
+
+
+
+
+
+
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
-                    Salvar dados da cotação
-                </button>
+                            Salvar dados da cotação
+                       
+                        </button>
                     </div>
                     <div>
-                        <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" />
-                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" />
+
+                        <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()"  />
+                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()" />
                         <div class="item_content_card card-content-desc" style="margin-top: 0 !important;" id="divUpload" runat="server">
                             <div class="subtitulo-com-icone">
                                 <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
@@ -53,100 +63,118 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();">Enviar Cotação</a>
-            </div>
+                        <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexo" ClientIDMode="Static" onserverclick="btnSalvar_ServerClick" runat="server" style="display:none">
+                            Enviar anexo
+                       
+                        </button>
 
-            <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
-                <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
-                <span>Arquivos anexos</span>
-            </a>
+                        <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
+                            <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
+                            <span>Arquivos anexos</span>
+                        </a>
 
-            <div class="filtros_card cota-info" style="margin-top: 40px;">
-                <div class="resultado">
-                    <span class="numero_card">04</span>
+                        <div class="filtros_card cota-info" style="margin-top: 40px;">
+                            <div class="resultado">
+                                <span class="numero_card">04</span>
 
-                    <p class="texto-resultado">
-                        Resultado por página
-                    </p>
-                </div>
+                                <p class="texto-resultado">
+                                    Resultado por página
+                   
+                                </p>
+                            </div>
 
-                <div class="pesquisar">
-                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                </div>
-            </div>
+                            <div class="pesquisar">
+                                <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
+                                <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                            </div>
+                        </div>
 
-            <div class="card-tabela " style="overflow-x: auto;">
-                <table>
-                    <thead id="cabecalho-tabela">
-                        <tr>
-                            <th>Tipo de documento </th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
+                        <div class="card-tabela " style="overflow-x: auto;">
+                            <table>
+                                <thead id="cabecalho-tabela">
+                                    <tr>
+                                        <th>Tipo de documento </th>
+                                        <th style="text-align: right">Ação</th>
+                                    </tr>
+                                </thead>
 
-                    <tbody>
-                        <%var anexos = PegaAnexo();
-                            foreach (var item in anexos)
-                            {%>
-                        <tr>
-                            <td><%Response.Write(item.Anexo); %></td>
-                            <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
-                                <%if (item.Tipo == "Anexo")
-                                    {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
-                                    Visualizar</a>
-                                <% }
-                                    else
-                                    {%>
-                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
-                                <% } %>
+                                <tbody>
+                                    <%var anexos = PegaAnexo();
+                                        foreach (var item in anexos)
+                                        {%>
+                                    <tr>
+                                        <td><%Response.Write(item.Anexo); %></td>
+                                        <td style="text-align: right">
+                                            <a class="bt n btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                               
+                                            <%if (item.Tipo == "Anexo")
+                                                {%>
+                                            <a class="b tn btn-bri kk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                            <% }
+                                                else
+                                                {%>
+                                            <a class="bt n btn-br ikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                            <% } %>
                             </td>
-                        </tr>
-                        <%}
+                                    </tr>
+                                    <%}
                         %>
-                    </tbody>
-                </table>
-            </div>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="paginas_card">
+                            <p>
+                                Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
+               
+                            </p>
 
-            <div class="paginas_card">
-                <p>
-                    Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
-                </p>
+                            <div class="paginas">
+                                <button class="anterior">
+                                    &lt;&lt; anterior</button>
+                                <span class="numero_card">10</span>
+                                <button class="proximo">próximo &gt;&gt;</button>
+                            </div>
+                        </div>
 
-                <div class="paginas">
-                    <button class="anterior">
-                        &lt;&lt; anterior</button>
-                    <span class="numero_card">10</span>
-                    <button class="proximo">próximo &gt;&gt;</button>
+                    </div>
+
+
                 </div>
+
+
+               
             </div>
+
+
+
 
             <div class="footer_card">
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
+
+                 <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();" style="    position: absolute;  right: 83px;  margin-top: -1px;">Enviar Cotação</a>
             </div>
 
         </div>
     </div>
 
     <style>
-        .btn.enviar-cotacao{
+        .btn.enviar-cotacao {
             border-radius: 30px;
-            margin-bottom:30px;
+            margin-bottom: 30px;
             justify-content: flex-end
         }
-        .btn.enviar-cotacao:hover{
-            color:#fff;
-        }
-        a.cotacao{
+
+            .btn.enviar-cotacao:hover {
+                color: #fff;
+            }
+
+        a.cotacao {
             background: #f4f3f2;
             color: #770e18 !important;
         }

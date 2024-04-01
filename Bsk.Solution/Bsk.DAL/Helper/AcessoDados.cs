@@ -55,7 +55,7 @@ namespace Bsk.DAL.Helper
                 DataTable dt = new DataTable();
                 try
                 {
-                    conexaoMySQL.Open();
+                     conexaoMySQL.Open();
 
                     MySqlCommand cmd = new MySqlCommand(mSQL, conexaoMySQL);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);

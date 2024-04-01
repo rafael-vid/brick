@@ -41,22 +41,23 @@ textarea {
   display: none;
 }
 .open-menu {
-  position: absolute;
-  width: 40px;
-  top: 50px;
-  background: transparent;
-  font-size: 25px;
-  outline: none;
-  cursor: pointer !important;
-  z-index: 99;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  height: 40px;
-  color: #9a9a99;
-  border: 1px solid #9a9a9a;
-  right: -40px;
-  transition: 0.3s ease;
-  opacity: 0.4;
+    position: absolute;
+    width: 40px;
+    top: 50px;
+    background: #770e18;
+    font-size: 25px;
+    outline: none;
+    cursor: pointer !important;
+    z-index: 99;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 40px;
+    color: #770e18;
+    right: -40px;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .open-menu:hover {
   color: #770e18;
@@ -102,7 +103,7 @@ nav.menu-dashboard {
   font-family: Rajdhani, sans-serif;
 }
 .conteudo-dash {
-  min-height: 100vh;
+  min-height: 62.5vh;
   padding: 30px 35px 40px 35px;
   animation: show 0.5s forwards;
 }
@@ -164,7 +165,7 @@ nav.menu-dashboard {
   flex-direction: column;
 }
 .subtitulo_card h3 {
-  background: #770e18;
+  background: #f08f00;
   color: #fff;
   font-family: Rajdhani-semi, sans-serif;
   font-size: 20px;
@@ -184,13 +185,14 @@ nav.menu-dashboard {
   font-weight: bold;
 }
 .card_lista {
-  padding-left: 14px;
+  padding-left: 1px;
   margin: 13px 0 22px 0;
 }
 .card_lista li p {
   font-family: Rajdhani-semi, sans-serif;
   font-size: 15px;
   color: #3c3c3b;
+  margin: 0 !important;
 }
 .card_lista li {
   display: grid;
@@ -353,12 +355,15 @@ nav.menu-dashboard {
 .acessos .btn_card {
   width: 100%;
 }
+
 .total_a_receber {
-  background: #770e18;
-  border-radius: 30px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  position: relative;
+    background: #770e18;
+    border-radius: 30px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    width: 185px;
+    padding-top: 10px;
 }
 .total_a_receber span {
   color: #f08f00;
@@ -371,14 +376,15 @@ nav.menu-dashboard {
   padding-bottom: 5px;
 }
 .eleva_sifra {
-  position: absolute;
-  top: -15px;
-  background: #f08f00;
-  border-radius: 50%;
-  padding: 5px 13px;
-  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
-  left: 0;
+    position: absolute;
+    top: 2px;
+    background: #f08f00;
+    border-radius: 50%;
+    padding: 5px 13px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+    left: 5px;
 }
+
 .filtros_card {
   display: flex;
   margin-top: 46px;
@@ -481,7 +487,7 @@ nav.menu-dashboard {
   font-family: Rajdhani-semi, sans-serif;
 }
 .card-tabela table tr:nth-child(even) {
-  background: #fff !important;
+  background: #fff;
 }
 .card-tabela table tbody {
  /* border: #770e18 solid 1px !important;*/
@@ -610,14 +616,18 @@ nav.menu-dashboard {
   font-size: 16px;
   border-bottom: 1px solid #770e18;
 }
+.item_content_card .card_erro {
+    font-size: 16px;
+    color: darkorange;
+}
 .area_comentario {
   display: grid;
-  grid-template-columns: 50% 1fr;
+  grid-template-columns: 35% 1fr;
   grid-gap: 50px;
   margin-top: 15px;
 }
 .item_content_card {
-  margin-top: 30px;
+
 }
 .item_content_card > p {
   color: #3c3c3b;
@@ -625,7 +635,7 @@ nav.menu-dashboard {
 }
 .comentarios_area textarea {
   width: 100%;
-  height: 270px;
+  height: 410px;
   border-radius: 15px;
   resize: none;
   outline: none;
@@ -872,7 +882,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
   .conteudo-dash {
-    min-height: 100vh;
+    min-height: 57.5vh;
     width: 70vw;
   }
   .app.mini-menu .conteudo-dash {
@@ -1359,6 +1369,7 @@ label.subtitulo_card_1.subtitulo_1 {
   justify-content: flex-start !important;
   flex-direction: column;
   padding-bottom: 10px;
+  border-radius: 0 0 20px 20px;
   animation: show 0.6s forwards;
 }
 [data-dropdow-perfil] .dropdown-perfil {
@@ -1413,4 +1424,25 @@ label.subtitulo_card_1.subtitulo_1 {
   .cli-cotacao .acessos {
     flex-direction: column;
   }
+}
+
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    
+    background-color: #f08f00 !important;
+    color: #fff;
+    font-size: 1.0625em;
+}
+
+.cursor {
+    cursor: pointer;
+}
+    .cursor:hover {
+        background-color: #dddddd !important;
+    }
+
+.grid {
+    display: flex;
+    grid-gap: 20px;
 }
