@@ -11,7 +11,7 @@ namespace Bsk.Site.Fornecedor
 {
 
 
-    public partial class minhas_areas
+    public partial class gerenciar_servicos
     {
     }
 }

@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Fornecedor
 {
-    public partial class minhas_areas : System.Web.UI.Page
+    public partial class gerenciar_servicos : System.Web.UI.Page
     {
         core _core = new core();
         CategoriaBE CategoriaBE = new CategoriaBE();
@@ -20,6 +20,15 @@ namespace Bsk.Site.Fornecedor
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+        public List<ServicoBE> PegaServicoTodos(CategoriaBE categoria)
+        {
+            List<ServicoBE> servicos = new List<ServicoBE>();
+            ServicoBE servicoBE = new ServicoBE();
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdFornecedor={login.IdFornecedor}").FirstOrDefault();
+                servicos = _core.Servico_Get(servicoBE, "IdCategoria=" + categoria.IdCategoria);
+            return servicos;
         }
         public List<ServicoBE> PegaServico(CategoriaBE categoria)
         {
@@ -56,6 +65,46 @@ namespace Bsk.Site.Fornecedor
                 return _core.Categoria_Get(CategoriaBE, "1=1");
             }
 
-        }       
+        }
+
+        protected void Adicionar(string ServicoECategoria)
+        {
+            string[] partes = ServicoECategoria.Split(';');
+            if (partes.Length != 2)
+            {
+                // Handle invalid input
+                return;
+            }
+
+            string serviceName = partes[0];
+            int categoryId;
+            if (!int.TryParse(partes[1], out categoryId))
+            {
+                // Handle invalid category id
+                return;
+            }
+
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoryId} AND IdFornecedor={login.IdFornecedor} ").FirstOrDefault();
+            if (cat != null)
+            {
+                cat.IdServico += serviceName + ",";
+                _core.AreaFornecedor_Update(cat, "IdAreaFornecedor=" + cat.IdAreaFornecedor);
+            }
+            else
+            {
+                AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE()
+                {
+                    IdCategoria = categoryId,
+                    IdFornecedor = login.IdFornecedor,
+                    IdServico = serviceName + ","
+                };
+
+                _core.AreaFornecedor_Insert(areaFornecedorBE);
+
+            }
+            Response.Redirect("cadastra-atuacao.aspx?Id=" + categoryId);
+        }
+
     }
 }

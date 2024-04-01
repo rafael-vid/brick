@@ -120,6 +120,7 @@
                     
                         <%foreach (var item in areas)
                             {%>
+                            <div class="col-md-6">
                             <p><%Response.Write(item.Nome); %></p>
                             <%var servicos = PegaServico(item);%>
                             <ul class="nested-list">
@@ -128,6 +129,7 @@
                                     <li><%Response.Write(j.Nome); %></li>
                                 <% } %>
                             </ul>
+                                </div>
                         <% } %>
                     
                 </div>

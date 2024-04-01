@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="minhas-areas.aspx.cs" Inherits="Bsk.Site.Fornecedor.minhas_areas" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gerenciar-servicos.aspx.cs" Inherits="Bsk.Site.Fornecedor.gerenciar_servicos" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
@@ -99,49 +99,96 @@
             }
         }
     </style>
+    <div id="adicionados" style="display: none;"></div>
+    <div id="removidos" style="display: none;"></div>
+
+    
 
     <div class="conteudo-dash atuacao">
 
         <div class="subtitulo_card subtitulo_1" style="position: relative;">
             <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
-            <h2 class="subtitulo_1">Serviços prestados</h2>
+            <h2 class="subtitulo_1">Serviços disponíveis</h2>
         </div>
-
-
-
-
+        
         <%var areas = BuscaAreas(); %>
+        <%List<string> servicoslista = new List<string>(); %>
+        <%foreach (var item in areas)
+    {%>
+        <%var servicos = PegaServico(item);%>
+        <%foreach (var j in servicos)
+                servicoslista.Add(j.IdServico+"; "+item.IdCategoria);
+            {%>
+        <% } %>
+<% } %>
+        <script>
+            var servicoslista = <%= new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(servicoslista) %>;
+        </script>
+
+        <%var categorias = BuscaCategoria(); %>
 
         <div class="servicos_atuacao">
             <div class="servico_item">
+                <div>
+    <% var checkboxCounter = 0; %>
+    <% foreach (var item in categorias) { %>
+        <div class="col-md-6">
+            <p><% Response.Write(item.Nome); %></p>
+            <% var servicostodos = PegaServicoTodos(item); %>
+            <% foreach (var j in servicostodos) { %>
+                <div style="margin-left: 20px;">
+                    <% var checkboxId = "checkbox_" + checkboxCounter; %>
+                    <% 
+                        var checkboxValue = j.IdServico + "; " + item.IdCategoria; // Concatenate service name with category name
+                        if (servicoslista.Contains(checkboxValue)) { 
+                            Response.Write("<input type='checkbox' name='servico' value='" + checkboxValue + "' id='" + checkboxId + "' checked>");
+                        } else {
+                            Response.Write("<input type='checkbox' name='servico' value='" + checkboxValue + "' id='" + checkboxId + "'>");
+                        }
+                    %>
+                    <label for="<% Response.Write(checkboxId); %>">
+                        <% Response.Write(j.Nome); %>
+                    </label>
+                </div>
+            <% checkboxCounter++; %>
+        <% } %>
+    </div>
+<% } %>
 
-                <%foreach (var item in areas)
-                {%>
-                <p><%Response.Write(item.Nome); %></p>
-                <%var servicos = PegaServico(item);%>
-                <ul class="nested-list">
-                    <%foreach (var j in servicos)
-                    {%>
-                    <li><%Response.Write(j.Nome); %></li>
-                    <% } %>
-                </ul>
-                <% } %>
+</div>
 
             </div>
         </div>
         <div class="footer_card">
-            <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+            <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
+            <a class="btn_card2" id="atualizarDados" onclick="atualizarDados()">Atualizar dados</a> 
         </div>
 
+        <script>
 
-        <!--
-        <a href="/" class="item_notifica">
-            <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
-            <span class="notificacao">02</span>
-        </a>
-        -->
-    </div>
+            function atualizarDados() {
+                var servicosSelecionados = [];
+                var servicos = "";
+                var checkboxes = document.querySelectorAll('input[type="checkbox"][name="servico"]');
+                checkboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        servicos += checkbox.value + ',';
+                        servicosSelecionados.push(checkbox.value);
+                    }
+                });
+                
+                var parametro = {
+                    service: servicos
+                }
+                comum.post("Fornecedor/AdicionarServico", parametro, recarregapagina);
+                
+            }
+            function recarregapagina() {
+                 window.location.href = "minhas-areas.aspx";
+            }
+        </script>
 
     </div>
+    
 
 </asp:Content>
