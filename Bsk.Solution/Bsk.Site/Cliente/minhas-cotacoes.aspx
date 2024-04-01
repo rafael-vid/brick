@@ -23,13 +23,19 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <option value="1" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "0") { Response.Write("selected"); }  %> >Pendente de envio</option>
-                        <option value="2" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "1") { Response.Write("selected"); }  %>>Em andamento</option>
-                        <option value="3" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "2") { Response.Write("selected"); }  %>>Aguardando pagamento</option>
-                        <option value="4" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "3") { Response.Write("selected"); }  %>>Em cotação</option>
-                        <option value="5" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "4") { Response.Write("selected"); }  %>>Aguardando liberação do pagamento</option>
-                        <option value="6" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "5") { Response.Write("selected"); }  %>>Aguardando aceite</option>
-                        <option value="7" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "6") { Response.Write("selected"); }  %>>Finalizado</option>
+                        <% 
+                            var itens = GetDashboardCliente();
+
+                            foreach(var i in itens)
+                            {
+                                %>
+                                    <option value="<% Response.Write(i.id); %>" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == i.id.ToString()) { Response.Write("selected"); }  %> ><% Response.Write(i.nome); %></option>
+                                <%
+                            }
+
+                            %>
+
+
                     </select>
                 </div>
 

@@ -350,7 +350,7 @@ div#tabela_paginate span a {
                   Manutenção</span></a>
                 </li>
                 <li><a href="minhas-cotacoes.aspx" class="cotacao">
-                    <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Cotações</span></a>
+                    <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Em Cotações</span></a>
                 </li>
                 <li><a href="em-andamento.aspx" class="andamento">
                     <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>

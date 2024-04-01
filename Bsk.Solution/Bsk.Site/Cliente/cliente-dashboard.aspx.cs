@@ -20,48 +20,21 @@ namespace Bsk.Site.Cliente
         {
 
         }
-
-        public List<CotacaoListaClienteModel> PegaCotacoes()
+        public List<Dashboard> GetDashboardCliente()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " order by DataAlteracao desc");
-            //foreach (var item in cotCliente)
-            //{
-            //    if (item.Status == StatusCotacao.Criacao)
-            //    {
-            //        item.Status = "Criação";
-            //    }
-            //    else if (item.Status == StatusCotacao.Aberto)
-            //    {
-            //        item.Status = "Aberto";
-            //    }
-                
-            //    else if (item.Status == StatusCotacao.EmAndamento)
-            //    {
-            //        item.Status = "Em andamento";
+            var cotCliente = _core.GetDashboardCliente();
 
-            //        if (item.FinalizaFornecedor == 1 && item.FinalizaCliente == 0)
-            //        {
-            //            item.Status = "Pendente de aceite do cliente";
-            //        }
-            //        else if (item.FinalizaFornecedor == 1 && item.FinalizaCliente == 1)
-            //        {
-            //            item.Status = "Aguardando liberação do pagamento";
-            //        }
-            //    }
-            //    else if (item.Status == StatusCotacao.AguardandoPagamento)
-            //    {
-            //        item.Status = "Aguardando pagamento";
-            //    }
-            //    else if (item.Status == StatusCotacao.Finalizado)
-            //    {
-            //        item.Status = "Finalizado";
-            //    }
-            //    else if (item.Status == StatusCotacao.Avaliado)
-            //    {
-            //        item.Status = "Avaliado";
-            //    }
-            //}
+            return cotCliente;
+        }
+
+
+
+        public List<CotacaoListaClienteModel> PegaCotacoes(int statusID)
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.status = "+statusID+" order by DataAlteracao desc");
+           
             return cotCliente;
         }
     }
