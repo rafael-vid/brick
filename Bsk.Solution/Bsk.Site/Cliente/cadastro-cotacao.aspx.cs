@@ -34,8 +34,8 @@ namespace Bsk.Site.Cliente
                     btnSalvar.Visible = false;
                     btnSubmeter.Visible = false;
                     divUpload.Visible = false;
-                   // alerts.Visible = false;
-                   // alerts2.Visible = false;
+                    // alerts.Visible = false;
+                    // alerts2.Visible = false;
                 }
             }
 
@@ -51,12 +51,12 @@ namespace Bsk.Site.Cliente
                 if (Request.QueryString["Cotacao"] != null)
                 {
 
-
                     titulo.Value = cotacao.Titulo;
-                    descricao.Value = cotacao.Descricao;
+                    descricao.Text = cotacao.Descricao;
                 }
                 else
                 {
+                    btnEnviarAnexo.Visible=false;
                     divUpload.Visible = false;
                     btnSubmeter.Visible = false;
                 }
@@ -102,18 +102,18 @@ namespace Bsk.Site.Cliente
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 cotacao.Titulo = titulo.Value;
-                cotacao.Descricao = descricao.InnerHtml;
+                cotacao.Descricao = descricao.Text;
                 _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
             }
             else
             {
-                _CotacaoBE = new CotacaoBE()
+                CotacaoBE _CotacaoBE = new CotacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     DataTermino = "",
                     Depoimento = "",
-                    Descricao = descricao.Value,
+                    Descricao = descricao.Text,
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
                     IdCliente = login.IdCliente,

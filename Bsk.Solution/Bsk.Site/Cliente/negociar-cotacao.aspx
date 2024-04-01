@@ -72,13 +72,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     O fornecedor alegou ter terminado o serviço.</span><br />
                 <br />
                 <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
                  <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
             </div>
+            
+
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     Gostaria de aceitar a oferta deste Parceiro?.</span><br />
@@ -149,11 +151,6 @@
                         </div>
 
 
-                        <div class="bp-acoes">
-                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
-                        </div>
-                    </div>
-                    <div>
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                         <div class="item_content_card" id="divUpload" runat="server">
@@ -165,7 +162,6 @@
                                 <div class="file" id="btnArquivo">
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <label for="selecao-arquivo">Anexar arquivos</label>
-                                    <input id="selecao-arquivo" type="file">
                                 </div>
                                 <div class="gravar-video" id="btnVideo">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
@@ -173,13 +169,17 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="bp-acoes">
+                            <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                        </div>
                     </div>
 
-                </div>
 
-            </div>
 
-            <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
+
+                    <div>
+                        <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
                 <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
                 <span>Arquivos anexos</span>
             </a>
@@ -246,13 +246,22 @@
                     <button class="proximo">próximo &gt;&gt;</button>
                 </div>
             </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
@@ -421,6 +430,17 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+        }
+
     </style>
 
     <script type="text/javascript">
@@ -498,10 +518,10 @@
             Swal.fire({
                 title: titulo,
                 text: texto,
-                type: 'warning',
+                icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                cconfirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18", 
                 confirmButtonText: botao
             }).then((result) => {
                 if (result.value) {

@@ -22,7 +22,7 @@
           
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                <table class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
@@ -88,11 +88,13 @@
            
 
             <div class="footer_card">
-                <a class="voltar btn" href="cliente-dashboard.aspx"><< voltar </a>
+                <a class="voltar btn" href="dashboard.aspx"><< voltar </a>
+               <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>

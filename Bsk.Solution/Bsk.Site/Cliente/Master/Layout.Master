@@ -16,6 +16,8 @@
     <%--<link rel="icon" type="image/png" href="../img/favico.png" />--%>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+
     <%-- <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/datatables.min.css" />
@@ -29,14 +31,14 @@
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JavaScript 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- Outros scripts -->
 
     <script src="js/jquery.mask.js"></script>
     <script src="js/datatables.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="js/rating.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/master.js"></script>
@@ -90,6 +92,9 @@
         }
         .btn{
             border-radius:20px !important;
+        }
+        .btn {
+            display: inline-flex;
         }
       
         @media (max-width: 1151px){
@@ -170,8 +175,8 @@ div#tabela_filter {
 }
 
 .dataTables_length label select {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +188,7 @@ div#tabela_filter {
     left: 0px;
     border-radius: 50%;
     outline: none;
+    text-align: center;
     border: none;
 }
 
@@ -256,7 +262,11 @@ div#tabela_paginate span a {
         margin-top: 20px;
     }
 }
+/* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+ .uppercase {
+     text-transform: capitalize;
 
+        }
 /*---------------*/
 
     </style>
@@ -266,9 +276,14 @@ div#tabela_paginate span a {
 
     <header>
         <div class="menu-topo container">
-            <a href="index.html" >
+            <a href="cliente-dashboard.aspx" >
                 <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
             </a>
+                <div>
+                    <h1 class="titulo" >
+                        <font color="#ffffff">Cliente</font>
+                    </h1>
+                </div>
             <nav class="menu" id="nav">
                 <button id="btn-mobile">
                     Menu
@@ -281,23 +296,23 @@ div#tabela_paginate span a {
                             <img src="../assets/imagens/avatar.png" alt="avatar">
                             <%var user = RetornaUsuario(); %>
                             <%var nomes = user.Nome.Split(' ');  %>
-                            <span>Olá, <%Response.Write(nomes[0]); %>.</span>
+                            <span class="uppercase">Olá, <%Response.Write(nomes[0]); %>.</span>
                         </div>
                         <ul class="dropdown-perfil">
                             <li>
-                                <a href="listar-servicos.html">
+                                <a href="perfil.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Meus Dados
                                 </a>
                             </li>
-                            <li>
-                                <a href="meusdados.html">
+                            <!--<li>
+                                <a href="configuracao.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Configurações
                                 </a>
-                            </li>
+                            </li>-->
                             <li>
-                                <a href="meusdados.html">
+                                <a href="/Geral/logout.aspx">
                                     <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                     Sair
                                 </a>
@@ -312,7 +327,7 @@ div#tabela_paginate span a {
         </div>
 
         <div class="filtro">
-            <div class="container">
+            <div class="container" style="display:none">
                 <input type="text" id="catSelBusca" placeholder="Qual serviço você precisa?      ">
                 <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;" onclick="buscaCats();">
             </div>
@@ -322,7 +337,7 @@ div#tabela_paginate span a {
     <section class="app">
 
         <nav class="menu-dashboard">
-            <a class="open-menu"><
+            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px;" alt="ícone"> 
             </a>
             <ul class="menu-dash">
                 <li>
@@ -331,10 +346,12 @@ div#tabela_paginate span a {
                         <span>Dashboard</span>
                     </a>
                 </li>
+                <!--
                 <li><a href="builts.html" class="asbuilt">
                     <img src="../assets/imagens/oportunidades.svg" style="width: 20px;" alt="ícone"><span>As Built</span></a>
                 </li>
-                <li><a href="manutencao.html" class="plano_manutencao">
+                -->
+                <li style="display:none"><a href="manutencao.html" class="plano_manutencao">
                     <img src="../assets/imagens/meubrikk.svg" style="width: 20px;" alt="ícone"><span>Plano
                   Manutenção</span></a>
                 </li>
@@ -344,15 +361,22 @@ div#tabela_paginate span a {
                 <li><a href="em-andamento.aspx" class="andamento">
                     <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
                 </li>
+                <!--
                 <li><a href="financeiro.html" class="financeiro">
                     <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
                 </li>
-                <li><a href="documentacao.html" class="documentacao">
+                    -->
+                <li style=""><a href="notificacoes.aspx" class="notificacoes">
+                    <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone"><span>Notificações</span></a>
+                </li>
+
+                <li style="display:none"><a href="documentacao.html" class="documentacao">
                     <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
                         alt="ícone"><span>Documentação</span></a>
                 </li>
             </ul>
 
+            <!--
             <ul class="infos-dash">
                 <li>
                     <a href="#">
@@ -372,7 +396,7 @@ div#tabela_paginate span a {
                         <span>Notificação</span>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </nav>
 
 
@@ -398,6 +422,7 @@ div#tabela_paginate span a {
     </footer>
 
      <script>
+
          function menuActive() {
              const links = document.querySelectorAll(".menu-dash li a");
 

@@ -53,6 +53,21 @@ namespace Bsk.Site.Fornecedor
             };
 
             var id = _core.CotacaoFornecedor_Insert(cotacaoFornecedorBE);
+            CotacaoBE _CotacaoBE = new CotacaoBE();
+            var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedorBE.IdCotacao).FirstOrDefault();
+
+            NotificacaoBE notif = new NotificacaoBE();
+
+            notif.titulo = "Interesse";
+            notif.mensagem = "Um novo fornecedor está interessado em sua cotação";
+            notif.data = DateTime.Now;
+            notif.link = $"cotacao-lista.aspx?Id={cotacaoFornecedorBE.IdCotacao}";
+            notif.visualizado = "0";
+            notif.idcliente = cotacao2.IdCliente;
+
+            _core.NotificacaoInsert(notif);
+
+
             Response.Redirect("negociar-cotacao.aspx?Id=" + id);
         }
     }

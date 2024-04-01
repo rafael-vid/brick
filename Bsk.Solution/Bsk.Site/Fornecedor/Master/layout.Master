@@ -36,8 +36,7 @@
 
     <script src="js/jquery.mask.js"></script>
     <script src="js/datatables.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/rating.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/master.js"></script>
@@ -63,11 +62,13 @@
             font-weight: bold;
 }
          .btn-brikk {
-            background: #b8272c !important;
+            background:#f08f00 !important;
             border-radius: 5px !important;
             color: #fff !important;
             border-radius: 20px !important;
             display: flex !important;
+            margin-bottom: 4px;
+            box-shadow: 0px 0px 0px rgb(0 0 0 / 0%);
         }
         .btn-brikk:hover{
             border-radius: 20px !important;
@@ -214,8 +215,8 @@ div#tabela_filter {
 }
 
 .dataTables_length label select {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -227,6 +228,7 @@ div#tabela_filter {
     left: 0px;
     border-radius: 50%;
     outline: none;
+    text-align: center;
     border: none;
 }
 
@@ -303,6 +305,12 @@ div#tabela_paginate span a {
 a.btn.btn-brikk.mensagem {
     color: #fff !important;
 }
+
+/* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+ .uppercase {
+     text-transform: capitalize;
+
+        }
 /*---------------*/
 
     </style>
@@ -312,9 +320,14 @@ a.btn.btn-brikk.mensagem {
     <form id="form1" runat="server">
         <header>
             <div class="menu-topo container">
-                <a href="index.html">
+                <a href="dashboard.aspx">
                     <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
                 </a>
+                  <div>
+                     <h1 class="titulo" >
+                         <font color="#ffffff">Fornecedor</font>
+                     </h1>
+                 </div>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">
                         Menu
@@ -326,26 +339,26 @@ a.btn.btn-brikk.mensagem {
                             <div class="perfil">
                                 <img src="../assets/imagens/avatar.png" alt="avatar">
 
-                                <span>Olá,  <%
+                                <span class="uppercase">Olá,  <%
                                                 var usuario = RetornaUsuario();
-                                                Response.Write(usuario.RazaoSocial);
+                                                Response.Write(usuario.NomeFantasia.Split(' ')[0]);
                                 %>.</span>
                             </div>
                             <ul class="dropdown-perfil">
                                 <li>
-                                    <a href="listar-servicos.html">
+                                    <a href="perfil.aspx">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Meus Dados
                                     </a>
                                 </li>
-                                <li>
+                                <!--<li>
                                     <a href="meusdados.html">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Configurações
                                     </a>
-                                </li>
+                                </li>-->
                                 <li>
-                                    <a href="meusdados.html">
+                                    <a href="/Geral/logout.aspx">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
                                         Sair
                                     </a>
@@ -360,7 +373,7 @@ a.btn.btn-brikk.mensagem {
             </div>
 
             <div class="filtro">
-                <div class="container">
+                <div class="container" style="display:none">
                     <input type="text" id="servico" runat="server" placeholder="Qual serviço você precisa?      ">
                    <button id="btnBuscaCatSel" runat="server" onserverclick="btnBuscaCatSel_ServerClick"> <img src="../assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;"></button>
                 </div>
@@ -369,7 +382,7 @@ a.btn.btn-brikk.mensagem {
 
         <section class="app">
             <nav class="menu-dashboard">
-                <a class="open-menu">< </a>
+                <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px;" alt="ícone"> </a>
                 <ul class="menu-dash">
                     <li>
                         <a href="dashboard.aspx" class="dash">
@@ -383,9 +396,10 @@ a.btn.btn-brikk.mensagem {
                     <li><a href="em-andamento.aspx" class="andamento">
                         <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
                     </li>
-                    <li><a href="#" class="financeiro">
-                        <img src="../assets/imagens/financeiro.svg" style="width: 20px;" alt="ícone"><span>Financeiro</span></a>
-                    </li>
+                    
+                    <li><a href="notificacoes.aspx" class="notificacoes">
+                        <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone"><span>Notificações</span></a>
+                    </li><!--
                     <li><a href="#" class="documentacao">
                         <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
                             alt="ícone"><span>Documentação</span></a>
@@ -397,8 +411,10 @@ a.btn.btn-brikk.mensagem {
                         <img src="../assets/imagens/oportunidades.svg" style="width: 20px;"
                             alt="ícone"><span>Oportunidades</span></a>
                     </li>
+                    -->
                 </ul>
 
+                <!--
                 <ul class="infos-dash">
                     <li>
                         <a href="#">
@@ -419,6 +435,7 @@ a.btn.btn-brikk.mensagem {
                         </a>
                     </li>
                 </ul>
+                -->
             </nav>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

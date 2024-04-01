@@ -22,16 +22,39 @@
                 <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
                 <p id="titulo" runat="server">Pintura Loja Oscar Freire</p>
             </div>
-
             <div class="item_content_card">
-                <div class="total_a_receber media-cotacoes">
-                    <span>Média das cotações recebidas</span>
-                    <p id="valorMedioCotacoes" runat="server"></p>
-                    <div class="eleva_sifra cli-eleva">
-                        <img src="../assets/imagens/media.svg" alt="ícone">
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <asp:Label ID="descricao" runat="server"></asp:Label>
+            </div>
+
+            <div class="grid">
+                 <div class="item_content_card">
+                    <div class="total_a_receber media-cotacoes">
+                        <span>Mínimo das cotações recebidas</span>
+                        <p id="valorMinimoCotacoes" runat="server"></p>
+                        <div class="eleva_sifra cli-eleva">
+                            <img src="../assets/imagens/media.svg" alt="ícone">
+                        </div>
                     </div>
                 </div>
-
+                <div class="item_content_card">
+                    <div class="total_a_receber media-cotacoes">
+                        <span>Média das cotações recebidas</span>
+                        <p id="valorMedioCotacoes" runat="server"></p>
+                        <div class="eleva_sifra cli-eleva">
+                            <img src="../assets/imagens/media.svg" alt="ícone">
+                        </div>
+                    </div>
+                </div>
+                <div class="item_content_card">
+                    <div class="total_a_receber media-cotacoes">
+                        <span>Máximo das cotações recebidas</span>
+                        <p id="valorMaximoCotacoes" runat="server"></p>
+                        <div class="eleva_sifra cli-eleva">
+                            <img src="../assets/imagens/media.svg" alt="ícone">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="filtros_card cota-info" style="margin-top: 40px;">
@@ -113,10 +136,12 @@
 
             <div class="footer_card">
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>
@@ -127,5 +152,11 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+
+        .card-tabela tr td a.btn {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
     </style>
 </asp:Content>

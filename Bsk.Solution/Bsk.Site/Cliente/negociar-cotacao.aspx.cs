@@ -38,7 +38,7 @@ namespace Bsk.Site.Cliente
                 }
                 catch (Exception)
                 {
-                    Response.Redirect("nav.html");
+                    Response.Redirect("minhas-cotacoes.aspx");
                 }
 
             }
@@ -98,6 +98,11 @@ namespace Bsk.Site.Cliente
 
 
                     if (cotacao.IdCotacaoFornecedor != 0)
+                    {
+                        divAceitar.Visible = false;
+                    }
+
+                    if(cotacaoFornecedor.EnviarProposta == 0)
                     {
                         divAceitar.Visible = false;
                     }
@@ -187,6 +192,17 @@ namespace Bsk.Site.Cliente
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+                
+                NotificacaoBE notif = new NotificacaoBE();
+
+                notif.titulo = "Nova mensagem no chat";
+                notif.mensagem = _msg;
+                notif.data = DateTime.Now;
+                notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
+                notif.visualizado = "0";
+                notif.idfornecedor = cotacaoFornecedor.IdFornecedor;
+
+                _core.NotificacaoInsert(notif);
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
                 //DEPOIS COLOCAR MSG

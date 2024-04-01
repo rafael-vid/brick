@@ -69,6 +69,15 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlInputText telefone;
 
         /// <summary>
+        /// cep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cep;
+
+        /// <summary>
         /// endereco control.
         /// </summary>
         /// <remarks>
@@ -94,15 +103,6 @@ namespace Bsk.Site.Geral
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl numero;
-
-        /// <summary>
-        /// cep control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl cep;
 
         /// <summary>
         /// complemento control.

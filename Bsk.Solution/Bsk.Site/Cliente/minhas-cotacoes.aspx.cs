@@ -24,6 +24,10 @@ namespace Bsk.Site.Cliente
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
             var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " order by DataAlteracao desc");
+            if (Request.QueryString["status"] != null)
+            {
+                cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();
+            }
             foreach (var item in cotCliente)
             {
                 if (item.Status == StatusCotacao.Criacao)
@@ -54,7 +58,8 @@ namespace Bsk.Site.Cliente
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
                     item.Status = "Finalizado";
-                }else if (item.Status == StatusCotacao.Avaliado)
+                }
+                else if (item.Status == StatusCotacao.Avaliado)
                 {
                     item.Status = "Avaliado";
                 }
