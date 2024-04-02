@@ -32,7 +32,7 @@ namespace Bsk.Site.Cliente
             var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.status in (1,2,3) order by DataAlteracao desc");
             if (Request.QueryString["status"] != null)
             {
-                cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();
+                //cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();
             }
             foreach (var item in cotCliente)
             {
