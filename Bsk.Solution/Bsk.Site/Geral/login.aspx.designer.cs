@@ -24,6 +24,15 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// usuarioCliente control.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword senhaCliente;
 
         /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
+
+        /// <summary>
         /// btnCliente control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace Bsk.Site.Geral
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnCliente;
+
+        /// <summary>
+        /// UpdatePanelParceiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelParceiro;
 
         /// <summary>
         /// usuarioParceiro control.
@@ -67,6 +94,15 @@ namespace Bsk.Site.Geral
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword senhaParceiro;
+
+        /// <summary>
+        /// lblMsgParceiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsgParceiro;
 
         /// <summary>
         /// btnParceiroEntrar control.

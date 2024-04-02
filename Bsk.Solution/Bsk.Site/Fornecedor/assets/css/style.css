@@ -117,6 +117,12 @@ body {
   font-size: 62px;
   line-height: 62px;
 }
+.subtitulo_3 {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: Rajdhani-Bold, sans-serif;
+    color:darkorange;
+}
 p {
   font-size: 16px;
   line-height: 24px;

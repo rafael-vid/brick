@@ -124,8 +124,9 @@ p {
   font-family: Rajdhani-semi, sans-serif;
 }
 img {
-  display: block;
-  width: 100%;
+    position: relative;
+    display: block;
+    width: 100%;
 }
 
 /* header */
@@ -189,6 +190,12 @@ header {
 .btn-cadastro:hover {
   background: #f08f00;
   color: #770e18 !important;
+}
+.minhaclasse2 {
+    color: darkred;
+    font-size: 25px;
+    text-align: center;
+    vertical-align: top;
 }
 .filtro .container {
   display: flex;

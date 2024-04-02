@@ -73,8 +73,8 @@
                           
                         </div>
                         <div class="files-upload cotacao-dados-upload">
-                            <a class="btn_card" id="btnBoleto" href="pagamento-boleto.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">Boleto Bancário</a>
-                            <a class="btn_card" id="btnCartao" href="pagamento-cartao.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">Cartão de Crédito </a>
+                            <%--<a class="btn_card" id="btnBoleto" href="pagamento-boleto.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">Boleto Bancário</a>--%>
+                            <a class="btn_card" id="btnCartao" href="pagamento-cartao.aspx?Beta=Beta&Id=<%Response.Write(Request.QueryString["Id"]); %>">Cartão de Crédito </a>
                         </div>
                     </div>
 
@@ -92,10 +92,12 @@
             <div class="footer_card">
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar
                 </a>
+                <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                -->
             </div>
 
         </div>

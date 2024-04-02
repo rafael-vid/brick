@@ -16,5 +16,6 @@ namespace Bsk.BE
         public string DataEntrega { get; set; }
         public int Ativo { get; set; }
         public int Novo { get; set; }
+        public int EnviarProposta { get; set; }
     }
 }

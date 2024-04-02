@@ -174,10 +174,13 @@
             <div class="footer_card">
                 <a class="voltar btn" href="andamento.html"><< voltar </a>
                 <button class="btn" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar</button>
-                <a href="/" class="item_notifica">
+                
+                <!--
+                    <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
                     <span class="notificacao">02</span>
                 </a>
+                    -->
             </div>
 
         </div>

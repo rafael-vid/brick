@@ -64,6 +64,7 @@ namespace Bsk.Interface
                                 CT.FinalizaFornecedor,
                                 CT.FinalizaCliente,
                                 CT.IdCotacaoFornecedor,
+                                CT.EnviarProposta,
                                     CASE
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
@@ -75,8 +76,84 @@ namespace Bsk.Interface
                                     END 
                                 as Mensagens
                             FROM cotacao CT
-                            where "+filtro;
+                            where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
+        }
+
+
+        public List<ClienteBE> EsqueciASenha(string filtro)
+        {
+            string sql = $@"SELECT 
+                                Nome,
+                                Senha
+                            FROM cliente
+                            where " + filtro;
+            return _base.ToList<ClienteBE>(db.Get(sql));
+        }
+
+
+        public List<NotificacaoModel> NotificacaoGet(string filtro)
+        {
+            string sql = $@"SELECT 
+                                CT.idnotificacao, 
+                                CT.titulo, 
+                                CT.mensagem,
+                                CT.link,
+                                CT.visualizado,
+                                CT.data
+                            FROM notificacao CT
+                            where " + filtro;
+            return _base.ToList<NotificacaoModel>(db.Get(sql));
+        }
+
+        public void NotificacaoUpdate(int id)
+        {
+            string sql = $@"update notificacao set visualizado = 1 where idnotificacao = " + id;
+            db.Execute(sql);
+        }
+
+        public string NotificacaoInsert(NotificacaoBE lg)
+        {
+            List<NotificacaoBE> Lista_lg = new List<NotificacaoBE>();
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+
+        public void AtualizaEnviaPropostaCotacao(int idCotacao)
+        {
+            string sql = $@"update cotacaofornecedor set EnviarProposta = 1 where IdCotacaoFornecedor = {idCotacao}";
+            db.Execute(sql);
+        }
+
+
+        public List<CotacaoListaFronecedorModel> CotacaoFornecedorGet(string filtro)
+        {
+            string sql = $@"SELECT 
+                                CT.IdCotacao, 
+                                CT.Titulo, 
+                                CT.DataCriacao,
+                                CT.DataAlteracao,
+                                CT.Status, 
+                                CT.FinalizaFornecedor,
+                                CT.FinalizaCliente,
+                                CT.IdCotacaoFornecedor,
+                                    CASE
+                                        WHEN 
+			                                    (select count(IdCotacaoFornecedorChat) 
+			                                    from cotacaofornecedorchat 
+			                                    where IdFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=0)  > 0 
+		                                    THEN 'N'
+
+                                        ELSE ''
+                                    END 
+                                as Mensagens
+                            FROM cotacao CT
+    
+                             INNER JOIN CotacaoFornecedor CF on CT.IdCotacao = CF.IdCotacao
+    
+                            where " + filtro;
+            return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
         }
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(int idFornecedor)
