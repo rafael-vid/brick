@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="minhas-cotacoes.aspx.cs" Inherits="Bsk.Site.Cliente.minhas_cotacoes" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="finalizadas.aspx.cs" Inherits="Bsk.Site.Cliente.finalizadas" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao cotacoes-cli">
@@ -23,19 +23,8 @@
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
-                        <% 
-                            var itens = GetDashboardCliente();
-
-                            foreach(var i in itens)
-                            {
-                                %>
-                                    <option value="<% Response.Write(i.id); %>" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == i.id.ToString()) { Response.Write("selected"); }  %> ><% Response.Write(i.nome); %></option>
-                                <%
-                            }
-
-                            %>
-
-
+                        
+                        <option value="7" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "7") { Response.Write("selected"); }  %>>Finalizado</option>
                     </select>
                 </div>
 
@@ -111,14 +100,49 @@
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>
 
-                           
-
-                            <td class="status"><%Response.Write(item.nome); %>
+                            <%  
+                                if (item.Status == "Criação")
+                                {%>
+                            <td class="status">Pendente de envio
                             </td>
-                           
+                            <%}
+                                else if (item.Status == "Aberto")
+                                {%>
+                            <td class="status">Em cotação 
+                            </td>
+                            <% }
+                                else if (item.Status == "Em andamento")
+                                {%>
+                            <td class="status">Em andamento
+                            </td>
+                            <%}
+                                else if (item.Status == "Aguardando pagamento")
+                                {%>
+                            <td class="status">Aguardando pagamento
+                            </td>
+                            <%}
+                                else if (item.Status == "Finalizado")
+                                {%>
+                            <td class="status fechado">Finalizado
+                            </td>
+                            <% }
+                                else if (item.Status == "Pendente de aceite do cliente")
+                                {%>
+                            <td class="status">Aguardando aceite
+                            </td>
+                            <% }
+                                else if (item.Status == "Aguardando liberação do pagamento")
+                                {%>
+                            <td class="status">Aguardando liberação do pagamento
+                            </td>
+                            <% }
+                                else if (item.Status == "Avaliado")
+                                {%>
+                            <td class="status">Avaliado
+                            </td>
                         </tr>
                         <%  }
-                            
+                            }
                         %>
                     </tbody>
                 </table>
@@ -140,7 +164,7 @@
     </div>
 
     <style>
-        a.cotacao{
+        a.finalizada{
             background: #f4f3f2;
             color: #770e18 !important;
         }
@@ -164,9 +188,9 @@
             if ($("#slcStatus").val() == "0") {
                 table.search("").draw();
             } else if ($("#slcStatus").val() == "1") {
-                table.search("Solicitação Feita").draw();
+                table.search("Pendente de envio").draw();
             } else if ($("#slcStatus").val() == "2") {
-                table.search("Em Cotação").draw();
+                table.search("Em andamento").draw();
             } else if ($("#slcStatus").val() == "3") {
                 table.search("Aguardando pagamento").draw();
             } else if ($("#slcStatus").val() == "4") {
@@ -179,9 +203,6 @@
                 table.search("Finalizado").draw();
             }
         }
-
-        setTimeout(function () { filtraTabela() },10)
-
     </script>
 
     

@@ -60,7 +60,8 @@ namespace Bsk.Interface
                                 CT.Titulo, 
                                 CT.DataCriacao,
                                 CT.DataAlteracao,
-                                CT.Status, 
+                                CT.Status,
+                                s.nome, 
                                 CT.FinalizaFornecedor,
                                 CT.FinalizaCliente,
                                 CT.IdCotacaoFornecedor,
@@ -76,10 +77,25 @@ namespace Bsk.Interface
                                     END 
                                 as Mensagens
                             FROM cotacao CT
+                                inner join status_cliente s
+		                            on CT.status = s.id
                             where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
+        public List<Dashboard> GetDashboardCliente(string filtro="1=1")
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status_cliente s
+                                where "+filtro+@"
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
 
+        public List<Dashboard> GetDashboardFornecedor(string filtro)
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status_fornecedor s
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
 
         public List<ClienteBE> EsqueciASenha(string filtro)
         {

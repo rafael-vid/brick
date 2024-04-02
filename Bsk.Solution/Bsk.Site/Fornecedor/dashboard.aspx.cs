@@ -20,11 +20,19 @@ namespace Bsk.Site.Fornecedor
 
         }
 
-        public List<CotacaoListaFronecedorModel> PegaCotacoes()
+        public List<Dashboard> GetDashboardFornecedor()
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cotCliente = _core.GetDashboardFornecedor($" CT.IdCliente=" + login.IdCliente + " order by DataAlteracao desc");
+
+            return cotCliente;
+        }
+
+        public List<CotacaoListaFronecedorModel> PegaCotacoes(int statusID)
         {
             var l = Request.Cookies["loginFornecedor"].Value;
             var login = Funcoes.PegaLoginFornecedor(l);
-            var cotCliente = _core.CotacaoFornecedorGet($" CF.IdFornecedor=" + login.IdFornecedor + " AND CF.Ativo=1  order by DataAlteracao desc") ;
+            var cotCliente = _core.CotacaoFornecedorGet($" CF.IdFornecedor=" + login.IdFornecedor + " and CT.status = " + statusID + " AND CF.Ativo=1  order by DataAlteracao desc") ;
             return cotCliente;
         }
         public List<CotacaoListaFronecedorModel> PegaCotacoesEmAndamento()

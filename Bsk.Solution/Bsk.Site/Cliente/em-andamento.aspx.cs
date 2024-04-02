@@ -21,7 +21,7 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoBE> PegaCotacaoAndamento()
         {
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" Status= '{StatusCotacao.EmAndamento}'");
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" Status in (4,5,6)");
             foreach (var item in cotacoes)
             {
                 item.Status = "Em andamento";

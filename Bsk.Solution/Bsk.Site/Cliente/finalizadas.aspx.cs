@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Cliente
 {
-    public partial class minhas_cotacoes : System.Web.UI.Page
+    public partial class finalizadas : System.Web.UI.Page
     {
         core _core = new core();
         CotacaoBE _CotacaoBE = new CotacaoBE();
@@ -19,20 +19,14 @@ namespace Bsk.Site.Cliente
         {
 
         }
-        public List<Dashboard> GetDashboardCliente()
-        {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.GetDashboardCliente($" s.id in (1,2,3)");
 
-            return cotCliente;
-        }
         public List<CotacaoListaClienteModel> PegaCotacoes()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.status in (1,2,3) order by DataAlteracao desc");
+            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.Status = 7 order by DataAlteracao desc");
             if (Request.QueryString["status"] != null)
             {
-                //cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();
+                cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();
             }
             foreach (var item in cotCliente)
             {
