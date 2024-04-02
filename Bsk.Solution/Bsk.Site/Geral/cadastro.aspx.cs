@@ -25,7 +25,7 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadastro efetuado com sucesso!";
+                    msg.Text = "Cadastro xuado com sucesso!";
                 }
             }
         }
@@ -86,14 +86,34 @@ namespace Bsk.Site.Geral
                 RazaoSocial = razao.Value
 
             };
-           var id = _core.Cliente_Insert(_ClienteBE);
-            if (string.IsNullOrEmpty(id))
+            if (
+    !string.IsNullOrEmpty(nome.Value) &&
+    !string.IsNullOrEmpty(sobrenome.Value) &&
+    !string.IsNullOrEmpty(email.Value) &&
+    !string.IsNullOrEmpty(cpf.Value) &&
+    !string.IsNullOrEmpty(telefone.Value) &&
+    !string.IsNullOrEmpty(cep.Value) &&
+    !string.IsNullOrEmpty(endereco.Value) &&
+    !string.IsNullOrEmpty(bairro.Value) &&
+    !string.IsNullOrEmpty(numero.Value) &&
+    !string.IsNullOrEmpty(cidade.Value) &&
+    !string.IsNullOrEmpty(estado.Value)
+)
             {
-                msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                var id = _core.Cliente_Insert(_ClienteBE);
+                var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                {
+                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                }
+                else
+                {
+                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                }
             }
             else
             {
-                Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                msg.Text = "Por favor preencha todos os campos";
             }
 
         }
@@ -132,7 +152,36 @@ namespace Bsk.Site.Geral
                 Tipo = "MATRIZ",
                 SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524"
             };
-            _core.Cliente_Insert(_ClienteBE);
+            if (
+    !string.IsNullOrEmpty(nome.Value) &&
+    !string.IsNullOrEmpty(sobrenome.Value) &&
+    !string.IsNullOrEmpty(email.Value) &&
+    !string.IsNullOrEmpty(cpf.Value) &&
+    !string.IsNullOrEmpty(telefone.Value) &&
+    !string.IsNullOrEmpty(cep.Value) &&
+    !string.IsNullOrEmpty(endereco.Value) &&
+    !string.IsNullOrEmpty(bairro.Value) &&
+    !string.IsNullOrEmpty(numero.Value) &&
+    !string.IsNullOrEmpty(cidade.Value) &&
+    !string.IsNullOrEmpty(estado.Value)
+)
+            {
+                var id = _core.Fornecedor_Insert(_FornecedorBE);
+                var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
+                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                {
+                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                }
+                else
+                {
+                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                }
+            }
+            else
+            {
+                msg.Text = "Por favor preencha todos os campos";
+            }
+
         }
 
         protected void btnJuridica_ServerClick(object sender, EventArgs e)
@@ -158,7 +207,7 @@ namespace Bsk.Site.Geral
         private void salvaJuridicaFornecedor()
         {
             DateTime dt = DateTime.MinValue;
-            if (String.IsNullOrEmpty(abertura.Value))
+            if (!String.IsNullOrEmpty(abertura.Value))
             {
                 dt = DateTime.Parse(abertura.Value);
             }
@@ -189,7 +238,41 @@ namespace Bsk.Site.Geral
                 Tipo = "MATRIZ",
                 SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524"
             };
-            _core.Cliente_Insert(_ClienteBE);
+            if (
+    !string.IsNullOrEmpty(nomeJuridica.Value) &&
+    !string.IsNullOrEmpty(sobrenomeJuridica.Value) &&
+    !string.IsNullOrEmpty(emailJuridica.Value) &&
+    !string.IsNullOrEmpty(cnpj.Value) &&
+    !string.IsNullOrEmpty(razao.Value) &&
+    !string.IsNullOrEmpty(fantasia.Value) &&
+    !string.IsNullOrEmpty(situacao.Value) &&
+    !string.IsNullOrEmpty(abertura.Value) &&
+    !string.IsNullOrEmpty(matriz.Value) &&
+    !string.IsNullOrEmpty(telefoneJuridica.Value) &&
+    !string.IsNullOrEmpty(bairroJuridica.Value) &&
+    !string.IsNullOrEmpty(numeroJuridica.Value) &&
+    !string.IsNullOrEmpty(cepJuridica.Value) &&
+    !string.IsNullOrEmpty(cidadeJuridica.Value) &&
+    !string.IsNullOrEmpty(estadoJuridica.Value) &&
+    !string.IsNullOrEmpty(senhaJuridica.Value)
+)
+            {
+                var id = _core.Fornecedor_Insert(_FornecedorBE);
+                var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
+                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                {
+                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                }
+                else
+                {
+                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                }
+            }
+            else
+            {
+                msg.Text = "Por favor preencha todos os campos";
+            }
+
         }
 
         private void salvaJuridicaCliente()
@@ -228,7 +311,41 @@ namespace Bsk.Site.Geral
                 RazaoSocial = razao.Value
 
             };
-            _core.Cliente_Insert(_ClienteBE);
+            if (
+    !string.IsNullOrEmpty(nomeJuridica.Value) &&
+    !string.IsNullOrEmpty(sobrenomeJuridica.Value) &&
+    !string.IsNullOrEmpty(emailJuridica.Value) &&
+    !string.IsNullOrEmpty(cnpj.Value) &&
+    !string.IsNullOrEmpty(razao.Value) &&
+    !string.IsNullOrEmpty(fantasia.Value) &&
+    !string.IsNullOrEmpty(situacao.Value) &&
+    !string.IsNullOrEmpty(abertura.Value) &&
+    !string.IsNullOrEmpty(matriz.Value) &&
+    !string.IsNullOrEmpty(telefoneJuridica.Value) &&
+    !string.IsNullOrEmpty(bairroJuridica.Value) &&
+    !string.IsNullOrEmpty(numeroJuridica.Value) &&
+    !string.IsNullOrEmpty(cepJuridica.Value) &&
+    !string.IsNullOrEmpty(cidadeJuridica.Value) &&
+    !string.IsNullOrEmpty(estadoJuridica.Value) &&
+    !string.IsNullOrEmpty(senhaJuridica.Value)
+)
+            {
+                var id = _core.Cliente_Insert(_ClienteBE);
+                var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                {
+                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                }
+                else
+                {
+                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                }
+            }
+            else
+            {
+                msg.Text = "Por favor preencha todos os campos";
+            }
+
         }
     }
 }
