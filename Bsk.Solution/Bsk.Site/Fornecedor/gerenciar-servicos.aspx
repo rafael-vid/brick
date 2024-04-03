@@ -131,29 +131,36 @@
             <div class="servico_item">
                 <div>
     <% var checkboxCounter = 0; %>
-    <% foreach (var item in categorias) { %>
-        <div class="col-md-6">
-            <p><% Response.Write(item.Nome); %></p>
-            <% var servicostodos = PegaServicoTodos(item); %>
-            <% foreach (var j in servicostodos) { %>
-                <div style="margin-left: 20px;">
-                    <% var checkboxId = "checkbox_" + checkboxCounter; %>
-                    <% 
-                        var checkboxValue = j.IdServico + "; " + item.IdCategoria; // Concatenate service name with category name
-                        if (servicoslista.Contains(checkboxValue)) { 
-                            Response.Write("<input type='checkbox' name='servico' value='" + checkboxValue + "' id='" + checkboxId + "' checked>");
-                        } else {
-                            Response.Write("<input type='checkbox' name='servico' value='" + checkboxValue + "' id='" + checkboxId + "'>");
-                        }
-                    %>
-                    <label for="<% Response.Write(checkboxId); %>">
-                        <% Response.Write(j.Nome); %>
-                    </label>
+<div class="servicos_atuacao">
+    <div class="servico_item">
+        <div class="faq-itens"> <!-- Added container for the grid -->
+            <% foreach (var item in categorias) { %> <!-- Change 'areas' to 'categorias' to match your variable name -->
+                <div>
+                    <h2><%= item.Nome %></h2>
+                    <ul class="nested-list">
+                        <% var servicostodos = PegaServicoTodos(item); %> <!-- Keep the function to fetch services -->
+                        <% foreach (var j in servicostodos) { %>
+                            <% var checkboxId = "checkbox_" + checkboxCounter; %>
+                            <% 
+                                var checkboxValue = j.IdServico + "; " + item.IdCategoria; // Concatenate service ID with category ID
+                                if (servicoslista.Contains(checkboxValue)) { 
+                                    %><li><input type='checkbox' name='servico' value='<%= checkboxValue %>' id='<%= checkboxId %>' checked>
+                                    <label for="<%= checkboxId %>"><%= j.Nome %></label></li><%
+                                } else {
+                                    %><li><input type='checkbox' name='servico' value='<%= checkboxValue %>' id='<%= checkboxId %>'>
+                                    <label for="<%= checkboxId %>"><%= j.Nome %></label></li><%
+                                }
+                            %>
+                            <% checkboxCounter++; %>
+                        <% } %>
+                    </ul>
                 </div>
-            <% checkboxCounter++; %>
-        <% } %>
+            <% } %>
+        </div>
     </div>
-<% } %>
+</div>
+
+
 
 </div>
 
@@ -180,10 +187,10 @@
                 var parametro = {
                     service: servicos
                 }
-                comum.post("Fornecedor/AdicionarServico", parametro, recarregapagina);
+                comum.post("Fornecedor/AdicionarServico", parametro, redireciona);
                 
             }
-            function recarregapagina() {
+            function redireciona() {
                  window.location.href = "minhas-areas.aspx";
             }
         </script>

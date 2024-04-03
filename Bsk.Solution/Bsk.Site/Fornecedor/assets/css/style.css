@@ -92,6 +92,18 @@ body {
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
   transition: 0.3s ease;
 }
+.arrow-icon {
+    display: inline-block;
+    width: 25px;
+    height: 20px;
+    transition: transform 0.4s ease;
+    transform-origin: center; /* Set the transform origin to the center */
+}
+
+.category-toggle.open .arrow-icon {
+    transform: rotate(90deg);
+}
+
 .btn:hover {
   transform: scale(1.1);
   color: #fff;

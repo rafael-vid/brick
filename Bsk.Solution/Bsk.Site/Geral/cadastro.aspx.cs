@@ -25,7 +25,8 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadastro xuado com sucesso!";
+                    string message = "Cadastro efetuado com sucesso!";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage2('" + message + "');", true);
                 }
             }
         }
@@ -113,7 +114,8 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
@@ -179,7 +181,8 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
@@ -270,7 +273,8 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
@@ -343,7 +347,8 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
