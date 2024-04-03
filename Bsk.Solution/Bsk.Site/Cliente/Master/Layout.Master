@@ -279,11 +279,6 @@ div#tabela_paginate span a {
             <a href="cliente-dashboard.aspx" >
                 <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
             </a>
-                <div>
-                    <h1 class="titulo" >
-                        <font color="#ffffff">Cliente</font>
-                    </h1>
-                </div>
             <nav class="menu" id="nav">
                 <button id="btn-mobile">
                     Menu
@@ -337,7 +332,7 @@ div#tabela_paginate span a {
     <section class="app">
 
         <nav class="menu-dashboard">
-            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px;" alt="ícone"> 
+            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone"> 
             </a>
             <ul class="menu-dash">
                 <li>
