@@ -329,6 +329,7 @@
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
+    <Content Include="Cliente\js\sweetalert2.all.min.js" />
     <Content Include="Cliente\Master\assets\css\cadastros.css" />
     <Content Include="Cliente\Master\assets\css\dashboard.css" />
     <Content Include="Cliente\Master\assets\css\sobre.css" />
@@ -422,6 +423,7 @@
     <Content Include="Cliente\finalizadas.aspx" />
     <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\gerenciar-servicos.aspx" />
+    <Content Include="Fornecedor\js\sweetalert2.all.min.js" />
     <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
     <Content Include="Fornecedor\notificacoes.aspx" />
