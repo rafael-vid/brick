@@ -72,8 +72,9 @@
                 margin-right:10px
             }
 
-        .servico-nome {
+        .categoria-nome {
             display: block !important;
+            font-size: 24px;
         }
 
         .checkbox-wrapper form {
@@ -124,13 +125,18 @@
 
                     foreach (var item in categorias)
                     {%>
+                <%var servicos = PegaServicoTodos(item); %>
                 <div class="item-faq">
-
+                    <span class="categoria-nome"><%Response.Write(item.Nome); %></span>
                     <div class="checkbox-wrapper">
-                        <label>
-                            <input type="radio" name="rdo" value="<%Response.Write(item.IdCategoria); %>" /><%Response.Write(item.Nome); %>
-                            
-                        </label>
+                        <%foreach (var j in servicos)
+                            {%>
+                               <div>
+                                   <input type="radio" name="rdo" value="<%Response.Write(item.IdCategoria); %>" /><%Response.Write(j.Nome); %>
+                               </div> 
+                                
+                           <% } %>
+                        
                     </div>
                 </div>
                 

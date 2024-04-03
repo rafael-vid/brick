@@ -39,7 +39,6 @@ namespace Bsk.Site.Admin
                 {
                     titulo.Value = _CategoriaBE.Nome;
                     chkStatus.Checked = (_CategoriaBE.Status == "1") ? true : false;
-                    imgRep.ImageUrl = "../RepositoryImg/" + _CategoriaBE.Imagem;
                 }
             }
         }
@@ -57,7 +56,6 @@ namespace Bsk.Site.Admin
                         _CategoriaBE = _core.Categoria_Get(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}").FirstOrDefault();
                         _CategoriaBE.Nome = titulo.Value;
                         _CategoriaBE.Status = (chkStatus.Checked) ? "1" : "0";
-                        _CategoriaBE.Imagem = GravarArquivo(flpImg, _CategoriaBE.Imagem);
                         _core.Categoria_Update(_CategoriaBE, $" IdCategoria={Request.QueryString["Categoria"]}");
                         Response.Redirect("msg.aspx?Chave=AtualizaCategoria");
                     }
@@ -65,7 +63,6 @@ namespace Bsk.Site.Admin
                     {
 
                         _CategoriaBE.Nome = titulo.Value;
-                        _CategoriaBE.Imagem = GravarArquivo(flpImg, "");
                         _core.Categoria_Insert(_CategoriaBE);
                         Response.Redirect("msg.aspx?Chave=InserirCategoria");
 

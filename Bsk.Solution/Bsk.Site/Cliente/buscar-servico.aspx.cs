@@ -1,5 +1,6 @@
 ﻿using Bsk.BE;
 using Bsk.Interface;
+using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Bsk.Site.Cliente
         core _core = new core();
         CategoriaBE CategoriaBE = new CategoriaBE();
         ServicoBE ServicoBE = new ServicoBE();
+        AreaFornecedorBE AreaFornecedorBE = new AreaFornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(Request.QueryString["CatSel"]))
@@ -33,6 +35,15 @@ namespace Bsk.Site.Cliente
                     Response.Redirect("buscar-servico.aspx?Cat=0");
                 }
             }
+        }
+        public List<ServicoBE> PegaServicoTodos(CategoriaBE categoria)
+        {
+            List<ServicoBE> servicos = new List<ServicoBE>();
+            ServicoBE servicoBE = new ServicoBE();
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdFornecedor={login.IdFornecedor}").FirstOrDefault();
+            servicos = _core.Servico_Get(servicoBE, "IdCategoria=" + categoria.IdCategoria);
+            return servicos;
         }
 
         public List<CategoriaBE> BuscaCategoria()
