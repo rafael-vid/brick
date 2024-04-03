@@ -40,8 +40,6 @@ namespace Bsk.Site.Cliente
         {
             List<ServicoBE> servicos = new List<ServicoBE>();
             ServicoBE servicoBE = new ServicoBE();
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdFornecedor={login.IdFornecedor}").FirstOrDefault();
             servicos = _core.Servico_Get(servicoBE, "IdCategoria=" + categoria.IdCategoria);
             return servicos;
         }
