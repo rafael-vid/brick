@@ -20,6 +20,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- Outros scripts -->
 
 
@@ -27,7 +30,21 @@
 
 <body>
 
-
+    <script>
+        function displayPopupMessage(message){
+    Swal.fire({
+        icon: 'error',
+        title: 'Atenção',
+        text: message
+    })
+}function displayPopupMessage2(message){
+    Swal.fire({
+        icon: 'success',
+        title: 'Atenção',
+        text: message
+    })
+}
+    </script>
     
 
     <form id="form1" runat="server">
@@ -372,7 +389,7 @@
                 </div>
             </div>
         </div>
-        <div class="minhaclasse2"
+        <div class="minhaclasse2">
                     <asp:Label ID="msg" runat="server" Text=""></asp:Label>
         </div>
         <!-- footer -->

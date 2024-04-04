@@ -167,10 +167,26 @@
     </div>
 
     <style>
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+            font-size: 15px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+        }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+        }
+        div:where(.swal2-icon).swal2-info {
+            border-color: #770e18;
+            color: #770e18;
+        }
+
         .btn.enviar-cotacao {
             border-radius: 30px;
             margin-bottom: 30px;
-            justify-content: flex-end
+            font-family: Rajdhani-semi;
+            font-size: 16px;
         }
 
             .btn.enviar-cotacao:hover {
@@ -193,8 +209,8 @@
                     text: "Você tem certeza que gostaria de enviar solicitação de cotação para este serviço? Toda alteração, anexo ou video não salvos serão perdidos. Não será possível fazer mais nenhuma alteração.",
                     icon: 'info',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#f08f00',
+                    cancelButtonColor: "#770e18",
                     confirmButtonText: 'Aceitar!'
                 }).then((result) => {
                     if (result.value) {
