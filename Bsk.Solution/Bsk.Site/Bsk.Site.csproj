@@ -294,6 +294,7 @@
     <Content Include="assets\imagens\real.png" />
     <Content Include="assets\imagens\recebimento.png" />
     <Content Include="assets\imagens\select.svg" />
+    <Content Include="assets\imagens\seta-esquerda.png" />
     <Content Include="assets\imagens\seta_esquerda.svg" />
     <Content Include="assets\imagens\sino-notifica.svg" />
     <Content Include="assets\imagens\sino.svg" />
