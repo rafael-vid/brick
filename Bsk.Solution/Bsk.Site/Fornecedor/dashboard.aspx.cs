@@ -22,10 +22,10 @@ namespace Bsk.Site.Fornecedor
 
         public List<Dashboard> GetDashboardFornecedor()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.GetDashboardFornecedor($" CT.IdCliente=" + login.IdCliente + " order by DataAlteracao desc");
+            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["Login"].Value);
+            var cotFornecedor = _core.GetDashboardFornecedor($" CT.IdCliente=" + login.IdFornecedor + " order by DataAlteracao desc");
 
-            return cotCliente;
+            return cotFornecedor;
         }
 
         public List<CotacaoListaFronecedorModel> PegaCotacoes(int statusID)
