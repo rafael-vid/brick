@@ -109,7 +109,7 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
-                    Response.Redirect($"~/cliente/cliente-dashboard.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                    Response.Redirect($"login.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }
             else

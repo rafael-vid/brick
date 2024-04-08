@@ -99,17 +99,43 @@
             }
         }
     </style>
-    <div id="adicionados" style="display: none;"></div>
-    <div id="removidos" style="display: none;"></div>
+    <style>
+    .category-header {
+        display: flex;
+        align-items: center; /* This aligns the children (SVG and text) vertically in the center */
+        cursor: pointer;
+    }
 
+    .arrow-icon {
+        transition: transform .3s ease;
+        fill: #000; /* Adjust the fill color as needed */
+        /* No need for margin-right here if you want the SVG to be close to the text, adjust as needed */
+    }
+
+    h2 {
+        margin: 0; /* Removes default margin from h2 to help with alignment, adjust as needed */
+        padding: 0; /* Adjust padding as needed for your design */
+        /* Add any other styles for your h2 here */
+    }
+
+    .nested-list {
+        display: none;
+        list-style-type: none;
+        padding-left: 0;
+    }
+</style>
     
 
-    <div class="conteudo-dash atuacao">
 
-        <div class="subtitulo_card subtitulo_1" style="position: relative;">
-            <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
-            <h2 class="subtitulo_1">Serviços disponíveis</h2>
-        </div>
+        <div class="conteudo-dash atuacao">
+        
+     <div class="subtitulo_card subtitulo_1" style="position: relative;">
+    <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
+    <h2 class="subtitulo_1">Serviços prestados</h2>
+    <div class="buttons_container">
+        <button id="exibir/esconder" type="button" class="btn" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</button>
+    </div>
+</div>
         
         <%var areas = BuscaAreas(); %>
         <%List<string> servicoslista = new List<string>(); %>
@@ -136,7 +162,14 @@
         <div class="faq-itens"> <!-- Added container for the grid -->
             <% foreach (var item in categorias) { %> <!-- Change 'areas' to 'categorias' to match your variable name -->
                 <div>
-                    <h2><%= item.Nome %></h2>
+                    <div class="category-header" onclick="toggleServices(this)">
+                        <span class="category-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="arrow-icon">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+                </svg>
+            </span>
+                        <h2 id ="category-name"><%= item.Nome %></h2>
+                    </div>
                     <ul class="nested-list">
                         <% var servicostodos = PegaServicoTodos(item); %> <!-- Keep the function to fetch services -->
                         <% foreach (var j in servicostodos) { %>
@@ -194,6 +227,81 @@
                  window.location.href = "minhas-areas.aspx";
             }
         </script>
+        <script>
+            function toggleServices(element) {
+                var arrow = element.querySelector('.arrow-icon');
+                var nextElement = element.nextElementSibling;
+                if (nextElement.style.display === "none" || nextElement.style.display === "") {
+                    nextElement.style.display = "block";
+                    arrow.style.transform = "rotate(90deg)";
+                } else {
+                    nextElement.style.display = "none";
+                    arrow.style.transform = "rotate(0deg)";
+                }
+            }
+        </script>
+        <script>
+            window.onload = function () {
+                // Find all category headers
+                var categoryHeaders = document.querySelectorAll('.category-header');
+                categoryHeaders.forEach(function (header) {
+                    // Check if the next sibling (the service list) contains any checked checkboxes
+                    var servicesList = header.nextElementSibling;
+                    var selectedServices = servicesList.querySelectorAll('input[type="checkbox"]:checked');
+                    if (selectedServices.length > 0) {
+                        // If there are selected services, expand this category
+                        toggleServices(header);
+                    }
+                });
+            };
+
+            function toggleServices(element) {
+                var arrow = element.querySelector('.arrow-icon');
+                var nextElement = element.nextElementSibling;
+                // Toggle visibility
+                if (nextElement.style.display === "none" || nextElement.style.display === "") {
+                    nextElement.style.display = "block";
+                    // Assuming arrow rotation is desired upon toggling
+                    arrow.style.transform = "rotate(90deg)";
+                } else {
+                    nextElement.style.display = "none";
+                    arrow.style.transform = "rotate(0deg)";
+                }
+            }
+        </script>
+        <script>
+            function toggleAllCategories(event) {
+                // Prevent default action if this function was triggered by an event
+                if (event) event.preventDefault();
+
+                var allCategories = document.querySelectorAll('.category-header');
+                var allLists = document.querySelectorAll('.nested-list');
+
+                // Determine the action based on the first category's state
+                var shouldExpand = allLists[0].style.display === "none" || allLists[0].style.display === "";
+
+                allCategories.forEach(function (header, index) {
+                    var arrow = header.querySelector('.arrow-icon');
+                    var nextElement = header.nextElementSibling;
+
+                    if (shouldExpand) {
+                        nextElement.style.display = "block";
+                        arrow.style.transform = "rotate(90deg)";
+                    } else {
+                        nextElement.style.display = "none";
+                        arrow.style.transform = "rotate(0deg)";
+                    }
+                });
+                console.log("botao clicado")
+            }
+
+        </script>
+
+
+
+
+
+
 
     </div>
     
