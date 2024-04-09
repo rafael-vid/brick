@@ -107,6 +107,16 @@ namespace Bsk.Interface
             return _base.ToList<ClienteBE>(db.Get(sql));
         }
 
+        public List<ClienteBE> EsqueciASenhaFornecedor(string filtro)
+        {
+            string sql = $@"SELECT 
+
+                                Senha
+                            FROM fornecedor
+                            where " + filtro;
+            return _base.ToList<ClienteBE>(db.Get(sql));
+        }
+
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {
