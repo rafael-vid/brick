@@ -123,7 +123,7 @@
 
                     <div class="acessos">
                         <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="esqueciasenha.aspx?tipo=cli" class="esqueceusenha">Esqueci a senha</a>
                             <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
                             
                         </div>
@@ -145,7 +145,7 @@
 
                     <div class="acessos">
                         <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="esqueciasenha.aspx?tipo=for" class="esqueceusenha">Esqueci a senha</a>
                             <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
                             
                         </div> 

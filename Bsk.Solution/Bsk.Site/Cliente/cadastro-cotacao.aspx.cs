@@ -120,7 +120,7 @@ namespace Bsk.Site.Cliente
                     IdCotacaoFornecedor = 0,
                     Nota = 0,
                     Observacao = "",
-                    Status = "0",
+                    Status = "1",
                     Titulo = titulo.Value
                 };
 

@@ -27,9 +27,24 @@ namespace Bsk.Site.Geral
 
         protected void btnCliente_ServerClick(object sender, EventArgs e)
         {
+            if (Request.QueryString["tipo"] == "cli")
+            {
+                _ClienteBE = _core.EsqueciASenha("Email = '" + usuarioCliente.Text + "'");
+                if (_ClienteBE.Count() > 0)
+                {
+                    Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Sua senha é: " + _ClienteBE[0].Senha);
+                }
+            }
+            else
+            {
 
-            _ClienteBE = _core.EsqueciASenha("Email = '"+usuarioCliente.Text+"'");
-            Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", _ClienteBE[0].Senha);
+                _ClienteBE = _core.EsqueciASenhaFornecedor("Email = '" + usuarioCliente.Text + "'");
+                if (_ClienteBE.Count() > 0)
+                {
+                    Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Sua senha é: " + _ClienteBE[0].Senha);
+                }
+            }
+            lblMensagem.Text = "Um e-mail foi enviado para: " + usuarioCliente.Text;
         }
     }
 }
