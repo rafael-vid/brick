@@ -206,11 +206,12 @@
 
                 Swal.fire({
                     title: 'Enviar?',
-                    text: "Você tem certeza que gostaria de enviar solicitação de cotação para este serviço? Toda alteração, anexo ou video não salvos serão perdidos. Não será possível fazer mais nenhuma alteração.",
+                    text: "Você tem certeza que gostaria de enviar solicitação de cotação para este serviço? Não será possível fazer mais nenhuma alteração.",
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonColor: '#f08f00',
                     cancelButtonColor: "#770e18",
+                    cancelButtonText: 'Cancelar',
                     confirmButtonText: 'Aceitar!'
                 }).then((result) => {
                     if (result.value) {
