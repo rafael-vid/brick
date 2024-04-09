@@ -40,8 +40,7 @@
 }function displayPopupMessage2(message){
     Swal.fire({
         icon: 'success',
-        title: 'Atenção',
-        text: message
+        title: message
     })
 }
     </script>

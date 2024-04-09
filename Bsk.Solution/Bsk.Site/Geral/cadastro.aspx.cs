@@ -105,11 +105,12 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
-                    Response.Redirect($"login.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }
             else
@@ -172,7 +173,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -264,7 +266,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -338,7 +341,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {

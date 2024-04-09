@@ -132,8 +132,8 @@
      <div class="subtitulo_card subtitulo_1" style="position: relative;">
     <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
     <h2 class="subtitulo_1">Serviços prestados</h2>
-    <div class="buttons_container">
-        <button id="exibir/esconder" type="button" class="btn" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</button>
+    <div class="buttons_container" style="margin-top: -30px;">
+        <a id="exibir/esconder" class="btn_card2" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</a>
     </div>
 </div>
         
@@ -171,11 +171,11 @@
                         <h2 id ="category-name"><%= item.Nome %></h2>
                     </div>
                     <ul class="nested-list">
-                        <% var servicostodos = PegaServicoTodos(item); %> <!-- Keep the function to fetch services -->
+                        <% var servicostodos = PegaServicoTodos(item); %>
                         <% foreach (var j in servicostodos) { %>
                             <% var checkboxId = "checkbox_" + checkboxCounter; %>
                             <% 
-                                var checkboxValue = j.IdServico + "; " + item.IdCategoria; // Concatenate service ID with category ID
+                                var checkboxValue = j.IdServico + "; " + item.IdCategoria;
                                 if (servicoslista.Contains(checkboxValue)) { 
                                     %><li><input type='checkbox' name='servico' value='<%= checkboxValue %>' id='<%= checkboxId %>' checked>
                                     <label for="<%= checkboxId %>"><%= j.Nome %></label></li><%
@@ -201,7 +201,9 @@
         </div>
         <div class="footer_card">
             <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
-            <a class="btn_card2" id="atualizarDados" onclick="atualizarDados()">Atualizar dados</a> 
+            <button class="btn_card" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto;">Anterior</button>
+            <button  class="btn_card" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto;">Próxima</button>
+            <a class="btn_card" id="atualizarDados" onclick="atualizarDados()" style="width: auto;">Atualizar dados</a>
         </div>
 
         <script>
@@ -241,7 +243,37 @@
             }
         </script>
         <script>
+            let currentPage = 0;
+            const itemsPerPage = 9;
+
+            function paginateCategories(direction) {
+                // Calculate total number of pages
+                const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
+
+                // Adjust current page based on the direction ('next' or 'prev')
+                if (direction === 'next' && currentPage < totalPages - 1) {
+                    currentPage++;
+                } else if (direction === 'prev' && currentPage > 0) {
+                    currentPage--;
+                }
+
+                // Hide all categories
+                document.querySelectorAll('.category-header').forEach((element, index) => {
+                    element.parentNode.style.display = 'none'; // Adjust according to your HTML structure
+                });
+
+                // Show the current set of categories
+                const start = currentPage * itemsPerPage;
+                const end = start + itemsPerPage;
+                document.querySelectorAll('.category-header').forEach((element, index) => {
+                    if (index >= start && index < end) {
+                        element.parentNode.style.display = ''; // Adjust according to your HTML structure
+                    }
+                });
+            }
+
             window.onload = function () {
+                paginateCategories();
                 // Find all category headers
                 var categoryHeaders = document.querySelectorAll('.category-header');
                 categoryHeaders.forEach(function (header) {
