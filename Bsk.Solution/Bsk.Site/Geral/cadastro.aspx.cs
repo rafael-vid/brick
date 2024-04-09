@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
+using MySql.Data.MySqlClient;
 
 namespace Bsk.Site.Geral
 {
@@ -31,19 +35,58 @@ namespace Bsk.Site.Geral
             }
         }
 
+        protected bool IsEmailRegisteredCli(string email)
+        {
+            ClienteBE ClienteBE = new ClienteBE();
+            var emails = _core.Cliente_Get(ClienteBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        protected bool IsEmailRegisteredFor (string email)
+        {
+            FornecedorBE FornecedorBE = new FornecedorBE();
+            var emails = _core.Fornecedor_Get(FornecedorBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = email.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaFisicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaFisicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaFornecedor();
+                }
+                
             }
             else
             {
@@ -191,17 +234,35 @@ namespace Bsk.Site.Geral
 
         protected void btnJuridica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = emailJuridica.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaJuridicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaJuridicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaFornecedor();
+                }
+
             }
             else
             {

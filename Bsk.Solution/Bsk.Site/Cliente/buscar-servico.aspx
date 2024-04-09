@@ -169,7 +169,7 @@ foreach (var item in categorias)
                 </a>
                 <script>
                     $('#btnProximo').click(function () {
-                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=rdo]:checked').val();
+                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=categoria]:checked').val();
                     })
 </script>
                 <script>
