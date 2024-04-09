@@ -24,8 +24,8 @@ namespace Bsk.Site.Service
             //sr.Close();
 
             MailMessage oEmail = new MailMessage();
-            MailAddress sDe = new MailAddress("💡 Brikk <no-reply@brikk.com.br>"); 
-            MailAddress sRpt = new MailAddress("no-reply@brikk.com.br");
+            MailAddress sDe = new MailAddress("💡 Brikk <naoresponda@spsantos.com.br>"); 
+            MailAddress sRpt = new MailAddress("naoresponda@brikk.com.br");
 
             oEmail.To.Add(destinatario);
 
@@ -34,16 +34,16 @@ namespace Bsk.Site.Service
                 oEmail.CC.Add(cc);
             }
             oEmail.From = sDe;
-            //oEmail.ReplyTo = sRpt;
+            oEmail.ReplyTo = sRpt;
             oEmail.Priority = MailPriority.High;
             oEmail.Subject = title;
             oEmail.Body = body;
             oEmail.IsBodyHtml = true;
 
-            SmtpClient oEnviar = new SmtpClient("mail.brikk.com.br", 26);
-            oEnviar.EnableSsl = false;
+            SmtpClient oEnviar = new SmtpClient("smtp.gmail.com", 587);
+            oEnviar.EnableSsl = true;
             oEnviar.UseDefaultCredentials = false;
-            System.Net.NetworkCredential cred = new System.Net.NetworkCredential("no-reply@brikk.com.br", "SENHA"); 
+            System.Net.NetworkCredential cred = new System.Net.NetworkCredential("naoresponda@spsantos.com.br", "Brikk@123"); 
 
             oEnviar.Credentials = cred;
 

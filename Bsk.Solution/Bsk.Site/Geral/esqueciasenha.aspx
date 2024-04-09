@@ -114,8 +114,9 @@
                     <div class="acessos">
 
                         <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Enviar</button>
+                        
                     </div>
-
+                    <asp:Label ID="lblMensagem" runat="server" style="margin-top: 17px;display: block;"></asp:Label>
                 </div>
 
                 
