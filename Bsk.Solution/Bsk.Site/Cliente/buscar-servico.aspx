@@ -13,8 +13,8 @@
         }
 
         .item-faq {
-            margin-top: 23px;
-            padding-bottom: 23px;
+            margin-top: 0px;
+            padding-bottom: 0px;
             position: relative;
         }
 
@@ -26,7 +26,7 @@
                 display: none;
             }
             .item-faq label {
-                font-size: 17px;
+                font-size: 16px;
                 color: #771218;
                 font-family: Rajdhani-semi, sans-serif;
             }
@@ -72,10 +72,11 @@
                 margin-right:10px
             }
 
-        .categoria-nome {
-            display: block !important;
-            font-size: 24px;
+        .category-label {
+        font-size: 30px !important;
+
         }
+
 
         .checkbox-wrapper form {
             margin-top: 10px;
@@ -107,6 +108,10 @@
                 height: auto;
             }
         }
+        .services input[type="checkbox"] {
+    margin-left: 30px; /* Adjust the value as needed */
+}
+
     </style>
 
   
@@ -123,25 +128,31 @@
             <div class="faq-itens">
                 <%var categorias = BuscaCategoria();
 
-                    foreach (var item in categorias)
-                    {%>
-                <%var servicos = PegaServicoTodos(item); %>
-                <div class="item-faq">
-                    <span class="categoria-nome"><%Response.Write(item.Nome); %></span>
-                    <div class="checkbox-wrapper">
-                        <%foreach (var j in servicos)
-                            {%>
-                               <div>
-                                   <input type="radio" name="rdo" value="<%Response.Write(item.IdCategoria); %>" /><%Response.Write(j.Nome); %>
-                               </div> 
-                                
-                           <% } %>
-                        
-                    </div>
-                </div>
-                
-                <%}
-                %>
+foreach (var item in categorias)
+{%>
+<div class="item-faq">
+    <!-- Radio button for the category -->
+    <input type="radio" name="categoria" value="<%Response.Write(item.IdCategoria); %>" id="cat<%Response.Write(item.IdCategoria); %>" onchange="toggleServicesDisplay(this.value)" />
+    <label for="cat<%Response.Write(item.IdCategoria); %>" class="category-label"><%Response.Write(item.Nome); %></label>
+
+
+    <!-- Services are wrapped in a div with a class for hiding/showing, each service has a checkbox -->
+    <div class="services" id="services<%Response.Write(item.IdCategoria); %>" style="display: none;">
+        <%var servicos = PegaServicoTodos(item); %>
+        <%foreach (var j in servicos)
+        {%>
+            <div>
+                <!-- Checkbox for each service within the category -->
+                <input type="checkbox" name="service<%Response.Write(item.IdCategoria); %>" value="<%Response.Write(j.IdServico); %>" id="service<%Response.Write(j.IdServico); %>" />
+                <label for="service<%Response.Write(j.IdServico); %>"><%Response.Write(j.Nome); %></label>
+            </div>
+        <% } %>
+    </div>
+</div>
+<%} %>
+
+
+
            
             </div>
 
@@ -158,9 +169,23 @@
                 </a>
                 <script>
                     $('#btnProximo').click(function () {
-                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=rdo]:checked').val();
+                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=categoria]:checked').val();
                     })
 </script>
+                <script>
+                    function toggleServicesDisplay(selectedCategoryId) {
+                        // Hide all services
+                        $('.services').hide();
+
+                        // Show the services under the selected category
+                        $('#services' + selectedCategoryId).show();
+
+                        // Optionally, reset checkboxes in hidden service divs
+                        $('.services').not('#services' + selectedCategoryId).find('input[type=checkbox]').prop('checked', false);
+                    }
+                </script>
+
+
             </div>
 
         </div>

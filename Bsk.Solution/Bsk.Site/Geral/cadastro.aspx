@@ -37,13 +37,36 @@
         title: 'Atenção',
         text: message
     })
-}function displayPopupMessage2(message){
-    Swal.fire({
-        icon: 'success',
-        title: 'Atenção',
-        text: message
-    })
-}
+        }
+
+        function displayPopupMessage2(message) {
+            Swal.fire({
+            icon: 'success',
+            title: message
+            })
+        }
+
+        function displayPopupMessage3(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção',
+                text: message,
+                showCancelButton: true,
+                confirmButtonText: 'Recuperar Senha',
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#d33',
+                showDenyButton: true,
+                denyButtonText: 'Ir para Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'esqueciasenha.aspx';
+                } else if (result.isDenied) {
+                    window.location.href = 'login.aspx';
+                }
+            })
+        }
+
+
     </script>
     
 

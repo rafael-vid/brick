@@ -17,7 +17,7 @@
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
                 <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Cotações/ Cotação <span id="nrCotacao" runat="server"></span> Marcenaria Gomes</h2>
+                <h2 class="subtitulo_1">Cotações / Cotação Nº <span id="nrCotacao" runat="server"></span></h2>
             </div>
 
             <div class="item_content_card">
@@ -255,7 +255,7 @@
             
 
             <div class="footer_card">
-                <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
+                <a class="voltar btn" href="cotacao-lista.aspx?Id="><< voltar </a>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">

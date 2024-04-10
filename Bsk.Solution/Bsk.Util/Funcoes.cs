@@ -29,9 +29,9 @@ namespace Bsk.Util
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
             FornecedorBE fornecedorBE = new FornecedorBE();
 
-
-                fornecedorBE.IdFornecedor = ret["IdFornecedor"];
-                fornecedorBE.Bairro = ret["Bairro"];
+            
+            fornecedorBE.Bairro = ret["Bairro"];
+            fornecedorBE.IdFornecedor = ret["IdFornecedor"];
             fornecedorBE.Cep = ret["Cep"];
             fornecedorBE.Cnpj = ret["Cnpj"];
             fornecedorBE.Complemento = ret["Complemento"];

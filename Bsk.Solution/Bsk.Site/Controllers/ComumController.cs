@@ -474,6 +474,7 @@ namespace Bsk.Site.Controllers
             {
                 valor = valor.Replace(".", "");
                 cotacaoFornecedor.Valor = float.Parse(valor);
+                cotacaoFornecedor.EnviarProposta = 1;
             }
             catch (Exception)
             {
