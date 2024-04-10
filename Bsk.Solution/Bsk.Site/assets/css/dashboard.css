@@ -1276,12 +1276,14 @@ button.btn.bp-cotacao {
 }
 .expo-info-values {
   margin-top: 20px;
-  background: #770e18;
+  background: white;
   position: relative;
   padding: 10px 24px;
-  color: #fff;
+  color: black;
   border-radius: 15px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
 }
 .expo-info-values .dt::after {
   content: "";
