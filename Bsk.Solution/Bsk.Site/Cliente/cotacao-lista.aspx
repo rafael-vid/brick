@@ -27,7 +27,7 @@
                 <asp:Label ID="descricao" runat="server"></asp:Label>
             </div>
 
-            <div class="grid">
+            <div class="grid" style="margin-top:20px">
                  <div class="item_content_card">
                     <div class="total_a_receber media-cotacoes">
                         <span>Mínimo das cotações recebidas</span>

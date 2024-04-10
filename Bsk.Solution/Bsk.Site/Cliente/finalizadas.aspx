@@ -18,7 +18,7 @@
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
                 <h2 class="subtitulo_1">Cotação</h2>
             </div>
-            <div class="filtros_card">
+            <div class="filtros_card" style="display:none">
 
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
