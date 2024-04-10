@@ -359,7 +359,7 @@ namespace Bsk.Site.Controllers
         {
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
-            cotacao.Status = StatusCotacao.Aberto;
+            cotacao.Status = StatusCotacao.Criacao;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
@@ -482,6 +482,8 @@ namespace Bsk.Site.Controllers
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
             CotacaoBE _CotacaoBE = new CotacaoBE();
             var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            cotacao2.Status = "2";
+            _core.Cotacao_Update(cotacao2, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
 
             NotificacaoBE notif = new NotificacaoBE();
 

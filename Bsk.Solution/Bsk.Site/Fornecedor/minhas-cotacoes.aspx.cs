@@ -49,7 +49,7 @@ namespace Bsk.Site.Fornecedor
 
                 }
 
-                if (item.Status == StatusCotacao.Aberto)
+                if (item.Status == StatusCotacao.Aberto || item.Status == StatusCotacao.Criacao)
                 {
                     item.Status = "Aberto";
                 }
