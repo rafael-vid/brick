@@ -1,4 +1,5 @@
 ﻿using Bsk.BE;
+using Bsk.BE.Model;
 using Bsk.Interface;
 using Bsk.Util;
 using System;
@@ -19,12 +20,27 @@ namespace Bsk.Site.Cliente
 
         }
 
+        public List<Dashboard> GetDashboardCliente()
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cotCliente = _core.GetDashboardCliente($" s.id in (4,5,6)");
+
+            return cotCliente;
+        }
+
         public List<CotacaoBE> PegaCotacaoAndamento()
         {
             var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" Status in (4,5,6)");
             foreach (var item in cotacoes)
             {
-                item.Status = "Em andamento";
+                if(item.Status == "4")
+                    item.Status = "Em andamento";
+
+                if (item.Status == "5")
+                    item.Status = "Aguardando aceite";
+
+                if (item.Status == "6")
+                    item.Status = "Aguardando avaliação";
             }
             return cotacoes;
         }

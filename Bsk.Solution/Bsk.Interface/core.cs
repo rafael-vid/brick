@@ -198,7 +198,7 @@ namespace Bsk.Interface
                             CT.DataAlteracao,
                             CF.DataEntrega,
                             CF.Valor,
-
+                            s.Nome as StatusNome,
                             CASE
                                 WHEN 
 			                            (select count(IdCotacaoFornecedorChat) 
@@ -212,6 +212,8 @@ namespace Bsk.Interface
                         from cotacaofornecedor CF
                         inner join cotacao CT on CT.IdCotacao = CF.IdCotacao
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
+                        inner join status_cliente s
+		                            on CT.status = s.id
                         where CF.IdFornecedor = " + idFornecedor+ " and CF.Ativo=1 order by DataAlteracao desc ";
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }

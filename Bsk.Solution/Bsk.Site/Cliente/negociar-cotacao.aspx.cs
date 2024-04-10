@@ -49,80 +49,83 @@ namespace Bsk.Site.Cliente
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
-            if (cotacaoFornecedor.Novo == 1)
-            {
-                cotacaoFornecedor.Novo = 0;
-                _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
-            }
-
-            if (cotacaoFornecedor.Ativo == 0)
-            {
-                Response.Redirect("minhas-cotacoes.aspx");
-            }
-
-            if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
-            {
-                divAceitar.Visible = false;
-            }
-            mediaCotacoes();
             if (cotacaoFornecedor != null)
             {
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                if (cotacao != null)
+                if (cotacaoFornecedor.Novo == 1)
                 {
-                    if (cotacao.Status == StatusCotacao.Finalizado)
-                    {
-                        btnEnviar.Visible = false;
-                        divUpload.Visible = false;
-                        msg.Visible = false;
-                        descricaoHide.Visible = false;
-                    }
-
-                    tituloCot.InnerText = cotacao.Titulo;
-                    descricaoCot.InnerText = cotacao.Descricao;
-                    vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
-
-                    try
-                    {
-                        dataEntrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
-                    }
-                    catch (Exception)
-                    {
-                        dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
-                    }
-
-                    if (String.IsNullOrEmpty(dataEntrega.InnerText))
-                    {
-                        dataEntrega.InnerText = "-";
-                    }
-
-
-                    if (cotacao.IdCotacaoFornecedor != 0)
-                    {
-                        divAceitar.Visible = false;
-                    }
-
-                    if(cotacaoFornecedor.EnviarProposta == 0)
-                    {
-                        divAceitar.Visible = false;
-                    }
-
-                    if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
-                    {
-                        divTerminado.Visible = true;
-                    }
-                    else
-                    {
-                        divTerminado.Visible = false;
-                    }
+                    cotacaoFornecedor.Novo = 0;
+                    _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
                 }
 
-                var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
-                if (fornecedor != null)
+                if (cotacaoFornecedor.Ativo == 0)
                 {
-                    parceiro.InnerText = fornecedor.RazaoSocial;
+                    Response.Redirect("minhas-cotacoes.aspx");
                 }
 
+                if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
+                {
+                    divAceitar.Visible = false;
+                }
+                mediaCotacoes();
+                if (cotacaoFornecedor != null)
+                {
+                    var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                    if (cotacao != null)
+                    {
+                        if (cotacao.Status == StatusCotacao.Finalizado)
+                        {
+                            btnEnviar.Visible = false;
+                            divUpload.Visible = false;
+                            msg.Visible = false;
+                            descricaoHide.Visible = false;
+                        }
+
+                        tituloCot.InnerText = cotacao.Titulo;
+                        descricaoCot.InnerText = cotacao.Descricao;
+                        vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
+
+                        try
+                        {
+                            dataEntrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
+                        }
+                        catch (Exception)
+                        {
+                            dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
+                        }
+
+                        if (String.IsNullOrEmpty(dataEntrega.InnerText))
+                        {
+                            dataEntrega.InnerText = "-";
+                        }
+
+
+                        if (cotacao.IdCotacaoFornecedor != 0)
+                        {
+                            divAceitar.Visible = false;
+                        }
+
+                        if (cotacaoFornecedor.EnviarProposta == 0)
+                        {
+                            divAceitar.Visible = false;
+                        }
+
+                        if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
+                        {
+                            divTerminado.Visible = true;
+                        }
+                        else
+                        {
+                            divTerminado.Visible = false;
+                        }
+                    }
+
+                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
+                    if (fornecedor != null)
+                    {
+                        parceiro.InnerText = fornecedor.RazaoSocial;
+                    }
+
+                }
             }
         }
 

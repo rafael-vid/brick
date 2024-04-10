@@ -19,7 +19,29 @@
                 <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
                 <h2 class="subtitulo_1">Em Andamento</h2>
             </div>
+            
+                <div class="select-card">
+                    <select onchange="filtraTabela();" id="slcStatus">
+                        <option value="0">Selecione um status</option>
+                        <% 
+                            var itens = GetDashboardCliente();
+
+                            foreach(var i in itens)
+                            {
+                                %>
+                                    <option value="<% Response.Write(i.id); %>" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == i.id.ToString()) { Response.Write("selected"); }  %> ><% Response.Write(i.nome); %></option>
+                                <%
+                            }
+
+                            %>
+
+
+                    </select>
+                </div>
             <div class="filtros_card">
+
+
+
              <div class="dataTables_length" id="tabela_length">
                  <label>
                      <select name="tabela_length" aria-controls="tabela" class="">
@@ -34,12 +56,12 @@
 
                 <div class="pesquisar">
                     <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                    <input type="text" placeholder="Pesquisar" id="search" class="pesquisar_input">
                 </div>
             </div>
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Cotação</th>
@@ -72,7 +94,7 @@
                                 <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
                             </td>
                             <% }
-                                else if (item.Status == "Em andamento")
+                                else if (item.Status == "Em andamento" || item.Status == "Aguardando aceite" || item.Status == "Aguardando avaliação")
                                 {%>
                             <td>
                                 <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>" style="width: 30%">Serviço</a>
@@ -125,5 +147,54 @@
             color: #770e18 !important;
         }
     </style>
+    <script>
+        function filtraTabela() {
+
+            var table = $('#tabela').DataTable();
+
+            if ($("#slcStatus").val() == "0") {
+                $('#search').val("");
+            } else if ($("#slcStatus").val() == "1") {
+                table.search("Solicitação Feita").draw();
+            } else if ($("#slcStatus").val() == "2") {
+                table.search("Em Cotação").draw();
+            } else if ($("#slcStatus").val() == "3") {
+                table.search("Aguardando pagamento").draw();
+            } else if ($("#slcStatus").val() == "4") {
+                $('#search').val("Em andamento");
+            } else if ($("#slcStatus").val() == "5") {
+                $('#search').val("Aguardando aceite");
+            } else if ($("#slcStatus").val() == "6") {
+                $('#search').val("Aguardando avaliação");
+            } else if ($("#slcStatus").val() == "7") {
+                table.search("Finalizado").draw();
+            }
+            $('#search').keyup()
+        }
+
+        setTimeout(function () { filtraTabela() }, 10)
+
+        $(document).ready(function () {
+            $('#search').keyup(function () {
+                search_table($(this).val());
+            });
+            function search_table(value) {
+                $('#tabela tbody tr').each(function () {
+                    var found = 'false';
+                    $(this).each(function () {
+                        if ($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0) {
+                            found = 'true';
+                        }
+                    });
+                    if (found == 'true') {
+                        $(this).show();
+                    }
+                    else {
+                        $(this).hide();
+                    }
+                });
+            }
+        });
+    </script>
 
 </asp:Content>

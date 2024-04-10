@@ -29,7 +29,13 @@ namespace Bsk.Site.Fornecedor
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
             
         }
+        public List<Dashboard> GetDashboardCliente()
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var cotCliente = _core.GetDashboardCliente($" s.id in (1,2,3)");
 
+            return cotCliente;
+        }
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);

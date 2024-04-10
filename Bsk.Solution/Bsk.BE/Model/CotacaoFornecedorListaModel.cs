@@ -22,5 +22,6 @@ namespace Bsk.BE.Model
         public DateTime DataAlteracao { get; set; }
         public double Valor { get; set; }
         public string DataEntrega { get; set; }
+        public string StatusNome { get; set; }
     }
 }
