@@ -197,13 +197,13 @@
                    
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (VerificarValores()) salvaDados();"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (verificarValores()) salvaDados();"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
-    <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
-    <text>Proposta confirmada!</text>
-    </div>
+                            <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
+                            <text>Proposta confirmada!</text>
+                            </div>
                     
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
@@ -488,18 +488,17 @@
 
     <script type="text/javascript">
 
-        function VerificarValores() {
-            var dataEntrega = document.getElementById("dataEntrega").innerText.trim();
-            var valorServico = document.getElementById("vlr").innerText.trim();
-            var valorMedioCotacoes = document.getElementById("valorMedioCotacoes").innerText.trim();
+        function verificarValores() {
+            var dataEntrega = document.getElementById("dataEntrega").value.trim();
+            var valorServico = document.getElementById("valorServico").value.trim();
 
-            if (dataEntrega === "" || valorServico === ""  {
-                abrirModal();
+            // Verifica se os valores estão preenchidos
+            if (dataEntrega === "" || valorServico === "") {
+                // Se não estiverem preenchidos, exibe uma mensagem de alerta
+                Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
+                return false; // Retorna false para interromper a execução
             }
-        }
-
-        function abrirModal() {
-            Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
+            return true; // Retorna true se os valores estiverem preenchidos
         }
 
         setInterval(function () {
