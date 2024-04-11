@@ -194,15 +194,10 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
-
-
-
-
-                        
-                        
+                   
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (VerificarValores()) salvaDados();"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
@@ -497,6 +492,31 @@
 
 
     <script type="text/javascript">
+
+        function VerificarValores() {
+            var dataEntrega = document.getElementById("dataEntrega").innerText.trim();
+            var valorServico = document.getElementById("vlr").innerText.trim();
+            var valorMedioCotacoes = document.getElementById("valorMedioCotacoes").innerText.trim();
+
+            if (dataEntrega === "" || valorServico === ""  {
+                abrirModal();
+            }
+        }
+
+        function abrirModal() {
+            Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
+        }
+
+        setInterval(function () {
+            var parametro = {
+                tipo: "C",
+                id: comum.queryString("Id")
+            };
+            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
+                $("#divChat").empty();
+                $("#divChat").append(data);
+            });
+        }, 10000);
         
         document.addEventListener('DOMContentLoaded', function () {
             const valorServicoInput = document.getElementById('valorServico');
