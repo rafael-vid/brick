@@ -194,15 +194,10 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
-
-
-
-
-                        
-                        
+                   
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (VerificarValores()) salvaDados();"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
@@ -493,9 +488,34 @@
 
     <script type="text/javascript">
 
+        function VerificarValores() {
+            var dataEntrega = document.getElementById("dataEntrega").innerText.trim();
+            var valorServico = document.getElementById("vlr").innerText.trim();
+            var valorMedioCotacoes = document.getElementById("valorMedioCotacoes").innerText.trim();
+
+            if (dataEntrega === "" || valorServico === ""  {
+                abrirModal();
+            }
+        }
+
+        function abrirModal() {
+            Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
+        }
+
+        setInterval(function () {
+            var parametro = {
+                tipo: "C",
+                id: comum.queryString("Id")
+            };
+            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
+                $("#divChat").empty();
+                $("#divChat").append(data);
+            });
+        }, 10000);
+        
         document.addEventListener('DOMContentLoaded', function () {
             const valorServicoInput = document.getElementById('valorServico');
-
+        
             valorServicoInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
                 value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
@@ -504,15 +524,17 @@
                 e.target.value = value;
             });
         });
-
+        
 
         //$(function () {
         //    $('#valorServico').maskMoney({
-        //        allowNegative: false,
-        //        thousands: '.', decimal: ',',
-        //        affixesStay: true
-        //    });
-        //})
+        //        allowNegative: false, 
+        //        thousands: '.',       
+        //        decimal: ',',         
+        //        affixesStay: true     
+        //   }).trigger('mask.maskMoney');
+        //
+        //});
 
         setInterval(function () {
             var parametro = {

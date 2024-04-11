@@ -106,11 +106,11 @@
                 <label id="paramLabel" style="display: none;" class="titulo">Cadastro de fornecedor</label>
                 <label id="paramLabel2" style="display: none;" class="titulo">Cadastro de cliente</label>
                 <div>
-                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf">
+                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf" runat="server">
                     <label for="pf">Pessoa Física</label>
                 </div>
                 <div>
-                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj">
+                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj" runat="server">
                     <label for="pj">Pessoa Jurídica</label>
                 </div>
             </div>
@@ -286,6 +286,7 @@
                 </style>
 
                 <div class="campos" id ="campos_empresa">
+                    <input type="hidden" id="userType" runat="server" />
                     <div class="col-md-4">
                         <label for="nomeJuridica" class="subtitulo_1">Nome*</label>
                         <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>

@@ -17,7 +17,8 @@ namespace Bsk.Site.Fornecedor
         CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            FornecedorBE fornecedorBE = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            FornecedorBE login = fornecedorBE;
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
             List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
             var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
