@@ -169,7 +169,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = cotacaoFornecedor.Valor.ToString();
+                        valorServico.Value = cotacaoFornecedor.Valor.ToString()+(",00");
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 

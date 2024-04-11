@@ -497,10 +497,10 @@
 
 
     <script type="text/javascript">
-
+        
         document.addEventListener('DOMContentLoaded', function () {
             const valorServicoInput = document.getElementById('valorServico');
-
+        
             valorServicoInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
                 value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
@@ -509,15 +509,17 @@
                 e.target.value = value;
             });
         });
-
+        
 
         //$(function () {
         //    $('#valorServico').maskMoney({
-        //        allowNegative: false,
-        //        thousands: '.', decimal: ',',
-        //        affixesStay: true
-        //    });
-        //})
+        //        allowNegative: false, 
+        //        thousands: '.',       
+        //        decimal: ',',         
+        //        affixesStay: true     
+        //   }).trigger('mask.maskMoney');
+        //
+        //});
 
         setInterval(function () {
             var parametro = {

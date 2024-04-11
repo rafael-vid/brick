@@ -20,7 +20,20 @@ namespace Bsk.Site.Geral
         core _core = new core();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
+            if (IsPostBack)
+            {
+                // Assuming you have logic here to handle form submission and you set the value of userType hidden field
+                // to "pf" or "pj" based on the submission.
+
+                // Check if the userType hidden field value is set to "pj" for Pessoa Jurídica
+                if (userType.Value == "pj")
+                {
+                    // Ensure the Pessoa Jurídica radio button is checked
+                    pj.Checked = true;
+                    pf.Checked = false; // Optionally, make sure Pessoa Física is not checked
+                }
+            }
+                if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
@@ -339,6 +352,7 @@ namespace Bsk.Site.Geral
             {
                 string message = "Por favor preencha os campos obrigatórios";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                userType.Value = "pj";
             }
 
         }
@@ -414,6 +428,7 @@ namespace Bsk.Site.Geral
             {
                 string message = "Por favor preencha os campos obrigatórios";
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                userType.Value = "pj";
             }
 
         }
