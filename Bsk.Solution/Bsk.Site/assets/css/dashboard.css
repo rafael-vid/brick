@@ -1281,9 +1281,9 @@ button.btn.bp-cotacao {
   padding: 10px 24px;
   color: black;
   border-radius: 15px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  font-size: 16px;
 }
 .expo-info-values .dt::after {
   content: "";
