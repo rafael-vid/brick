@@ -98,8 +98,7 @@
                 height: auto;
             }
         }
-    </style>
-    <style>
+    
     .category-header {
         display: flex;
         align-items: center; /* This aligns the children (SVG and text) vertically in the center */
@@ -123,6 +122,47 @@
         list-style-type: none;
         padding-left: 0;
     }
+    .footer_card {
+    display: flex;
+    justify-content: space-between; /* Adjust this line */
+    align-items: center;
+    gap: 10px; /* Adjust gap between buttons */
+}
+
+
+.btn_card {
+    margin: 0 5px; /* Adjust side margins to bring buttons closer */
+    padding: 5px 10px; /* Adjust padding as per design */
+    background-color: #f08f00; /* Example background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor on hover */
+}
+.paginate_button {
+    outline:none;
+    border: none;
+}
+.paginacao_card{
+    display: flex;
+    justify-content: right;
+    color: #770e18;
+}
+.dynamic-page-btn {
+    margin: 0 5px; /* Adjust side margins to bring buttons closer */
+    padding: 5px 10px; /* Adjust padding as per design */
+    background-color: #f08f00; /* Example background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor on hover */
+    border-radius: 50%; /* Make the buttons round */
+    width: 30px; /* Equal width and height to ensure circular shape */
+    height: 30px;
+    display: inline-flex; /* Use flex to center the text inside the button */
+    align-items: center;
+    justify-content: center;
+}
+
+
 </style>
     
 
@@ -199,11 +239,15 @@
 
             </div>
         </div>
+
+        <div class="paginacao_card">
+            <button class="paginate_button" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto; font-size: 13px;">Anterior</button>
+            <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próxima</button>
+        </div>
         <div class="footer_card">
             <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
-            <button class="btn_card" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto;">Anterior</button>
-            <button  class="btn_card" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto;">Próxima</button>
-            <a class="btn_card" id="atualizarDados" onclick="atualizarDados()" style="width: auto;">Atualizar dados</a>
+            
+            <a class="btn_card2" id="atualizarDados" onclick="atualizarDados()" style="width: auto;">Atualizar dados</a>
         </div>
 
         <script>
@@ -246,34 +290,59 @@
             let currentPage = 0;
             const itemsPerPage = 9;
 
-            function paginateCategories(direction) {
-                // Calculate total number of pages
+            function paginateCategories(direction, specificPage) {
                 const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
-
-                // Adjust current page based on the direction ('next' or 'prev')
-                if (direction === 'next' && currentPage < totalPages - 1) {
-                    currentPage++;
-                } else if (direction === 'prev' && currentPage > 0) {
-                    currentPage--;
+                if (specificPage !== undefined) {
+                    currentPage = specificPage;
+                } else {
+                    if (direction === 'next' && currentPage < totalPages - 1) {
+                        currentPage++;
+                    } else if (direction === 'prev' && currentPage > 0) {
+                        currentPage--;
+                    }
                 }
+                updateCategoryDisplay();
+            }
 
-                // Hide all categories
-                document.querySelectorAll('.category-header').forEach((element, index) => {
-                    element.parentNode.style.display = 'none'; // Adjust according to your HTML structure
-                });
-
-                // Show the current set of categories
+            function updateCategoryDisplay() {
                 const start = currentPage * itemsPerPage;
                 const end = start + itemsPerPage;
                 document.querySelectorAll('.category-header').forEach((element, index) => {
+                    element.parentNode.style.display = 'none';
                     if (index >= start && index < end) {
-                        element.parentNode.style.display = ''; // Adjust according to your HTML structure
+                        element.parentNode.style.display = '';
                     }
                 });
             }
 
+            function renderPageButtons() {
+                const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
+                const navigationContainer = document.querySelector('.paginacao_card'); // Adjust if necessary to select the correct container
+
+                // Clear existing dynamically added buttons to avoid duplicates
+                const existingButtons = navigationContainer.querySelectorAll('.dynamic-page-btn');
+                existingButtons.forEach(btn => btn.remove());
+
+                for (let i = 0; i < totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i + 1; // Page numbering starts from 1
+                    button.className = 'dynamic-page-btn';
+                    button.type = 'button'; // Ensure the button does not submit a form
+                    button.addEventListener('click', function (event) {
+                        event.preventDefault(); // Prevent form submission
+                        paginateCategories(null, i); // Pass the page index directly
+                    });
+                    // Insert the new button before the "Next" button
+                    const nextButton = document.querySelector('button[onclick*="next"]'); // Adjust selector as necessary
+                    navigationContainer.insertBefore(button, nextButton);
+                }
+            }
+
+
+
             window.onload = function () {
                 paginateCategories();
+                renderPageButtons();
                 // Find all category headers
                 var categoryHeaders = document.querySelectorAll('.category-header');
                 categoryHeaders.forEach(function (header) {
