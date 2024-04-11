@@ -167,10 +167,10 @@
                                         <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
                                     </div>
-                                    <div class="gravar-video">
+<%--                                    <div class="gravar-video">
                                         <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                    </div>
+                                    </div>--%>
                                 </div>
                             </div>
                         <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexoFornecedor" ClientIDMode="Static" onserverclick="btnEnviarAnexoFornecedor_ServerClick" runat="server" style="display:none">
