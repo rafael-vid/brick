@@ -23,111 +23,111 @@ namespace Bsk.Site.Cliente
         CotacaoBE _CotacaoBE = new CotacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(Request.QueryString["Id"]))
-            {
-                Response.Redirect("minhas-cotacoes.aspx");
-            }
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
+        //    if (String.IsNullOrEmpty(Request.QueryString["Id"]))
+        //    {
+        //        Response.Redirect("minhas-cotacoes.aspx");
+        //    }
 
-            if (!IsPostBack)
-            {
-                try
-                {
-                    CarregaCotacaoFornecedor();
-                }
-                catch (Exception)
-                {
-                    Response.Redirect("minhas-cotacoes.aspx");
-                }
+        //    if (!IsPostBack)
+        //    {
+        //        try
+        //        {
+        //            CarregaCotacaoFornecedor();
+        //        }
+        //        catch (Exception)
+        //        {
+        //            Response.Redirect("minhas-cotacoes.aspx");
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
-        public void CarregaCotacaoFornecedor()
-        {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+        //public void CarregaCotacaoFornecedor()
+        //{
+        //    var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
-            if (cotacaoFornecedor != null)
-            {
-                if (cotacaoFornecedor.Novo == 1)
-                {
-                    cotacaoFornecedor.Novo = 0;
-                    _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
-                }
+        //    if (cotacaoFornecedor != null)
+        //    {
+        //        if (cotacaoFornecedor.Novo == 1)
+        //        {
+        //            cotacaoFornecedor.Novo = 0;
+        //            _core.CotacaoFornecedor_Update(cotacaoFornecedor, $" IdCotacaoFornecedor={Request.QueryString["Id"]}");
+        //        }
 
-                if (cotacaoFornecedor.Ativo == 0)
-                {
-                    Response.Redirect("minhas-cotacoes.aspx");
-                }
+        //        if (cotacaoFornecedor.Ativo == 0)
+        //        {
+        //            Response.Redirect("minhas-cotacoes.aspx");
+        //        }
 
-                if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
-                {
-                    divAceitar.Visible = false;
-                }
-                mediaCotacoes();
-                if (cotacaoFornecedor != null)
-                {
-                    var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                    if (cotacao != null)
-                    {
-                        if (cotacao.Status == StatusCotacao.Finalizado)
-                        {
-                            btnEnviar.Visible = false;
-                            divUpload.Visible = false;
-                            msg.Visible = false;
-                            descricaoHide.Visible = false;
-                        }
+        //        if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
+        //        {
+        //            divAceitar.Visible = false;
+        //        }
+        //        mediaCotacoes();
+        //        if (cotacaoFornecedor != null)
+        //        {
+        //            var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+        //            if (cotacao != null)
+        //            {
+        //                if (cotacao.Status == StatusCotacao.Finalizado)
+        //                {
+        //                    btnEnviar.Visible = false;
+        //                    divUpload.Visible = false;
+        //                    msg.Visible = false;
+        //                    descricaoHide.Visible = false;
+        //                }
 
-                        tituloCot.InnerText = cotacao.Titulo;
-                        descricaoCot.InnerText = cotacao.Descricao;
-                        vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
+        //                tituloCot.InnerText = cotacao.Titulo;
+        //                descricaoCot.InnerText = cotacao.Descricao;
+        //                vlr.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-                        try
-                        {
-                            dataEntrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
-                        }
-                        catch (Exception)
-                        {
-                            dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
-                        }
+        //                try
+        //                {
+        //                    dataEntrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
+        //                }
+        //                catch (Exception)
+        //                {
+        //                    dataEntrega.InnerText = cotacaoFornecedor.DataEntrega;
+        //                }
 
-                        if (String.IsNullOrEmpty(dataEntrega.InnerText))
-                        {
-                            dataEntrega.InnerText = "-";
-                        }
+        //                if (String.IsNullOrEmpty(dataEntrega.InnerText))
+        //                {
+        //                    dataEntrega.InnerText = "-";
+        //                }
 
 
-                        if (cotacao.IdCotacaoFornecedor != 0)
-                        {
-                            divAceitar.Visible = false;
-                        }
+        //                if (cotacao.IdCotacaoFornecedor != 0)
+        //                {
+        //                    divAceitar.Visible = false;
+        //                }
 
-                        if (cotacaoFornecedor.EnviarProposta == 0)
-                        {
-                            divAceitar.Visible = false;
-                        }
+        //                if (cotacaoFornecedor.EnviarProposta == 0)
+        //                {
+        //                    divAceitar.Visible = false;
+        //                }
 
-                        if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
-                        {
-                            divTerminado.Visible = true;
-                        }
-                        else
-                        {
-                            divTerminado.Visible = false;
-                        }
-                    }
+        //                if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
+        //                {
+        //                    divTerminado.Visible = true;
+        //                }
+        //                else
+        //                {
+        //                    divTerminado.Visible = false;
+        //                }
+        //            }
 
-                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
-                    if (fornecedor != null)
-                    {
-                        parceiro.InnerText = fornecedor.RazaoSocial;
-                    }
+        //            var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
+        //            if (fornecedor != null)
+        //            {
+        //                parceiro.InnerText = fornecedor.RazaoSocial;
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         private void mediaCotacoes()
         {

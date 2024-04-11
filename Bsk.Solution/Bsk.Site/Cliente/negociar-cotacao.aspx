@@ -43,7 +43,7 @@
                             <h2 class="subtitulo_card_1 subtitulo_1">Data de Entrega</h2>
                         </div>
                         <div class="expo-info-values">
-                            <span id="dataEntrega" runat="server"></span>
+                            <span class="dt" id="dataEntrega" runat="server"></span>
                         </div>
                     </div>
                 </div>
@@ -81,15 +81,12 @@
             </div>
             
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-                <div style="margin-right: 10px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
-                </div>
-                <div style="margin-left: 10px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
-                </div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
+                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                    Gostaria de aceitar a oferta deste Parceiro?.</span><br />
+                <br />
+                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
             </div>
-
         
             <div class="item_content_card ">
                 <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
@@ -154,6 +151,8 @@
                         </div>
 
 
+
+                    </div>
                         <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
                         <div class="item_content_card" id="divUpload" runat="server">
@@ -176,8 +175,6 @@
                         <div class="bp-acoes">
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
                         </div>
-                    </div>
-
 
 
 
@@ -255,14 +252,7 @@
 
             </div>
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 10px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
-    </div>
-    <div style="margin-left: 10px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
-    </div>
-</div>
+            
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-lista.aspx?Id="><< voltar </a>
@@ -478,7 +468,7 @@
             });
 
         });
-        function recusar() {}
+
         function aceitar() {
             Swal.fire({
                 title: 'Aceitar?',
@@ -530,27 +520,30 @@
                 text: texto,
                 icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: '#f08f00', // Fixed typo here
-                cancelButtonColor: "#770e18",
+                cconfirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18", 
                 confirmButtonText: botao
             }).then((result) => {
-                if (result.isConfirmed) { // Updated for SweetAlert2's latest versions
+                if (result.value) {
                     var parametro = {
                         idCotacaoFornecedor: comum.queryString("Id"),
                         status: valor
                     };
                     comum.postAsync("Comum/AceitarTermino", parametro, function (data) {
-                        if (data.Result == "0" || data.Liberado == "4") {
+                        if (data.Result == "0") {
                             window.location.href = "minhas-cotacoes.aspx";
                         } else {
-                            // Consider handling other cases or errors if necessary
-                            console.error("Unexpected response:", data);
+                            if (data.Liberado == "4") {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            } else {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            }
                         }
+
                     });
                 }
             });
         }
-
 
     </script>
 

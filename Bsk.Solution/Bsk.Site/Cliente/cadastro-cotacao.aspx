@@ -86,10 +86,6 @@
                                 </label>
                             </div>
 
-                            <div class="pesquisar">
-                                <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                                <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                            </div>
                         </div>
 
                         <div class="card-tabela " style="overflow-x: auto;">
