@@ -498,6 +498,19 @@
 
     <script type="text/javascript">
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const valorServicoInput = document.getElementById('valorServico');
+
+            valorServicoInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
+                value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
+                value = value.replace('.', ',');
+                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                e.target.value = value;
+            });
+        });
+
+
         //$(function () {
         //    $('#valorServico').maskMoney({
         //        allowNegative: false,

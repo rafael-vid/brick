@@ -242,7 +242,7 @@
 
         <div class="paginacao_card">
             <button class="paginate_button" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto; font-size: 13px;">Anterior</button>
-            <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próxima</button>
+            <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próximo</button>
         </div>
         <div class="footer_card">
             <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
