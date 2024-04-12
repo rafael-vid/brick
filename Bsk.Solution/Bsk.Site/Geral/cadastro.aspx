@@ -249,7 +249,7 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
-
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
                         $('#senha, #validaSenha').on('input', function () {
                             if ($('#senha').val() === $('#validaSenha').val()) {
                                 senha2.css('color', ''); // Resetar a cor
@@ -381,6 +381,15 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
+                            if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
+                                senha4.css('color', ''); // Resetar a cor
+                            } else {
+                                senha4.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
+
                     </script>
                      <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
@@ -404,7 +413,7 @@
                         $("#olho4").mouseout(function () {
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
-                </script>
+                    </script>
                 </div>
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
