@@ -495,7 +495,12 @@
             // Verifica se os valores estão preenchidos
             if (dataEntrega === "" || valorServico === "") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
-                Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
+                Swal.fire({
+                    title: "Por favor, preencha a data e o valor antes de prosseguir.",
+                    confirmButtonColor: '#f08f00',
+                    confirmButtonText: 'Ok'
+
+                });
                 return false; // Retorna false para interromper a execução
             }
             return true; // Retorna true se os valores estiverem preenchidos
