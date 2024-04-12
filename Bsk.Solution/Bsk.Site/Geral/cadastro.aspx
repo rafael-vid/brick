@@ -499,16 +499,16 @@
             }
         }
 
-        function mascaraCNPJ() {
-            const cnpj = document.getElementById('cnpj')
-            if (cnpj.value.length == 2 || cnpj.value.length == 5) {
-                cnpj.value += '.'
-            } else if (cpf.value.length == 8) {
-                cpf.value += '/'
-            } else if (cpf.value.length == 12) {
-                cpf.value += '-'
-            }
+            function mascaraCNPJ() {
+        const cnpj = document.getElementById('cnpj');
+        if (cnpj.value.length === 2 || cnpj.value.length === 6) {
+            cnpj.value += '.';
+        } else if (cnpj.value.length === 10) {
+            cnpj.value += '/';
+        } else if (cnpj.value.length === 15) {
+            cnpj.value += '-';
         }
+    }
 
         function mascaraCEP() {
             const cep = document.getElementById('cep')
