@@ -81,7 +81,7 @@
             </div>
             
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+            <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
                 <div style="margin-right: 10px;">
                     <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
                 </div>
@@ -258,7 +258,7 @@
 
             </div>
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+            <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
     <div style="margin-right: 10px;">
         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
     </div>
