@@ -33,11 +33,6 @@
                         <asp:TextBox ID="descricao" runat="server" placeholder="Digite aqui seu depoimento" TextMode="MultiLine" ></asp:TextBox>
                
 
-
-
-
-
-
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
                             Salvar dados da cotação
                        
@@ -57,10 +52,10 @@
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
                                 </div>
-                                <div class="gravar-video">
+<%--                                <div class="gravar-video">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                     <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                         <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexo" ClientIDMode="Static" onserverclick="btnSalvar_ServerClick" runat="server" style="display:none">
