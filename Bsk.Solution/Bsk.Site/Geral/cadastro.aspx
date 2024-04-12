@@ -249,6 +249,14 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
+
+                        $('#senha, #validaSenha').on('input', function () {
+                            if ($('#senha').val() === $('#validaSenha').val()) {
+                                senha2.css('color', ''); // Resetar a cor
+                            } else {
+                                senha2.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
                     </script>
                 </div>
                 <div style="clear:both; margin-top:15px"></div>
