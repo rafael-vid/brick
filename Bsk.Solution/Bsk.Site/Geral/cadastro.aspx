@@ -297,6 +297,15 @@
                     .campos {
                         display:block !important;
                     }
+                    div:where(.swal2-container).swal2-center > .swal2-popup {
+                        border-radius: 40px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+                        border-radius: 20px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+                        border-radius: 20px !important;
+                    }
                 </style>
 
                 <div class="campos" id ="campos_empresa">
