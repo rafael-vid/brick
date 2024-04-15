@@ -203,7 +203,7 @@
                     confirmButtonColor: '#f08f00',
                     cancelButtonColor: "#770e18",
                     cancelButtonText: 'Cancelar',
-                    confirmButtonText: 'Aceitar!'
+                    confirmButtonText: 'Aceitar'
                 }).then((result) => {
                     if (result.value) {
                         var parametro = {
