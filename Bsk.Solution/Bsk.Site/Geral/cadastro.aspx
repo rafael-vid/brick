@@ -34,6 +34,8 @@
         function displayPopupMessage(message){
     Swal.fire({
         icon: 'error',
+        iconColor: '#770e18',
+        cancelButtonColor: '#770e18',
         title: 'Atenção',
         text: message
     })
@@ -42,6 +44,8 @@
         function displayPopupMessage2(message) {
             Swal.fire({
             icon: 'success',
+            iconColor: '#770e18',
+            cancelButtonColor: '#770e18',
             title: message
             })
         }
@@ -52,11 +56,13 @@
                 title: 'Atenção',
                 text: message,
                 showCancelButton: true,
+                iconColor: '#770e18',
                 confirmButtonText: 'Recuperar Senha',
                 cancelButtonText: 'Cancelar',
-                cancelButtonColor: '#d33',
+                cancelButtonColor: '#770e18',
                 showDenyButton: true,
-                denyButtonText: 'Ir para Login'
+                denyButtonText: 'Ir para Login',
+                denyButtonColor: '#f08f00'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'esqueciasenha.aspx';
@@ -455,6 +461,9 @@
             text-align:center;
             padding-left:0;
             cursor:pointer
+        }
+        .swal2-styled.swal2-deny {
+            border-radius: 40px !important; 
         }
     </style>
     <script async src="assets/js/script.js"></script>

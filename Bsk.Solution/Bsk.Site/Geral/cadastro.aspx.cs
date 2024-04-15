@@ -80,7 +80,7 @@ namespace Bsk.Site.Geral
             {
                 if (IsEmailRegisteredCli(stremail))
                 {
-                    string message = "Email ja existe";
+                    string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
@@ -92,7 +92,7 @@ namespace Bsk.Site.Geral
             {
                 if (IsEmailRegisteredFor(stremail))
                 {
-                    string message = "Email ja existe";
+                    string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
@@ -256,7 +256,7 @@ namespace Bsk.Site.Geral
             {
                 if (IsEmailRegisteredCli(stremail))
                 {
-                    string message = "Email ja existe";
+                    string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
@@ -268,7 +268,7 @@ namespace Bsk.Site.Geral
             {
                 if (IsEmailRegisteredFor(stremail))
                 {
-                    string message = "Email ja existe";
+                    string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
