@@ -57,7 +57,6 @@
         }
         .filtro {
             height: 93px;
-            background: url(../imagens/fundo.png) ;
             background-size: auto !important;
             width: 100%;
         }

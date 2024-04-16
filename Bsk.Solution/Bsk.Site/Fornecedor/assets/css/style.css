@@ -164,7 +164,6 @@ header {
 }
 .filtro {
   height: 93px;
-  background: url(../imagens/fundo.png) no-repeat;
   background-size: cover;
   width: 100%;
 }

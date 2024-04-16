@@ -152,8 +152,10 @@ div:where(.swal2-icon).swal2-info {
   flex: 1;
 }
 header {
-  height: 213px;
-  background-color: #770e18;
+    height: 213px;
+    background-color: #770e18;
+    background-image: url('../assets/imagens/fundo.png');
+    position: relative;
 }
 .menu-topo {
   display: flex;
@@ -164,7 +166,6 @@ header {
 }
 .filtro {
   height: 93px;
-  background: url(../imagens/fundo.png) no-repeat;
   background-size: cover;
   width: 100%;
 }
