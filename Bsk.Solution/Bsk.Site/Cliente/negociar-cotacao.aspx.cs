@@ -65,6 +65,10 @@ namespace Bsk.Site.Cliente
                 if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
                 {
                     divAceitar.Visible = false;
+<<<<<<< HEAD
+=======
+                    divAceitar2.Visible = false;
+>>>>>>> master
                 }
                 mediaCotacoes();
                 if (cotacaoFornecedor != null)
@@ -102,11 +106,19 @@ namespace Bsk.Site.Cliente
                         if (cotacao.IdCotacaoFornecedor != 0)
                         {
                             divAceitar.Visible = false;
+<<<<<<< HEAD
+=======
+                            divAceitar2.Visible = false;
+>>>>>>> master
                         }
 
                         if (cotacaoFornecedor.EnviarProposta == 0)
                         {
                             divAceitar.Visible = false;
+<<<<<<< HEAD
+=======
+                            divAceitar2.Visible = false;
+>>>>>>> master
                         }
 
                         if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
