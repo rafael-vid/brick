@@ -6,6 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using static AjaxControlToolkit.AsyncFileUpload.Constants;
+using MySql.Data.MySqlClient;
 
 namespace Bsk.Site.Geral
 {
@@ -16,7 +20,20 @@ namespace Bsk.Site.Geral
         core _core = new core();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
+            if (IsPostBack)
+            {
+                // Assuming you have logic here to handle form submission and you set the value of userType hidden field
+                // to "pf" or "pj" based on the submission.
+
+                // Check if the userType hidden field value is set to "pj" for Pessoa Jurídica
+                if (userType.Value == "pj")
+                {
+                    // Ensure the Pessoa Jurídica radio button is checked
+                    pj.Checked = true;
+                    pf.Checked = false; // Optionally, make sure Pessoa Física is not checked
+                }
+            }
+                if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
@@ -25,24 +42,64 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    msg.Text = "Cadastro xuado com sucesso!";
+                    string message = "Cadastro efetuado com sucesso!";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage2('" + message + "');", true);
                 }
             }
         }
 
+        protected bool IsEmailRegisteredCli(string email)
+        {
+            ClienteBE ClienteBE = new ClienteBE();
+            var emails = _core.Cliente_Get(ClienteBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        protected bool IsEmailRegisteredFor (string email)
+        {
+            FornecedorBE FornecedorBE = new FornecedorBE();
+            var emails = _core.Fornecedor_Get(FornecedorBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = email.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaFisicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaFisicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaFornecedor();
+                }
+                
             }
             else
             {
@@ -104,7 +161,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -113,7 +171,8 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
@@ -170,7 +229,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -179,24 +239,43 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
             }
 
         }
 
         protected void btnJuridica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = emailJuridica.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaJuridicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaJuridicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email ja existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaFornecedor();
+                }
+
             }
             else
             {
@@ -261,7 +340,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -270,7 +350,9 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                userType.Value = "pj";
             }
 
         }
@@ -334,7 +416,8 @@ namespace Bsk.Site.Geral
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
                 }
                 else
                 {
@@ -343,7 +426,9 @@ namespace Bsk.Site.Geral
             }
             else
             {
-                msg.Text = "Por favor preencha todos os campos";
+                string message = "Por favor preencha os campos obrigatórios";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
+                userType.Value = "pj";
             }
 
         }

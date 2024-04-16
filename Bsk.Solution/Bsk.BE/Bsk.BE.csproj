@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Dashboard.cs" />
     <Compile Include="Model\NotificacaoModel.cs" />
     <Compile Include="NotificacaoBE.cs" />
     <Compile Include="RedefinirSenhaBE.cs" />

@@ -4,14 +4,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Publish\Brikk</_PublishTargetUrl>
-    <History>True|2024-04-09T18:48:52.1919349Z;True|2024-04-05T16:14:08.9882418-03:00;True|2024-04-05T16:00:10.9123195-03:00;True|2024-04-05T15:54:20.6253332-03:00;True|2024-03-25T10:49:42.0518984-03:00;True|2024-03-18T13:52:59.7924939-03:00;True|2024-03-11T10:12:05.8853525-03:00;True|2024-03-11T10:10:55.4364671-03:00;True|2024-01-30T09:31:52.1948024-03:00;True|2022-09-07T11:01:38.2774991-03:00;True|2022-08-25T11:08:34.5076182-03:00;True|2022-08-25T10:44:51.4755819-03:00;True|2022-06-30T10:30:04.3506327-03:00;False|2022-06-30T10:28:12.9374856-03:00;True|2021-07-19T10:02:49.4822680-03:00;True|2021-04-27T15:45:39.7353996-03:00;</History>
-    <LastFailureDetails />
+    <History>True|2024-04-04T14:04:11.6992680Z;False|2024-04-04T11:03:51.3571269-03:00;</History>
+    <_PublishTargetUrl>C:\Users\Rodrigo Marini\source\repos\brikk\Bsk.Solution\Bsk.Site\bin\app.publish\</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
-    <File Include="Admin/bsk-visualizar-proposta.aspx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/cadastro-fornecedor.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
@@ -24,44 +20,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/categoria.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/cliente-visualizar-proposta.aspx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/animacao.min.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/css/animate.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/css/bootstrap-theme.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap-theme.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap-theme.min.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap-theme.min.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/css/bootstrap.min.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/css/bootstrap.min.css.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/cartao.txt">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/component.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/css/datatables.min.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -75,86 +38,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/css/mobile.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/css/style-port.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/style.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/css/style2.css">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/default.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/Fonts/glyphicons-halflings-regular.eot">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/glyphicons-halflings-regular.svg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/glyphicons-halflings-regular.woff">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Black.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-BlackItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Bold.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-BoldItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-ExtraBold.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-ExtraBoldItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-ExtraLight.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-ExtraLightItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Italic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Light.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-LightItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Medium.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-MediumItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Regular.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-SemiBold.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-SemiBoldItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-Thin.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/Fonts/Raleway-ThinItalic.ttf">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/home.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -165,68 +50,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/areasAtuacao.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/banners/banner1.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/banner2.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/banner3.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/image1.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/image2.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/image3.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/image4.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/1.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/2.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/3.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/4.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/propaganda-hellopharma.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/banners/propagandas/propaganda-monitorpharma.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/boleto.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/img/boleto.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/cadastrar.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/img/cartao.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/cartao.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/categoria.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/img/cotacao.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/editar.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/img/favico.png">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -246,32 +77,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/imagem.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/Infomercfundoescuro.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/liberaPagamento.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Admin/img/listaCotacao.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/lixeira.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/load.gif">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/login.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/logo.png">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/img/mapa.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/mensagens.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/img/meuSaldo.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -279,14 +92,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/negociacoes.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/notaFiscal.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/novaCotacao.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/img/oferta.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/img/pagamentoPendente.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -297,26 +104,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/perfil.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/perfil.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/produto.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/proximaTransferencia.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/remedio.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/img/semImagem.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/img/servicoAndamento.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/img/telefone.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/img/transferido.jpg">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -327,20 +119,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/img/video.png">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/img/visualizar.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/bootstrap.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/js/bootstrap.min.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/js/bower.json">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/carrinho.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/js/comum.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -348,83 +128,20 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/js/datatables.min.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/js/demo5.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/initPageTransitions.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/jquery-ui.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/jquery-ui.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/jquery.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/jquery.lettering.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/js/jquery.mask.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Admin/js/jquery.min.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/js/lazysizes.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/LICENSE">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/js/master.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/js/modernizr.custom.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/npm.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/package.json">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/pagamento.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/paper-core.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/parallax.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/parallax.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/js/rating.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/js/README.md">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/receitaws.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/scripts.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/js/sweetAlert.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/js/tutorial.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/utils/resizer.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Admin/js/utils/util.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Admin/js/wow.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -435,20 +152,14 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Admin/lista-fornecedor.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
-    <File Include="Admin/lista-proposta.aspx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Admin/Master/Layout.Master">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Admin/msg.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Admin/pagamento-transacao.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Admin/proposta.aspx">
-      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Anexos/Documento/arquivo.pdf">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -463,19 +174,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="assets/css/cadastros.css">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="assets/css/dashboard.css">
-      <publishTime>04/09/2024 13:45:04</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="assets/css/sobre.css">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="assets/css/style.css">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="assets/css/tabsmenu.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="assets/fonts/Poppins-Light.ttf">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -610,7 +321,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="assets/imagens/icone-contatos.png">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="assets/imagens/instagram.png">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -661,10 +372,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="assets/imagens/seta-esquerda.png">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="assets/imagens/seta_esquerda.svg">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="assets/imagens/sino-notifica.svg">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -766,73 +477,73 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="bin/AjaxControlToolkit.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/ApplicationInsights.config">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="bin/BouncyCastle.Cryptography.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>04/09/2024 13:23:12</publishTime>
+      <publishTime>04/04/2024 11:12:40</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll.config">
-      <publishTime>04/02/2024 10:12:04</publishTime>
+      <publishTime>02/04/2024 10:12:04</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>04/09/2024 13:23:12</publishTime>
+      <publishTime>04/04/2024 11:12:40</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>04/09/2024 13:23:12</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll.config">
-      <publishTime>04/02/2024 10:12:04</publishTime>
+      <publishTime>02/04/2024 10:12:04</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>04/09/2024 13:23:12</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>04/09/2024 13:34:44</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll.config">
-      <publishTime>04/02/2024 10:12:04</publishTime>
+      <publishTime>02/04/2024 10:12:04</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>04/09/2024 13:34:44</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>04/09/2024 15:48:47</publishTime>
+      <publishTime>04/04/2024 15:07:13</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>04/09/2024 15:48:47</publishTime>
+      <publishTime>04/04/2024 15:07:13</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>04/09/2024 13:34:44</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll.config">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>04/09/2024 13:34:44</publishTime>
+      <publishTime>04/04/2024 15:07:10</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Google.Protobuf.pdb">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/K4os.Compression.LZ4.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/K4os.Compression.LZ4.Streams.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/K4os.Hash.xxHash.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -856,7 +567,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -865,19 +576,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
-    </File>
-    <File Include="bin/netstandard.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.Bson.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.Bson.pdb">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -961,52 +669,49 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Configuration.ConfigurationManager.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.IO.Pipelines.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Memory.dll">
-      <publishTime>04/02/2024 10:12:06</publishTime>
-    </File>
-    <File Include="bin/System.Net.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>02/04/2024 10:12:06</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Extensions.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Primitives.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/System.Numerics.Vectors.dll">
-      <publishTime>04/02/2024 10:12:06</publishTime>
+      <publishTime>02/04/2024 10:12:06</publishTime>
     </File>
     <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
-      <publishTime>04/02/2024 10:12:06</publishTime>
+      <publishTime>02/04/2024 10:12:06</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
-      <publishTime>04/02/2024 10:12:06</publishTime>
+      <publishTime>02/04/2024 10:12:06</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>01/22/2024 10:57:54</publishTime>
@@ -1024,301 +729,40 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:54</publishTime>
     </File>
     <File Include="bin/ZstdSharp.dll">
-      <publishTime>04/02/2024 10:12:06</publishTime>
+      <publishTime>02/04/2024 10:12:06</publishTime>
     </File>
     <File Include="Cliente/aguardando-pagamento.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/avaliar.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/buscar-servico.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/cadastro-cotacao.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 15:04:45</publishTime>
     </File>
     <File Include="Cliente/cadastro.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/cliente-dashboard.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/cotacao-lista.aspx">
-      <publishTime>04/09/2024 13:42:20</publishTime>
-    </File>
-    <File Include="Cliente/css/animate.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/css/bootstrap.min.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/css/datatables.min.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/css/default.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/css/master.css">
-      <publishTime>08/08/2020 19:57:11</publishTime>
-    </File>
-    <File Include="Cliente/css/mobile.css">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/default.aspx">
-      <publishTime>11/09/2020 10:02:50</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/em-andamento.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/finalizadas.aspx">
-      <publishTime>04/02/2024 11:07:16</publishTime>
+      <publishTime>02/04/2024 11:07:16</publishTime>
     </File>
     <File Include="Cliente/finalizado.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/finalizar-pagamento.aspx">
       <publishTime>01/22/2024 10:57:50</publishTime>
-    </File>
-    <File Include="Cliente/Html/avaliacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/Html/cadastro.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/cotacaoLista.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/animate.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/bootstrap.min.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/datatables.min.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/default.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/master.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/css/mobile.css">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/finalizado.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/aguardandoTransferencia.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/boleto.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/cartao.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/favico.png">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/fundoHome.png">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/historico.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/imagem.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/liberaPagamento.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/listaCotacao.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/logo.png">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/novaCotacao.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/perfil.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/proximaTransferencia.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/transferido.jpg">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/upload.png">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/img/video.png">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/bootstrap.min.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/comum.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/datatables.min.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/jquery.mask.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/jquery.min.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/master.js">
-      <publishTime>10/07/2020 19:05:59</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/rating.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/sweetAlert.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/js/wow.js">
-      <publishTime>10/07/2020 15:38:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/liberaPagamento.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/login.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/minhasCotacoes.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/nav.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/Html/pagamento.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/Html/pagamentoBoleto.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/Html/pagamentoCartao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/Html/solicitaServico.html">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/aguardandoTransferencia.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/boleto.jpg">
-      <publishTime>08/08/2020 19:57:13</publishTime>
-    </File>
-    <File Include="Cliente/img/cartao.jpg">
-      <publishTime>08/08/2020 19:57:13</publishTime>
-    </File>
-    <File Include="Cliente/img/estrelas/1.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/estrelas/2.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/estrelas/3.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/estrelas/4.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/estrelas/5.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/Exclamation-icon.png">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/favico.png">
-      <publishTime>08/08/2020 19:57:14</publishTime>
-    </File>
-    <File Include="Cliente/img/fundoHome.png">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/historico.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/imagem.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/liberaPagamento.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/listaCotacao.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/loading.gif">
-      <publishTime>04/09/2020 15:44:04</publishTime>
-    </File>
-    <File Include="Cliente/img/logo.png">
-      <publishTime>08/08/2020 19:57:14</publishTime>
-    </File>
-    <File Include="Cliente/img/novaCotacao.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/perfil.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/proximaTransferencia.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/semImagem.jpg">
-      <publishTime>10/07/2020 19:03:32</publishTime>
-    </File>
-    <File Include="Cliente/img/status/aguardandoLiberacao.jpeg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/status/aguardandoTransferencia.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/status/buscarCotacao.jpeg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/status/emAndamento.jpeg">
-      <publishTime>08/08/2020 19:57:14</publishTime>
-    </File>
-    <File Include="Cliente/img/status/finalizado.jpeg">
-      <publishTime>08/08/2020 19:57:14</publishTime>
-    </File>
-    <File Include="Cliente/img/status/historico.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/status/liberaPagamento.jpg">
-      <publishTime>08/08/2020 19:57:15</publishTime>
-    </File>
-    <File Include="Cliente/img/status/minhasAreas.jpeg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/status/minhasCotacoes.jpeg">
-      <publishTime>08/08/2020 19:57:15</publishTime>
-    </File>
-    <File Include="Cliente/img/status/novaCotacao.jpg">
-      <publishTime>08/08/2020 19:57:15</publishTime>
-    </File>
-    <File Include="Cliente/img/status/perfil.jpg">
-      <publishTime>08/08/2020 19:57:15</publishTime>
-    </File>
-    <File Include="Cliente/img/status/semImagem.jpg">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Cliente/img/transferido.jpg">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/upload.png">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/video.png">
-      <publishTime>09/07/2020 23:12:14</publishTime>
-    </File>
-    <File Include="Cliente/img/voltar.png">
-      <publishTime>11/09/2020 10:02:50</publishTime>
     </File>
     <File Include="Cliente/js/bootstrap.min.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -1342,10 +786,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/js/sweetAlert.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>04/04/2024 09:15:54</publishTime>
     </File>
     <File Include="Cliente/js/sweetalert2.all.min.js">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/js/wow.js">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -1357,7 +801,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/Master/assets/css/dashboard.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/Master/assets/css/sobre.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -1366,7 +810,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/Master/assets/css/tabsmenu.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/Master/assets/fonts/Poppins-Light.ttf">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -1651,34 +1095,34 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/Master/Layout.Master">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/minhas-cotacoes.aspx">
-      <publishTime>04/02/2024 11:07:16</publishTime>
+      <publishTime>02/04/2024 11:07:16</publishTime>
     </File>
     <File Include="Cliente/nav.html">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Cliente/negociar-cotacao.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Cliente/notificacao.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/notificacoes.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/pagamento-boleto.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/pagamento-cartao.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/pagamento.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Cliente/perfil.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Content/bootstrap-theme.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -1717,16 +1161,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/dashboard.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/sobre.css">
       <publishTime>01/22/2024 10:57:50</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/style.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/tabsmenu.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/assets/fonts/Poppins-Light.ttf">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -2010,38 +1454,23 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Fornecedor/assets/js/script.js">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
-    <File Include="Fornecedor/avaliacao.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
     <File Include="Fornecedor/avaliar.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/busca.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/cadastra-atuacao.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/cadastro.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
-    </File>
-    <File Include="Fornecedor/cadastro.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/cadastroAtuacao.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
-    <File Include="Fornecedor/comentarios.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/cotacao-lista.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/cotacao.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
-    </File>
-    <File Include="Fornecedor/cotacaoLista.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/css/animate.css">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -2053,64 +1482,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Fornecedor/css/default.css">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/css/master.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/css/mobile.css">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Fornecedor/dashboard.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
-    </File>
-    <File Include="Fornecedor/default.aspx">
-      <publishTime>04/09/2020 14:46:47</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/em-andamento.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/finalizado.aspx">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
-    <File Include="Fornecedor/finalizado.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/adicionar-servico.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/agendamento.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/andamento.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/areas-de-atuacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/avaliacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/cotacao-info.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/cotacao.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/cotacoes.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/dashboard.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
-    <File Include="Fornecedor/fornecedor_dashboard/listar-servicos.html">
-      <publishTime>01/01/0001 00:00:00</publishTime>
-    </File>
     <File Include="Fornecedor/gerenciar-servicos.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
-    </File>
-    <File Include="Fornecedor/historico.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/Html/avaliacao.html">
       <publishTime>01/22/2024 10:57:50</publishTime>
@@ -2388,14 +1778,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Fornecedor/img/video.png">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
-    <File Include="Fornecedor/index.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
     <File Include="Fornecedor/js/bootstrap.min.js">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Fornecedor/js/comum.js">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 15:04:45</publishTime>
     </File>
     <File Include="Fornecedor/js/datatables.min.js">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -2410,82 +1797,58 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Fornecedor/js/money.js">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/js/rating.js">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Fornecedor/js/sweetAlert.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>04/04/2024 09:15:54</publishTime>
     </File>
     <File Include="Fornecedor/js/sweetalert2.all.min.js">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/js/wow.js">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
-    <File Include="Fornecedor/liberaPagamento.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
-    <File Include="Fornecedor/logado.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>04/09/2024 13:19:19</publishTime>
-    </File>
-    <File Include="Fornecedor/mensagem.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/minhas-areas.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:21</publishTime>
     </File>
     <File Include="Fornecedor/minhas-cotacoes.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
-    </File>
-    <File Include="Fornecedor/minhasCotacoes.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Fornecedor/notificacao.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/notificacoes.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
-    </File>
-    <File Include="Fornecedor/pagamento.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Fornecedor/perfil.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
-    </File>
-    <File Include="Fornecedor/servicosAndamento.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
-    <File Include="Fornecedor/solicitaServico.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
-    </File>
-    <File Include="Fornecedor/_index.html">
-      <publishTime>01/07/2020 10:53:24</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/ajuda.html">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/assets/css/cadastros.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/assets/css/dashboard.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/assets/css/sobre.css">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Geral/assets/css/style.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/assets/css/tabsmenu.css">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/assets/fonts/Poppins-Light.ttf">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -2620,7 +1983,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Geral/assets/imagens/icone-contatos.png">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/assets/imagens/instagram.png">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -2770,37 +2133,37 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Geral/busca.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/cadastro.aspx">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/clientes.html">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/esqueciasenha.aspx">
-      <publishTime>04/09/2024 12:59:11</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/index.html">
-      <publishTime>04/09/2024 13:19:19</publishTime>
+      <publishTime>04/04/2024 11:12:22</publishTime>
     </File>
     <File Include="Geral/login.aspx">
-      <publishTime>04/09/2024 12:59:11</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/logout.aspx">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/parceiros.html">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Geral/sobre.html">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/02/2024 10:12:05</publishTime>
+      <publishTime>02/04/2024 10:12:05</publishTime>
     </File>
     <File Include="RepositoryImg/0.png">
       <publishTime>01/22/2024 10:57:51</publishTime>
@@ -4546,7 +3909,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/22/2024 10:57:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/09/2024 15:48:48</publishTime>
+      <publishTime>04/04/2024 11:12:43</publishTime>
     </File>
     <File Include="www/cadastro.html">
       <publishTime>01/22/2024 10:57:54</publishTime>

@@ -115,7 +115,7 @@
                     <h2>Para clientes</h2>
 
                     <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Usuário" required>
+                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
                         <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
                         <asp:Label ID="lblMsg" runat="server"></asp:Label>
 
@@ -123,7 +123,7 @@
 
                     <div class="acessos">
                         <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="esqueciasenha.aspx?tipo=cli" class="esqueceusenha">Esqueci a senha</a>
                             <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
                             
                         </div>
@@ -138,14 +138,14 @@
                     <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
                             <ContentTemplate>
                     <div>
-                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Usuário" required>
+                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Email" required>
                         <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
                         <asp:Label ID="lblMsgParceiro" runat="server"></asp:Label>
                     </div>
 
                     <div class="acessos">
                         <div>
-                            <a href="#" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="esqueciasenha.aspx?tipo=for" class="esqueceusenha">Esqueci a senha</a>
                             <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
                             
                         </div> 

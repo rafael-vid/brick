@@ -11,7 +11,9 @@ namespace Bsk.BE
         public int IdServico { get; set; }
         public int IdCategoria { get; set; }
         public string Nome { get; set; }
-        public string Imagem { get; set; }
         public string Status { get; set; }
+        public int Brikk { get; set; }
+        public int B2 { get; set; }
+        public int Recorrente { get; set; }
     }
 }

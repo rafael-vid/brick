@@ -294,6 +294,7 @@
     <Content Include="assets\imagens\real.png" />
     <Content Include="assets\imagens\recebimento.png" />
     <Content Include="assets\imagens\select.svg" />
+    <Content Include="assets\imagens\seta-esquerda.png" />
     <Content Include="assets\imagens\seta_esquerda.svg" />
     <Content Include="assets\imagens\sino-notifica.svg" />
     <Content Include="assets\imagens\sino.svg" />
@@ -329,6 +330,7 @@
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
+    <Content Include="Cliente\js\sweetalert2.all.min.js" />
     <Content Include="Cliente\Master\assets\css\cadastros.css" />
     <Content Include="Cliente\Master\assets\css\dashboard.css" />
     <Content Include="Cliente\Master\assets\css\sobre.css" />
@@ -419,8 +421,10 @@
     <Content Include="Cliente\Master\assets\imgages\souCLiente.png" />
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
+    <Content Include="Cliente\finalizadas.aspx" />
     <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\gerenciar-servicos.aspx" />
+    <Content Include="Fornecedor\js\sweetalert2.all.min.js" />
     <Content Include="Fornecedor\notificacao.aspx" />
     <Content Include="Cliente\notificacao.aspx" />
     <Content Include="Fornecedor\notificacoes.aspx" />
@@ -1465,6 +1469,13 @@
     <Compile Include="Cliente\liberar-pagamento.aspx.designer.cs">
       <DependentUpon>liberar-pagamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\finalizadas.aspx.cs">
+      <DependentUpon>finalizadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\finalizadas.aspx.designer.cs">
+      <DependentUpon>finalizadas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Fornecedor\busca.aspx.cs">
       <DependentUpon>busca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1709,6 +1720,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Email.cs" />
     <Compile Include="Site\redefinir-senha.aspx.cs">
       <DependentUpon>redefinir-senha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

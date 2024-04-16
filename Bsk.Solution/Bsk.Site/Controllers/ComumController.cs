@@ -23,6 +23,7 @@ namespace Bsk.Site.Controllers
 {
     using Bsk.Util;
     using Bsk.Interface.Helpers;
+
     public class ComumController : Controller
     {
 
@@ -473,6 +474,7 @@ namespace Bsk.Site.Controllers
             {
                 valor = valor.Replace(".", "");
                 cotacaoFornecedor.Valor = float.Parse(valor);
+                cotacaoFornecedor.EnviarProposta = 1;
             }
             catch (Exception)
             {

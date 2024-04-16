@@ -17,46 +17,27 @@
             <span class="notificacao">02</span>
           -->
 
-                                  <% 
-                                      var cotacoes = PegaCotacoes();
-                                      var cotacoesemandamento = PegaCotacoesEmAndamento();
-                    %>
-
+                                 
 
           </div>
           <ul class="card_lista">
+               <% 
 
 
+                        var dash = GetDashboardFornecedor();
+                        foreach(var d in dash)
+                        {
+                            var cot = PegaCotacoes(d.id);
+                            %>
+                                <li>
+                                    <a href="minhas-cotacoes.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                    <p><% Response.Write(d.nome); %> </a> </p>
+                                </li>
+                            <%
+                        }
+                    %>
 
-                    <li>
-                        <a href="minhas-cotacoes.aspx?status=2"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p>Em cotação</a></p>
-                    </li>
-                    
-                    <li>
-                        <a href="minhas-cotacoes.aspx?status=3"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p>Aguardando pagamento</a></p>
-                    </li>
-
-                    <li>
-                        <a href="em-andamento.aspx"><span class="numero_card"><%Response.Write(cotacoesemandamento.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p>Em andamento</a></p>
-                    </li>
-                    
-                    <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
-                    </li>   
-                   
-                    <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
-                    </li>  
-                        
-                    <li>
-                        <a href="minhas-cotacoes.aspx?status=6"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p>Finalizado</a></p>
-                    </li>   
+ 
               <!--
             <li>
               <span class="numero_card">10</span>

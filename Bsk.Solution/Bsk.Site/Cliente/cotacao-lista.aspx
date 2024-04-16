@@ -15,7 +15,7 @@
         <div class="card">
             <div class="titulo_card">
                 <img src="../assets/imagens/andamento.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Cotação /Cod.<span id="nrCotacao" runat="server"></span></h2>
+                <h2 class="subtitulo_1">Cotações / Cotação Nº <span id="nrCotacao" runat="server"></span></h2>
             </div>
 
             <div class="item_content_card">
@@ -27,7 +27,7 @@
                 <asp:Label ID="descricao" runat="server"></asp:Label>
             </div>
 
-            <div class="grid">
+            <div class="grid" style="margin-top:20px">
                  <div class="item_content_card">
                     <div class="total_a_receber media-cotacoes">
                         <span>Mínimo das cotações recebidas</span>

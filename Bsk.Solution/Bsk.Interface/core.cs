@@ -61,7 +61,8 @@ namespace Bsk.Interface
                                 CT.Titulo, 
                                 CT.DataCriacao,
                                 CT.DataAlteracao,
-                                CT.Status, 
+                                CT.Status,
+                                s.nome, 
                                 CT.FinalizaFornecedor,
                                 CT.FinalizaCliente,
                                 CT.IdCotacaoFornecedor,
@@ -77,10 +78,26 @@ namespace Bsk.Interface
                                     END 
                                 as Mensagens
                             FROM cotacao CT
+                                inner join status_cliente s
+		                            on CT.status = s.id
                             where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
+        public List<Dashboard> GetDashboardCliente(string filtro="1=1")
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status_cliente s
+                                where "+filtro+@"
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
 
+        public List<Dashboard> GetDashboardFornecedor(string filtro="1=1")
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status_fornecedor s
+                                where " + filtro + @"
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
 
         public List<ClienteBE> EsqueciASenha(string filtro)
         {
@@ -88,6 +105,16 @@ namespace Bsk.Interface
                                 Nome,
                                 Senha
                             FROM cliente
+                            where " + filtro;
+            return _base.ToList<ClienteBE>(db.Get(sql));
+        }
+
+        public List<ClienteBE> EsqueciASenhaFornecedor(string filtro)
+        {
+            string sql = $@"SELECT 
+
+                                Senha
+                            FROM fornecedor
                             where " + filtro;
             return _base.ToList<ClienteBE>(db.Get(sql));
         }
@@ -171,7 +198,7 @@ namespace Bsk.Interface
                             CT.DataAlteracao,
                             CF.DataEntrega,
                             CF.Valor,
-
+                            s.Nome as StatusNome,
                             CASE
                                 WHEN 
 			                            (select count(IdCotacaoFornecedorChat) 
@@ -185,6 +212,8 @@ namespace Bsk.Interface
                         from cotacaofornecedor CF
                         inner join cotacao CT on CT.IdCotacao = CF.IdCotacao
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
+                        inner join status_cliente s
+		                            on CT.status = s.id
                         where CF.IdFornecedor = " + idFornecedor+ " and CF.Ativo=1 order by DataAlteracao desc ";
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }

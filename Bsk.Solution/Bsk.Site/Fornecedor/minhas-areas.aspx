@@ -10,7 +10,7 @@
         .faq-itens {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 20px;
+            grid-gap: 0px;
         }
 
         .item-faq {
@@ -116,24 +116,23 @@
             <%var areas = BuscaAreas(); %>
             
             <div class="servicos_atuacao">
-                <div class="servico_item">
-                    
-                        <%foreach (var item in areas)
-                            {%>
-                            <div class="col-md-6">
-                            <p><%Response.Write(item.Nome); %></p>
-                            <%var servicos = PegaServico(item);%>
-                            <ul class="nested-list">
-                                <%foreach (var j in servicos)
-                                    {%>
-                                    <li><%Response.Write(j.Nome); %></li>
-                                <% } %>
-                            </ul>
-                                </div>
+    <div class="servico_item">
+        <div class="faq-itens"> <!-- Add a container for the grid -->
+            <% foreach (var item in areas) { %>
+                <div>
+                    <h2><%= item.Nome %></h2>
+                    <ul class="nested-list">
+                        <% var servicos = PegaServico(item); %>
+                        <% foreach (var j in servicos) { %>
+                            <li><%= j.Nome %></li>
                         <% } %>
-                    
+                    </ul>
                 </div>
-            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
                <div class="footer_card">
     <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a> 
         </div>

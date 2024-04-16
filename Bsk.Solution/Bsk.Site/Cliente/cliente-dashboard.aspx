@@ -2,7 +2,12 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash dashboard dash-cliente">
-
+         <a class="btn_card" href="buscar-servico.aspx" style="margin-left: 50px;">
+             <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
+             Nova Cotação
+         </a>
+        <div class="acessos">
+        </div>
         <div class="card">
             <div class="titulo_card">
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
@@ -16,40 +21,40 @@
                 <ul class="card_lista">
 
                     <% 
-                        var cotacoes = PegaCotacoes();
+
+
+                        var dash = GetDashboardCliente();
+                        foreach(var d in dash)
+                        {
+                            var cot = PegaCotacoes(d.id);
+                            if (d.id == 1 || d.id == 2 || d.id == 3)
+                            {
+                                %>
+                                    <li>
+                                        <a href="minhas-cotacoes.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }else if(d.id == 4 || d.id == 5 || d.id == 6)
+                            {
+                                %>
+                                    <li>
+                                        <a href="em-andamento.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }else if(d.id == 7)
+                            {
+                                %>
+                                    <li>
+                                        <a href="finalizadas.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <p><% Response.Write(d.nome); %> </a> </p>
+                                    </li>
+                                <%
+                            }
+                        }
                     %>
-                                      
-
-
-                      <li>
-                        <a href="minhas-cotacoes.aspx?status=1"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "1").ToList().Count().ToString()); %></span>
-                        <p>Em cotação </a> </p>
-                    </li>
-                    
-                    <li>
-                        <a href="minhas-cotacoes.aspx?status=2"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p>Aguardando pagamento</a></p>
-                    </li>
-
-                    <li>
-                       <a href="minhas-cotacoes.aspx?status=3"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "3").ToList().Count().ToString()); %></span>
-                        <p>Em andamento</a></p>
-                    </li>
-                    
-                    <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "2").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=4">Aguardando liberação do pagamento</a></p>
-                    </li>   
-                   
-                    <li>
-                        <span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "5").ToList().Count().ToString()); %></span>
-                        <p><a href="minhas-cotacoes.aspx?status=5">Aguardando aceite</a></p>
-                    </li>  
-                        
-                    <li>
-                        <a href="minhas-cotacoes.aspx?status=4"><span class="numero_card"><%Response.Write(cotacoes.Where(x => x.Status == "4").ToList().Count().ToString()); %></span>
-                        <p>Finalizado</a></p>
-                    </li>   
+                                
 
                     <!-- Deixar apenas os 3 primeiros 
                     
@@ -299,9 +304,10 @@
                 </a>
             </div>
         </div>
-    </div>
+                        </div>
     </section>
                         -->
+
     <style>
         a.dash {
             background: #f4f3f2;

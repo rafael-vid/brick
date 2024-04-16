@@ -63,7 +63,6 @@ namespace Bsk.Site.Admin
                     _ServicoBE.Nome = titulo.Value;
                     _ServicoBE.Status = "1";
                     _ServicoBE.IdCategoria = Convert.ToInt32(Request.QueryString["IdCategoria"]);
-                    _ServicoBE.Imagem = "";
 
                     if (!String.IsNullOrEmpty(Request.QueryString["IdServico"]))
                     {

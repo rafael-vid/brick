@@ -20,6 +20,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- Outros scripts -->
 
 
@@ -27,7 +30,44 @@
 
 <body>
 
+    <script>
+        function displayPopupMessage(message){
+    Swal.fire({
+        icon: 'error',
+        title: 'Atenção',
+        text: message
+    })
+        }
 
+        function displayPopupMessage2(message) {
+            Swal.fire({
+            icon: 'success',
+            title: message
+            })
+        }
+
+        function displayPopupMessage3(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção',
+                text: message,
+                showCancelButton: true,
+                confirmButtonText: 'Recuperar Senha',
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#d33',
+                showDenyButton: true,
+                denyButtonText: 'Ir para Login'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'esqueciasenha.aspx';
+                } else if (result.isDenied) {
+                    window.location.href = 'login.aspx';
+                }
+            })
+        }
+
+
+    </script>
     
 
     <form id="form1" runat="server">
@@ -66,11 +106,11 @@
                 <label id="paramLabel" style="display: none;" class="titulo">Cadastro de fornecedor</label>
                 <label id="paramLabel2" style="display: none;" class="titulo">Cadastro de cliente</label>
                 <div>
-                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf">
+                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf" runat="server">
                     <label for="pf">Pessoa Física</label>
                 </div>
                 <div>
-                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj">
+                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj" runat="server">
                     <label for="pj">Pessoa Jurídica</label>
                 </div>
             </div>
@@ -209,6 +249,14 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senha, #validaSenha').on('input', function () {
+                            if ($('#senha').val() === $('#validaSenha').val()) {
+                                senha2.css('color', ''); // Resetar a cor
+                            } else {
+                                senha2.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
                     </script>
                 </div>
                 <div style="clear:both; margin-top:15px"></div>
@@ -246,6 +294,7 @@
                 </style>
 
                 <div class="campos" id ="campos_empresa">
+                    <input type="hidden" id="userType" runat="server" />
                     <div class="col-md-4">
                         <label for="nomeJuridica" class="subtitulo_1">Nome*</label>
                         <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>
@@ -332,6 +381,15 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
+                            if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
+                                senha4.css('color', ''); // Resetar a cor
+                            } else {
+                                senha4.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
+
                     </script>
                      <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
@@ -355,7 +413,7 @@
                         $("#olho4").mouseout(function () {
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
-                </script>
+                    </script>
                 </div>
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
@@ -372,7 +430,7 @@
                 </div>
             </div>
         </div>
-        <div class="minhaclasse2"
+        <div class="minhaclasse2">
                     <asp:Label ID="msg" runat="server" Text=""></asp:Label>
         </div>
         <!-- footer -->
@@ -441,16 +499,16 @@
             }
         }
 
-        function mascaraCNPJ() {
-            const cnpj = document.getElementById('cnpj')
-            if (cnpj.value.length == 2 || cnpj.value.length == 5) {
-                cnpj.value += '.'
-            } else if (cpf.value.length == 8) {
-                cpf.value += '/'
-            } else if (cpf.value.length == 12) {
-                cpf.value += '-'
-            }
+            function mascaraCNPJ() {
+        const cnpj = document.getElementById('cnpj');
+        if (cnpj.value.length === 2 || cnpj.value.length === 6) {
+            cnpj.value += '.';
+        } else if (cnpj.value.length === 10) {
+            cnpj.value += '/';
+        } else if (cnpj.value.length === 15) {
+            cnpj.value += '-';
         }
+    }
 
         function mascaraCEP() {
             const cep = document.getElementById('cep')

@@ -38,7 +38,7 @@
 
     <script src="js/jquery.mask.js"></script>
     <script src="js/datatables.min.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
     <script src="js/rating.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/master.js"></script>
@@ -279,11 +279,6 @@ div#tabela_paginate span a {
             <a href="cliente-dashboard.aspx" >
                 <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
             </a>
-                <div>
-                    <h1 class="titulo" >
-                        <font color="#ffffff">Cliente</font>
-                    </h1>
-                </div>
             <nav class="menu" id="nav">
                 <button id="btn-mobile">
                     Menu
@@ -337,7 +332,7 @@ div#tabela_paginate span a {
     <section class="app">
 
         <nav class="menu-dashboard">
-            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px;" alt="ícone"> 
+            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone"> 
             </a>
             <ul class="menu-dash">
                 <li>
@@ -356,10 +351,13 @@ div#tabela_paginate span a {
                   Manutenção</span></a>
                 </li>
                 <li><a href="minhas-cotacoes.aspx" class="cotacao">
-                    <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Cotações</span></a>
+                    <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Em Cotação</span></a>
                 </li>
                 <li><a href="em-andamento.aspx" class="andamento">
                     <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
+                </li>
+                <li><a href="finalizadas.aspx" class="finalizada">
+                    <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Finalizado</span></a>
                 </li>
                 <!--
                 <li><a href="financeiro.html" class="financeiro">

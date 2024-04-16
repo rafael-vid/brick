@@ -15,6 +15,9 @@ function TimeOutLogin() {
         });
     }, 120000);
 }
+function falha() {
+
+}
 
 var closeMsg = function (titulo, mensagem, tipo, tempo) {
     var color = "#C46A69";

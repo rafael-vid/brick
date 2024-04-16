@@ -377,12 +377,14 @@ nav.menu-dashboard {
 }
 .eleva_sifra {
     position: absolute;
-    top: 2px;
+    top: 8px;
     background: #f08f00;
     border-radius: 50%;
     padding: 5px 13px;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
     left: 5px;
+    width: 43px;
+    height: 43px;
 }
 
 .filtros_card {
@@ -1273,13 +1275,16 @@ button.btn.bp-cotacao {
   grid-gap: 20%;
 }
 .expo-info-values {
-  margin-top: 20px;
-  background: #770e18;
-  position: relative;
-  padding: 10px 24px;
-  color: #fff;
-  border-radius: 15px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    background: white;
+    position: relative;
+    padding: 10px 24px;
+    color: black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: left;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 18px;
 }
 .expo-info-values .dt::after {
   content: "";
