@@ -136,8 +136,9 @@ img {
   flex: 1;
 }
 header {
-  height: 213px;
-  background-color: #770e18;
+    height: 213px;
+    background-color: #770e18;
+    background-image: url(../imagens/fundo.png);
 }
 .menu-topo {
   display: grid;

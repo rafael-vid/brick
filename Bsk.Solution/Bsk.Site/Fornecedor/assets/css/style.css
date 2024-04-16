@@ -155,6 +155,7 @@ img {
 header {
   height: 213px;
   background-color: #770e18;
+  background-image: url(../assets/imagens/fundo.png);
 }
 .menu-topo {
   display: grid;
