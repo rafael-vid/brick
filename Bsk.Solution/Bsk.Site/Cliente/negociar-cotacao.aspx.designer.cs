@@ -87,7 +87,7 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTerminado;
 
         /// <summary>
-        /// descricaoHide control.
+        /// divAceitar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -96,7 +96,7 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAceitar;
 
         /// <summary>
-        /// msg control.
+        /// descricaoHide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -148,5 +148,14 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+
+        /// <summary>
+        /// divAceitar2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAceitar2;
     }
 }

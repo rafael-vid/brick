@@ -42,7 +42,12 @@
         function displayPopupMessage2(message) {
             Swal.fire({
             icon: 'success',
-            title: message
+                title: message,
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.aspx";
+                }
             })
         }
 
