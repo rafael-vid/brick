@@ -34,7 +34,7 @@
                
 
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
-                            Salvar dados da cotação
+                            Salvar Rascunho
                        
                         </button>
                     </div>
@@ -151,7 +151,7 @@
                 </a>
                 -->
 
-                 <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();" style="    position: absolute;  right: 83px;  margin-top: -1px;">Enviar Cotação</a>
+                 <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();" style="    position: absolute;  right: 83px;  margin-top: -1px;">Enviar Solicitação</a>
             </div>
 
         </div>
