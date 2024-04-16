@@ -62,23 +62,23 @@ namespace Bsk.Site.Cliente
         //            Response.Redirect("minhas-cotacoes.aspx");
         //        }
 
-        //        if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
-        //        {
-        //            divAceitar.Visible = false;
-        //        }
-        //        mediaCotacoes();
-        //        if (cotacaoFornecedor != null)
-        //        {
-        //            var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-        //            if (cotacao != null)
-        //            {
-        //                if (cotacao.Status == StatusCotacao.Finalizado)
-        //                {
-        //                    btnEnviar.Visible = false;
-        //                    divUpload.Visible = false;
-        //                    msg.Visible = false;
-        //                    descricaoHide.Visible = false;
-        //                }
+                if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
+                {
+                    divAceitar.Visible = false;
+                }
+                mediaCotacoes();
+                if (cotacaoFornecedor != null)
+                {
+                    var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                    if (cotacao != null)
+                    {
+                        if (cotacao.Status == StatusCotacao.Finalizado)
+                        {
+                            btnEnviar.Visible = false;
+                            divUpload.Visible = false;
+                            msg.Visible = false;
+                            descricaoHide.Visible = false;
+                        }
 
         //                tituloCot.InnerText = cotacao.Titulo;
         //                descricaoCot.InnerText = cotacao.Descricao;
@@ -99,15 +99,15 @@ namespace Bsk.Site.Cliente
         //                }
 
 
-        //                if (cotacao.IdCotacaoFornecedor != 0)
-        //                {
-        //                    divAceitar.Visible = false;
-        //                }
+                        if (cotacao.IdCotacaoFornecedor != 0)
+                        {
+                            divAceitar.Visible = false;
+                        }
 
-        //                if (cotacaoFornecedor.EnviarProposta == 0)
-        //                {
-        //                    divAceitar.Visible = false;
-        //                }
+                        if (cotacaoFornecedor.EnviarProposta == 0)
+                        {
+                            divAceitar.Visible = false;
+                        }
 
         //                if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
         //                {
