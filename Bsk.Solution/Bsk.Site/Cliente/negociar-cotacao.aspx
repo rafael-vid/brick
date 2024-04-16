@@ -82,10 +82,10 @@
             
 
             <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-                <div style="margin-right: 10px;">
+                <div style="margin-right: 50px;">
                     <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
                 </div>
-                <div style="margin-left: 10px;">
+                <div style="margin-left: 50px;">
                     <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
                 </div>
             </div>
@@ -259,10 +259,10 @@
             </div>
 
             <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 10px;">
+    <div style="margin-right: 50px;">
         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
     </div>
-    <div style="margin-left: 10px;">
+    <div style="margin-left: 50px;">
         <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
     </div>
 </div>
