@@ -34,6 +34,8 @@
         function displayPopupMessage(message){
     Swal.fire({
         icon: 'error',
+        iconColor: '#770e18',
+        cancelButtonColor: '#770e18',
         title: 'Atenção',
         text: message
     })
@@ -42,12 +44,9 @@
         function displayPopupMessage2(message) {
             Swal.fire({
             icon: 'success',
-                title: message,
-                confirmButtonText: 'OK'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "login.aspx";
-                }
+            iconColor: '#770e18',
+            cancelButtonColor: '#770e18',
+            title: message
             })
         }
 
@@ -57,11 +56,13 @@
                 title: 'Atenção',
                 text: message,
                 showCancelButton: true,
+                iconColor: '#770e18',
                 confirmButtonText: 'Recuperar Senha',
                 cancelButtonText: 'Cancelar',
-                cancelButtonColor: '#d33',
+                cancelButtonColor: '#770e18',
                 showDenyButton: true,
-                denyButtonText: 'Ir para Login'
+                denyButtonText: 'Ir para Login',
+                denyButtonColor: '#f08f00'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'esqueciasenha.aspx';
@@ -254,6 +255,14 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senha, #validaSenha').on('input', function () {
+                            if ($('#senha').val() === $('#validaSenha').val()) {
+                                senha2.css('color', ''); // Resetar a cor
+                            } else {
+                                senha2.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
                     </script>
                 </div>
                 <div style="clear:both; margin-top:15px"></div>
@@ -287,6 +296,15 @@
                 <style>
                     .campos {
                         display:block !important;
+                    }
+                    div:where(.swal2-container).swal2-center > .swal2-popup {
+                        border-radius: 40px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+                        border-radius: 20px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+                        border-radius: 20px !important;
                     }
                 </style>
 
@@ -378,6 +396,15 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
+                            if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
+                                senha4.css('color', ''); // Resetar a cor
+                            } else {
+                                senha4.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
+
                     </script>
                      <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
@@ -401,7 +428,7 @@
                         $("#olho4").mouseout(function () {
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
-                </script>
+                    </script>
                 </div>
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
@@ -443,6 +470,9 @@
             text-align:center;
             padding-left:0;
             cursor:pointer
+        }
+        .swal2-styled.swal2-deny {
+            border-radius: 40px !important; 
         }
     </style>
     <script async src="assets/js/script.js"></script>
@@ -487,16 +517,16 @@
             }
         }
 
-        function mascaraCNPJ() {
-            const cnpj = document.getElementById('cnpj')
-            if (cnpj.value.length == 2 || cnpj.value.length == 5) {
-                cnpj.value += '.'
-            } else if (cpf.value.length == 8) {
-                cpf.value += '/'
-            } else if (cpf.value.length == 12) {
-                cpf.value += '-'
-            }
+            function mascaraCNPJ() {
+        const cnpj = document.getElementById('cnpj');
+        if (cnpj.value.length === 2 || cnpj.value.length === 6) {
+            cnpj.value += '.';
+        } else if (cnpj.value.length === 10) {
+            cnpj.value += '/';
+        } else if (cnpj.value.length === 15) {
+            cnpj.value += '-';
         }
+    }
 
         function mascaraCEP() {
             const cep = document.getElementById('cep')
