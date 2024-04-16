@@ -187,7 +187,7 @@ namespace Bsk.Interface
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(int idFornecedor)
         {
             var sql = $@"select 
-                            CF.IdCotacao as CotacaoId, 
+                            CT.IdCotacao as CotacaoId, 
                             CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
                             CT.IdCLiente as ClienteId, 
                             CL.Nome, CT.Titulo, 
@@ -196,25 +196,13 @@ namespace Bsk.Interface
                             CT.FinalizaFornecedor, 
                             CT.IdCotacaoFornecedor as CFId,
                             CT.DataAlteracao,
-                            CF.DataEntrega,
-                            CF.Valor,
-                            s.Nome as StatusNome,
-                            CASE
-                                WHEN 
-			                            (select count(IdCotacaoFornecedorChat) 
-			                            from cotacaofornecedorchat 
-			                            where IdFornecedor = 0 and IdCotacaoFornecedor= CF.IdCotacaoFornecedor and LidaFornecedor=0)  > 0 
-		                            THEN 'N'
+                            s.Nome as StatusNome
 
-                                ELSE ''
-                            END as Mensagens
-
-                        from cotacaofornecedor CF
-                        inner join cotacao CT on CT.IdCotacao = CF.IdCotacao
+                        from cotacao CT                      
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
-                        inner join status_cliente s
-		                            on CT.status = s.id
-                        where CF.IdFornecedor = " + idFornecedor+ " and CF.Ativo=1 order by DataAlteracao desc ";
+                        left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
+                        inner join status_cliente s on CT.status = s.id
+                          order by DataAlteracao desc   ";
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 

@@ -525,7 +525,7 @@
                 value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
                 value = value.replace('.', ',');
                 value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                e.target.value = value;
+                e.target.value = "R$" + value;
             });
         });
         

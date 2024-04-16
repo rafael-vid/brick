@@ -52,9 +52,14 @@ namespace Bsk.Site.Geral
                     else
                     {
 
-                        msg.Text = "Login ou senha, inválidos.";
+                        msg.Text = "Login ou senha inválidos";
                         lblMsgParceiro.Text = msg.Text;
                     }
+                }
+                else
+                {
+                    msg.Text = "Login ou senha inválidos";
+                    lblMsgParceiro.Text = msg.Text;
                 }
 
             }
@@ -90,9 +95,14 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
-                    msg.Text = "Login ou senha, inválidos.";
+                    msg.Text = "Login ou senha inválidos";
                     lblMsg.Text = msg.Text;
                 }
+            }
+            else
+            {
+                msg.Text = "Login ou senha inválidos";
+                lblMsg.Text = msg.Text;
             }
 
         }
