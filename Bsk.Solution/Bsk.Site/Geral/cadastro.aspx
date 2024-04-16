@@ -60,6 +60,7 @@
                 confirmButtonText: 'Recuperar Senha',
                 cancelButtonText: 'Cancelar',
                 cancelButtonColor: '#770e18',
+                confirmButtonColor: '#f08f00',
                 showDenyButton: true,
                 denyButtonText: 'Ir para Login',
                 denyButtonColor: '#f08f00'
