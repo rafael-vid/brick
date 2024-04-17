@@ -81,7 +81,7 @@ textarea {
 nav.menu-dashboard {
     padding: 97px 0 170px 0;
     background-color: #770e18;
-    background-image: url('../assets/imagens/fundo.png');
+    background-image: url('../imagens/fundo.png');
     display: flex;
     flex-direction: column;
     justify-content: space-between;
