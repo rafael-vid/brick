@@ -254,6 +254,14 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senha, #validaSenha').on('input', function () {
+                            if ($('#senha').val() === $('#validaSenha').val()) {
+                                senha2.css('color', ''); // Resetar a cor
+                            } else {
+                                senha2.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
                     </script>
                 </div>
                 <div style="clear:both; margin-top:15px"></div>
@@ -405,6 +413,15 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
+                            if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
+                                senha4.css('color', ''); // Resetar a cor
+                            } else {
+                                senha4.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
+
                     </script>
                      <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
@@ -428,7 +445,7 @@
                         $("#olho4").mouseout(function () {
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
-                </script>
+                    </script>
                 </div>
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
@@ -660,16 +677,16 @@
             }
         }
 
-        function mascaraCNPJ() {
-            const cnpj = document.getElementById('cnpj')
-            if (cnpj.value.length == 2 || cnpj.value.length == 5) {
-                cnpj.value += '.'
-            } else if (cpf.value.length == 8) {
-                cpf.value += '/'
-            } else if (cpf.value.length == 12) {
-                cpf.value += '-'
-            }
+            function mascaraCNPJ() {
+        const cnpj = document.getElementById('cnpj');
+        if (cnpj.value.length === 2 || cnpj.value.length === 6) {
+            cnpj.value += '.';
+        } else if (cnpj.value.length === 10) {
+            cnpj.value += '/';
+        } else if (cnpj.value.length === 15) {
+            cnpj.value += '-';
         }
+    }
 
         function mascaraCEP() {
             const cep = document.getElementById('cep')

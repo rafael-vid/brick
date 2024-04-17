@@ -247,9 +247,9 @@
             <label for="selecao-arquivo">Anexar arquivos</label>
         </div>
         <div class="gravar-video" id="btnVideo">
-            <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+<%--            <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
             <button class="btn-gravar">Gravar um vídeo explicativo</button>
-        </div>
+        </div>--%>
     </div>
 </div>
                     </div>
@@ -268,7 +268,7 @@
 </div>
 
             <div class="footer_card">
-                <a class="voltar btn" href="cotacao-lista.aspx?Id="><< voltar </a>
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
