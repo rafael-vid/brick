@@ -325,7 +325,7 @@
                     </div>
                     <div class="col-md-4 queda">
                         <label for="cnpj"  class="subtitulo_1">CNPJ*</label>
-                        <input type="text" name="cnpj" id="cnpj" runat="server" maxlength="18" onkeyup="mascaraCNPJ()" required>
+                        <input name="cnpj" type="text" id="cnpj" maxlength="18" oninput="mascaraCNPJ()" required="">
                     </div>
                     <div class="col-md-4 queda">
                         <label for="razao" class="subtitulo_1">Razão Social*</label>
