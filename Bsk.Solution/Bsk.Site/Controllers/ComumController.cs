@@ -468,11 +468,19 @@ namespace Bsk.Site.Controllers
                 IdFornecedor = cotacaoFornecedor.IdFornecedor
             };
 
-            cotacaoFornecedor.DataEntrega = data;
+            if (DateTime.TryParse(data, out DateTime parsedDate))
+            {
+                cotacaoFornecedor.DataEntrega = parsedDate.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                // Handle the case where the date format is incorrect
+                cotacaoFornecedor.DataEntrega = DateTime.Now.ToString("yyyy-MM-dd"); // Defaulting to current date
+            }
 
             try
             {
-                valor = valor.Replace(".", "");
+                valor = valor.Replace(".", "").Replace("R", "").Replace("$", "");
                 cotacaoFornecedor.Valor = float.Parse(valor);
                 cotacaoFornecedor.EnviarProposta = 1;
             }

@@ -76,12 +76,12 @@
                 <p><%Response.Write(cot.NomeCliente); %></p>
             </div>
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p><%Response.Write(cot.Titulo); %></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição do serviço </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento do serviço </h2>
                 <p><%Response.Write(cot.Descricao); %></p>
             </div>
 
