@@ -49,8 +49,8 @@ namespace Bsk.Site.Fornecedor
                 {
 
                 }
-
-                if (item.Status == StatusCotacao.Aberto)
+                /*
+                if (item.Status == StatusCotacao.Aberto || item.Status == StatusCotacao.Criacao)
                 {
                     item.Status = "Aberto";
                 }
@@ -95,7 +95,7 @@ namespace Bsk.Site.Fornecedor
                         total += item.Valor;
                         item.Status = "Finalizado";
                     }
-                }
+                }*/
 
             }
             totalReceber.InnerText = string.Format("{0:C}", total);
