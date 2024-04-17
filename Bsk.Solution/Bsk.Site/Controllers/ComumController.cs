@@ -468,10 +468,13 @@ namespace Bsk.Site.Controllers
                 IdFornecedor = cotacaoFornecedor.IdFornecedor
             };
 
-            if (DateTime.TryParse(data, out DateTime parsedDate))
+            DateTime parsedDate; // Declare variable outside of the TryParse method
+            if (DateTime.TryParse(data, out parsedDate))
             {
                 cotacaoFornecedor.DataEntrega = parsedDate.ToString("yyyy-MM-dd");
             }
+
+
             else
             {
                 // Handle the case where the date format is incorrect
