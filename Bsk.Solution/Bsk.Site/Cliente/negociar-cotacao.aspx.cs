@@ -12,6 +12,7 @@ namespace Bsk.Site.Cliente
     using Bsk.BE;
     using Bsk.Interface;
     using Bsk.Util;
+    using Org.BouncyCastle.Utilities;
     using System.Runtime.Remoting.Messaging;
     using M = Bsk.BE.Model;
     public partial class negociar_cotacao : System.Web.UI.Page
@@ -175,8 +176,8 @@ namespace Bsk.Site.Cliente
         }
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-            var arquivo = GravarArquivo(flpAnexo);
-            var video = GravarVideo(flpVideo);
+            string arquivo = GravarArquivo(flpArquivo);
+            //var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;
 
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
@@ -185,7 +186,7 @@ namespace Bsk.Site.Cliente
             {
                 _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
                 _CotacaoFornecedorChatBE.Mensagem = _msg;
-                _CotacaoFornecedorChatBE.Video = video;
+                //_CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
                 _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
@@ -195,7 +196,7 @@ namespace Bsk.Site.Cliente
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
-                
+
                 NotificacaoBE notif = new NotificacaoBE();
 
                 notif.titulo = "Nova mensagem no chat";
@@ -234,13 +235,13 @@ namespace Bsk.Site.Cliente
             return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
         }
 
-        public void GravarArquivo(FileUpload _flpImg, string tipo)
+        public string GravarArquivo(FileUpload flpArquivo, string tipo = "Anexo")
         {
             var nome = "";
             var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
-            if (!String.IsNullOrEmpty(_flpImg.FileName))
+            if (!String.IsNullOrEmpty(flpArquivo.FileName))
             {
-                nome = Guid.NewGuid().ToString() + _flpImg.FileName;
+                nome = Guid.NewGuid().ToString() + flpArquivo.FileName;
                 var path = "";
 
                 if (tipo == "Anexo")
@@ -252,46 +253,28 @@ namespace Bsk.Site.Cliente
                     path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
                 }
 
-                _flpImg.SaveAs(path);
+                flpArquivo.SaveAs(path);
                 link = link.Replace("{{ARQ}}", nome);
             }
             else
             {
                 link = "";
             }
-
-            //public string GravarVideo(FileUpload _flpImg)
-            //{
-            //    var nome = "";
-            //    var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Video/{{ARQ}}'><img alt='' src='img/arquivo.png'></a>";
-            //    if (!String.IsNullOrEmpty(_flpImg.FileName))
-            //    {
-            //        nome = Guid.NewGuid().ToString() + _flpImg.FileName;
-            //        var path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
-            //        _flpImg.SaveAs(path);
-            //        link = link.Replace("{{ARQ}}", nome);
-            //    }
-            //    else
-            //    {
-            //        link = "";
-            //    }
-
-            //    return link;
-            //}
+        }
 
 
         public string pegaStatus()
-        {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-            if (cotacao.Status == "1")
             {
-                return "cotacao-lista.aspx?Id=" + cotacao.IdCotacao;
-            }
-            else
-            {
-                return "minhas-cotacoes.aspx";
+                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                if (cotacao.Status == "1")
+                {
+                    return "cotacao-lista.aspx?Id=" + cotacao.IdCotacao;
+                }
+                else
+                {
+                    return "minhas-cotacoes.aspx";
+                }
             }
         }
     }
-}

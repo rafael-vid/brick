@@ -165,10 +165,10 @@
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <label for="selecao-arquivo">Anexar arquivos</label>
                                 </div>
-                                <div class="gravar-video" id="btnVideo">
+<%--                                <div class="gravar-video" id="btnVideo">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                     <button class="btn-gravar">Gravar um vídeo explicativo</button>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
 
