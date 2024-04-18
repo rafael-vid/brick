@@ -77,7 +77,8 @@ textarea {
 }
 nav.menu-dashboard {
   padding: 97px 0 170px 0;
-  background: #770e18;
+  background-color: #770e18;
+  background-image: url('../imagens/fundo.png');
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1275,13 +1276,16 @@ button.btn.bp-cotacao {
   grid-gap: 20%;
 }
 .expo-info-values {
-  margin-top: 20px;
-  background: #770e18;
-  position: relative;
-  padding: 10px 24px;
-  color: #fff;
-  border-radius: 15px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    background: white;
+    position: relative;
+    padding: 10px 24px;
+    color: black;
+    border-radius: 15px;
+    display: flex;
+    justify-content: left;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 18px;
 }
 .expo-info-values .dt::after {
   content: "";

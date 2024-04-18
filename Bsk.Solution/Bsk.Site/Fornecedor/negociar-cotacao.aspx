@@ -167,10 +167,10 @@
                                         <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
                                     </div>
-                                    <div class="gravar-video">
+<%--                                    <div class="gravar-video">
                                         <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                    </div>
+                                    </div>--%>
                                 </div>
                             </div>
                         <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexoFornecedor" ClientIDMode="Static" onserverclick="btnEnviarAnexoFornecedor_ServerClick" runat="server" style="display:none">
@@ -194,21 +194,16 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
-
-
-
-
-                        
-                        
+                   
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (verificarValores()) salvaDados();"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
-    <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
-    <text>Proposta confirmada!</text>
-    </div>
+                            <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
+                            <text>Proposta confirmada!</text>
+                            </div>
                     
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
@@ -223,11 +218,6 @@
 
                         </label>
                     </div>
-
-                <div class="pesquisar">
-                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 1rem;"> &nbsp;
-                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                </div>
             </div>
 
             <div class="card-tabela " style="overflow-x: auto;">
@@ -498,13 +488,57 @@
 
     <script type="text/javascript">
 
+        function verificarValores() {
+            var dataEntrega = document.getElementById("dataEntrega").value.trim();
+            var valorServico = document.getElementById("valorServico").value.trim();
+
+            // Verifica se os valores estão preenchidos
+            if (dataEntrega === "" || valorServico === "") {
+                // Se não estiverem preenchidos, exibe uma mensagem de alerta
+                Swal.fire({
+                    title: "Por favor, preencha a data e o valor antes de prosseguir.",
+                    confirmButtonColor: '#f08f00',
+                    confirmButtonText: 'Ok'
+
+                });
+                return false; // Retorna false para interromper a execução
+            }
+            return true; // Retorna true se os valores estiverem preenchidos
+        }
+
+        setInterval(function () {
+            var parametro = {
+                tipo: "C",
+                id: comum.queryString("Id")
+            };
+            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
+                $("#divChat").empty();
+                $("#divChat").append(data);
+            });
+        }, 10000);
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            const valorServicoInput = document.getElementById('valorServico');
+        
+            valorServicoInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
+                value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
+                value = value.replace('.', ',');
+                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                e.target.value = value;
+            });
+        });
+        
+
         //$(function () {
         //    $('#valorServico').maskMoney({
-        //        allowNegative: false,
-        //        thousands: '.', decimal: ',',
-        //        affixesStay: true
-        //    });
-        //})
+        //        allowNegative: false, 
+        //        thousands: '.',       
+        //        decimal: ',',         
+        //        affixesStay: true     
+        //   }).trigger('mask.maskMoney');
+        //
+        //});
 
         setInterval(function () {
             var parametro = {

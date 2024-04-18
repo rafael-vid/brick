@@ -21,12 +21,12 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="tituloServ" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p id="descricao" runat="server"></p>
             </div>
 
