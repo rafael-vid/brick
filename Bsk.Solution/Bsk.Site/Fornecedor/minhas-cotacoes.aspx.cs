@@ -41,7 +41,16 @@ namespace Bsk.Site.Fornecedor
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaGet(login.IdFornecedor);
+            AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
+            string cats = "";
+            foreach (var item in categorias)
+            {
+                cats += item.IdCategoria + ",";
+            }
+
+
+            var cotacoes = _core.CotacaoFornecedorListaGet(cats+"0", login.IdFornecedor);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             double total = 0;
             foreach (var item in cotacoes)

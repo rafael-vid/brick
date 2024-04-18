@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
+                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
                             </div>
                         </div>
 
