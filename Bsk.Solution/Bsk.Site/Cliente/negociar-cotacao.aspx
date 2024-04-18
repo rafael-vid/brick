@@ -254,7 +254,14 @@
 
             </div>
 
-            
+                        <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+    <div style="margin-right: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+    </div>
+    <div style="margin-left: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+    </div>
+</div>
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
