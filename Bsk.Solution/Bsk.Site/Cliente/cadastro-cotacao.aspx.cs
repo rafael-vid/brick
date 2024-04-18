@@ -37,13 +37,6 @@ namespace Bsk.Site.Cliente
                     // alerts.Visible = false;
                     // alerts2.Visible = false;
                 }
-
-                if(cotacao.Status == "8")
-                {
-                    btnSalvar.Visible = true;
-                    btnSubmeter.Visible = true;
-                    divUpload.Visible = false;
-                }
             }
 
             if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
@@ -127,7 +120,7 @@ namespace Bsk.Site.Cliente
                     IdCotacaoFornecedor = 0,
                     Nota = 0,
                     Observacao = "",
-                    Status = "8", //Rascunho
+                    Status = "1",
                     Titulo = titulo.Value
                 };
 

@@ -69,7 +69,8 @@
                             <td>Nº Cotação</td>
                             <td>Título</td>
                             <td>Nome cliente</td>
-
+                            <td>Entrega</td>
+                            <td>Valor</td>
                             <td>Última atualização</td>
                             <td>Status</td>
                         </tr>
@@ -80,24 +81,37 @@
                         foreach (var item in cotacoes)
                         {
                             string link = "";
-
-                                link = "cotacao.aspx?Cotacao=" + item.CotacaoId;
-                            
-                            if(item.Status == "2")
+                            if (item.Status == "Recusado")
                             {
                                 link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
                             }
-
-                            if (item.CotacaoFornecedorId != 0)
+                            else if (item.Status == "Aberto")
                             {
                                 link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
                             }
-
+                            else if (item.Status == "Aguardando pagamento")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Em andamento")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Pendente de finalização do cliente")
+                            {
+                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
+                            else if (item.Status == "Finalizado")
+                            {
+                                link = "avaliar.aspx?Id=" + item.CotacaoFornecedorId;
+                            }
                     %>
                     <tr class="cursor" onclick="redirecionar('<%Response.Write(link); %>')">
                         <td><%Response.Write(item.CotacaoId); %><span style="color: red;"><%Response.Write(item.Mensagens); %></span></td>
                         <td><%Response.Write(item.Titulo); %></td>
                         <td><%Response.Write(item.Nome); %></td>
+                        <td><%Response.Write(item.DataEntrega); %></td>
+                        <td><%Response.Write(string.Format("{0:C}", item.Valor)); %></td>
                         <td><%Response.Write(item.DataAlteracao); %></td>
                         <td>
                             <%Response.Write(item.StatusNome); %>
@@ -193,7 +207,7 @@
             if ($("#slcStatus").val() == "0") {
                 table.search("").draw();
             } else if ($("#slcStatus").val() == "1") {
-                table.search("Solicitação feita").draw();
+                table.search("Recusado").draw();
             } else if ($("#slcStatus").val() == "2") {
                 table.search("Em cotação").draw();
             } else if ($("#slcStatus").val() == "3") {
