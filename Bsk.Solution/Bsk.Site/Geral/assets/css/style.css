@@ -136,9 +136,8 @@ img {
   flex: 1;
 }
 header {
-    height: 213px;
-    background-color: #770e18;
-    background-image: url(../imagens/fundo.png);
+  height: 213px;
+  background-color: #770e18;
 }
 .menu-topo {
   display: grid;
@@ -148,6 +147,7 @@ header {
 }
 .filtro {
   height: 93px;
+  background: url(../imagens/fundo.png) no-repeat;
   background-size: cover;
   width: 100%;
 }

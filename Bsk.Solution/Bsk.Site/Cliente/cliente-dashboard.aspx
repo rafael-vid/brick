@@ -2,12 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash dashboard dash-cliente">
-         <a class="btn_card" href="buscar-servico.aspx" style="margin-left: 50px;">
-             <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-             Nova Cotação
-         </a>
-        <div class="acessos">
-        </div>
+
         <div class="card">
             <div class="titulo_card">
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
@@ -304,10 +299,9 @@
                 </a>
             </div>
         </div>
-                        </div>
+    </div>
     </section>
                         -->
-
     <style>
         a.dash {
             background: #f4f3f2;

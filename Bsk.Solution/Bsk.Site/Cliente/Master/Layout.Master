@@ -109,19 +109,12 @@
                 width: 100% !important;
                 top: 120px !important;
                 right: 0 !important;
-                background-color: #770e18;
-                background-image: url('../imagens/fundo.png');
+                background: #770e18;
                 z-index: 100;
                 transition: 0.3s !important;
                 visibility: hidden;
                 overflow-y: hidden;
             }
-        }
-        header {
-            height: 213px;
-            background-color: #770e18;
-            background-image: url('../assets/imagens/fundo.png');
-            position: relative;
         }
         
 
