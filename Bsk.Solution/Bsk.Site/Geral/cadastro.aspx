@@ -362,6 +362,33 @@
                     <div class="col-md-4">
                         <label for="cepJuridica" class="subtitulo_1">CEP*</label>
                         <input type="text" name="cepJuridica" id="cepJuridica" runat="server" required>
+                        <script>
+                            document.querySelector("#cepJuridica").onchange = function () {
+                                var txtCep = document.querySelector("#cepJuridica").value
+                                if (txtCep && (txtCep.length == 9 || txtCep.length == 8)) {
+                                    txtCep = txtCep.replace(/[^0-9]/, '');
+                                    var url = 'https://viacep.com.br/ws/' + txtCep + '/json/';
+                                    $.ajax({
+                                        url: url,
+                                        dataType: 'jsonp',
+                                        crossDomain: true,
+                                        contentType: "application/json",
+                                        success: function (json) {
+                                            console.log(json)
+                                            if (json.logradouro) {
+                                                $("input[name=enderecoJuridica]").val(json.logradouro);
+                                                $("input[name=bairroJuridica]").val(json.bairro);
+                                                $("input[name=cidadeJuridica]").val(json.localidade);
+                                                $("input[name=estadoJuridica]").val(json.uf);
+                                                $("input[name=numeroJuridica]").val('');
+                                                $("input[name=complementoJuridica]").val('');
+                                                $("input[name=numeroJuridica]").focus()
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        </script>
                     </div>
                     <div class="col-md-4">
                         <label for="complementoJuridica" class="subtitulo_1">Complemento</label>
@@ -485,7 +512,153 @@
     </script>
 
     <script> 
+        $(document).ready(function () {
 
+            (function ($) {
+                $.fn.receitaws = function (options) {
+                    $this = this;
+
+                    $.fn.receitaws.options = {
+                        afterRequest: function () { },
+                        success: function (data) { },
+                        notfound: function (message) { },
+                        fail: function (message) { },
+                        fields: {},
+                        urlRequest: 'https://receitaws.com.br/v1/cnpj/'
+                    };
+
+                    /*
+                     Duplicate request controller. (Cache)
+                     */
+                    $.fn.receitaws.lastRequest = {
+                        cnpj: null,
+                        data: null
+                    };
+
+
+                    function getData(cnpj) {
+                        cnpj = cnpj.replace(/\D/g, '');
+
+                        var lastRequest = $.fn.receitaws.lastRequest;
+
+                        return new Promise(function (success, fail) {
+                            if (lastRequest.cnpj == cnpj) {
+                                success(lastRequest.dados);
+                            } else {
+                                var myObject = {
+                                    async: false,
+                                    dataType: 'json'
+                                };
+
+                                $.getJSON($.fn.receitaws.options.urlRequest + cnpj + '?callback=?', function (data) {
+                                    lastRequest.cnpj = cnpj;
+                                    lastRequest.dados = data;
+                                    success(data);
+                                })
+
+                                    .fail(function (jqxhr, textStatus, error) {
+                                        fail(textStatus + ", " + error);
+                                    });
+                            }
+                        });
+                    }
+
+
+                    $.fn.receitaws.init = function (options) {
+
+                        $.fn.receitaws.options = $.extend({}, $.fn.receitaws.options, options);
+
+                        return $this.keyup(function () {
+                            var cnpj = $(this).val().replace(/\D/g, '');
+
+                            if (cnpj.length != 14) {
+                                return false;
+                            }
+                            options.afterRequest();
+
+                            getData(cnpj).then(function (data) {
+
+                                if (data.status == 'OK') {
+                                    $.each(options.fields, function (index, value) {
+                                        if (typeof value == "string") {
+                                            $(options.fields[index]).val(data[index]);
+                                        } else if (typeof value == 'function') {
+                                            value(data[index]);
+                                        }
+                                    });
+
+                                    options.success(data);
+                                } else {
+                                    options.notfound('CNPJ "' + $this.val() + '" não encontrado.');
+                                }
+
+                            }, function (error) {
+                                options.fail(error);
+                            });
+                        });
+                    };
+
+                    return $.fn.receitaws.init(options);
+                };
+            })(jQuery);
+
+            $('#cnpj').receitaws({
+                fields: {
+                    nome: '#nomeJuridica',
+                    situacao: '#situacao',
+                    abertura: '#abertura',
+                    tipo: '#tipo',
+                    telefone: '#telefoneJuridica',
+                    logradouro: '#logradouroJuridica',
+                    cep: '#cepJuridica',
+                    numero: '#numeroJuridica',
+                    complemento: '#complementoJuridica',
+                    bairro: '#bairroJuridica',
+                    municipio: '#municipioJuridica',
+                    uf: '#uf',
+                    fantasia: '#fantasia'
+                },
+
+                afterRequest: function () {
+                    $('#mensagens').html('<div class="alert alert-info" role="alert"><div class="glyphicon glyphicon-search" aria-hidden="true"></div> Buscando CNPJ</div>');
+                },
+                success: function (data) {
+                    $('#mensagens').html('<div class="alert alert-success" role="alert"><div class="glyphicon glyphicon-ok" aria-hidden="true"></div> CNPJ encontrado</div>');
+
+                    //$('#enderecoEmpresaPessoFisica').html('<div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0 dadosRetira dadosEmpresa" style="display: none;"><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control razaoSocial" id="nome" placeholder="Razão Social" value="' + data.nome + '" disabled></div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control fantasia" id="fantasia" placeholder="Nome Fantasia" value="' + data.fantasia + '" disabled></div><div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control situacao" id="situacao" placeholder="Situação" value="' + data.situacao + '" disabled>                            </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                           <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control dataAbertura" id="abertura" value="' + data.abertura + '" placeholder="Data de abertura" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control tipo" id="tipo" value="' + data.tipo + '" placeholder="Tipo" disabled>                            </div>      <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                      <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control" id="telefone" value="' + data.telefone + '" placeholder="Telefone">                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <input type="text" class="form-control logradouro" value="' + data.logradouro + '" id="logradouro" placeholder="Endereço" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control" id="cep" value="' + data.cep + '" placeholder="CEP" disabled>                                </div>    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control numero" id="numero" value="' + data.numero + '" placeholder="Número" disabled>                                </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                               <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control complemento" id="complemento" value="' + data.complemento + '" placeholder="Complemento" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control bairro" id="bairro" value="' + data.bairro + '" placeholder="Bairro" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control cidade" id="municipio" value="' + data.municipio + '" placeholder="Cidade" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control uf" id="uf" value="' + data.uf + '" placeholder="UF" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                        </div>');
+                    //Dados obtidos
+                    var nome = data.qsa[0].nome;
+                    var nm = nome.split(' ');
+                    var snome = nm[nm.length - 1];
+                    $("#nomeResponsavel").val(nome.replace(snome, ''));
+                    $("#sobrenomeResponsavel").val(snome);
+                    console.log(data);
+                },
+                fail: function (message) {
+                    $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> Falha na requisição</div>');
+                },
+                notfound: function (message) {
+                    $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> CNPJ não encontrado ou inválido</div>');
+                }
+            });
+
+            $("input#cnpj").focusout(function () {
+                if ($('input#cnpj').val() == '') {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('input#cnpj').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
+                    $('input#cnpj').focus();
+                }
+                if ($('input#cnpj').val().length != 18) {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('input#cnpj').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo tem que ter no mínimo 14 números</div>');
+                    $('input#cnpj').focus();
+                } else {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('.dadosEmpresa').slideToggle();
+                    $('.dadosRetira').removeClass('dadosEmpresa');
+                }
+            });
+        });
 
         $("#pessoa_fisica").show();
         $("#pessoa_juridica").hide();

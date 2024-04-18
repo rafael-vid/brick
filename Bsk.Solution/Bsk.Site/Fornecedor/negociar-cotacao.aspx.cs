@@ -35,12 +35,23 @@ namespace Bsk.Site.Fornecedor
             try
             {
                 CarregaCotacaoFornecedor();
+
+                // After loading cotacao fornecedor, format the delivery date
+                if (!IsPostBack && dataEntrega.Value != null)
+                {
+                    DateTime deliveryDate;
+                    if (DateTime.TryParse(dataEntrega.Value, out deliveryDate))
+                    {
+                        dataEntrega.Value = deliveryDate.ToString("dd/MM/yyyy");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Response.Redirect("../Geral/login.aspx");
             }
         }
+
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
 
@@ -169,7 +180,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = cotacaoFornecedor.Valor.ToString()+(",00");
+                        valorServico.Value = "R$" + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
@@ -213,6 +224,24 @@ namespace Bsk.Site.Fornecedor
                 }
             }
         }
+        private string FormatWithPeriod(string value)
+        {
+            int length = value.Length;
+            int initialChunkLength = length % 3;
+            if (initialChunkLength == 0) initialChunkLength = 3; // Handle case where length is a multiple of 3
+
+            // Start with the initial chunk which could be 1, 2, or 3 characters long
+            string formattedValue = value.Substring(0, initialChunkLength);
+
+            // Process the rest of the string in chunks of 3 characters
+            for (int i = initialChunkLength; i < length; i += 3)
+            {
+                formattedValue += "." + value.Substring(i, 3);
+            }
+
+            return formattedValue;
+        }
+
 
         public FornecedorBE RetornaUsuario()
         {
@@ -231,6 +260,11 @@ namespace Bsk.Site.Fornecedor
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
+            string message = msg.Value.Trim(); // Assuming 'msg' is the server ID of your textarea
+            if (string.IsNullOrEmpty(message))
+            {
+                return; // Exit the function if the message is empty
+            }
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
 
 
@@ -242,19 +276,20 @@ namespace Bsk.Site.Fornecedor
 
             if (cotacaoFornecedor != null)
             {
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
                 _CotacaoFornecedorChatBE.Mensagem = _msg;
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdCliente = cotacao.IdCliente; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 1;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
 
@@ -273,7 +308,7 @@ namespace Bsk.Site.Fornecedor
 
 
                 //DEPOIS COLOCAR MSG
-                Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
+                //Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
         }
 

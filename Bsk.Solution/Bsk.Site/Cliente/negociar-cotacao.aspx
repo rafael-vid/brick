@@ -21,12 +21,12 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="tituloCot" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p id="descricaoCot" runat="server"></p>
             </div>
 
@@ -81,12 +81,12 @@
             </div>
             
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-                <div style="margin-right: 10px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
+            <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+                <div style="margin-right: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
                 </div>
-                <div style="margin-left: 10px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
+                <div style="margin-left: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
                 </div>
             </div>
 
@@ -258,12 +258,12 @@
 
             </div>
 
-            <div class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 10px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
+            <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+    <div style="margin-right: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
     </div>
-    <div style="margin-left: 10px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
+    <div style="margin-left: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
     </div>
 </div>
 

@@ -468,11 +468,22 @@ namespace Bsk.Site.Controllers
                 IdFornecedor = cotacaoFornecedor.IdFornecedor
             };
 
-            cotacaoFornecedor.DataEntrega = data;
+            DateTime parsedDate; // Declare variable outside of the TryParse method
+            if (DateTime.TryParse(data, out parsedDate))
+            {
+                cotacaoFornecedor.DataEntrega = parsedDate.ToString("yyyy-MM-dd");
+            }
+
+
+            else
+            {
+                // Handle the case where the date format is incorrect
+                cotacaoFornecedor.DataEntrega = DateTime.Now.ToString("yyyy-MM-dd"); // Defaulting to current date
+            }
 
             try
             {
-                valor = valor.Replace(".", "");
+                valor = valor.Replace(".", "").Replace("R", "").Replace("$", "");
                 cotacaoFornecedor.Valor = float.Parse(valor);
                 cotacaoFornecedor.EnviarProposta = 1;
             }

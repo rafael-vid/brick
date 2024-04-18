@@ -241,9 +241,12 @@
         </div>
 
         <div class="paginacao_card">
-            <button class="paginate_button" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto; font-size: 13px;">Anterior</button>
-            <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próximo</button>
-        </div>
+    <button class="paginate_button" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto; font-size: 13px;">Anterior</button>
+    <!-- Page buttons container -->
+    <div class="page-buttons-container"></div>
+    <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próximo</button>
+</div>
+
         <div class="footer_card">
             <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
             
@@ -302,7 +305,9 @@
                     }
                 }
                 updateCategoryDisplay();
+                renderPageButtons(); // Re-render page buttons after pagination
             }
+
 
             function updateCategoryDisplay() {
                 const start = currentPage * itemsPerPage;
@@ -317,26 +322,49 @@
 
             function renderPageButtons() {
                 const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
-                const navigationContainer = document.querySelector('.paginacao_card'); // Adjust if necessary to select the correct container
+                const navigationContainer = document.querySelector('.page-buttons-container');
 
                 // Clear existing dynamically added buttons to avoid duplicates
                 const existingButtons = navigationContainer.querySelectorAll('.dynamic-page-btn');
                 existingButtons.forEach(btn => btn.remove());
 
-                for (let i = 0; i < totalPages; i++) {
+                // Calculate the range of buttons to display
+                let startPage, endPage;
+                if (totalPages <= 5) {
+                    startPage = 0;
+                    endPage = totalPages - 1;
+                } else {
+                    if (currentPage <= 2) {
+                        startPage = 0;
+                        endPage = 4;
+                    } else if (currentPage >= totalPages - 3) {
+                        startPage = totalPages - 5;
+                        endPage = totalPages - 1;
+                    } else {
+                        startPage = currentPage - 2;
+                        endPage = currentPage + 2;
+                    }
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
                     const button = document.createElement('button');
-                    button.textContent = i + 1; // Page numbering starts from 1
+                    button.textContent = i + 1;
                     button.className = 'dynamic-page-btn';
-                    button.type = 'button'; // Ensure the button does not submit a form
+                    button.type = 'button';
                     button.addEventListener('click', function (event) {
-                        event.preventDefault(); // Prevent form submission
-                        paginateCategories(null, i); // Pass the page index directly
+                        event.preventDefault();
+                        paginateCategories(null, i);
+                        renderPageButtons(); // Re-render page buttons after clicking
                     });
-                    // Insert the new button before the "Next" button
-                    const nextButton = document.querySelector('button[onclick*="next"]'); // Adjust selector as necessary
-                    navigationContainer.insertBefore(button, nextButton);
+
+                    if (i === currentPage) {
+                        button.classList.add('active'); // Add 'active' class to current page button
+                    }
+
+                    navigationContainer.appendChild(button);
                 }
             }
+
 
 
 
