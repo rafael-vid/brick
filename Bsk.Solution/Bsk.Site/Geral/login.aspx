@@ -116,7 +116,7 @@
                     <form>
                         <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
                         <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
 
                     </form>
 
@@ -139,7 +139,7 @@
                     <div>
                         <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Email" required>
                         <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
-                        <asp:Label ID="lblMsgParceiro" runat="server"></asp:Label>
+                        <asp:Label ID="lblMsgParceiro" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
                     </div>
 
                     <div class="acessos">

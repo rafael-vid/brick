@@ -193,7 +193,7 @@ namespace Bsk.Site.Geral
                 CpfResponsavel = cpf.Value,
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 Email = email.Value,
-                NomeFantasia = fantasia.Value,
+                NomeFantasia = nome.Value,
                 Logradouro = endereco.Value,
                 Municipio = cidade.Value,
                 Responsavel = nome.Value,
