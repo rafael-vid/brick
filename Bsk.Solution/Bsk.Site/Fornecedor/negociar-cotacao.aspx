@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
+                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server" placeholder="dd/mm/aaaa"/>
                             </div>
                         </div>
 
@@ -194,10 +194,15 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
-                   
+
+
+
+
+                        
+                        
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (VerificarValores()) salvaDados();"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
@@ -490,33 +495,43 @@
 
     </style>
 
-
     <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('dataEntrega');
 
-        function VerificarValores() {
-            var dataEntrega = document.getElementById("dataEntrega").innerText.trim();
-            var valorServico = document.getElementById("vlr").innerText.trim();
-            var valorMedioCotacoes = document.getElementById("valorMedioCotacoes").innerText.trim();
+    input.addEventListener('input', function () {
+        let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
+        let day = '';
+        let month = '';
+        let year = '';
 
-            if (dataEntrega === "" || valorServico === ""  {
-                abrirModal();
-            }
+        // Extract day, month, and year based on input length
+        if (value.length > 4) {
+            day = value.substring(0, 2);
+            month = value.substring(2, 4);
+            year = value.substring(4, 8); // Ensure the year is at most four characters
+        } else if (value.length > 2) {
+            day = value.substring(0, 2);
+            month = value.substring(2);
+        } else {
+            day = value;
         }
 
-        function abrirModal() {
-            Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
-        }
+        // Validate days and months for better accuracy
+        day = day.length === 2 ? (parseInt(day) > 31 ? '31' : day) : day;
+        month = month.length === 2 ? (parseInt(month) > 12 ? '12' : month) : month;
 
-        setInterval(function () {
-            var parametro = {
-                tipo: "C",
-                id: comum.queryString("Id")
-            };
-            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
-                $("#divChat").empty();
-                $("#divChat").append(data);
-            });
-        }, 10000);
+        // Reassemble the parts into a single string
+        const parts = [];
+        if (day.length) parts.push(day);
+        if (month.length) parts.push(month);
+        if (year.length) parts.push(year);
+
+        input.value = parts.join('/'); // Combine with slashes
+    });
+});
+
+
         
         document.addEventListener('DOMContentLoaded', function () {
             const valorServicoInput = document.getElementById('valorServico');

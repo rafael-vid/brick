@@ -19,8 +19,8 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
-                <input type="text" placeholder="Digite aqui um título para o serviço que você procura" class="card-input-add" id="titulo" runat="server">
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulo" runat="server">
             </div>
 
             <input type="hidden" id="hdLink" clientidmode="static" runat="server" value="" />
@@ -29,14 +29,9 @@
 
                 <div class="area_comentario">
                     <div class="comentarios_area">
-                        <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                        <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                         <asp:TextBox ID="descricao" runat="server" placeholder="Digite aqui seu depoimento" TextMode="MultiLine" ></asp:TextBox>
                
-
-
-
-
-
 
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
                             Salvar dados da cotação
@@ -57,10 +52,10 @@
                                     <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                     <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
                                 </div>
-                                <div class="gravar-video">
+<%--                                <div class="gravar-video">
                                     <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                     <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                </div>
+                                </div>--%>
                             </div>
                         </div>
                         <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexo" ClientIDMode="Static" onserverclick="btnSalvar_ServerClick" runat="server" style="display:none">
@@ -86,10 +81,6 @@
                                 </label>
                             </div>
 
-                            <div class="pesquisar">
-                                <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                                <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                            </div>
                         </div>
 
                         <div class="card-tabela " style="overflow-x: auto;">
