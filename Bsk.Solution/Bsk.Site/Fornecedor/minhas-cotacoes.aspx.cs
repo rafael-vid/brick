@@ -47,7 +47,7 @@ namespace Bsk.Site.Fornecedor
             {
                 cats += item.IdCategoria + ",";
             }
-
+            
 
             var cotacoes = _core.CotacaoFornecedorListaGet(cats+"0", login.IdFornecedor);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
