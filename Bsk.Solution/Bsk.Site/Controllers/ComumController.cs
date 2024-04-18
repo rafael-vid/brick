@@ -359,7 +359,7 @@ namespace Bsk.Site.Controllers
         {
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
-            cotacao.Status = StatusCotacao.Criacao;
+            cotacao.Status = StatusCotacao.Aberto;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
@@ -468,12 +468,24 @@ namespace Bsk.Site.Controllers
                 IdFornecedor = cotacaoFornecedor.IdFornecedor
             };
 
-            cotacaoFornecedor.DataEntrega = data;
+            DateTime parsedDate; // Declare variable outside of the TryParse method
+            if (DateTime.TryParse(data, out parsedDate))
+            {
+                cotacaoFornecedor.DataEntrega = parsedDate.ToString("yyyy-MM-dd");
+            }
+
+
+            else
+            {
+                // Handle the case where the date format is incorrect
+                cotacaoFornecedor.DataEntrega = DateTime.Now.ToString("yyyy-MM-dd"); // Defaulting to current date
+            }
 
             try
             {
-                valor = valor.Replace(".", "");
+                valor = valor.Replace(".", "").Replace("R", "").Replace("$", "");
                 cotacaoFornecedor.Valor = float.Parse(valor);
+                cotacaoFornecedor.EnviarProposta = 1;
             }
             catch (Exception)
             {
@@ -482,8 +494,6 @@ namespace Bsk.Site.Controllers
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
             CotacaoBE _CotacaoBE = new CotacaoBE();
             var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
-            cotacao2.Status = "2";
-            _core.Cotacao_Update(cotacao2, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
 
             NotificacaoBE notif = new NotificacaoBE();
 

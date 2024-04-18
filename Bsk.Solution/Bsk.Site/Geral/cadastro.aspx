@@ -34,16 +34,46 @@
         function displayPopupMessage(message){
     Swal.fire({
         icon: 'error',
+        iconColor: '#770e18',
+        cancelButtonColor: '#770e18',
         title: 'Atenção',
         text: message
     })
-}function displayPopupMessage2(message){
-    Swal.fire({
-        icon: 'success',
-        title: 'Atenção',
-        text: message
-    })
-}
+        }
+
+        function displayPopupMessage2(message) {
+            Swal.fire({
+            icon: 'success',
+            iconColor: '#770e18',
+            cancelButtonColor: '#770e18',
+            title: message
+            })
+        }
+
+        function displayPopupMessage3(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Atenção',
+                text: message,
+                showCancelButton: true,
+                iconColor: '#770e18',
+                confirmButtonText: 'Recuperar Senha',
+                cancelButtonText: 'Cancelar',
+                cancelButtonColor: '#770e18',
+                confirmButtonColor: '#f08f00',
+                showDenyButton: true,
+                denyButtonText: 'Ir para Login',
+                denyButtonColor: '#f08f00'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'esqueciasenha.aspx';
+                } else if (result.isDenied) {
+                    window.location.href = 'login.aspx';
+                }
+            })
+        }
+
+
     </script>
     
 
@@ -83,11 +113,11 @@
                 <label id="paramLabel" style="display: none;" class="titulo">Cadastro de fornecedor</label>
                 <label id="paramLabel2" style="display: none;" class="titulo">Cadastro de cliente</label>
                 <div>
-                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf">
+                    <input class="checar" type="radio" id="pf" checked name="pessoa" value="pf" runat="server">
                     <label for="pf">Pessoa Física</label>
                 </div>
                 <div>
-                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj">
+                    <input class="checar" type="radio" id="pj" name="pessoa" value="pj" runat="server">
                     <label for="pj">Pessoa Jurídica</label>
                 </div>
             </div>
@@ -226,6 +256,14 @@
                         $("#olho2").mouseout(function () {
                             $("#validaSenha").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senha, #validaSenha').on('input', function () {
+                            if ($('#senha').val() === $('#validaSenha').val()) {
+                                senha2.css('color', ''); // Resetar a cor
+                            } else {
+                                senha2.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
                     </script>
                 </div>
                 <div style="clear:both; margin-top:15px"></div>
@@ -260,9 +298,19 @@
                     .campos {
                         display:block !important;
                     }
+                    div:where(.swal2-container).swal2-center > .swal2-popup {
+                        border-radius: 40px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+                        border-radius: 20px !important;
+                    }
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+                        border-radius: 20px !important;
+                    }
                 </style>
 
                 <div class="campos" id ="campos_empresa">
+                    <input type="hidden" id="userType" runat="server" />
                     <div class="col-md-4">
                         <label for="nomeJuridica" class="subtitulo_1">Nome*</label>
                         <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>
@@ -314,6 +362,33 @@
                     <div class="col-md-4">
                         <label for="cepJuridica" class="subtitulo_1">CEP*</label>
                         <input type="text" name="cepJuridica" id="cepJuridica" runat="server" required>
+                        <script>
+                            document.querySelector("#cepJuridica").onchange = function () {
+                                var txtCep = document.querySelector("#cepJuridica").value
+                                if (txtCep && (txtCep.length == 9 || txtCep.length == 8)) {
+                                    txtCep = txtCep.replace(/[^0-9]/, '');
+                                    var url = 'https://viacep.com.br/ws/' + txtCep + '/json/';
+                                    $.ajax({
+                                        url: url,
+                                        dataType: 'jsonp',
+                                        crossDomain: true,
+                                        contentType: "application/json",
+                                        success: function (json) {
+                                            console.log(json)
+                                            if (json.logradouro) {
+                                                $("input[name=enderecoJuridica]").val(json.logradouro);
+                                                $("input[name=bairroJuridica]").val(json.bairro);
+                                                $("input[name=cidadeJuridica]").val(json.localidade);
+                                                $("input[name=estadoJuridica]").val(json.uf);
+                                                $("input[name=numeroJuridica]").val('');
+                                                $("input[name=complementoJuridica]").val('');
+                                                $("input[name=numeroJuridica]").focus()
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        </script>
                     </div>
                     <div class="col-md-4">
                         <label for="complementoJuridica" class="subtitulo_1">Complemento</label>
@@ -349,6 +424,15 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
+                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
+                            if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
+                                senha4.css('color', ''); // Resetar a cor
+                            } else {
+                                senha4.css('color', 'red'); // Mudar a cor para vermelho se as senhas não coincidirem
+                            }
+                        });
+
                     </script>
                      <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
@@ -372,7 +456,7 @@
                         $("#olho4").mouseout(function () {
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
-                </script>
+                    </script>
                 </div>
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
@@ -415,6 +499,9 @@
             padding-left:0;
             cursor:pointer
         }
+        .swal2-styled.swal2-deny {
+            border-radius: 40px !important; 
+        }
     </style>
     <script async src="assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -425,7 +512,153 @@
     </script>
 
     <script> 
+        $(document).ready(function () {
 
+            (function ($) {
+                $.fn.receitaws = function (options) {
+                    $this = this;
+
+                    $.fn.receitaws.options = {
+                        afterRequest: function () { },
+                        success: function (data) { },
+                        notfound: function (message) { },
+                        fail: function (message) { },
+                        fields: {},
+                        urlRequest: 'https://receitaws.com.br/v1/cnpj/'
+                    };
+
+                    /*
+                     Duplicate request controller. (Cache)
+                     */
+                    $.fn.receitaws.lastRequest = {
+                        cnpj: null,
+                        data: null
+                    };
+
+
+                    function getData(cnpj) {
+                        cnpj = cnpj.replace(/\D/g, '');
+
+                        var lastRequest = $.fn.receitaws.lastRequest;
+
+                        return new Promise(function (success, fail) {
+                            if (lastRequest.cnpj == cnpj) {
+                                success(lastRequest.dados);
+                            } else {
+                                var myObject = {
+                                    async: false,
+                                    dataType: 'json'
+                                };
+
+                                $.getJSON($.fn.receitaws.options.urlRequest + cnpj + '?callback=?', function (data) {
+                                    lastRequest.cnpj = cnpj;
+                                    lastRequest.dados = data;
+                                    success(data);
+                                })
+
+                                    .fail(function (jqxhr, textStatus, error) {
+                                        fail(textStatus + ", " + error);
+                                    });
+                            }
+                        });
+                    }
+
+
+                    $.fn.receitaws.init = function (options) {
+
+                        $.fn.receitaws.options = $.extend({}, $.fn.receitaws.options, options);
+
+                        return $this.keyup(function () {
+                            var cnpj = $(this).val().replace(/\D/g, '');
+
+                            if (cnpj.length != 14) {
+                                return false;
+                            }
+                            options.afterRequest();
+
+                            getData(cnpj).then(function (data) {
+
+                                if (data.status == 'OK') {
+                                    $.each(options.fields, function (index, value) {
+                                        if (typeof value == "string") {
+                                            $(options.fields[index]).val(data[index]);
+                                        } else if (typeof value == 'function') {
+                                            value(data[index]);
+                                        }
+                                    });
+
+                                    options.success(data);
+                                } else {
+                                    options.notfound('CNPJ "' + $this.val() + '" não encontrado.');
+                                }
+
+                            }, function (error) {
+                                options.fail(error);
+                            });
+                        });
+                    };
+
+                    return $.fn.receitaws.init(options);
+                };
+            })(jQuery);
+
+            $('#cnpj').receitaws({
+                fields: {
+                    nome: '#nomeJuridica',
+                    situacao: '#situacao',
+                    abertura: '#abertura',
+                    tipo: '#tipo',
+                    telefone: '#telefoneJuridica',
+                    logradouro: '#logradouroJuridica',
+                    cep: '#cepJuridica',
+                    numero: '#numeroJuridica',
+                    complemento: '#complementoJuridica',
+                    bairro: '#bairroJuridica',
+                    municipio: '#municipioJuridica',
+                    uf: '#uf',
+                    fantasia: '#fantasia'
+                },
+
+                afterRequest: function () {
+                    $('#mensagens').html('<div class="alert alert-info" role="alert"><div class="glyphicon glyphicon-search" aria-hidden="true"></div> Buscando CNPJ</div>');
+                },
+                success: function (data) {
+                    $('#mensagens').html('<div class="alert alert-success" role="alert"><div class="glyphicon glyphicon-ok" aria-hidden="true"></div> CNPJ encontrado</div>');
+
+                    //$('#enderecoEmpresaPessoFisica').html('<div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0 dadosRetira dadosEmpresa" style="display: none;"><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control razaoSocial" id="nome" placeholder="Razão Social" value="' + data.nome + '" disabled></div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control fantasia" id="fantasia" placeholder="Nome Fantasia" value="' + data.fantasia + '" disabled></div><div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control situacao" id="situacao" placeholder="Situação" value="' + data.situacao + '" disabled>                            </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                           <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control dataAbertura" id="abertura" value="' + data.abertura + '" placeholder="Data de abertura" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control tipo" id="tipo" value="' + data.tipo + '" placeholder="Tipo" disabled>                            </div>      <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                      <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control" id="telefone" value="' + data.telefone + '" placeholder="Telefone">                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <input type="text" class="form-control logradouro" value="' + data.logradouro + '" id="logradouro" placeholder="Endereço" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control" id="cep" value="' + data.cep + '" placeholder="CEP" disabled>                                </div>    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control numero" id="numero" value="' + data.numero + '" placeholder="Número" disabled>                                </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                               <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control complemento" id="complemento" value="' + data.complemento + '" placeholder="Complemento" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control bairro" id="bairro" value="' + data.bairro + '" placeholder="Bairro" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control cidade" id="municipio" value="' + data.municipio + '" placeholder="Cidade" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control uf" id="uf" value="' + data.uf + '" placeholder="UF" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                        </div>');
+                    //Dados obtidos
+                    var nome = data.qsa[0].nome;
+                    var nm = nome.split(' ');
+                    var snome = nm[nm.length - 1];
+                    $("#nomeResponsavel").val(nome.replace(snome, ''));
+                    $("#sobrenomeResponsavel").val(snome);
+                    console.log(data);
+                },
+                fail: function (message) {
+                    $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> Falha na requisição</div>');
+                },
+                notfound: function (message) {
+                    $('#mensagens').html('<div class="alert alert-danger" role="alert"><div class="glyphicon glyphicon-remove-sign" aria-hidden="true"></div> CNPJ não encontrado ou inválido</div>');
+                }
+            });
+
+            $("input#cnpj").focusout(function () {
+                if ($('input#cnpj').val() == '') {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('input#cnpj').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo é obrigatório</div>');
+                    $('input#cnpj').focus();
+                }
+                if ($('input#cnpj').val().length != 18) {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('input#cnpj').parent().append('<div class="mensagem" style="color: #b8272c; font-weight: bold;">Este campo tem que ter no mínimo 14 números</div>');
+                    $('input#cnpj').focus();
+                } else {
+                    $('.dadosResponsavel').find('.mensagem').remove();
+                    $('.dadosEmpresa').slideToggle();
+                    $('.dadosRetira').removeClass('dadosEmpresa');
+                }
+            });
+        });
 
         $("#pessoa_fisica").show();
         $("#pessoa_juridica").hide();
@@ -458,16 +691,16 @@
             }
         }
 
-        function mascaraCNPJ() {
-            const cnpj = document.getElementById('cnpj')
-            if (cnpj.value.length == 2 || cnpj.value.length == 5) {
-                cnpj.value += '.'
-            } else if (cpf.value.length == 8) {
-                cpf.value += '/'
-            } else if (cpf.value.length == 12) {
-                cpf.value += '-'
-            }
+            function mascaraCNPJ() {
+        const cnpj = document.getElementById('cnpj');
+        if (cnpj.value.length === 2 || cnpj.value.length === 6) {
+            cnpj.value += '.';
+        } else if (cnpj.value.length === 10) {
+            cnpj.value += '/';
+        } else if (cnpj.value.length === 15) {
+            cnpj.value += '-';
         }
+    }
 
         function mascaraCEP() {
             const cep = document.getElementById('cep')
