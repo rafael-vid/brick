@@ -193,7 +193,8 @@ namespace Bsk.Site.Fornecedor
             }
             else
             {
-                Response.Write("<script>alert('Favor preencher todos os campos')</script>");
+                string script = "Swal.fire('Favor preencher todos os campos')";
+                ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
             }
         }
     }

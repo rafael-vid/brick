@@ -2,6 +2,7 @@
 
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <div class="conteudo-dash cotacao cotacoes-cli">
 
