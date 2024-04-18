@@ -98,7 +98,8 @@
                 height: auto;
             }
         }
-    
+    </style>
+    <style>
     .category-header {
         display: flex;
         align-items: center; /* This aligns the children (SVG and text) vertically in the center */
@@ -122,47 +123,6 @@
         list-style-type: none;
         padding-left: 0;
     }
-    .footer_card {
-    display: flex;
-    justify-content: space-between; /* Adjust this line */
-    align-items: center;
-    gap: 10px; /* Adjust gap between buttons */
-}
-
-
-.btn_card {
-    margin: 0 5px; /* Adjust side margins to bring buttons closer */
-    padding: 5px 10px; /* Adjust padding as per design */
-    background-color: #f08f00; /* Example background color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor on hover */
-}
-.paginate_button {
-    outline:none;
-    border: none;
-}
-.paginacao_card{
-    display: flex;
-    justify-content: right;
-    color: #770e18;
-}
-.dynamic-page-btn {
-    margin: 0 5px; /* Adjust side margins to bring buttons closer */
-    padding: 5px 10px; /* Adjust padding as per design */
-    background-color: #f08f00; /* Example background color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor on hover */
-    border-radius: 50%; /* Make the buttons round */
-    width: 30px; /* Equal width and height to ensure circular shape */
-    height: 30px;
-    display: inline-flex; /* Use flex to center the text inside the button */
-    align-items: center;
-    justify-content: center;
-}
-
-
 </style>
     
 
@@ -172,8 +132,8 @@
      <div class="subtitulo_card subtitulo_1" style="position: relative;">
     <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
     <h2 class="subtitulo_1">Serviços prestados</h2>
-    <div class="buttons_container" style="margin-top: -30px;">
-        <a id="exibir/esconder" class="btn_card2" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</a>
+    <div class="buttons_container">
+        <button id="exibir/esconder" type="button" class="btn" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</button>
     </div>
 </div>
         
@@ -211,11 +171,11 @@
                         <h2 id ="category-name"><%= item.Nome %></h2>
                     </div>
                     <ul class="nested-list">
-                        <% var servicostodos = PegaServicoTodos(item); %>
+                        <% var servicostodos = PegaServicoTodos(item); %> <!-- Keep the function to fetch services -->
                         <% foreach (var j in servicostodos) { %>
                             <% var checkboxId = "checkbox_" + checkboxCounter; %>
                             <% 
-                                var checkboxValue = j.IdServico + "; " + item.IdCategoria;
+                                var checkboxValue = j.IdServico + "; " + item.IdCategoria; // Concatenate service ID with category ID
                                 if (servicoslista.Contains(checkboxValue)) { 
                                     %><li><input type='checkbox' name='servico' value='<%= checkboxValue %>' id='<%= checkboxId %>' checked>
                                     <label for="<%= checkboxId %>"><%= j.Nome %></label></li><%
@@ -239,18 +199,9 @@
 
             </div>
         </div>
-
-        <div class="paginacao_card">
-    <button class="paginate_button" onclick="event.preventDefault(); paginateCategories('prev')" style="width: auto; font-size: 13px;">Anterior</button>
-    <!-- Page buttons container -->
-    <div class="page-buttons-container"></div>
-    <button  class="paginate_button" onclick="event.preventDefault(); paginateCategories('next')" style="width: auto; font-size: 13px;">Próximo</button>
-</div>
-
         <div class="footer_card">
             <a class="voltar btn" href="minhas-areas.aspx"><< voltar </a>
-            
-            <a class="btn_card2" id="atualizarDados" onclick="atualizarDados()" style="width: auto;">Atualizar dados</a>
+            <a class="btn_card2" id="atualizarDados" onclick="atualizarDados()">Atualizar dados</a> 
         </div>
 
         <script>
@@ -290,87 +241,7 @@
             }
         </script>
         <script>
-            let currentPage = 0;
-            const itemsPerPage = 9;
-
-            function paginateCategories(direction, specificPage) {
-                const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
-                if (specificPage !== undefined) {
-                    currentPage = specificPage;
-                } else {
-                    if (direction === 'next' && currentPage < totalPages - 1) {
-                        currentPage++;
-                    } else if (direction === 'prev' && currentPage > 0) {
-                        currentPage--;
-                    }
-                }
-                updateCategoryDisplay();
-                renderPageButtons(); // Re-render page buttons after pagination
-            }
-
-
-            function updateCategoryDisplay() {
-                const start = currentPage * itemsPerPage;
-                const end = start + itemsPerPage;
-                document.querySelectorAll('.category-header').forEach((element, index) => {
-                    element.parentNode.style.display = 'none';
-                    if (index >= start && index < end) {
-                        element.parentNode.style.display = '';
-                    }
-                });
-            }
-
-            function renderPageButtons() {
-                const totalPages = Math.ceil(document.querySelectorAll('.category-header').length / itemsPerPage);
-                const navigationContainer = document.querySelector('.page-buttons-container');
-
-                // Clear existing dynamically added buttons to avoid duplicates
-                const existingButtons = navigationContainer.querySelectorAll('.dynamic-page-btn');
-                existingButtons.forEach(btn => btn.remove());
-
-                // Calculate the range of buttons to display
-                let startPage, endPage;
-                if (totalPages <= 5) {
-                    startPage = 0;
-                    endPage = totalPages - 1;
-                } else {
-                    if (currentPage <= 2) {
-                        startPage = 0;
-                        endPage = 4;
-                    } else if (currentPage >= totalPages - 3) {
-                        startPage = totalPages - 5;
-                        endPage = totalPages - 1;
-                    } else {
-                        startPage = currentPage - 2;
-                        endPage = currentPage + 2;
-                    }
-                }
-
-                for (let i = startPage; i <= endPage; i++) {
-                    const button = document.createElement('button');
-                    button.textContent = i + 1;
-                    button.className = 'dynamic-page-btn';
-                    button.type = 'button';
-                    button.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        paginateCategories(null, i);
-                        renderPageButtons(); // Re-render page buttons after clicking
-                    });
-
-                    if (i === currentPage) {
-                        button.classList.add('active'); // Add 'active' class to current page button
-                    }
-
-                    navigationContainer.appendChild(button);
-                }
-            }
-
-
-
-
             window.onload = function () {
-                paginateCategories();
-                renderPageButtons();
                 // Find all category headers
                 var categoryHeaders = document.querySelectorAll('.category-header');
                 categoryHeaders.forEach(function (header) {

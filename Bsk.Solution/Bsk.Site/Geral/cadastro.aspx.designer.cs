@@ -24,24 +24,6 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controle pf.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton pf;
-
-        /// <summary>
-        /// Controle pj.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton pj;
-
-        /// <summary>
         /// Controle nome.
         /// </summary>
         /// <remarks>
@@ -175,15 +157,6 @@ namespace Bsk.Site.Geral
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnFisica;
-
-        /// <summary>
-        /// Controle userType.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden userType;
 
         /// <summary>
         /// Controle nomeJuridica.

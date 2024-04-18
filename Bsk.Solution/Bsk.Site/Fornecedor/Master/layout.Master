@@ -113,11 +113,8 @@
             position:absolute;
             right:70px;
         }
-        header {
-            background-color: #770e18;
-            background-image: url('../assets/imagens/fundo.png');
-            background-repeat: repeat; /* Repete a imagem de fundo na vertical e na horizontal */
-            position: relative;
+        header{
+            position:relative;
         }
         .menu-topo > a{
             position:absolute;
