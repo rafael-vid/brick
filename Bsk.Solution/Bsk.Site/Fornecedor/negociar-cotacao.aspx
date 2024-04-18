@@ -167,10 +167,10 @@
                                         <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
                                     </div>
-<%--                                    <div class="gravar-video">
+                                    <div class="gravar-video">
                                         <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
                                         <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                    </div>--%>
+                                    </div>
                                 </div>
                             </div>
                         <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexoFornecedor" ClientIDMode="Static" onserverclick="btnEnviarAnexoFornecedor_ServerClick" runat="server" style="display:none">
@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
+                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server" placeholder="dd/mm/aaaa"/>
                             </div>
                         </div>
 
@@ -194,16 +194,21 @@
                             </div>
                             <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
                         </div>
-                   
+
+
+
+
+                        
+                        
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">
-                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="if (verificarValores()) salvaDados();"> Confirmar Proposta </button>
+                                    <button type="button" class="btn btn-brikk" id="enviarProposta" onclick="salvaDados()"> Confirmar Proposta </button>
                                 </div>
                         <img src="img/loading.gif" width="20" id="loadGif" style="display: none; width:55px;" />
 
-                            <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
-                            <text>Proposta confirmada!</text>
-                            </div>
+    <div id="labelConfirmacao" style="display: none; margin-top: 10px; color:#3c3c3b">
+    <text>Proposta confirmada!</text>
+    </div>
                     
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
@@ -218,6 +223,11 @@
 
                         </label>
                     </div>
+
+                <div class="pesquisar">
+                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 1rem;"> &nbsp;
+                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                </div>
             </div>
 
             <div class="card-tabela " style="overflow-x: auto;">
@@ -485,37 +495,40 @@
 
     </style>
 
-
     <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('dataEntrega');
 
-        function verificarValores() {
-            var dataEntrega = document.getElementById("dataEntrega").value.trim();
-            var valorServico = document.getElementById("valorServico").value.trim();
+    input.addEventListener('input', function () {
+        let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
+        let day = '';
+        let month = '';
+        let year = '';
 
             // Verifica se os valores estão preenchidos
             if (dataEntrega === "" || valorServico === "") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
-                Swal.fire({
-                    title: "Por favor, preencha a data e o valor antes de prosseguir.",
-                    confirmButtonColor: '#f08f00',
-                    confirmButtonText: 'Ok'
-
-                });
+                Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
                 return false; // Retorna false para interromper a execução
             }
             return true; // Retorna true se os valores estiverem preenchidos
         }
 
-        setInterval(function () {
-            var parametro = {
-                tipo: "C",
-                id: comum.queryString("Id")
-            };
-            comum.getAsync("Comum/CarregaChat", parametro, function (data) {
-                $("#divChat").empty();
-                $("#divChat").append(data);
-            });
-        }, 10000);
+        // Validate days and months for better accuracy
+        day = day.length === 2 ? (parseInt(day) > 31 ? '31' : day) : day;
+        month = month.length === 2 ? (parseInt(month) > 12 ? '12' : month) : month;
+
+        // Reassemble the parts into a single string
+        const parts = [];
+        if (day.length) parts.push(day);
+        if (month.length) parts.push(month);
+        if (year.length) parts.push(year);
+
+        input.value = parts.join('/'); // Combine with slashes
+    });
+});
+
+
         
         document.addEventListener('DOMContentLoaded', function () {
             const valorServicoInput = document.getElementById('valorServico');
