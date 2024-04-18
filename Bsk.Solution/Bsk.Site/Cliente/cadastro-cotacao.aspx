@@ -39,7 +39,6 @@
                         </button>
                     </div>
                     <div>
-
                         <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()"  />
                         <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()" />
                         <div class="item_content_card card-content-desc" style="margin-top: 0 !important;" id="divUpload" runat="server">
@@ -109,34 +108,15 @@
                                                 {%>
                                             <a class="bt n btn-br ikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                             <% } %>
-                            </td>
+                                        </td>
                                     </tr>
                                     <%}
                         %>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="paginas_card">
-                            <p>
-                                Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
-               
-                            </p>
-
-                            <div class="paginas">
-                                <button class="anterior">
-                                    &lt;&lt; anterior</button>
-                                <span class="numero_card">10</span>
-                                <button class="proximo">próximo &gt;&gt;</button>
-                            </div>
-                        </div>
-
                     </div>
-
-
-                </div>
-
-
-               
+                </div>   
             </div>
 
 

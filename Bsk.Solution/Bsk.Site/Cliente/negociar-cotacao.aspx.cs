@@ -178,7 +178,7 @@ namespace Bsk.Site.Cliente
         }
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-            var arquivo = GravarArquivo(flpArquivo);
+            var arquivo = GravarArquivo(flpAnexo);
             var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;
 
@@ -232,14 +232,29 @@ namespace Bsk.Site.Cliente
 
 
 
-        public string GravarArquivo(FileUpload _flpImg)
+        public List<CotacaoAnexosBE> PegaAnexo()
+        {
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
+        }
+
+        public void GravarArquivo(FileUpload _flpImg, string tipo)
         {
             var nome = "";
             var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
             if (!String.IsNullOrEmpty(_flpImg.FileName))
             {
                 nome = Guid.NewGuid().ToString() + _flpImg.FileName;
-                var path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
+                var path = "";
+
+                if (tipo == "Anexo")
+                {
+                    path = Server.MapPath("~/Anexos/Documento") + "\\" + nome;
+                }
+                else
+                {
+                    path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
+                }
+
                 _flpImg.SaveAs(path);
                 link = link.Replace("{{ARQ}}", nome);
             }
@@ -248,33 +263,25 @@ namespace Bsk.Site.Cliente
                 link = "";
             }
 
-            return nome;
-        }
+            //public string GravarVideo(FileUpload _flpImg)
+            //{
+            //    var nome = "";
+            //    var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Video/{{ARQ}}'><img alt='' src='img/arquivo.png'></a>";
+            //    if (!String.IsNullOrEmpty(_flpImg.FileName))
+            //    {
+            //        nome = Guid.NewGuid().ToString() + _flpImg.FileName;
+            //        var path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
+            //        _flpImg.SaveAs(path);
+            //        link = link.Replace("{{ARQ}}", nome);
+            //    }
+            //    else
+            //    {
+            //        link = "";
+            //    }
 
-        public string GravarVideo(FileUpload _flpImg)
-        {
-            var nome = "";
-            var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Video/{{ARQ}}'><img alt='' src='img/arquivo.png'></a>";
-            if (!String.IsNullOrEmpty(_flpImg.FileName))
-            {
-                nome = Guid.NewGuid().ToString() + _flpImg.FileName;
-                var path = Server.MapPath("~/Anexos/Video") + "\\" + nome;
-                _flpImg.SaveAs(path);
-                link = link.Replace("{{ARQ}}", nome);
-            }
-            else
-            {
-                link = "";
-            }
+            //    return link;
+            //}
 
-            return link;
-        }
-
-        public List<CotacaoAnexosBE> PegaAnexo()
-        {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
-        }
 
         public string pegaStatus()
         {
