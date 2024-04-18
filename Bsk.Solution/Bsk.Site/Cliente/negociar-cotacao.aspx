@@ -81,22 +81,14 @@
             </div>
             
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
-                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
-                    Gostaria de aceitar a oferta deste Parceiro?.</span><br />
-                <br />
-                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
-            </div>
-        
             <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-                <div style="margin-right: 50px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
-                </div>
-                <div style="margin-left: 50px;">
-                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
-                </div>
-            </div>
-
+    <div style="margin-right: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+    </div>
+    <div style="margin-left: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+    </div>
+</div>
         
             <div class="item_content_card ">
                 <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
@@ -186,49 +178,28 @@
                     </div>
 
 
-                     <div>
-                        <asp:FileUpload ID="flpAnexo" CssClass="flpAnexo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()"  />
-                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" Style="display: none;" onchange="$('#btnEnviarAnexo').click()" />
-                        <div class="item_content_card card-content-desc" style="margin-top: 0 !important;" id="divUpload" runat="server">
-                            <div class="subtitulo-com-icone">
-                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
-                            </div>
-                            <div class="files-upload">
-                                <div class="file">
-                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
-                                    <a id="btnAnexo" class="btn-gravar">Anexar arquivos</a>
-                                </div>
-<%--                                <div class="gravar-video">
-                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
-                                    <a id="btnVideo" class="btn-gravar">Gravar um vídeo explicativo</a>
-                                </div>--%>
-                            </div>
-                        </div>
-                        <button type="button" class="btn enviar-cotacao" id="btnEnviarAnexo" ClientIDMode="Static" onserverclick="btnEnviar_ServerClick" runat="server" style="display:none">
-                            Enviar anexo
-                       
-                        </button>
 
+
+                    <div>
                         <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
-                            <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
-                            <span>Arquivos anexos</span>
-                        </a>
+                <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
+                <span>Arquivos anexos</span>
+            </a>
 
-                        <div class="filtros_card cota-info" style="margin-top: 40px;">
-                            <div class="dataTables_length" id="tabela_length">
-                                <label>
-                                    <select name="tabela_length" aria-controls="tabela" class="">
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="100">100</option>
-                                    </select> resultados por página
+            <div class="filtros_card cota-info" style="margin-top: 10px;">
+                <div class="resultado">
+                    <span class="numero_card">04</span>
 
-                                </label>
-                            </div>
+                    <p class="texto-resultado">
+                        Resultado por página
+                    </p>
+                </div>
 
-                        </div>
+                <div class="pesquisar">
+                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
+                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                </div>
+            </div>
 
             <div class="card-tabela " style="overflow-x: auto;">
                 <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
@@ -237,34 +208,32 @@
                             <th>Tipo de documento </th>
                             <th>Ação</th>
                         </tr>
-
                     </thead>
 
-                                <tbody>
-                                    <%var anexos = PegaAnexo();
-                                        foreach (var item in anexos)
-                                        {%>
-                                    <tr>
-                                        <td><%Response.Write(item.Anexo); %></td>
-                                        <td style="text-align: right">
-                                            <a class="bt n btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
-                               
-                                            <%if (item.Tipo == "Anexo")
-                                                {%>
-                                            <a class="b tn btn-bri kk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
-                                            <% }
-                                                else
-                                                {%>
-                                            <a class="bt n btn-br ikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
-                                            <% } %>
-                                        </td>
-                                    </tr>
-                                    <%}
+                    <tbody>
+                        <!--LOOP DOCUMENTO-->
+                        <%var anexos = PegaAnexo();
+                            foreach (var item in anexos)
+                            {%>
+                        <tr>
+                            <td><%Response.Write(item.Anexo); %></td>
+                            <td>
+                                <%if (item.Tipo == "Anexo")
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
+                                    <img alt='' src='img/upload.png'>&nbsp;Visualizar</a>
+                                <% }
+                                    else
+                                    {%>
+                                <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <%}
                         %>
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>
                 </table>
-
             </div>
 
             <div class="paginas_card">
@@ -279,31 +248,13 @@
                     <button class="proximo">próximo &gt;&gt;</button>
                 </div>
             </div>
-                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
-<asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
-<div class="item_content_card" id="divUpload" runat="server">
-    <div class="subtitulo-com-icone">
-        <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
-        <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
-    </div>
-    <div class="files-upload cotacao-dados-upload">
-        <div class="file" id="btnArquivo">
-            <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
-            <label for="selecao-arquivo">Anexar arquivos</label>
-        </div>
-        <div class="gravar-video" id="btnVideo">
-<%--            <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
-            <button class="btn-gravar">Gravar um vídeo explicativo</button>
-        </div>--%>
-    </div>
-</div>
                     </div>
 
                 </div>
 
             </div>
 
-            <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+                        <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
     <div style="margin-right: 50px;">
         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
     </div>
@@ -533,9 +484,9 @@
                 text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#f08f00',
-                cancelButtonColor: "#770e18",
-                confirmButtonText: 'Aceitar'
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceitar!'
             }).then((result) => {
                 if (result.value) {
                     var parametro = {

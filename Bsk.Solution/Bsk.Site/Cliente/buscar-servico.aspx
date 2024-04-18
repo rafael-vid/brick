@@ -168,10 +168,21 @@ foreach (var item in categorias)
                     Próximo >>
                 </a>
                 <script>
-                    $('#btnProximo').click(function () {
-                        window.location.href = "cadastro-cotacao.aspx?Id=" + $('input[name=categoria]:checked').val();
-                    })
-</script>
+                    $('#btnProximo').click(function (e) {
+                        // Prevent the default action if no checkboxes are selected
+                        var selectedCategory = $('input[name="categoria"]:checked').val();
+                        var servicesChecked = $('#services' + selectedCategory + ' input[type="checkbox"]:checked').length;
+
+                        if (servicesChecked === 0) {
+                            Swal.fire('Por favor selecione pelo menos um serviço antes de continuar');
+                            e.preventDefault();  // Stop the navigation to "cadastro-cotacao.aspx"
+                        } else {
+                            // If services are selected, proceed with navigation
+                            window.location.href = "cadastro-cotacao.aspx?Id=" + selectedCategory;
+                        }
+                    });
+                </script>
+
                 <script>
                     function toggleServicesDisplay(selectedCategoryId) {
                         // Hide all services
