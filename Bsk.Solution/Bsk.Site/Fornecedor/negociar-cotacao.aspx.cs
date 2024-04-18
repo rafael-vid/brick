@@ -213,8 +213,6 @@ namespace Bsk.Site.Fornecedor
                 }
             }
         }
-<<<<<<< HEAD
-=======
         private string FormatWithPeriod(string value)
         {
             int length = value.Length;
@@ -232,7 +230,6 @@ namespace Bsk.Site.Fornecedor
 
             return formattedValue;
         }
->>>>>>> rafael
 
 
         public FornecedorBE RetornaUsuario()
