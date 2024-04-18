@@ -81,12 +81,14 @@
             </div>
             
 
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
-                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
-                    Gostaria de aceitar a oferta deste Parceiro?.</span><br />
-                <br />
-                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
-            </div>
+            <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+    <div style="margin-right: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+    </div>
+    <div style="margin-left: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+    </div>
+</div>
         
             <div class="item_content_card ">
                 <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
