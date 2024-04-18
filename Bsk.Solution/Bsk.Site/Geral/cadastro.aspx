@@ -325,7 +325,7 @@
                     </div>
                     <div class="col-md-4 queda">
                         <label for="cnpj"  class="subtitulo_1">CNPJ*</label>
-                        <input name="cnpj" type="text" id="cnpj" maxlength="18" oninput="mascaraCNPJ()" required="">
+                        <input type="text" name="cnpj" id="cnpj" runat="server" maxlength="18" onkeyup="mascaraCNPJ()" required>
                     </div>
                     <div class="col-md-4 queda">
                         <label for="razao" class="subtitulo_1">Razão Social*</label>
@@ -501,13 +501,6 @@
         }
         .swal2-styled.swal2-deny {
             border-radius: 40px !important; 
-        }
-        .swal2-styled {
-            margin: .3125em;
-            padding: .625em 1.1em;
-            box-shadow: none;
-            font-weight: 500;
-            width: 200px !important;
         }
     </style>
     <script async src="assets/js/script.js"></script>
