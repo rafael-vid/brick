@@ -69,9 +69,9 @@
                     <div class="chat">
                         <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
                         <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
-                        <asp:UpdatePanel ID="upp" runat="server">
+                        <!--<asp:UpdatePanel ID="upp" runat="server">
                             <ContentTemplate>
-
+                                -->
                             
                         <div class="bp" id="divChat">
                             <%
@@ -149,9 +149,9 @@
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
                         </div>
-
+                        <!--
                                 </ContentTemplate>
-                        </asp:UpdatePanel>
+                        </asp:UpdatePanel>-->
                     </div>
                    
                     <div>
