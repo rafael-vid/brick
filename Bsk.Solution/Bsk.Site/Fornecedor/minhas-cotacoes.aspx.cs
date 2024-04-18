@@ -26,6 +26,7 @@ namespace Bsk.Site.Fornecedor
             {
                 cats += item.IdCategoria + ",";
             }
+
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
             
         }
