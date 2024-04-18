@@ -17,16 +17,16 @@
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
                 <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Cotações / Cotação Nº <span id="nrCotacao" runat="server"></span></h2>
+                <h2 class="subtitulo_1">Cotações/ Cotação <span id="nrCotacao" runat="server"></span> Marcenaria Gomes</h2>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
                 <p id="tituloCot" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="descricaoCot" runat="server"></p>
             </div>
 
@@ -43,7 +43,7 @@
                             <h2 class="subtitulo_card_1 subtitulo_1">Data de Entrega</h2>
                         </div>
                         <div class="expo-info-values">
-                            <span id="dataEntrega" runat="server"></span>
+                            <span class="dt" id="dataEntrega" runat="server"></span>
                         </div>
                     </div>
                 </div>
@@ -81,6 +81,13 @@
             </div>
             
 
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-warning bg-warning" id="divAceitar" runat="server" style="width: 100%;">
+                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                    Gostaria de aceitar a oferta deste Parceiro?.</span><br />
+                <br />
+                <input type="button" class="btn btn-brikk btn-lg pull-right" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="width: 100%;">
+            </div>
+        
             <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
                 <div style="margin-right: 50px;">
                     <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
@@ -154,7 +161,24 @@
                         </div>
 
 
-                        
+                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
+                        <asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
+                        <div class="item_content_card" id="divUpload" runat="server">
+                            <div class="subtitulo-com-icone">
+                                <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
+                                <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
+                            </div>
+                            <div class="files-upload cotacao-dados-upload">
+                                <div class="file" id="btnArquivo">
+                                    <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
+                                    <label for="selecao-arquivo">Anexar arquivos</label>
+                                </div>
+                                <div class="gravar-video" id="btnVideo">
+                                    <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+                                    <button class="btn-gravar">Gravar um vídeo explicativo</button>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="bp-acoes">
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick">Enviar</button>
@@ -206,14 +230,15 @@
 
                         </div>
 
-                        <div class="card-tabela " style="overflow-x: auto;">
-                            <table>
-                                <thead id="cabecalho-tabela">
-                                    <tr>
-                                        <th>Tipo de documento </th>
-                                        <th style="text-align: right">Ação</th>
-                                    </tr>
-                                </thead>
+            <div class="card-tabela " style="overflow-x: auto;">
+                <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
+                    <thead id="cabecalho-tabela">
+                        <tr>
+                            <th>Tipo de documento </th>
+                            <th>Ação</th>
+                        </tr>
+
+                    </thead>
 
                                 <tbody>
                                     <%var anexos = PegaAnexo();
@@ -236,26 +261,59 @@
                                     </tr>
                                     <%}
                         %>
-                                </tbody>
-                            </table>
-                        </div>
+                        <!-- FIM LOOP DOCUMENTO-->
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="paginas_card">
+                <p>
+                    Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
+                </p>
+
+                <div class="paginas">
+                    <button class="anterior">
+                        &lt;&lt; anterior</button>
+                    <span class="numero_card">10</span>
+                    <button class="proximo">próximo &gt;&gt;</button>
+                </div>
+            </div>
+                        <asp:FileUpload ID="flpArquivo" CssClass="flpArquivo" runat="server" />
+<asp:FileUpload ID="flpVideo" CssClass="flpVideo" runat="server" />
+<div class="item_content_card" id="divUpload" runat="server">
+    <div class="subtitulo-com-icone">
+        <img src="../assets/imagens/file.svg" alt="ícone" style="width: 20px;">
+        <h2 class="subtitulo_card_1 subtitulo_1">Enviar imagem ou vídeo sobre o serviço </h2>
+    </div>
+    <div class="files-upload cotacao-dados-upload">
+        <div class="file" id="btnArquivo">
+            <img src="../assets/imagens/anexar.svg" style="width: 30px;" alt="anexar">
+            <label for="selecao-arquivo">Anexar arquivos</label>
+        </div>
+        <div class="gravar-video" id="btnVideo">
+<%--            <img src="../assets/imagens/gravar.svg" style="width: 30px;" alt="anexar">
+            <button class="btn-gravar">Gravar um vídeo explicativo</button>
+        </div>--%>
+    </div>
+</div>
                     </div>
 
-                   
+                </div>
 
             </div>
 
             <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
     <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
     </div>
     <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="background-color: #770e18; color:white;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
     </div>
 </div>
 
             <div class="footer_card">
-                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
+                <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
@@ -468,7 +526,7 @@
             });
 
         });
-        function recusar() {}
+
         function aceitar() {
             Swal.fire({
                 title: 'Aceitar?',
@@ -520,27 +578,30 @@
                 text: texto,
                 icon: "info",
                 showCancelButton: true,
-                confirmButtonColor: '#f08f00', // Fixed typo here
-                cancelButtonColor: "#770e18",
+                cconfirmButtonColor: '#f08f00',
+                cancelButtonColor: "#770e18", 
                 confirmButtonText: botao
             }).then((result) => {
-                if (result.isConfirmed) { // Updated for SweetAlert2's latest versions
+                if (result.value) {
                     var parametro = {
                         idCotacaoFornecedor: comum.queryString("Id"),
                         status: valor
                     };
                     comum.postAsync("Comum/AceitarTermino", parametro, function (data) {
-                        if (data.Result == "0" || data.Liberado == "4") {
+                        if (data.Result == "0") {
                             window.location.href = "minhas-cotacoes.aspx";
                         } else {
-                            // Consider handling other cases or errors if necessary
-                            console.error("Unexpected response:", data);
+                            if (data.Liberado == "4") {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            } else {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            }
                         }
+
                     });
                 }
             });
         }
-
 
     </script>
 

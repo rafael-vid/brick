@@ -17,8 +17,7 @@ namespace Bsk.Site.Fornecedor
         CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            FornecedorBE fornecedorBE = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            FornecedorBE login = fornecedorBE;
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
             List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
             var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
@@ -27,6 +26,7 @@ namespace Bsk.Site.Fornecedor
             {
                 cats += item.IdCategoria + ",";
             }
+
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
             
         }
@@ -40,7 +40,16 @@ namespace Bsk.Site.Fornecedor
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaGet(login.IdFornecedor);
+            AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
+            string cats = "";
+            foreach (var item in categorias)
+            {
+                cats += item.IdCategoria + ",";
+            }
+
+
+            var cotacoes = _core.CotacaoFornecedorListaGet(cats+"0", login.IdFornecedor);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             double total = 0;
             foreach (var item in cotacoes)
@@ -49,8 +58,8 @@ namespace Bsk.Site.Fornecedor
                 {
 
                 }
-
-                if (item.Status == StatusCotacao.Aberto)
+                /*
+                if (item.Status == StatusCotacao.Aberto || item.Status == StatusCotacao.Criacao)
                 {
                     item.Status = "Aberto";
                 }
@@ -95,7 +104,7 @@ namespace Bsk.Site.Fornecedor
                         total += item.Valor;
                         item.Status = "Finalizado";
                     }
-                }
+                }*/
 
             }
             totalReceber.InnerText = string.Format("{0:C}", total);

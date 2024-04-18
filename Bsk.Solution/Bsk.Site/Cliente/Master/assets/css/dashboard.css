@@ -16,23 +16,6 @@
   }
 }
 
-div:where(.swal2-container).swal2-center > .swal2-popup {
-    border-radius: 40px !important;
-    font-size: 15px !important;
-}
-
-div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-    border-radius: 20px !important;
-}
-
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-    border-radius: 20px !important;
-}
-
-div:where(.swal2-icon).swal2-info {
-    border-color: #770e18;
-    color: #770e18;
-}
 
 input,
 textarea {
@@ -95,8 +78,7 @@ textarea {
 }
 nav.menu-dashboard {
   padding: 97px 0 170px 0;
-  background-color: #770e18;
-  background-image: url('../imagens/fundo.png');
+  background: #770e18;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

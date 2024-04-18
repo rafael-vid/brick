@@ -169,7 +169,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = cotacaoFornecedor.Valor.ToString()+(",00");
+                        valorServico.Value = cotacaoFornecedor.Valor.ToString();
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
@@ -212,25 +212,6 @@ namespace Bsk.Site.Fornecedor
                     ClienteServ.InnerText = cliente.Nome;
                 }
             }
-        }
-        private string FormatWithPeriod(string value)
-        {
-            int length = value.Length;
-            int numberOfPeriods = length / 3;
-
-            if (numberOfPeriods > 0)
-            {
-                string formattedValue = value.Substring(0, length % 3 == 0 ? 3 : length % 3);
-
-                for (int i = 0; i < numberOfPeriods; i++)
-                {
-                    formattedValue += "." + value.Substring((length % 3 == 0 ? 3 : length % 3) + i * 3, 3);
-                }
-
-                return formattedValue;
-            }
-
-            return value;
         }
 
         public FornecedorBE RetornaUsuario()
