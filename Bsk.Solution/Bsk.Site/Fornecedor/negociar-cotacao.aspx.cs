@@ -213,6 +213,27 @@ namespace Bsk.Site.Fornecedor
                 }
             }
         }
+<<<<<<< HEAD
+=======
+        private string FormatWithPeriod(string value)
+        {
+            int length = value.Length;
+            int initialChunkLength = length % 3;
+            if (initialChunkLength == 0) initialChunkLength = 3; // Handle case where length is a multiple of 3
+
+            // Start with the initial chunk which could be 1, 2, or 3 characters long
+            string formattedValue = value.Substring(0, initialChunkLength);
+
+            // Process the rest of the string in chunks of 3 characters
+            for (int i = initialChunkLength; i < length; i += 3)
+            {
+                formattedValue += "." + value.Substring(i, 3);
+            }
+
+            return formattedValue;
+        }
+>>>>>>> rafael
+
 
         public FornecedorBE RetornaUsuario()
         {
