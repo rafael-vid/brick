@@ -260,6 +260,11 @@ namespace Bsk.Site.Fornecedor
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
+            string message = msg.Value.Trim(); // Assuming 'msg' is the server ID of your textarea
+            if (string.IsNullOrEmpty(message))
+            {
+                return; // Exit the function if the message is empty
+            }
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
 
 
