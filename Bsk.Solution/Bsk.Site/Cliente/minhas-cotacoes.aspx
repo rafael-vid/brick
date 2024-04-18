@@ -71,7 +71,11 @@
                             foreach (var item in cotacoes)
                             {
 
-                                if (item.Status == "Criação")
+                                if (item.Status == "Rascunho")
+                                {
+                                    link = "cadastro-cotacao.aspx?Cotacao=" + item.IdCotacao;
+                                }
+                                else if (item.Status == "Criação")
                                 {
                                     link = "cadastro-cotacao.aspx?Cotacao=" + item.IdCotacao;
                                 }
@@ -177,6 +181,8 @@
                 table.search("Aguardando aceite").draw();
             } else if ($("#slcStatus").val() == "7") {
                 table.search("Finalizado").draw();
+            } else if ($("#slcStatus").val() == "8") {
+                table.search("Rascunho").draw();
             }
         }
 

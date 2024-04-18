@@ -35,12 +35,23 @@ namespace Bsk.Site.Fornecedor
             try
             {
                 CarregaCotacaoFornecedor();
+
+                // After loading cotacao fornecedor, format the delivery date
+                if (!IsPostBack && dataEntrega.Value != null)
+                {
+                    DateTime deliveryDate;
+                    if (DateTime.TryParse(dataEntrega.Value, out deliveryDate))
+                    {
+                        dataEntrega.Value = deliveryDate.ToString("dd/MM/yyyy");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Response.Redirect("../Geral/login.aspx");
             }
         }
+
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
 
@@ -249,6 +260,11 @@ namespace Bsk.Site.Fornecedor
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
+            string message = msg.Value.Trim(); // Assuming 'msg' is the server ID of your textarea
+            if (string.IsNullOrEmpty(message))
+            {
+                return; // Exit the function if the message is empty
+            }
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
 
 
@@ -260,19 +276,20 @@ namespace Bsk.Site.Fornecedor
 
             if (cotacaoFornecedor != null)
             {
+                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                 _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
                 _CotacaoFornecedorChatBE.Mensagem = _msg;
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdCliente = cotacao.IdCliente; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 1;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
 
@@ -291,7 +308,7 @@ namespace Bsk.Site.Fornecedor
 
 
                 //DEPOIS COLOCAR MSG
-                Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
+                //Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
         }
 
