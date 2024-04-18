@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Cliente
 {
+    using AjaxControlToolkit;
     using Bsk.BE;
     using Bsk.Interface;
     using Bsk.Util;
@@ -263,6 +264,18 @@ namespace Bsk.Site.Cliente
             {
                 link = "";
             }
+
+               _CotacaoAnexosBE = new CotacaoAnexosBE()
+            {
+                Anexo = nome,
+                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
+                Tipo = tipo
+            };
+
+            _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
+
+            return link;
         }
 
 
@@ -279,5 +292,65 @@ namespace Bsk.Site.Cliente
                     return "minhas-cotacoes.aspx";
                 }
             }
+
+        protected void btnEnviarAnexo_ServerClick(object sender, EventArgs e)
+        {
+            // ####################################### ENVIAR PARA MSG ##########################################
+            var redi = salvarCotacao();
+
+        
+                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + redi);
+            
         }
+
+        private string salvarCotacao()
+        {
+            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            string cot = "";
+
+            //if (Request.QueryString["Cotacao"] != null)
+            //{
+                cot = Request.QueryString["Cotacao"];
+
+                if (flpArquivo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpArquivo, "Anexo");
+                }
+
+                if (flpVideo.PostedFile.FileName != "")
+                {
+                    GravarArquivo(flpVideo, "Video");
+                }
+
+                //CotacaoBE _CotacaoBE = new CotacaoBE();
+                //var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+
+                //cotacao.Titulo = titulo.Value;
+                //cotacao.Descricao = descricao.Text;
+                //_core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+            //}
+            //else
+            //{
+            //    CotacaoBE _CotacaoBE = new CotacaoBE()
+            //    {
+            //        IdCategoria = int.Parse(Request.QueryString["Id"]),
+            //        DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
+            //        DataTermino = "",
+            //        Depoimento = "",
+            //        Descricao = descricao.Text,
+            //        FinalizaCliente = 0,
+            //        FinalizaFornecedor = 0,
+            //        IdCliente = login.IdCliente,
+            //        IdCotacaoFornecedor = 0,
+            //        Nota = 0,
+            //        Observacao = "",
+            //        Status = "1",
+            //        Titulo = titulo.Value
+            //    };
+
+            //    cot = _core.Cotacao_Insert(_CotacaoBE);
+            //}
+            return cot;
+        }
+    }
     }
