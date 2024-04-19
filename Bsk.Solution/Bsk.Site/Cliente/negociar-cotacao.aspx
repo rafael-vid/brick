@@ -183,34 +183,31 @@
                                     </div>--%>
                                 </div>
                         </div>
-                        <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
-                            <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
-                            <span>Arquivos anexos</span>
-                        </a>
+                  
 
-                        <div class="filtros_card cota-info" style="margin-top: 10px;">
-                            <div class="resultado">
-                                <span class="numero_card">04</span>
+                        <div class="filtros_card cota-info" style="margin-top: 40px;">
+                            <div class="dataTables_length" id="tabela_length">
+                                <label>
+                                    <select name="tabela_length" aria-controls="tabela" class="">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> resultados por página
 
-                                <p class="texto-resultado">
-                                    Resultado por página
-                                </p>
+                                </label>
                             </div>
 
-                            <div class="pesquisar">
-                                <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                                <input type="text" placeholder="Pesquisar" class="pesquisar_input">
-                            </div>
                         </div>
 
                         <div class="card-tabela " style="overflow-x: auto;">
-                            <table id="tabela" class="table table-condensed table-responsive table-striped table-hover">
-                                <thead id="cabecalho-tabela">
+                            <table>
+                                <thead id="cabecalho-tabela" class="subtitulo_card_1">
                                     <tr>
-                                        <th>Tipo de documento </th>
-                                        <th>Ação</th>
+                                        <th>         
+                                               <label>Arquivos anexos</label>
+                                        </th>
                                     </tr>
-
                                 </thead>
 
                                 <tbody>
@@ -221,6 +218,8 @@
                                     <tr>
                                         <td><%Response.Write(item.Anexo); %></td>
                                         <td>
+                                             <a class="btn btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+
                                             <%if (item.Tipo == "Anexo")
                                                 {%>
                                             <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
@@ -286,6 +285,10 @@
         </div>
 
         <style>
+            .card-tabela tr td a.btn {
+                width: 90px !important;
+                position: relative !important;
+            }
             a.cotacao {
                 background: #f4f3f2;
                 color: #770e18 !important;
@@ -397,10 +400,6 @@
                 overflow-x: hidden !important;
             }
 
-            .bp-acoes {
-                display: flex;
-                justify-content: flex-end;
-            }
 
             button.btn.bp-cotacao {
                 width: 150px !important;
@@ -480,6 +479,16 @@
 
             div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
                 border-radius: 20px !important;
+            }
+            .area_comentario {
+                display: grid;
+                grid-template-columns: 35% 1fr;
+            }
+            
+            .card-content-chat {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 50px;
             }
         </style>
 
