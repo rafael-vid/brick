@@ -69,9 +69,9 @@
                     <div class="chat">
                         <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
                         <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
-                        <!--<asp:UpdatePanel ID="upp" runat="server">
+                        <asp:UpdatePanel ID="upp" runat="server">
                             <ContentTemplate>
-                                -->
+
                             
                         <div class="bp" id="divChat">
                             <%
@@ -149,9 +149,9 @@
                             <button class="btn bp-cotacao" id="btnDesistir" onclick="desistirCotacao();">Desistir da cotação</button>
                             <button class="btn" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="width:max-content!important">Enviar Mensagem ao Cliente</button>
                         </div>
-                        <!--
+
                                 </ContentTemplate>
-                        </asp:UpdatePanel>-->
+                        </asp:UpdatePanel>
                     </div>
                    
                     <div>
@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server" placeholder="dd/mm/aaaa"/>
+                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
                             </div>
                         </div>
 
@@ -495,66 +495,16 @@
 
     </style>
 
+
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-    const input = document.getElementById('dataEntrega');
-
-    input.addEventListener('input', function () {
-        let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
-        let day = '';
-        let month = '';
-        let year = '';
-
-        // Extract day, month, and year based on input length
-        if (value.length > 4) {
-            day = value.substring(0, 2);
-            month = value.substring(2, 4);
-            year = value.substring(4, 8); // Ensure the year is at most four characters
-        } else if (value.length > 2) {
-            day = value.substring(0, 2);
-            month = value.substring(2);
-        } else {
-            day = value;
-        }
-
-        // Validate days and months for better accuracy
-        day = day.length === 2 ? (parseInt(day) > 31 ? '31' : day) : day;
-        month = month.length === 2 ? (parseInt(month) > 12 ? '12' : month) : month;
-
-        // Reassemble the parts into a single string
-        const parts = [];
-        if (day.length) parts.push(day);
-        if (month.length) parts.push(month);
-        if (year.length) parts.push(year);
-
-        input.value = parts.join('/'); // Combine with slashes
-    });
-});
-
-
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const valorServicoInput = document.getElementById('valorServico');
-        
-            valorServicoInput.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
-                value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
-                value = value.replace('.', ',');
-                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                e.target.value = "R$" + value;
-            });
-        });
-        
 
         //$(function () {
         //    $('#valorServico').maskMoney({
-        //        allowNegative: false, 
-        //        thousands: '.',       
-        //        decimal: ',',         
-        //        affixesStay: true     
-        //   }).trigger('mask.maskMoney');
-        //
-        //});
+        //        allowNegative: false,
+        //        thousands: '.', decimal: ',',
+        //        affixesStay: true
+        //    });
+        //})
 
         setInterval(function () {
             var parametro = {

@@ -1275,16 +1275,13 @@ button.btn.bp-cotacao {
   grid-gap: 20%;
 }
 .expo-info-values {
-    margin-top: 20px;
-    background: white;
-    position: relative;
-    padding: 10px 24px;
-    color: black;
-    border-radius: 15px;
-    display: flex;
-    justify-content: left;
-    font-family: Rajdhani-semi, sans-serif;
-    font-size: 18px;
+  margin-top: 20px;
+  background: #770e18;
+  position: relative;
+  padding: 10px 24px;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .expo-info-values .dt::after {
   content: "";
