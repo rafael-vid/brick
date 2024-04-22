@@ -68,17 +68,35 @@ namespace Bsk.Site.Geral
 
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = email.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaFisicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email já existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaFisicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email já existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaFisicaFornecedor();
+                }
+
             }
             else
             {
