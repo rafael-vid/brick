@@ -34,8 +34,6 @@
         function displayPopupMessage(message){
     Swal.fire({
         icon: 'error',
-        iconColor: '#770e18',
-        cancelButtonColor: '#770e18',
         title: 'Atenção',
         text: message
     })
@@ -44,9 +42,12 @@
         function displayPopupMessage2(message) {
             Swal.fire({
             icon: 'success',
-            iconColor: '#770e18',
-            cancelButtonColor: '#770e18',
-            title: message
+                title: message,
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.aspx";
+                }
             })
         }
 
@@ -56,14 +57,11 @@
                 title: 'Atenção',
                 text: message,
                 showCancelButton: true,
-                iconColor: '#770e18',
                 confirmButtonText: 'Recuperar Senha',
                 cancelButtonText: 'Cancelar',
-                cancelButtonColor: '#770e18',
-                confirmButtonColor: '#f08f00',
+                cancelButtonColor: '#d33',
                 showDenyButton: true,
-                denyButtonText: 'Ir para Login',
-                denyButtonColor: '#f08f00'
+                denyButtonText: 'Ir para Login'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'esqueciasenha.aspx';
@@ -298,15 +296,6 @@
                     .campos {
                         display:block !important;
                     }
-                    div:where(.swal2-container).swal2-center > .swal2-popup {
-                        border-radius: 40px !important;
-                    }
-                    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-                        border-radius: 20px !important;
-                    }
-                    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-                        border-radius: 20px !important;
-                    }
                 </style>
 
                 <div class="campos" id ="campos_empresa">
@@ -499,9 +488,6 @@
             padding-left:0;
             cursor:pointer
         }
-        .swal2-styled.swal2-deny {
-            border-radius: 40px !important; 
-        }
     </style>
     <script async src="assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -604,7 +590,7 @@
 
             $('#cnpj').receitaws({
                 fields: {
-                    nome: '#nomeJuridica',
+                    nome: '#razao',
                     situacao: '#situacao',
                     abertura: '#abertura',
                     tipo: '#tipo',
@@ -616,7 +602,7 @@
                     bairro: '#bairroJuridica',
                     municipio: '#municipioJuridica',
                     uf: '#uf',
-                    fantasia: '#fantasia'
+                    //fantasia: '#fantasia'
                 },
 
                 afterRequest: function () {
