@@ -134,7 +134,7 @@ namespace Bsk.Site.Cliente
             return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
         }
 
-        public void GravarArquivo(FileUpload _flpImg, string tipo)
+        public string GravarArquivo(FileUpload _flpImg, string tipo)
         {
             var nome = "";
             var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
@@ -169,6 +169,8 @@ namespace Bsk.Site.Cliente
             };
 
             _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
+
+            return link;
         }
 
         protected void btnSalvarMaisTarde_ServerClick(object sender, EventArgs e)
