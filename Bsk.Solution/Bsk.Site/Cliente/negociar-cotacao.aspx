@@ -471,10 +471,12 @@
 
             div:where(.swal2-container).swal2-center > .swal2-popup {
                 border-radius: 40px !important;
+                font-size: 14px !important;
             }
 
             div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
                 border-radius: 20px !important;
+                background-color: #770e18 !important;
             }
 
             div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
@@ -526,7 +528,8 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Aceitar!'
+                    confirmButtonText: 'Aceitar!',
+                    cancelButtonText: 'Cancelar'
                 }).then((result) => {
                     if (result.value) {
                         var parametro = {
