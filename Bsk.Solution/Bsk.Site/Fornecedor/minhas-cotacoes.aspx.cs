@@ -17,7 +17,8 @@ namespace Bsk.Site.Fornecedor
         CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            FornecedorBE fornecedorBE = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            FornecedorBE login = fornecedorBE;
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
             List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
             var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
@@ -58,8 +59,8 @@ namespace Bsk.Site.Fornecedor
                 {
 
                 }
-                /*
-                if (item.Status == StatusCotacao.Aberto || item.Status == StatusCotacao.Criacao)
+
+                if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
                 }
@@ -104,7 +105,7 @@ namespace Bsk.Site.Fornecedor
                         total += item.Valor;
                         item.Status = "Finalizado";
                     }
-                }*/
+                }
 
             }
             totalReceber.InnerText = string.Format("{0:C}", total);
