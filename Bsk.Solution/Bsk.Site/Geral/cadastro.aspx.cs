@@ -17,6 +17,19 @@ namespace Bsk.Site.Geral
         core _core = new core();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                // Assuming you have logic here to handle form submission and you set the value of userType hidden field
+                // to "pf" or "pj" based on the submission.
+
+                // Check if the userType hidden field value is set to "pj" for Pessoa Jurídica
+                if (userType.Value == "pj")
+                {
+                    // Ensure the Pessoa Jurídica radio button is checked
+                    pj.Checked = true;
+                    pf.Checked = false; // Optionally, make sure Pessoa Física is not checked
+                }
+            }
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
@@ -30,6 +43,27 @@ namespace Bsk.Site.Geral
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage2('" + message + "');", true);
                 }
             }
+        }
+
+        protected bool IsEmailRegisteredCli(string email)
+        {
+            ClienteBE ClienteBE = new ClienteBE();
+            var emails = _core.Cliente_Get(ClienteBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        protected bool IsEmailRegisteredFor(string email)
+        {
+            FornecedorBE FornecedorBE = new FornecedorBE();
+            var emails = _core.Fornecedor_Get(FornecedorBE, $"email='{email}'");
+            if (emails.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         protected void btnFisica_ServerClick(object sender, EventArgs e)
