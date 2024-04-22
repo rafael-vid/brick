@@ -123,6 +123,7 @@
 
             div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
                 border-radius: 20px !important;
+                background-color: #f08f00 !important;
             }
 
     </style>
