@@ -61,11 +61,11 @@ namespace Bsk.Site.Cliente
                 {
                     Response.Redirect("minhas-cotacoes.aspx");
                 }
+                divAceitar.Visible = false;
 
                 if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
                 {
                     divAceitar.Visible = false;
-                    divAceitar2.Visible = false;
                 }
                 mediaCotacoes();
                 if (cotacaoFornecedor != null)
@@ -103,18 +103,17 @@ namespace Bsk.Site.Cliente
                         if (cotacao.IdCotacaoFornecedor != 0)
                         {
                             divAceitar.Visible = false;
-                            divAceitar2.Visible = false;
                         }
 
-                        if (cotacaoFornecedor.EnviarProposta == 0)
+                        if (cotacaoFornecedor.EnviarProposta == 0 && cotacao.Status != StatusCotacao.Finalizado)
                         {
-                            divAceitar.Visible = false;
-                            divAceitar2.Visible = false;
+                            divAceitar.Visible = true;
                         }
 
                         if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
                         {
                             divTerminado.Visible = true;
+                            divAceitar.Visible = false;
                         }
                         else
                         {
