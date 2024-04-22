@@ -128,12 +128,13 @@
     <!-- header -->
     <header>
         <div class="menu-topo container">
-            <a href="index.html">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
                 <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                <span id="dynamic-text" style="display: none; color: white; margin-left: 10px; font-size:35px">FORNECEDOR</span>
             </a>
-            <a href="login.aspx" class="header-button highlight">Para sua empresa</a>
-            <a href="" class="header-button">para você</a>
-            <a href="loginfornecedor.aspx" class="header-button">fornecedor</a>
+            <a class="header-button highlight" data-url="login.aspx">Para sua empresa</a>
+            <a class="header-button">para você</a>
+            <a class="header-button" data-url="loginfornecedor.aspx">fornecedor</a>
         </div>
         <!-- Moved nav down one line -->
         <nav class="menu" id="nav">
@@ -344,5 +345,35 @@
     </script>
 
     <script async src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.header-button');
+            const loginButton = document.querySelector('.menu-itens-right a'); // Select the "ENTRAR / CADASTRAR" button
+            const dynamicText = document.getElementById('dynamic-text'); // Get the dynamic text element
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Remove highlight class from all buttons
+                    buttons.forEach(btn => {
+                        btn.classList.remove('highlight');
+                        // Hide the dynamic text when other buttons are clicked
+                        dynamicText.style.display = 'none';
+                    });
+                    // Add highlight class to the clicked button
+                    this.classList.add('highlight');
+                    // Update the link of the "ENTRAR / CADASTRAR" button
+                    loginButton.href = this.dataset.url;
+
+                    // Check if the clicked button is 'fornecedor' and display text accordingly
+                    if (this.textContent.trim().toLowerCase() === 'fornecedor') {
+                        dynamicText.style.display = 'inline'; // Show the text
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
 </body>
 </html>
