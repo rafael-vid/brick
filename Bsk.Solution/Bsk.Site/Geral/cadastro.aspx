@@ -345,6 +345,10 @@
                         <input type="text" name="bairroJuridica" id="bairroJuridica" runat="server" required>
                     </div>
                     <div class="col-md-4">
+                        <label for="logradouroJuridica" class="subtitulo_1">Logradouro*</label>
+                        <input type="text" name="logradouroJuridica" id="Text1" runat="server" required>
+                    </div>
+                    <div class="col-md-4">
                         <label for="numeroJuridica" class="subtitulo_1">Número*</label>
                         <input type="number" name="numeroJuridica" id="numeroJuridica" runat="server" required>
                     </div>
@@ -365,7 +369,7 @@
                                         success: function (json) {
                                             console.log(json)
                                             if (json.logradouro) {
-                                                $("input[name=enderecoJuridica]").val(json.logradouro);
+                                                $("input[name=logradouroJuridica]").val(json.logradouro);
                                                 $("input[name=bairroJuridica]").val(json.bairro);
                                                 $("input[name=cidadeJuridica]").val(json.localidade);
                                                 $("input[name=estadoJuridica]").val(json.uf);

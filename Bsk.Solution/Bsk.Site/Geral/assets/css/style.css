@@ -97,7 +97,7 @@ body {
   color: #fff;
 }
 .container {
-  max-width: 90%;
+  max-width: 98%;
   margin: 0 auto;
 }
 .titulo,
@@ -132,11 +132,11 @@ img {
 /* header */
 .logo {
   width: 290px;
-  margin-right: 50px;
+  margin-right: 10px;
   flex: 1;
 }
 header {
-    height: 230px;
+    height: 170px;
     background-color: #770e18;
     background-image: url(../imagens/fundo.png);
 }
