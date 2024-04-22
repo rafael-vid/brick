@@ -164,7 +164,6 @@ namespace Bsk.DAL.Helper
 
         public static string Update<T>(this List<T> table, string filtro) where T : new()
         {
-
             if (filtro != null && filtro != "")
             {
                 filtro = filtro.Replace("--", "");
@@ -179,53 +178,44 @@ namespace Bsk.DAL.Helper
             string valores = "";
             string valor = "";
 
-            string tipo = "";
-
-
             for (int i = 1; i < countItem; i++)
             {
-
                 coluna = table[0].GetType().GetProperties()[i].Name.ToString();
 
-
-                if (table[0].GetType().GetProperty(coluna).GetValue(table[0], null) != null)
-                    valor = table[0].GetType().GetProperty(coluna).GetValue(table[0], null).ToString();
-                else
-                    valor = "null";
-
-
-                container = " " + coluna + " = #VALOR";
-
-                string type = table[0].GetType().GetProperty(coluna).PropertyType.Name;
-
-                if (type == "Int32" || type == "Int64")
-                    tipo = "#VALOR";
-
-                else if (type == "Decimal")
+                var propertyValue = table[0].GetType().GetProperty(coluna).GetValue(table[0], null);
+                if (propertyValue != null)
                 {
-                    valor = valor.Replace(",", ".");
-                }
-                else if (type == "DateTime" || type == "Nullable`1")
-                {
-                    if (valor == "null")
-                        tipo = "#VALOR";
+                    valor = propertyValue.ToString();
+                    string type = propertyValue.GetType().Name;
+                    if (type == "Int32" || type == "Int64")
+                    {
+                        container = " " + coluna + " = " + valor;
+                    }
+                    else if (type == "Decimal")
+                    {
+                        valor = valor.Replace(",", ".");
+                        container = " " + coluna + " = " + valor;
+                    }
+                    else if (type == "DateTime")
+                    {
+                        valor = "'" + ((DateTime)propertyValue).ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                        container = " " + coluna + " = " + valor;
+                    }
                     else
-                        valor = "'"+Convert.ToDateTime(valor).ToString("yyyy-MM-dd H:mm:ss")+"'";
-
+                    {
+                        container = " " + coluna + " = '" + valor + "'";
+                    }
                 }
                 else
-                    tipo = "'#VALOR'";
+                {
+                    container = " " + coluna + " = NULL"; // Directly use SQL NULL here
+                }
 
-                container = container.Replace("#VALOR", (tipo.Replace("#VALOR", valor)));
-
-                valores = valores + container;
-
+                valores += container;
                 if (i != (countItem - 1))
                 {
-                    valores = valores + ", ";
-
+                    valores += ", ";
                 }
-
             }
 
             qry = qry.Replace("#COLUNAS", valores) + " WHERE " + filtro;
@@ -235,16 +225,8 @@ namespace Bsk.DAL.Helper
 
             return qry;
         }
-        public static string UpdateNota<T>(this List<T> table, string filtro) where T : new()
-        {
-            filtro = filtro.Replace("--", "");
-            filtro = filtro.Replace("''", "");
-
-            string qry = " UPDATE publicacao SET #COLUNAS ";
 
 
-            return qry;
-        }
 
 
 

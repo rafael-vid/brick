@@ -21,12 +21,12 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p>Pintura Loja Oscar Freire</p>
             </div>
 
             <div class="item_content_card descricao">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p>Pintura de Parede</p>
             </div>
 

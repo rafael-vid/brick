@@ -708,6 +708,7 @@
     <Content Include="Cliente\nav.html" />
     <Content Include="Fornecedor\perfil.aspx" />
     <Content Include="Geral\busca.aspx" />
+    <Content Include="Geral\confirmacaoemail.aspx" />
     <Content Include="Geral\esqueciasenha.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
@@ -1695,6 +1696,13 @@
     </Compile>
     <Compile Include="Geral\busca.aspx.designer.cs">
       <DependentUpon>busca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\confirmacaoemail.aspx.cs">
+      <DependentUpon>confirmacaoemail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\confirmacaoemail.aspx.designer.cs">
+      <DependentUpon>confirmacaoemail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\esqueciasenha.aspx.cs">
       <DependentUpon>esqueciasenha.aspx</DependentUpon>
