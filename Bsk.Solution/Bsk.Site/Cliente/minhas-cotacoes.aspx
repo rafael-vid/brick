@@ -5,9 +5,9 @@
         <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
+                Nova Solicitações
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
             </a>
             <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>
@@ -58,7 +58,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
-                            <th>Data da Criação</th>
+                            <th>Data de Criação</th>
                             <th>Título</th>
                             <th>Data Atualizada</th>
                             <th style="text-align: center;">Status</th>
@@ -71,11 +71,7 @@
                             foreach (var item in cotacoes)
                             {
 
-                                if (item.Status == "Rascunho")
-                                {
-                                    link = "cadastro-cotacao.aspx?Cotacao=" + item.IdCotacao;
-                                }
-                                else if (item.Status == "Criação")
+                                if (item.Status == "Criação")
                                 {
                                     link = "cadastro-cotacao.aspx?Cotacao=" + item.IdCotacao;
                                 }
@@ -181,8 +177,6 @@
                 table.search("Aguardando aceite").draw();
             } else if ($("#slcStatus").val() == "7") {
                 table.search("Finalizado").draw();
-            } else if ($("#slcStatus").val() == "8") {
-                table.search("Rascunho").draw();
             }
         }
 

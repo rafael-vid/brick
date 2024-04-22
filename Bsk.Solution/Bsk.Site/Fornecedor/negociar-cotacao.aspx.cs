@@ -203,6 +203,7 @@ namespace Bsk.Site.Fornecedor
                         divTerminar.Visible = false;
                         divValor.Visible = false;
 
+
                     }
                     else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
                     {
@@ -213,7 +214,7 @@ namespace Bsk.Site.Fornecedor
                     else
                     {
                         divTerminar.Visible = false;
-                        divDadosCobranca.Visible = false;
+                        divDadosCobranca.Visible = true;
                     }
                 }
 

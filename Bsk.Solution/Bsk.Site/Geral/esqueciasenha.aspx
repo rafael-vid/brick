@@ -57,7 +57,6 @@
         }
         .filtro {
             height: 93px;
-            background: url(../imagens/fundo.png) ;
             background-size: auto !important;
             width: 100%;
         }
@@ -107,7 +106,7 @@
 
                     <form>
                         <asp:TextBox type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="E-mail" required></asp:TextBox>
-                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px;" ></asp:Label>
 
                     </form>
 

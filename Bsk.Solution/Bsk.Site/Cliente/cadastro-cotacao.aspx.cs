@@ -37,13 +37,6 @@ namespace Bsk.Site.Cliente
                     // alerts.Visible = false;
                     // alerts2.Visible = false;
                 }
-
-                if(cotacao.Status == "8")
-                {
-                    btnSalvar.Visible = true;
-                    btnSubmeter.Visible = true;
-                    divUpload.Visible = false;
-                }
             }
 
             if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
@@ -127,7 +120,7 @@ namespace Bsk.Site.Cliente
                     IdCotacaoFornecedor = 0,
                     Nota = 0,
                     Observacao = "",
-                    Status = "8", //Rascunho
+                    Status = "1",
                     Titulo = titulo.Value
                 };
 
@@ -141,7 +134,7 @@ namespace Bsk.Site.Cliente
             return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
         }
 
-        public void GravarArquivo(FileUpload _flpImg, string tipo)
+        public string GravarArquivo(FileUpload _flpImg, string tipo)
         {
             var nome = "";
             var link = "<a href='" + ConfigurationManager.AppSettings["host"] + "/Anexos/Documento/{{ARQ}}'><img alt='' src='img/upload.png'></a>";
@@ -176,6 +169,8 @@ namespace Bsk.Site.Cliente
             };
 
             _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
+
+            return link;
         }
 
         protected void btnSalvarMaisTarde_ServerClick(object sender, EventArgs e)

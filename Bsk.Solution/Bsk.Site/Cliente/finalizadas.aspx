@@ -5,9 +5,9 @@
         <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
+                Nova Solicitação
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
             </a>
             <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>
@@ -108,7 +108,7 @@
                             <%}
                                 else if (item.Status == "Aberto")
                                 {%>
-                            <td class="status">Em cotação 
+                            <td class="status">Em Solicitação 
                             </td>
                             <% }
                                 else if (item.Status == "Em andamento")

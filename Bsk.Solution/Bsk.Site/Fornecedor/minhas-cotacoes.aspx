@@ -193,7 +193,7 @@
             if ($("#slcStatus").val() == "0") {
                 table.search("").draw();
             } else if ($("#slcStatus").val() == "1") {
-                table.search("Solicitação feita").draw();
+                table.search("Aguardando Cotação").draw();
             } else if ($("#slcStatus").val() == "2") {
                 table.search("Em cotação").draw();
             } else if ($("#slcStatus").val() == "3") {
