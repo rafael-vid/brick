@@ -248,17 +248,35 @@ namespace Bsk.Site.Geral
 
         protected void btnJuridica_ServerClick(object sender, EventArgs e)
         {
+            string stremail = emailJuridica.Value;
             if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
             {
                 Response.Redirect("login.aspx");
             }
             if (Request.QueryString["Tipo"] == "cli")
             {
-                salvaJuridicaCliente();
+                if (IsEmailRegisteredCli(stremail))
+                {
+                    string message = "Email já existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaCliente();
+                }
             }
             else if (Request.QueryString["Tipo"] == "for")
             {
-                salvaJuridicaFornecedor();
+                if (IsEmailRegisteredFor(stremail))
+                {
+                    string message = "Email já existe";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
+                }
+                else
+                {
+                    salvaJuridicaFornecedor();
+                }
+
             }
             else
             {
