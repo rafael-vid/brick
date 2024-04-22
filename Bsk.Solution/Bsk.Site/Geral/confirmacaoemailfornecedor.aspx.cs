@@ -10,10 +10,11 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Geral
 {
-    public partial class confirmacaoemail : System.Web.UI.Page
+    public partial class confirmacaoemailfornecedor
+        : System.Web.UI.Page
     {
         core _core = new core();
-        ClienteBE _ClienteBE = new ClienteBE();
+        FornecedorBE _FornecedorBE = new FornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,9 +25,9 @@ namespace Bsk.Site.Geral
                 if (!string.IsNullOrEmpty(guid))
                 {
                     // Use the GUID as needed in your application, for example:
-                    var cliente = _core.Cliente_Get(_ClienteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
-                    cliente.EmailConfirmado = 1;
-                    _core.Cliente_Update(cliente, "IdCliente = " + cliente.IdCliente);
+                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
+                    fornecedor.Confirmado = 1;
+                    _core.Fornecedor_Update(fornecedor, "IdFornecedor = " + fornecedor.IdFornecedor);
                 }
                 else
                 {

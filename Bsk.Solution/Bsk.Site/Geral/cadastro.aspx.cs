@@ -131,6 +131,7 @@ namespace Bsk.Site.Geral
             {
                 dt = Convert.ToDateTime(abertura.Value);
             }
+            string guid = Guid.NewGuid().ToString();
             _FornecedorBE = new FornecedorBE()
             {
                 Bairro = bairro.Value,
@@ -156,7 +157,8 @@ namespace Bsk.Site.Geral
                 RazaoSocial = razao.Value,
                 Abertura = dt.ToString("yyyy-MM-dd"),
                 Tipo = "MATRIZ",
-                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524"
+                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524",
+                GuidColumn = guid
             };
             if (
     !string.IsNullOrEmpty(nome.Value) &&
@@ -174,6 +176,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Fornecedor_Insert(_FornecedorBE);
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
@@ -218,6 +221,7 @@ namespace Bsk.Site.Geral
             {
                 dt = DateTime.Parse(abertura.Value);
             }
+            string guid = Guid.NewGuid().ToString();
             _FornecedorBE = new FornecedorBE()
             {
                 Bairro = bairroJuridica.Value,
@@ -243,7 +247,8 @@ namespace Bsk.Site.Geral
                 RazaoSocial = razao.Value,
                 Abertura = dt.ToString("yyyy-MM-dd"),
                 Tipo = "MATRIZ",
-                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524"
+                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524",
+                GuidColumn = guid
             };
             if (
     !string.IsNullOrEmpty(nomeJuridica.Value) &&
@@ -266,6 +271,8 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Fornecedor_Insert(_FornecedorBE);
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
+
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
@@ -290,6 +297,7 @@ namespace Bsk.Site.Geral
             {
                 dt = DateTime.Parse(abertura.Value);
             }
+            string guid = Guid.NewGuid().ToString();
             _ClienteBE = new ClienteBE()
             {
                 Bairro = bairroJuridica.Value,
@@ -316,7 +324,8 @@ namespace Bsk.Site.Geral
                 WhatsApp = telefoneJuridica.Value,
                 DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
-                RazaoSocial = razao.Value
+                RazaoSocial = razao.Value,
+                GuidColumn = guid
 
             };
             if (
@@ -340,6 +349,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Cliente_Insert(_ClienteBE);
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemail.aspx?guid=" + guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
