@@ -147,7 +147,7 @@ div:where(.swal2-icon).swal2-info {
 
 /* header */
 .logo {
-  width: 290px;
+  width: 140px;
   margin-right: 50px;
   flex: 1;
 }
