@@ -590,7 +590,7 @@
 
             $('#cnpj').receitaws({
                 fields: {
-                    nome: '#nomeJuridica',
+                    nome: '#razao',
                     situacao: '#situacao',
                     abertura: '#abertura',
                     tipo: '#tipo',
@@ -602,7 +602,7 @@
                     bairro: '#bairroJuridica',
                     municipio: '#municipioJuridica',
                     uf: '#uf',
-                    fantasia: '#fantasia'
+                    //fantasia: '#fantasia'
                 },
 
                 afterRequest: function () {

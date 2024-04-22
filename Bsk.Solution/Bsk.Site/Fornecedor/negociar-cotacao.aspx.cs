@@ -180,7 +180,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = "R$" + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
+                        valorServico.Value = "R$ " + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
@@ -289,7 +289,7 @@ namespace Bsk.Site.Fornecedor
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
-                
+
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
 
@@ -304,7 +304,7 @@ namespace Bsk.Site.Fornecedor
                 notif.visualizado = "0";
                 notif.idcliente = cotacao.IdCliente;
 
-                _core.NotificacaoInsert(notif); 
+                _core.NotificacaoInsert(notif);
 
 
                 //DEPOIS COLOCAR MSG
@@ -337,7 +337,7 @@ namespace Bsk.Site.Fornecedor
                 link = link.Replace("{{ARQ}}", nome);
 
 
-                
+
 
             }
             else

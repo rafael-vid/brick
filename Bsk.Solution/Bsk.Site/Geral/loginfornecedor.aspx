@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="loginfornecedor.aspx.cs" Inherits="Bsk.Site.Geral.loginfornecedor" %>
 
 
 
@@ -100,24 +100,32 @@
         </header>
         <main class="loginCadastro">
             <div class="tabs-menu container">
+                
+
+             
 
                 <div class="tab-content ativo">
+                    <h2>Para parceiros</h2>
 
-                    <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
-                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
-
-                    </form>
+                    <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
+                            <ContentTemplate>
+                    <div>
+                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Email" required>
+                        <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
+                        <asp:Label ID="lblMsgParceiro" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
+                    </div>
 
                     <div class="acessos">
                         <div>
-                            <a href="esqueciasenha.aspx?tipo=cli" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
+                            <a href="esqueciasenha.aspx?tipo=for" class="esqueceusenha">Esqueci a senha</a>
+                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
                             
-                        </div>
-                        <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
+                        </div> 
+                        <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
                     </div>
+                            </ContentTemplate>
+                    </asp:UpdatePanel>
+
 
                 </div>
        
@@ -152,18 +160,57 @@
 
         <script async src="assets/js/script.js"></script>
 
-        
+        <script>
+            function tabs() {
+                const tabMenu = document.querySelectorAll('.tab')
+                const tabContent = document.querySelectorAll('.tab-content')
+
+                function activeTab(index) {
+                    tabContent.forEach(content => {
+                        content.classList.remove('ativo')
+                    })
+                    tabContent[index].classList.add('ativo')
+                }
+
+                tabMenu.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        activeTab(index)
+                        index.classList.toggle('ativo')
+                    })
+                })
+
+            } tabs()
+
+            //menu active
+            function menuActive() {
+                const links = document.querySelectorAll('.tab')
+
+                const handleLink = (event) => {
+                    links.forEach(link => {
+                        link.classList.remove('ativo')
+                    })
+                    event.currentTarget.classList.add('ativo')
+                }
+
+                links.forEach(link => {
+                    link.addEventListener('click', handleLink)
+                })
+            }
+            menuActive();
+            
+        </script>
     </form>
     <script>
-        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
+     
+
+    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
             }
         });
     });
-
 </script>
 </body>
 </html>

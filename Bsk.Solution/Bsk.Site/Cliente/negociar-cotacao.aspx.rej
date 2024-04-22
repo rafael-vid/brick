@@ -1,0 +1,14 @@
+diff a/Bsk.Solution/Bsk.Site/Cliente/negociar-cotacao.aspx b/Bsk.Solution/Bsk.Site/Cliente/negociar-cotacao.aspx	(rejected hunks)
+@@ -488,9 +488,9 @@
+                 text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
+                 type: 'warning',
+                 showCancelButton: true,
+-                confirmButtonColor: '#f08f00',
+-                cancelButtonColor: "#770e18",
+-                confirmButtonText: 'Aceitar'
++                confirmButtonColor: '#3085d6',
++                cancelButtonColor: '#d33',
++                confirmButtonText: 'Aceitar!'
+             }).then((result) => {
+                 if (result.value) {
+                     var parametro = {
