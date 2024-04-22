@@ -39,7 +39,7 @@
                         <tr>
                             <td>Nº Cotação</td>
                             <td style="display: none;">Data criação</td>
-                            <td>Título</td>
+                            <td>Descrição</td>
                             <td>Status</td>
                         </tr>
                     </thead>

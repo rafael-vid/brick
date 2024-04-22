@@ -27,14 +27,14 @@
                 <p id="ClienteServ" runat="server"></p>
             </div>
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p>
-                    <input type="text" placeholder="Digite aqui um título para o serviço que você procura" class="card-input-add" id="titulofornecedor" runat="server">
+                    <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulofornecedor" runat="server">
                 </p>
             </div>
 
             <div class="item_content_card descricao">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p>
                     <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
                 </p>
