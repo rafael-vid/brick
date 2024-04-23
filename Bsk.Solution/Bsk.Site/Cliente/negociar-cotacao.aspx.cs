@@ -236,7 +236,7 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Id"]);
         }
 
         public string GravarArquivo(FileUpload flpArquivo, string tipo = "Anexo")
@@ -268,7 +268,7 @@ namespace Bsk.Site.Cliente
                _CotacaoAnexosBE = new CotacaoAnexosBE()
             {
                 Anexo = nome,
-                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                IdCotacao = int.Parse(Request.QueryString["Id"]),
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
                 Tipo = tipo
             };
@@ -310,7 +310,7 @@ namespace Bsk.Site.Cliente
 
             //if (Request.QueryString["Cotacao"] != null)
             //{
-                cot = Request.QueryString["Cotacao"];
+                cot = Request.QueryString["Id"];
 
                 if (flpArquivo.PostedFile.FileName != "")
                 {
