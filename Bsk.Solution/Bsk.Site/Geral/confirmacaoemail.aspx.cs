@@ -27,10 +27,12 @@ namespace Bsk.Site.Geral
                     var cliente = _core.Cliente_Get(_ClienteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
                     cliente.EmailConfirmado = 1;
                     _core.Cliente_Update(cliente, "IdCliente = " + cliente.IdCliente);
+                    Label.Text = "Seu email foi confirmado!";
                 }
                 else
                 {
-                    mensagem.Text = "No GUID found in URL.";
+                    Label.Text = "No GUID found in URL.";
+
                 }
             }
         }
