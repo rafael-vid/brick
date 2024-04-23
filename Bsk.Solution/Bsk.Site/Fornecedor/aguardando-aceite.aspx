@@ -9,7 +9,7 @@
                 <thead>
                     <tr class="linha1">
                         <td>Nº Cotação</td>
-                        <td>Título</td>
+                        <td>Descrição</td>
                         <td>Nome cliente</td>
                         <td>Status</td>
                         <td>Ação</td>

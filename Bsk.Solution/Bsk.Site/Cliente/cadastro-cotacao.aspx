@@ -62,10 +62,7 @@
                        
                         </button>
 
-                        <a class="arquivos-anexos" href="#" style="margin-top: 20px !important;">
-                            <img src="../assets/imagens/anexo.svg" style="width: 15px;" alt="anexo">
-                            <span>Arquivos anexos</span>
-                        </a>
+             
 
                         <div class="filtros_card cota-info" style="margin-top: 40px;">
                             <div class="dataTables_length" id="tabela_length">
@@ -84,10 +81,11 @@
 
                         <div class="card-tabela " style="overflow-x: auto;">
                             <table>
-                                <thead id="cabecalho-tabela">
+                                <thead id="cabecalho-tabela" class="subtitulo_card_1">
                                     <tr>
-                                        <th>Tipo de documento </th>
-                                        <th style="text-align: right">Ação</th>
+                                        <th>         
+                                               <label>Arquivos anexos</label>
+                                        </th>
                                     </tr>
                                 </thead>
 
@@ -98,15 +96,15 @@
                                     <tr>
                                         <td><%Response.Write(item.Anexo); %></td>
                                         <td style="text-align: right">
-                                            <a class="bt n btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                                            <a class="btn btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                
                                             <%if (item.Tipo == "Anexo")
                                                 {%>
-                                            <a class="b tn btn-bri kk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                            <a class="btn btn-bri kk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                             <% }
                                                 else
                                                 {%>
-                                            <a class="bt n btn-br ikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
+                                            <a class="btn btn-br ikk" style="display: inline-block" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Video/<%Response.Write(item.Anexo);%>' target='_blank'>Visualizar</a>
                                             <% } %>
                                         </td>
                                     </tr>
@@ -138,6 +136,11 @@
     </div>
 
     <style>
+        .card-tabela tr td a.btn {
+            width: 90px !important;
+            position: relative !important;
+        }
+
         div:where(.swal2-container).swal2-center > .swal2-popup {
             border-radius: 40px !important;
             font-size: 15px !important;
@@ -167,6 +170,12 @@
         a.cotacao {
             background: #f4f3f2;
             color: #770e18 !important;
+        }
+        .area_comentario {
+            display: grid;
+            grid-template-columns: 35% 1fr;
+            grid-gap: 50px;
+            margin-top: 15px;
         }
     </style>
 

@@ -27,14 +27,14 @@
                 <p id="ClienteServ" runat="server"></p>
             </div>
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p>
-                    <input type="text" placeholder="Digite aqui um título para o serviço que você procura" class="card-input-add" id="titulofornecedor" runat="server">
+                    <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulofornecedor" runat="server">
                 </p>
             </div>
 
             <div class="item_content_card descricao">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p>
                     <asp:Label ID="descricao" runat="server" Text=""></asp:Label>
                 </p>
@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server" placeholder="dd/mm/aaaa"/>
+                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
                             </div>
                         </div>
 
@@ -485,53 +485,8 @@
 
     </style>
 
+
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-    const input = document.getElementById('dataEntrega');
-
-    input.addEventListener('input', function () {
-        let value = input.value.replace(/[^0-9]/g, ''); // Remove non-digit characters
-        let day = '';
-        let month = '';
-        let year = '';
-
-            // Verifica se os valores estão preenchidos
-            if (dataEntrega === "" || valorServico === "") {
-                // Se não estiverem preenchidos, exibe uma mensagem de alerta
-                Swal.fire("Por favor, preencha a data e o valor antes de prosseguir.");
-                return false; // Retorna false para interromper a execução
-            }
-            return true; // Retorna true se os valores estiverem preenchidos
-        }
-
-        // Validate days and months for better accuracy
-        day = day.length === 2 ? (parseInt(day) > 31 ? '31' : day) : day;
-        month = month.length === 2 ? (parseInt(month) > 12 ? '12' : month) : month;
-
-        // Reassemble the parts into a single string
-        const parts = [];
-        if (day.length) parts.push(day);
-        if (month.length) parts.push(month);
-        if (year.length) parts.push(year);
-
-        input.value = parts.join('/'); // Combine with slashes
-    });
-});
-
-
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const valorServicoInput = document.getElementById('valorServico');
-        
-            valorServicoInput.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
-                value = (value / 100).toFixed(2) + ''; // Convert to string with 2 decimal places
-                value = value.replace('.', ',');
-                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                e.target.value = value;
-            });
-        });
-        
 
         function verificarValores() {
             var dataEntrega = document.getElementById("dataEntrega").value.trim();

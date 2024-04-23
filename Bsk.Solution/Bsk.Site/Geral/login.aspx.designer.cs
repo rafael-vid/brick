@@ -69,51 +69,6 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlButton btnCliente;
 
         /// <summary>
-        /// UpdatePanelParceiro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelParceiro;
-
-        /// <summary>
-        /// usuarioParceiro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText usuarioParceiro;
-
-        /// <summary>
-        /// senhaParceiro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword senhaParceiro;
-
-        /// <summary>
-        /// lblMsgParceiro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsgParceiro;
-
-        /// <summary>
-        /// btnParceiroEntrar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnParceiroEntrar;
-
-        /// <summary>
         /// msg control.
         /// </summary>
         /// <remarks>

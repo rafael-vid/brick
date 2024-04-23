@@ -180,7 +180,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = "R$" + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
+                        valorServico.Value = "R$ " + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
@@ -203,6 +203,7 @@ namespace Bsk.Site.Fornecedor
                         divTerminar.Visible = false;
                         divValor.Visible = false;
 
+
                     }
                     else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
                     {
@@ -213,7 +214,7 @@ namespace Bsk.Site.Fornecedor
                     else
                     {
                         divTerminar.Visible = false;
-                        divDadosCobranca.Visible = false;
+                        divDadosCobranca.Visible = true;
                     }
                 }
 
@@ -289,7 +290,7 @@ namespace Bsk.Site.Fornecedor
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
-                
+
                 if (cotacao != null)
                     _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
 
@@ -304,7 +305,7 @@ namespace Bsk.Site.Fornecedor
                 notif.visualizado = "0";
                 notif.idcliente = cotacao.IdCliente;
 
-                _core.NotificacaoInsert(notif); 
+                _core.NotificacaoInsert(notif);
 
 
                 //DEPOIS COLOCAR MSG
@@ -337,7 +338,7 @@ namespace Bsk.Site.Fornecedor
                 link = link.Replace("{{ARQ}}", nome);
 
 
-                
+
 
             }
             else

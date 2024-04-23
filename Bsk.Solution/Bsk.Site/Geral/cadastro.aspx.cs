@@ -1,5 +1,6 @@
 ﻿using Bsk.BE;
 using Bsk.Interface;
+using Bsk.Site.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,7 @@ namespace Bsk.Site.Geral
             {
                 if (Request.QueryString["Red"] == "ok")
                 {
-                    string message = "Cadastro efetuado com sucesso!";
+                    string message = "Cadastro efetuado com sucesso! Você recebeu um e-mail de confirmação.";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage2('" + message + "');", true);
                 }
             }
@@ -114,6 +115,7 @@ namespace Bsk.Site.Geral
             {
                 dt = DateTime.Parse(abertura.Value);
             }
+            string guid = Guid.NewGuid().ToString();
             _ClienteBE = new ClienteBE()
             {
                 Bairro = bairro.Value,
@@ -140,7 +142,8 @@ namespace Bsk.Site.Geral
                 WhatsApp = telefone.Value,
                 DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
                 Matriz = matriz.Value,
-                RazaoSocial = razao.Value
+                RazaoSocial = razao.Value,
+                GuidColumn = guid
 
             };
             if (
@@ -159,6 +162,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Cliente_Insert(_ClienteBE);
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá "+ nome.Value+"! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemail.aspx?guid="+guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     string message = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
