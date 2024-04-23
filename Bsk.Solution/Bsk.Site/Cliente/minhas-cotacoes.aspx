@@ -5,9 +5,9 @@
         <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
+                Nova Solicitações
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
             </a>
             <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>

@@ -52,11 +52,12 @@
             display: block;
             padding: 31px 46px 77px 48px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
-            border-radius: 0px 50px 50px 50px;
+            border-radius: 50px 50px 50px 50px;
             background-color: #f4f3f2;
         }
         .filtro {
             height: 93px;
+            background: url(../imagens/fundo.png) ;
             background-size: auto !important;
             width: 100%;
         }
@@ -99,19 +100,8 @@
         </header>
         <main class="loginCadastro">
             <div class="tabs-menu container">
-                <nav>
-                    <a href="#" class="tab ativo">
-                        <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Cliente</span>
-                    </a>
-                    <a href="#" class="tab">
-                        <img src="./assets/imagens/dados-icon.svg" alt="ícone usuário" style="width: 20px;">
-                        <span>Sou Parceiro</span>
-                    </a>
-                </nav>
 
                 <div class="tab-content ativo">
-                    <h2>Para clientes</h2>
 
                     <form>
                         <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
@@ -128,31 +118,6 @@
                         </div>
                         <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
                     </div>
-
-                </div>
-
-                <div class="tab-content ">
-                    <h2>Para parceiros</h2>
-
-                    <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
-                            <ContentTemplate>
-                    <div>
-                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Email" required>
-                        <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
-                        <asp:Label ID="lblMsgParceiro" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
-                    </div>
-
-                    <div class="acessos">
-                        <div>
-                            <a href="esqueciasenha.aspx?tipo=for" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div> 
-                        <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
-                    </div>
-                            </ContentTemplate>
-                    </asp:UpdatePanel>
-
 
                 </div>
        
@@ -187,45 +152,7 @@
 
         <script async src="assets/js/script.js"></script>
 
-        <script>
-            function tabs() {
-                const tabMenu = document.querySelectorAll('.tab')
-                const tabContent = document.querySelectorAll('.tab-content')
-
-                function activeTab(index) {
-                    tabContent.forEach(content => {
-                        content.classList.remove('ativo')
-                    })
-                    tabContent[index].classList.add('ativo')
-                }
-
-                tabMenu.forEach((item, index) => {
-                    item.addEventListener('click', () => {
-                        activeTab(index)
-                        index.classList.toggle('ativo')
-                    })
-                })
-
-            } tabs()
-
-            //menu active
-            function menuActive() {
-                const links = document.querySelectorAll('.tab')
-
-                const handleLink = (event) => {
-                    links.forEach(link => {
-                        link.classList.remove('ativo')
-                    })
-                    event.currentTarget.classList.add('ativo')
-                }
-
-                links.forEach(link => {
-                    link.addEventListener('click', handleLink)
-                })
-            }
-            menuActive();
-            
-        </script>
+        
     </form>
     <script>
         // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
@@ -237,14 +164,6 @@
         });
     });
 
-    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
-            }
-        });
-    });
 </script>
 </body>
 </html>

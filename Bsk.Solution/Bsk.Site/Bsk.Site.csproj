@@ -708,9 +708,11 @@
     <Content Include="Cliente\nav.html" />
     <Content Include="Fornecedor\perfil.aspx" />
     <Content Include="Geral\busca.aspx" />
+    <Content Include="Geral\confirmacaoemail.aspx" />
     <Content Include="Geral\esqueciasenha.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
+    <Content Include="Geral\loginfornecedor.aspx" />
     <Content Include="Geral\logout.aspx" />
     <Content Include="Geral\parceiros.html" />
     <Content Include="RepositoryImg\0.png" />
@@ -1695,6 +1697,13 @@
     <Compile Include="Geral\busca.aspx.designer.cs">
       <DependentUpon>busca.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Geral\confirmacaoemail.aspx.cs">
+      <DependentUpon>confirmacaoemail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\confirmacaoemail.aspx.designer.cs">
+      <DependentUpon>confirmacaoemail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Geral\esqueciasenha.aspx.cs">
       <DependentUpon>esqueciasenha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1708,6 +1717,13 @@
     </Compile>
     <Compile Include="Geral\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\loginfornecedor.aspx.cs">
+      <DependentUpon>loginfornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\loginfornecedor.aspx.designer.cs">
+      <DependentUpon>loginfornecedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>

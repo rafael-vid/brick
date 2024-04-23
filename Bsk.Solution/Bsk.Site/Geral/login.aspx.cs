@@ -19,46 +19,7 @@ namespace Bsk.Site.Geral
 
         }
 
-        protected void btnParceiroEntrar_ServerClick(object sender, EventArgs e)
-        {
-            if ((!String.IsNullOrEmpty(usuarioParceiro.Value)) && (!String.IsNullOrEmpty(senhaParceiro.Value)))
-            {
-                var _login = _core.Fornecedor_Get(_FornecedorBE, $" Email='{usuarioParceiro.Value.ToString()}'").FirstOrDefault();
-
-                if (_login != null)
-                {
-                    if (_login.Senha == senhaParceiro.Value)
-                    {
-                        //Cria a estancia do obj HttpCookie passando o nome do mesmo
-                        HttpCookie login = new HttpCookie("loginFornecedor");
-                        _login.Senha = "xxx";
-                        //Define o valor do cookie
-                        login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
-
-                        //Time para expiração (1min)
-                        //DateTime dtNow = DateTime.Now;
-                        //TimeSpan tsMinute = new TimeSpan(0, 0, 1, 0);
-                        //cookie.Expires = dtNow + tsMinute;
-                        //Adiciona o cookie
-                        Response.Cookies.Add(login);
-
-                        //Cria o obj cookie e recebe o mesmo pelo obj Request
-                        //HttpCookie cookie = Request.Cookies["login"];
-                        //Imprime o valor do cookie
-                        //Response.Write(cookie.Value.ToString());
-
-                        Response.Redirect("../Fornecedor/dashboard.aspx");
-                    }
-                    else
-                    {
-
-                        msg.Text = "Login ou senha, inválidos.";
-                        lblMsgParceiro.Text = msg.Text;
-                    }
-                }
-
-            }
-        }
+        
 
         protected void btnCliente_ServerClick(object sender, EventArgs e)
         {
@@ -90,9 +51,14 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
-                    msg.Text = "Login ou senha, inválidos.";
+                    msg.Text = "Login ou senha inválidos";
                     lblMsg.Text = msg.Text;
                 }
+            }
+            else
+            {
+                msg.Text = "Login ou senha inválidos";
+                lblMsg.Text = msg.Text;
             }
 
         }

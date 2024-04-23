@@ -34,8 +34,6 @@
         function displayPopupMessage(message){
     Swal.fire({
         icon: 'error',
-        iconColor: '#770e18',
-        cancelButtonColor: '#770e18',
         title: 'Atenção',
         text: message
     })
@@ -44,9 +42,12 @@
         function displayPopupMessage2(message) {
             Swal.fire({
             icon: 'success',
-            iconColor: '#770e18',
-            cancelButtonColor: '#770e18',
-            title: message
+                title: message,
+                confirmButtonText: 'OK'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "login.aspx";
+                }
             })
         }
 
@@ -56,14 +57,11 @@
                 title: 'Atenção',
                 text: message,
                 showCancelButton: true,
-                iconColor: '#770e18',
                 confirmButtonText: 'Recuperar Senha',
                 cancelButtonText: 'Cancelar',
-                cancelButtonColor: '#770e18',
-                confirmButtonColor: '#f08f00',
+                cancelButtonColor: '#d33',
                 showDenyButton: true,
-                denyButtonText: 'Ir para Login',
-                denyButtonColor: '#f08f00'
+                denyButtonText: 'Ir para Login'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'esqueciasenha.aspx';
@@ -295,17 +293,45 @@
                 </script>
 
                 <style>
-                    .campos {
-                        display:block !important;
-                    }
+
+                    /*sweet alert style*/
+
                     div:where(.swal2-container).swal2-center > .swal2-popup {
                         border-radius: 40px !important;
+                        font-size: 14px !important;
                     }
+
                     div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
                         border-radius: 20px !important;
+                        background-color: #770e18 !important;
                     }
+
                     div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
                         border-radius: 20px !important;
+                        background-color: #f08f00 !important;
+                    }
+
+                    div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+                        border-radius: 20px !important;
+                        background-color: #f08f00 !important;
+                    }
+
+                    div:where(.swal2-icon).swal2-info {
+                        border-color: #770e18 !important;
+                        color: #770e18 !important;
+                    }
+
+                    .swal2-icon.swal2-error {
+                        border-color: #770e18 !important;
+                        color: #770e18 !important;
+                    }
+                    .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+                        background-color: #770e18 !important;
+                    }
+                        /*sweet alert style*/
+
+                    .campos {
+                        display:block !important;
                     }
                 </style>
 
@@ -356,6 +382,10 @@
                         <input type="text" name="bairroJuridica" id="bairroJuridica" runat="server" required>
                     </div>
                     <div class="col-md-4">
+                        <label for="logradouroJuridica" class="subtitulo_1">Logradouro*</label>
+                        <input type="text" name="logradouroJuridica" id="Text1" runat="server" required>
+                    </div>
+                    <div class="col-md-4">
                         <label for="numeroJuridica" class="subtitulo_1">Número*</label>
                         <input type="number" name="numeroJuridica" id="numeroJuridica" runat="server" required>
                     </div>
@@ -376,7 +406,7 @@
                                         success: function (json) {
                                             console.log(json)
                                             if (json.logradouro) {
-                                                $("input[name=enderecoJuridica]").val(json.logradouro);
+                                                $("input[name=logradouroJuridica]").val(json.logradouro);
                                                 $("input[name=bairroJuridica]").val(json.bairro);
                                                 $("input[name=cidadeJuridica]").val(json.localidade);
                                                 $("input[name=estadoJuridica]").val(json.uf);
@@ -499,9 +529,6 @@
             padding-left:0;
             cursor:pointer
         }
-        .swal2-styled.swal2-deny {
-            border-radius: 40px !important; 
-        }
     </style>
     <script async src="assets/js/script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -604,7 +631,7 @@
 
             $('#cnpj').receitaws({
                 fields: {
-                    nome: '#nomeJuridica',
+                    nome: '#razao',
                     situacao: '#situacao',
                     abertura: '#abertura',
                     tipo: '#tipo',
@@ -616,7 +643,7 @@
                     bairro: '#bairroJuridica',
                     municipio: '#municipioJuridica',
                     uf: '#uf',
-                    fantasia: '#fantasia'
+                    //fantasia: '#fantasia'
                 },
 
                 afterRequest: function () {

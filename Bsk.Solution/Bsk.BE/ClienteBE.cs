@@ -34,5 +34,7 @@ namespace Bsk.BE
         public string RazaoSocial { get; set; }
         public string DataAbertura { get; set; }
         public string Matriz { get; set; }
+        public string GuidColumn { get; set; }
+        public int EmailConfirmado { get; set; }
     }
 }
