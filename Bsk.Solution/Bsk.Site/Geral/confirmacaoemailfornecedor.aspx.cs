@@ -28,10 +28,11 @@ namespace Bsk.Site.Geral
                     var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
                     fornecedor.Confirmado = 1;
                     _core.Fornecedor_Update(fornecedor, "IdFornecedor = " + fornecedor.IdFornecedor);
+                    Label.Text = "Seu email foi confirmado!";
                 }
                 else
                 {
-                    mensagem.Text = "No GUID found in URL.";
+                    Label.Text = "No GUID found in URL.";
                 }
             }
         }

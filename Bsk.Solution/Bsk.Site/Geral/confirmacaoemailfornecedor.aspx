@@ -61,6 +61,19 @@
             background-size: auto !important;
             width: 100%;
         }
+        .centered-label {
+        position: absolute; /* Or 'fixed' depending on your requirement */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%; /* Adjust width as needed */
+        text-align: center;
+        background-color: #770e18; /* Deep red background */
+        color: #ffffff; /* White text color for contrast */
+        padding: 20px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
     </style>
 </head>
 
@@ -85,10 +98,11 @@
 </div>
         </header>
         <main class="loginCadastro">
-            <div class="tabs-menu container">
-                               
-
+            <div class="centered-label">
+                <asp:Label ID="Label" runat="server" Text=""></asp:Label>
             </div>
+
+
 
         </main>
 
