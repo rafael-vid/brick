@@ -148,7 +148,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                double valor = 0;
+                decimal valor = 0;
                 foreach (var item in lista)
                 {
                     valor += item.Valor;

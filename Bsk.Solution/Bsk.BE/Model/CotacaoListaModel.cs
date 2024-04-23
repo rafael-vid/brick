@@ -10,7 +10,7 @@ namespace Bsk.BE.Model
     {
         public int CotacaoFornecedorId { get; set; }
         public string Mensagens { get; set; }
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
         public string DataUltimaResposta { get; set; }
         public string NomeFornecedor { get; set; }
         public int CotacaoId { get; set; }

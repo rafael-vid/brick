@@ -472,8 +472,9 @@ namespace Bsk.Site.Controllers
 
             try
             {
-                valor = valor.Replace(".", "");
-                cotacaoFornecedor.Valor = float.Parse(valor);
+
+                valor = valor.Replace("R$ ", "").Replace(".", "").Replace("R$ ","");
+                cotacaoFornecedor.Valor = Convert.ToDecimal(valor);
             }
             catch (Exception)
             {
