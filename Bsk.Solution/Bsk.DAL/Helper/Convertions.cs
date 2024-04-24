@@ -239,7 +239,7 @@ namespace Bsk.DAL.Helper
                 filtro = filtro.Replace("--", "");
                 filtro = filtro.Replace("''", "");
             }
-            string tabela = table[0].GetType().Name.Substring(0, (table[0].GetType().Name.Length - 2));
+            string tabela = table[0].GetType().Name.Substring(0, table[0].GetType().Name.Length - 2;
             string coluna = table[0].GetType().GetProperties()[0].Name.ToString();
             string qry = " DELETE FROM " + tabela + " WHERE " + coluna + " = " + table[0].GetType().GetProperty(coluna).GetValue(table[0], null).ToString();
 

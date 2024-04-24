@@ -27,24 +27,38 @@ namespace Bsk.Site.Cliente
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(Request.QueryString["Id"]))
+            CotacaoBE cotacao = new CotacaoBE();
+            if (!String.IsNullOrEmpty(Request.QueryString["Id"]))
             {
-                Response.Redirect("minhas-cotacoes.aspx");
+                cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+
+                if (cotacao.Status != StatusCotacao.Criacao)
+                {
+                    divUpload.Visible = false;
+                    // alerts.Visible = false;
+                    // alerts2.Visible = false;
+                }
+            }
+
+            if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
+            {
+                var anexo = _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacaoAnexos=" + Request.QueryString["Del"]).FirstOrDefault();
+                _core.CotacaoAnexos_Delete(anexo);
+                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + Request.QueryString["Cotacao"]);
             }
 
             if (!IsPostBack)
             {
-                try
+                if (Request.QueryString["Id"] != null)
                 {
+
                     CarregaCotacaoFornecedor();
                 }
-                catch (Exception)
+                else
                 {
                     Response.Redirect("minhas-cotacoes.aspx");
                 }
-
             }
-
         }
 
         public void CarregaCotacaoFornecedor()
@@ -77,7 +91,6 @@ namespace Bsk.Site.Cliente
                     {
                         if (cotacao.Status == StatusCotacao.Finalizado)
                         {
-                            btnEnviar.Visible = false;
                             divUpload.Visible = false;
                             msg.Visible = false;
                             descricaoHide.Visible = false;
@@ -320,6 +333,7 @@ namespace Bsk.Site.Cliente
             {
                 GravarArquivo(flpVideo, "Video");
             }
+
 
             //CotacaoBE _CotacaoBE = new CotacaoBE();
             //var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
