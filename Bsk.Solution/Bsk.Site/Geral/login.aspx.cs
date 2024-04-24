@@ -31,8 +31,8 @@ namespace Bsk.Site.Geral
                 {
                     if (_login.EmailConfirmado == 0)
                     {
-                        msg.Text = "Seu email ainda não foi confirmado";
-                        lblMsg.Text = msg.Text;
+                        string msg = "Seu email ainda não foi confirmado";
+                        lblMsg.Text = msg;
                     }
                     else
                     {
@@ -60,14 +60,14 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
-                    msg.Text = "Login ou senha inválidos";
-                    lblMsg.Text = msg.Text;
+                    string msg = "Login ou senha inválidos";
+                    lblMsg.Text = msg;
                 }
             }
             else
             {
-                msg.Text = "Login ou senha inválidos";
-                lblMsg.Text = msg.Text;
+                string msg = "Login ou senha inválidos";
+                lblMsg.Text = msg;
             }
 
         }

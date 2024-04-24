@@ -125,7 +125,6 @@
 
         </main>
 
-         <asp:Label ID="msg" runat="server" Text=""></asp:Label>
         <footer>
             <a href="/">
                 <img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>

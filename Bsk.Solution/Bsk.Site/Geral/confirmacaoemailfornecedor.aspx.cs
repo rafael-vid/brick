@@ -27,8 +27,27 @@ namespace Bsk.Site.Geral
                     // Use the GUID as needed in your application, for example:
                     var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
                     fornecedor.Confirmado = 1;
+                    var _login = _core.Fornecedor_Get(_FornecedorBE, $" GuidColumn='{guid}'").FirstOrDefault();
                     _core.Fornecedor_Update(fornecedor, "IdFornecedor = " + fornecedor.IdFornecedor);
-                    Label.Text = "Seu email foi confirmado!";
+                    //Cria a estancia do obj HttpCookie passando o nome do mesmo
+                    HttpCookie login = new HttpCookie("loginFornecedor");
+                    _login.Senha = "xxx";
+                    //Define o valor do cookie
+                    login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
+
+                    //Time para expiração (1min)
+                    //DateTime dtNow = DateTime.Now;
+                    //TimeSpan tsMinute = new TimeSpan(0, 0, 1, 0);
+                    //cookie.Expires = dtNow + tsMinute;
+                    //Adiciona o cookie
+                    Response.Cookies.Add(login);
+
+                    //Cria o obj cookie e recebe o mesmo pelo obj Request
+                    //HttpCookie cookie = Request.Cookies["login"];
+                    //Imprime o valor do cookie
+                    //Response.Write(cookie.Value.ToString());
+
+                    Response.Redirect("../Fornecedor/dashboard.aspx");
                 }
                 else
                 {

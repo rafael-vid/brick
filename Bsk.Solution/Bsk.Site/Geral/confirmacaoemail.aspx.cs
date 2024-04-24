@@ -27,13 +27,33 @@ namespace Bsk.Site.Geral
                     var cliente = _core.Cliente_Get(_ClienteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
                     cliente.EmailConfirmado = 1;
                     _core.Cliente_Update(cliente, "IdCliente = " + cliente.IdCliente);
-                    Label.Text = "Seu email foi confirmado!";
+                    var _login = _core.Cliente_Get(_ClienteBE, $" GuidColumn='{guid}'").FirstOrDefault();
+                    //Cria a estancia do obj HttpCookie passando o nome do mesmo
+                    HttpCookie login = new HttpCookie("login");
+                    _login.Senha = "xxx";
+                    //Define o valor do cookie
+                    login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
+
+                    //Time para expiração (1min)
+                    //DateTime dtNow = DateTime.Now;
+                    //TimeSpan tsMinute = new TimeSpan(0, 0, 1, 0);
+                    //cookie.Expires = dtNow + tsMinute;
+                    //Adiciona o cookie
+                    Response.Cookies.Add(login);
+
+                    //Cria o obj cookie e recebe o mesmo pelo obj Request
+                    //HttpCookie cookie = Request.Cookies["login"];
+                    //Imprime o valor do cookie
+                    //Response.Write(cookie.Value.ToString());
+
+                    Response.Redirect("../Cliente/cliente-dashboard.aspx");
                 }
                 else
                 {
                     Label.Text = "No GUID found in URL.";
 
                 }
+                
             }
         }
     }
