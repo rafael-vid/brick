@@ -71,8 +71,10 @@
         <header>
 
             <div class="menu-topo container">
-                <a href="index.html">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
                     <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                                <span class="logo-text" style="display: block; color: white; margin-left: 10px; margin-right: 40px; font-size:35px" ">FORNECEDOR</span> <!-- Added this line -->
+
                 </a>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">

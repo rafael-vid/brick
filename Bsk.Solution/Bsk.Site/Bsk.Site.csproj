@@ -613,6 +613,7 @@
     <Content Include="Geral\assets\imgages\whatsapp.png" />
     <Content Include="Geral\assets\js\script.js" />
     <Content Include="Geral\cadastro.aspx" />
+    <Content Include="Geral\cadastrofeito.aspx" />
     <Content Include="Geral\clientes.html" />
     <Content Include="Cliente\aguardando-pagamento.aspx" />
     <Content Include="Anexos\Video\video.mp4" />
@@ -709,6 +710,7 @@
     <Content Include="Fornecedor\perfil.aspx" />
     <Content Include="Geral\busca.aspx" />
     <Content Include="Geral\confirmacaoemail.aspx" />
+    <Content Include="Geral\confirmacaoemailfornecedor.aspx" />
     <Content Include="Geral\esqueciasenha.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
@@ -1697,12 +1699,26 @@
     <Compile Include="Geral\busca.aspx.designer.cs">
       <DependentUpon>busca.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Geral\cadastrofeito.aspx.cs">
+      <DependentUpon>cadastrofeito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\cadastrofeito.aspx.designer.cs">
+      <DependentUpon>cadastrofeito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Geral\confirmacaoemail.aspx.cs">
       <DependentUpon>confirmacaoemail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Geral\confirmacaoemail.aspx.designer.cs">
       <DependentUpon>confirmacaoemail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\confirmacaoemailfornecedor.aspx.cs">
+      <DependentUpon>confirmacaoemailfornecedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\confirmacaoemailfornecedor.aspx.designer.cs">
+      <DependentUpon>confirmacaoemailfornecedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\esqueciasenha.aspx.cs">
       <DependentUpon>esqueciasenha.aspx</DependentUpon>

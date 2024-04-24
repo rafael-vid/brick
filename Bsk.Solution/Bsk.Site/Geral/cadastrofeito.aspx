@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="cadastrofeito.aspx.cs" Inherits="Bsk.Site.Geral.cadastrofeito" %>
 
 
 
@@ -52,7 +52,7 @@
             display: block;
             padding: 31px 46px 77px 48px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
-            border-radius: 50px 50px 50px 50px;
+            border-radius: 0px 50px 50px 50px;
             background-color: #f4f3f2;
         }
         .filtro {
@@ -61,6 +61,37 @@
             background-size: auto !important;
             width: 100%;
         }
+        .centered-label {
+        position: absolute; /* Or 'fixed' depending on your requirement */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40%; /* Adjust width as needed */
+        text-align: center;
+        background-color: #770e18; /* Deep red background */
+        color: #ffffff; /* White text color for contrast */
+        padding: 20px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .resend-button {
+        width: 100%;
+        height: 60px;
+        background-color: #770e18; /* Deep red background */
+        color: #ffffff; /* White text */
+        font-size: 24px;
+        border: none;
+        border-radius: 30px;
+        padding: 18px 32px;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        }
+
+        .resend-button:hover {
+            background-color: #a00d1f; /* Slightly lighter red for hover effect */
+        }
+
     </style>
 </head>
 
@@ -74,21 +105,7 @@
                 <a href="index.html">
                     <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
                 </a>
-                <nav class="menu" id="nav">
-                    <button id="btn-mobile">
-                        Menu
-          <span id="hamburger"></span>
-                    </button>
-                    <ul class="menu-itens">
-                        <li>
-                            <a href="sobre.html">sobre nós</a>
-                        </li>
-                        <li><a href="index.html#parceiros">para parceiros</a></li>
-                        <li><a href="index.html#clientes">PARA CLIENTES</a></li>
-                        <li><a href="ajuda.html">ajuda</a></li>
-                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
-                    </ul>
-                </nav>
+                
             </div>
 
             <div class="filtro">
@@ -99,32 +116,16 @@
 </div>
         </header>
         <main class="loginCadastro">
-            <div class="tabs-menu container">
-
-                <div class="tab-content ativo">
-
-                    <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
-                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
-
-                    </form>
-
-                    <div class="acessos">
-                        <div>
-                            <a href="esqueciasenha.aspx?tipo=cli" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div>
-                        <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
-                    </div>
-
-                </div>
-       
+            <div class="centered-label">
+                <asp:Label ID="Label" runat="server" Text="Falta pouco! Você criou seu cadastro e agora só falta ativá-lo. Verifique a sua caixa de entrada ou spam e siga as instruções que enviamos."></asp:Label>
+                        <asp:Button ID="ResendEmailButton" runat="server" Text="Reenviar Email" OnClick="ResendEmailButton_Click" CssClass="resend-button"/>
             </div>
+
+
 
         </main>
 
+<asp:Label ID="mensagem" runat="server" Text=""></asp:Label>
         <footer>
             <a href="/">
                 <img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
@@ -138,30 +139,16 @@
                     <img src="./assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
             </div>
         </footer>
-
-
-
-        
+  
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <script>
             AOS.init();
         </script>
-
         <script async src="assets/js/script.js"></script>
-
-        
     </form>
     <script>
-        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
-            }
-        });
-    });
 
 </script>
 </body>

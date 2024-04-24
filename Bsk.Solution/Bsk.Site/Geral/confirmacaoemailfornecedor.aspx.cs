@@ -10,10 +10,11 @@ using System.Web.UI.WebControls;
 
 namespace Bsk.Site.Geral
 {
-    public partial class confirmacaoemail : System.Web.UI.Page
+    public partial class confirmacaoemailfornecedor
+        : System.Web.UI.Page
     {
         core _core = new core();
-        ClienteBE _ClienteBE = new ClienteBE();
+        FornecedorBE _FornecedorBE = new FornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -24,12 +25,12 @@ namespace Bsk.Site.Geral
                 if (!string.IsNullOrEmpty(guid))
                 {
                     // Use the GUID as needed in your application, for example:
-                    var cliente = _core.Cliente_Get(_ClienteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
-                    cliente.EmailConfirmado = 1;
-                    _core.Cliente_Update(cliente, "IdCliente = " + cliente.IdCliente);
-                    var _login = _core.Cliente_Get(_ClienteBE, $" GuidColumn='{guid}'").FirstOrDefault();
+                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
+                    fornecedor.Confirmado = 1;
+                    var _login = _core.Fornecedor_Get(_FornecedorBE, $" GuidColumn='{guid}'").FirstOrDefault();
+                    _core.Fornecedor_Update(fornecedor, "IdFornecedor = " + fornecedor.IdFornecedor);
                     //Cria a estancia do obj HttpCookie passando o nome do mesmo
-                    HttpCookie login = new HttpCookie("login");
+                    HttpCookie login = new HttpCookie("loginFornecedor");
                     _login.Senha = "xxx";
                     //Define o valor do cookie
                     login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
@@ -46,14 +47,12 @@ namespace Bsk.Site.Geral
                     //Imprime o valor do cookie
                     //Response.Write(cookie.Value.ToString());
 
-                    Response.Redirect("../Cliente/cliente-dashboard.aspx");
+                    Response.Redirect("../Fornecedor/dashboard.aspx");
                 }
                 else
                 {
                     Label.Text = "No GUID found in URL.";
-
                 }
-                
             }
         }
     }
