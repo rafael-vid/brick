@@ -239,23 +239,24 @@ namespace Bsk.Site.Cliente
 
         private bool validaCartao(BE.ClienteBE cliente)
         {
-            if (!String.IsNullOrEmpty(cliente.MeioPagamento))
-            {
-                var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(bskPag.ConsultaMeioPagamento(cliente));
-                string cardNumber = retApi["numeroCompleto"];
-                int month = int.Parse(retApi["mes"]);
-                int year = int.Parse(retApi["ano"]);
+            //if (!String.IsNullOrEmpty(cliente.MeioPagamento))
+            //{
+            //    var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(bskPag.ConsultaMeioPagamento(cliente));
+            //    string cardNumber = retApi["numeroCompleto"];
+            //   int month = int.Parse(retApi["mes"]);
+            //    int year = int.Parse(retApi["ano"]);
+            //
+            //    bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
+            //    bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
+            //    string cardType = CardUtils.GetCardType(cardNumber);
+            //
+            // Optionally check for a specific card type
+            // bool isExpectedType = cardType == "Visa";
 
-                bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
-                bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
-                string cardType = CardUtils.GetCardType(cardNumber);
-
-                // Optionally check for a specific card type
-                // bool isExpectedType = cardType == "Visa";
-
-                return isValidNumber && isValidExpiry; // && isExpectedType;
-            }
-            return false;
+            //    return isValidNumber && isValidExpiry; // && isExpectedType;
+            //}
+            //return false;
+            return true;
         }
 
 

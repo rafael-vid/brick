@@ -320,13 +320,12 @@ a.btn.btn-brikk.mensagem {
     <form id="form1" runat="server">
         <header>
             <div class="menu-topo container">
-                <a href="dashboard.aspx">
-                    <img src="../assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
-                </a>
+                <a href="dashboard.aspx" style="display: flex; align-items: center; text-decoration: none;">
+    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+    <span id="dynamic-text" style="display: innline; color: white; margin-left: -30px; font-size:35px; font-family:rajdhani-semi">FORNECEDOR</span>
+</a>
                   <div>
-                     <h1 class="titulo" >
-                         <font color="#ffffff">Fornecedor</font>
-                     </h1>
+                     
                  </div>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">

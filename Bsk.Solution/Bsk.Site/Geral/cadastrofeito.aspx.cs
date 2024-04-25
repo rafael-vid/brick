@@ -23,16 +23,17 @@ namespace Bsk.Site.Geral
         }
         protected void ResendEmailButton_Click(object sender, EventArgs e)
         {
-            // Extracting email and code from the cookie
             var emailcookie = Request.Cookies["emailcookie"].Value;
             string[] parts = emailcookie.Split(' ');
-            if (parts.Length == 4)
+            if (parts.Length == 2)
             {
                 string email = parts[0];
                 string tipo = parts[1];
-                string guid = parts[2];
-                string nome = parts[3];
+                ClienteBE cliente = _core.Cliente_Get(_ClienteBE, "email='"+email+"'").FirstOrDefault();
+                string guid = cliente.GuidColumn;
+                string nome = cliente.Nome;
                 SendEmailBasedOnType(email, tipo, nome, guid);
+
             }
             else
             {
