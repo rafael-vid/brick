@@ -18,16 +18,17 @@ namespace Bsk.Util
 
         public string autenticar(string sellerLogin, string sellerSenha, string sellerId)
         {
-            sellerLogin = "brikk@email.com";
-            sellerSenha = "9b38cb15-3675-4aea-89eb-bae1c17bbe62";
-            sellerId = "586de6c5-f696-49d6-8b0c-592d3a038524";
-            var api = ConfigurationManager.AppSettings["Api"];
-            var login = sellerLogin;
-            var senha = sellerSenha;
-            var tk = ApiGet($"{api}Seller/autenticacao?BskPagLogin={login}&BskPagSenha={senha}", "");
-            var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(tk);
-            var token = Base64Encode(sellerId + ":" + obj["codigo"].ToString());
-            return token.ToString();
+            //sellerLogin = "brikk@email.com";
+            //sellerSenha = "9b38cb15-3675-4aea-89eb-bae1c17bbe62";
+            //sellerId = "586de6c5-f696-49d6-8b0c-592d3a038524";
+            //var api = ConfigurationManager.AppSettings["Api"];
+            //var login = sellerLogin;
+            //var senha = sellerSenha;
+            //var tk = ApiGet($"{api}Seller/autenticacao?BskPagLogin={login}&BskPagSenha={senha}", "");
+            //var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(tk);
+            //var token = Base64Encode(sellerId + ":" + obj["codigo"].ToString());
+            //return token.ToString();
+            return string.Empty;
         }
 
         public string Transacao(ClienteBE item, string data, string guid, string parcelas, string pagamento, string obs, string valorTransacao, FornecedorBE seller)
@@ -130,6 +131,7 @@ namespace Bsk.Util
         {
             try
             {
+                return Guid.NewGuid().ToString();
                 string autentica = autenticar("", "", "");
                 var retApi = CadastrarBuyer(usuario, autentica, seller);
                 var requestBuyer = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retApi);
@@ -218,40 +220,50 @@ namespace Bsk.Util
 
         public string cadastraCartao(string nomeCompleto, string numeroCartao, string numSeg, string mes, string ano, string buyerId, string seller)
         {
-            var api = ConfigurationManager.AppSettings["Api"];
-            var token = autenticar("", "", "");
-            var ret = ApiPost("", $"{api}MeioPagamento/InserirMeioPagamentoCartao?autenticacao={token}&buyerId={buyerId}&sellerId={seller}&tipo=1&nome={nomeCompleto}&mesExpira={mes}&anoExpira={ano}&numeroCartao={numeroCartao}&codigoSeguranca={numSeg}", token);
-            var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
-            if (retApi["status"] != "200")
-            {
-                return retApi["mensagem"];
-            }
-            else
-            {
-                return retApi["codigo"];
-            }
+            //var api = ConfigurationManager.AppSettings["Api"];
+            //var token = autenticar("", "", "");
+            //var ret = ApiPost("", $"{api}MeioPagamento/InserirMeioPagamentoCartao?autenticacao={token}&buyerId={buyerId}&sellerId={seller}&tipo=1&nome={nomeCompleto}&mesExpira={mes}&anoExpira={ano}&numeroCartao={numeroCartao}&codigoSeguranca={numSeg}", token);
+            //var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(ret);
+            //if (retApi["status"] != "200")
+            //{
+            //    return retApi["mensagem"];
+            //}
+            //else
+            //{
+            //    return retApi["codigo"];
+            //}
+            return Guid.NewGuid().ToString();
 
         }
 
         private string ApiGet(string url, string token)
         {
-            //adiciona um protocolo de segurança à requisição
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11;
-            HttpClient _client = new HttpClient();
+            try
+            {
+                //adiciona um protocolo de segurança à requisição
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11;
+                HttpClient _client = new HttpClient();
 
-            //Tranforma a zpk em base 64
-            var base64 = Base64Encode(token);
+                //Tranforma a zpk em base 64
+                var base64 = Base64Encode(token);
 
-            //adiciona os cabeçalhos
-            _client.DefaultRequestHeaders.Add("authorization", "Basic " + base64);
-            _client.DefaultRequestHeaders.Add("accept", "application/json");
+                //adiciona os cabeçalhos
+                _client.DefaultRequestHeaders.Add("authorization", "Basic " + base64);
+                _client.DefaultRequestHeaders.Add("accept", "application/json");
 
-            //Passa a url
-            HttpResponseMessage resp = _client.GetAsync(url).GetAwaiter().GetResult();
-            //Pega a resposta
-            var responseContent = resp.Content;
-            string lista = responseContent.ReadAsStringAsync().GetAwaiter().GetResult();
-            return lista;
+                //Passa a url
+                HttpResponseMessage resp = _client.GetAsync(url).GetAwaiter().GetResult();
+                //Pega a resposta
+                var responseContent = resp.Content;
+                string lista = responseContent.ReadAsStringAsync().GetAwaiter().GetResult();
+                return lista;
+            }
+            catch (Exception)
+            {
+
+                return string.Empty;
+            }
+            
 
         }
 
@@ -294,6 +306,7 @@ namespace Bsk.Util
 
         public string RenderizaRecibo(string idPag)
         {
+            return "";
             var api = ConfigurationManager.AppSettings["Api"];
             var token = autenticar("", "", "");
             var ret = ApiGet($"{api}MeioPagamento/RenderizarRecibo?autenticacao={token}&transacao={idPag}", token);

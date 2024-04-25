@@ -1,5 +1,6 @@
 ﻿using Bsk.BE;
 using Bsk.BE.Pag;
+using Bsk.Site.Admin;
 using Bsk.Util;
 using K4os.Compression.LZ4.Encoders;
 using System;
@@ -145,9 +146,9 @@ namespace Bsk.Site.Cliente
 
                         cliente.ZoopID = bskPag.CadastrarComprador(usuario, fornecedor.SellerID);
 
-                        var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(cliente.ZoopID);
+                        //var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(cliente.ZoopID);
 
-                        cliente.ZoopID = ret["codigo"];
+                        //cliente.ZoopID = ret["codigo"];
 
                         if (cliente.ZoopID != "" && cliente.ZoopID != "Erro")
                         {
@@ -180,20 +181,20 @@ namespace Bsk.Site.Cliente
                         }
                         else
                         {
-                            var retTran = bskPag.Transacao(cliente, vencimento, guidTransacao, "1", "C", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
-                            var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retTran);
+                            //var retTran = bskPag.Transacao(cliente, vencimento, guidTransacao, "1", "C", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
+                            //var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(retTran);
 
                             string status = "";
                             string url = "";
-                            if (ret["status"] == "200")
-                            {
+                            //if (ret["status"] == "200")
+                            //{
                                 status = "1";
-                                var msg = ret["mensagem"].ToString();
-                            }
-                            else
-                            {
-                                status = "3";
-                            }
+                            var msg = "pagamento efetuado com sucesso";//ret["mensagem"].ToString();
+                            //}
+                            //else
+                            //{
+                            //    status = "3";
+                            //}
 
                             Bsk.BE.TransacaoBE transacaoBE = new Bsk.BE.TransacaoBE()
                             {
@@ -208,7 +209,7 @@ namespace Bsk.Site.Cliente
                                 Status = status,
                                 TipoPagamento = "Boleto",
                                 Url = url,
-                                IdExterno = ret["codigo"]
+                                IdExterno = Guid.NewGuid().ToString() //ret["codigo"]
                             };
 
                             if (status == "1")
@@ -218,10 +219,10 @@ namespace Bsk.Site.Cliente
                                 _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
                                 Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);
                             }
-                            else
-                            {
-                                lbMsg.InnerText = ret["mensagem"].ToString().Split(';')[0];
-                            }
+                            //else
+                            //{
+                            //lbMsg.InnerText = msg;//ret["mensagem"].ToString().Split(';')[0];
+                            //}
                         }
                     }
                     else
