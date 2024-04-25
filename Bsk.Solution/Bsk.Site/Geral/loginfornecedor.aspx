@@ -199,20 +199,20 @@
                 })
             }
             menuActive();
-            
+
         </script>
     </form>
     <script>
-     
 
-    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
+
+        // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
             }
         });
     });
-</script>
+    </script>
 </body>
 </html>
