@@ -76,21 +76,7 @@
                                 <span class="logo-text" style="display: block; color: white; margin-left: 10px; margin-right: 40px; font-size:35px" ">FORNECEDOR</span> <!-- Added this line -->
 
                 </a>
-                <nav class="menu" id="nav">
-                    <button id="btn-mobile">
-                        Menu
-          <span id="hamburger"></span>
-                    </button>
-                    <ul class="menu-itens">
-                        <li>
-                            <a href="sobre.html">sobre nós</a>
-                        </li>
-                        <li><a href="index.html#parceiros">para parceiros</a></li>
-                        <li><a href="index.html#clientes">PARA CLIENTES</a></li>
-                        <li><a href="ajuda.html">ajuda</a></li>
-                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
-                    </ul>
-                </nav>
+                
             </div>
 
             <div class="filtro">

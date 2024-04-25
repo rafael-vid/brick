@@ -1,6 +1,8 @@
 ﻿using Bsk.BE;
 using Bsk.Interface;
 using Bsk.Site.Admin;
+using Bsk.Site.Service;
+using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,43 @@ namespace Bsk.Site.Geral
         ClienteBE _ClienteBE = new ClienteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var emailcookie = Request.Cookies["emailcookie"].Value;
 
         }
         protected void ResendEmailButton_Click(object sender, EventArgs e)
         {
-            //codigo para reenviar o email
-            Label.Text = "Email de ativação reenviado. Por favor, verifique sua caixa de entrada ou spam.";
+            // Extracting email and code from the cookie
+            var emailcookie = Request.Cookies["emailcookie"].Value;
+            string[] parts = emailcookie.Split(' ');
+            if (parts.Length == 4)
+            {
+                string email = parts[0];
+                string tipo = parts[1];
+                string guid = parts[2];
+                string nome = parts[3];
+                SendEmailBasedOnType(email, tipo, nome, guid);
+            }
+            else
+            {
+                Label.Text = "Erro ao processar os dados do cookie.";
+            }
+        }
+        private void SendEmailBasedOnType(string email, string tipo, string nome, string guid)
+        {
+            switch (tipo)
+            {
+                case "1":
+                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://localhost:57642/Geral/confirmacaoemail.aspx?guid=" + guid);
+                    Label.Text = "Email de confirmação reenviado. Por favor, verifique sua caixa de entrada ou spam.";
+                    break;
+                case "2":
+                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
+                    Label.Text = "Email de confirmação reenviado. Por favor, verifique sua caixa de entrada ou spam.";
+                    break;
+                default:
+                    Label.Text = "Tipo de email desconhecido.";
+                    break;
+            }
         }
 
     }

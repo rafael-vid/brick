@@ -167,6 +167,9 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
+                    HttpCookie emailcookie = new HttpCookie("emailcookie");
+                    emailcookie.Value = email.Value + " 1" + " " + guid + " " + nome.Value;
+                    Response.Cookies.Add(emailcookie);
                     Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }
@@ -244,6 +247,9 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
+                    HttpCookie emailcookie = new HttpCookie("emailcookie");
+                    emailcookie.Value = email.Value + " 2" + " " + guid + " " + nome.Value;
+                    Response.Cookies.Add(emailcookie);
                     Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }
@@ -364,6 +370,9 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
+                    HttpCookie emailcookie = new HttpCookie("emailcookie");
+                    emailcookie.Value = email.Value + " 2" + " " + guid + " " + nome.Value;
+                    Response.Cookies.Add(emailcookie);
                     Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }
@@ -447,6 +456,9 @@ namespace Bsk.Site.Geral
                 }
                 else
                 {
+                    HttpCookie emailcookie = new HttpCookie("emailcookie");
+                    emailcookie.Value = email.Value + " 1" + " " + guid+ " "+ nome.Value;
+                    Response.Cookies.Add(emailcookie);
                     Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
                 }
             }

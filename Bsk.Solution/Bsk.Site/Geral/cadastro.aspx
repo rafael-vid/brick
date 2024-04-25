@@ -47,7 +47,7 @@
                 confirmButtonText: 'OK'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "login.aspx";
+                    window.location.href = "cadastrofeito.aspx";
                 }
             })
         }
