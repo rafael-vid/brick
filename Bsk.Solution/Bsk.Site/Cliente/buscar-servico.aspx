@@ -134,7 +134,7 @@
         <div class="card">
             <div class="titulo_card">
                 <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Nova Cotação</h2>
+                <h2 class="subtitulo_1">Nova Solicitação</h2>
             </div>
 
             <h2 class="subtitulo_card subtitulo_1">Qual serviço você precisa? </h2>
