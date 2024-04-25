@@ -76,7 +76,21 @@
                                 <span class="logo-text" style="display: block; color: white; margin-left: 10px; margin-right: 40px; font-size:35px" ">FORNECEDOR</span> <!-- Added this line -->
 
                 </a>
-                
+                <nav class="menu" id="nav">
+                    <button id="btn-mobile">
+                        Menu
+          <span id="hamburger"></span>
+                    </button>
+                    <ul class="menu-itens">
+                        <li>
+                            <a href="sobre.html">sobre nós</a>
+                        </li>
+                        <li><a href="index.html#parceiros">para parceiros</a></li>
+                        <li><a href="index.html#clientes">PARA CLIENTES</a></li>
+                        <li><a href="ajuda.html">ajuda</a></li>
+                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+                    </ul>
+                </nav>
             </div>
 
             <div class="filtro">
@@ -185,20 +199,20 @@
                 })
             }
             menuActive();
-            
+
         </script>
     </form>
     <script>
-     
 
-    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
+
+        // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
             }
         });
     });
-</script>
+    </script>
 </body>
 </html>
