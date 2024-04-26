@@ -77,10 +77,10 @@
         O fornecedor informou ter terminado o serviço
     </label>
     <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnTerminar" onclick="terminar("1");" value="Aceitar" style="line-height:normal;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnTerminar" onclick="terminar('1');" value="Aceitar" style="line-height:normal;">
     </div>
     <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusarTermino" onclick="terminar("0");" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusarTermino" onclick="terminar('0');" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
     </div>
 </div>
             

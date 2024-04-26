@@ -65,7 +65,7 @@ namespace Bsk.Site.Cliente
                 if (cotacaoFornecedor.Valor == 0 || cotacaoFornecedor.DataEntrega == "")
                 {
                     divAceitar.Visible = false;
-                    divAceitar2.Visible = false;
+                    //divAceitar2.Visible = false;
                 }
                 mediaCotacoes();
                 if (cotacaoFornecedor != null)
