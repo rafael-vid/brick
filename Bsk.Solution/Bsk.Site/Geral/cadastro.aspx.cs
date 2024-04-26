@@ -160,7 +160,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Cliente_Insert(_ClienteBE);
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá "+ nome.Value+"! Clique no link a seguir para finalizar seu cadastro: http://localhost:57642/Geral/confirmacaoemail.aspx?guid="+guid);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá "+ nome.Value+"! Clique no link a seguir para finalizar seu cadastro: http://44.198.11.245/Geral/confirmacaoemail.aspx?guid="+guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
@@ -240,7 +240,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Fornecedor_Insert(_FornecedorBE);
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
@@ -362,7 +362,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Fornecedor_Insert(_FornecedorBE);
                 var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
 
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
@@ -449,7 +449,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Cliente_Insert(_ClienteBE);
                 var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://localhost:57642/Geral/confirmacaoemail.aspx?guid=" + guid);
+                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome.Value + "! Clique no link para confirmar seu e-mail: http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid);
                 if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
