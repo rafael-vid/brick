@@ -72,13 +72,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
-                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
-                    O fornecedor alegou ter terminado o serviço.</span><br />
-                <br />
-                <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
-                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
-            </div>
+                        <div id="divTerminado" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+                            <label style="flex: 1; text-align: center; margin-bottom: 10px; font-size: 16px;">
+        O fornecedor informou ter terminado o serviço
+    </label>
+    <div style="margin-right: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnTerminar" onclick="terminar('1');" value="Aceitar" style="line-height:normal;">
+    </div>
+    <div style="margin-left: 50px;">
+        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusarTermino" onclick="terminar('0');" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+    </div>
+</div>
             
 
             <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">

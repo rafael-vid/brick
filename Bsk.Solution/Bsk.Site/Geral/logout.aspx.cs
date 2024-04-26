@@ -12,7 +12,7 @@ namespace Bsk.Site.Geral
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("~/Geral/login.aspx");
+            Response.Redirect("~/Geral/index.html");
         }
     }
 }
