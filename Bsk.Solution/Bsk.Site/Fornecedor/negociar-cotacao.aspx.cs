@@ -171,7 +171,7 @@ namespace Bsk.Site.Fornecedor
 
                     if (!IsPostBack)
                     {
-                        valorServico.Value = "R$" + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
+                        valorServico.Value = "R$ " + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
                         dataEntrega.Value = cotacaoFornecedor.DataEntrega;
                     }
 
