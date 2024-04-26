@@ -189,6 +189,14 @@
    
     <script>
 
+
+
+        protected void btnDepoimento_ServerClick(object sender, EventArgs e)
+        {
+            // Your server-side logic for handling the button click event
+            // For example, you can process the form submission here
+        }
+
         function atribuirNota(valor) {
             var parametros = {
                 nota: valor,
