@@ -36,15 +36,6 @@ namespace Bsk.Site.Fornecedor
             {
                 CarregaCotacaoFornecedor();
 
-                // After loading cotacao fornecedor, format the delivery date
-                if (!IsPostBack && dataEntrega.Value != null)
-                {
-                    DateTime deliveryDate;
-                    if (DateTime.TryParse(dataEntrega.Value, out deliveryDate))
-                    {
-                        dataEntrega.Value = deliveryDate.ToString("dd/MM/yyyy");
-                    }
-                }
             }
             catch (Exception ex)
             {
@@ -188,15 +179,7 @@ namespace Bsk.Site.Fornecedor
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-                    try
-                    {
-                        entrega.InnerText = DateTime.Parse(cotacaoFornecedor.DataEntrega).ToString("dd/MM/yyyy");
-                    }
-                    catch (Exception)
-                    {
-                        entrega.InnerText = cotacaoFornecedor.DataEntrega;
-                    }
-
+                    
 
                     if (cotacao.Status == StatusCotacao.Aberto)
                     {
@@ -376,7 +359,7 @@ namespace Bsk.Site.Fornecedor
 
             try
             {
-                cotacaoFornecedor.Valor = double.Parse(valorServico.Value);
+                cotacaoFornecedor.Valor = Convert.ToDecimal(valorServico.Value);
             }
             catch (Exception)
             {

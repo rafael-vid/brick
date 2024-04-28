@@ -43,10 +43,11 @@
             Swal.fire({
             icon: 'success',
                 title: message,
+                text: "Clique no link recebido em seu email para finalizar seu cadastro.",
                 confirmButtonText: 'OK'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "login.aspx";
+                    window.location.href = "cadastrofeito.aspx";
                 }
             })
         }

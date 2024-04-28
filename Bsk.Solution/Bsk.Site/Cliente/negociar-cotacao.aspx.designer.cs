@@ -114,24 +114,6 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlTextArea msg;
 
         /// <summary>
-        /// btnEnviar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
-
-        /// <summary>
-        /// btnEnviarAnexo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviarAnexo;
-
-        /// <summary>
         /// flpArquivo control.
         /// </summary>
         /// <remarks>
@@ -157,6 +139,15 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUpload;
+
+        /// <summary>
+        /// btnEnviarArquivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviarArquivo;
 
         /// <summary>
         /// divAceitar2 control.

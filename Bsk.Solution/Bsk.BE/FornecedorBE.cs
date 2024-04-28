@@ -33,5 +33,7 @@ namespace Bsk.BE
         public string SellerID { get; set; }
         public string CpfResponsavel { get; set; }
         public string Matriz { get; set; }
+        public int  Confirmado { get; set; }
+        public string GuidColumn { get; set; }
     }
 }

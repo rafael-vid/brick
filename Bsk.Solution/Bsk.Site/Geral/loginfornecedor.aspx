@@ -71,8 +71,10 @@
         <header>
 
             <div class="menu-topo container">
-                <a href="index.html">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
                     <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                                <span class="logo-text" style="display: block; color: white; margin-left: 10px; margin-right: 40px; font-size:35px" ">FORNECEDOR</span> <!-- Added this line -->
+
                 </a>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">
@@ -197,20 +199,20 @@
                 })
             }
             menuActive();
-            
+
         </script>
     </form>
     <script>
-     
 
-    // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
+
+        // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
             }
         });
     });
-</script>
+    </script>
 </body>
 </html>

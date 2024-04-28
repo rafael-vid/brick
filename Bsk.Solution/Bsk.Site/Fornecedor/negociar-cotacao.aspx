@@ -183,7 +183,7 @@
                                 <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                             </div>
                             <div class="select-card ">
-                                <input type="text" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
+                                <input type="date" class="form-control" clientidmode="static" id="dataEntrega" runat="server"/>
                             </div>
                         </div>
 
@@ -493,7 +493,7 @@
             var valorServico = document.getElementById("valorServico").value.trim();
 
             // Verifica se os valores estão preenchidos
-            if (dataEntrega === "" || valorServico === "") {
+            if (dataEntrega === "" || valorServico === "R$ 0,00") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
                 Swal.fire({
                     title: "Por favor, preencha a data e o valor antes de prosseguir.",
@@ -645,6 +645,17 @@
                 }
             });
         }
+        document.addEventListener('DOMContentLoaded', function () {
+            var valorServicoInput = document.getElementById('valorServico');
+
+            valorServicoInput.addEventListener('input', function (e) {
+                var cursorPosition = valorServicoInput.selectionStart - (valorServicoInput.value.match(/R\$\s?/g) || []).length;
+                var cleanNumber = this.value.replace(/\D/g, '');
+                var formattedNumber = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(cleanNumber / 100);
+
+                valorServicoInput.value = formattedNumber;
+            });
+        });
 
     </script>
 </asp:Content>

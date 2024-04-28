@@ -29,25 +29,33 @@ namespace Bsk.Site.Geral
                 {
                     if (_login.Senha == senhaParceiro.Value)
                     {
-                        //Cria a estancia do obj HttpCookie passando o nome do mesmo
-                        HttpCookie login = new HttpCookie("loginFornecedor");
-                        _login.Senha = "xxx";
-                        //Define o valor do cookie
-                        login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
+                        if (_login.Confirmado == 0)
+                        {
+                            msg.Text = "Seu email ainda não foi confirmado";
+                            lblMsgParceiro.Text = msg.Text;
+                        }
+                        else
+                        {
+                            //Cria a estancia do obj HttpCookie passando o nome do mesmo
+                            HttpCookie login = new HttpCookie("loginFornecedor");
+                            _login.Senha = "xxx";
+                            //Define o valor do cookie
+                            login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
 
-                        //Time para expiração (1min)
-                        //DateTime dtNow = DateTime.Now;
-                        //TimeSpan tsMinute = new TimeSpan(0, 0, 1, 0);
-                        //cookie.Expires = dtNow + tsMinute;
-                        //Adiciona o cookie
-                        Response.Cookies.Add(login);
+                            //Time para expiração (1min)
+                            //DateTime dtNow = DateTime.Now;
+                            //TimeSpan tsMinute = new TimeSpan(0, 0, 1, 0);
+                            //cookie.Expires = dtNow + tsMinute;
+                            //Adiciona o cookie
+                            Response.Cookies.Add(login);
 
-                        //Cria o obj cookie e recebe o mesmo pelo obj Request
-                        //HttpCookie cookie = Request.Cookies["login"];
-                        //Imprime o valor do cookie
-                        //Response.Write(cookie.Value.ToString());
+                            //Cria o obj cookie e recebe o mesmo pelo obj Request
+                            //HttpCookie cookie = Request.Cookies["login"];
+                            //Imprime o valor do cookie
+                            //Response.Write(cookie.Value.ToString());
 
-                        Response.Redirect("../Fornecedor/dashboard.aspx");
+                            Response.Redirect("../Fornecedor/dashboard.aspx");
+                        }
                     }
                     else
                     {

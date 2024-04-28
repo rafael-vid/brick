@@ -29,9 +29,9 @@ namespace Bsk.Site.Cliente
 
             if (cotacao.IdCotacaoFornecedor != 0)
             {
-                double valor = 0;
-                double valorMax = 0;
-                double valorMin = 0;
+                decimal valor = 0;
+                decimal valorMax = 0;
+                decimal valorMin = 0;
                 foreach (var item in lista)
                 {
                     valor += item.Valor;
@@ -56,9 +56,9 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                double valor = 0;
-                double valorMax=0;
-                double valorMin = 0;
+                decimal valor = 0;
+                decimal valorMax=0;
+                decimal valorMin = 0;
                 foreach (var item in lista)
                 {
                     valor += item.Valor;

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Bsk.Site.Geral.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="confirmacaoemailfornecedor.aspx.cs" Inherits="Bsk.Site.Geral.confirmacaoemailfornecedor" %>
 
 
 
@@ -52,7 +52,7 @@
             display: block;
             padding: 31px 46px 77px 48px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
-            border-radius: 50px 50px 50px 50px;
+            border-radius: 0px 50px 50px 50px;
             background-color: #f4f3f2;
         }
         .filtro {
@@ -61,6 +61,19 @@
             background-size: auto !important;
             width: 100%;
         }
+        .centered-label {
+        position: absolute; /* Or 'fixed' depending on your requirement */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%; /* Adjust width as needed */
+        text-align: center;
+        background-color: #770e18; /* Deep red background */
+        color: #ffffff; /* White text color for contrast */
+        padding: 20px;
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
     </style>
 </head>
 
@@ -85,32 +98,15 @@
 </div>
         </header>
         <main class="loginCadastro">
-            <div class="tabs-menu container">
-
-                <div class="tab-content ativo">
-
-                    <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
-                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
-
-                    </form>
-
-                    <div class="acessos">
-                        <div>
-                            <a href="esqueciasenha.aspx?tipo=cli" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=cli" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div>
-                        <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Entrar</button>
-                    </div>
-
-                </div>
-       
+            <div class="centered-label">
+                <asp:Label ID="Label" runat="server" Text=""></asp:Label>
             </div>
+
+
 
         </main>
 
+<asp:Label ID="mensagem" runat="server" Text=""></asp:Label>
         <footer>
             <a href="/">
                 <img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
@@ -124,30 +120,16 @@
                     <img src="./assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
             </div>
         </footer>
-
-
-
-        
+  
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <script>
             AOS.init();
         </script>
-
         <script async src="assets/js/script.js"></script>
-
-        
     </form>
     <script>
-        // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("senhaCliente").addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    document.getElementById("<%= btnCliente.ClientID %>").click(); // Simula o clique no botão de cliente
-            }
-        });
-    });
 
 </script>
 </body>
