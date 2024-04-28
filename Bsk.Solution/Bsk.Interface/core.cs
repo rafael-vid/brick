@@ -99,26 +99,33 @@ namespace Bsk.Interface
             return _base.ToList<Dashboard>(db.Get(sql));
         }
 
-        public List<ClienteBE> EsqueciASenha(string filtro)
+        public String EsqueciASenha(string filtro)
         {
-            string sql = $@"SELECT 
-                                Nome,
-                                Senha
-                            FROM cliente
-                            where " + filtro;
-            return _base.ToList<ClienteBE>(db.Get(sql));
+            String guid = Guid.NewGuid().ToString();
+            string sql = $@"UPDATE cliente set token='"+guid+"' WHERE " + filtro;
+            db.Execute(sql);
+            return guid;
         }
 
-        public List<ClienteBE> EsqueciASenhaFornecedor(string filtro)
+        public String EsqueciASenhaFornecedor(string filtro)
         {
-            string sql = $@"SELECT 
-
-                                Senha
-                            FROM fornecedor
-                            where " + filtro;
-            return _base.ToList<ClienteBE>(db.Get(sql));
+            String guid = Guid.NewGuid().ToString();
+            string sql = $@"UPDATE fornecedor set token='" + guid + "' WHERE " + filtro;
+            db.Execute(sql);
+            return guid;
         }
-
+        public String AtualizarSenhaCliente(String token, String senha)
+        {
+            string sql = $@"UPDATE cliente set Senha='" + senha + "' WHERE token='" + token + "'";
+            db.Execute(sql);
+            return token;
+        }
+        public String AtualizarSenhaFonecedor(String token, String senha)
+        {
+            string sql = $@"UPDATE fornecedor set Senha='" + senha + "' WHERE token='" + token + "'";
+            db.Execute(sql);
+            return token;
+        }
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {

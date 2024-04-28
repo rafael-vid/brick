@@ -29,20 +29,18 @@ namespace Bsk.Site.Geral
         {
             if (Request.QueryString["tipo"] == "cli")
             {
-                _ClienteBE = _core.EsqueciASenha("Email = '" + usuarioCliente.Text + "'");
-                if (_ClienteBE.Count() > 0)
-                {
-                    Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Sua senha é: " + _ClienteBE[0].Senha);
-                }
+                String guid = _core.EsqueciASenha("Email = '" + usuarioCliente.Text + "'");
+                
+                Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Clique <a href='http://" + HttpContext.Current.Request.Url.Authority + "/Geral/activate.aspx?token="+guid+"&type=cli'>aqui</a> para alterar sua senha");
+                
             }
             else
             {
 
-                _ClienteBE = _core.EsqueciASenhaFornecedor("Email = '" + usuarioCliente.Text + "'");
-                if (_ClienteBE.Count() > 0)
-                {
-                    Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Sua senha é: " + _ClienteBE[0].Senha);
-                }
+                String guid = _core.EsqueciASenhaFornecedor("Email = '" + usuarioCliente.Text + "'");
+                
+                Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Clique <a href='http://" + HttpContext.Current.Request.Url.Authority + "/Geral/activate.aspx?token=" + guid + "'>aqui</a> para alterar sua senha");
+                
             }
             lblMensagem.Text = "Um e-mail foi enviado para: " + usuarioCliente.Text;
         }
