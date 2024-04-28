@@ -67,12 +67,18 @@ namespace Bsk.Site.Cliente
                     divAceitar.Visible = false;
                     //divAceitar2.Visible = false;
                 }
+                List<BE.Model.Fornecedor> forn = _core.GetFornecedor(" IdFornecedor = " + cotacaoFornecedor.IdFornecedor);
+                lblnome.Text = forn[0].nome;
+
                 mediaCotacoes();
                 if (cotacaoFornecedor != null)
                 {
                     var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
                     if (cotacao != null)
                     {
+
+                        
+
                         if (cotacao.Status == StatusCotacao.Finalizado)
                         {
                             btnEnviar.Visible = false;
