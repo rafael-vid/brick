@@ -99,6 +99,21 @@ namespace Bsk.Interface
             return _base.ToList<Dashboard>(db.Get(sql));
         }
 
+        public List<Dashboard> GetCliente(string filtro = "1=1")
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status_fornecedor s
+                                where " + filtro + @"
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
+
+        public List<BE.Model.Fornecedor> GetFornecedor(string filtro = "1=1")
+        {
+            string sql = $@"select s.IdFornecedor as id, s.RazaoSocial as nome from fornecedor s
+                                where " + filtro + @"";
+            return _base.ToList<BE.Model.Fornecedor>(db.Get(sql));
+        }
+
         public String EsqueciASenha(string filtro)
         {
             String guid = Guid.NewGuid().ToString();
