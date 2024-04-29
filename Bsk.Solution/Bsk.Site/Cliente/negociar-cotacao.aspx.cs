@@ -81,7 +81,7 @@ namespace Bsk.Site.Cliente
 
                         if (cotacao.Status == StatusCotacao.Finalizado)
                         {
-                            btnEnviar.Visible = false;
+                            //btnEnviar.Visible = false;
                             divUpload.Visible = false;
                             msg.Visible = false;
                             descricaoHide.Visible = false;
