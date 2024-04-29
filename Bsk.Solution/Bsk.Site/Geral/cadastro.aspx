@@ -326,7 +326,17 @@
                         border-color: #770e18 !important;
                         color: #770e18 !important;
                     }
+                    
+                    .swal2-icon.swal2-success {
+                        border-color: #770e18 !important;
+                        color: #770e18 !important;
+                    }
+
                     .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
+                        background-color: #770e18 !important;
+                    }
+
+                    .swal2-icon.swal2-success [class^=swal2-x-mark-line] {
                         background-color: #770e18 !important;
                     }
                         /*sweet alert style*/
