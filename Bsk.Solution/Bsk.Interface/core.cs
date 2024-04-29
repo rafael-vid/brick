@@ -50,7 +50,7 @@ namespace Bsk.Interface
                         INNER JOIN cotacaofornecedor CF on CF.IdCotacaoFornecedor = C.IdCotacaoFornecedor
                         INNER JOIN cliente CL on CL.IdCliente = C.IdCliente
                         INNER JOIN fornecedor F on F.IdFornecedor = CF.IdFornecedor
-                        INNER JOIN categoria CT on CT.IdCategoria = C.IdCategoria where "+filtro;
+                        INNER JOIN categoria CT on CT.IdCategoria = C.IdCategoria where " + filtro;
             return _base.ToList<TransacaoModel>(db.Get(sql));
         }
 
@@ -83,15 +83,15 @@ namespace Bsk.Interface
                             where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
-        public List<Dashboard> GetDashboardCliente(string filtro="1=1")
+        public List<Dashboard> GetDashboardCliente(string filtro = "1=1")
         {
             string sql = $@"select s.id, s.nome, s.ordem  from status s
-                                where "+filtro+@"
+                                where " + filtro + @"
                                     order by s.ordem asc";
             return _base.ToList<Dashboard>(db.Get(sql));
         }
 
-        public List<Dashboard> GetDashboardFornecedor(string filtro="1=1")
+        public List<Dashboard> GetDashboardFornecedor(string filtro = "1=1")
         {
             string sql = $@"select s.id, s.nome, s.ordem  from status_fornecedor s
                                 where " + filtro + @"
@@ -117,7 +117,7 @@ namespace Bsk.Interface
         public String EsqueciASenha(string filtro)
         {
             String guid = Guid.NewGuid().ToString();
-            string sql = $@"UPDATE cliente set token='"+guid+"' WHERE " + filtro;
+            string sql = $@"UPDATE cliente set token='" + guid + "' WHERE " + filtro;
             db.Execute(sql);
             return guid;
         }
@@ -209,7 +209,7 @@ namespace Bsk.Interface
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(string cats, int idFornecedor)
         {
             var sql = $@"select 
-                            CF.IdCotacao as CotacaoId, 
+                            CT.IdCotacao as CotacaoId, 
                             CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
                             CT.IdCLiente as ClienteId, 
                             CL.Nome, CT.Titulo, 
@@ -218,21 +218,9 @@ namespace Bsk.Interface
                             CT.FinalizaFornecedor, 
                             CT.IdCotacaoFornecedor as CFId,
                             CT.DataAlteracao,
-                            CF.DataEntrega,
-                            CF.Valor,
-                            s.Nome as StatusNome,
-                            CASE
-                                WHEN 
-			                            (select count(IdCotacaoFornecedorChat) 
-			                            from cotacaofornecedorchat 
-			                            where IdFornecedor = 0 and IdCotacaoFornecedor= CF.IdCotacaoFornecedor and LidaFornecedor=0)  > 0 
-		                            THEN 'N'
+                            s.Nome as StatusNome
 
-                                ELSE ''
-                            END as Mensagens
-
-                        from cotacaofornecedor CF
-                        inner join cotacao CT on CT.IdCotacao = CF.IdCotacao
+                        from cotacao CT                      
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
                         left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
                         inner join status s on CT.status = s.id
