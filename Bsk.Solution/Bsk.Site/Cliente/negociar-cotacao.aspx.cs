@@ -115,7 +115,7 @@ namespace Bsk.Site.Cliente
                         if (cotacaoFornecedor.EnviarProposta == 0)
                         {
                             divAceitar.Visible = false;
-                            divAceitar2.Visible = false;
+                            //divAceitar2.Visible = false;
                         }
 
                         if (cotacao.FinalizaCliente == 0 && cotacao.FinalizaFornecedor == 1)
