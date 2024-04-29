@@ -17,16 +17,16 @@
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
                 <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">Cotação <span id="nrCotacao" runat="server"></span></h2>
+                <h2 class="subtitulo_1">Cotações/ Cotação / <span id="nrCotacao" runat="server"></span> <asp:Label ID="lblnome" runat="server"></asp:Label> </h2>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
                 <p id="tituloCot" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="descricaoCot" runat="server"></p>
             </div>
 
@@ -72,17 +72,13 @@
                     </div>
                 </div>
             </div>
-                        <div id="divTerminado" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-                            <label style="flex: 1; text-align: center; margin-bottom: 10px; font-size: 16px;">
-        O fornecedor informou ter terminado o serviço
-    </label>
-    <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnTerminar" onclick="terminar('1');" value="Aceitar" style="line-height:normal;">
-    </div>
-    <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusarTermino" onclick="terminar('0');" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
-    </div>
-</div>
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
+                <span class="tableTitle"><small>Mensagem do sistema:</small><br />
+                    O fornecedor alegou ter terminado o serviço.</span><br />
+                <br />
+                <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
+                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
+            </div>
             
 
             <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
@@ -454,122 +450,7 @@
             border-radius: 20px !important;
         }
 
-<<<<<<< HEAD
-            .chat .btn {
-                margin-right: 30px;
-                align-self: flex-end;
-                width: 100px !important;
-                border: none;
-                outline: none;
-                font-size: 12px;
-                cursor: pointer;
-                margin-top: 25px;
-                font-weight: normal;
-            }
-
-            select-card, .input-cinza, .pesquisar_input {
-                border: 0;
-                color: #3c3c3b;
-                background: #d7d7d7;
-                font-size: 16px;
-                font-family: Rajdhani-semi, sans-serif;
-                width: 50%;
-                padding: 15px 25px;
-                outline: none;
-                -webkit-appearance: none;
-                border-radius: 30px;
-                box-sizing: border-box;
-                position: relative;
-                border: 1px solid transparent;
-                transition: 0.3s ease;
-                box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
-            }
-
-            .select-card select {
-                width: 100%;
-                background: transparent;
-                height: 100%;
-                border: none;
-                outline: none;
-                color: #3c3c3b;
-                font-family: Rajdhani-semi, sans-serif;
-                font-size: 15px;
-            }
-
-            .select-card::after {
-                content: "";
-                width: 1px;
-                height: 100%;
-                position: absolute;
-                background-color: #9a9a99;
-                display: inline-block;
-                right: 60px;
-                top: 0;
-            }
-
-            input#dataEntrega {
-                background: #d7d7d7;
-                border: none;
-                outline: none;
-                box-shadow: none;
-            }
-
-            a.cotacao {
-                background: #f4f3f2;
-                color: #770e18 !important;
-            }
-
-            div:where(.swal2-container).swal2-center > .swal2-popup {
-                border-radius: 40px !important;
-                font-size: 14px !important;
-            }
-
-            div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-                border-radius: 20px !important;
-                background-color: #770e18 !important;
-            }
-
-            div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-                border-radius: 20px !important;
-            }
-            .area_comentario {
-                display: grid;
-                grid-template-columns: 35% 1fr;
-            }
-            
-            .card-content-chat {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-gap: 50px;
-            }
-        </style>
-
-        <script type="text/javascript">
-            setInterval(function () {
-                var parametro = {
-                    tipo: "C",
-                    id: comum.queryString("Id")
-                };
-                comum.getAsync("Comum/CarregaChat", parametro, function (data) {
-                    $("#divChat").empty();
-                    $("#divChat").append(data);
-                });
-            }, 10000);
-
-            $(document).ready(function () {
-                $(".flpArquivo").css("display", "none");
-                $(".flpVideo").css("display", "none");
-
-                $("#btnArquivo").click(function () {
-                    $(".flpArquivo").click();
-                });
-
-                $("#btnVideo").click(function () {
-                    $(".flpVideo").click();
-                });
-=======
     </style>
->>>>>>> master
 
     <script type="text/javascript">
         setInterval(function () {
@@ -581,38 +462,7 @@
                 $("#divChat").empty();
                 $("#divChat").append(data);
             });
-<<<<<<< HEAD
-            function recusar() { }
-            function aceitar() {
-                Swal.fire({
-                    title: 'Aceitar?',
-                    text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
-                    type: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Aceitar!',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.value) {
-                        var parametro = {
-                            idCotacaoFornecedor: comum.queryString("Id")
-                        };
-                        comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
-                            if (data == "Ok") {
-                                window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
-                            } else {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: data
-                                }).then((result) => {
-                                    window.location.href = "minhas-cotacoes.aspx";
-                                });
-                            }
-=======
         }, 10000);
->>>>>>> master
 
         $(document).ready(function () {
             $(".flpArquivo").css("display", "none");
