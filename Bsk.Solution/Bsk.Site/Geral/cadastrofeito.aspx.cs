@@ -45,11 +45,11 @@ namespace Bsk.Site.Geral
             switch (tipo)
             {
                 case "1":
-                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://localhost:57642/Geral/confirmacaoemail.aspx?guid=" + guid);
+                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid);
                     Label.Text = "Email de confirmação reenviado. Por favor, verifique sua caixa de entrada ou spam.";
                     break;
                 case "2":
-                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://localhost:57642/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
+                    Email.Send(email, new List<string>(), "Email de confirmação BRIKK", "Olá " + nome + "! Clique no link a seguir para finalizar seu cadastro: http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid);
                     Label.Text = "Email de confirmação reenviado. Por favor, verifique sua caixa de entrada ou spam.";
                     break;
                 default:

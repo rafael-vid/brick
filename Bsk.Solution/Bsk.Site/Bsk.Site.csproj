@@ -709,6 +709,7 @@
     <Content Include="Cliente\nav.html" />
     <Content Include="Fornecedor\perfil.aspx" />
     <Content Include="Geral\busca.aspx" />
+    <Content Include="Geral\activate.aspx" />
     <Content Include="Geral\confirmacaoemail.aspx" />
     <Content Include="Geral\confirmacaoemailfornecedor.aspx" />
     <Content Include="Geral\esqueciasenha.aspx" />
@@ -1698,6 +1699,13 @@
     </Compile>
     <Compile Include="Geral\busca.aspx.designer.cs">
       <DependentUpon>busca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Geral\activate.aspx.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Geral\activate.aspx.designer.cs">
+      <DependentUpon>activate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\cadastrofeito.aspx.cs">
       <DependentUpon>cadastrofeito.aspx</DependentUpon>

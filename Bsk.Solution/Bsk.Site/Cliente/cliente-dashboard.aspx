@@ -27,7 +27,7 @@
                         foreach(var d in dash)
                         {
                             var cot = PegaCotacoes(d.id);
-                            if (d.id == 1 || d.id == 2 || d.id == 3)
+                            if (d.id == 8 ||d.id == 1 || d.id == 2 || d.id == 3)
                             {
                                 %>
                                     <li>

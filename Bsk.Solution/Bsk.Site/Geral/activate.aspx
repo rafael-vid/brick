@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="loginfornecedor.aspx.cs" Inherits="Bsk.Site.Geral.loginfornecedor" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="activate.aspx.cs" Inherits="Bsk.Site.Geral.activate" %>
 
 
 
@@ -52,7 +52,7 @@
             display: block;
             padding: 31px 46px 77px 48px;
             box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4) !important;
-            border-radius: 50px 50px 50px 50px;
+            border-radius: 0px 50px 50px 50px;
             background-color: #f4f3f2;
         }
         .filtro {
@@ -71,17 +71,23 @@
         <header>
 
             <div class="menu-topo container">
-            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+                <a href="index.html">
                     <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
-                                <span class="logo-text" style="display: block; color: white; margin-left: 10px; margin-right: 40px; font-size:35px" ">FORNECEDOR</span> <!-- Added this line -->
-
                 </a>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">
                         Menu
           <span id="hamburger"></span>
                     </button>
-                    
+                    <ul class="menu-itens">
+                        <li>
+                            <a href="sobre.html">sobre nós</a>
+                        </li>
+                        <li><a href="index.html#parceiros">para parceiros</a></li>
+                        <li><a href="index.html#clientes">PARA CLIENTES</a></li>
+                        <li><a href="ajuda.html">ajuda</a></li>
+                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+                    </ul>
                 </nav>
             </div>
 
@@ -96,33 +102,26 @@
             <div class="tabs-menu container">
                 
 
-             
+                <div class="tab-content ativo" style="border-radius:50px">
+                    <h2>Esqueci a senha</h2>
 
-                <div class="tab-content ativo">
-                    <h2>Para parceiros</h2>
+                    <form>
+                        <asp:TextBox  TextMode="Password" name="usuario" runat="server" id="senha" placeholder="Senha" required></asp:TextBox>
+                        <asp:TextBox TextMode="Password" name="usuario" runat="server" id="repsenha" placeholder="Repetir Senha" required></asp:TextBox>
+                        <asp:Label ID="lblMsg" runat="server"></asp:Label>
 
-                    <asp:UpdatePanel ID="UpdatePanelParceiro" runat="server">
-                            <ContentTemplate>
-                    <div>
-                        <input type="text" name="usuario" id="usuarioParceiro" runat="server" placeholder="Email" required>
-                        <input type="password" name="senha" id="senhaParceiro" runat="server" placeholder="Senha" required>
-                        <asp:Label ID="lblMsgParceiro" runat="server" style="color:darkred; font-size:32px;"></asp:Label>
-                    </div>
+                    </form>
 
                     <div class="acessos">
-                        <div>
-                            <a href="esqueciasenha.aspx?tipo=for" class="esqueceusenha">Esqueci a senha</a>
-                            <a href="cadastro.aspx?Tipo=for" class="naotemacesso">Não tenho cadastro</a>
-                            
-                        </div> 
-                        <button runat="server" id="btnParceiroEntrar" onserverclick="btnParceiroEntrar_ServerClick" class="btn">Entrar</button>
+
+                        <button id="btnCliente" runat="server" onserverclick="btnCliente_ServerClick" class="btn">Enviar</button>
+                        
                     </div>
-                            </ContentTemplate>
-                    </asp:UpdatePanel>
-
-
+                    <asp:Label ID="lblMensagem" runat="server" style="margin-top: 17px;display: block;"></asp:Label>
                 </div>
-       
+
+                
+
             </div>
 
         </main>
@@ -191,20 +190,11 @@
                 })
             }
             menuActive();
-
+            
         </script>
     </form>
     <script>
 
-
-        // Função para acionar o evento de clique do botão "Entrar" para parceiros quando a tecla Enter for pressionada
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("senhaParceiro").addEventListener("keypress", function (event) {
-                if (event.key === "Enter") {
-                    document.getElementById("<%= btnParceiroEntrar.ClientID %>").click(); // Simula o clique no botão de parceiro
-            }
-        });
-    });
-    </script>
+</script>
 </body>
 </html>
