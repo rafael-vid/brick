@@ -24,6 +24,24 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlTextArea depoimentoCliente;
 
         /// <summary>
+        /// divDadosCobranca control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDadosCobranca;
+
+        /// <summary>
+        /// DataTermino control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl DataTermino;
+
+        /// <summary>
         /// btnDepoimento control.
         /// </summary>
         /// <remarks>
@@ -31,40 +49,5 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlButton btnDepoimento;
-
-        /// <summary>
-        /// tituloCot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tituloCot;
-
-        /// <summary>
-        /// descricaoCot control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl descricaoCot;
-        /// <summary>
-        /// parceiro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl parceiro;
-
-        /// <summary>
-        /// dataEntrega control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
     }
-
 }

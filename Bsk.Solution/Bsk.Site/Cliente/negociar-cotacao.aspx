@@ -265,7 +265,6 @@
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
-                <a class="avaliar btn" href="avaliar.aspx">Avaliar</a>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
