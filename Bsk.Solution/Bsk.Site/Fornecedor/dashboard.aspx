@@ -24,10 +24,21 @@
                <% 
 
 
-                        var dash = GetDashboardFornecedor();
-                        foreach(var d in dash)
-                        {
-                            var cot = PegaCotacoes(d.id);
+                   var dash = GetDashboardFornecedor();
+                   foreach(var d in dash)
+                   {
+                       var cot = PegaCotacoes(d.id);
+                       if (d.id == 4 || d.id == 5 || d.id == 6)
+                       {
+                            %>
+                               <li>
+                                    <a href="em-andamento.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                    <p><% Response.Write(d.nome); %> </a> </p>
+                                </li>
+                            <%
+                       }
+                       else
+                       {
                             %>
                                 <li>
                                     <a href="minhas-cotacoes.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
@@ -35,6 +46,7 @@
                                 </li>
                             <%
                         }
+                    }
                     %>
 
  

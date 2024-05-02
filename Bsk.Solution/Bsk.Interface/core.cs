@@ -206,7 +206,7 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
         }
 
-        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(string cats, int idFornecedor)
+        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(string cats, int idFornecedor, string where = "1=1")
         {
             var sql = $@"select 
                             CT.IdCotacao as CotacaoId, 
@@ -224,7 +224,7 @@ namespace Bsk.Interface
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
                         left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
                         inner join status s on CT.status = s.id
-                        where CT.IdCategoria in ({cats})
+                        where CT.IdCategoria in ({cats}) and {where}
                           order by DataAlteracao desc   ";
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }

@@ -49,7 +49,7 @@ namespace Bsk.Site.Fornecedor
             }
 
 
-            var cotacoes = _core.CotacaoFornecedorListaGet(cats + "0", login.IdFornecedor);
+            var cotacoes = _core.CotacaoFornecedorListaGet(cats + "0", login.IdFornecedor, " CT.Status in (1,2,3) ");
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             double total = 0;
             foreach (var item in cotacoes)

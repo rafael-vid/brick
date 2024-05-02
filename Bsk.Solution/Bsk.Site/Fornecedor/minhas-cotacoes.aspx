@@ -4,7 +4,7 @@
 
     <div class="conteudo-dash cotacao">
         <div class="acessos">
-             <a href="cotacao-lista.aspx" class="btn_card">
+             <a href="minhas-cotacoes.aspx" class="btn_card">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
                 Buscar nova cotação
             </a>
