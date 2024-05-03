@@ -499,7 +499,7 @@
             var valorServico = document.getElementById("valorServico").value.trim();
 
             // Verifica se os valores estão preenchidos
-            if (dataEntrega === "" || valorServico === "R$ 0,00") {
+            if (dataEntrega === "" || valorServico === "R$0,00") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
                 Swal.fire({
                     title: "Por favor, preencha a data e o valor antes de prosseguir.",

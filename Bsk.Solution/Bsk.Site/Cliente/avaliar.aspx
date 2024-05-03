@@ -60,9 +60,9 @@
          <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
+                Nova Solicitação
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
             </a>
             <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>
@@ -162,8 +162,13 @@
                         <div class="porcentagem">
                             <%--<div class="chart" id="graph" data-percent="100"></div>--%>
                             <div>
-                                <p class="titulo_percent">Data do término do serviço</p>
-                                <span class="data_percent"><%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %></span>
+                                <div class="item_content_card " id="divDadosCobranca" runat="server">
+                                    </div>
+                                    <div class="item_content_card">
+                                        <h2 class="subtitulo_card_1 subtitulo_1">Data Avaliação</h2>
+                                        <p id="DataAvaliacao"><%= DateTime.Now.ToString("dd/MM/yyyy") %></p>
+                                    </div>
+                       <%--         <span class="data_percent"><%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %></span>--%>
                             </div>
                         </div>
                     </div>
@@ -261,6 +266,13 @@
         drawCircle('#770e18', options.lineWidth, options.percent / 100);
     </script>
     <script async src="../assets/js/script.js"></script>
+    <style>
+
+        .select-card{
+            width: 100% !important;
+        }
+
+    </style>
 
 </asp:Content>
 
