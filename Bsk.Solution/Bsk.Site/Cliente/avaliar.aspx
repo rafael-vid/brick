@@ -60,9 +60,9 @@
          <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
+                Nova Solicitação
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
             </a>
             <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
             </a>
@@ -162,16 +162,12 @@
                         <div class="porcentagem">
                             <%--<div class="chart" id="graph" data-percent="100"></div>--%>
                             <div>
-                                <p class="titulo_percent">Data do término do serviço</p>
                                 <div class="item_content_card " id="divDadosCobranca" runat="server">
-                                    <div class="subtitulo-com-icone">
-                                        <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
-                                        <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
                                     </div>
-                                    <div class="select-card ">
-                                        <input type="date" class="form-control" clientidmode="static" id="DataTermino" runat="server"/>
+                                    <div class="item_content_card">
+                                        <h2 class="subtitulo_card_1 subtitulo_1">Data Avaliação</h2>
+                                        <p id="DataAvaliacao"><%= DateTime.Now.ToString("dd/MM/yyyy") %></p>
                                     </div>
-                                </div>
                        <%--         <span class="data_percent"><%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %></span>--%>
                             </div>
                         </div>
@@ -197,14 +193,6 @@
 
    
     <script>
-
-
-
-        protected void btnDepoimento_ServerClick(object sender, EventArgs e)
-        {
-            // Your server-side logic for handling the button click event
-            // For example, you can process the form submission here
-        }
 
         function atribuirNota(valor) {
             var parametros = {
