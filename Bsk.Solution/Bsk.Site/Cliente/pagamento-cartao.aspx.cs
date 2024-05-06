@@ -42,17 +42,17 @@ namespace Bsk.Site.Cliente
 
                     if (!IsPostBack)
                     {
-                        nome.InnerText = login.Nome;
-                        email.InnerText = login.Email;
-                        cpf.InnerText = login.Cnpj;
-                        telefone.InnerText = login.Telefone;
-                        cep.InnerText = login.Cep;
-                        rua.InnerText = login.Logradouro;
-                        numero.InnerText = login.Numero;
-                        complemento.InnerText = login.Complemento;
-                        bairro.InnerText = login.Bairro;
-                        cidade.InnerText = login.Municipio;
-                        uf.InnerText = login.Uf;
+                        nome.InnerText = cliente.Nome;
+                        email.InnerText = cliente.Email;
+                        cpf.InnerText = cliente.Cnpj;
+                        telefone.InnerText = cliente.Telefone;
+                        cep.InnerText = cliente.Cep;
+                        rua.InnerText = cliente.Logradouro;
+                        numero.InnerText = cliente.Numero;
+                        complemento.InnerText = cliente.Complemento;
+                        bairro.InnerText = cliente.Bairro;
+                        cidade.InnerText = cliente.Municipio;
+                        uf.InnerText = cliente.Uf;
                         valor.InnerText = String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor);
 
 

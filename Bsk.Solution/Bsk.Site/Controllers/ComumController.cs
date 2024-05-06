@@ -485,6 +485,7 @@ namespace Bsk.Site.Controllers
             var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
             cotacao2.Status = "2";
             _core.Cotacao_Update(cotacao2, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            AtualizaEnviarProposta(cotacaoFornecedor.IdCotacaoFornecedor);
 
             NotificacaoBE notif = new NotificacaoBE();
 

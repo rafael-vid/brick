@@ -1,4 +1,6 @@
-﻿using Bsk.Util;
+﻿using Bsk.BE;
+using Bsk.Interface;
+using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,24 +14,30 @@ namespace Bsk.Site.Cliente
 {
     public partial class perfil : System.Web.UI.Page
     {
+        Bsk.Interface.core _core = new Interface.core();
+        Bsk.BE.ClienteBE clienteBE = new Bsk.BE.ClienteBE();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
 
                 var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-                nome.Value = login.Nome;
-                sobrenome.Value = login.Sobrenome;
-                email.Value = login.Email;
-                cpf.Value = login.Cnpj;
-                telefone.Value = login.Telefone;
-                cep.Value = login.Cep;
-                rua.Value = login.Logradouro;
-                numero.Value = login.Numero;
-                complemento.Value = login.Complemento;
-                bairro.Text = login.Bairro;
-                cidade.Value = login.Municipio;
-                uf.Value = login.Uf;
+                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + login.IdCliente).FirstOrDefault();
+
+                nome.Value = cliente.Nome;
+                sobrenome.Value = cliente.Sobrenome;
+                email.Value = cliente.Email;
+                cpf.Value = cliente.Cnpj;
+                telefone.Value = cliente.Telefone;
+                cep.Value = cliente.Cep;
+                rua.Value = cliente.Logradouro;
+                numero.Value = cliente.Numero;
+                complemento.Value = cliente.Complemento;
+                bairro.Text = cliente.Bairro;
+                cidade.Value = cliente.Municipio;
+                uf.Value = cliente.Uf;
             }
         }
         protected Boolean validatePhone(String phone)
@@ -195,7 +203,8 @@ namespace Bsk.Site.Cliente
             else
             {
                 {
-                    Response.Write("<script>alert('Favor preencher todos os campos')</script>");
+                    string script = "Swal.fire('Favor preencher todos os campos')";
+                    ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
                 }
             }
 
