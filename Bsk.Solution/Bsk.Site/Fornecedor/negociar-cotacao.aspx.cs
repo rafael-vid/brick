@@ -11,8 +11,10 @@ namespace Bsk.Site.Fornecedor
 {
     using AjaxControlToolkit;
     using Bsk.BE;
+    using Bsk.BE.Model;
     using Bsk.Interface;
     using Bsk.Util;
+    using Org.BouncyCastle.Asn1.Ocsp;
     using System.Runtime.Remoting.Messaging;
     using M = Bsk.BE.Model;
     public partial class negociar_cotacao : System.Web.UI.Page
@@ -179,7 +181,7 @@ namespace Bsk.Site.Fornecedor
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-                    
+
 
                     if (cotacao.Status == StatusCotacao.Aberto)
                     {
@@ -393,6 +395,8 @@ namespace Bsk.Site.Fornecedor
 
         }
 
+
+
         protected void btnEnviarAnexoFornecedor_ServerClick(object sender, EventArgs e)
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
@@ -440,5 +444,56 @@ namespace Bsk.Site.Fornecedor
                 Response.Redirect($"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}");
             }
         }
+
+
+        public List<CotacaoFornecedorListaModel> PegaCotacoes()
+        {
+            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdFornecedor, StatusCotacao.EmAndamento);
+            List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
+            foreach (var item in cotacoes)
+            {
+                bool adciona = true;
+                if (item.Status == StatusCotacao.Aberto)
+                {
+                    item.Status = "Aberto";
+                }
+                else if (item.Status == StatusCotacao.EmAndamento)
+                {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
+                    item.Status = "Em andamento";
+
+                    if (item.FinalizaCliente == 0 && item.FinalizaFornecedor == 1)
+                    {
+                        item.Status = "Pendente de finalização do cliente";
+                    }
+                }
+                else if (item.Status == StatusCotacao.AguardandoPagamento)
+                {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
+                    item.Status = "Aguardando pagamento";
+                }
+                else if (item.Status == StatusCotacao.Finalizado)
+                {
+                    if (item.CFId != item.CotacaoFornecedorId)
+                    {
+                        adciona = false;
+                    }
+                    item.Status = "Finalizado";
+                }
+                if (adciona)
+                {
+                    lista.Add(item);
+                }
+            }
+            return lista;
+        }
+
     }
 }

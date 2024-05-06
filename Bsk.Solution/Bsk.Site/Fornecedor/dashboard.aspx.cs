@@ -23,7 +23,7 @@ namespace Bsk.Site.Fornecedor
         public List<Dashboard> GetDashboardFornecedor()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.GetDashboardCliente();
+            var cotCliente = _core.GetDashboardCliente(" s.id <> 8 ");
 
             return cotCliente;
         }

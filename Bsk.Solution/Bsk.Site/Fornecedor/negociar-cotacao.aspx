@@ -284,6 +284,12 @@
             
             <div class="footer_card">
                 <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
+                  <%var cotacoes = PegaCotacoes();
+                  foreach (var item in cotacoes) { 
+                  %>
+                <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.CotacaoFornecedorId);%>">Avaliar</a>
+                 <%  }
+                        %>
                 <!--
                 <a href="/" class="item_notifica">
                     <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
@@ -493,7 +499,7 @@
             var valorServico = document.getElementById("valorServico").value.trim();
 
             // Verifica se os valores estão preenchidos
-            if (dataEntrega === "" || valorServico === "R$ 0,00") {
+            if (dataEntrega === "" || valorServico === "R$0,00") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
                 Swal.fire({
                     title: "Por favor, preencha a data e o valor antes de prosseguir.",

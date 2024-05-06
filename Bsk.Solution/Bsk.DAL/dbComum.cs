@@ -16,27 +16,27 @@ namespace Bsk.DAL
         //Comentario
         public DataTable Get(string qry)
         {
-            return acc.retornaDatatable(qry);
+            return acc.retornaDatatable(qry.ToLower());
         }
 
         public string Execute(string qry)
         {
-            return acc.execute(qry).ToString();
+            return acc.execute(qry.ToLower()).ToString();
         }
 
         public string Insert(string qry)
         {
-            return acc.execute(qry).ToString();
+            return acc.execute(qry.ToLower()).ToString();
         }
 
         public string Update(string qry)
         {
-            return acc.execute(qry).ToString();
+            return acc.execute(qry.ToLower()).ToString();
         }
 
         public string Delete(string qry)
         {
-            return acc.execute(qry).ToString();
+            return acc.execute(qry.ToLower()).ToString();
         }
     }
 }

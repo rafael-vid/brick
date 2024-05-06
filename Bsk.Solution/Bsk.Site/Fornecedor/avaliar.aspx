@@ -160,9 +160,14 @@
                     <div class="percent">
                         <div class="porcentagem">
                             <%-- <div class="chart" id="graph" data-percent="100"></div>--%>
-                            <div>
-                                <p class="titulo_percent">Data do término do serviço</p>
-                                <span class="data_percent"><%Response.Write(DateTime.Parse(cot.DataTermino).ToString("dd/MM/yyyy")); %></span>
+                            <div class="item_content_card " id="divDadosCobranca" runat="server">
+                                <div class="subtitulo-com-icone">
+                                    <img src="../assets/imagens/calendario.svg" alt="ícone" style="width: 20px;">
+                                    <h2 class="subtitulo_card_1 subtitulo_1">Informe uma data para terminar o serviço </h2>
+                                </div>
+                                <div class="select-card">
+                                    <input type="date" class="form-control" clientidmode="static" id="DataTermino" runat="server"/>
+                                </div>
                             </div>
                         </div>
                     </div>

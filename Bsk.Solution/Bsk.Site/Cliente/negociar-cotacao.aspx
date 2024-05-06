@@ -254,14 +254,14 @@
 
             </div>
 
-                        <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
-    </div>
-    <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
-    </div>
-</div>
+               <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+                    <div style="margin-right: 50px;">
+                        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+                    </div>
+                    <div style="margin-left: 50px;">
+                        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+                    </div>
+                </div>
 
             <div class="footer_card">
                 <a class="voltar btn" href="cotacao-info.html"><< voltar </a>
@@ -440,15 +440,39 @@
             color: #770e18 !important;
         }
 
-        div:where(.swal2-container).swal2-center > .swal2-popup {
-            border-radius: 40px !important;
-        }
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-            border-radius: 20px !important;
-        }
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-            border-radius: 20px !important;
-        }
+/*sweet alert style*/
+
+div:where(.swal2-container).swal2-center > .swal2-popup {
+    border-radius: 40px !important;
+    font-size: 14px !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+    border-radius: 20px !important;
+    background-color: #770e18 !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+    border-radius: 20px !important;
+    background-color: #f08f00 !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+    border-radius: 20px !important;
+    background-color: #f08f00 !important;
+}
+
+div:where(.swal2-icon).swal2-info {
+    border-color: #770e18 !important;
+    color: #770e18 !important;
+}
+
+.swal2-icon.swal2-error {
+    border-color: #770e18 !important;
+    color: #770e18 !important;
+}
+
+/*sweet alert style*/
 
     </style>
 
@@ -486,7 +510,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Aceitar!'
+                confirmButtonText: 'Aceitar',
+                cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.value) {
                     var parametro = {

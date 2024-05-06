@@ -24,7 +24,7 @@ namespace Bsk.Site.Service
             //sr.Close();
 
             MailMessage oEmail = new MailMessage();
-            MailAddress sDe = new MailAddress("💡 Brikk <naoresponda@spsantos.com.br>"); 
+            MailAddress sDe = new MailAddress("💡 Brikk <naoresponda@brikk.com.br>"); 
             MailAddress sRpt = new MailAddress("naoresponda@brikk.com.br");
 
             oEmail.To.Add(destinatario);

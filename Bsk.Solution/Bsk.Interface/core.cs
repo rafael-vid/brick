@@ -662,6 +662,7 @@ namespace Bsk.Interface
         public void Cotacao_Update(CotacaoBE lg, string filtro)
         {
             List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            lg.DataAvaliacao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             lg.DataAlteracao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));

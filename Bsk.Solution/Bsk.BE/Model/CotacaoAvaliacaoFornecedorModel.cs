@@ -15,6 +15,7 @@ namespace Bsk.BE.Model
         public string Observacao { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
+        public string NomeFornecedor { get; set; }
         public string DataTermino { get; set; }
         public int Nota { get; set; }
     }
