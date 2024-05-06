@@ -206,7 +206,7 @@ namespace Bsk.Interface
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
         }
 
-        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(string cats, int idFornecedor)
+        public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaGet(string cats, int idFornecedor, string where = "1=1")
         {
             var sql = $@"select 
                             CT.IdCotacao as CotacaoId, 
@@ -224,7 +224,7 @@ namespace Bsk.Interface
                         inner join cliente CL on CL.IdCliente = CT.IdCliente
                         left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
                         inner join status s on CT.status = s.id
-                        where CT.IdCategoria in ({cats})
+                        where CT.IdCategoria in ({cats}) and {where}
                           order by DataAlteracao desc   ";
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
@@ -662,7 +662,6 @@ namespace Bsk.Interface
         public void Cotacao_Update(CotacaoBE lg, string filtro)
         {
             List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
-            lg.DataAvaliacao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             lg.DataAlteracao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
