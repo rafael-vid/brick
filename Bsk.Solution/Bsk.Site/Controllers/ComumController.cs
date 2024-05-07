@@ -559,7 +559,7 @@ namespace Bsk.Site.Controllers
             {
                 var cliente = @"<!--CLIENTE-->
                                  <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
+                                    <h3 class='titulo-msg'>Cliente</h3>
                                       <div class='conteudo-msg'>
                                         <p>
                                           {{CLIENTEMSG}}
@@ -571,7 +571,7 @@ namespace Bsk.Site.Controllers
 
                 var fornecedor = @"<!--FORNECEDOR-->
                                             <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                           <h3 class='titulo-msg'>Fornecedor</h3>
                                               <div class='conteudo-msg'>
                                                 <p>
                                                   {{FORNECEDORMSG}}
@@ -606,7 +606,7 @@ namespace Bsk.Site.Controllers
             {
                 var cliente = @"<!--CLIENTE-->
                                  <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
+                                    <h3 class=titulo-msg'>Cliente</h3>
                                       <div class='conteudo-msg'>
                                         <p>
                                           {{CLIENTEMSG}}
@@ -614,19 +614,19 @@ namespace Bsk.Site.Controllers
                                       </div>
                                      </div>
                 
-                <!--FIM CLIENTE-->";
+                                <!--FIM CLIENTE-->";
 
                 var fornecedor = @"<!--FORNECEDOR-->
-                                            <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
-                                              <div class='conteudo-msg'>
-                                                <p>
-                                                  {{FORNECEDORMSG}}
-                                                </p>
-                                              </div>
-                                            </div>
+                                    <div class='enviado'>
+                                    <h3 class=titulo-msg'>Fornecedor</h3>
+                                        <div class='conteudo-msg'>
+                                        <p>
+                                            {{FORNECEDORMSG}}
+                                        </p>
+                                        </div>
+                                    </div>
              
-                                             <!--FIM FORNECEDOR-->";
+                                   <!--FIM FORNECEDOR-->";
 
                 var conteudo = "";
                 foreach (var item in lista)

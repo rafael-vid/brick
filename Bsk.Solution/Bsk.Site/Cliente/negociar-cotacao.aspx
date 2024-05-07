@@ -99,27 +99,25 @@
                                 var chat = CarregaChat();
 
                                 var cliente = @"<!--CLIENTE-->
-                                 <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
-                                      <div class='conteudo-msg'>
-                                        <p>
-                                          {{CLIENTEMSG}}
-                                        </p>
-                                      </div>
-                                     </div>
-                
-                <!--FIM CLIENTE-->";
+                                      <div class='enviado'>
+                                         <h3 class='titulo-msg'>Cliente</h3>
+                                           <div class='conteudo-msg'>
+                                             <p>
+                                               {{CLIENTEMSG}}
+                                             </p>
+                                           </div>
+                                          </div>
+                                         <!--FIM CLIENTE-->";
 
                                 var fornecedor = @"<!--FORNECEDOR-->
                                             <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                           <h3 class='titulo-msg'>Fornecedor</h3>
                                               <div class='conteudo-msg'>
                                                 <p>
                                                   {{FORNECEDORMSG}}
                                                 </p>
                                               </div>
                                             </div>
-             
                                              <!--FIM FORNECEDOR-->";
 
                                 var conteudo = "";

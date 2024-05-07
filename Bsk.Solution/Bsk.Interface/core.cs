@@ -718,7 +718,6 @@ namespace Bsk.Interface
             lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             lg.Status = "1";
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
-
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));
         }
