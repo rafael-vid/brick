@@ -535,13 +535,13 @@ namespace Bsk.Site.Controllers
             CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
             var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
             var listaNlF = lista.Where(x => x.LidaFornecedor == 0).ToList();
-            var listaNlC = lista.Where(x => x.LidaCliente == 0).ToList();
+            var listaNlC = lista.Where(x => x.LidaCliente == 1).ToList();
 
             if (tipo == "F")
             {
                 foreach (var item in listaNlF)
                 {
-                    item.LidaFornecedor = 1;
+                    item.LidaFornecedor = 0;
                     _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
                 }
             }

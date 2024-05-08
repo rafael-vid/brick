@@ -270,7 +270,7 @@ namespace Bsk.Site.Fornecedor
 
                 _CotacaoFornecedorChatBE.IdCliente = cotacao.IdCliente; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
-                _CotacaoFornecedorChatBE.LidaFornecedor = 1;
+                _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
@@ -304,7 +304,7 @@ namespace Bsk.Site.Fornecedor
             var msgNl = msg.Where(x => x.LidaFornecedor == 0).ToList();
             foreach (var item in msgNl)
             {
-                item.LidaFornecedor = 1;
+                item.LidaFornecedor = 0;
                 _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
             }
 
@@ -415,9 +415,9 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdCliente = 1; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
-                _CotacaoFornecedorChatBE.LidaFornecedor = 1;
+                _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 

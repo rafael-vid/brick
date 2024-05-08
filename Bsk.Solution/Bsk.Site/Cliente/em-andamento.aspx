@@ -125,24 +125,19 @@
         </tbody>
 
     </table>
-  <div class="dataTables_info" id="tabela_info" role="status"></div>
-    <!-- Paginação -->
-    <div class="dataTables_paginate paging_simple_numbers" id="tabela_paginate">
-     
-        <a class="paginate_button previous disabled" aria-controls="tabela" data-dt-idx="0" tabindex="-1" id="tabela_previous">Anterior</a>
-        <span>
-            <a class="paginate_button current" aria-controls="tabela" data-dt-idx="1" tabindex="0">1</a>
-            <a class="paginate_button " aria-controls="tabela" data-dt-idx="2" tabindex="0">2</a>
-            <a class="paginate_button " aria-controls="tabela" data-dt-idx="3" tabindex="0">3</a>
-            <a class="paginate_button " aria-controls="tabela" data-dt-idx="4" tabindex="0">4</a>
-            <a class="paginate_button " aria-controls="tabela" data-dt-idx="5" tabindex="0">5</a>
-            <a class="paginate_button " aria-controls="tabela" data-dt-idx="6" tabindex="0">6</a>
-        </span>
-        <a class="paginate_button next" aria-controls="tabela" data-dt-idx="7" tabindex="0" id="tabela_next">Próximo</a>
-    </div>
-    <!-- Fim da Paginação -->
+        <div class="paginas_card">
+            <p>
+                Mostrando de <span>0</span> até <span>04</span> de <span>04</span> registros
+            </p>
 
-</div>
+            <div class="paginas">
+                <button class="anterior">
+                    &lt;&lt; anterior</button>
+                <span class="numero_card">10</span>
+                <button class="proximo">próximo &gt;&gt;</button>
+            </div>
+        </div>
+
        
 
             <div class="footer_card">
