@@ -100,7 +100,7 @@
 
                                 var cliente = @"<!--CLIENTE-->
                                       <div class='enviado'>
-                                         <h3 class='titulo-msg'>Cliente</h3>
+                                         <h2 class='titulo-msg'>Cliente</h2>
                                            <div class='conteudo-msg'>
                                              <p>
                                                {{CLIENTEMSG}}
@@ -111,7 +111,7 @@
 
                                 var fornecedor = @"<!--FORNECEDOR-->
                                             <div class='enviado'>
-                                           <h3 class='titulo-msg'>Fornecedor</h3>
+                                           <h2 class='titulo-msg'>Fornecedor</h2>
                                               <div class='conteudo-msg'>
                                                 <p>
                                                   {{FORNECEDORMSG}}
@@ -318,11 +318,16 @@
             font-family: Rajdhani-Bold, sans-serif;
             color: #770e18;
         }
+        .h2 {
+            font-family: Rajdhani-semi !important;
+            font-size: 14px !important;
+            color: #770e18 !important;
+            margin-bottom: 10px;
+        }
         .titulo-msg {
-            font-family: Rajdhani-semi;
-            font-size: 12px !important;
-            color: #770e18;
-            overflow-x: hidden;
+            font-family: Rajdhani-semi !important;
+            font-size: 14px !important;
+            color: #770e18 !important;
             margin-bottom: 10px;
         }
         .conteudo-msg p, .recebido p {
@@ -332,6 +337,7 @@
         .recebido {
             display: block;
             margin-top: 25px;
+            overflow-x: hidden;
             border-radius: 15px 50px 50px 0;
         }
         .enviar-msg {
@@ -343,8 +349,8 @@
             border: none;
             resize: none;
             padding: 7px 25px;
-            font-size: 16px;
-            font-family: Rajdhani-semi;
+            font-size: 14px !important;
+            font-family: Rajdhani-semi !important;
             color: #706f6f !important;
         }
         ::-webkit-scrollbar {
