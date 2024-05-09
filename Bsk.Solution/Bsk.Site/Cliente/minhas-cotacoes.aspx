@@ -177,6 +177,8 @@
                 table.search("Aguardando aceite").draw();
             } else if ($("#slcStatus").val() == "7") {
                 table.search("Finalizado").draw();
+            } else if ($("#slcStatus").val() == "8") {
+                table.search("Rascunho").draw();
             }
         }
 
