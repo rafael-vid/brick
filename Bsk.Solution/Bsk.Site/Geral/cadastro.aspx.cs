@@ -139,7 +139,7 @@ namespace Bsk.Site.Geral
                 ZoopID = "",
                 WhatsApp = telefone.Value,
                 DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
-                Matriz = matriz.Value,
+                //Matriz = matriz.Value,
                 RazaoSocial = razao.Value,
                 GuidColumn = guid
 
@@ -217,7 +217,7 @@ namespace Bsk.Site.Geral
                 Telefone = telefone.Value,
                 Uf = estado.Value,
                 WhatsApp = telefone.Value,
-                Matriz = matriz.Value,
+                //Matriz = matriz.Value,
                 RazaoSocial = razao.Value,
                 Abertura = dt.ToString("yyyy-MM-dd"),
                 Tipo = "MATRIZ",
@@ -334,7 +334,7 @@ namespace Bsk.Site.Geral
                 Telefone = telefoneJuridica.Value,
                 Uf = estadoJuridica.Value,
                 WhatsApp = telefoneJuridica.Value,
-                Matriz = matriz.Value,
+                //Matriz = matriz.Value,
                 RazaoSocial = razao.Value,
                 Abertura = dt.ToString("yyyy-MM-dd"),
                 Tipo = "MATRIZ",
@@ -350,7 +350,7 @@ namespace Bsk.Site.Geral
     !string.IsNullOrEmpty(fantasia.Value) &&
     !string.IsNullOrEmpty(situacao.Value) &&
     !string.IsNullOrEmpty(abertura.Value) &&
-    !string.IsNullOrEmpty(matriz.Value) &&
+    //!string.IsNullOrEmpty(matriz.Value) &&
     !string.IsNullOrEmpty(telefoneJuridica.Value) &&
     !string.IsNullOrEmpty(bairroJuridica.Value) &&
     !string.IsNullOrEmpty(numeroJuridica.Value) &&
@@ -423,7 +423,7 @@ namespace Bsk.Site.Geral
                 ZoopID = "",
                 WhatsApp = telefoneJuridica.Value,
                 DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
-                Matriz = matriz.Value,
+                //Matriz = matriz.Value,
                 RazaoSocial = razao.Value,
                 GuidColumn = guid
 
@@ -437,7 +437,7 @@ namespace Bsk.Site.Geral
             !string.IsNullOrEmpty(fantasia.Value) &&
             !string.IsNullOrEmpty(situacao.Value) &&
             !string.IsNullOrEmpty(abertura.Value) &&
-            !string.IsNullOrEmpty(matriz.Value) &&
+            //!string.IsNullOrEmpty(matriz.Value) &&
             !string.IsNullOrEmpty(telefoneJuridica.Value) &&
             !string.IsNullOrEmpty(bairroJuridica.Value) &&
             !string.IsNullOrEmpty(numeroJuridica.Value) &&
