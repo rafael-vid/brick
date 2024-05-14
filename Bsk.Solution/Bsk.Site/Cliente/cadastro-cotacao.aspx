@@ -182,32 +182,34 @@
     <script>
 
         function cadastrar() {
-            if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
 
-                Swal.fire({
-                    title: 'Enviar?',
-                    text: "Você tem certeza que gostaria de enviar solicitação de cotação para este serviço? Não será possível fazer mais nenhuma alteração.",
-                    icon: 'info',
-                    showCancelButton: true,
-                    confirmButtonColor: '#f08f00',
-                    cancelButtonColor: "#770e18",
-                    cancelButtonText: 'Cancelar',
-                    confirmButtonText: 'Aceitar'
-                }).then((result) => {
-                    if (result.value) {
-                        var parametro = {
-                            id: comum.queryString("Cotacao"),
-                            descricao: $("#conteudo_descricao").val(),
-                            titulo: $("#conteudo_titulo").val()
-                        };
-                        comum.postAsync("Comum/SubmeterCotacao", parametro, function (data) {
-                            window.location.href = "minhas-cotacoes.aspx";
-                        });
-                    }
-                });
-            } else {
-                Swal.fire("Preencha todos os campos.");
-            }
+                if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
+
+                    Swal.fire({
+                        title: 'Enviar?',
+                        text: "Deseja confirmar a publicação desta solicitação?",
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#f08f00',
+                        cancelButtonColor: "#770e18",
+                        cancelButtonText: 'Cancelar',
+                        confirmButtonText: 'Aceitar'
+                    }).then((result) => {
+                        if (result.value) {
+                            var parametro = {
+                                id: comum.queryString("Cotacao"),
+                                descricao: $("#conteudo_descricao").val(),
+                                titulo: $("#conteudo_titulo").val()
+                            };
+                            comum.postAsync("Comum/SubmeterCotacao", parametro, function (data) {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire("Preencha todos os campos.");
+                }
+            
         }
 
         $(document).ready(function () {
