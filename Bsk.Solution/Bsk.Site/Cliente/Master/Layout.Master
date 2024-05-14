@@ -519,6 +519,7 @@ div#tabela_paginate span a {
 
         function salvarCotacaoLink(valor) {
             Swal.fire({
+                toast: true,
                 title: 'Salvar?',
                 text: "Cuidado, ao sair dessa página você vai perder todo conteúdo não salvo",
                 icon: 'warning',

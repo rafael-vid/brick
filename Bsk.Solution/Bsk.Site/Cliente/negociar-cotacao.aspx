@@ -508,6 +508,7 @@ div:where(.swal2-icon).swal2-info {
 
         function aceitar() {
             Swal.fire({
+                toast: true,
                 title: 'Aceitar?',
                 text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
@@ -526,6 +527,7 @@ div:where(.swal2-icon).swal2-info {
                             window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
                         } else {
                             Swal.fire({
+                                toast: true,
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: data
@@ -554,6 +556,7 @@ div:where(.swal2-icon).swal2-info {
             }
 
             Swal.fire({
+                toast: true,
                 title: titulo,
                 text: texto,
                 icon: "info",

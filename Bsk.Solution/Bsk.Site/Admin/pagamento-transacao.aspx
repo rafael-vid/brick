@@ -75,6 +75,7 @@
     <script>
         function darBaixa(valor) {
             Swal.fire({
+                toast: true,
                 title: 'Mudar status?',
                 text: "Dar baixa na transação?",
                 icon: 'warning',
