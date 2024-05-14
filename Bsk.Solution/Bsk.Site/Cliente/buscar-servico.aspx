@@ -18,59 +18,59 @@
             position: relative;
         }
 
-            .item-faq:last-child {
-                border: none;
-            }
+        .item-faq:last-child {
+            border: none;
+        }
 
-            .item-faq form {
-                display: none;
-            }
-            .item-faq label {
-                font-size: 16px;
-                color: #771218;
-                font-family: Rajdhani-semi, sans-serif;
-            }
+        .item-faq form {
+            display: none;
+        }
+        .item-faq label {
+            font-size: 16px;
+            color: #771218;
+            font-family: Rajdhani-semi, sans-serif;
+        }
 
-            .item-faq input:checked + .checkbox-wrapper form {
-                display: block;
-            }
+        .item-faq input:checked + .checkbox-wrapper form {
+            display: block;
+        }
 
-                .item-faq input:checked + .checkbox-wrapper form > div {
-                    display: flex;
-                    gap: 10px;
-                    color: #3C3C3B;
-                    font-size: 15px;
-                    align-items: center;
-                    height: 35px;
-                }
+        .item-faq input:checked + .checkbox-wrapper form > div {
+            display: flex;
+            gap: 10px;
+            color: #3C3C3B;
+            font-size: 15px;
+            align-items: center;
+            height: 35px;
+        }
 
-                    .item-faq input:checked + .checkbox-wrapper form > div:nth-child(even) {
-                        background: #fff;
-                    }
+        .item-faq input:checked + .checkbox-wrapper form > div:nth-child(even) {
+            background: #fff;
+        }
 
-            .item-faq h2 {
-                cursor: pointer;
-                padding-left: 30px;
-                font-size: 17px;
-                color: #771218;
-                font-family: Rajdhani-semi, sans-serif;
-            }
+        .item-faq h2 {
+            cursor: pointer;
+            padding-left: 30px;
+            font-size: 17px;
+            color: #771218;
+            font-family: Rajdhani-semi, sans-serif;
+        }
 
-                .item-faq h2::before {
-                    content: url(../assets/imagens/escoder.svg);
-                    width: 17px;
-                    height: 17px;
-                    display: inline-block;
-                    transform: rotate(180deg);
-                    transition: transform .3s ease;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                }
+        .item-faq h2::before {
+            content: url(../assets/imagens/escoder.svg);
+            width: 17px;
+            height: 17px;
+            display: inline-block;
+            transform: rotate(180deg);
+            transition: transform .3s ease;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
 
-            .item-faq input {
-                margin-right:10px
-            }
+        .item-faq input {
+            margin-right:10px
+        }
 
         .category-label {
         font-size: 30px !important;
@@ -109,22 +109,42 @@
             }
         }
         .services input[type="checkbox"] {
-    margin-left: 30px; /* Adjust the value as needed */
-}
-            div:where(.swal2-container).swal2-center > .swal2-popup {
-                border-radius: 40px !important;
-                font-size: 14px !important;
-            }
+            margin-left: 30px; /* Adjust the value as needed */
+        }
+        /*sweet alert style*/
 
-            div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-                border-radius: 20px !important;
-                background-color: #770e18 !important;
-            }
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+            font-size: 16px !important;
+        }
 
-            div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-                border-radius: 20px !important;
-                background-color: #f08f00 !important;
-            }
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+            background-color: #770e18 !important;
+        }
+
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+            background-color: #f08f00 !important;
+        }
+
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+            border-radius: 20px !important;
+            background-color: #f08f00 !important;
+        }
+
+        div:where(.swal2-icon).swal2-info {
+            border-color: #770e18 !important;
+            color: #770e18 !important;
+        }
+
+        .swal2-icon.swal2-error {
+            border-color: #770e18 !important;
+            color: #770e18 !important;
+        }
+
+        /*sweet alert style*/
+
 
     </style>
 
@@ -188,7 +208,12 @@ foreach (var item in categorias)
                         var servicesChecked = $('#services' + selectedCategory + ' input[type="checkbox"]:checked').length;
 
                         if (servicesChecked === 0) {
-                            Swal.fire('Por favor selecione pelo menos um serviço antes de continuar');
+                            Swal.fire({
+                                text: 'Por favor selecione pelo menos um serviço antes de continuar',
+                                icon: 'info',
+                                confirmButtonColor: '#f08f00',
+                                confirmButtonText: 'Ok'
+                            });
                             e.preventDefault();  // Stop the navigation to "cadastro-cotacao.aspx"
                         } else {
                             // If services are selected, proceed with navigation

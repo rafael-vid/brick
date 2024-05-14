@@ -127,22 +127,44 @@
 
           </div>
       </div>
-     <style>
-     div:where(.swal2-container).swal2-center > .swal2-popup {
-    border-radius: 40px !important;
-    font-size: 14px !important;
-}
+    <style>
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-    border-radius: 20px !important;
-    background-color: #770e18 !important;
-}
+        /*sweet alert style*/
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-    border-radius: 20px !important;
-    background-color: #f08f00 !important;
-}
- </style>
+        div:where(.swal2-container).swal2-center > .swal2-popup {
+            border-radius: 40px !important;
+            font-size: 16px !important;
+        }
+
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+            border-radius: 20px !important;
+            background-color: #770e18 !important;
+        }
+
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+            border-radius: 20px !important;
+            background-color: #f08f00 !important;
+        }
+
+        div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+            border-radius: 20px !important;
+            background-color: #f08f00 !important;
+        }
+
+        div:where(.swal2-icon).swal2-info {
+            border-color: #770e18 !important;
+            color: #770e18 !important;
+        }
+
+        .swal2-icon.swal2-error {
+            border-color: #770e18 !important;
+            color: #770e18 !important;
+        }
+
+        /*sweet alert style*/
+
+
+    </style>
 
    
 </asp:Content>

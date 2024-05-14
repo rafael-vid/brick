@@ -193,7 +193,7 @@ namespace Bsk.Site.Fornecedor
             }
             else
             {
-                string script = "Swal.fire('Favor preencher todos os campos')";
+                string script = " Swal.fire({\r\n                                text: 'Por favor preencher todos os campos',\r\n                                icon: 'info',\r\n                                confirmButtonColor: '#f08f00',\r\n                                confirmButtonText: 'Ok'\r\n                            });";
                 ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
             }
         }
