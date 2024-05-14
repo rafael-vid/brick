@@ -83,22 +83,19 @@
                         %>
                     </tbody>
                 </table>
-                  <div class="dataTables_info" id="tabela_info" role="status"></div>
-                     <!-- Paginação -->
+                 <div class="paginas_card">
+                    <p>
+                        Mostrando de 0 até <span id="info-registros">0</span> de <span id="info-total-registros">0</span> registros
+                    </p>
                     <div class="dataTables_paginate paging_simple_numbers" id="tabela_paginate">
-     
                         <a class="paginate_button previous disabled" aria-controls="tabela" data-dt-idx="0" tabindex="-1" id="tabela_previous">Anterior</a>
                         <span>
                             <a class="paginate_button current" aria-controls="tabela" data-dt-idx="1" tabindex="0">1</a>
-                            <a class="paginate_button " aria-controls="tabela" data-dt-idx="2" tabindex="0">2</a>
-                            <a class="paginate_button " aria-controls="tabela" data-dt-idx="3" tabindex="0">3</a>
-                            <a class="paginate_button " aria-controls="tabela" data-dt-idx="4" tabindex="0">4</a>
-                            <a class="paginate_button " aria-controls="tabela" data-dt-idx="5" tabindex="0">5</a>
-                            <a class="paginate_button " aria-controls="tabela" data-dt-idx="6" tabindex="0">6</a>
                         </span>
-                        <a class="paginate_button next" aria-controls="tabela" data-dt-idx="7" tabindex="0" id="tabela_next">Próximo</a>
+                        <a class="paginate_button next" aria-controls="tabela" data-dt-idx="8" tabindex="0" id="tabela_next">Próximo</a>
+
                     </div>
-                    <!-- Fim da Paginação -->
+                </div>
 
                 </div>
             </div>
@@ -117,19 +114,57 @@
 
         </div>
     </div>
+
     <script>
 
+        $(window).on('load', function () {
+            // Verificar se a tabela existe antes de manipulá-la
+            if ($('#tabela').length) {
+                atualizarInfoTabela();
+                togglePaginationButtons();
 
-        // Função para atualizar a informação da tabela
+                // Atualizar as informações da tabela sempre que ela for redesenhada
+                $('#tabela').on('draw.dt', function () {
+                    atualizarInfoTabela();
+                    togglePaginationButtons();
+                });
+            }
+        });
+
         function atualizarInfoTabela() {
-            var totalItens = $('#tabela tbody tr').length;
-            $('#tabela_info').text('Mostrando de 1 até ' + totalItens + ' de ' + totalItens + ' registros');
+            // Obtém o número total de registros na tabela
+            var Registros = $('#tabela tbody tr:visible').length;
+            var totalRegistros = $('#tabela tbody tr').length;
+
+            // Atualiza o elemento de informação dos registros
+            $('#info-registros').text(Registros);
+            $('#info-total-registros').text(totalRegistros);
         }
 
-        // Chamada da função ao carregar a página
-        $(document).ready(function () {
-            atualizarInfoTabela();
-        });
+        function togglePaginationButtons() {
+            var table = $('#tabela').DataTable(); // Obter a referência para a tabela
+
+            var info = table.page.info(); // Obter informações sobre a paginação
+            var pages = info.pages; // Total de páginas
+            var currentPage = info.page + 1; // Página atual
+
+            // Loop através de cada botão de paginação
+            $('.paginate_button').each(function (index) {
+                // Mostrar botões até o número total de páginas
+                if (index < pages) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+
+                // Adicionar classe 'current' à página atual
+                if (index === currentPage) {
+                    $(this).addClass('current');
+                } else {
+                    $(this).removeClass('current');
+                }
+            });
+        }
 
     </script>
 

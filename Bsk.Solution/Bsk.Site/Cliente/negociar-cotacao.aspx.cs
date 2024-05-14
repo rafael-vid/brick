@@ -226,7 +226,7 @@ namespace Bsk.Site.Cliente
         public List<CotacaoFornecedorChatBE> CarregaChat()
         {
             var msg = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
-            var msgNl = msg.Where(x => x.LidaCliente == 0).ToList();
+            var msgNl = msg.Where(x => x.LidaCliente == 1).ToList();
             foreach (var item in msgNl)
             {
                 item.LidaCliente = 1;
