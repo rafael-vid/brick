@@ -69,7 +69,6 @@
                     <div class="chat">
                         <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
                         <asp:ScriptManager ID="scr" runat="server"></asp:ScriptManager>
-                        <asp:UpdatePanel ID="upp" runat="server">
                             <ContentTemplate>
 
                             
@@ -151,7 +150,6 @@
                         </div>
 
                                 </ContentTemplate>
-                        </asp:UpdatePanel>
                     </div>
                    
                     <div>

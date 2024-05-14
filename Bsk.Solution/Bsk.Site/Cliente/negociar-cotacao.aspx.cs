@@ -84,7 +84,7 @@ namespace Bsk.Site.Cliente
                             //btnEnviar.Visible = false;
                             divUpload.Visible = false;
                             msg.Visible = false;
-                            descricaoHide.Visible = false;
+                            //descricaoHide.Visible = false;
                         }
 
                         tituloCot.InnerText = cotacao.Titulo;
