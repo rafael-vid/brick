@@ -182,7 +182,10 @@
             }
         }
 
-        setTimeout(function () { filtraTabela() },10)
+        setTimeout(function () { filtraTabela() }, 10)
+
+
+
 
     </script>
 

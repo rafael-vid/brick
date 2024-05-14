@@ -33,7 +33,7 @@ namespace Bsk.Site.Cliente
                 {
                     btnSalvar.Visible = false;
                     btnSubmeter.Visible = false;
-                    divUpload.Visible = false;
+                    divUpload.Visible = true;
                     // alerts.Visible = false;
                     // alerts2.Visible = false;
                 }
@@ -57,7 +57,7 @@ namespace Bsk.Site.Cliente
                 else
                 {
                     btnEnviarAnexo.Visible=false;
-                    divUpload.Visible = false;
+                    divUpload.Visible = true;
                     btnSubmeter.Visible = false;
                 }
             }

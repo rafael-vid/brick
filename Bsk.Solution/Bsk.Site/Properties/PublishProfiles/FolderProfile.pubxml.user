@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <History>True|2024-04-04T14:04:11.6992680Z;False|2024-04-04T11:03:51.3571269-03:00;</History>
-    <_PublishTargetUrl>C:\Users\Rodrigo Marini\source\repos\brikk\Bsk.Solution\Bsk.Site\bin\app.publish\</_PublishTargetUrl>
+    <_PublishTargetUrl>bin\app.publish\</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Admin/cadastro-fornecedor.aspx">
