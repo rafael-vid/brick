@@ -75,7 +75,7 @@ namespace Bsk.Site.Service
         <tbody>
             <tr>
                 <td style=""text-align:center;padding:43px 65px 39px 91px;padding:40px 40px 32px 40px;color:#202124"" valign=""top"">
-                    <img src=""https://ci3.googleusercontent.com/meips/ADKq_NbgA5WuLfDMYdWX--H5jZhVLBHCkiStGCKVQ2KZWdEodxjOjOBJgV-8kIh4bfWo8vkC_2Qrv94O-wx1BEuxeXHBuPZh0bMMhJM5CdX8MGbQ2mEytA=s0-d-e1-ft#https://www.gstatic.com/gumdrop/files/warning-triangle-red.png"" alt="""" width=""62"" height=""auto"" style=""width:62px;height:auto;border:0"" valign=""top"" class=""CToWUd"" data-bit=""iit"">
+                    <img src=""http://44.198.11.245/imagens/logo.png"" alt="""" color=""#770e18"" width=""500"" height=""auto"" style=""width:62px;height:auto;border:0"" valign=""top"" class=""CToWUd"" data-bit=""iit"">
                 </td>
             </tr>
             <tr>
