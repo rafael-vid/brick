@@ -96,10 +96,10 @@
                 <% }
                     else if (item.Status == "Em andamento" || item.Status == "Aguardando aceite" || item.Status == "Aguardando avaliação")
                     {%>
-                <td>
-                    <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Serviço</a>
-                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Cotações</a>
-                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>" style="width: 30%">Mensagens</a>
+                <td style="text-align:right">
+                    <!--<a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Cotações</a>-->
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>" style="margin-right:15px">Visualizar Cotação</a>
                 </td>
                 <%}
                     else if (item.Status == "Aguardando pagamento")
