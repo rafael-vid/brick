@@ -19,6 +19,7 @@ namespace Bsk.Site.Service
         public static Boolean Send(String destinatario, List<String> copias, String title, String body)
         {
             String template = Template();
+            template = template.Replace("{TITULO}", title).Replace("{BOTAO}", body);
             //StreamReader sr = new StreamReader(Path.GetDirectoryName(@"template/") + @"\contato.html");
             //template = sr.ReadToEnd();
             //sr.Close();
@@ -37,7 +38,7 @@ namespace Bsk.Site.Service
             oEmail.ReplyTo = sRpt;
             oEmail.Priority = MailPriority.High;
             oEmail.Subject = title;
-            oEmail.Body = body;
+            oEmail.Body = template;
             oEmail.IsBodyHtml = true;
 
             SmtpClient oEnviar = new SmtpClient("smtp.gmail.com", 587);
@@ -59,7 +60,61 @@ namespace Bsk.Site.Service
         {
             String str = "";
 
-            str = @"
+            str = @"<td style=""max-width:598px;padding:0;margin:0;width:598px;border:1px solid #e0e0e0;min-width:598px"" width=""598"" align=""center"" valign=""top"">
+    <div>
+        <div>
+
+
+        </div>
+    </div>
+
+    
+ 
+
+    <table cellspacing=""0"" cellpadding=""0"" border=""0"" width=""100%"" valign=""top"" role=""presentation"" style=""margin:auto;width:100%"">
+        <tbody>
+            <tr>
+                <td style=""text-align:center;padding:43px 65px 39px 91px;padding:40px 40px 32px 40px;color:#202124"" valign=""top"">
+                    <img src=""https://ci3.googleusercontent.com/meips/ADKq_NbgA5WuLfDMYdWX--H5jZhVLBHCkiStGCKVQ2KZWdEodxjOjOBJgV-8kIh4bfWo8vkC_2Qrv94O-wx1BEuxeXHBuPZh0bMMhJM5CdX8MGbQ2mEytA=s0-d-e1-ft#https://www.gstatic.com/gumdrop/files/warning-triangle-red.png"" alt="""" width=""62"" height=""auto"" style=""width:62px;height:auto;border:0"" valign=""top"" class=""CToWUd"" data-bit=""iit"">
+                </td>
+            </tr>
+            <tr>
+                <td align=""center"" style=""font-family:'Google Sans','Roboto',Arial,sans-serif;text-align:center;padding:0px 40px 19px 40px;color:#202124;font-size:42px;line-height:54px;direction:ltr;font-weight:normal;word-break:normal;color:#25272b;font-size:32px;line-height:39px;padding:2px 55px 6px 73px"" dir=""ltr"">
+                    {TITULO}
+                </td>
+            </tr>
+
+        
+
+   
+
+    <table cellspacing=""0"" cellpadding=""0"" border=""0"" width=""auto"" align=""center"" role=""presentation"">
+        <tbody>
+            <tr>
+                <td>
+                    <table cellspacing=""0"" cellpadding=""0"" border=""0"" style=""border-collapse:collapse;clear:both;padding:0;Margin:0;table-layout:fixed"" role=""presentation"">
+                        <tbody>
+                            <tr>
+                                <td style=""border-collapse:collapse;word-break:normal;padding:31px 0px 4px 0px;direction:ltr"" align=""center"" dir=""ltr"">
+                                    <div>
+                                        {BOTAO}
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellspacing=""0"" cellpadding=""0"" border=""0"" width=""480"" style=""width:480px"" role=""presentation"">
+    </table>
+
+
+   
+
+</td>
 ";
 
             return str;
