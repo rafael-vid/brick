@@ -33,7 +33,7 @@ namespace Bsk.Site.Cliente
         public List<CotacaoListaClienteModel> PegaCotacoes(int statusID)
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.status = "+statusID+" order by DataAlteracao desc");
+            var cotCliente = _core.CotacaoClienteGet($" CT.idParticipante=" + login.IdCliente + " and CT.status = "+statusID+" order by DataAlteracao desc");
            
             return cotCliente;
         }

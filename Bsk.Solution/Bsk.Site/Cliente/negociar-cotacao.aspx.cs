@@ -278,8 +278,15 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            try
+            {
+                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public string pegaStatus()

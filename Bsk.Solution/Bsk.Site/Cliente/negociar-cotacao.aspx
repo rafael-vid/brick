@@ -210,7 +210,7 @@
 
                     <tbody>
                         <!--LOOP DOCUMENTO-->
-                        <%var anexos = PegaAnexo();
+                        <% /*var anexos = PegaAnexo();
                             foreach (var item in anexos)
                             {%>
                         <tr>
@@ -227,7 +227,7 @@
                                 <% } %>
                             </td>
                         </tr>
-                        <%}
+                        <%}*/
                         %>
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>

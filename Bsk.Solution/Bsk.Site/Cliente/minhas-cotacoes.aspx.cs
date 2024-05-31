@@ -29,7 +29,7 @@ namespace Bsk.Site.Cliente
         public List<CotacaoListaClienteModel> PegaCotacoes()
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.CotacaoClienteGet($" CT.IdCliente=" + login.IdCliente + " and CT.status in (1,2,3,8) order by DataAlteracao desc");
+            var cotCliente = _core.CotacaoClienteGet($" CT.idParticipante=" + login.IdCliente + " and CT.status in (1,2,3,8) order by DataAlteracao desc");
             if (Request.QueryString["status"] != null)
             {
                 //cotCliente = cotCliente.Where(x => x.Status == Request.QueryString["status"]).ToList();

@@ -23,7 +23,7 @@ namespace Bsk.Site.Cliente
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
 
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND IdCliente=" + login.IdCliente);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND idParticipante=" + login.IdCliente);
             foreach (var item in cotacoes)
             {
                 item.Status = "Finalizado";
