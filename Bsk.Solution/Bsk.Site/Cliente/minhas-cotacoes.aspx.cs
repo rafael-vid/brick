@@ -19,9 +19,9 @@ namespace Bsk.Site.Cliente
         {
 
         }
-        public List<Dashboard> GetDashboardCliente()
+        public List<Dashboard> GetDashboardParticipante()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             var cotCliente = _core.GetDashboardCliente($" s.id in (1,2,3)");
 
             return cotCliente;

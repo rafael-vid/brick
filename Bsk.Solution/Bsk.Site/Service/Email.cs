@@ -40,6 +40,7 @@ namespace Bsk.Site.Service
             oEmail.Subject = title;
             oEmail.Body = template;
             oEmail.IsBodyHtml = true;
+            oEmail.Sender = sDe;
 
             SmtpClient oEnviar = new SmtpClient("smtp.gmail.com", 587);
             oEnviar.EnableSsl = true;
@@ -75,11 +76,11 @@ namespace Bsk.Site.Service
         <tbody>
             <tr>
                 <td style=""text-align:center;padding:43px 65px 39px 91px;padding:40px 40px 32px 40px;color:#202124"" valign=""top"">
-                    <img src=""http://44.198.11.245/imagens/logo.png"" alt="""" color=""#770e18"" width=""500"" height=""auto"" style=""width:62px;height:auto;border:0"" valign=""top"" class=""CToWUd"" data-bit=""iit"">
+                    <img src=""http://44.198.11.245/imagens/logo.png"" alt="""" color=""#770e18"" width=""400"" height=""auto"" style=""width:400px;height:auto;border:0"" valign=""top"" class=""CToWUd"" data-bit=""iit"">
                 </td>
             </tr>
             <tr>
-                <td align=""center"" style=""font-family:'Google Sans','Roboto',Arial,sans-serif;text-align:center;padding:0px 40px 19px 40px;color:#202124;font-size:42px;line-height:54px;direction:ltr;font-weight:normal;word-break:normal;color:#25272b;font-size:32px;line-height:39px;padding:2px 55px 6px 73px"" dir=""ltr"">
+                <td align=""center"" style=""font-family:'Rajdhani Sans','Roboto',Arial,sans-serif;text-align:center;padding:0px 40px 19px 40px;color:#202124;font-size:42px;line-height:54px;direction:ltr;font-weight:normal;word-break:normal;color:#25272b;font-size:32px;line-height:39px;padding:2px 55px 6px 73px"" dir=""ltr"">
                     {TITULO}
                 </td>
             </tr>
@@ -98,6 +99,7 @@ namespace Bsk.Site.Service
                                 <td style=""border-collapse:collapse;word-break:normal;padding:31px 0px 4px 0px;direction:ltr"" align=""center"" dir=""ltr"">
                                     <div>
                                         {BOTAO}
+                                        </br></br>
                                     </div>
 
                                 </td>

@@ -14,6 +14,7 @@ namespace Bsk.Site.Geral
         core _core = new core();
         FornecedorBE _FornecedorBE = new FornecedorBE();
         ClienteBE _ClienteBE = new ClienteBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,7 +24,7 @@ namespace Bsk.Site.Geral
 
         protected void btnCliente_ServerClick(object sender, EventArgs e)
         {
-            var _login = _core.Cliente_Get(_ClienteBE, $" Email='{usuarioCliente.Value.ToString()}'").FirstOrDefault();
+            var _login = _core.Participante_Get(_ParticipanteBE, $" Email='{usuarioCliente.Value.ToString()}'").FirstOrDefault();
 
             if (_login != null)
             {

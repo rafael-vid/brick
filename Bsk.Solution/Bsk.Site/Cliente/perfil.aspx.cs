@@ -17,18 +17,18 @@ namespace Bsk.Site.Cliente
             if (!IsPostBack)
             {
 
-                var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+                var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
                 nome.Value = login.Nome;
                 sobrenome.Value = login.Sobrenome;
                 email.Value = login.Email;
-                cpf.Value = login.Cnpj;
+                //cpf.Value = login.Cnpj;
                 telefone.Value = login.Telefone;
                 cep.Value = login.Cep;
                 rua.Value = login.Logradouro;
                 numero.Value = login.Numero;
                 complemento.Value = login.Complemento;
                 bairro.Text = login.Bairro;
-                cidade.Value = login.Municipio;
+                //cidade.Value = login.Municipio;
                 uf.Value = login.Uf;
             }
         }
@@ -49,7 +49,7 @@ namespace Bsk.Site.Cliente
         }
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             Bsk.BE.ClienteBE clienteBE = new BE.ClienteBE();
             Bsk.Interface.core _core = new Interface.core();
             Boolean AtualizarCampos = true;
@@ -154,7 +154,7 @@ namespace Bsk.Site.Cliente
             }
             if (AtualizarCampos == true)
             {
-                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + login.IdCliente).FirstOrDefault();
+                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + login.IdParticipante).FirstOrDefault();
                 cliente.Logradouro = rua.Value;
                 cliente.Municipio = cidade.Value;
                 cliente.Nome = nome.Value;

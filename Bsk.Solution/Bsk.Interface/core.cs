@@ -83,6 +83,13 @@ namespace Bsk.Interface
                             where " + filtro;
             return _base.ToList<CotacaoListaClienteModel>(db.Get(sql));
         }
+        public List<Dashboard> GetDashboardParticipante(string filtro = "1=1")
+        {
+            string sql = $@"select s.id, s.nome, s.ordem  from status s
+                                where " + filtro + @"
+                                    order by s.ordem asc";
+            return _base.ToList<Dashboard>(db.Get(sql));
+        }
         public List<Dashboard> GetDashboardCliente(string filtro = "1=1")
         {
             string sql = $@"select s.id, s.nome, s.ordem  from status s
@@ -117,7 +124,7 @@ namespace Bsk.Interface
         public String EsqueciASenha(string filtro)
         {
             String guid = Guid.NewGuid().ToString();
-            string sql = $@"UPDATE cliente set token='" + guid + "' WHERE " + filtro;
+            string sql = $@"UPDATE participante set token='" + guid + "' WHERE " + filtro;
             db.Execute(sql);
             return guid;
         }
@@ -129,18 +136,13 @@ namespace Bsk.Interface
             db.Execute(sql);
             return guid;
         }
-        public String AtualizarSenhaCliente(String token, String senha)
+        public String AtualizarSenha(String token, String senha)
         {
-            string sql = $@"UPDATE cliente set Senha='" + senha + "' WHERE token='" + token + "'";
+            string sql = $@"UPDATE participante set Senha='" + senha + "' WHERE token='" + token + "'";
             db.Execute(sql);
             return token;
         }
-        public String AtualizarSenhaFonecedor(String token, String senha)
-        {
-            string sql = $@"UPDATE fornecedor set Senha='" + senha + "' WHERE token='" + token + "'";
-            db.Execute(sql);
-            return token;
-        }
+        
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {
@@ -577,6 +579,14 @@ namespace Bsk.Interface
             db.Delete(_base.Delete(Lista_lg, null));
         }
 
+        ////////////////////////////////////////////// Participante ////////////////////////////////////////////////////////////
+        public List<ParticipanteBE> Participante_Get(ParticipanteBE lg, string _filtro)
+        {
+            List<ParticipanteBE> Lista_lg = new List<ParticipanteBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<ParticipanteBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+        
         ////////////////////////////////////////////// Cliente ////////////////////////////////////////////////////////////
         public List<ClienteBE> Cliente_Get(ClienteBE lg, string _filtro)
         {

@@ -30,10 +30,10 @@ namespace Bsk.Site.Fornecedor
             lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
 
         }
-        public List<Dashboard> GetDashboardCliente()
+        public List<Dashboard> GetDashboardFornecedor()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotCliente = _core.GetDashboardCliente($" s.id in (1,2,3)");
+            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var cotCliente = _core.GetDashboardFornecedor($" s.id in (1,2,3)");
 
             return cotCliente;
         }

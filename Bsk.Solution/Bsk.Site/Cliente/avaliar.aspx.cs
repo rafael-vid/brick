@@ -36,7 +36,7 @@ namespace Bsk.Site.Cliente
 
         public CotacaoAvaliacaoModel PegaCotacao()
         {
-            CotacaoAvaliacaoModel cotacao = _core.Cotacao_Avaliacao_Get(Request.QueryString["cotacao"]);
+            CotacaoAvaliacaoModel cotacao = _core.Cotacao_Avaliacao_Get(Request.QueryString["id"]);
             depoimentoCliente.InnerText = cotacao.Depoimento;
             if (!String.IsNullOrEmpty(cotacao.Depoimento))
             {

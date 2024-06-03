@@ -81,7 +81,7 @@ namespace Bsk.Site.Cliente
 
         private string salvarCotacao()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             string cot = "";
 
             if (Request.QueryString["Cotacao"] != null)
@@ -116,7 +116,7 @@ namespace Bsk.Site.Cliente
                     Descricao = descricao.Text,
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
-                    IdCliente = login.IdCliente,
+                    IdCliente = login.IdParticipante,
                     IdCotacaoFornecedor = 0,
                     Nota = 0,
                     Observacao = "",

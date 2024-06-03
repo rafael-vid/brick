@@ -72,18 +72,44 @@ namespace Bsk.Util
                 Email = ret["Email"],
                 Logradouro = ret["Logradouro"],
                 Municipio = ret["Municipio"],
-                Nome= ret["Nome"],
-                Sobrenome= ret["Sobrenome"],
-                Numero= ret["Numero"],
-                Senha= ret["Senha"],
-                Situacao= ret["Situacao"],
-                Status= ret["Status"],
-                Telefone= ret["Telefone"],
-                Uf= ret["Uf"],
-                WhatsApp= ret["WhatsApp"],
+                Nome = ret["Nome"],
+                Sobrenome = ret["Sobrenome"],
+                Numero = ret["Numero"],
+                Senha = ret["Senha"],
+                Situacao = ret["Situacao"],
+                Status = ret["Status"],
+                Telefone = ret["Telefone"],
+                Uf = ret["Uf"],
+                WhatsApp = ret["WhatsApp"],
                 ZoopID = ret["ZoopID"]
             };
             return clienteBE;
+        }
+        public static ParticipanteBE PegaLoginParticipante(string json)
+        {
+            byte[] bytes = Encoding.Default.GetBytes(json);
+            json = Encoding.UTF8.GetString(bytes);
+            var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
+            ParticipanteBE participanteBE = new ParticipanteBE()
+            {
+                IdParticipante = ret["IdParticipante"],
+                Bairro = ret["Bairro"],
+                Cep = ret["Cep"],
+                Documento = ret["Documento"],
+                Complemento = ret["Complemento"],
+                data = ret["data"],
+                Email = ret["Email"],
+                Logradouro = ret["Logradouro"],
+                cidade = ret["cidade"],
+                Nome = ret["Nome"],
+                Sobrenome = ret["Sobrenome"],
+                Numero = ret["Numero"],
+                Senha = ret["Senha"],
+                Matriz = ret["Matriz"],
+                Telefone = ret["Telefone"],
+                Uf = ret["Uf"],
+            };
+            return participanteBE;
         }
 
     }

@@ -44,7 +44,7 @@
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
                         <% 
-                            var itens = GetDashboardCliente();
+                            var itens = GetDashboardFornecedor();
 
                             foreach(var i in itens)
                             {

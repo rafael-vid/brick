@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ParticipanteBE.cs" />
     <Compile Include="Model\Fornecedor.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\Dashboard.cs" />

@@ -29,15 +29,9 @@ namespace Bsk.Site.Geral
         {
             if(senha.Text == repsenha.Text)
             {
-                if (Request.QueryString["type"] == "cli")
-                {
-                    _core.AtualizarSenhaCliente(Request.QueryString["token"], senha.Text);
-                }
-                else
-                {
-                    _core.AtualizarSenhaFonecedor(Request.QueryString["token"], senha.Text);              
-                }
-                lblMsg.Text = "A senha foi alterada com sucesso.";
+                
+                    _core.AtualizarSenha(Request.QueryString["token"], senha.Text);
+                
             }
             else
             {

@@ -27,21 +27,12 @@ namespace Bsk.Site.Geral
 
         protected void btnCliente_ServerClick(object sender, EventArgs e)
         {
-            if (Request.QueryString["tipo"] == "cli")
-            {
+            
                 String guid = _core.EsqueciASenha("Email = '" + usuarioCliente.Text + "'");
                 
                 Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Clique <a href='http://" + HttpContext.Current.Request.Url.Authority + "/Geral/activate.aspx?token="+guid+"&type=cli'>aqui</a> para alterar sua senha");
                 
-            }
-            else
-            {
-
-                String guid = _core.EsqueciASenhaFornecedor("Email = '" + usuarioCliente.Text + "'");
-                
-                Email.Send(usuarioCliente.Text, new List<string>(), "Esqueci minha senha", "Clique <a href='http://" + HttpContext.Current.Request.Url.Authority + "/Geral/activate.aspx?token=" + guid + "'>aqui</a> para alterar sua senha");
-                
-            }
+            
             lblMensagem.Text = "Um e-mail foi enviado para: " + usuarioCliente.Text;
         }
     }
