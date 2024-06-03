@@ -186,6 +186,7 @@
                 if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
 
                     Swal.fire({
+                        toast: true,
                         title: 'Enviar?',
                         text: "Deseja confirmar a publicação desta solicitação?",
                         icon: 'info',

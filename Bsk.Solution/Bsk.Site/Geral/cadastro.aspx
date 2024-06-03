@@ -33,6 +33,7 @@
     <script>
         function displayPopupMessage(message){
     Swal.fire({
+        toast: true,
         icon: 'error',
         title: 'Atenção',
         text: message
@@ -41,6 +42,7 @@
 
         function displayPopupMessage2(message) {
             Swal.fire({
+            toast: true,
             icon: 'info',
             title: message,
             text: "Clique no link recebido em seu email para finalizar seu cadastro.",
@@ -54,6 +56,7 @@
 
         function displayPopupMessage3(message) {
             Swal.fire({
+                toast: true,
                 icon: 'error',
                 title: 'Atenção',
                 text: message,
