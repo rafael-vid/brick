@@ -206,6 +206,7 @@
         
         $('.liberarPagamento').click(function () {
             swal({
+                toast: true,
                 title: "Tem certeza que podemos liberar o pagamento?",
                 text: "Após o aceite a quantia acordada será liberada para o prestador de serviço!",
                 icon: "warning",
@@ -216,9 +217,13 @@
                     if (willDelete) {
                         swal("Pagamento liberado com sucesso!", {
                             icon: "success",
+                            toast: true
                         });
                     } else {
-                        swal("Ok, vamos aguardar mais um pouco para liberar o pagamento!");
+                        swal("Ok, vamos aguardar mais um pouco para liberar o pagamento", {
+                            icon: "info",
+                            toast: true
+                        });
                     }
                 });
         });
