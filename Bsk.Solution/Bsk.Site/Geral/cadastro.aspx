@@ -33,6 +33,7 @@
     <script>
         function displayPopupMessage(message){
     Swal.fire({
+        toast: true,
         icon: 'error',
         title: 'Atenção',
         text: message
@@ -41,6 +42,7 @@
 
         function displayPopupMessage2(message) {
             Swal.fire({
+            toast: true,
             icon: 'info',
             title: message,
             text: "Clique no link recebido em seu email para finalizar seu cadastro.",
@@ -54,6 +56,7 @@
 
         function displayPopupMessage3(message) {
             Swal.fire({
+                toast: true,
                 icon: 'error',
                 title: 'Atenção',
                 text: message,
@@ -300,6 +303,7 @@
                     div:where(.swal2-container).swal2-center > .swal2-popup {
                         border-radius: 40px !important;
                         font-size: 14px !important;
+                        text-align: center !important;
                     }
 
                     div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
@@ -331,7 +335,9 @@
                         border-color: #770e18 !important;
                         color: #770e18 !important;
                     }
-
+                    .swal2-popup.swal2-toast .swal2-content {
+                        text-align: center !important;
+}
                     .swal2-icon.swal2-error [class^=swal2-x-mark-line] {
                         background-color: #770e18 !important;
                     }

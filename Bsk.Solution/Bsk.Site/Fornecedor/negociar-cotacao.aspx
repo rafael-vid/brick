@@ -77,28 +77,26 @@
                                 var chat = CarregaChat();
 
                                 var cliente = @"<!--CLIENTE-->
-                                 <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
-                                      <div class='conteudo-msg'>
-                                        <p>
-                                          {{CLIENTEMSG}}
-                                        </p>
-                                      </div>
-                                     </div>
-                
-                <!--FIM CLIENTE-->";
+                                                <div class='enviado'>
+                                                    <h3 class='titulo-msg'>Cliente</h3>
+                                                        <div class='conteudo-msg'>
+                                                            <p>
+                                                                {{CLIENTEMSG}}
+                                                            </p>
+                                                        </div>
+                                                </div>
+                                                <!--FIM CLIENTE-->";
 
                                 var fornecedor = @"<!--FORNECEDOR-->
-                                            <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
-                                              <div class='conteudo-msg'>
-                                                <p>
-                                                  {{FORNECEDORMSG}}
-                                                </p>
-                                              </div>
-                                            </div>
-             
-                                             <!--FIM FORNECEDOR-->";
+                                                   <div class='enviado'>
+                                                       <h3 class='titulo-msg'>Fornecedor</h3>
+                                                            <div class='conteudo-msg'>
+                                                                <p>
+                                                                    {{FORNECEDORMSG}}
+                                                                </p>
+                                                            </div>
+                                                    </div>
+                                                    <!--FIM FORNECEDOR-->";
 
                                 var conteudo = "";
                                 foreach (var item in chat)
@@ -500,6 +498,7 @@
             if (dataEntrega === "" || valorServico === "R$0,00") {
                 // Se não estiverem preenchidos, exibe uma mensagem de alerta
                 Swal.fire({
+                    toast: true,
                     title: "Por favor, preencha a data e o valor antes de prosseguir.",
                     confirmButtonColor: '#f08f00',
                     confirmButtonText: 'Ok'
@@ -569,6 +568,7 @@
 
         function terminar() {
             Swal.fire({
+                toast: true,
                 title: 'Terminar?',
                 text: "Você tem certeza que gostaria de informar que completou o serviço? Essa ação é irreversível.",
                 icon: "info",
@@ -621,6 +621,7 @@
 
         function desistirCotacao() {
             Swal.fire({
+                toast: true,
                 title: 'Você tem certeza que gostaria de desistir dessa cotação?',
                 text: "Ela não vai mais ficar visível para você e não será possível retomá-la. Essa ação é irreversível.",
                 icon: "info",
@@ -637,6 +638,7 @@
                     };
                     comum.post("Comum/DesistirCotacao", parametro, function (data) {
                         Swal.fire({
+                            toast: true,
                             icon: 'success',
                             iconColor: "#770e18",
                             title: 'Sucesso',

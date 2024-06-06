@@ -151,6 +151,7 @@
     <script>
         function deletarCartao() {
             Swal.fire({
+                toast: true,
                 title: 'Deletar?',
                 text: "Você tem certeza que gostaria de deletar esse cartão?",
                 type: 'warning',

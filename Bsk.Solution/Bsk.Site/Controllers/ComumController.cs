@@ -536,13 +536,13 @@ namespace Bsk.Site.Controllers
             CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
             var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
             var listaNlF = lista.Where(x => x.LidaFornecedor == 0).ToList();
-            var listaNlC = lista.Where(x => x.LidaCliente == 0).ToList();
+            var listaNlC = lista.Where(x => x.LidaCliente == 1).ToList();
 
             if (tipo == "F")
             {
                 foreach (var item in listaNlF)
                 {
-                    item.LidaFornecedor = 1;
+                    item.LidaFornecedor = 0;
                     _core.CotacaoFornecedorChat_Update(item, "IdCotacaoFornecedorChat=" + item.IdCotacaoFornecedorChat);
                 }
             }
@@ -560,7 +560,7 @@ namespace Bsk.Site.Controllers
             {
                 var cliente = @"<!--CLIENTE-->
                                  <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
+                                    <h3 class='titulo-msg'>Cliente</h3>
                                       <div class='conteudo-msg'>
                                         <p>
                                           {{CLIENTEMSG}}
@@ -572,7 +572,7 @@ namespace Bsk.Site.Controllers
 
                 var fornecedor = @"<!--FORNECEDOR-->
                                             <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                           <h3 class='titulo-msg'>Fornecedor</h3>
                                               <div class='conteudo-msg'>
                                                 <p>
                                                   {{FORNECEDORMSG}}
@@ -607,7 +607,7 @@ namespace Bsk.Site.Controllers
             {
                 var cliente = @"<!--CLIENTE-->
                                  <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
+                                    <h3 class=titulo-msg'>Cliente</h3>
                                       <div class='conteudo-msg'>
                                         <p>
                                           {{CLIENTEMSG}}
@@ -615,19 +615,19 @@ namespace Bsk.Site.Controllers
                                       </div>
                                      </div>
                 
-                <!--FIM CLIENTE-->";
+                                <!--FIM CLIENTE-->";
 
                 var fornecedor = @"<!--FORNECEDOR-->
-                                            <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
-                                              <div class='conteudo-msg'>
-                                                <p>
-                                                  {{FORNECEDORMSG}}
-                                                </p>
-                                              </div>
-                                            </div>
+                                    <div class='enviado'>
+                                    <h3 class=titulo-msg'>Fornecedor</h3>
+                                        <div class='conteudo-msg'>
+                                        <p>
+                                            {{FORNECEDORMSG}}
+                                        </p>
+                                        </div>
+                                    </div>
              
-                                             <!--FIM FORNECEDOR-->";
+                                   <!--FIM FORNECEDOR-->";
 
                 var conteudo = "";
                 foreach (var item in lista)

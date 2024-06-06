@@ -116,6 +116,11 @@
         div:where(.swal2-container).swal2-center > .swal2-popup {
             border-radius: 40px !important;
             font-size: 16px !important;
+            flex-direction: column !important;
+        }
+
+        .swal2-actions {
+            flex-direction: column !important;
         }
 
         div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
@@ -209,6 +214,7 @@ foreach (var item in categorias)
 
                         if (servicesChecked === 0) {
                             Swal.fire({
+                                toast: true,
                                 text: 'Por favor selecione pelo menos um serviço antes de continuar',
                                 icon: 'info',
                                 confirmButtonColor: '#f08f00',

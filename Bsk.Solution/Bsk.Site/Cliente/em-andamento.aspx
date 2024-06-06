@@ -60,69 +60,84 @@
                 </div>
             </div>
 
-            <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
-                    <thead id="cabecalho-tabela">
-                        <tr>
-                            <th>Cotação</th>
-                            <th>Título </th>
-                            <th>Categoria</th>
-                            <th class="centered">Ação</th>
-                        </tr>
-                    </thead>
+           <div class="card-tabela " style="overflow-x: auto;">
+    <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+        <thead id="cabecalho-tabela">
+            <tr>
+                <th>Cotação</th>
+                <th>Título </th>
+                <th>Categoria</th>
+                <th class="centered">Ação</th>
+            </tr>
+        </thead>
 
-                    <tbody>
-                        <%var cotacoes = PegaCotacaoAndamento();
-                            foreach (var item in cotacoes)
-                            { %>
-                        <tr>
-                            <td><%Response.Write(item.IdCotacao); %></td>
-                            <td style="display: none;"><%Response.Write(item.DataCriacao); %></td>
-                            <td><%Response.Write(item.Titulo); %></td>
-                            <td><%Response.Write(item.Status); %></td>
-                            <%  
-                                if (item.Status == "Criação")
-                                {%>
-                            <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
-                            </td>
-                            <%}
-                                else if (item.Status == "Aberto")
-                                {%>
-                            <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
-                                <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
-                            </td>
-                            <% }
-                                else if (item.Status == "Em andamento" || item.Status == "Aguardando aceite" || item.Status == "Aguardando avaliação")
-                                {%>
-                            <td style="text-align:right">
-                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>" style=""> Visualizar Cotação</a>
-                            </td>
-                            <%}
-                                else if (item.Status == "Aguardando pagamento")
-                                {%>
-                            <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
-                                <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
-                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
-                            </td>
-                            <%}
-                                else if (item.Status == "Finalizado")
-                                {%>
-                            <td>
-                                <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
-                                <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
-                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
-                                <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.IdCotacao); %>">Avaliação</a>
-                            </td>
-                            <% }%>
-                        </tr>
-                        <%  }
-                        %>
-                    </tbody>
-                </table>
+        <tbody>
+            <% var cotacoes = PegaCotacaoAndamento();
+            foreach (var item in cotacoes)
+            { %>
+            <tr>
+                <td><% Response.Write(item.IdCotacao); %></td>
+                <td style="display: none;"><% Response.Write(item.DataCriacao); %></td>
+                <td><% Response.Write(item.Titulo); %></td>
+                <td><% Response.Write(item.Status); %></td>
+                <%  
+                    if (item.Status == "Criação")
+                    {%>
+                <td>
+                    <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
+                </td>
+                <%}
+                    else if (item.Status == "Aberto")
+                    {%>
+                <td>
+                    <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
+                </td>
+                <% }
+                    else if (item.Status == "Em andamento" || item.Status == "Aguardando aceite" || item.Status == "Aguardando avaliação")
+                    {%>
+                <td style="text-align:right">
+                    <!--<a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Cotações</a>-->
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>" style="margin-right:15px">Visualizar Cotação</a>
+                </td>
+                <%}
+                    else if (item.Status == "Aguardando pagamento")
+                    {%>
+                <td>
+                    <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
+                </td>
+                <%}
+                    else if (item.Status == "Finalizado")
+                    {%>
+                <td>
+                    <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
+                    <a class="btn btn-brikk" href="avaliar.aspx?Id=<% Response.Write(item.IdCotacao); %>">Avaliação</a>
+                </td>
+                <% }%>
+            </tr>
+            <%  }
+            %>
+        </tbody>
+
+    </table>
+        <div class="paginas_card">
+            <p>
+                Mostrando de 1 até <span id="info-registros">0</span> de <span id="info-total-registros">04</span> registros
+            </p>
+            <div class="dataTables_paginate paging_simple_numbers" id="tabela_paginate">
+                <a class="paginate_button previous disabled" aria-controls="tabela" data-dt-idx="0" tabindex="-1" id="tabela_previous">Anterior</a>
+                <span>
+                    <a class="paginate_button current" aria-controls="tabela" data-dt-idx="1" tabindex="0">1</a>
+                </span>
+                <a class="paginate_button next" aria-controls="tabela" data-dt-idx="8" tabindex="0" id="tabela_next">Próximo</a>
+
             </div>
+        </div>
 
        
 
@@ -144,8 +159,30 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+        div#tabela_paginate > span {
+            display: flex
+        }
+        div#tabela_paginate {
+            margin-top: 0px !important;
+        }
     </style>
     <script>
+
+        function atualizarInfoTabela() {
+            // Obtém o número total de registros na tabela
+            var Registros = $('#tabela tbody tr:visible').length;
+            var totalRegistros = $('#tabela tbody tr').length;
+
+            // Atualiza o elemento de informação dos registros
+            $('#info-registros').text(Registros);
+            $('#info-total-registros').text(totalRegistros);
+        }
+
+        // Chamada da função ao carregar a página
+        $(document).ready(function () {
+            atualizarInfoTabela();
+        });
+
         function filtraTabela() {
 
             var table = $('#tabela').DataTable();
@@ -168,6 +205,7 @@
                 table.search("Finalizado").draw();
             }
             $('#search').keyup()
+            atualizarInfoTabela();
         }
 
         setTimeout(function () { filtraTabela() }, 10)
@@ -193,6 +231,42 @@
                 });
             }
         });
+
+        function togglePaginationButtons() {
+            var table = $('#tabela').DataTable(); // Obter a referência para a tabela
+
+            var info = table.page.info(); // Obter informações sobre a paginação
+            var pages = info.pages; // Total de páginas
+            var currentPage = info.page + 1; // Página atual
+
+            // Loop através de cada botão de paginação
+            $('.paginate_button').each(function (index) {
+                // Mostrar botões até o número total de páginas
+                if (index < pages) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+
+                // Adicionar classe 'current' à página atual
+                if (index === currentPage) {
+                    $(this).addClass('current');
+                } else {
+                    $(this).removeClass('current');
+                }
+            });
+        }
+
+        // Chamada da função ao carregar a página e quando a tabela é desenhada
+        $(document).ready(function () {
+            togglePaginationButtons(); // Chamar a função quando a página for carregada
+
+            // Chamar a função sempre que a tabela for redesenhada
+            $('#tabela').on('draw.dt', function () {
+                togglePaginationButtons();
+            });
+        });
+
     </script>
 
 </asp:Content>

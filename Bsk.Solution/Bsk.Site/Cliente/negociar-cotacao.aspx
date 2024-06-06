@@ -99,27 +99,25 @@
                                 var chat = CarregaChat();
 
                                 var cliente = @"<!--CLIENTE-->
-                                 <div class='enviado'>
-                                    <h3 class=titulo-msg'>Você</h3>
-                                      <div class='conteudo-msg'>
-                                        <p>
-                                          {{CLIENTEMSG}}
-                                        </p>
-                                      </div>
-                                     </div>
-                
-                <!--FIM CLIENTE-->";
+                                      <div class='enviado'>
+                                         <h2 class='titulo-msg'>Cliente</h2>
+                                           <div class='conteudo-msg'>
+                                             <p>
+                                               {{CLIENTEMSG}}
+                                             </p>
+                                           </div>
+                                          </div>
+                                         <!--FIM CLIENTE-->";
 
                                 var fornecedor = @"<!--FORNECEDOR-->
                                             <div class='enviado'>
-                                           <h3 class=titulo-msg'>Fornecedor</h3>
+                                           <h2 class='titulo-msg'>Fornecedor</h2>
                                               <div class='conteudo-msg'>
                                                 <p>
                                                   {{FORNECEDORMSG}}
                                                 </p>
                                               </div>
                                             </div>
-             
                                              <!--FIM FORNECEDOR-->";
 
                                 var conteudo = "";
@@ -212,7 +210,7 @@
 
                     <tbody>
                         <!--LOOP DOCUMENTO-->
-                        <%var anexos = PegaAnexo();
+                        <% /*var anexos = PegaAnexo();
                             foreach (var item in anexos)
                             {%>
                         <tr>
@@ -229,7 +227,7 @@
                                 <% } %>
                             </td>
                         </tr>
-                        <%}
+                        <%}*/
                         %>
                         <!-- FIM LOOP DOCUMENTO-->
                     </tbody>
@@ -320,11 +318,16 @@
             font-family: Rajdhani-Bold, sans-serif;
             color: #770e18;
         }
+        .h2 {
+            font-family: Rajdhani-semi !important;
+            font-size: 14px !important;
+            color: #770e18 !important;
+            margin-bottom: 10px;
+        }
         .titulo-msg {
-            font-family: Rajdhani-semi;
-            font-size: 12px !important;
-            color: #770e18;
-            overflow-x: hidden;
+            font-family: Rajdhani-semi !important;
+            font-size: 14px !important;
+            color: #770e18 !important;
             margin-bottom: 10px;
         }
         .conteudo-msg p, .recebido p {
@@ -334,6 +337,7 @@
         .recebido {
             display: block;
             margin-top: 25px;
+            overflow-x: hidden;
             border-radius: 15px 50px 50px 0;
         }
         .enviar-msg {
@@ -345,8 +349,8 @@
             border: none;
             resize: none;
             padding: 7px 25px;
-            font-size: 16px;
-            font-family: Rajdhani-semi;
+            font-size: 14px !important;
+            font-family: Rajdhani-semi !important;
             color: #706f6f !important;
         }
         ::-webkit-scrollbar {
@@ -504,6 +508,7 @@ div:where(.swal2-icon).swal2-info {
 
         function aceitar() {
             Swal.fire({
+                toast: true,
                 title: 'Aceitar?',
                 text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
@@ -522,6 +527,7 @@ div:where(.swal2-icon).swal2-info {
                             window.location.href = "pagamento.aspx?Id=" + comum.queryString("Id");
                         } else {
                             Swal.fire({
+                                toast: true,
                                 icon: 'error',
                                 title: 'Oops...',
                                 text: data
@@ -550,6 +556,7 @@ div:where(.swal2-icon).swal2-info {
             }
 
             Swal.fire({
+                toast: true,
                 title: titulo,
                 text: texto,
                 icon: "info",

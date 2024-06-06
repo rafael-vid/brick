@@ -165,7 +165,7 @@
             if ($("#slcStatus").val() == "0") {
                 table.search("").draw();
             } else if ($("#slcStatus").val() == "1") {
-                table.search("Solicitação Feita").draw();
+                table.search("Aguardando Cotação").draw();
             } else if ($("#slcStatus").val() == "2") {
                 table.search("Em Cotação").draw();
             } else if ($("#slcStatus").val() == "3") {
@@ -178,10 +178,15 @@
                 table.search("Aguardando aceite").draw();
             } else if ($("#slcStatus").val() == "7") {
                 table.search("Finalizado").draw();
+            } else if ($("#slcStatus").val() == "8") {
+                table.search("Rascunho").draw();
             }
         }
 
-        setTimeout(function () { filtraTabela() },10)
+        setTimeout(function () { filtraTabela() }, 10)
+
+
+
 
     </script>
 

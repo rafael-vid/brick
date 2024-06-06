@@ -71,7 +71,7 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=0)  > 0 
+			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''
@@ -194,7 +194,7 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=0)  > 0 
+			                                    where IdFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''
@@ -728,7 +728,6 @@ namespace Bsk.Interface
             lg.DataCriacao = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
             lg.Status = "1";
             List<CotacaoFornecedorChatBE> Lista_lg = new List<CotacaoFornecedorChatBE>();
-
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));
         }

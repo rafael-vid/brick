@@ -39,7 +39,7 @@
                             {
                                 %>
                                     <li>
-                                        <a href="em-andamento.aspx"><span class="numero_card"><% Response.Write(cot.Count); %></span>
+                                        <a href="em-andamento.aspx?status=<% Response.Write(d.id); %>"><span class="numero_card"><% Response.Write(cot.Count); %></span>
                                         <p><% Response.Write(d.nome); %> </a> </p>
                                     </li>
                                 <%

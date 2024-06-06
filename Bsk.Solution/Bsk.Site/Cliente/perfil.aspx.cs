@@ -194,7 +194,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                string script = " Swal.fire({\r\n                                text: 'Por favor preencher todos os campos',\r\n                                icon: 'info',\r\n                                confirmButtonColor: '#f08f00',\r\n                                confirmButtonText: 'Ok'\r\n                            });";
+                string script = " Swal.fire({\r\n                                text: 'Por favor preencher todos os campos',\r\n                                icon: 'error',\r\n                                 toast: 'true',\r\n                                confirmButtonColor: '#f08f00',\r\n                                confirmButtonText: 'Ok'\r\n                            });";
                 ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
             }
 

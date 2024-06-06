@@ -39,7 +39,7 @@ namespace Bsk.Site.Fornecedor
 
         public CotacaoAvaliacaoFornecedorModel PegaCotacao()
         {
-            CotacaoAvaliacaoFornecedorModel cotacao = _core.Cotacao_Avaliacao_Fornecedor_Get(Request.QueryString["idCotacao"]);
+            CotacaoAvaliacaoFornecedorModel cotacao = _core.Cotacao_Avaliacao_Fornecedor_Get(Request.QueryString["id"]);
             depoimentoFornecedor.InnerText = cotacao.Observacao;
 
             if (!String.IsNullOrEmpty(cotacao.Observacao))
