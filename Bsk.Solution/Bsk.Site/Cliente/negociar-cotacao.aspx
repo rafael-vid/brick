@@ -132,7 +132,7 @@
                                         video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
 
 
-                                    if (item.IdCliente != 0)
+                                    if (item.IdParticipante != 0)
                                         conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem  + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span><br>");
                                     else
                                         conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem  + video  + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span><br>");

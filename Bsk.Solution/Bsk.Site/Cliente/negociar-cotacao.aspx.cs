@@ -198,6 +198,7 @@ namespace Bsk.Site.Cliente
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
                 _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdParticipante = login.IdCliente;
                 _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaCliente = 1;
                 //Atualiza data alteracao da cotação
