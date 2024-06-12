@@ -31,7 +31,7 @@ namespace Bsk.BE
         public string GuidColumn { get; set; }
         public int EmailConfirmado { get; set; }
         public string Token { get; set; }
-        public string PrestaServico { get; set; }
+        public bool PrestaServico { get; set; }
 
     }
 }

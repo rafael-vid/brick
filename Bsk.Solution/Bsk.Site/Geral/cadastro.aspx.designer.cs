@@ -258,6 +258,15 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl abertura;
 
         /// <summary>
+        /// matriz control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText matriz;
+
+        /// <summary>
         /// telefoneJuridica control.
         /// </summary>
         /// <remarks>
@@ -276,13 +285,13 @@ namespace Bsk.Site.Geral
         protected global::System.Web.UI.HtmlControls.HtmlInputText bairroJuridica;
 
         /// <summary>
-        /// Text1 control.
+        /// logradouroJuridica control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText logradouroJuridica;
 
         /// <summary>
         /// numeroJuridica control.

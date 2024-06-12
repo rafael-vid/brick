@@ -13,21 +13,19 @@ namespace Bsk.Site.Geral
     public partial class confirmacaoemail : System.Web.UI.Page
     {
         core _core = new core();
-        ClienteBE _ClienteBE = new ClienteBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                // Get the GUID from the URL query string.
                 string guid = Request.QueryString["guid"];
 
                 if (!string.IsNullOrEmpty(guid))
                 {
-                    // Use the GUID as needed in your application, for example:
-                    var cliente = _core.Cliente_Get(_ClienteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
-                    cliente.EmailConfirmado = 1;
-                    _core.Cliente_Update(cliente, "IdCliente = " + cliente.IdCliente);
-                    var _login = _core.Cliente_Get(_ClienteBE, $" GuidColumn='{guid}'").FirstOrDefault();
+                    var participante = _core.Participante_Get(_ParticipanteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
+                    participante.EmailConfirmado = 1;
+                    _core.Participante_Update(participante, "IdParticipante = " + participante.IdParticipante);
+                    var _login = _core.Participante_Get(_ParticipanteBE, $" GuidColumn='{guid}'").FirstOrDefault();
                     //Cria a estancia do obj HttpCookie passando o nome do mesmo
                     HttpCookie login = new HttpCookie("login");
                     _login.Senha = "xxx";

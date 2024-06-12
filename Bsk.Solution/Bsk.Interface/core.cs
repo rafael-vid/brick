@@ -586,7 +586,22 @@ namespace Bsk.Interface
             Lista_lg.Add(lg);
             return _base.ToList<ParticipanteBE>(db.Get(_base.Query(Lista_lg, _filtro)));
         }
-        
+        public string Participante_Insert(ParticipanteBE lg)
+        {
+            lg.data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            List<ParticipanteBE> Lista_lg = new List<ParticipanteBE>();
+
+            Lista_lg.Add(lg);
+            string sql = _base.Insert(Lista_lg, null);
+            return db.Insert(sql);
+        }
+        public void Participante_Update(ParticipanteBE lg, string filtro)
+        {
+            List<ParticipanteBE> Lista_lg = new List<ParticipanteBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
         ////////////////////////////////////////////// Cliente ////////////////////////////////////////////////////////////
         public List<ClienteBE> Cliente_Get(ClienteBE lg, string _filtro)
         {

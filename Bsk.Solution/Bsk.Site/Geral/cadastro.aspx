@@ -386,10 +386,10 @@
                         <label for="abertura" class="subtitulo_1">Data de Abertura*</label>
                         <input type="date" name="abertura" id="abertura" runat="server" required>
                     </div>
-                    <%--<div class="col-md-4">
+                    <div class="col-md-4">
                         <label for="matriz" class="subtitulo_1">Matriz*</label>
                         <input type="text" name="matriz" id="matriz" runat="server" required>
-                    </div>--%>
+                    </div>
                     <div class="col-md-4">
                         <label for="telefoneJuridica" class="subtitulo_1">Telefone*</label>
                         <input type="tel" name="telefoneJuridica"  id="telefoneJuridica"  onkeyup="mascaraTel()"  runat="server" required>
@@ -400,7 +400,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="logradouroJuridica" class="subtitulo_1">Logradouro*</label>
-                        <input type="text" name="logradouroJuridica" id="Text1" runat="server" required>
+                        <input type="text" name="logradouroJuridica" id="logradouroJuridica" runat="server" required>
                     </div>
                     <div class="col-md-4">
                         <label for="numeroJuridica" class="subtitulo_1">Número*</label>

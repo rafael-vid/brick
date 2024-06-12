@@ -1,13 +1,18 @@
 ﻿using Bsk.BE;
 using Bsk.Interface;
+using Bsk.Site.Admin;
 using Bsk.Site.Service;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Policy;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace Bsk.Site.Geral
 {
@@ -15,6 +20,7 @@ namespace Bsk.Site.Geral
     {
         FornecedorBE _FornecedorBE = new FornecedorBE();
         ClienteBE _ClienteBE = new ClienteBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         core _core = new core();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,10 +32,6 @@ namespace Bsk.Site.Geral
                     pf.Checked = false;
                 }
             }
-            if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
-            {
-                Response.Redirect("login.aspx");
-            }
 
             if (!String.IsNullOrEmpty(Request.QueryString["Red"]))
             {
@@ -40,21 +42,10 @@ namespace Bsk.Site.Geral
                 }
             }
         }
-
-        protected bool IsEmailRegisteredCli(string email)
+        protected bool IsEmailRegisteredParticipante(string email)
         {
-            ClienteBE ClienteBE = new ClienteBE();
-            var emails = _core.Cliente_Get(ClienteBE, $"email='{email}'");
-            if (emails.Count > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-        protected bool IsEmailRegisteredFor(string email)
-        {
-            FornecedorBE FornecedorBE = new FornecedorBE();
-            var emails = _core.Fornecedor_Get(FornecedorBE, $"email='{email}'");
+            ParticipanteBE ParticipanteBE = new ParticipanteBE();
+            var emails = _core.Participante_Get(ParticipanteBE, $"email='{email}'");
             if (emails.Count > 0)
             {
                 return true;
@@ -65,42 +56,20 @@ namespace Bsk.Site.Geral
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
             string stremail = email.Value;
-            if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
-            {
-                Response.Redirect("login.aspx");
-            }
-            if (Request.QueryString["Tipo"] == "cli")
-            {
-                if (IsEmailRegisteredCli(stremail))
+           
+                if (IsEmailRegisteredParticipante(stremail))
                 {
                     string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
                 {
-                    salvaFisicaCliente();
+                    salvaFisicaParticipante();
                 }
-            }
-            else if (Request.QueryString["Tipo"] == "for")
-            {
-                if (IsEmailRegisteredFor(stremail))
-                {
-                    string message = "Email já existe";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
-                }
-                else
-                {
-                    salvaFisicaFornecedor();
-                }
-
-            }
-            else
-            {
-                Response.Redirect("login.aspx");
-            }
+            
         }
 
-        private void salvaFisicaCliente()
+        private void salvaFisicaParticipante()
         {
             string cpfValue = cpf.Value;
             if (!IsValidCPF(cpfValue))
@@ -115,52 +84,44 @@ namespace Bsk.Site.Geral
                 dt = DateTime.Parse(abertura.Value);
             }
             string guid = Guid.NewGuid().ToString();
-            _ClienteBE = new ClienteBE()
+            _ParticipanteBE = new ParticipanteBE()
             {
-                Bairro = bairro.Value,
-                Cep = cep.Value,
-                Cnpj = cnpj.Value,
-                Complemento = complemento.Value,
-                CpfResponsavel = cpf.Value,
-                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Email = email.Value,
-                Fantasia = fantasia.Value,
-                Logradouro = endereco.Value,
-                MeioPagamento = "",
-                Municipio = cidade.Value,
+                Matriz = "0",
+                Pj = "",
+                Documento = cpf.Value,
                 Nome = nome.Value,
-                NomeResponsavel = nome.Value,
-                Numero = numero.Value,
-                Senha = senha.Value,
-                Situacao = situacao.Value,
                 Sobrenome = sobrenome.Value,
-                Status = "",
-                Telefone = telefone.Value,
+                Logradouro = endereco.Value,
+                Numero = numero.Value,
+                Complemento = complemento.Value,
+                Bairro = bairro.Value,
+                cidade = cidade.Value,
                 Uf = estado.Value,
-                ZoopID = "",
-                WhatsApp = telefone.Value,
-                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
-                //Matriz = matriz.Value,
-                RazaoSocial = razao.Value,
+                Cep = cep.Value,
+                Telefone = telefone.Value,
+                Email = email.Value,
+                Senha = senha.Value,
+                PrestaServico = false,
                 GuidColumn = guid
 
             };
             if (
+    !string.IsNullOrEmpty(cpf.Value) &&
     !string.IsNullOrEmpty(nome.Value) &&
     !string.IsNullOrEmpty(sobrenome.Value) &&
-    !string.IsNullOrEmpty(email.Value) &&
-    !string.IsNullOrEmpty(cpf.Value) &&
-    !string.IsNullOrEmpty(telefone.Value) &&
-    !string.IsNullOrEmpty(cep.Value) &&
     !string.IsNullOrEmpty(endereco.Value) &&
-    !string.IsNullOrEmpty(bairro.Value) &&
     !string.IsNullOrEmpty(numero.Value) &&
+    !string.IsNullOrEmpty(bairro.Value) &&
     !string.IsNullOrEmpty(cidade.Value) &&
-    !string.IsNullOrEmpty(estado.Value)
+    !string.IsNullOrEmpty(estado.Value) &&
+    !string.IsNullOrEmpty(cep.Value) &&
+    !string.IsNullOrEmpty(telefone.Value) &&
+    !string.IsNullOrEmpty(email.Value) &&
+    !string.IsNullOrEmpty(senha.Value)
 )
             {
-                var id = _core.Cliente_Insert(_ClienteBE);
-                var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                var id = _core.Participante_Insert(_ParticipanteBE);
+                var listaparticipante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + id);
                 string url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
                 string htmlContent = @"
                         <table>
@@ -182,16 +143,16 @@ namespace Bsk.Site.Geral
                         </table>
                         ".Replace("{url}", url);
                 Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
-                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                if (listaparticipante[0].Email == "" || listaparticipante[0].Email != email.Value)
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
                 }
                 else
                 {
                     HttpCookie emailcookie = new HttpCookie("emailcookie");
-                    emailcookie.Value = email.Value + " 1";
+                    emailcookie.Value = email.Value;
                     Response.Cookies.Add(emailcookie);
-                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                    Response.Redirect($"cadastro.aspx?Red=ok");
                 }
             }
             else
@@ -202,145 +163,25 @@ namespace Bsk.Site.Geral
 
         }
 
-        private void salvaFisicaFornecedor()
-        {
-            string cpfValue = cpf.Value;
-            if (!IsValidCPF(cpfValue))
-            {
-                string message = "CPF inválido";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
-                return;
-            }
-            DateTime dt = DateTime.Now;
-            if (!String.IsNullOrEmpty(abertura.Value))
-            {
-                dt = Convert.ToDateTime(abertura.Value);
-            }
-            string guid = Guid.NewGuid().ToString();
-            _FornecedorBE = new FornecedorBE()
-            {
-                Bairro = bairro.Value,
-                Cep = cep.Value,
-                Cnpj = cnpj.Value,
-                Complemento = complemento.Value,
-                CpfResponsavel = cpf.Value,
-                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Email = email.Value,
-                NomeFantasia = nome.Value,
-                Logradouro = endereco.Value,
-                Municipio = cidade.Value,
-                Responsavel = nome.Value,
-                Numero = numero.Value,
-                Senha = senha.Value,
-                Situacao = situacao.Value,
-                SobreNome = sobrenome.Value,
-                Status = "",
-                Telefone = telefone.Value,
-                Uf = estado.Value,
-                WhatsApp = telefone.Value,
-                //Matriz = matriz.Value,
-                RazaoSocial = razao.Value,
-                Abertura = dt.ToString("yyyy-MM-dd"),
-                Tipo = "MATRIZ",
-                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524",
-                GuidColumn = guid
-            };
-            if (
-    !string.IsNullOrEmpty(nome.Value) &&
-    !string.IsNullOrEmpty(sobrenome.Value) &&
-    !string.IsNullOrEmpty(email.Value) &&
-    !string.IsNullOrEmpty(cpf.Value) &&
-    !string.IsNullOrEmpty(telefone.Value) &&
-    !string.IsNullOrEmpty(cep.Value) &&
-    !string.IsNullOrEmpty(endereco.Value) &&
-    !string.IsNullOrEmpty(bairro.Value) &&
-    !string.IsNullOrEmpty(numero.Value) &&
-    !string.IsNullOrEmpty(cidade.Value) &&
-    !string.IsNullOrEmpty(estado.Value)
-)
-            {
-                var id = _core.Fornecedor_Insert(_FornecedorBE);
-                var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
-                string url = "http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid;
-                string htmlContent = @"
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td style=""font-family:'Rajdhani Sans','Roboto',Arial,sans-serif;direction:ltr;text-align:center;font-weight:normal;color:#5f6368;word-break:normal;font-size:20px;line-height:32px;padding:36px 0px 0px 3px;"">
-                                <div style=""color:#25272b;font-size:16px;line-height:26px;"">Falta pouco! Clique no botão para confirmar o seu email.</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style=""text-align:center;"">
-                                <div style=""margin-bottom: 10px;""></div>
-                                <a class=""m_-3092646683337883856showdesktop"" style=""background-color:#770e18;direction:ltr;border-radius:2px;color:#ffffff;display:inline-block;font-size:16px;line-height:24px;font-weight:400;text-align:center;text-decoration:none;padding:14px 20px 13px 20px;font-family:'Google Sans','Roboto',Arial,sans-serif;letter-spacing:0.75px;font-weight:normal;font-size:14px;line-height:21px;border-radius:4px"" target=""_blank"" href=""{url}"">Confirmar email</a>
-                                <div style=""margin-top: 16px;""></div>                                
-                                </td>
-                            <br/>
-                            </tr>
-                            </tbody>
-                        </table>
-                        ".Replace("{url}", url);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
-                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
-                {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
-                }
-                else
-                {
-                    HttpCookie emailcookie = new HttpCookie("emailcookie");
-                    emailcookie.Value = email.Value + " 2";
-                    Response.Cookies.Add(emailcookie);
-                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
-                }
-            }
-            else
-            {
-                string message = "Por favor preencha os campos obrigatórios";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
-            }
-
-        }
+        
 
         protected void btnJuridica_ServerClick(object sender, EventArgs e)
         {
             string stremail = emailJuridica.Value;
-            if (String.IsNullOrEmpty(Request.QueryString["Tipo"]))
-            {
-                Response.Redirect("login.aspx");
-            }
-            if (Request.QueryString["Tipo"] == "cli")
-            {
-                if (IsEmailRegisteredCli(stremail))
+            
+                if (IsEmailRegisteredParticipante(stremail))
                 {
                     string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
                 else
                 {
-                    salvaJuridicaCliente();
+                    salvaJuridicaParticipante();
                 }
-            }
-            else if (Request.QueryString["Tipo"] == "for")
-            {
-                if (IsEmailRegisteredFor(stremail))
-                {
-                    string message = "Email já existe";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
-                }
-                else
-                {
-                    salvaJuridicaFornecedor();
-                }
-
-            }
-            else
-            {
-                Response.Redirect("login.aspx");
-            }
+           
         }
 
-        private void salvaJuridicaFornecedor()
+        private void salvaJuridicaParticipante()
         {
             if (!IsValidCNPJ(cnpj.Value))
             {
@@ -354,32 +195,24 @@ namespace Bsk.Site.Geral
                 dt = DateTime.Parse(abertura.Value);
             }
             string guid = Guid.NewGuid().ToString();
-            _FornecedorBE = new FornecedorBE()
+            _ParticipanteBE = new ParticipanteBE()
             {
-                Bairro = bairroJuridica.Value,
-                Cep = cepJuridica.Value,
-                Cnpj = cnpj.Value,
-                Complemento = complementoJuridica.Value,
-                CpfResponsavel = cpf.Value,
-                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Email = emailJuridica.Value,
-                NomeFantasia = fantasia.Value,
-                Logradouro = endereco.Value,
-                Municipio = cidadeJuridica.Value,
-                Responsavel = nomeJuridica.Value,
+                Matriz = "0",
+                Pj = "",
+                Documento = cnpj.Value,
+                Nome = nomeJuridica.Value,
+                Sobrenome = sobrenomeJuridica.Value,
+                Logradouro = logradouroJuridica.Value,
                 Numero = numeroJuridica.Value,
-                Senha = senhaJuridica.Value,
-                Situacao = situacao.Value,
-                SobreNome = sobrenomeJuridica.Value,
-                Status = "",
-                Telefone = telefoneJuridica.Value,
+                Complemento = complementoJuridica.Value,
+                Bairro = bairroJuridica.Value,
+                cidade = cidadeJuridica.Value,
                 Uf = estadoJuridica.Value,
-                WhatsApp = telefoneJuridica.Value,
-                //Matriz = matriz.Value,
-                RazaoSocial = razao.Value,
-                Abertura = dt.ToString("yyyy-MM-dd"),
-                Tipo = "MATRIZ",
-                SellerID = "586de6c5-f696-49d6-8b0c-592d3a038524",
+                Cep = cepJuridica.Value,
+                Telefone = telefoneJuridica.Value,
+                Email = emailJuridica.Value,
+                Senha = senhaJuridica.Value,
+                PrestaServico = false,
                 GuidColumn = guid
             };
             if (
@@ -401,115 +234,8 @@ namespace Bsk.Site.Geral
     !string.IsNullOrEmpty(senhaJuridica.Value)
 )
             {
-                var id = _core.Fornecedor_Insert(_FornecedorBE);
-                var listacliente = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + id);
-                string url = "http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid;
-                string htmlContent = @"
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td style=""font-family:'Rajdhani Sans','Roboto',Arial,sans-serif;direction:ltr;text-align:center;font-weight:normal;color:#5f6368;word-break:normal;font-size:20px;line-height:32px;padding:36px 0px 0px 3px;"">
-                                <div style=""color:#25272b;font-size:16px;line-height:26px;"">Falta pouco! Clique no botão para confirmar o seu email.</div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style=""text-align:center;"">
-                                <div style=""margin-bottom: 10px;""></div>
-                                <a class=""m_-3092646683337883856showdesktop"" style=""background-color:#770e18;direction:ltr;border-radius:2px;color:#ffffff;display:inline-block;font-size:16px;line-height:24px;font-weight:400;text-align:center;text-decoration:none;padding:14px 20px 13px 20px;font-family:'Google Sans','Roboto',Arial,sans-serif;letter-spacing:0.75px;font-weight:normal;font-size:14px;line-height:21px;border-radius:4px"" target=""_blank"" href=""{url}"">Confirmar email</a>
-                                <div style=""margin-top: 16px;""></div>                                
-                                </td>
-                            <br/>
-                            </tr>
-                            </tbody>
-                        </table>
-                        ".Replace("{url}", url);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
-
-                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
-                {
-                    msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
-                }
-                else
-                {
-                    HttpCookie emailcookie = new HttpCookie("emailcookie");
-                    emailcookie.Value = email.Value + " 2";
-                    Response.Cookies.Add(emailcookie);
-                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
-                }
-            }
-            else
-            {
-                string message = "Por favor preencha os campos obrigatórios";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
-            }
-
-        }
-
-        private void salvaJuridicaCliente()
-        {
-            if (!IsValidCNPJ(cnpj.Value))
-            {
-                string message = "CNPJ inválido. Por favor, verifique o número fornecido.";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage('" + message + "');", true);
-                return;
-            }
-            DateTime dt = DateTime.MinValue;
-            if (!String.IsNullOrEmpty(abertura.Value))
-            {
-                dt = DateTime.Parse(abertura.Value);
-            }
-            string guid = Guid.NewGuid().ToString();
-            _ClienteBE = new ClienteBE()
-            {
-                Bairro = bairroJuridica.Value,
-                Cep = cepJuridica.Value,
-                Cnpj = cnpj.Value,
-                Complemento = complementoJuridica.Value,
-                CpfResponsavel = cpf.Value,
-                DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                Email = emailJuridica.Value,
-                Fantasia = fantasia.Value,
-                Logradouro = endereco.Value,
-                MeioPagamento = "",
-                Municipio = cidadeJuridica.Value,
-                Nome = nomeJuridica.Value,
-                NomeResponsavel = nomeJuridica.Value,
-                Numero = numeroJuridica.Value,
-                Senha = senhaJuridica.Value,
-                Situacao = situacao.Value,
-                Sobrenome = sobrenomeJuridica.Value,
-                Status = "",
-                Telefone = telefoneJuridica.Value,
-                Uf = estadoJuridica.Value,
-                ZoopID = "",
-                WhatsApp = telefoneJuridica.Value,
-                DataAbertura = dt.ToString("yyyy-MM-dd HH:mm:ss"),
-                //Matriz = matriz.Value,
-                RazaoSocial = razao.Value,
-                GuidColumn = guid
-
-            };
-            if (
-            !string.IsNullOrEmpty(nomeJuridica.Value) &&
-            !string.IsNullOrEmpty(sobrenomeJuridica.Value) &&
-            !string.IsNullOrEmpty(emailJuridica.Value) &&
-            !string.IsNullOrEmpty(cnpj.Value) &&
-            !string.IsNullOrEmpty(razao.Value) &&
-            !string.IsNullOrEmpty(fantasia.Value) &&
-            !string.IsNullOrEmpty(situacao.Value) &&
-            !string.IsNullOrEmpty(abertura.Value) &&
-            //!string.IsNullOrEmpty(matriz.Value) &&
-            !string.IsNullOrEmpty(telefoneJuridica.Value) &&
-            !string.IsNullOrEmpty(bairroJuridica.Value) &&
-            !string.IsNullOrEmpty(numeroJuridica.Value) &&
-            !string.IsNullOrEmpty(cepJuridica.Value) &&
-            !string.IsNullOrEmpty(cidadeJuridica.Value) &&
-            !string.IsNullOrEmpty(estadoJuridica.Value) &&
-            !string.IsNullOrEmpty(senhaJuridica.Value)
-)
-            {
-                var id = _core.Cliente_Insert(_ClienteBE);
-                var listacliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + id);
+                var id = _core.Participante_Insert(_ParticipanteBE);
+                var listaparticipante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + id);
                 string url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
                 string htmlContent = @"
                         <table>
@@ -530,17 +256,18 @@ namespace Bsk.Site.Geral
                             </tbody>
                         </table>
                         ".Replace("{url}", url);
-                Email.Send(email.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
-                if (listacliente[0].Email == "" || listacliente[0].Email != email.Value)
+                Email.Send(emailJuridica.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
+
+                if (listaparticipante[0].Email == "")
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
                 }
                 else
                 {
                     HttpCookie emailcookie = new HttpCookie("emailcookie");
-                    emailcookie.Value = email.Value + " 1";
+                    emailcookie.Value = email.Value;
                     Response.Cookies.Add(emailcookie);
-                    Response.Redirect($"cadastro.aspx?Tipo={Request.QueryString["Tipo"]}&Red=ok");
+                    Response.Redirect($"cadastro.aspx?Red=ok");
                 }
             }
             else
@@ -550,6 +277,8 @@ namespace Bsk.Site.Geral
             }
 
         }
+
+       
 
         public static bool IsValidCPF(string cpf)
         {
