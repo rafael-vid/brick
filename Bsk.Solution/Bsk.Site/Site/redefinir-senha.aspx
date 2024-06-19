@@ -101,6 +101,7 @@
                 var acao = comum.queryString("Acao");
                 if (acao == "Expirado") {
                     Swal.fire({
+                        toast: true,
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Link expirado ou já usado...'
@@ -109,18 +110,21 @@
                     });
                 } else if (acao == "Campos") {
                     Swal.fire({
+                        toast: true,
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Preencha todos os campos'
                     });
                 } else if (acao == "Diferentes") {
                     Swal.fire({
+                        toast: true,
                         icon: 'error',
                         title: 'Oops...',
                         text: 'As senhas não conferem'
                     });
                 } else if (acao == "Certo") {
                     Swal.fire({
+                        toast: true,
                         icon: 'success',
                         title: 'Sucesso',
                         text: 'Senha alterada com sucesso.'

@@ -135,6 +135,7 @@
             if ($("#conteudo_titulo").val() != "" && $("#conteudo_descricao").val() != "") {
 
                 Swal.fire({
+                    toast: true,
                     title: 'Submeter?',
                     text: "Você tem certeza que gostaria de submeter esse serviço? Não será possível fazer mais nenhuma alteração.",
                     type: 'warning',
