@@ -79,11 +79,11 @@ namespace Bsk.Util
 
         }
 
-        public string ConsultaMeioPagamento(ClienteBE cliente)
+        public string ConsultaMeioPagamento(ParticipanteBE participante)
         {
             var api = ConfigurationManager.AppSettings["Api"];
             var token = autenticar("", "", "");
-            var ret = ApiGet($"{api}MeioPagamento/ConsultaMeioPagamento?autenticacao={token}&meioPagamento={cliente.MeioPagamento}", token);
+            var ret = ApiGet($"{api}MeioPagamento/ConsultaMeioPagamento?autenticacao={token}&meioPagamento={participante.MeioPagamento}", token);
             return ret;
         }
 

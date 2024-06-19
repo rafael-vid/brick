@@ -159,7 +159,7 @@ namespace Bsk.Site.Controllers
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
 
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
             ClienteBE clienteBE = new ClienteBE();
             var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
 
@@ -212,7 +212,7 @@ namespace Bsk.Site.Controllers
             ClienteBE clienteBE = new ClienteBE();
             var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
 
             string titulo = "";
             string mensagem = "";
@@ -307,7 +307,7 @@ namespace Bsk.Site.Controllers
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdFornecedor).FirstOrDefault();
+            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
             if (liberarPagamento(cotacao, cf, fornecedor))
             {
                 return this.Json(new { Result = StatusCotacao.Finalizado }, JsonRequestBehavior.AllowGet);
@@ -465,7 +465,7 @@ namespace Bsk.Site.Controllers
                 DataEntrega = cotacaoFornecedor.DataEntrega,
                 IdCotacao = cotacaoFornecedor.IdCotacao,
                 IdCotacaoFornecedor = cotacaoFornecedor.IdCotacaoFornecedor,
-                IdFornecedor = cotacaoFornecedor.IdFornecedor
+                IdParticipanteFornecedor = cotacaoFornecedor.IdParticipanteFornecedor
             };
 
             cotacaoFornecedor.DataEntrega = data;

@@ -23,8 +23,8 @@ namespace Bsk.Site.Fornecedor
             descricao.InnerText = cotacao.Descricao;
             nrCotacao.InnerText = cotacao.IdCotacao.ToString();
 
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cf = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, $" IdCotacao={Request.QueryString["Cotacao"]} and IdFornecedor={login.IdFornecedor}").FirstOrDefault();
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cf = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, $" IdCotacao={Request.QueryString["Cotacao"]} and IdParticipanteFornecedor={login.IdParticipante}").FirstOrDefault();
             if (cf != null)
             {
                 btnAdicionar.Visible = false;
@@ -39,13 +39,13 @@ namespace Bsk.Site.Fornecedor
 
         protected void btnAdicionar_ServerClick(object sender, EventArgs e)
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE()
             {
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
-                IdFornecedor = login.IdFornecedor,
+                IdParticipanteFornecedor = login.IdParticipante,
                 Valor = 0,
                 DataEntrega = "",
                 Ativo = 1,

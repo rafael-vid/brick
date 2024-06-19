@@ -17,39 +17,39 @@ namespace Bsk.Site.Fornecedor
         CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
             List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
-            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdParticipante);
             string cats = "";
             foreach (var item in categorias)
             {
                 cats += item.IdCategoria + ",";
             }
 
-            lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdFornecedor.ToString());
+            lista = _core.CotacaoListaFronecedorGet(cats + "0", login.IdParticipante.ToString());
 
         }
-        public List<Dashboard> GetDashboardFornecedor()
+        public List<Dashboard> GetDashboardParticipante()
         {
-            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotCliente = _core.GetDashboardFornecedor($" s.id in (1,2,3)");
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cotCliente = _core.GetDashboardParticipante($" s.id in (1,2,3)");
 
             return cotCliente;
         }
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
-            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdFornecedor);
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdParticipante=" + login.IdParticipante);
             string cats = "";
             foreach (var item in categorias)
             {
                 cats += item.IdCategoria + ",";
-            }
+            }   
 
 
-            var cotacoes = _core.CotacaoFornecedorListaGet(cats + "0", login.IdFornecedor, " CT.Status in (1,2,3) ");
+            var cotacoes = _core.CotacaoFornecedorListaGet(cats + "0", login.IdParticipante, " CT.Status in (1,2,3) ");
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             double total = 0;
             foreach (var item in cotacoes)

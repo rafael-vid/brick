@@ -21,13 +21,13 @@ namespace Bsk.Site.Fornecedor
 
         }
 
-        public FornecedorBE RetornaUsuario()
+        public ParticipanteBE RetornaUsuario()
         {
-            HttpCookie login = Request.Cookies["LoginFornecedor"];
-            FornecedorBE usuario = new FornecedorBE();
+            HttpCookie login = Request.Cookies["Login"];
+            ParticipanteBE usuario = new ParticipanteBE();
             if (login != null)
             {
-                usuario = Funcoes.PegaLoginFornecedor(login.Value);
+                usuario = Funcoes.PegaLoginParticipante(login.Value);
                 return usuario;
             }
             else

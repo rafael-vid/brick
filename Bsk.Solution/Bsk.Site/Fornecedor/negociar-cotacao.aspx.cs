@@ -21,6 +21,7 @@ namespace Bsk.Site.Fornecedor
     {
         core _core = new core();
         FornecedorBE _FornecedorBE = new FornecedorBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
@@ -190,7 +191,7 @@ namespace Bsk.Site.Fornecedor
 
 
                     }
-                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
+                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
                         divDadosCobranca.Visible = false;
@@ -251,7 +252,7 @@ namespace Bsk.Site.Fornecedor
             {
                 return; // Exit the function if the message is empty
             }
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 
 
             var arquivo = GravarArquivo(flpArquivo);
@@ -269,7 +270,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
                 _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
@@ -416,7 +417,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
                 _CotacaoFornecedorChatBE.IdCliente = 1; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);

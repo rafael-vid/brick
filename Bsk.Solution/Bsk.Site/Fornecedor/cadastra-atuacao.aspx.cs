@@ -71,7 +71,7 @@ namespace Bsk.Site.Fornecedor
                 AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
-                    IdFornecedor = login.IdFornecedor,
+                    IdParticipante = login.IdFornecedor,
                     IdServico = slcAtu.Value + ","
                 };
 

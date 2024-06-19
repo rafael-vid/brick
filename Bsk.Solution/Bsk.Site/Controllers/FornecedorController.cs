@@ -76,7 +76,7 @@ namespace Bsk.Site.Controllers
                 {
                     idservicos += item.IdServico + ",";
                 }
-                _core.AreaFornecedor_Insert(new AreaFornecedorBE { IdCategoria = categoria.Key, IdServico = idservicos,IdFornecedor=login.IdFornecedor });
+                _core.AreaFornecedor_Insert(new AreaFornecedorBE { IdCategoria = categoria.Key, IdServico = idservicos,IdParticipante=login.IdFornecedor });
             }
             return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
         }

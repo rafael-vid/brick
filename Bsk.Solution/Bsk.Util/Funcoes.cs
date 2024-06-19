@@ -90,25 +90,25 @@ namespace Bsk.Util
             byte[] bytes = Encoding.Default.GetBytes(json);
             json = Encoding.UTF8.GetString(bytes);
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
-            ParticipanteBE participanteBE = new ParticipanteBE()
-            {
-                IdParticipante = ret["IdParticipante"],
-                Bairro = ret["Bairro"],
-                Cep = ret["Cep"],
-                Documento = ret["Documento"],
-                Complemento = ret["Complemento"],
-                data = ret["data"],
-                Email = ret["Email"],
-                Logradouro = ret["Logradouro"],
-                cidade = ret["cidade"],
-                Nome = ret["Nome"],
-                Sobrenome = ret["Sobrenome"],
-                Numero = ret["Numero"],
-                Senha = ret["Senha"],
-                Matriz = ret["Matriz"],
-                Telefone = ret["Telefone"],
-                Uf = ret["Uf"],
-            };
+            ParticipanteBE participanteBE = new ParticipanteBE();
+            participanteBE.IdParticipante = ret["IdParticipante"];
+            participanteBE.NomeFantasia = ret["NomeFantasia"];
+            participanteBE.Bairro = ret["Bairro"];
+            participanteBE.Cep = ret["Cep"];
+            participanteBE.Documento = ret["Documento"];
+            participanteBE.Complemento = ret["Complemento"];
+            participanteBE.data = ret["data"];
+            participanteBE.Email = ret["Email"];
+            participanteBE.Logradouro = ret["Logradouro"];
+            participanteBE.cidade = ret["cidade"];
+            participanteBE.Nome = ret["Nome"];
+            participanteBE.Sobrenome = ret["Sobrenome"];
+            participanteBE.Numero = ret["Numero"];
+            participanteBE.Senha = ret["Senha"];
+            participanteBE.Matriz = ret["Matriz"];
+            participanteBE.Telefone = ret["Telefone"];
+            participanteBE.Uf = ret["Uf"];
+
             return participanteBE;
         }
 

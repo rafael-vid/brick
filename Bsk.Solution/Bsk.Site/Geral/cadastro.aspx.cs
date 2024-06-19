@@ -101,7 +101,7 @@ namespace Bsk.Site.Geral
                 Telefone = telefone.Value,
                 Email = email.Value,
                 Senha = senha.Value,
-                PrestaServico = false,
+                PrestaServico = 0,
                 GuidColumn = guid
 
             };
@@ -212,7 +212,7 @@ namespace Bsk.Site.Geral
                 Telefone = telefoneJuridica.Value,
                 Email = emailJuridica.Value,
                 Senha = senhaJuridica.Value,
-                PrestaServico = false,
+                PrestaServico = 0,
                 GuidColumn = guid
             };
             if (

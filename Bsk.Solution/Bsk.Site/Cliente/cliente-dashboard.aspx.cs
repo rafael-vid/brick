@@ -22,7 +22,7 @@ namespace Bsk.Site.Cliente
         }
         public List<Dashboard> GetDashboardCliente()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             var cotCliente = _core.GetDashboardCliente();
 
             return cotCliente;

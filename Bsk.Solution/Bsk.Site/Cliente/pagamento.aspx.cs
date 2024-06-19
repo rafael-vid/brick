@@ -19,6 +19,7 @@ namespace Bsk.Site.Cliente
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
         FornecedorBE _FornecedorBE = new FornecedorBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         TransacaoBE _TransacaoBE = new TransacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,11 +56,11 @@ namespace Bsk.Site.Cliente
                 }
             }
 
-            var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
+            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
             nrCotacao.Text = cotacao.IdCotacao.ToString();
             tituloServ.InnerText = cotacao.Titulo;
             valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
-            fornecedorNome.InnerText = fornecedor.NomeFantasia;
+            fornecedorNome.InnerText = participante.NomeFantasia;
             descricao.InnerText = cotacao.Descricao;
             try
             {
@@ -85,7 +86,7 @@ namespace Bsk.Site.Cliente
             var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
             cotacao.Status = StatusCotacao.EmAndamento;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
-            var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdFornecedor).FirstOrDefault();
+            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
 
             string titulo = $"A cotação Nº {cotacao.IdCotacao}, teve seu status alterado para pago.";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacaoFornecedor;
@@ -95,13 +96,13 @@ namespace Bsk.Site.Cliente
             EmailTemplate emailTemplate = new EmailTemplate();
             string html = emailTemplate.emailPadrao(titulo, mensagem, imagem);
 
-            if (String.IsNullOrEmpty(fornecedor.Email))
+            if (String.IsNullOrEmpty(participante.Email))
             {
                 email = "harrymangiapelo@gmail.com";
             }
             else
             {
-                email = fornecedor.Email;
+                email = participante.Email;
             }
             emailTemplate.enviaEmail(html, titulo, email);
 

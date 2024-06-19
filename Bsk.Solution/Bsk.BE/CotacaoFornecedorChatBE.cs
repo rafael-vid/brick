@@ -11,7 +11,7 @@ namespace Bsk.BE
         public int IdCotacaoFornecedorChat { get; set; }
         public int IdCotacaoFornecedor { get; set; }
         public int IdCliente { get; set; }
-        public int IdFornecedor { get; set; }
+        public int IdParticipanteFornecedor { get; set; }
         public string Mensagem { get; set; }
         public string Arquivo { get; set; }
         public string Video { get; set; }

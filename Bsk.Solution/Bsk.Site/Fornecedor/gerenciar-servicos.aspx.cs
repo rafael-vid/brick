@@ -96,7 +96,7 @@ namespace Bsk.Site.Fornecedor
                 AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE()
                 {
                     IdCategoria = categoryId,
-                    IdFornecedor = login.IdFornecedor,
+                    IdParticipante = login.IdFornecedor,
                     IdServico = serviceName + ","
                 };
 

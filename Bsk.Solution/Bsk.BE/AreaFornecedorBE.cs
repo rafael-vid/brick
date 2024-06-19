@@ -9,7 +9,7 @@ namespace Bsk.BE
     public class AreaFornecedorBE
     {
         public int IdAreaFornecedor { get; set; }
-        public int IdFornecedor { get; set; }
+        public int IdParticipante { get; set; }
         public int IdCategoria { get; set; }
         public string IdServico { get; set; }
     }

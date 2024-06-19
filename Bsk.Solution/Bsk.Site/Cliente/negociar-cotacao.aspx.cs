@@ -67,7 +67,7 @@ namespace Bsk.Site.Cliente
                     divAceitar.Visible = false;
                     //divAceitar2.Visible = false;
                 }
-                List<BE.Model.Fornecedor> forn = _core.GetFornecedor(" IdFornecedor = " + cotacaoFornecedor.IdFornecedor);
+                List<BE.Model.Fornecedor> forn = _core.GetFornecedor(" IdFornecedor = " + cotacaoFornecedor.IdParticipanteFornecedor);
                 lblnome.Text = forn[0].nome;
 
                 mediaCotacoes();
@@ -128,7 +128,7 @@ namespace Bsk.Site.Cliente
                         }
                     }
 
-                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdFornecedor.ToString()}").FirstOrDefault();
+                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdParticipanteFornecedor.ToString()}").FirstOrDefault();
                     if (fornecedor != null)
                     {
                         parceiro.InnerText = fornecedor.RazaoSocial;
@@ -198,7 +198,7 @@ namespace Bsk.Site.Cliente
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
                 _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaCliente = 1;
                 //Atualiza data alteracao da cotação
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
@@ -212,7 +212,7 @@ namespace Bsk.Site.Cliente
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idfornecedor = cotacaoFornecedor.IdFornecedor;
+                notif.idfornecedor = cotacaoFornecedor.IdParticipanteFornecedor;
 
                 _core.NotificacaoInsert(notif);
 

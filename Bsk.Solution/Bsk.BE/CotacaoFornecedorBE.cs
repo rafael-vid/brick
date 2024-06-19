@@ -10,7 +10,7 @@ namespace Bsk.BE
     {
         public int IdCotacaoFornecedor { get; set; }
         public int IdCotacao { get; set; }
-        public int IdFornecedor { get; set; }
+        public int IdParticipanteFornecedor { get; set; }
         public decimal Valor { get; set; }
         public string DataCriacao { get; set; }
         public string DataEntrega { get; set; }
