@@ -32,14 +32,14 @@ namespace Bsk.Site.Fornecedor
         {
             var l = Request.Cookies["loginFornecedor"].Value;
             var login = Funcoes.PegaLoginFornecedor(l);
-            var cotCliente = _core.CotacaoFornecedorGet($" CF.IdFornecedor=" + login.IdFornecedor + " and CT.status = " + statusID + " AND CF.Ativo=1  order by DataAlteracao desc") ;
+            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdFornecedor + " and CT.status = " + statusID + " AND CF.Ativo=1  order by DataAlteracao desc") ;
             return cotCliente;
         }
         public List<CotacaoListaFronecedorModel> PegaCotacoesEmAndamento()
         {
             var l = Request.Cookies["loginFornecedor"].Value;
             var login = Funcoes.PegaLoginFornecedor(l);
-            var cotCliente = _core.CotacaoFornecedorGet($" CF.IdFornecedor=" + login.IdFornecedor + " AND CF.Ativo=0 AND Status=3  order by DataAlteracao desc");
+            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdFornecedor + " AND CF.Ativo=0 AND Status=3  order by DataAlteracao desc");
             return cotCliente;
         }
     }
