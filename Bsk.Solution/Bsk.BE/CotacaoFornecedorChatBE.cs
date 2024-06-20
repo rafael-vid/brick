@@ -12,6 +12,7 @@ namespace Bsk.BE
         public int IdCotacaoFornecedor { get; set; }
         public int IdCliente { get; set; }
         public int IdParticipanteFornecedor { get; set; }
+        public int IdParticipante { get; set; }
         public string Mensagem { get; set; }
         public string Arquivo { get; set; }
         public string Video { get; set; }

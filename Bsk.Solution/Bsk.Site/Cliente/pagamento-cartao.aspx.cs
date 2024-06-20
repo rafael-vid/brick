@@ -33,7 +33,7 @@ namespace Bsk.Site.Cliente
                         Response.Redirect("minhas-cotacoes.aspx");
                     }
                     var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-                    var participante = _core.Participante_Get(ParticipanteBE, "IdParticipante=" + login.IdParticipante).FirstOrDefault();
+                    var participante = _core.Participante_Get(participanteBE, "IdParticipante=" + login.IdParticipante).FirstOrDefault();
                     if (Request.QueryString["Deleta"] != null)
                     {
                         participante.MeioPagamento = "";
