@@ -152,7 +152,7 @@ namespace Bsk.Site.Fornecedor
 
         public void CarregaCotacaoFornecedor()
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
             /*if (cotacaoFornecedor.Ativo == 0)
             {
@@ -192,7 +192,7 @@ namespace Bsk.Site.Fornecedor
 
 
                     }
-                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdFornecedor && cotacao.FinalizaFornecedor == 0)
+                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
                         divDadosCobranca.Visible = false;
@@ -450,8 +450,8 @@ namespace Bsk.Site.Fornecedor
 
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdFornecedor, StatusCotacao.EmAndamento);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdParticipante, StatusCotacao.EmAndamento);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             foreach (var item in cotacoes)
             {
