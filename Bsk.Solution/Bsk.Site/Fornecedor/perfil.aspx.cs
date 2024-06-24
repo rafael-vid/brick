@@ -18,18 +18,18 @@ namespace Bsk.Site.Fornecedor
         {
             if (!IsPostBack)
             {
-                var login = Funcoes.PegaLoginFornecedor(Request.Cookies["loginFornecedor"].Value);
+                var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
                 nome.Value = login.NomeFantasia;
-                sobrenome.Value = login.SobreNome;
+                sobrenome.Value = login.Sobrenome;
                 email.Value = login.Email;
-                cpf.Value = login.Cnpj;
+                cpf.Value = login.Documento;
                 telefone.Value = login.Telefone;
                 cep.Value = login.Cep;
                 rua.Value = login.Logradouro;
                 numero.Value = login.Numero;
                 complemento.Value = login.Complemento;
                 bairro.Value = login.Bairro;
-                cidade.Value = login.Municipio;
+                cidade.Value = login.cidade;
                 uf.Value = login.Uf;
             }
         }
@@ -50,7 +50,7 @@ namespace Bsk.Site.Fornecedor
         }
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
         {
-            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["loginFornecedor"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             Bsk.BE.FornecedorBE clienteBE = new BE.FornecedorBE();
             Bsk.Interface.core _core = new Interface.core();
             Boolean AtualizarCampos = true;
@@ -155,7 +155,7 @@ namespace Bsk.Site.Fornecedor
             }
             if (AtualizarCampos == true)
             {
-                var cliente = _core.Fornecedor_Get(clienteBE, "IdFornecedor=" + login.IdFornecedor).FirstOrDefault();
+                var cliente = _core.Fornecedor_Get(clienteBE, "IdFornecedor=" + login.IdParticipante).FirstOrDefault();
                 cliente.Logradouro = rua.Value;
                 cliente.Municipio = cidade.Value;
                 cliente.NomeFantasia = nome.Value;

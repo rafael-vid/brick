@@ -21,9 +21,9 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoBE> PegaCotacaoFinalizado()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND idParticipante=" + login.IdCliente);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND idParticipante=" + login.IdParticipante);
             foreach (var item in cotacoes)
             {
                 item.Status = "Finalizado";
