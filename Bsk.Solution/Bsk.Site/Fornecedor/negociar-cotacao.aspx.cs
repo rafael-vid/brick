@@ -270,7 +270,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 0; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdParticipante = 0; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 

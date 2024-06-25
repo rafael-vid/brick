@@ -189,7 +189,7 @@ namespace Bsk.Site.Cliente
             var _msg = msg.InnerHtml;
 
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             if (cotacaoFornecedor != null)
             {
                 _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
@@ -197,7 +197,7 @@ namespace Bsk.Site.Cliente
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = login.IdCliente; // RETIRAR DO CODE
+                _CotacaoFornecedorChatBE.IdCliente = login.IdParticipante; // RETIRAR DO CODE
                 _CotacaoFornecedorChatBE.IdParticipanteFornecedor = 0; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaCliente = 1;
                 //Atualiza data alteracao da cotação

@@ -60,7 +60,7 @@ namespace Bsk.Site.Cliente
             nrCotacao.Text = cotacao.IdCotacao.ToString();
             tituloServ.InnerText = cotacao.Titulo;
             valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
-            fornecedorNome.InnerText = participante.NomeFantasia;
+            fornecedorNome.InnerText = participante.nomeFantasia;
             descricao.InnerText = cotacao.Descricao;
             try
             {

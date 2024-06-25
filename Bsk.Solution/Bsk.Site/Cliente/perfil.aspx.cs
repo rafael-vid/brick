@@ -1,4 +1,5 @@
-﻿using Bsk.Util;
+﻿using Bsk.BE.Pag;
+using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace Bsk.Site.Cliente
                 bairro.Text = login.Bairro;
                 //cidade.Value = login.Municipio;
                 uf.Value = login.Uf;
+                prestaServicos.Checked = login.prestaServico == 1;
+
             }
         }
         protected Boolean validatePhone(String phone)
@@ -50,7 +53,7 @@ namespace Bsk.Site.Cliente
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
         {
             var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            Bsk.BE.ClienteBE clienteBE = new BE.ClienteBE();
+            Bsk.BE.ParticipanteBE participanteBE = new BE.ParticipanteBE();
             Bsk.Interface.core _core = new Interface.core();
             Boolean AtualizarCampos = true;
             if (String.IsNullOrEmpty(nome.Value))
@@ -154,9 +157,9 @@ namespace Bsk.Site.Cliente
             }
             if (AtualizarCampos == true)
             {
-                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + login.IdParticipante).FirstOrDefault();
+                var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + login.IdParticipante).FirstOrDefault();
                 cliente.Logradouro = rua.Value;
-                cliente.Municipio = cidade.Value;
+                cliente.cidade = cidade.Value;
                 cliente.Nome = nome.Value;
                 cliente.Sobrenome = sobrenome.Value;
                 cliente.Numero = numero.Value;
@@ -166,9 +169,11 @@ namespace Bsk.Site.Cliente
                 cliente.Email = email.Value;
                 cliente.Cep = cep.Value;
                 cliente.Bairro = bairro.Text;
-                cliente.Cnpj = cpf.Value;
-                cliente.DataAbertura = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                _core.Cliente_Update(cliente, "IdCliente=" + cliente.IdCliente);
+                cliente.Documento = cpf.Value;
+                cliente.data = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                cliente.prestaServico = prestaServicos.Checked ? 1 : 0;
+
+                _core.Participante_Update(cliente, "IdParticipante=" + cliente.IdParticipante);
 
 
                 if (Request.QueryString["Red"] != null)

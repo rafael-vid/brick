@@ -111,6 +111,10 @@
                           <input type="text" class="card-input-add uf" id="uf" runat="server" required>
                           <label id="msguf" runat="server" class="card_erro subtitulo_1"></label>
                       </div>
+                      <div class="item_content_card">
+                          <label class="subtitulo_card_1 subtitulo_1">Presta Serviços</label>
+                          <input type="checkbox" id="prestaServicos" runat="server">
+                      </div>
                     </div>
               </form>
 

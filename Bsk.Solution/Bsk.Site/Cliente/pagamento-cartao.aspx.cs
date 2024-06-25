@@ -97,7 +97,7 @@ namespace Bsk.Site.Cliente
             lbMsg.InnerText = "";
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
-            var participanteCliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdCliente).FirstOrDefault();
+            var participanteCliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
             if (validaCartao(participanteCliente))
             {
                 if (valor.InnerText != String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor))

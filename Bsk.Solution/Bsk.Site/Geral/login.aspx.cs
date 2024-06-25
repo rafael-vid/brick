@@ -54,7 +54,7 @@ namespace Bsk.Site.Geral
                         //HttpCookie cookie = Request.Cookies["login"];
                         //Imprime o valor do cookie
                         //Response.Write(cookie.Value.ToString());
-                        if (_login.PrestaServico == 0) {
+                        if (_login.prestaServico == 0) {
                             Response.Redirect("../Cliente/cliente-dashboard.aspx");
                         }
                         else

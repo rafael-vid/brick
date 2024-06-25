@@ -20,7 +20,7 @@ namespace Bsk.Site.Fornecedor
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             AreaFornecedorBE areaFornecedorBE = new AreaFornecedorBE();
             List<CotacaoListaFronecedorModel> lista = new List<CotacaoListaFronecedorModel>();
-            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdFornecedor=" + login.IdParticipante);
+            var categorias = _core.AreaFornecedor_Get(areaFornecedorBE, "IdParticipante=" + login.IdParticipante);
             string cats = "";
             foreach (var item in categorias)
             {

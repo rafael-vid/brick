@@ -22,7 +22,7 @@ namespace Bsk.Site.Cliente
 
         public List<Dashboard> GetDashboardCliente()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             var cotCliente = _core.GetDashboardCliente($" s.id in (4,5,6)");
 
             return cotCliente;
@@ -30,8 +30,8 @@ namespace Bsk.Site.Cliente
 
         public List<CotacaoBE> PegaCotacaoAndamento()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" idParticipante=" + login.IdCliente + " and Status in (4,5,6)");
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" idParticipante=" + login.IdParticipante + " and Status in (4,5,6)");
             foreach (var item in cotacoes)
             {
                 if(item.Status == "4")
