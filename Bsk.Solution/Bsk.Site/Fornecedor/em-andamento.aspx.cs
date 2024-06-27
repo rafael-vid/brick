@@ -22,7 +22,7 @@ namespace Bsk.Site.Fornecedor
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdParticipante, StatusCotacao.EmAndamento);
+            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdParticipante, "(4,5,6)");
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             foreach (var item in cotacoes)
             {
@@ -30,6 +30,10 @@ namespace Bsk.Site.Fornecedor
                 if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
+                }
+                else if (item.Status == StatusCotacao.AguardandoAvaliacao)
+                {
+                    item.Status = "Aguardando Avaliação";
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {

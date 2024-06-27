@@ -12,7 +12,7 @@ namespace Bsk.BE.Model
         public string Mensagens { get; set; }
         public decimal Valor { get; set; }
         public string DataUltimaResposta { get; set; }
-        public string NomeFornecedor { get; set; }
+        public string NomeParticipante { get; set; }
         public int CotacaoId { get; set; }
         public int Ativo { get; set; }
         public int Novo { get; set; }

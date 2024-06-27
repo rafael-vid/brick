@@ -265,7 +265,7 @@ namespace Bsk.Interface
                         on CT.IdCotacao = CF.IdCotacao
                         inner join participante CL
                         on CL.IdParticipante = CT.IdParticipante
-                        where CT.Status = {status} and CF.IdparticipanteFornecedor =" + idFornecedor;
+                        where CT.Status in {status} and CF.IdparticipanteFornecedor =" + idFornecedor;
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
@@ -275,7 +275,7 @@ namespace Bsk.Interface
                             from cotacao CT 
                             inner join cotacaofornecedor CF 
                             on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
-                            inner join Fornecedor FC on FC.IdFornecedor = CF.IdFornecedor
+                            inner join Fornecedor FC on FC.IdFornecedor = CF.IdParticipanteFornecedor
                             where CT.IdCotacao= " + idCotacao;
             return _base.ToList<CotacaoAvaliacaoModel>(db.Get(sql)).FirstOrDefault();
         }
@@ -295,7 +295,7 @@ namespace Bsk.Interface
         {
             string sql = $@"select 
                                 CT.IdCotacao as CotacaoId, 
-                                FC.RazaoSocial as NomeFornecedor, 
+                                FC.nomeFantasia as NomeParticipante, 
                                 CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
                                 CF.Valor, 
                                 CF.Ativo,
@@ -315,7 +315,7 @@ namespace Bsk.Interface
                                 ORDER BY IdCotacaoFornecedorChat DESC LIMIT 1) AS DataUltimaResposta
                             from cotacao CT 
                             inner join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao 
-                            inner join fornecedor FC on CF.IdParticipanteFornecedor = FC.IdFornecedor
+                            inner join participante FC on CF.IdParticipanteFornecedor = FC.IdParticipante
                                 where CT.IdCotacao = {idCotacao}";
             return _base.ToList<CotacaoListaModel>(db.Get(sql));
         }

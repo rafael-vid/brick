@@ -86,9 +86,9 @@ namespace Bsk.Util
         public const string Aberto = "2";
         public const string AguardandoPagamento = "3";
         public const string EmAndamento = "4";
-        public const string Finalizado = "5";
-        public const string Avaliado = "6";
-        public const string Pago = "7";
+        public const string AguardandoAceite = "5";
+        public const string AguardandoAvaliacao = "6";
+        public const string Finalizado = "7";
     }
 
     public static class VariaveisGlobais

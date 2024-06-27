@@ -127,7 +127,7 @@ namespace Bsk.Site.Controllers
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
-            cotacao.Status = StatusCotacao.Avaliado;
+            cotacao.Status = StatusCotacao.Finalizado;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 
@@ -160,8 +160,8 @@ namespace Bsk.Site.Controllers
 
             FornecedorBE fornecedorBE = new FornecedorBE();
             var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
-            ClienteBE clienteBE = new ClienteBE();
-            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            ParticipanteBE _ParticipanteBE = new ParticipanteBE();
+            var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
             string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
@@ -257,7 +257,7 @@ namespace Bsk.Site.Controllers
 
             if (liberado)
             {
-                cotacao.Status = StatusCotacao.Finalizado;
+                cotacao.Status = StatusCotacao.AguardandoAvaliacao;
             }
             else
             {
@@ -455,7 +455,7 @@ namespace Bsk.Site.Controllers
         [HttpPost]
         public void SalvarDadosCobrancaCotacao(string data, string valor, string id)
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
             CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={id}").FirstOrDefault();
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE()
@@ -505,16 +505,16 @@ namespace Bsk.Site.Controllers
                 if (cotacaoFornecedorBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != cotacaoFornecedorBE.DataEntrega)
                 {
                     _CotacaoBE = new CotacaoBE();
-                    ClienteBE _ClienteBE = new ClienteBE();
+                    ParticipanteBE _ParticipanteBE = new ParticipanteBE();
                     var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
-                    var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+                    var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
                     string imagem = VariaveisGlobais.Logo;
                     Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
                     string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
 
-                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
-                    emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
+                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.nomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
+                    emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", participante.Email);
 
 
                     
