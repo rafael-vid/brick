@@ -209,8 +209,8 @@ namespace Bsk.Site.Controllers
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.FinalizaCliente = int.Parse(status);
             cotacao.FinalizaFornecedor = int.Parse(status);
-            ClienteBE clienteBE = new ClienteBE();
-            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            ParticipanteBE participanteBE = new ParticipanteBE();
+            var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
             var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
 
@@ -326,8 +326,8 @@ namespace Bsk.Site.Controllers
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            ClienteBE clienteBE = new ClienteBE();
-            var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            ParticipanteBE participanteBE = new ParticipanteBE();
+            var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
             string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;

@@ -20,8 +20,8 @@ namespace Bsk.Site.Cliente
         }
         public List<CotacaoBE> PegaCotacaoPagamento()
         {
-            var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.AguardandoPagamento}' AND IdCliente="+login.IdCliente);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.AguardandoPagamento}' AND IdCliente="+login.IdParticipante);
             foreach (var item in cotacoes)
             {
                 item.Status = "Aguardando pagamento";

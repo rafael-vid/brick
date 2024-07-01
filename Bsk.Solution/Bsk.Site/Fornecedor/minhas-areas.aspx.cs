@@ -24,8 +24,8 @@ namespace Bsk.Site.Fornecedor
         public List<ServicoBE> PegaServico(CategoriaBE categoria)
         {
             List<ServicoBE> servicos = new List<ServicoBE>();
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdFornecedor={login.IdFornecedor}").FirstOrDefault();
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cat = _core.AreaFornecedor_Get(AreaFornecedorBE, $"IdCategoria={categoria.IdCategoria} AND IdParticipante={login.IdParticipante}").FirstOrDefault();
             if (cat != null)
             {
                 servicos = _core.Servico_Get(ServicoBE, $"IdServico in ({cat.IdServico}0)");
@@ -35,8 +35,8 @@ namespace Bsk.Site.Fornecedor
 
         public List<CategoriaBE> BuscaAreas()
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var af = _core.AreaFornecedor_Get(AreaFornecedorBE, "IdFornecedor="+login.IdFornecedor);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var af = _core.AreaFornecedor_Get(AreaFornecedorBE, "IdParticipante="+login.IdParticipante);
             string filtro = "";
             foreach (var item in af)
             {

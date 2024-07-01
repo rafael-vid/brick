@@ -18,19 +18,20 @@ namespace Bsk.Site.Fornecedor
         {
             if (!IsPostBack)
             {
-                var login = Funcoes.PegaLoginFornecedor(Request.Cookies["loginFornecedor"].Value);
-                nome.Value = login.NomeFantasia;
-                sobrenome.Value = login.SobreNome;
+                var login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
+                nome.Value = login.nomeFantasia;
+                sobrenome.Value = login.Sobrenome;
                 email.Value = login.Email;
-                cpf.Value = login.Cnpj;
+                cpf.Value = login.Documento;
                 telefone.Value = login.Telefone;
                 cep.Value = login.Cep;
                 rua.Value = login.Logradouro;
                 numero.Value = login.Numero;
                 complemento.Value = login.Complemento;
                 bairro.Value = login.Bairro;
-                cidade.Value = login.Municipio;
+                cidade.Value = login.cidade;
                 uf.Value = login.Uf;
+                //prestaServicos.Checked = login.PrestaServico == 1;
             }
         }
         protected Boolean validatePhone(String phone)
@@ -50,8 +51,8 @@ namespace Bsk.Site.Fornecedor
         }
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
         {
-            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["loginFornecedor"].Value);
-            Bsk.BE.FornecedorBE clienteBE = new BE.FornecedorBE();
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
+            Bsk.BE.ParticipanteBE clienteBE = new BE.ParticipanteBE();
             Bsk.Interface.core _core = new Interface.core();
             Boolean AtualizarCampos = true;
             if (String.IsNullOrEmpty(nome.Value))
@@ -155,10 +156,10 @@ namespace Bsk.Site.Fornecedor
             }
             if (AtualizarCampos == true)
             {
-                var cliente = _core.Fornecedor_Get(clienteBE, "IdFornecedor=" + login.IdFornecedor).FirstOrDefault();
+                var cliente = _core.Participante_Get(clienteBE, "IdParticipante=" + login.IdParticipante).FirstOrDefault();
                 cliente.Logradouro = rua.Value;
-                cliente.Municipio = cidade.Value;
-                cliente.NomeFantasia = nome.Value;
+                cliente.cidade = cidade.Value;
+                cliente.nomeFantasia = nome.Value;
                 cliente.Numero = numero.Value;
                 cliente.Telefone = telefone.Value;
                 cliente.Uf = uf.Value;
@@ -166,8 +167,9 @@ namespace Bsk.Site.Fornecedor
                 cliente.Email = email.Value;
                 cliente.Cep = cep.Value;
                 cliente.Bairro = bairro.Value;
-                cliente.Cnpj = cpf.Value;
-                _core.Fornecedor_Update(cliente, "IdFornecedor=" + cliente.IdFornecedor);
+                cliente.Documento = cpf.Value;
+                //cliente.PrestaServico = prestaServicos.Checked ? 1 : 0;
+                _core.Participante_Update(cliente, "IdParticipante=" + cliente.IdParticipante);
 
 
                 if (Request.QueryString["Red"] != null)
@@ -183,7 +185,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else
                 {
-                    HttpCookie lg = new HttpCookie("loginFornecedor");
+                    HttpCookie lg = new HttpCookie("login");
                     cliente.Senha = "xxx";
                     lg.Value = Newtonsoft.Json.JsonConvert.SerializeObject(cliente);
 

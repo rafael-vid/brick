@@ -21,8 +21,8 @@ namespace Bsk.Site.Fornecedor
         }
         public List<CotacaoFornecedorListaModel> PegaCotacoes()
         {
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdFornecedor, StatusCotacao.EmAndamento);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
+            var cotacoes = _core.CotacaoFornecedorListaStatusGet(login.IdParticipante, StatusCotacao.EmAndamento);
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             foreach (var item in cotacoes)
             {

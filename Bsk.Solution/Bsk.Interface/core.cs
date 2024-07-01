@@ -213,7 +213,7 @@ namespace Bsk.Interface
             var sql = $@"select 
                             CT.IdCotacao as CotacaoId, 
                             CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
-                            CT.IdCLiente as ClienteId, 
+                            CT.IdParticipante as ClienteId, 
                             CL.Nome, CT.Titulo, 
                             CT.Status, 
                             CT.FinalizaCliente, 
@@ -223,7 +223,7 @@ namespace Bsk.Interface
                             s.Nome as StatusNome
 
                         from cotacao CT                      
-                        inner join cliente CL on CL.IdCliente = CT.IdCliente
+                        inner join participante CL on CL.IdParticipante = CT.IdParticipante
                         left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
                         inner join status s on CT.status = s.id
                         where CT.IdCategoria in ({cats}) and {where}
@@ -239,7 +239,7 @@ namespace Bsk.Interface
                             where CT.Status='{StatusCotacao.Aberto}' 
                             and CT.IdCotacao not in (select 
                                                         IdCotacao 
-                                                    from cotacaofornecedor where IdFornecedor = {idFornecedor} 
+                                                    from cotacaofornecedor where IdParticipanteFornecedor = {idFornecedor} 
                                                     and IdCotacao = CT.IdCotacao)
                             and CT.IdCategoria in ({categorias});";
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
@@ -259,13 +259,13 @@ namespace Bsk.Interface
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaStatusGet(int idFornecedor, string status)
         {
-            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
+            var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdParticipante as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
                         from cotacaofornecedor CF 
                         inner join cotacao CT
                         on CT.IdCotacao = CF.IdCotacao
-                        inner join cliente CL
-                        on CL.IdCliente = CT.IdCliente
-                        where CT.Status = {status} and CF.IdFornecedor =" + idFornecedor;
+                        inner join participante CL
+                        on CL.IdParticipante = CT.IdParticipante
+                        where CT.Status = {status} and CF.IdparticipanteFornecedor =" + idFornecedor;
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
@@ -286,7 +286,7 @@ namespace Bsk.Interface
                             from cotacaofornecedor CF 
                             inner join cotacao CT 
                             on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
-                            inner join Cliente CL on CL.IdCliente = CT.IdCliente
+                            inner join Participante CL on CL.IdParticipante = CT.IdParticipante
                             where CF.IdCotacaoFornecedor= " + idCotacao;
             return _base.ToList<CotacaoAvaliacaoFornecedorModel>(db.Get(sql)).FirstOrDefault();
         }
@@ -315,7 +315,7 @@ namespace Bsk.Interface
                                 ORDER BY IdCotacaoFornecedorChat DESC LIMIT 1) AS DataUltimaResposta
                             from cotacao CT 
                             inner join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao 
-                            inner join fornecedor FC on CF.IdFornecedor = FC.IdFornecedor
+                            inner join fornecedor FC on CF.IdParticipanteFornecedor = FC.IdFornecedor
                                 where CT.IdCotacao = {idCotacao}";
             return _base.ToList<CotacaoListaModel>(db.Get(sql));
         }

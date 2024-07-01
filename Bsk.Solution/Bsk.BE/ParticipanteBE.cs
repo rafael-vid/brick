@@ -15,7 +15,7 @@ namespace Bsk.BE
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string RazaoSocial { get; set; }
-        public string NomeFantasia { get; set; }
+        public string nomeFantasia { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Complemento { get; set; }
@@ -31,7 +31,7 @@ namespace Bsk.BE
         public string GuidColumn { get; set; }
         public int EmailConfirmado { get; set; }
         public string Token { get; set; }
-        public int PrestaServico { get; set; }
+        public int prestaServico { get; set; }
         public string MeioPagamento { get; set; }
         public string ZoopID { get; set; }
         public string SellerID { get; set; }

@@ -49,7 +49,7 @@ namespace Bsk.Site.Controllers
         public JsonResult AdicionarServico(string service)
         {
             var servicos = service.Split(',');
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             List<ServicoCategoria> lista = new List<ServicoCategoria>();
             foreach (var servico in servicos)
             {
@@ -65,7 +65,7 @@ namespace Bsk.Site.Controllers
 
             }
             var categorias = lista.GroupBy(x => x.IdCategoria);
-            _core.ExecFree($"delete from areafornecedor where IdFornecedor = {login.IdFornecedor}");
+            _core.ExecFree($"delete from areafornecedor where IdFornecedor = {login.IdParticipante}");
             foreach (var categoria in categorias)
             {
                 var servs = lista.Where(x => x.IdCategoria == categoria.Key).ToList();
@@ -76,7 +76,7 @@ namespace Bsk.Site.Controllers
                 {
                     idservicos += item.IdServico + ",";
                 }
-                _core.AreaFornecedor_Insert(new AreaFornecedorBE { IdCategoria = categoria.Key, IdServico = idservicos,IdParticipante=login.IdFornecedor });
+                _core.AreaFornecedor_Insert(new AreaFornecedorBE { IdCategoria = categoria.Key, IdServico = idservicos,IdParticipante=login.IdParticipante });
             }
             return this.Json(new { Msg = "Ok" }, JsonRequestBehavior.AllowGet);
         }

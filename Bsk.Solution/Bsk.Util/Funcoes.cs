@@ -92,7 +92,7 @@ namespace Bsk.Util
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
             ParticipanteBE participanteBE = new ParticipanteBE();
             participanteBE.IdParticipante = ret["IdParticipante"];
-            participanteBE.NomeFantasia = ret["NomeFantasia"];
+            participanteBE.nomeFantasia = ret["nomeFantasia"];
             participanteBE.Bairro = ret["Bairro"];
             participanteBE.Cep = ret["Cep"];
             participanteBE.Documento = ret["Documento"];
@@ -108,6 +108,7 @@ namespace Bsk.Util
             participanteBE.Matriz = ret["Matriz"];
             participanteBE.Telefone = ret["Telefone"];
             participanteBE.Uf = ret["Uf"];
+            participanteBE.prestaServico = ret["prestaServico"];
 
             return participanteBE;
         }

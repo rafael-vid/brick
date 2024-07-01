@@ -22,7 +22,7 @@ namespace Bsk.Site.Fornecedor
 
         public List<Dashboard> GetDashboardFornecedor()
         {
-            var login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            var login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
             var cotCliente = _core.GetDashboardCliente(" s.id <> 8 ");
 
             return cotCliente;
@@ -30,16 +30,16 @@ namespace Bsk.Site.Fornecedor
 
         public List<CotacaoListaFronecedorModel> PegaCotacoes(int statusID)
         {
-            var l = Request.Cookies["loginFornecedor"].Value;
-            var login = Funcoes.PegaLoginFornecedor(l);
-            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdFornecedor + " and CT.status = " + statusID + " AND CF.Ativo=1  order by DataAlteracao desc") ;
+            var l = Request.Cookies["login"].Value;
+            var login = Funcoes.PegaLoginParticipante(l);
+            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdParticipante + " and CT.status = " + statusID + " AND CF.Ativo=1  order by DataAlteracao desc") ;
             return cotCliente;
         }
         public List<CotacaoListaFronecedorModel> PegaCotacoesEmAndamento()
         {
-            var l = Request.Cookies["loginFornecedor"].Value;
-            var login = Funcoes.PegaLoginFornecedor(l);
-            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdFornecedor + " AND CF.Ativo=0 AND Status=3  order by DataAlteracao desc");
+            var l = Request.Cookies["login"].Value;
+            var login = Funcoes.PegaLoginParticipante(l);
+            var cotCliente = _core.CotacaoFornecedorGet($" CF.idParticipante=" + login.IdParticipante + " AND CF.Ativo=0 AND Status=3  order by DataAlteracao desc");
             return cotCliente;
         }
     }
