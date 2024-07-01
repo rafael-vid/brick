@@ -275,7 +275,7 @@ namespace Bsk.Interface
                             from cotacao CT 
                             inner join cotacaofornecedor CF 
                             on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
-                            inner join Fornecedor FC on FC.IdFornecedor = CF.IdParticipanteFornecedor
+                            inner join Participante FC on FC.IdParticipante = CF.IdParticipanteFornecedor
                             where CT.IdCotacao= " + idCotacao;
             return _base.ToList<CotacaoAvaliacaoModel>(db.Get(sql)).FirstOrDefault();
         }

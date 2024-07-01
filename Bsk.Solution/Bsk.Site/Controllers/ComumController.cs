@@ -158,9 +158,9 @@ namespace Bsk.Site.Controllers
             cotacao.Status = StatusCotacao.AguardandoPagamento;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
 
-            FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
             ParticipanteBE _ParticipanteBE = new ParticipanteBE();
+            var fornecedor = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            
             var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
             string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
@@ -212,7 +212,7 @@ namespace Bsk.Site.Controllers
             ParticipanteBE participanteBE = new ParticipanteBE();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
 
             string titulo = "";
             string mensagem = "";
@@ -272,7 +272,7 @@ namespace Bsk.Site.Controllers
             return this.Json(new { Result = status, Liberado = cotacao.Status }, JsonRequestBehavior.AllowGet);
         }
 
-        private bool liberarPagamento(CotacaoBE cotacao, CotacaoFornecedorBE cf, FornecedorBE fornecedor)
+        private bool liberarPagamento(CotacaoBE cotacao, CotacaoFornecedorBE cf, ParticipanteBE fornecedor)
         {
             //colocar liberação de pagamento
 
@@ -307,7 +307,8 @@ namespace Bsk.Site.Controllers
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            ParticipanteBE participanteBE = new ParticipanteBE();
+            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
             if (liberarPagamento(cotacao, cf, fornecedor))
             {
                 return this.Json(new { Result = StatusCotacao.Finalizado }, JsonRequestBehavior.AllowGet);
@@ -325,7 +326,7 @@ namespace Bsk.Site.Controllers
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
             CotacaoBE cotacaoBE = new CotacaoBE();
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
-            FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
+            ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
             ParticipanteBE participanteBE = new ParticipanteBE();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
