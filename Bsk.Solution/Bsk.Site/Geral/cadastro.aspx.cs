@@ -52,6 +52,16 @@ namespace Bsk.Site.Geral
             }
             return false;
         }
+        protected bool IsEmailConfirmedParticipante(string email)
+        {
+            ParticipanteBE ParticipanteBE = new ParticipanteBE();
+            var emails = _core.Participante_Get(ParticipanteBE, $"email='{email}'");
+            if (emails[0].EmailConfirmado > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
@@ -59,6 +69,13 @@ namespace Bsk.Site.Geral
            
                 if (IsEmailRegisteredParticipante(stremail))
                 {
+                    if (!IsEmailConfirmedParticipante(stremail))
+                    {
+                    HttpCookie emailcookie = new HttpCookie("emailcookie");
+                    emailcookie.Value = email.Value;
+                    Response.Cookies.Add(emailcookie);
+                    Response.Redirect($"cadastro.aspx?Red=ok");
+                }
                     string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
                 }
