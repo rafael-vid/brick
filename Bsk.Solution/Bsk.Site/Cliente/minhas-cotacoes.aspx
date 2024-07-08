@@ -100,7 +100,7 @@
                                 {
                                     link = "finalizar-pagamento.aspx?Id=" + item.IdCotacao;
                                 }
-                                else if (item.Status == "Avaliado")
+                                else if (item.Status == "Aguardando Avaliação")
                                 {
                                     link = "avaliar.aspx?Id=" + item.IdCotacao;
                                 }

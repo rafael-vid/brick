@@ -18,6 +18,7 @@ namespace Bsk.Site.Cliente
     {
         core _core = new core();
         FornecedorBE _FornecedorBE = new FornecedorBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
         CotacaoBE _CotacaoBE = new CotacaoBE();
@@ -67,8 +68,8 @@ namespace Bsk.Site.Cliente
                     divAceitar.Visible = false;
                     //divAceitar2.Visible = false;
                 }
-                List<BE.Model.Fornecedor> forn = _core.GetFornecedor(" IdFornecedor = " + cotacaoFornecedor.IdParticipanteFornecedor);
-                lblnome.Text = forn[0].nome;
+                List<ParticipanteBE> forn = _core.Participante_Get(_ParticipanteBE," IdParticipante = " + cotacaoFornecedor.IdParticipanteFornecedor);
+                lblnome.Text = forn[0].nomeFantasia;
 
                 mediaCotacoes();
                 if (cotacaoFornecedor != null)
@@ -128,10 +129,10 @@ namespace Bsk.Site.Cliente
                         }
                     }
 
-                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, $" IdFornecedor={cotacaoFornecedor.IdParticipanteFornecedor.ToString()}").FirstOrDefault();
-                    if (fornecedor != null)
+                    var participante = _core.Participante_Get(_ParticipanteBE, $" IdParticipante={cotacaoFornecedor.IdParticipanteFornecedor.ToString()}").FirstOrDefault();
+                    if (participante != null)
                     {
-                        parceiro.InnerText = fornecedor.RazaoSocial;
+                        parceiro.InnerText = participante.nomeFantasia;
                     }
 
                 }
