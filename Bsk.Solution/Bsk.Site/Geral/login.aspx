@@ -61,6 +61,46 @@
             background-size: auto !important;
             width: 100%;
         }
+        .cookie-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 85px;
+            z-index: 1000;
+            animation: slideUp 0.5s ease-out; /* Aplica a animação de deslizamento */
+        }
+        .cookie-consent button {
+            color: #f4f3f2;
+            background: #770e18;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -139,6 +179,17 @@
 
         
     </form>
+    <div class="cookie-backdrop" id="cookieBackdrop"></div>
+
+    <div class="cookie-consent" id="cookieConsent">
+
+Este site utiliza cookies estritamente necessários para garantir o funcionamento adequado e seguro de nossos serviços. Esses cookies são essenciais para habilitar a navegação e utilização das funcionalidades do site.
+
+Não utilizamos cookies para coletar informações pessoais.
+
+Ao continuar a usar nosso site, você entende e concorda com o uso desses cookies essenciais. Para mais informações, consulte nossa <a href="#" style="color: deepskyblue;">Política de Privacidade</a>.
+        <button onclick="closeCookieConsent()">OK</button>
+    </div>
     <script>
         // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
         document.addEventListener("DOMContentLoaded", function () {
@@ -150,5 +201,11 @@
     });
 
 </script>
+    <script>
+        function closeCookieConsent() {
+            document.getElementById('cookieConsent').style.display = 'none';
+            document.getElementById('cookieBackdrop').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

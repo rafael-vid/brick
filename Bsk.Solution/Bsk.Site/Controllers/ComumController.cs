@@ -128,6 +128,7 @@ namespace Bsk.Site.Controllers
             var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
             cotacao.Status = StatusCotacao.Finalizado;
+            cotacao.DataAvaliacao = DateTime.Now;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
 

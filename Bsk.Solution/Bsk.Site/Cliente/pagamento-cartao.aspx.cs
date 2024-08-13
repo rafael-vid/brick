@@ -1,11 +1,13 @@
 ﻿using Bsk.BE;
 using Bsk.BE.Pag;
 using Bsk.Site.Admin;
+using Bsk.Site.Geral;
 using Bsk.Util;
 using K4os.Compression.LZ4.Encoders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -191,7 +193,21 @@ namespace Bsk.Site.Cliente
                             //if (ret["status"] == "200")
                             //{
                                 status = "1";
-                            var msg = "pagamento efetuado com sucesso";//ret["mensagem"].ToString();
+                            string script = @"
+                                Swal.fire({
+                                    text: 'Pagamento efetuado com sucesso',
+                                    icon: 'success',
+                                    toast: 'true',
+                                    confirmButtonColor: '#f08f00',
+                                    confirmButtonText: 'Ok'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = 'pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor + @"';
+                                    }
+                                });
+                            ";
+                            ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
+
                             //}
                             //else
                             //{
@@ -219,7 +235,7 @@ namespace Bsk.Site.Cliente
                                 _core.Transacao_Insert(transacaoBE);
                                 cotacao.Status = StatusCotacao.EmAndamento;
                                 _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
-                                Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);
+                                //Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);
                             }
                             //else
                             //{

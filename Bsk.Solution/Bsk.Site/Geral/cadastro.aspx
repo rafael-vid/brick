@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-md-4 ">
                         <label for="cpf" class="subtitulo_1">CPF*</label>
-                        <input type="text" name="cpf" id="cpf" maxlength="14" runat="server" onkeyup="mascaraCPF()"  required>
+                        <input type="text" name="cpf" id="cpf" maxlength="14" runat="server" oninput="mascaraCPF()" required>
                     </div>
                     <div class="col-md-4">
                         <label for="telefone" class="subtitulo_1">Telefone*</label>
@@ -724,16 +724,21 @@
         }
 
         function mascaraCPF() {
-            const cpf = document.getElementById('cpf')
+            const cpf = document.getElementById('cpf');
+            const lastLength = cpf.dataset.lastLength || 0;
 
-          
-
-            if (cpf.value.length == 3 || cpf.value.length == 7) {
-                cpf.value += '.'
-            } else if (cpf.value.length == 11) {
-                cpf.value += '-'
+            if (cpf.value.length > lastLength) { // Only add characters if the length is increasing
+                if (cpf.value.length == 3 || cpf.value.length == 7) {
+                    cpf.value += '.';
+                } else if (cpf.value.length == 11) {
+                    cpf.value += '-';
+                }
             }
+
+            // Update the last length for next comparison
+            cpf.dataset.lastLength = cpf.value.length;
         }
+
 
             function mascaraCNPJ() {
         const cnpj = document.getElementById('cnpj');
