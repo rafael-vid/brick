@@ -121,7 +121,7 @@
                             <%}
                                 else if (item.Status == "Finalizado")
                                 {%>
-                            <td class="status fechado">Finalizado
+                            <td class="status">Finalizado
                             </td>
                             <% }
                                 else if (item.Status == "Pendente de aceite do cliente")

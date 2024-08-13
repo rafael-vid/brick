@@ -55,12 +55,12 @@
                     </h2>
                 </div>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminar" runat="server" style="width: 100%;">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert" id="divTerminar" runat="server" style="width: 100%;">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     <strong>Legal!!</strong> Agora falta pouco para concluirem. Informe seu cliente que o serviço já foi finalizado.<br />
                     Uma dica, se possível envie uma foto para ele. Assim fica mais fácil para todos.</span><br />
                 <br />
-                <input type="button" class="btn btn-success btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término" style="width: 100%;">
+                <input type="button" class="btn btn-lg pull-right" id="btnTerminar" onclick="terminar();" value="Informar Término" style="width: 100%;">
             </div>
 
             <div style="clear:both"></div>
@@ -278,21 +278,22 @@
 
 
             
-            <div class="footer_card">
-                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
-                  <%var cotacoes = PegaCotacoes();
-                  foreach (var item in cotacoes) { 
-                  %>
-                <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.CotacaoFornecedorId);%>">Avaliar</a>
-                 <%  }
-                        %>
-                <!--
-                <a href="/" class="item_notifica">
-                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
-                    <span class="notificacao">02</span>
-                </a>
-                -->
+            <div id="divAvaliar" runat="server" class="footer_card">
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar</a>
+                <a class="btn btn-brikk" id="avaliarLink">Avaliar</a>
             </div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var avaliarLink = document.getElementById('avaliarLink');
+
+        // Assuming you have a function that returns the URL
+        var url = '<%= Avaliar() %>';
+
+        avaliarLink.setAttribute('href', url);
+    });
+</script>
+
 
         </div>
     </div>
