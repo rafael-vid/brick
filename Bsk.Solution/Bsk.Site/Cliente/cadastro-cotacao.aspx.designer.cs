@@ -69,6 +69,24 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.FileUpload flpVideo;
 
         /// <summary>
+        /// ddlFrequencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFrequencia;
+
+        /// <summary>
+        /// txtDataAnual control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataAnual;
+
+        /// <summary>
         /// divUpload control.
         /// </summary>
         /// <remarks>
