@@ -146,6 +146,17 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+        .swal-wide {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
+
+.swal-title {
+    font-size: 1.5em; /* Adjust the size as needed */
+}
+
+.swal-text {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
     </style>
 
     <script>

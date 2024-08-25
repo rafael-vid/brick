@@ -93,14 +93,7 @@
             z-index: 1000;
             animation: slideUp 0.5s ease-out; /* Aplica a animação de deslizamento */
         }
-        .cookie-consent button {
-            color: #f4f3f2;
-            background: #770e18;
-            border: none;
-            padding: 5px 10px;
-            margin-left: 20px;
-            cursor: pointer;
-        }
+
     </style>
 </head>
 
@@ -179,16 +172,16 @@
 
         
     </form>
-    <div class="cookie-backdrop" id="cookieBackdrop"></div>
+    <div class="cookie-backdrop" id="cookieBackdrop" style="display:none;"></div>
 
-    <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent" id="cookieConsent" style="text-align:justify; font-size:18px; display:none;">
 
 Este site utiliza cookies estritamente necessários para garantir o funcionamento adequado e seguro de nossos serviços. Esses cookies são essenciais para habilitar a navegação e utilização das funcionalidades do site.
 
 Não utilizamos cookies para coletar informações pessoais.
 
 Ao continuar a usar nosso site, você entende e concorda com o uso desses cookies essenciais. Para mais informações, consulte nossa <a href="#" style="color: deepskyblue;">Política de Privacidade</a>.
-        <button onclick="closeCookieConsent()">OK</button>
+        <button class="btn" onclick="closeCookieConsent()" style="position: absolute; right: 20px; bottom: 20px;">OK</button>
     </div>
     <script>
         // Função para acionar o evento de clique do botão "Entrar" para clientes quando a tecla Enter for pressionada
@@ -202,10 +195,23 @@ Ao continuar a usar nosso site, você entende e concorda com o uso desses cookie
 
 </script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Verifica se o alerta de cookies já foi fechado
+            if (!localStorage.getItem('cookieConsentClosed')) {
+                document.getElementById('cookieConsent').style.display = 'block';
+                document.getElementById('cookieBackdrop').style.display = 'block';
+            }
+        });
+
         function closeCookieConsent() {
+            // Oculta o alerta de cookies
             document.getElementById('cookieConsent').style.display = 'none';
             document.getElementById('cookieBackdrop').style.display = 'none';
+            // Salva a informação de que o alerta foi fechado
+            localStorage.setItem('cookieConsentClosed', 'true');
         }
+
     </script>
 </body>
 </html>
+l>

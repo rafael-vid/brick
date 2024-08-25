@@ -197,15 +197,20 @@ namespace Bsk.Site.Cliente
                                 Swal.fire({
                                     text: 'Pagamento efetuado com sucesso',
                                     icon: 'success',
-                                    toast: 'true',
                                     confirmButtonColor: '#f08f00',
-                                    confirmButtonText: 'Ok'
+                                    confirmButtonText: 'Ok',
+                                    customClass: {
+                                        popup: 'swal-wide',
+                                        title: 'swal-title',
+                                        content: 'swal-text'
+                                    }
                                 }).then((result) => {
                                     if (result.isConfirmed) {
                                         window.location.href = 'pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor + @"';
                                     }
                                 });
                             ";
+
                             ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
 
                             //}
