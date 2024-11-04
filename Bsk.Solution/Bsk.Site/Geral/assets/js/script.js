@@ -41,7 +41,8 @@ function handleClick(event){
 }
 
  const menuToggle = document.querySelector('.open-menu')
-    menuToggle.addEventListener('click', ()=>{
+menuToggle.addEventListener('click', () => {
+   
       const app = document.querySelector('.app')
       app.classList.toggle('mini-menu')
     })
