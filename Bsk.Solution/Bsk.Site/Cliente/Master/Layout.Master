@@ -353,7 +353,7 @@ div#tabela_paginate span a {
     <section class="app">
 
         <nav class="menu-dashboard">
-            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone"> 
+            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone" class="seta"> 
             </a>
             <ul class="menu-dash">
                 <li>
@@ -576,6 +576,21 @@ div#tabela_paginate span a {
             });
         });
     </script>
+     <script>
+         function handleResize() {
+             const section = document.querySelector('.app') || document.querySelector('.mini-menu');
+             if (window.innerWidth < 758) {
+                 section.className = 'app mini-menu';
+             } else {
+                 section.className = 'app';
+             }
+         }
+
+         window.addEventListener('resize', handleResize);
+         document.addEventListener('DOMContentLoaded', handleResize);
+
+     </script>
+
 
 
     
