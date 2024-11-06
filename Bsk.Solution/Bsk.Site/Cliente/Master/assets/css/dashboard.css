@@ -87,8 +87,10 @@ textarea {
 .menu ul li {
   margin-left: 20px;
 }
-.menu ul li a {
-  padding: 0;
+@media (max-width: 1151px) {
+    .menu ul li a {
+        margin-left: 0PX;
+    }
 }
 .btn-cadastro {
   height: auto;
