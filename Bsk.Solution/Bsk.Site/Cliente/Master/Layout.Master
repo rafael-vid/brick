@@ -98,15 +98,18 @@
         }
       
         @media (max-width: 1151px){
-            #nav.active ul {
-                height: calc(100vh - 120px);
+            .ul{
+                padding-left: 0rem;
+            }
+            #nav.active ul {           
+                height: 350px;
+                width: 500px;
                 visibility: visible;
                 overflow-y: auto;
             }
             .menu ul {
                 display: block !important;
-                position: absolute !important;
-                width: 100% !important;
+                width: 300% !important;
                 top: 120px !important;
                 right: 0 !important;
                 background-color: #770e18;
@@ -136,7 +139,6 @@ div#tabela_filter {
     div#tabela_filter input[type="search"] {
         height: 55px;
         width: 340px;
-        position: absolute;
         margin-left: -78px;
         background: #d7d7d7;
         border-radius: 30px;
@@ -260,36 +262,66 @@ div#tabela_paginate span a {
     }
 }
 
-@media (max-width:780px) {
-    div#tabela_filter input[type="search"], .dataTables_length label{
-        width:100% !important;
-    }
-    div#tabela_paginate {
-        justify-content: flex-start;
-        margin-top: 20px;
-    }
-     .menu-dashboard {
-        display: none !important; /* Ocultar apenas a lista de itens de menu, não o botão */
-    }
+        @media (max-width:780px) {
+            div#tabela_filter input[type="search"], .dataTables_length label {
+                width: 100% !important;
+            }
 
-    .menu-dashboard {
-        display: block !important; /* Mostrar o menu novamente ao adicionar a classe 'active' */
-    }
+            div#tabela_paginate {
+                justify-content: flex-start;
+                margin-top: 20px;
+            }
 
-    .menu-dashboard .open-menu {
-        display: block !important; /* Manter o botão sempre visível mesmo que o resto do menu esteja oculto */
-    }
-    .seta{
-        margin-top: 9px !important;
-        margin-left: 6px !important;
-    }
-/* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
- .uppercase {
-     text-transform: capitalize;
+            .menu-dashboard {
+                display: none !important; /* Ocultar apenas a lista de itens de menu, não o botão */
+            }
 
+            .menu-dashboard {
+                display: block !important; /* Mostrar o menu novamente ao adicionar a classe 'active' */
+            }
+
+                .menu-dashboard .open-menu {
+                    display: block !important; /* Manter o botão sempre visível mesmo que o resto do menu esteja oculto */
+                }
+
+            .seta {
+                margin-top: 9px !important;
+                margin-left: 6px !important;
+            }
+            /* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+            .uppercase {
+                text-transform: capitalize;
+            }
+            /*---------------*/
+            .perfil span {
+                color: #fff !important;
+            }
+
+            [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
+                background: transparent !important;
+            }
+
+            .dropdown-perfil {
+                margin-left: -75px !important;
+                background: transparent !important;
+            }
+
+            [data-dropdow-perfil].active-submenu .dropdown-perfil {
+                background: transparent !important;
+            }
+
+            .dropdown-perfil li a {
+                color: #fff !important;
+            }
+
+            [data-dropdow-perfil].active-submenu .perfil {
+                padding: 0px;
+            }
+            .menu-itens li {
+                padding: 2rem 0;
+                border-bottom: 0px;
+            }
         }
-/*---------------*/
-
     </style>
 
 </head>
@@ -619,6 +651,21 @@ div#tabela_paginate span a {
          document.addEventListener('DOMContentLoaded', handleResize);
 
      </script>
+    <script>
+        const dropdown = document.querySelector('.data-dropdow-perfil');
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth <= 700) {
+                dropdown.classList.add('active-submenu');
+            }
+        });
+
+        //Check on page load as well
+        if (window.innerWidth <= 700) {
+            dropdown.classList.add('active-submenu');
+        }
+
+    </script>
 
 
 
