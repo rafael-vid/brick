@@ -130,7 +130,7 @@
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
                 <h2 style="margin-top: 0;">Resumo da cotação</h2>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 notaFiscal">
                     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -159,7 +159,7 @@
                 </div>
             </div>
             <div class="col col-lg-1 col-md-1 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
                 <h2 style="margin-top: 0;">Pagar com:</h2>
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <a class="col col-lg-6 col-md-6 col-sm-12 col-xs-12 botaoPagamento" style="width: 100%;" >

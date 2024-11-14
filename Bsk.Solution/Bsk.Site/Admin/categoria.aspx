@@ -5,8 +5,8 @@
 
 
      <!-- Corpo Site -->
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 corpo-site">
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 corpo-site">
         <h3 class="tableTitle">Cadastrar Categorias</h3>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0">
@@ -41,7 +41,7 @@
             
         </div>
     </div>
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
 
 
 </asp:Content>

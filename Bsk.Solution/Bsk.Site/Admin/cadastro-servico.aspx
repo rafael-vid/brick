@@ -4,8 +4,8 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server"> 
 
      <!-- Corpo Site -->
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 corpo-site">
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 corpo-site">
         <h3 class="tableTitle">Cadastrar Serviço</h3>
         <h2 class="tableTitle">Categoria: <span id="categoria" runat="server" style="text-decoration:none !important;"></span>  </h2>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>
@@ -55,7 +55,7 @@
             </table>
         </div>            
     </div>
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+    <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
 
 
 </asp:Content>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Bsk.Site.Fornecedor
+namespace Bsk.Site.Geral
 {
 
 
-    public partial class gerenciar_servicos
+    public partial class teste
     {
     }
 }
