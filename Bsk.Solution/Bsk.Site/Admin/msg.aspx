@@ -28,7 +28,7 @@
        <!-- Header site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
         </div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- Login site -->
-    <div class="col col-lg-4 col-md-4 col-sm-12 col-lg-offset-4 col-md-offset-4 col-sm-12 col-xs-12 panel panel-default pd-0">
+    <div class="col col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4 col-sm-12 col-xs-12 panel panel-default pd-0">
         <div class="panel-heading">
             <h3 class="panel-title">
                 <asp:Label ID="titulo" runat="server" Text=""></asp:Label></h3>

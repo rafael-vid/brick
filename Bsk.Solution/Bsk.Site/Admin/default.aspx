@@ -21,7 +21,7 @@
         <!-- Header site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
+        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <img src="img/logo.png" class="img-responsive logo" alt="BRIKK">
         </div>
         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
@@ -31,8 +31,8 @@
     <!-- Login site -->
     <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 login-site pd-0">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-            <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right mobile-center-txt">
                     <a href="cadastro.aspx" class="link-brikk cadastrar">Não tenho cadastro</a>
                 </div>

@@ -112,8 +112,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="API.cs" />
-    <Compile Include="APIObjects\Cadastro.cs" />
     <Compile Include="BskPag.cs" />
     <Compile Include="Constantes.cs" />
     <Compile Include="Funcoes.cs" />

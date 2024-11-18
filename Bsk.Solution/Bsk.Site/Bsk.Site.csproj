@@ -713,7 +713,6 @@
     <Content Include="Geral\confirmacaoemail.aspx" />
     <Content Include="Geral\confirmacaoemailfornecedor.aspx" />
     <Content Include="Geral\esqueciasenha.aspx" />
-    <Content Include="Geral\teste.aspx" />
     <Content Include="Geral\login.aspx" />
     <Content Include="Geral\index.html" />
     <Content Include="Geral\loginfornecedor.aspx" />
@@ -1735,13 +1734,6 @@
     </Compile>
     <Compile Include="Geral\esqueciasenha.aspx.designer.cs">
       <DependentUpon>esqueciasenha.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Geral\teste.aspx.cs">
-      <DependentUpon>teste.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Geral\teste.aspx.designer.cs">
-      <DependentUpon>teste.aspx</DependentUpon>
     </Compile>
     <Compile Include="Geral\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

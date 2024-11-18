@@ -24,13 +24,6 @@ namespace Bsk.Site.Geral
 
         protected void btnCliente_ServerClick(object sender, EventArgs e)
         {
-
-            /**************************************************************************************/
-            Bsk.Util.API api = new Bsk.Util.API();
-            var _login2 = api.GetLogin(usuarioCliente.Value.ToString(), senhaCliente.Value);
-            /**************************************************************************************/
-
-
             var _login = _core.Participante_Get(_ParticipanteBE, $" Email='{usuarioCliente.Value.ToString()}'").FirstOrDefault();
 
             if (_login != null)

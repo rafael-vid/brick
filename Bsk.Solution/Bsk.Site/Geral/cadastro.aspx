@@ -24,13 +24,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Outros scripts -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <style>
-        .col-sm-12{
-            width:100%;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -137,28 +132,28 @@
                 </div>
 
                 <div class="row campos">
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="nome" class="subtitulo_1">Nome*</label>
                         <input type="text" name="nome" id="nome" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="sobrenome" class="subtitulo_1">Sobrenome*</label>
                         <input type="text" name="sobrenome" id="sobrenome" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 queda">
+                    <div class="col-md-4 queda">
                         <label for="email" class="subtitulo_1">E-mail*</label>
                         <input type="email" name="email" id="email" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 ">
+                    <div class="col-md-4 ">
                         <label for="cpf" class="subtitulo_1">CPF*</label>
                         <input type="text" name="cpf" id="cpf" maxlength="14" runat="server" onkeyup="mascaraCPF()"  required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="telefone" class="subtitulo_1">Telefone*</label>
                         <input type="text" name="telefone" id="telefone" runat="server"  onkeyup="mascaraTel()" required>
                     </div>
 
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="cep" class="subtitulo_1">CEP*</label>
                         <input type="text" name="cep" class="cep" id="cep" onkeyup="mascaraCEP()" maxlength="9"  runat="server" required>
                     </div>
@@ -191,32 +186,32 @@
                                           }
                                       </script>
 
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="endereco" class="subtitulo_1">Rua*</label>
                         <input type="text" name="endereco" id="endereco" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="bairro" class="subtitulo_1">Bairro*</label>
                         <input type="text" name="bairro" id="bairro" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="numero" class="subtitulo_1">Número*</label>
                         <input type="number" name="numero" id="numero" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="complemento" class="subtitulo_1">Complemento</label>
                         <input type="text" name="complemento" id="complemento" runat="server" >
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="cidade" class="subtitulo_1">Cidade*</label>
                         <input type="text" name="cidade" id="cidade" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="estado" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estado" id="estado" runat="server" required>
                     </div>
 
-                     <div class="col-lg- 4 col-md-4 col-sm-12">
+                     <div class="col-md-4">
                          
                         <label for="senha" class="subtitulo_1">Senha*</label>
                          
@@ -241,7 +236,7 @@
                             $("#senha").attr("type", "password");
                         });
                     </script>
-                     <div class="col-lg- 4 col-md-4 col-sm-12">
+                     <div class="col-md-4">
                         <label for="validaSenha" class="subtitulo_1">Confirmar senha*</label>
                         <input type="password" name="validaSenha" id="validaSenha" runat="server" required>
                          <img id="olho2" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
@@ -359,59 +354,59 @@
 
                 <div class="campos" id ="campos_empresa">
                     <input type="hidden" id="userType" runat="server" />
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="nomeJuridica" class="subtitulo_1">Nome*</label>
                         <input type="text" name="nomeJuridica" id="nomeJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="sobrenomeJuridica" class="subtitulo_1">Sobrenome*</label>
                         <input type="text" name="sobrenomeJuridica" id="sobrenomeJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 queda">
+                    <div class="col-md-4 queda">
                         <label for="emailJuridica" class="subtitulo_1">E-mail*</label>
                         <input type="email" name="emailJuridica" id="emailJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 queda">
+                    <div class="col-md-4 queda">
                         <label for="cnpj"  class="subtitulo_1">CNPJ*</label>
                         <input type="text" name="cnpj" id="cnpj" runat="server" maxlength="18" onkeyup="mascaraCNPJ()" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 queda">
+                    <div class="col-md-4 queda">
                         <label for="razao" class="subtitulo_1">Razão Social*</label>
                         <input type="text" name="razao" id="razao" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12 queda">
+                    <div class="col-md-4 queda">
                         <label for="fantasia" class="subtitulo_1">Nome Fantasia*</label>
                         <input type="text" name="fantasia" id="fantasia" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="situacao" class="subtitulo_1">Situação*</label>
                         <input type="text" name="situacao" id="situacao" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="abertura" class="subtitulo_1">Data de Abertura*</label>
                         <input type="date" name="abertura" id="abertura" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="matriz" class="subtitulo_1">Matriz*</label>
                         <input type="text" name="matriz" id="matriz" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="telefoneJuridica" class="subtitulo_1">Telefone*</label>
                         <input type="tel" name="telefoneJuridica"  id="telefoneJuridica"  onkeyup="mascaraTel()"  runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="bairroJuridica" class="subtitulo_1">Bairro*</label>
                         <input type="text" name="bairroJuridica" id="bairroJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="logradouroJuridica" class="subtitulo_1">Logradouro*</label>
                         <input type="text" name="logradouroJuridica" id="logradouroJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="numeroJuridica" class="subtitulo_1">Número*</label>
                         <input type="number" name="numeroJuridica" id="numeroJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="cepJuridica" class="subtitulo_1">CEP*</label>
                         <input type="text" name="cepJuridica" id="cepJuridica" runat="server" required>
                         <script>
@@ -442,19 +437,19 @@
                             }
                         </script>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="complementoJuridica" class="subtitulo_1">Complemento</label>
                         <input type="text" name="complementoJuridica" id="complementoJuridica" runat="server" >
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="cidadeJuridica" class="subtitulo_1">Cidade*</label>
                         <input type="text" name="cidadeJuridica" id="cidadeJuridica" runat="server" required>
                     </div>
-                    <div class="col-lg- 4 col-md-4 col-sm-12">
+                    <div class="col-md-4">
                         <label for="estadoJuridica" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estadoJuridica" id="estadoJuridica" runat="server" required>
                     </div>
-                     <div class="col-lg- 4 col-md-4 col-sm-12">
+                     <div class="col-md-4">
                         <label for="senhaJuridica" class="subtitulo_1">Senha*</label>
                         <input type="password" name="senhaJuridica" id="senhaJuridica" runat="server" required>
                         <img id="olho3" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
@@ -486,7 +481,7 @@
                         });
 
                     </script>
-                     <div class="col-lg- 4 col-md-4 col-sm-12">
+                     <div class="col-md-4">
                         <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
                         <input type="password" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
                          <img id="olho4" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
@@ -674,7 +669,7 @@
                 success: function (data) {
                     $('#mensagens').html('<div class="alert alert-success" role="alert"><div class="glyphicon glyphicon-ok" aria-hidden="true"></div> CNPJ encontrado</div>');
 
-                    //$('#enderecoEmpresaPessoFisica').html('<div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0 dadosRetira dadosEmpresa" style="display: none;"><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control razaoSocial" id="nome" placeholder="Razão Social" value="' + data.nome + '" disabled></div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control fantasia" id="fantasia" placeholder="Nome Fantasia" value="' + data.fantasia + '" disabled></div><div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control situacao" id="situacao" placeholder="Situação" value="' + data.situacao + '" disabled>                            </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                           <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control dataAbertura" id="abertura" value="' + data.abertura + '" placeholder="Data de abertura" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control tipo" id="tipo" value="' + data.tipo + '" placeholder="Tipo" disabled>                            </div>      <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                      <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control" id="telefone" value="' + data.telefone + '" placeholder="Telefone">                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <input type="text" class="form-control logradouro" value="' + data.logradouro + '" id="logradouro" placeholder="Endereço" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control" id="cep" value="' + data.cep + '" placeholder="CEP" disabled>                                </div>    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                            <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control numero" id="numero" value="' + data.numero + '" placeholder="Número" disabled>                                </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                               <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control complemento" id="complemento" value="' + data.complemento + '" placeholder="Complemento" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control bairro" id="bairro" value="' + data.bairro + '" placeholder="Bairro" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control cidade" id="municipio" value="' + data.municipio + '" placeholder="Cidade" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-lg- 4 col-md-4 col-sm-12 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control uf" id="uf" value="' + data.uf + '" placeholder="UF" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                        </div>');
+                    //$('#enderecoEmpresaPessoFisica').html('<div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 pd-0 dadosRetira dadosEmpresa" style="display: none;"><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control razaoSocial" id="nome" placeholder="Razão Social" value="' + data.nome + '" disabled></div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div><div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12"><input type="text" class="form-control fantasia" id="fantasia" placeholder="Nome Fantasia" value="' + data.fantasia + '" disabled></div><div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control situacao" id="situacao" placeholder="Situação" value="' + data.situacao + '" disabled>                            </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                           <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control dataAbertura" id="abertura" value="' + data.abertura + '" placeholder="Data de abertura" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                               <input type="text" class="form-control tipo" id="tipo" value="' + data.tipo + '" placeholder="Tipo" disabled>                            </div>      <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                      <div class="col col-lg-6 col-md-6 col-sm-12 col-xs-12">                                <input type="text" class="form-control" id="telefone" value="' + data.telefone + '" placeholder="Telefone">                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <input type="text" class="form-control logradouro" value="' + data.logradouro + '" id="logradouro" placeholder="Endereço" disabled>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control" id="cep" value="' + data.cep + '" placeholder="CEP" disabled>                                </div>    <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control numero" id="numero" value="' + data.numero + '" placeholder="Número" disabled>                                </div> <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                               <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control complemento" id="complemento" value="' + data.complemento + '" placeholder="Complemento" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 ">                                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control bairro" id="bairro" value="' + data.bairro + '" placeholder="Bairro" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdl-0">                                    <input type="text" class="form-control cidade" id="municipio" value="' + data.municipio + '" placeholder="Cidade" disabled>                                </div>  <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>                              <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 pdr-0">                                    <input type="text" class="form-control uf" id="uf" value="' + data.uf + '" placeholder="UF" disabled>                                </div>                            </div>                            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">&nbsp;</div>                        </div>');
                     //Dados obtidos
                     var nome = data.qsa[0].nome;
                     var nm = nome.split(' ');

@@ -37,7 +37,7 @@
     <form id="form1" runat="server" style="height: 100%;">
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 header-site">
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
-            <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
+            <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <img src="img/logo.png" class="img-responsive logo" alt="BRIKK" />
             </div>
             <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12 hidden-lg hidden-md">&nbsp;</div>
@@ -46,8 +46,8 @@
         </div>
         <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 login-site pd-0" style="height: 100%!important; position: absolute; left: 0; top: -20px;">
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
-                <div class="col col-lg-4 col-md-4 col-sm-12 col-sm-12 col-xs-12">
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-sm hidden-xs">&nbsp;</div>
+                <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
                         <div class="col col-lg-2 col-md-2 col-sm-12 col-xs-12">&nbsp;</div>
