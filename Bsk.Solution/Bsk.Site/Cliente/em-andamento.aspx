@@ -208,6 +208,9 @@
                 width: 100% !important;
                 max-width: 388px; /* Mantenha esse limite, se necessário */
             }
+            .dataTables_length label select{
+                left: 15px !important;
+            }
          }
          .acessos-small{
              display: flex;
