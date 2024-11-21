@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 <div class="conteudo-dash cotacao cotacoes-cli">
-    <div class="acessos">
+ <div class="acessos">
      <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
      <a class="btn_card" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
      <a class="btn_card" href="aguardando-pagamento.aspx">Pagamentos</a>

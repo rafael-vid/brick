@@ -280,6 +280,8 @@
 
         // Adiciona evento para redimensionamento da janela
         window.addEventListener('resize', updateVisibility);
+    </script>
+    <script>
         function toggleDropdown() {
             var menu = document.getElementById("dropdownMenu");
             if (menu.style.display === "none") {

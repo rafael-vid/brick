@@ -157,7 +157,7 @@ div#tabela_filter {
         content: '🔍︎';
         z-index: 400;
         position: absolute;
-        top: 0;
+        top: 15px;
         display: block;
         left: 10px;
     }

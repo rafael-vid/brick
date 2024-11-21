@@ -1581,7 +1581,7 @@ nav.menu-dashboard {
         }
 
         .cli-cotacao .acessos {
-            display: flex !important;
+            display: flex;
             padding: 0 10%;
             margin-bottom: 30px;
         }

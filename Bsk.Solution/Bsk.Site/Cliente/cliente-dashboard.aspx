@@ -21,8 +21,6 @@
                 <ul class="card_lista">
 
                     <% 
-
-
                         var dash = GetDashboardCliente();
                         foreach(var d in dash)
                         {

@@ -1428,7 +1428,7 @@ label.subtitulo_card_1.subtitulo_1 {
   margin-right: 10px;
 }
 .cli-cotacao .acessos {
-  display: flex !important;
+  display: flex;
   padding: 0 10%;
   margin-bottom: 30px;
 }
