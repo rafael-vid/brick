@@ -551,904 +551,1064 @@ nav.menu-dashboard {
     cursor: pointer;
     border: none;
     border-radius: 20px;
-    font-size:21px;
+    font-size:17px;
     font-weight:bold;
-}
-
-/* agendamento ******************************************** */
-
-.agendamento .resultado {
-  margin: auto 0;
-}
-.centered {
-  text-align: center;
-}
-.card-tabela .centered .btn {
-  margin: 0 auto;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgb(0 0 0 / 40%);
-  font-size: 12px;
-  height: 30px;
-}
-.agendamento .card {
-  margin-top: 20px;
-}
-
-/* areas de atuação ******************************* */
-.atuacao .subtitulo_card,
-.listar-servicos .subtitulo_card {
-  font-size: 20px;
-  justify-content: initial;
-  margin-top: 23px;
-  border-bottom: 1px solid #770e18;
-}
-.subtitulo_card img {
-  margin-right: 10px;
-}
-.servicos_atuacao {
-  border-bottom: 1px solid #770e18;
-  padding-bottom: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 40px;
-}
-.servico_item ul li > div {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  justify-content: space-between;
-}
-.servico_item ul li > div p {
-  color: #3c3c3b;
-  font-size: 15px;
-}
-.servico_item ul li > div button {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.servico_item ul li:nth-child(even) {
-  background: #fff;
-}
-
-/* avaliacao *************************************************************/
-.item_content_card .subtitulo_card_1 {
-  font-size: 16px;
-  border-bottom: 1px solid #770e18;
-}
-.item_content_card .card_erro {
-    font-size: 16px;
-    color: darkorange;
-}
-.area_comentario {
-  display: grid;
-  grid-template-columns: 35% 1fr;
-  grid-gap: 50px;
-  margin-top: 15px;
-}
-.item_content_card {
-
-}
-.item_content_card > p {
-  color: #3c3c3b;
-  margin-top: 10px;
-}
-.comentarios_area textarea {
-  width: 100%;
-  height: 410px;
-  border-radius: 15px;
-  resize: none;
-  outline: none;
-  padding: 15px;
-  color: #706f6f;
-  font-size: 15px;
-  border-color: #c3c3c3;
-}
-.percent > span,
-.data_percent {
-  font-family: Rajdhani-semi, sans-serif;
-  font-size: 15px;
-}
-.porcentagem {
-  display: flex;
-  align-items: center;
-  margin-top: 45px;
-  gap: 20px;
-}
-.porcentagem div {
-  margin-right: 20px;
-}
-.titulo_percent {
-  border-bottom: 1px solid #770e18;
-  font-family: Rajdhani-semi, sans-serif;
-  font-size: 16px;
-  color: #770e18 !important;
-}
-button.btn {
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-.avaliacao-estrelas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin-top: 10px;
-}
-.avaliacao .card .titulo_card::after {
-  width: 69%;
-}
-
-/* listar serviços ******************************* */
-.servicos_atuacao.lista-even {
-  grid-template-columns: 1fr;
-}
-.lista-even ul li {
-  color: #3c3c3b;
-  font-family: Rajdhani-semi, sans-serif;
-  height: 40px;
-  display: flex;
-  align-items: center;
-}
-.listar-servicos .filtros_card {
-  grid-template-columns: 1fr;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-.card-acoes {
-  display: flex;
-  justify-content: flex-end;
-}
-/* cotacao****************** */
-.item_content_card.descricao {
-  min-height: 150px;
-  border-bottom: 1px solid #c3c3c3;
-}
-.arquivos-anexos {
-  display: flex;
-  margin-top: 42px;
-}
-.arquivos-anexos img {
-  margin-right: 10px;
-}
-.arquivos-anexos span {
-  color: #770e18;
-  font-family: Rajdhani-semi, sans-serif;
-}
-.cotacao .filtros_card {
-  margin-top: 10px;
-  align-items: center;
-}
-.cotacao-unica .resultado {
-  margin-top: 0;
-}
-.card-content-chat {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10%;
-}
-.recebido .avatar-msg img {
-  width: 50px;
-  border-radius: 50%;
-}
-.recebido {
-  display: grid !important;
-  grid-template-columns: 1fr 35px !important;
-  grid-gap: 20px !important;
-  align-items: center !important;
-}
-.enviar-msg {
-  border: #c3c3c3 1px solid !important;
-}
-.bp-acoes {
-  display: flex;
-  justify-content: flex-end;
-}
-button.btn.bp-cotacao {
-  width: 150px !important;
-}
-.subtitulo-com-icone {
-  display: grid;
-  grid-template-columns: 30px 1fr;
-  border-bottom: 1px solid #770e18;
-  align-items: center;
-}
-.subtitulo-com-icone .subtitulo_card_1 {
-  border-bottom: none;
-}
-.card-content-chat .select-card,
-.card-content-chat .input-cinza {
-  width: 100%;
-  margin-top: 20px;
-}
-.files-upload {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-.files-upload img,
-.gravar-video img {
-  margin-right: 10px;
-}
-.file,
-.gravar-video {
-  display: flex;
-  align-items: center;
-}
-.btn-gravar {
-  border: none;
-  outline: none;
-}
-/* Esconde o input */
-.card-content-chat input[type="file"],
-.card-content-desc input[type="file"] {
-  display: none;
-}
-
-/* Aparência que terá o seletor de arquivo */
-.card-content-chat label,
-.card-content-desc label,
-.btn-gravar {
-  font-size: 15px;
-  color: #3c3c3b;
-  font-family: Rajdhani-semi, sans-serif;
-  cursor: pointer;
-}
-.filtros_card.cota-info .resultado {
-  margin-top: 0;
-}
-/* menu-menor */
-
-@media only screen and (min-width: 900px) and (max-width: 1150px) {
-  .app.pagamento-app .conteudo-dash {
-    width: 100%;
-  }
-  .dashboard {
-    grid-template-columns: 1fr;
-  }
-  .acessos {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-  }
-  .filtros_card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-  }
-  .select-card,
-  .pesquisar_input {
-    width: 100%;
-  }
-  .contato {
-    position: relative;
-  }
-
-  .conteudo-dash {
-    min-height: 100vh;
-    width: 80vw;
-  }
-  .app.mini-menu .conteudo-dash {
-    width: 100vw;
-  }
-  .app.mini-menu .menu-dashboard ul {
-    visibility: hidden;
-    overflow-x: auto;
-  }
-  .app.mini-menu {
-    grid-template-columns: 0px 1fr;
-  }
-  .app .menu-dashboard ul {
-    visibility: visible;
-  }
-
-  .card-tabela {
-    width: 100%;
-  }
-  .card-tabela table {
-    width: 1000px;
-    overflow-x: auto;
-    position: relative;
-  }
-
-  .cotacoes-cli .acessos {
-    flex-wrap: wrap;
-  }
-
-  .cli-infos-values {
-    grid-gap: 30px !important;
-  }
-}
-@media only screen and (min-width: 788px) and (max-width: 899px) {
-  .dashboard,
-  .area_comentario,
-  .card-content-chat,
-  .avaliacao-estrelas {
-    grid-template-columns: 1fr;
-  }
-  .acessos {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 30px;
-  }
-  .filtros_card {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-  }
-  .select-card,
-  .pesquisar_input {
-    width: 100%;
-  }
-  .contato {
-    position: relative;
-  }
-  .conteudo-dash {
-    min-height: 57.5vh;
-    width: 70vw;
-  }
-  .app.mini-menu .conteudo-dash {
-    width: 100vw;
-  }
-  .app.mini-menu .menu-dashboard ul {
-    visibility: hidden;
-    overflow-x: auto;
-  }
-  .app.mini-menu {
-    grid-template-columns: 0px 1fr;
-  }
-  .app .menu-dashboard ul {
-    visibility: visible;
-  }
-
-  .card-tabela {
-    width: 100%;
-  }
-  .card-tabela table {
-    width: 1000px;
-    overflow-x: auto;
-    position: relative;
-  }
-  .porcentagem {
-    flex-direction: column;
-  }
-  .item_notifica {
-    width: 50px;
-  }
-  .card-content-chat {
-    grid-gap: 30px;
-  }
-
-  .cotacoes-cli .acessos {
-    flex-wrap: wrap;
-  }
-  .cli-infos-values {
-    grid-gap: 30px !important;
-  }
-
-  .app.pagamento-app .conteudo-dash {
-    width: 100%;
-  }
-  .grupo-pg-boleto,
-  .card-cl2,
-  .card_boleto_valor {
-    width: 100% !important;
-  }
-  .area_comentario.boleto_ca {
-    grid-gap: 0 !important;
-  }
-
-  .form-boleto-cadastro {
-    grid-column-gap: 30px !important;
-  }
-}
-@media only screen and (min-width: 551px) and (max-width: 787px) {
-  .dashboard,
-  .cli-infos-values,
-  .avaliacao-estrelas,
-  .acessos,
-  .area_comentario_g3,
-  .form-boleto-cadastro,
-  .card-content-chat,
-  .area_comentario {
-    grid-template-columns: 1fr !important;
-  }
-  .acessos,
-  .card-content-chat,
-  .cli-infos-values {
-    grid-gap: 30px !important;
-  }
-  .filtros_card {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-  .select-card,
-  .pesquisar_input {
-    width: 100%;
-  }
-  .contato {
-    position: relative;
-  }
-  .conteudo-dash {
-    min-height: 100vh;
-    width: 70vw;
-  }
-
-  .app.mini-menu .conteudo-dash {
-    width: 100vw;
-  }
-  .app.mini-menu .menu-dashboard ul {
-    visibility: hidden;
-    overflow-x: auto;
-  }
-  .app.mini-menu {
-    grid-template-columns: 0px 1fr;
-  }
-  .app .menu-dashboard ul {
-    visibility: visible;
-  }
-
-  .card-tabela {
-    width: 100%;
-  }
-  .card-tabela table {
-    width: 1000px;
-    overflow-x: auto;
-    position: relative;
-  }
-  .paginas_card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .faq-itens,
-  .servicos_atuacao {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-  }
-  .item_notifica {
-    width: 50px;
-  }
-  .avaliacao .footer_card {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-  .files-upload {
-    flex-direction: column;
-  }
-
-  .cotacoes-cli .acessos {
-    flex-wrap: wrap;
-  }
-
-  .app.pagamento-app .conteudo-dash {
-    width: 100%;
-  }
-  .grupo-pg-boleto,
-  .card-cl2,
-  .card_boleto_valor {
-    width: 100% !important;
-    flex-wrap: wrap;
-  }
-
-  .area_comentario_g3 {
-    grid-row-gap: 10px;
-  }
-
-  .area_comentario.boleto_ca {
-    grid-gap: 0 !important;
-  }
-  .card_boleto_valor {
-    flex-direction: column;
-  }
-  .card_boleto_valor .btn_card {
-    margin-bottom: 10px;
-    margin-left: 0 !important;
-  }
-}
-@media only screen and (max-width: 550px) {
-  .card {
-    padding: 20px;
-  }
-  .dashboard,
-  .cli-infos-values,
-  .avaliacao-estrelas,
-  .acessos,
-  .form-boleto-cadastro,
-  .area_comentario_g3,
-  .card-content-chat,
-  .area_comentario {
-    grid-template-columns: 1fr !important;
-  }
-  .acessos,
-  .cli-infos-values,
-  .card-content-chat {
-    grid-gap: 30px !important;
-  }
-  .filtros_card {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-  .select-card,
-  .pesquisar_input {
-    width: 100%;
-  }
-  .contato {
-    position: relative;
-  }
-  .conteudo-dash {
-    min-height: 100vh;
-    width: 70vw;
-  }
-
-  .app.mini-menu .conteudo-dash {
-    width: 100vw;
-  }
-  .app.mini-menu .menu-dashboard ul {
-    visibility: hidden;
-    overflow-x: auto;
-  }
-  .app.mini-menu {
-    grid-template-columns: 0px 1fr;
-  }
-  .app .menu-dashboard ul {
-    visibility: visible;
-  }
-
-  .card-tabela {
-    width: 100%;
-  }
-  .card-tabela table {
-    width: 1000px;
-    overflow-x: auto;
-    position: relative;
-  }
-  .paginas_card,
-  .footer_card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .faq-itens,
-  .servicos_atuacao {
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-
-  .item_notifica {
-    width: 50px;
-  }
-  .avaliacao .footer_card {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 20px;
-  }
-  .files-upload {
-    flex-direction: column;
-  }
-
-  .item_card.item_btn {
-    flex-direction: column;
-  }
-
-  .cotacoes-cli .acessos {
-    flex-wrap: wrap;
-  }
-
-  .media-cotacoes {
-    min-width: 100% !important;
-    width: 100%;
-  }
-  .cli-eleva {
-    top: 5px;
-    left: -20px;
-  }
-
-  .area_comentario_g3 {
-    grid-row-gap: 10px;
-  }
-
-  .area_comentario.boleto_ca {
-    grid-gap: 0 !important;
-  }
-  .card_boleto_valor {
-    flex-direction: column;
-  }
-  .card_boleto_valor .btn_card {
-    margin-bottom: 10px;
-    margin-left: 0 !important;
-  }
-
-  .conteudo-dash.cotacao.cotacoes-cli {
-    width: 100%;
-  }
-  .grupo-pg-boleto,
-  .card-cl2,
-  .card_boleto_valor {
-    width: 100% !important;
-    flex-wrap: wrap;
-  }
-  .conteudo-dash.avaliacao {
-    width: 100%;
-  }
-  .vertodos::after,
-  .vertodos::before {
-    display: none;
-  }
-  .reais {
-    right: 0;
-  }
-  .card .titulo_card::after {
-    display: none;
-  }
-  .item_card.item_btn .item_notifica {
-    margin-top: 20px;
-    margin-left: 0;
-  }
-  .select-card::after {
-    display: none;
-  }
-  .item_notifica {
-    margin-top: 20px;
-  }
-  .faq-itens {
-    grid-template-columns: 1fr !important;
-  }
-  .enviar-cotacao {
-    width: 100% !important;
-  }
-  button.btn-gravar {
-    text-align: left;
-    padding-left: 0;
-  }
-  .pesquisar_input {
-    width: 200px !important;
-  }
-  .texto-resultado {
-    min-width: 200px;
-  }
-
-  .card-cotacao-dados{
-    width: 300px !important;
-  }
-}
-
-/* dashboard cliente ******************************** */
-.dash-cliente .vertodos {
-  margin-bottom: 10px;
-  margin-top: 0;
-}
-.cotacoes-cli .acessos {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%;
-}
-.cotacoes-cli .filtros_card {
-  margin-top: 30px;
-}
-.cotacoes-cli .pesquisar {
-  position: relative;
-}
-.dash-lupa {
-  position: absolute;
-  z-index: 1000;
-}
-.item_content_card .card-input-add {
-  margin-top: 10px;
-  width: 100%;
-  height: 38px;
-  border: 1px solid #c3c3c3;
-  border-radius: 20px;
-  font-size: 16px;
-  padding: 3px 15px;
-  font-family: Rajdhani-semi, sans-serif;
-  outline: none;
-  color: #706f6f;
-}
-.card-content-desc .files-upload {
-  flex-direction: column;
-}
-.enviar-cotacao {
-  margin: 20px auto 30px auto;
-}
-.card-line {
-  border-bottom: 1px solid #c3c3c3;
-}
-.media-cotacoes {
-  width: 20%;
-  min-width: 276px;
-}
-.media-cotacoes p {
-  color: #fff;
-}
-.cli-eleva img {
-  height: 30px;
-  width: 20px;
-}
-.cli-infos-values {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 20%;
-}
-.expo-info-values {
-    margin-top: 20px;
-    background: white;
-    position: relative;
-    padding: 10px 24px;
-    color: black;
-    border-radius: 15px;
-    display: flex;
-    justify-content: left;
-    font-family: Rajdhani-semi, sans-serif;
-    font-size: 18px;
-}
-.expo-info-values .dt::after {
-  content: "";
-  display: inline-block;
-  width: 1px;
-  height: 42px;
-  background: #c3c3c3;
-  right: 40px;
-  top: 0;
-  position: absolute;
-}
-.cotacao-dados-upload {
-  flex-direction: column;
-}
-.dados-cotacao .card-content-chat {
-  border-bottom: #c3c3c3 1px solid;
-  padding-bottom: 30px;
-}
-.pesquisar img {
-  z-index: 999;
-}
-
-.app.pagamento-app {
-  grid-template-columns: 1fr;
-}
-.card-cl2 {
-  display: flex;
-  width: 50%;
-  justify-content: space-between;
-}
-.card-cl2 .item_content_card,
-.grupo-pg-boleto .item_content_card {
-  width: 100%;
-  margin-right: 40px;
-}
-.grupo-pg-boleto {
-  display: flex;
-  justify-content: space-between;
-  width: 75%;
-}
-.area_comentario_g3 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 60px;
-}
-.area_comentario_g3 .item_content_card {
-  margin-top: 0;
-}
-.card_boleto_valor {
-  width: 50%;
-  display: flex;
-  align-items: center;
-}
-.card_boleto_valor .btn_card {
-  margin-left: 40px;
-}
-.valor_ {
-  font-size: 26px;
-  color: #706f6f;
-}
-label.subtitulo_card_1.subtitulo_1 {
-  display: block;
-}
-.form-boleto-cadastro .item_content_card {
-  margin-top: 18px !important;
-}
-.form-boleto-cadastro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 76px;
-}
-.quebra {
-  grid-column: -1/1;
-}
-[data-dropdow-perfil] {
-  position: relative;
-}
-
-[data-dropdow-perfil]:hover .dropdown-perfil,
-[data-dropdow-perfil].active-submenu .dropdown-perfil {
-  display: block;
-  top: 70px;
-  position: absolute;
-  z-index: 999;
-  background: #f4f3f2 !important;
-  display: block !important;
-  justify-content: flex-start !important;
-  flex-direction: column;
-  padding-bottom: 10px;
-  border-radius: 0 0 20px 20px;
-  animation: show 0.6s forwards;
-}
-[data-dropdow-perfil] .dropdown-perfil {
-  display: none !important;
-}
-.dropdown-perfil li a {
-  display: flex;
-  color: #770e18 !important;
-  padding: 5px 10px !important;
-  font-size: 18px !important;
-}
-.dropdown-perfil li a img {
-  margin-right: 10px;
-}
-.dropdown-perfil li a:hover {
-  color: #f08f00 !important;
-}
-[data-dropdow-perfil]:hover .perfil,
-[data-dropdow-perfil].active-submenu .perfil {
-  background: #f4f3f2;
-  padding: 10px 20px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-}
-[data-dropdow-perfil]:hover .perfil span,
-[data-dropdow-perfil].active-submenu .perfil span {
-  color: #770e18;
-}
-.perfil {
-  padding: 10px 0;
-}
-.menu-itens {
-  z-index: 10000;
-  position: relative;
-}
-.card-tabela tr td a {
-  color: #3c3c3b;
-}
-
-.card-tabela tr td a.btn {
-  color: #770e18 !important;
-}
-.infos-dash li a img {
-  margin-right: 10px;
-}
-.cli-cotacao .acessos {
-  display: flex !important;
-  padding: 0 10%;
-  margin-bottom: 30px;
-}
-@media (max-width: 800px) {
-  .cli-cotacao .acessos {
-    flex-direction: column;
-  }
+    margin-bottom: 15px;
 }
 
 
-.swal2-styled.swal2-confirm {
-    border: 0;
-    
-    background-color: #f08f00 !important;
-    color: #fff;
-    font-size: 1.0625em;
-}
+        /* agendamento ******************************************** */
 
-.cursor {
-    cursor: pointer;
-}
-    .cursor:hover {
-        background-color: #dddddd !important;
-    }
+        .agendamento .resultado {
+            margin: auto 0;
+        }
 
-.grid {
-    display: flex;
-    grid-gap: 20px;
-}
+        .centered {
+            text-align: center;
+        }
+
+        .card-tabela .centered .btn {
+            margin: 0 auto;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgb(0 0 0 / 40%);
+            font-size: 12px;
+            height: 30px;
+        }
+
+        .agendamento .card {
+            margin-top: 20px;
+        }
+
+        /* areas de atuação ******************************* */
+        .atuacao .subtitulo_card,
+        .listar-servicos .subtitulo_card {
+            font-size: 20px;
+            justify-content: initial;
+            margin-top: 23px;
+            border-bottom: 1px solid #770e18;
+        }
+
+        .subtitulo_card img {
+            margin-right: 10px;
+        }
+
+        .servicos_atuacao {
+            border-bottom: 1px solid #770e18;
+            padding-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 40px;
+        }
+
+        .servico_item ul li > div {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            justify-content: space-between;
+        }
+
+            .servico_item ul li > div p {
+                color: #3c3c3b;
+                font-size: 15px;
+            }
+
+            .servico_item ul li > div button {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+        .servico_item ul li:nth-child(even) {
+            background: #fff;
+        }
+
+        /* avaliacao *************************************************************/
+        .item_content_card .subtitulo_card_1 {
+            font-size: 16px;
+            border-bottom: 1px solid #770e18;
+        }
+
+        .item_content_card .card_erro {
+            font-size: 16px;
+            color: darkorange;
+        }
+
+        .area_comentario {
+            display: grid;
+            grid-template-columns: 35% 1fr;
+            grid-gap: 50px;
+            margin-top: 15px;
+        }
+
+        .item_content_card {
+        }
+
+            .item_content_card > p {
+                color: #3c3c3b;
+                margin-top: 10px;
+            }
+
+        .comentarios_area textarea {
+            width: 100%;
+            height: 410px;
+            border-radius: 15px;
+            resize: none;
+            outline: none;
+            padding: 15px;
+            color: #706f6f;
+            font-size: 15px;
+            border-color: #c3c3c3;
+        }
+
+        .percent > span,
+        .data_percent {
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 15px;
+        }
+
+        .porcentagem {
+            display: flex;
+            align-items: center;
+            margin-top: 45px;
+            gap: 20px;
+        }
+
+            .porcentagem div {
+                margin-right: 20px;
+            }
+
+        .titulo_percent {
+            border-bottom: 1px solid #770e18;
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 16px;
+            color: #770e18 !important;
+        }
+
+        button.btn {
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .avaliacao-estrelas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+            margin-top: 10px;
+        }
+
+        .avaliacao .card .titulo_card::after {
+            width: 69%;
+        }
+
+        /* listar serviços ******************************* */
+        .servicos_atuacao.lista-even {
+            grid-template-columns: 1fr;
+        }
+
+        .lista-even ul li {
+            color: #3c3c3b;
+            font-family: Rajdhani-semi, sans-serif;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .listar-servicos .filtros_card {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card-acoes {
+            display: flex;
+            justify-content: flex-end;
+        }
+        /* cotacao****************** */
+        .item_content_card.descricao {
+            min-height: 150px;
+            border-bottom: 1px solid #c3c3c3;
+        }
+
+        .arquivos-anexos {
+            display: flex;
+            margin-top: 42px;
+        }
+
+            .arquivos-anexos img {
+                margin-right: 10px;
+            }
+
+            .arquivos-anexos span {
+                color: #770e18;
+                font-family: Rajdhani-semi, sans-serif;
+            }
+
+        .cotacao .filtros_card {
+            margin-top: 10px;
+            align-items: center;
+        }
+
+        .cotacao-unica .resultado {
+            margin-top: 0;
+        }
+
+        .card-content-chat {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10%;
+        }
+
+        .recebido .avatar-msg img {
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .recebido {
+            display: grid !important;
+            grid-template-columns: 1fr 35px !important;
+            grid-gap: 20px !important;
+            align-items: center !important;
+        }
+
+        .enviar-msg {
+            border: #c3c3c3 1px solid !important;
+        }
+
+        .bp-acoes {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        button.btn.bp-cotacao {
+            width: 150px !important;
+        }
+
+        .subtitulo-com-icone {
+            display: grid;
+            grid-template-columns: 30px 1fr;
+            border-bottom: 1px solid #770e18;
+            align-items: center;
+        }
+
+            .subtitulo-com-icone .subtitulo_card_1 {
+                border-bottom: none;
+            }
+
+        .card-content-chat .select-card,
+        .card-content-chat .input-cinza {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .files-upload {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+            .files-upload img,
+            .gravar-video img {
+                margin-right: 10px;
+            }
+
+        .file,
+        .gravar-video {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-gravar {
+            border: none;
+            outline: none;
+        }
+        /* Esconde o input */
+        .card-content-chat input[type="file"],
+        .card-content-desc input[type="file"] {
+            display: none;
+        }
+
+        /* Aparência que terá o seletor de arquivo */
+        .card-content-chat label,
+        .card-content-desc label,
+        .btn-gravar {
+            font-size: 15px;
+            color: #3c3c3b;
+            font-family: Rajdhani-semi, sans-serif;
+            cursor: pointer;
+        }
+
+        .filtros_card.cota-info .resultado {
+            margin-top: 0;
+        }
+        /* menu-menor */
+
+        @media only screen and (min-width: 900px) and (max-width: 1150px) {
+            .app.pagamento-app .conteudo-dash {
+                width: 100%;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .acessos {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 30px;
+            }
+
+            .filtros_card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 20px;
+            }
+
+            .select-card,
+            .pesquisar_input {
+                width: 100%;
+            }
+
+            .contato {
+                position: relative;
+            }
+
+            .conteudo-dash {
+                min-height: 100vh;
+                width: 80vw;
+            }
+
+            .app.mini-menu .conteudo-dash {
+                width: 100vw;
+            }
+
+            .app.mini-menu .menu-dashboard ul {
+                visibility: hidden;
+                overflow-x: auto;
+            }
+
+            .app.mini-menu {
+                grid-template-columns: 0px 1fr;
+            }
+
+            .app .menu-dashboard ul {
+                visibility: visible;
+            }
+
+            .card-tabela {
+                width: 100%;
+            }
+
+                .card-tabela table {
+                    width: 1000px;
+                    overflow-x: auto;
+                    position: relative;
+                }
+
+            .cotacoes-cli .acessos {
+                flex-wrap: wrap;
+            }
+
+            .cli-infos-values {
+                grid-gap: 30px !important;
+            }
+        }
+
+        @media only screen and (min-width: 788px) and (max-width: 899px) {
+            .dashboard,
+            .area_comentario,
+            .card-content-chat,
+            .avaliacao-estrelas {
+                grid-template-columns: 1fr;
+            }
+
+            .acessos {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 30px;
+            }
+
+            .filtros_card {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 20px;
+            }
+
+            .select-card,
+            .pesquisar_input {
+                width: 100%;
+            }
+
+            .contato {
+                position: relative;
+            }
+
+            .conteudo-dash {
+                min-height: 57.5vh;
+                width: 70vw;
+            }
+
+            .app.mini-menu .conteudo-dash {
+                width: 100vw;
+            }
+
+            .app.mini-menu .menu-dashboard ul {
+                visibility: hidden;
+                overflow-x: auto;
+            }
+
+            .app.mini-menu {
+                grid-template-columns: 0px 1fr;
+            }
+
+            .app .menu-dashboard ul {
+                visibility: visible;
+            }
+
+            .card-tabela {
+                width: 100%;
+            }
+
+                .card-tabela table {
+                    width: 1000px;
+                    overflow-x: auto;
+                    position: relative;
+                }
+
+            .porcentagem {
+                flex-direction: column;
+            }
+
+            .item_notifica {
+                width: 50px;
+            }
+
+            .card-content-chat {
+                grid-gap: 30px;
+            }
+
+            .cotacoes-cli .acessos {
+                flex-wrap: wrap;
+            }
+
+            .cli-infos-values {
+                grid-gap: 30px !important;
+            }
+
+            .app.pagamento-app .conteudo-dash {
+                width: 100%;
+            }
+
+            .grupo-pg-boleto,
+            .card-cl2,
+            .card_boleto_valor {
+                width: 100% !important;
+            }
+
+            .area_comentario.boleto_ca {
+                grid-gap: 0 !important;
+            }
+
+            .form-boleto-cadastro {
+                grid-column-gap: 30px !important;
+            }
+        }
+
+        @media only screen and (min-width: 551px) and (max-width: 787px) {
+            .dashboard,
+            .cli-infos-values,
+            .avaliacao-estrelas,
+            .acessos,
+            .area_comentario_g3,
+            .form-boleto-cadastro,
+            .card-content-chat,
+            .area_comentario {
+                grid-template-columns: 1fr !important;
+            }
+
+            .acessos,
+            .card-content-chat,
+            .cli-infos-values {
+                grid-gap: 30px !important;
+            }
+
+            .filtros_card {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .select-card,
+            .pesquisar_input {
+                width: 100%;
+            }
+
+            .contato {
+                position: relative;
+            }
+
+            .conteudo-dash {
+                min-height: 100vh;
+                width: 70vw;
+            }
+
+            .app.mini-menu .conteudo-dash {
+                width: 100vw;
+            }
+
+            .app.mini-menu .menu-dashboard ul {
+                visibility: hidden;
+                overflow-x: auto;
+            }
+
+            .app.mini-menu {
+                grid-template-columns: 0px 1fr;
+            }
+
+            .app .menu-dashboard ul {
+                visibility: visible;
+            }
+
+            .card-tabela {
+                width: 100%;
+            }
+
+                .card-tabela table {
+                    width: 1000px;
+                    overflow-x: auto;
+                    position: relative;
+                }
+
+            .paginas_card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .faq-itens,
+            .servicos_atuacao {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 20px;
+            }
+
+            .item_notifica {
+                width: 50px;
+            }
+
+            .avaliacao .footer_card {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .files-upload {
+                flex-direction: column;
+            }
+
+            .cotacoes-cli .acessos {
+                flex-wrap: wrap;
+            }
+
+            .app.pagamento-app .conteudo-dash {
+                width: 100%;
+            }
+
+            .grupo-pg-boleto,
+            .card-cl2,
+            .card_boleto_valor {
+                width: 100% !important;
+                flex-wrap: wrap;
+            }
+
+            .area_comentario_g3 {
+                grid-row-gap: 10px;
+            }
+
+            .area_comentario.boleto_ca {
+                grid-gap: 0 !important;
+            }
+
+            .card_boleto_valor {
+                flex-direction: column;
+            }
+
+                .card_boleto_valor .btn_card {
+                    margin-bottom: 10px;
+                    margin-left: 0 !important;
+                }
+        }
+
+        @media only screen and (max-width: 550px) {
+            .card {
+                padding: 20px;
+            }
+
+            .dashboard,
+            .cli-infos-values,
+            .avaliacao-estrelas,
+            .acessos,
+            .form-boleto-cadastro,
+            .area_comentario_g3,
+            .card-content-chat,
+            .area_comentario {
+                grid-template-columns: 1fr !important;
+            }
+
+            .acessos,
+            .cli-infos-values,
+            .card-content-chat {
+                grid-gap: 30px !important;
+            }
+
+            .filtros_card {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .select-card,
+            .pesquisar_input {
+                width: 100%;
+            }
+
+            .contato {
+                position: relative;
+            }
+
+            .conteudo-dash {
+                min-height: 100vh;
+                width: 70vw;
+            }
+
+            .app.mini-menu .conteudo-dash {
+                width: 100vw;
+            }
+
+            .app.mini-menu .menu-dashboard ul {
+                visibility: hidden;
+                overflow-x: auto;
+            }
+
+            .app.mini-menu {
+                grid-template-columns: 0px 1fr;
+            }
+
+            .app .menu-dashboard ul {
+                visibility: visible;
+            }
+
+            .card-tabela {
+                width: 100%;
+            }
+
+                .card-tabela table {
+                    width: 1000px;
+                    overflow-x: auto;
+                    position: relative;
+                }
+
+            .paginas_card,
+            .footer_card {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .faq-itens,
+            .servicos_atuacao {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .item_notifica {
+                width: 50px;
+            }
+
+            .avaliacao .footer_card {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .files-upload {
+                flex-direction: column;
+            }
+
+            .item_card.item_btn {
+                flex-direction: column;
+            }
+
+            .cotacoes-cli .acessos {
+                flex-wrap: wrap;
+            }
+
+            .media-cotacoes {
+                min-width: 100% !important;
+                width: 100%;
+            }
+
+            .cli-eleva {
+                top: 5px;
+                left: -20px;
+            }
+
+            .area_comentario_g3 {
+                grid-row-gap: 10px;
+            }
+
+            .area_comentario.boleto_ca {
+                grid-gap: 0 !important;
+            }
+
+            .card_boleto_valor {
+                flex-direction: column;
+            }
+
+                .card_boleto_valor .btn_card {
+                    margin-bottom: 10px;
+                    margin-left: 0 !important;
+                }
+
+            .conteudo-dash.cotacao.cotacoes-cli {
+                width: 100%;
+            }
+
+            .grupo-pg-boleto,
+            .card-cl2,
+            .card_boleto_valor {
+                width: 100% !important;
+                flex-wrap: wrap;
+            }
+
+            .conteudo-dash.avaliacao {
+                width: 100%;
+            }
+
+            .vertodos::after,
+            .vertodos::before {
+                display: none;
+            }
+
+            .reais {
+                right: 0;
+            }
+
+            .card .titulo_card::after {
+                display: none;
+            }
+
+            .item_card.item_btn .item_notifica {
+                margin-top: 20px;
+                margin-left: 0;
+            }
+
+            .select-card::after {
+                display: none;
+            }
+
+            .item_notifica {
+                margin-top: 20px;
+            }
+
+            .faq-itens {
+                grid-template-columns: 1fr !important;
+            }
+
+            .enviar-cotacao {
+                width: 100% !important;
+            }
+
+            button.btn-gravar {
+                text-align: left;
+                padding-left: 0;
+            }
+
+            .pesquisar_input {
+                width: 200px !important;
+            }
+
+            .texto-resultado {
+                min-width: 200px;
+            }
+
+            .card-cotacao-dados {
+                width: 300px !important;
+            }
+        }
+
+        /* dashboard cliente ******************************** */
+        .dash-cliente .vertodos {
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .cotacoes-cli .acessos {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+        }
+
+        .cotacoes-cli .filtros_card {
+            margin-top: 30px;
+        }
+
+        .cotacoes-cli .pesquisar {
+            position: relative;
+        }
+
+        .dash-lupa {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .item_content_card .card-input-add {
+            margin-top: 10px;
+            width: 100%;
+            height: 38px;
+            border: 1px solid #c3c3c3;
+            border-radius: 20px;
+            font-size: 16px;
+            padding: 3px 15px;
+            font-family: Rajdhani-semi, sans-serif;
+            outline: none;
+            color: #706f6f;
+        }
+
+        .card-content-desc .files-upload {
+            flex-direction: column;
+        }
+
+        .enviar-cotacao {
+            margin: 20px auto 30px auto;
+        }
+
+        .card-line {
+            border-bottom: 1px solid #c3c3c3;
+        }
+
+        .media-cotacoes {
+            width: 20%;
+            min-width: 276px;
+        }
+
+            .media-cotacoes p {
+                color: #fff;
+            }
+
+        .cli-eleva img {
+            height: 30px;
+            width: 20px;
+        }
+
+        .cli-infos-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: center;
+            grid-gap: 20%;
+        }
+
+        .expo-info-values {
+            margin-top: 20px;
+            background: white;
+            position: relative;
+            padding: 10px 24px;
+            color: black;
+            border-radius: 15px;
+            display: flex;
+            justify-content: left;
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 18px;
+        }
+
+            .expo-info-values .dt::after {
+                content: "";
+                display: inline-block;
+                width: 1px;
+                height: 42px;
+                background: #c3c3c3;
+                right: 40px;
+                top: 0;
+                position: absolute;
+            }
+
+        .cotacao-dados-upload {
+            flex-direction: column;
+        }
+
+        .dados-cotacao .card-content-chat {
+            border-bottom: #c3c3c3 1px solid;
+            padding-bottom: 30px;
+        }
+
+        .pesquisar img {
+            z-index: 999;
+        }
+
+        .app.pagamento-app {
+            grid-template-columns: 1fr;
+        }
+
+        .card-cl2 {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+        }
+
+            .card-cl2 .item_content_card,
+            .grupo-pg-boleto .item_content_card {
+                width: 100%;
+                margin-right: 40px;
+            }
+
+        .grupo-pg-boleto {
+            display: flex;
+            justify-content: space-between;
+            width: 75%;
+        }
+
+        .area_comentario_g3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-column-gap: 60px;
+        }
+
+            .area_comentario_g3 .item_content_card {
+                margin-top: 0;
+            }
+
+        .card_boleto_valor {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+            .card_boleto_valor .btn_card {
+                margin-left: 40px;
+            }
+
+        .valor_ {
+            font-size: 26px;
+            color: #706f6f;
+        }
+
+        label.subtitulo_card_1.subtitulo_1 {
+            display: block;
+        }
+
+        .form-boleto-cadastro .item_content_card {
+            margin-top: 18px !important;
+        }
+
+        .form-boleto-cadastro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 76px;
+        }
+
+        .quebra {
+            grid-column: -1/1;
+        }
+
+        [data-dropdow-perfil] {
+            position: relative;
+        }
+
+            [data-dropdow-perfil]:hover .dropdown-perfil,
+            [data-dropdow-perfil].active-submenu .dropdown-perfil {
+                display: block;
+                top: 70px;
+                position: absolute;
+                z-index: 999;
+                background: #f4f3f2 !important;
+                display: block !important;
+                justify-content: flex-start !important;
+                flex-direction: column;
+                padding-bottom: 10px;
+                border-radius: 0 0 20px 20px;
+                animation: show 0.6s forwards;
+            }
+
+            [data-dropdow-perfil] .dropdown-perfil {
+                display: none !important;
+            }
+
+        .dropdown-perfil li a {
+            display: flex;
+            color: #770e18 !important;
+            padding: 5px 10px !important;
+            font-size: 18px !important;
+        }
+
+            .dropdown-perfil li a img {
+                margin-right: 10px;
+            }
+
+            .dropdown-perfil li a:hover {
+                color: #f08f00 !important;
+            }
+
+        [data-dropdow-perfil]:hover .perfil,
+        [data-dropdow-perfil].active-submenu .perfil {
+            background: #f4f3f2;
+            padding: 10px 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+            [data-dropdow-perfil]:hover .perfil span,
+            [data-dropdow-perfil].active-submenu .perfil span {
+                color: #770e18;
+            }
+
+        .perfil {
+            padding: 10px 0;
+        }
+
+        .menu-itens {
+            z-index: 10000;
+            position: relative;
+        }
+
+        .card-tabela tr td a {
+            color: #3c3c3b;
+        }
+
+            .card-tabela tr td a.btn {
+                color: #770e18 !important;
+            }
+
+        .infos-dash li a img {
+            margin-right: 10px;
+        }
+
+        .cli-cotacao .acessos {
+            display: flex !important;
+            padding: 0 10%;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 800px) {
+            .cli-cotacao .acessos {
+                flex-direction: column;
+            }
+        }
+
+
+        .swal2-styled.swal2-confirm {
+            border: 0;
+            background-color: #f08f00 !important;
+            color: #fff;
+            font-size: 1.0625em;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+            .cursor:hover {
+                background-color: #dddddd !important;
+            }
+
+        .grid {
+            display: flex;
+            grid-gap: 20px;
+        }

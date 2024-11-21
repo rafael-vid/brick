@@ -3,14 +3,19 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao cotacoes-cli">
         <div class="acessos">
-            <a class="btn_card" href="buscar-servico.aspx">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Solicitações
-            </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
-            </a>
-            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
-            </a>
+            <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
+            <a class="btn_card" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+            <a class="btn_card" href="aguardando-pagamento.aspx">Pagamentos</a>
+        </div>
+        <div class="acessos-small">
+            <div class="row">
+                <a class="btn_card" href="aguardando-pagamento.aspx" style="margin: 1% 1% 5% 5%;">Pagamentos</a>
+                <a class="btn_card" href="minhas-cotacoes.aspx" style="margin: 1% 1% 5% 5%;">Minhas Solicitações</a>
+            </div>
+            <div class="row">
+                <a class="btn_card" href="buscar-servico.aspx" style="margin: 1% 25% 1% 25%;"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
+
+            </div>
         </div>
 
         <div class="card card-cotacao-dados">
@@ -149,6 +154,39 @@
         div#tabela_paginate > span {
             display: flex
         }
+        @media (max-width: 768px) {
+            .conteudo-dash{
+                padding: 0px 0px 0px 0px !important;
+            }
+            .conteudo-dash{
+                min-height: 0px !important;
+            }
+            .card-cotacao-dados {
+                width: 400px !important;
+            }
+            .cotacoes-cli .acessos {
+                flex-wrap: unset;
+            }
+            .acessos-small {
+                display: flex; /* Exibe para telas pequenas */
+            }
+            .btn_card {
+                font-size: 15px;
+                width: 40% !important;
+                min-width: 0px !important;
+            }
+            .card {
+                padding: 15px!important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+        }
+        .acessos-small{
+            display: flex;
+            flex-direction: column; /* Empilha verticalmente */
+        }
     </style>
 
     <script>
@@ -189,7 +227,23 @@
 
 
     </script>
+    <script>
+        function updateVisibility() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.acessos').style.display = 'none';
+                document.querySelector('.acessos-small').style.display = 'flex';
+            } else {
+                document.querySelector('.acessos').style.display = 'flex';
+                document.querySelector('.acessos-small').style.display = 'none';
+            }
+        }
 
+        // Chama a função ao carregar a página
+        updateVisibility();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility);
+    </script>
     
 
 </asp:Content>
