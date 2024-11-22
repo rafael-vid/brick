@@ -13,8 +13,8 @@
                      <a class="btn_card" href="buscar-servico.aspx" style="margin-top: 10px;">
                          <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações
                      </a>
-                     <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown()" style="margin-top:10px;justify-content: right;background: white;filter: brightness(100%);box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);">
-                         <i class="fas fa-ellipsis-v"></i>
+                     <button type="button" class="btn_card" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                         <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
                      </button>
                      <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                          <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
