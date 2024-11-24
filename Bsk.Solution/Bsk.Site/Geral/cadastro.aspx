@@ -387,9 +387,10 @@
                         <input type="date" name="abertura" id="abertura" runat="server" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="matriz" class="subtitulo_1">Matriz*</label>
-                        <input type="text" name="matriz" id="matriz" runat="server" required>
+                        <label for="matriz" class="subtitulo_1">Matriz</label>
+                        <input type="checkbox" name="matriz" id="matriz" runat="server">
                     </div>
+
                     <div class="col-md-4">
                         <label for="telefoneJuridica" class="subtitulo_1">Telefone*</label>
                         <input type="tel" name="telefoneJuridica"  id="telefoneJuridica"  onkeyup="mascaraTel()"  runat="server" required>

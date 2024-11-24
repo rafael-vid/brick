@@ -279,6 +279,11 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+         .container {
+            border-top: 1px solid #770e18;
+            margin-top: 20px;
+        }
+
         .card-content-chat {
             display: grid;
             grid-template-columns: 1fr 1fr;

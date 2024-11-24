@@ -1301,7 +1301,6 @@ button.btn.bp-cotacao {
   flex-direction: column;
 }
 .dados-cotacao .card-content-chat {
-  border-bottom: #c3c3c3 1px solid;
   padding-bottom: 30px;
 }
 .pesquisar img {
