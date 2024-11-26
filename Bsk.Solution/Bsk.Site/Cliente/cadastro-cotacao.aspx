@@ -13,13 +13,34 @@
                      <a class="btn_card" href="buscar-servico.aspx" style="margin-top: 10px;">
                          <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações
                      </a>
-                     <button type="button" class="btn_card" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
-                         <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
-                     </button>
-                     <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
-                         <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
-                         <a class="dropdown-item" href="aguardando-pagamento.aspx">Pagamentos</a>
-                     </div>
+                     <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                        <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                        <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+                        <a class="dropdown-item" href="aguardando-pagamento.aspx">Pagamentos</a>
+                    </div>
+
+                    <script>
+                        function toggleDropdown() {
+                            var menu = document.getElementById("dropdownMenu");
+                            // Toggle between showing and hiding the dropdown
+                            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function (event) {
+                            if (!event.target.matches('.dropdown-toggle')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                                for (var i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.style.display === 'block') {
+                                        openDropdown.style.display = 'none';
+                                    }
+                                }
+                            }
+                        }
+                    </script>
                  </div>
              </div>
              <div class="row">
@@ -154,7 +175,9 @@
             width: 90px !important;
             position: relative !important;
         }
-
+        .dropdown-toggle::after {
+            content: none; /* Remove a setinha */
+        }
         div:where(.swal2-container).swal2-center > .swal2-popup {
             border-radius: 40px !important;
             font-size: 15px !important;
