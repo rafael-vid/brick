@@ -29,40 +29,44 @@
             margin-left: 5px;
         }
 
-        .estrelas{
-          margin-top: 10px;
+        .estrelas {
+            margin-top: 10px;
         }
+
         .estrelas input[type=radio] {
-          display: none;
+            display: none;
         }
-        .estrelas label i.fa{
-          font-size: 2.5em;
-          cursor: pointer;
+
+        .estrelas label i.fa {
+            font-size: 2.5em;
+            cursor: pointer;
         }
+
         .estrelas label i.fa:before {
-          content:'\f005';
-          color: #FC0;
+            content: '\f005';
+            color: #FC0;
         }
+
         .estrelas input[type=radio]:checked ~ label i.fa:before {
-          color: #CCC;
+            color: #CCC;
         }
-        a.cotacao{
+
+        a.cotacao {
             background: #f4f3f2;
             color: #770e18 !important;
         }
     </style>
+    
     <div class="conteudo-dash atuacao">
-        <%var cot = PegaCotacao(); %>
-          <div class="acessos">
-             <a href="cotacao-lista.aspx" class="btn_card">
+        <% var cot = PegaCotacao(); %>
+
+        <div class="acessos">
+            <a href="cotacao-lista.aspx" class="btn_card">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
                 Buscar nova cotação
             </a>
-            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação
-            </a>
-            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
-            </a>
-           
+            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação</a>
+            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação</a>
         </div>
 
         <div class="card">
@@ -72,95 +76,59 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Cliente </h2>
-                <p><%Response.Write(cot.NomeCliente); %></p>
+                <h2 class="subtitulo_card_1 subtitulo_1">Cliente</h2>
+                <p><%= cot.NomeCliente %></p>
             </div>
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
-                <p><%Response.Write(cot.Titulo); %></p>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição</h2>
+                <p><%= cot.Titulo %></p>
+            </div>
+            <div class="item_content_card">
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento do serviço</h2>
+                <p><%= cot.Descricao %></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento do serviço </h2>
-                <p><%Response.Write(cot.Descricao); %></p>
-            </div>
-
-            <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Avalie o Prestador de Serviço </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Avalie o Prestador de Serviço</h2>
                 <div class="avaliacao-estrelas">
-                    <%if (cot.Nota == 0)
-                        {%>
+                    <% if (cot.Nota == 0) { %>
                     <div class="estrelas">
-                        <input type="radio" id="cm_star-empty" name="fb" value="" checked="">
+                        <input type="radio" id="cm_star-empty" name="fb" value="" onchange="atribuirNota('0');" checked>
                         <label for="cm_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-1" name="fb" value="1">
+                        <input type="radio" id="cm_star-1" name="fb" value="1" onchange="atribuirNota('1');">
                         <label for="cm_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-2" name="fb" value="2">
+                        <input type="radio" id="cm_star-2" name="fb" value="2" onchange="atribuirNota('2');">
                         <label for="cm_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-3" name="fb" value="3">
+                        <input type="radio" id="cm_star-3" name="fb" value="3" onchange="atribuirNota('3');">
                         <label for="cm_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-4" name="fb" value="4">
+                        <input type="radio" id="cm_star-4" name="fb" value="4" onchange="atribuirNota('4');">
                         <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" value="5">
+                        <input type="radio" id="cm_star-5" name="fb" value="5" onchange="atribuirNota('5');">
                     </div>
-                    <%}
-                        else
-                        {
-                            string check1 = "";
-                            string check2 = "";
-                            string check3 = "";
-                            string check4 = "";
-                            string check5 = "";
-
-                            if (cot.Nota == 1)
-                            {
-                                check1 = "checked";
-                            }
-                            else if (cot.Nota == 2)
-                            {
-                                check2 = "checked";
-                            }
-                            else if (cot.Nota == 3)
-                            {
-                                check3 = "checked";
-                            }
-                            else if (cot.Nota == 4)
-                            {
-                                check4 = "checked";
-                            }
-                            else if (cot.Nota == 5)
-                            {
-                                check5 = "checked";
-                            }
+                    <% } else {
+                        string[] checks = new string[5];
+                        if (cot.Nota > 0 && cot.Nota <= 5) checks[cot.Nota - 1] = "checked";
                     %>
-
                     <div class="estrelas">
-                        <input type="radio" id="cm_star-empty" name="fb" disabled value="" />
-                        <label for="cm_star-1"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-1" name="fb" value="1" disabled <%Response.Write(check1); %> />
-                        <label for="cm_star-2"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-2" name="fb" value="2" disabled <%Response.Write(check2); %> />
-                        <label for="cm_star-3"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-3" name="fb" value="3" disabled <%Response.Write(check3); %> />
-                        <label for="cm_star-4"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-4" name="fb" value="4" disabled <%Response.Write(check4); %> />
-                        <label for="cm_star-5"><i class="fa"></i></label>
-                        <input type="radio" id="cm_star-5" name="fb" value="5" disabled <%Response.Write(check5); %> />
+                        <input type="radio" id="cm_star-empty" name="fb" disabled value="">
+                        <% for (int i = 1; i <= 5; i++) { %>
+                        <label for="cm_star-<%= i %>"><i class="fa"></i></label>
+                        <input type="radio" id="cm_star-<%= i %>" name="fb" value="<%= i %>" disabled <%= checks[i - 1] %>>
+                        <% } %>
                     </div>
-                    <%} %>
+                    <% } %>
                 </div>
             </div>
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Depoimento </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Depoimento</h2>
                 <div class="area_comentario">
                     <div class="comentarios_area">
-                        <textarea name="comentario" id="depoimentoFornecedor" runat="server" placeholder="Digite aqui seu depoimento" cols="30"
-                            rows="10"></textarea>
+                        <textarea name="comentario" id="depoimentoFornecedor" runat="server" placeholder="Digite aqui seu depoimento" cols="30" rows="10"></textarea>
                     </div>
                     <div class="percent">
                         <div class="porcentagem">
-                            <%-- <div class="chart" id="graph" data-percent="100"></div>--%>
-                            <div class="item_content_card " id="divDadosCobranca" runat="server">
+                            <div class="chart" id="graph" data-percent="100"></div>
+                            <div class="item_content_card" id="divDadosCobranca" runat="server">
                                 <div class="item_content_card">
                                     <h2 class="subtitulo_card_1 subtitulo_1">Data da Avaliação</h2>
                                     <p id="DataAvaliacao"><%= DateTime.Now.ToString("dd/MM/yyyy") %></p>
@@ -171,22 +139,13 @@
                 </div>
             </div>
 
-
-
             <div class="footer_card">
-                <a class="voltar btn" href="andamento.html"><< voltar </a>
+                <a class="voltar btn" href="andamento.html"><< voltar</a>
                 <button class="btn" runat="server" id="btnDepoimento" onserverclick="btnDepoimento_ServerClick">Enviar</button>
-                
-                <!--
-                    <a href="/" class="item_notifica">
-                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
-                    <span class="notificacao">02</span>
-                </a>
-                    -->
             </div>
-
         </div>
     </div>
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
@@ -206,7 +165,6 @@
                 nota: valor,
                 id: comum.queryString("Id")
             };
-
             comum.postAsync("Comum/NotaCotacaoFornecedor", parametros, function (data) {
             });
         }
@@ -218,12 +176,12 @@
             size: el.getAttribute('data-size') || 150,
             lineWidth: el.getAttribute('data-line') || 15,
             rotate: el.getAttribute('data-rotate') || 0
-        }
+        };
 
         var canvas = document.createElement('canvas');
         var span = document.createElement('span');
-        span.classList.add('marcacao')
-        span.textContent = options.percent + '% ';
+        span.classList.add('marcacao');
+        span.textContent = options.percent + '%';
 
         if (typeof (G_vmlCanvasManager) !== 'undefined') {
             G_vmlCanvasManager.initElement(canvas);
@@ -238,7 +196,6 @@
         ctx.translate(options.size / 2, options.size / 2); // change center
         ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
 
-        //imd = ctx.getImageData(0, 0, 240, 24a0);
         var radius = (options.size - options.lineWidth) / 2;
 
         var drawCircle = function (color, lineWidth, percent) {
@@ -247,7 +204,7 @@
             ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
             ctx.strokeStyle = color;
             ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
+            ctx.lineWidth = lineWidth;
             ctx.stroke();
         };
 
@@ -280,11 +237,11 @@
                             swal({
                                 toast: true,
                                 icon: "info",
-                                text: "Ok, vamos aguardar mais um pouco para liberar o pagamento!");
+                                text: "Ok, vamos aguardar mais um pouco para liberar o pagamento!"
+                            });
                         }
                     });
             });
-
         });
     </script>
 </asp:Content>

@@ -72,12 +72,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert alert-success bg-success" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
+            <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert" id="divTerminado" runat="server" style="width: 100%;margin-top:15px">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
                     O fornecedor alegou ter terminado o serviço.</span><br />
                 <br />
                 <input type="button" class="btn btn-brikk btn-lg pull-left" onclick="terminar('0');" value="Não aceitar">&nbsp; &nbsp;
-                 <input type="button" class="btn btn-success btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
+                 <input type="button" class="btn btn-lg pull-right" onclick="terminar('1');" value="Aceitar">
             </div>
             
 
@@ -279,6 +279,11 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+         .container {
+            border-top: 1px solid #770e18;
+            margin-top: 20px;
+        }
+
         .card-content-chat {
             display: grid;
             grid-template-columns: 1fr 1fr;

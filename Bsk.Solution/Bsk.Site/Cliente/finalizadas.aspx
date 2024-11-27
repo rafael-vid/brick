@@ -137,42 +137,42 @@
                             <%  
                                 if (item.Status == "Criação")
                                 {%>
-                            <td class="status">Pendente de envio
+                            <td>Pendente de envio
                             </td>
                             <%}
                                 else if (item.Status == "Aberto")
                                 {%>
-                            <td class="status">Em Solicitação 
+                            <td>Em Solicitação 
                             </td>
                             <% }
                                 else if (item.Status == "Em andamento")
                                 {%>
-                            <td class="status">Em andamento
+                            <td>Em andamento
                             </td>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")
                                 {%>
-                            <td class="status">Aguardando pagamento
+                            <td>Aguardando pagamento
                             </td>
                             <%}
                                 else if (item.Status == "Finalizado")
                                 {%>
-                            <td class="status fechado">Finalizado
+                            <td>Finalizado
                             </td>
                             <% }
                                 else if (item.Status == "Pendente de aceite do cliente")
                                 {%>
-                            <td class="status">Aguardando aceite
+                            <td>Aguardando aceite
                             </td>
                             <% }
                                 else if (item.Status == "Aguardando liberação do pagamento")
                                 {%>
-                            <td class="status">Aguardando liberação do pagamento
+                            <td>Aguardando liberação do pagamento
                             </td>
                             <% }
                                 else if (item.Status == "Avaliado")
                                 {%>
-                            <td class="status">Avaliado
+                            <td>Avaliado
                             </td>
                         </tr>
                         <%  }

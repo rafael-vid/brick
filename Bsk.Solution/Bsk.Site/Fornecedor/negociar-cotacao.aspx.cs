@@ -172,11 +172,18 @@ namespace Bsk.Site.Fornecedor
                         msg.Visible = false;
                         comentarios.Visible = false;
                     }
-
+                    divDataEntrega.Visible = !string.IsNullOrEmpty(cotacaoFornecedor.DataEntrega);
+                    divValorServico.Visible = cotacaoFornecedor.Valor > 0;
                     if (!IsPostBack)
                     {
-                        valorServico.Value = "R$ " + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
-                        dataEntrega.Value = cotacaoFornecedor.DataEntrega;
+                        if (divValorServico.Visible)
+                        {
+                            valorServico.Value = "R$ " + FormatWithPeriod(cotacaoFornecedor.Valor.ToString()) + ",00";
+                        }
+                        if (divDataEntrega.Visible)
+                        {
+                            dataEntrega.Value = cotacaoFornecedor.DataEntrega;
+                        }
                     }
 
                     titulofornecedor.Value = cotacao.Titulo;

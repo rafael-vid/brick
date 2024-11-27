@@ -91,7 +91,7 @@
                             foreach (var item in cotacaoLista)
                             {%>
                         <tr>
-                            <td><%Response.Write(item.NomeFornecedor); %></td>
+                            <td><%Response.Write(item.NomeParticipante); %></td>
                             <td style="color: red; text-align: center;">
                                 <%if (!String.IsNullOrEmpty(item.Mensagens))
                                     { Response.Write("<i class='center-block glyphicon glyphicon-envelope'></i>"); } %>
