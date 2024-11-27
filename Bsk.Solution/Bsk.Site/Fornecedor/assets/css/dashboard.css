@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: 15% 1fr;
 }
-.app.mini-menu {
+.app.
+{
   grid-template-columns: 80px 1fr;
 }
 

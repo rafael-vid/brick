@@ -40,11 +40,35 @@ function handleClick(event){
   }
 }
 
- const menuToggle = document.querySelector('.open-menu')
-    menuToggle.addEventListener('click', ()=>{
-      const app = document.querySelector('.app')
-      app.classList.toggle('mini-menu')
-    })
+const menuToggle = document.querySelector('.open-menu');
+menuToggle.addEventListener('click', () => {
+    console.log("Antes do breakpoint");
+    debugger; // A execução irá parar aqui.
+    console.log("Depois do breakpoint");
+
+    const app = document.querySelector('.app');
+    app.classList.toggle('mini-menu');
+
+    // Verifica se o tamanho da tela é menor que 768px (tamanho típico de celular)
+    if (window.innerWidth <= 768) {
+        app.classList.remove('mini-menu');
+        app.classList.add('sem-menu');
+    } else {
+        app.classList.remove('sem-menu');
+    }
+});
+
+// Adiciona um listener para verificar redimensionamento da tela
+window.addEventListener('resize', () => {
+    const app = document.querySelector('.app');
+    if (window.innerWidth <= 768) {
+        app.classList.remove('mini-menu');
+        app.classList.add('sem-menu');
+    } else {
+        app.classList.remove('sem-menu');
+    }
+});
+
   
     
 function submenu(){

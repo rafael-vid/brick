@@ -31,7 +31,7 @@ namespace Bsk.Site.Fornecedor
                 bairro.Value = login.Bairro;
                 cidade.Value = login.cidade;
                 uf.Value = login.Uf;
-                prestaServicos.Checked = login.prestaServico == 1;
+                //prestaServicos.Checked = login.PrestaServico == 1;
             }
         }
         protected Boolean validatePhone(String phone)
@@ -168,7 +168,7 @@ namespace Bsk.Site.Fornecedor
                 cliente.Cep = cep.Value;
                 cliente.Bairro = bairro.Value;
                 cliente.Documento = cpf.Value;
-                cliente.prestaServico = prestaServicos.Checked ? 1 : 0;
+                //cliente.PrestaServico = prestaServicos.Checked ? 1 : 0;
                 _core.Participante_Update(cliente, "IdParticipante=" + cliente.IdParticipante);
 
 
