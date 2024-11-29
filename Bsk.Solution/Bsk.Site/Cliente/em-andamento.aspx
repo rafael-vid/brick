@@ -228,7 +228,7 @@
              }
              .btn_card {
                  font-size: 14px;
-                 width: 40% !important;
+                 width: 44% !important;
                  min-width: 0px !important;
              }
             .card {
@@ -254,7 +254,7 @@
             min-width: 150px; /* Largura do dropdown */
             top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
             right: 25px; /* Alinha o menu com a borda esquerda do botão */
-        }
+         }
 
         .dropdown {
             position: relative; /* Necessário para a posição do dropdown */
