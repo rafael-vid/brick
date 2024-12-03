@@ -182,126 +182,126 @@
             color: #770e18 !important;
         }
         .swal-wide {
-    font-size: 1.2em; /* Adjust the size as needed */
-}
+            font-size: 1.2em; /* Adjust the size as needed */
+        }
 
-.swal-title {
-    font-size: 1.5em; /* Adjust the size as needed */
-}
+        .swal-title {
+            font-size: 1.5em; /* Adjust the size as needed */
+        }
 
-.swal-text {
-    font-size: 1.2em; /* Adjust the size as needed */
-}
-@media (max-width: 768px) {
-    .conteudo-dash{
-        padding: 0px 0px 0px 0px !important;
-    }
-    .btn_nova_solicitacao{
-        margin-top: 5px;
-    }
-    .conteudo-dash{
-        min-height: 0px !important;
-    }
-    .card-cotacao-dados {
-        width: 400px !important;
-    }
-    .cotacoes-cli .acessos {
-        flex-wrap: unset;
-    }
-    .acessos-small {
-        display: flex; /* Exibe para telas pequenas */
-        padding: 5px 15px 15px 15px;
-        flex-direction: column;
-    }
-    .btn_card {
-        font-size: 14px;
-        width: 44% !important;
-        margin-bottom: 15px;
-        min-width: 170px;
-    }
-    btn_alterar_dados{
-        margin-left:80px !important;
-    }
-    .card {
-        padding: 15px !important;
-    }
-    .card-cotacao-dados {
-        width: 100% !important;
-        max-width: 388px; /* Mantenha esse limite, se necessário */
-    }
-    .card-cl2 {
-        display: flex;
-        flex-direction: column;
-    }
-    .grupo-pg-boleto{
-     display: flex;
-    flex-direction: column;
-    }
+        .swal-text {
+            font-size: 1.2em; /* Adjust the size as needed */
+        }
+        @media (max-width: 768px) {
+            .conteudo-dash{
+                padding: 0px 0px 0px 0px !important;
+            }
+            .btn_nova_solicitacao{
+                margin-top: 5px;
+            }
+            .conteudo-dash{
+                min-height: 0px !important;
+            }
+            .card-cotacao-dados {
+                width: 400px !important;
+            }
+            .cotacoes-cli .acessos {
+                flex-wrap: unset;
+            }
+            .acessos-small {
+                display: flex; /* Exibe para telas pequenas */
+                padding: 5px 15px 15px 15px;
+                flex-direction: column;
+            }
+            .btn_card {
+                font-size: 14px;
+                width: 44% !important;
+                margin-bottom: 15px;
+                min-width: 170px;
+            }
+            btn_alterar_dados{
+                margin-left:80px !important;
+            }
+            .card {
+                padding: 15px !important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+            .card-cl2 {
+                display: flex;
+                flex-direction: column;
+            }
+            .grupo-pg-boleto{
+             display: flex;
+            flex-direction: column;
+            }
 
-    .dataTables_length label select{
-        left: 15px !important;
-    }
-    .total_a_receber p {
-        font-size: 25px;
-    }
-    .grid {
-        flex-direction: column;
-        margin-left: 15px !important;
-    }    
-    .media-cotacoes {
-        min-width: 80% !important;
+            .dataTables_length label select{
+                left: 15px !important;
+            }
+            .total_a_receber p {
+                font-size: 25px;
+            }
+            .grid {
+                flex-direction: column;
+                margin-left: 15px !important;
+            }    
+            .media-cotacoes {
+                min-width: 80% !important;
          
-    }
-    .divAceitar2{
-        bottom: 0px; 
-        right: 0px; 
-        position: absolute; 
-        z-index: 1000; 
-        border: 0px;
-    }
-}
+            }
+            .divAceitar2{
+                bottom: 0px; 
+                right: 0px; 
+                position: absolute; 
+                z-index: 1000; 
+                border: 0px;
+            }
+        }
    
 
 /* Estilos para dispositivos móveis */
-    @media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-        acessos-small {
-            display: flex;
-            flex-direction: column; /* Empilha verticalmente */
-        }
+            acessos-small {
+                display: flex;
+                flex-direction: column; /* Empilha verticalmente */
+            }
 
-        .dropdown-menu {
-            position: absolute; /* Permite o posicionamento em relação ao botão */
-            background-color: white;
-            border: 1px solid #ccc;
-            z-index: 1;
-            min-width: 150px; /* Largura do dropdown */
-            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
-            right: 25px; /* Alinha o menu com a borda esquerda do botão */
-        }
+            .dropdown-menu {
+                position: absolute; /* Permite o posicionamento em relação ao botão */
+                background-color: white;
+                border: 1px solid #ccc;
+                z-index: 1;
+                min-width: 150px; /* Largura do dropdown */
+                top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+                right: 25px; /* Alinha o menu com a borda esquerda do botão */
+            }
 
-        .dropdown-toggle::after {
-            content: none; /* Remove a setinha */
-        }
+            .dropdown-toggle::after {
+                content: none; /* Remove a setinha */
+            }
 
-        .dropdown {
-            position: relative; /* Necessário para a posição do dropdown */
-            display: inline-flex;
-            justify-content: space-around;
-        }
+            .dropdown {
+                position: relative; /* Necessário para a posição do dropdown */
+                display: inline-flex;
+                justify-content: space-around;
+            }
 
-        .dropdown-item {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: black;
-            margin-right: 0px;
-        }
+            .dropdown-item {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                margin-right: 0px;
+            }
 
-        .dropdown-item:hover {
-            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+            .dropdown-item:hover {
+                background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+            }
         }
-    }
     </style>
 
     <script>
