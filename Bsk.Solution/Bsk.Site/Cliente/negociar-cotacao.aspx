@@ -116,14 +116,14 @@
             </div>
             
 
-            <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
-    </div>
-    <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
-    </div>
-</div>
+            <div id="divAceitar" runat="server" class="container" style="display: block;height: 20vh;display: flex;justify-content: center !important;align-items: center !important;">
+                <div style="margin-right: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+                </div>
+                <div style="margin-left: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+                </div>
+            </div>
         
             <div class="item_content_card ">
                 <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
@@ -287,7 +287,7 @@
 
             </div>
 
-               <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+               <div id="divAceitar2" runat="server" class="container divAceitar2" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
                     <div style="margin-right: 50px;">
                         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
                     </div>
@@ -307,6 +307,8 @@
             </div>
 
         </div>
+  </div>
+        
     </div>
 
      <style>
@@ -557,40 +559,55 @@ div:where(.swal2-icon).swal2-info {
             min-width: 80% !important;
          
         }
+        .divAceitar2{
+            bottom: 0px; 
+            right: 0px; 
+            position: absolute; 
+            z-index: 1000; 
+            border: 0px;
+        }
     }
-    acessos-small{
-        display: flex;
-        flex-direction: column; /* Empilha verticalmente */
-    }
-    .dropdown-menu {
-        position: absolute; /* Permite o posicionamento em relação ao botão */
-        background-color: white;
-        border: 1px solid #ccc;
-        z-index: 1;
-        min-width: 150px; /* Largura do dropdown */
-        top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
-        right: 25px; /* Alinha o menu com a borda esquerda do botão */
-    }
-    .dropdown-toggle::after {
-        content: none; /* Remove a setinha */
-    }
+   
 
-    .dropdown {
-        position: relative; /* Necessário para a posição do dropdown */
-        display: inline-flex;
-        justify-content: space-around;
-    }
+/* Estilos para dispositivos móveis */
+    @media (max-width: 768px) {
 
-    .dropdown-item {
-        display: block;
-        padding: 10px;
-        text-decoration: none;
-        color: black;
-        margin-right: 0px;
-    }
+        acessos-small {
+            display: flex;
+            flex-direction: column; /* Empilha verticalmente */
+        }
 
-    .dropdown-item:hover {
-        background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            right: 25px; /* Alinha o menu com a borda esquerda do botão */
+        }
+
+        .dropdown-toggle::after {
+            content: none; /* Remove a setinha */
+        }
+
+        .dropdown {
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
     }
 
     </style>
@@ -740,5 +757,26 @@ div:where(.swal2-icon).swal2-info {
          }
      }
      </script>
+    <script>
+        var divAceitarId = '<%= divAceitar.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar() {
+                var div = document.getElementById(divAceitarId);
+                if (div) {
+                    if (window.innerWidth < 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'block';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitarId + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar();
+            window.addEventListener('resize', updateVisibilityForDivAceitar);
+        });
+    </script>
 
 </asp:Content>
