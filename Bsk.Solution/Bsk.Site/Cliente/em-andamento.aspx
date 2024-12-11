@@ -241,11 +241,12 @@
             .dataTables_length label select{
                 left: 15px !important;
             }
+             .acessos-small{
+                 display: flex;
+                 flex-direction: column; /* Empilha verticalmente */
+             }
          }
-         .acessos-small{
-             display: flex;
-             flex-direction: column; /* Empilha verticalmente */
-         }
+        
          .dropdown-menu {
             position: absolute; /* Permite o posicionamento em relação ao botão */
             background-color: white;
