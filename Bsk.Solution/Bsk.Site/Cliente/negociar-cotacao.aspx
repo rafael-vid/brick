@@ -287,7 +287,7 @@
 
             </div>
 
-               <div id="divAceitar2" runat="server" class="container divAceitar2" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+               <div id="divAceitar2" runat="server" class="divAceitar2" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
                     <div style="margin-right: 50px;">
                         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
                     </div>
@@ -309,10 +309,19 @@
         </div>
   </div>
         
+    <div id="divAceitar3" runat="server" class="divAceitar3" style="display: flex; justify-content: center; align-items: flex-end; height: 20vh;">
+         <div style="margin-right: 50px;">
+             <input type="button" class="btn btn-brikk btn-lg btnAceitar" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+         </div>
+         <div style="margin-left: 50px;">
+             <input type="button" class="btn btn-brikk btn-lg btnRecusar" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+         </div>
     </div>
 
+
+
      <style>
-         a.cotacao{
+        a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
         }
@@ -565,12 +574,20 @@ div:where(.swal2-icon).swal2-info {
         .divAceitar2{
             bottom: 0px; 
             right: 0px; 
-            position: absolute; 
-            z-index: 1000; 
+            position: absolute;  
             border: 0px;
         }
         .subtitulo-com-icone {
             width: 380px;
+        }
+        .btnAceitar{
+            background: white;
+            width: 150px;
+        }
+        .btnRecusar{
+            width: 150px;
+            margin-right: 15px;
+
         }
     }
    
@@ -614,6 +631,21 @@ div:where(.swal2-icon).swal2-info {
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        
+        .divAceitar3 {
+            position: fixed !important;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 85px;
+            animation: slideUp 0.5s ease-out; /* Aplica a animação de deslizamento */
+            flex-direction: row-reverse;
+
+        }
+
     }
 
     </style>
@@ -773,7 +805,7 @@ div:where(.swal2-icon).swal2-info {
                     if (window.innerWidth < 768) {
                         div.style.display = 'none';
                     } else {
-                        div.style.display = 'block';
+                        div.style.display = 'flex';
                     }
                 } else {
                     console.error('Elemento com ID "' + divAceitarId + '" não encontrado.');
@@ -782,6 +814,46 @@ div:where(.swal2-icon).swal2-info {
 
             updateVisibilityForDivAceitar();
             window.addEventListener('resize', updateVisibilityForDivAceitar);
+        });
+
+        var divAceitar2Id = '<%= divAceitar2.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar2() {
+                var div = document.getElementById(divAceitar2Id);
+                if (div) {
+                    if (window.innerWidth < 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitar2Id + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar2();
+            window.addEventListener('resize', updateVisibilityForDivAceitar2);
+        });
+
+        var divAceitar3Id = '<%= divAceitar3.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar3() {
+                var div = document.getElementById(divAceitar3Id);
+                if (div) {
+                    if (window.innerWidth > 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitar3Id + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar3();
+            window.addEventListener('resize', updateVisibilityForDivAceitar3);
         });
     </script>
 
