@@ -523,7 +523,7 @@ div:where(.swal2-icon).swal2-info {
             min-height: 0px !important;
         }
         .card-cotacao-dados {
-            width: 400px !important;
+            width: 410px !important;
         }
         .cotacoes-cli .acessos {
             flex-wrap: unset;
@@ -543,7 +543,7 @@ div:where(.swal2-icon).swal2-info {
         }
         .card-cotacao-dados {
             width: 100% !important;
-            max-width: 388px; /* Mantenha esse limite, se necessário */
+            max-width: 410px; /* Mantenha esse limite, se necessário */
         }
         .dataTables_length label select{
             left: 15px !important;
@@ -559,12 +559,18 @@ div:where(.swal2-icon).swal2-info {
             min-width: 80% !important;
          
         }
+        .enviar-msg {
+            width: 38%;
+        }
         .divAceitar2{
             bottom: 0px; 
             right: 0px; 
             position: absolute; 
             z-index: 1000; 
             border: 0px;
+        }
+        .subtitulo-com-icone {
+            width: 380px;
         }
     }
    
