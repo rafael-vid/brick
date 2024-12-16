@@ -346,6 +346,7 @@ div#tabela_paginate span a {
                 top: -20px !important;
                 left: -300px !important;
                 overflow-y: initial !important;
+                background: transparent;
             }
         }
     </style>
