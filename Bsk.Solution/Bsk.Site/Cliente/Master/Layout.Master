@@ -299,19 +299,26 @@ div#tabela_paginate span a {
             .perfil span {
                 color: #fff !important;
             }
-
-            [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
-                background: transparent !important;
+            .perfilMobile{
+                background: #f4f3f2;
+                background-size: 300px 200px;
+                padding: 10px 20px;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
             }
 
-            .dropdown-perfil {
+           /* [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
+                background: transparent !important;
+            }*/
+
+            /*.dropdown-perfil {
                 margin-left: -75px !important;
                 background: transparent !important;
             }
-
-            [data-dropdow-perfil].active-submenu .dropdown-perfil {
+*/
+          /*  [data-dropdow-perfil].active-submenu .dropdown-perfil {
                 background: transparent !important;
-            }
+            }*/
 
             .dropdown-perfil li a {
                 color: #fff !important;
@@ -323,6 +330,10 @@ div#tabela_paginate span a {
             .menu-itens li {
                 padding: 2rem 0;
                 border-bottom: 0px;
+            }
+            #nav.active ul {
+                height: 340px;
+                background: transparent;
             }
         }
     </style>
@@ -343,10 +354,16 @@ div#tabela_paginate span a {
                 <ul class="menu-itens">
 
                     <li data-dropdow-perfil class="data-dropdow-perfil">
-                        <div class="perfil">
-                            <img src="../assets/imagens/avatar.png" alt="avatar">
+                        <div class="perfil" id="perfil">
+                            <img src="../assets/imagens/avatar.png" alt="avatar" style="width: 20%;">
                             <%var user = RetornaUsuario(); %>
                             <%var nomes = user.Nome.Split(' ');  %>
+                            <span class="uppercase">Olá, <%Response.Write(nomes[0]); %>.</span>
+                        </div>
+                        <div class="perfilMobile" id="perfilMobile">
+                            <img src="../assets/imagens/avatar.png" alt="avatar">
+                            <%user = RetornaUsuario(); %>
+                            <%nomes = user.Nome.Split(' ');  %>
                             <span class="uppercase">Olá, <%Response.Write(nomes[0]); %>.</span>
                         </div>
                         <ul class="dropdown-perfil">
@@ -654,7 +671,7 @@ div#tabela_paginate span a {
          document.addEventListener('DOMContentLoaded', handleResize);
 
      </script>
-    <script>
+<%--    <script>
         const dropdown = document.querySelector('.data-dropdow-perfil');
 
         window.addEventListener('resize', function () {
@@ -668,6 +685,51 @@ div#tabela_paginate span a {
             dropdown.classList.add('active-submenu');
         }
 
+    </script>--%>
+    <script>
+        const perfilMobile = document.querySelector('.perfilMobile');
+
+        var divPerfilMobile = 'perfilMobile'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityFordivPerfilMobile() {
+                var div = document.getElementById(divPerfilMobile);
+                if (div) {
+                    if (window.innerWidth > 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divPerfilMobile + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityFordivPerfilMobile();
+            window.addEventListener('resize', updateVisibilityFordivPerfilMobile);
+        });
+
+        const perfil = document.querySelector('.perfil');
+
+        var divPerfil = 'perfil'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityFordivPerfil() {
+                var div = document.getElementById(divPerfil);
+                if (div) {
+                    if (window.innerWidth < 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divPerfil + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityFordivPerfil();
+            window.addEventListener('resize', updateVisibilityFordivPerfil);
+        });
     </script>
 
 
