@@ -220,19 +220,20 @@
                  width: 44% !important;
                  min-width: 0px !important;
              }
-            .card {
+             .card {
                 padding: 15px!important;
-            }
-            .card-cotacao-dados {
+             }
+             .card-cotacao-dados {
                 width: 100% !important;
-            }
-            .table-row {
+             }
+             .table-row {
+                font-family: Rajdhani-semi;
                 border: 1px solid #ccc;
                 margin-bottom: 10px;
                 padding: 10px;
                 background-color: #f9f9f9;
                 cursor: pointer;
-            }
+             }
          }
          .acessos-small{
              display: flex;

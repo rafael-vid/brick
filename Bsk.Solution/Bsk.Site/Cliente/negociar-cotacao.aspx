@@ -567,7 +567,7 @@ div:where(.swal2-icon).swal2-info {
          
         }
         .enviar-msg {
-            width: 38%;
+            width: 33%;
         }
         .divAceitar2{
             bottom: 0px; 
@@ -588,6 +588,9 @@ div:where(.swal2-icon).swal2-info {
         }
         .bp {
            max-width: 400px;
+        }
+        .bp-acoes {
+            margin-right: 1000px !important;
         }
     }
    
