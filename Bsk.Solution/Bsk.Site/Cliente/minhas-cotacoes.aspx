@@ -56,7 +56,7 @@
             <div class="filtros_card">
 
                 <div class="select-card">
-                    <select onchange="filtraTabela();" id="slcStatus">
+                    <select onchange="filtraTabela(); filtraTabelaImitacao();" id="slcStatus">
                         <option value="0">Selecione um status</option>
                         <% 
                             var itens = GetDashboardCliente();
@@ -90,7 +90,7 @@
 
             <div class="card-tabela " style="overflow-x: auto;">
                 
-                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover tabela-mobile">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
@@ -158,10 +158,23 @@
                         %>
                     </tbody>
                 </table>
+
+                 <div class="card-tabela" style="overflow-x: auto;">
+                    <!-- Estrutura alternativa para mobile -->
+                    <div class="imitation-table" id="imitationTable">
+                        <% foreach (var item in cotacoes) { %>
+                            <div class="table-row" onclick="redirecionar('<%Response.Write(link);%>');" data-status="<%Response.Write(item.nome); %>">
+                                <div class="table-cell"><strong>Nº Cotação:</strong> <%Response.Write(item.IdCotacao); %></div>
+                                <div class="table-cell"><strong>Data de Criação:</strong> <%Response.Write(item.DataCriacao); %></div>
+                                <div class="table-cell"><strong>Título:</strong> <%Response.Write(item.Titulo); %></div>
+                                <div class="table-cell"><strong>Data Atualizada:</strong> <%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></div>
+                                <div class="table-cell"><strong>Status:</strong> <%Response.Write(item.nome); %></div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+
             </div>
-
-            
-
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
                 <!--
@@ -212,7 +225,13 @@
             }
             .card-cotacao-dados {
                 width: 100% !important;
-                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+            .table-row {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #f9f9f9;
+                cursor: pointer;
             }
          }
          .acessos-small{
@@ -245,6 +264,14 @@
 
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
+        .acessos {
+            justify-content: space-evenly !important;
+            padding: 0% !important;
+        }
+        div#tabela_filter input[type="search"] {
+            height: 55px;
+            width: 100%;
         }
 
     </style>
@@ -280,7 +307,7 @@
                 table.search("Rascunho").draw();
             }
         }
-
+        
         setTimeout(function () { filtraTabela() }, 10)
 
 
@@ -288,6 +315,35 @@
 
     </script>
     <script>
+        function updateVisibility1() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.tabela-mobile').style.display = 'none';
+
+            } else {
+                document.querySelector('.tabela-mobile').style.display = 'revert-layer';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility1();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility1);
+
+        function updateVisibility2() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.filtros_card').style.display = 'none';
+            } else {
+                document.querySelector('.imitation-table').style.display = 'none';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility2();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility2);
+
         function updateVisibility() {
             if (window.innerWidth < 768) {
                 document.querySelector('.acessos').style.display = 'none';
@@ -327,6 +383,25 @@
             }
         }
     </script>
+  <script>
+      function filtraTabelaImitacao() {
+          var rows = document.querySelectorAll("#imitationTable .table-row");
+          var statusSelecionado = $("#slcStatus").val().trim();
+
+          rows.forEach(function (row) {
+              var rowStatus = row.getAttribute("data-status").trim();
+
+              // Aplica a lógica de filtragem
+              if (statusSelecionado === "0") {
+                  row.style.display = ""; // Mostra todas as linhas
+              } else if (rowStatus === statusSelecionado) {
+                  row.style.display = ""; // Mostra se o status corresponde
+              } else {
+                  row.style.display = "none"; // Esconde outras linhas
+              }
+          });
+      }
+  </script>
     
 
 </asp:Content>

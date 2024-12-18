@@ -557,8 +557,6 @@ div#tabela_paginate span a {
 
         });
         $(document).ready(function () {
-
-
             $('.btn-carrega').click(function () {
                 $('input.logoCliente').click();
             });
@@ -597,6 +595,7 @@ div#tabela_paginate span a {
                 },
                 "order": [[3, 'desc']],
             });
+
         });
 
         function carregaMinhasCotacoes() {
