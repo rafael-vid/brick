@@ -6,6 +6,10 @@
             font-family: Rajdhani-semi, sans-serif;
         }
 
+        .ordenador{
+            padding: 30px;
+        }
+
         .faq-itens {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -346,7 +350,7 @@
 
             <h2 class="subtitulo_card subtitulo_1">Qual serviço você precisa? </h2>
 
-            <div>
+            <div class="ordenador">
                 <label for="sortOrder">Organizar por:</label>
                 <select id="sortOrder">
                     <option value="relevance" selected>Relevância</option>
