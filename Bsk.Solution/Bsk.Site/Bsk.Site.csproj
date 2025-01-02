@@ -329,6 +329,7 @@
     <Content Include="assets\imgages\souCLiente.png" />
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
+    <Content Include="Cliente\AlterarSenha.aspx" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
     <Content Include="Cliente\js\sweetalert2.all.min.js" />
     <Content Include="Cliente\Master\assets\css\cadastros.css" />
@@ -422,6 +423,8 @@
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
     <Content Include="Cliente\finalizadas.aspx" />
+    <Content Include="Cliente\perfil.aspx" />
+    <Content Include="Fornecedor\AlterarSenha.aspx" />
     <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\gerenciar-servicos.aspx" />
     <Content Include="Fornecedor\js\sweetalert2.all.min.js" />
@@ -639,7 +642,6 @@
     <Content Include="Cliente\pagamento-boleto.aspx" />
     <Content Include="Cliente\pagamento-cartao.aspx" />
     <Content Include="Cliente\pagamento.aspx" />
-    <Content Include="Cliente\perfil.aspx" />
     <Content Include="Fornecedor\aguardando-aceite.aspx" />
     <Content Include="Fornecedor\aguardando-pagamento.aspx" />
     <Content Include="Fornecedor\avaliar.aspx" />
@@ -1411,6 +1413,13 @@
       <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cliente\AlterarSenha.aspx.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\AlterarSenha.aspx.designer.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\avaliar.aspx.cs">
       <DependentUpon>avaliar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1480,6 +1489,20 @@
     </Compile>
     <Compile Include="Cliente\finalizadas.aspx.designer.cs">
       <DependentUpon>finalizadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\perfil.aspx.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\perfil.aspx.designer.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedor\AlterarSenha.aspx.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedor\AlterarSenha.aspx.designer.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\busca.aspx.cs">
       <DependentUpon>busca.aspx</DependentUpon>
@@ -1571,13 +1594,6 @@
     </Compile>
     <Compile Include="Cliente\pagamento.aspx.designer.cs">
       <DependentUpon>pagamento.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cliente\perfil.aspx.cs">
-      <DependentUpon>perfil.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cliente\perfil.aspx.designer.cs">
-      <DependentUpon>perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ComumController.cs" />
     <Compile Include="Controllers\FornecedorController.cs" />
