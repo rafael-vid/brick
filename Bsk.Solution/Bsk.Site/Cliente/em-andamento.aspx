@@ -101,8 +101,8 @@
         <thead id="cabecalho-tabela">
             <tr>
                 <th>Cotação</th>
-                <th>Título </th>
-                <th>Categoria</th>
+                <th>Detalhamento </th>
+                <th>Status</th>
                 <th class="centered">Ação</th>
             </tr>
         </thead>

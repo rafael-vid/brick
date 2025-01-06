@@ -25,7 +25,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
-                            <td>Título</td>
+                            <td>Detalhamento</td>
                             <td>Nome cliente</td>
                             <td>Status</td>
                             <td>Ação</td>

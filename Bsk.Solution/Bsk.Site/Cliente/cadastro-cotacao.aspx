@@ -357,7 +357,7 @@
              }
              .btn_card {
                  font-size: 14px;
-                 width: 40% !important;
+                 width: 44% !important;
                  min-width: 0px !important;
              }
             .card {

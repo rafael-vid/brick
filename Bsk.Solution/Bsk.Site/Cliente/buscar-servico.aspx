@@ -353,7 +353,7 @@
             <div class="ordenador">
                 <label for="sortOrder">Organizar por:</label>
                 <select id="sortOrder">
-                    <option value="relevance" selected>Relevância</option>
+                    <option value="relevance" selected>Padrão</option>
                     <option value="alphabetical">Ordem Alfabética</option>
                 </select>
             </div>

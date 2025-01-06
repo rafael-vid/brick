@@ -489,37 +489,37 @@
             color: #770e18 !important;
         }
 
-/*sweet alert style*/
+    /*sweet alert style*/
 
-div:where(.swal2-container).swal2-center > .swal2-popup {
-    border-radius: 40px !important;
-    font-size: 14px !important;
-}
+    div:where(.swal2-container).swal2-center > .swal2-popup {
+        border-radius: 40px !important;
+        font-size: 14px !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-    border-radius: 20px !important;
-    background-color: #770e18 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+        border-radius: 20px !important;
+        background-color: #770e18 !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-    border-radius: 20px !important;
-    background-color: #f08f00 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+        border-radius: 20px !important;
+        background-color: #f08f00 !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
-    border-radius: 20px !important;
-    background-color: #f08f00 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+        border-radius: 20px !important;
+        background-color: #f08f00 !important;
+    }
 
-div:where(.swal2-icon).swal2-info {
-    border-color: #770e18 !important;
-    color: #770e18 !important;
-}
+    div:where(.swal2-icon).swal2-info {
+        border-color: #770e18 !important;
+        color: #770e18 !important;
+    }
 
-.swal2-icon.swal2-error {
-    border-color: #770e18 !important;
-    color: #770e18 !important;
-}
+    .swal2-icon.swal2-error {
+        border-color: #770e18 !important;
+        color: #770e18 !important;
+    }
 
 /*sweet alert style*/
     @media (max-width: 768px) {
@@ -592,6 +592,10 @@ div:where(.swal2-icon).swal2-info {
         .bp-acoes {
             margin-right: 1000px !important;
         }
+        div#tabela_paginate {
+            margin-bottom: 15px;
+        }
+
     }
    
 

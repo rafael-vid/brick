@@ -56,7 +56,7 @@
             <div class="filtros_card">
 
                 <div class="select-card">
-                    <select onchange="filtraTabela(); filtraTabelaImitacao();" id="slcStatus">
+                    <select onchange="filtraTabela(); filtraImitationTable();" id="slcStatus">
                         <option value="0">Selecione um status</option>
                         <% 
                             var itens = GetDashboardCliente();
@@ -159,19 +159,16 @@
                     </tbody>
                 </table>
 
-                 <div class="card-tabela" style="overflow-x: auto;">
-                    <!-- Estrutura alternativa para mobile -->
-                    <div class="imitation-table" id="imitationTable">
-                        <% foreach (var item in cotacoes) { %>
-                            <div class="table-row" onclick="redirecionar('<%Response.Write(link);%>');" data-status="<%Response.Write(item.nome); %>">
-                                <div class="table-cell"><strong>Nº Cotação:</strong> <%Response.Write(item.IdCotacao); %></div>
-                                <div class="table-cell"><strong>Data de Criação:</strong> <%Response.Write(item.DataCriacao); %></div>
-                                <div class="table-cell"><strong>Título:</strong> <%Response.Write(item.Titulo); %></div>
-                                <div class="table-cell"><strong>Data Atualizada:</strong> <%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></div>
-                                <div class="table-cell"><strong>Status:</strong> <%Response.Write(item.nome); %></div>
-                            </div>
-                        <% } %>
-                    </div>
+                 <div class="imitation-table" id="imitationTable">
+                    <% foreach (var item in cotacoes) { %>
+                        <div class="table-row" onclick="redirecionar('<%Response.Write(link);%>');" data-status="<%Response.Write(item.nome); %>">
+                            <div class="table-cell"><strong>Nº Cotação:</strong> <%Response.Write(item.IdCotacao); %></div>
+                            <div class="table-cell"><strong>Data de Criação:</strong> <%Response.Write(item.DataCriacao); %></div>
+                            <div class="table-cell"><strong>Título:</strong> <%Response.Write(item.Titulo); %></div>
+                            <div class="table-cell"><strong>Data Atualizada:</strong> <%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></div>
+                            <div class="table-cell"><strong>Status:</strong> <%Response.Write(item.nome); %></div>
+                        </div>
+                    <% } %>
                 </div>
 
             </div>
@@ -189,6 +186,9 @@
     </div>
 
     <style>
+        div#tabela_filter::before {
+            left: 5px;
+        }
         .dropdown-toggle::after {
              content: none; /* Remove a setinha */
         }
@@ -233,6 +233,9 @@
                 padding: 10px;
                 background-color: #f9f9f9;
                 cursor: pointer;
+             }
+             .div#tabela_paginate {
+                margin-bottom: 10px !important;
              }
          }
          .acessos-small{
@@ -333,7 +336,7 @@
 
         function updateVisibility2() {
             if (window.innerWidth < 768) {
-                document.querySelector('.filtros_card').style.display = 'none';
+                document.querySelector('.filtros_card').style.display = '';
             } else {
                 document.querySelector('.imitation-table').style.display = 'none';
             }
@@ -384,25 +387,42 @@
             }
         }
     </script>
-  <script>
-      function filtraTabelaImitacao() {
-          var rows = document.querySelectorAll("#imitationTable .table-row");
-          var statusSelecionado = $("#slcStatus").val().trim();
+    <script>
+        const statusMap = {
+            0: " ",
+            1: "Status: Aguardando Cotação",
+            2: "Status: Em cotação",
+            3: "Status: Aguardando pagamento",
+            4: "Status: Finalizado", 
+            8: "Status: Rascunho"
+            // Adicione outros mapeamentos, conforme necessário
+        }; 
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("slcStatus").addEventListener('change', filtraImitationTable);
+        });
 
-          rows.forEach(function (row) {
-              var rowStatus = row.getAttribute("data-status").trim();
+        function filtraImitationTable() {
+            // Obtém o valor numérico selecionado
+            var selectedValue = document.getElementById("slcStatus").value;
+            // Mapeia para o texto correspondente
+            var searchText = statusMap[selectedValue];
 
-              // Aplica a lógica de filtragem
-              if (statusSelecionado === "0") {
-                  row.style.display = ""; // Mostra todas as linhas
-              } else if (rowStatus === statusSelecionado) {
-                  row.style.display = ""; // Mostra se o status corresponde
-              } else {
-                  row.style.display = "none"; // Esconde outras linhas
-              }
-          });
-      }
-  </script>
-    
+            console.log('Valor selecionado:', selectedValue, 'Texto de busca:', searchText);
 
+            var items = document.querySelectorAll('.imitation-table .table-row');
+
+            items.forEach(function (item) {
+                var itemStatus = item.querySelector("div.table-cell:nth-child(5)").textContent.trim();
+                console.log('Status do item:', itemStatus);
+
+                if (selectedValue === "0") {
+                    item.style.display = ''; // Mostra todos
+                } else if (itemStatus === searchText) {
+                    item.style.display = ''; // Mostra o item se corresponder
+                } else {
+                    item.style.display = 'none'; // Oculta o item se não corresponder
+                }
+            });
+        }
+    </script>
 </asp:Content>
