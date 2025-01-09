@@ -2,16 +2,51 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao cotacoes-cli">
-        <div class="acessos">
-            <a class="btn_card" href="buscar-servico.aspx">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Solicitações
-            </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
-            </a>
-            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
-            </a>
-        </div>
+       <div class="acessos">
+             <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
+             <a class="btn_card" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+             <a class="btn_card" href="aguardando-pagamento.aspx">Pagamentos</a>
+         </div>
+         <div class="acessos-small">
+             <div class="row">
+                 <div class="dropdown">
+                     <a class="btn_card" href="buscar-servico.aspx" style="margin-top: 10px;">
+                         <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações
+                     </a>
+                    <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                        <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                        <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+                        <a class="dropdown-item" href="aguardando-pagamento.aspx">Pagamentos</a>
+                    </div>
+
+                    <script>
+                        function toggleDropdown() {
+                            var menu = document.getElementById("dropdownMenu");
+                            // Toggle between showing and hiding the dropdown
+                            menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function (event) {
+                            if (!event.target.matches('.dropdown-toggle')) {
+                                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                                for (var i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.style.display === 'block') {
+                                        openDropdown.style.display = 'none';
+                                    }
+                                }
+                            }
+                        }
+                    </script>
+                 </div>
+             </div>
+             <div class="row">
+         
+             </div>
+         </div>
 
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
@@ -141,14 +176,77 @@
     </div>
 
     <style>
+        .dropdown-toggle::after {
+             content: none; /* Remove a setinha */
+        }
         a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
         }
-
         div#tabela_paginate > span {
             display: flex
         }
+         @media (max-width: 768px) {
+             .conteudo-dash{
+                 padding: 0px 0px 0px 0px !important;
+             }
+             .conteudo-dash{
+                 min-height: 0px !important;
+             }
+             .card-cotacao-dados {
+                 width: 400px !important;
+             }
+             .cotacoes-cli .acessos {
+                 flex-wrap: unset;
+             }
+             .acessos-small {
+                 display: flex; /* Exibe para telas pequenas */
+             }
+             .btn_card {
+                 font-size: 14px;
+                 width: 44% !important;
+                 min-width: 0px !important;
+             }
+            .card {
+                padding: 15px!important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+         }
+         .acessos-small{
+             display: flex;
+             flex-direction: column; /* Empilha verticalmente */
+         }
+         .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            right: 25px; /* Alinha o menu com a borda esquerda do botão */
+        }
+
+        .dropdown {
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
+
     </style>
 
     <script>
@@ -189,7 +287,46 @@
 
 
     </script>
+    <script>
+        function updateVisibility() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.acessos').style.display = 'none';
+                document.querySelector('.acessos-small').style.display = 'flex';
+            } else {
+                document.querySelector('.acessos').style.display = 'flex';
+                document.querySelector('.acessos-small').style.display = 'none';
+            }
+        }
 
+        // Chama a função ao carregar a página
+        updateVisibility();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility);
+    </script>
+    <script>
+        function toggleDropdown() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        // Fecha o dropdown se o usuário clicar fora dele
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
     
 
 </asp:Content>

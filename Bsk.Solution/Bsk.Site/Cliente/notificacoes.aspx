@@ -76,6 +76,38 @@
     </div>
 
     <style>
+        @media (max-width: 768px) {
+            .conteudo-dash{
+                padding: 0px 0px 0px 0px !important;
+            }
+            .conteudo-dash{
+                min-height: 0px !important;
+            }
+            .card-cotacao-dados {
+                width: 400px !important;
+            }
+            .cotacoes-cli .acessos {
+                flex-wrap: unset;
+            }
+            .acessos-small {
+                display: flex; /* Exibe para telas pequenas */
+            }
+            .btn_card {
+                font-size: 14px;
+                width: 40% !important;
+                min-width: 0px !important;
+            }
+           .card {
+               padding: 15px!important;
+           }
+           .card-cotacao-dados {
+               width: 100% !important;
+               max-width: 388px; /* Mantenha esse limite, se necessário */
+           }
+           .cotacao .card {
+               margin-top: 0px !important;
+           }
+        }
         a.notificacoes{
             background: #f4f3f2;
             color: #770e18 !important;

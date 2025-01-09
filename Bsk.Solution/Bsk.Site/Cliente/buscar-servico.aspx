@@ -152,6 +152,188 @@
 
 
     </style>
+        <style>
+        .card {
+            margin: 0px 30px 30px 30px;
+        }
+        .conteudo-dash {
+            min-height: 0vh !important;
+        }
+        div.chart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+        }
+
+        span.marcacao {
+            color: #770e18;
+            display: block;
+            line-height: 150px;
+            text-align: center;
+            width: 150px;
+            font-family: sans-serif;
+            font-size: 40px;
+            font-weight: 100;
+            margin-left: 5px;
+        }
+
+        .estrelas {
+            margin-top: 10px;
+        }
+
+        .estrelas input[type=radio] {
+            display: none;
+        }
+
+        .estrelas label i.fa {
+            font-size: 2.5em;
+            cursor: pointer;
+        }
+
+        .estrelas label i.fa:before {
+            content: '\f005';
+            color: #FC0;
+        }
+
+        .estrelas input[type=radio]:checked ~ label i.fa:before {
+            color: #CCC;
+        }
+        a.cotacao{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
+        .acessos{
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .subtitulo_card {
+                margin-top: 35px !important;
+            }
+            .area_comentario {
+                grid-gap: 15px !important;
+            }
+            .card {
+                margin: 0px 0px 0px 0px !important;
+            }
+            .conteudo-dash{
+                padding: 0px 0px 0px 0px !important;
+            }
+            .btn_nova_solicitacao{
+                margin-top: 5px;
+            }
+            .conteudo-dash{
+                min-height: 0px !important;
+            }
+            .card-cotacao-dados {
+                width: 400px !important;
+            }
+            .cotacoes-cli .acessos {
+                flex-wrap: unset;
+            }
+            .acessos-small {
+                display: flex; /* Exibe para telas pequenas */
+                padding: 2px 15px 15px 15px;
+                flex-direction: column;
+            }
+            .btn_card {
+                font-size: 14px;
+                width: 44% !important;
+                margin-bottom: 15px;
+                min-width: 170px;
+            }
+            btn_alterar_dados{
+                margin-left:80px !important;
+            }
+            .card {
+                z-index: 1;
+                padding: 15px !important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+            .card-cl2 {
+                display: flex;
+                flex-direction: column;
+            }
+            .grupo-pg-boleto{
+                 display: flex;
+                flex-direction: column;
+            }
+
+            .dataTables_length label select{
+                left: 15px !important;
+            }
+            .total_a_receber p {
+                font-size: 25px;
+            }
+            .grid {
+                flex-direction: column;
+                margin-left: 15px !important;
+            }    
+            .media-cotacoes {
+                min-width: 80% !important;
+         
+            }
+            .divAceitar2{
+                bottom: 0px; 
+                right: 0px; 
+                position: absolute; 
+                z-index: 1000; 
+                border: 0px;
+            }
+        }
+   
+
+/* Estilos para dispositivos móveis */
+        @media (max-width: 768px) {
+
+            acessos-small {
+                display: flex;
+                flex-direction: column; /* Empilha verticalmente */
+            }
+
+            .dropdown-menu {
+                position: absolute; /* Permite o posicionamento em relação ao botão */
+                background-color: white;
+                border: 1px solid #ccc;
+                z-index: 10;
+                min-width: 150px; /* Largura do dropdown */
+                top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+                right: 25px; /* Alinha o menu com a borda esquerda do botão */
+            }
+
+            .dropdown-toggle::after {
+                content: none; /* Remove a setinha */
+            }
+
+            .dropdown {
+                position: relative; /* Necessário para a posição do dropdown */
+                display: inline-flex;
+                justify-content: space-around;
+            }
+
+            .dropdown-item {
+                display: block;
+                padding: 10px;
+                text-decoration: none;
+                color: black;
+                margin-right: 0px;
+            }
+
+            .dropdown-item:hover {
+                background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+            }
+        }
+    </style>
 
   
     <!-- Corpo Site -->

@@ -21,8 +21,6 @@
                 <ul class="card_lista">
 
                     <% 
-
-
                         var dash = GetDashboardCliente();
                         foreach(var d in dash)
                         {
@@ -309,6 +307,28 @@
                         -->
 
     <style>
+        @media (max-width: 768px) {
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+            .conteudo-dash{
+                padding: 0px 0px 0px 0px !important;
+            }
+            .conteudo-dash{
+                min-height: 0px !important;
+            }
+            .btn_card{
+                margin-left: 95px !important;
+            }
+            .card {
+                padding: 15px!important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+                max-width: 388px; /* Mantenha esse limite, se necessário */
+            }
+        }
         a.dash {
             background: #f4f3f2;
             color: #770e18 !important;

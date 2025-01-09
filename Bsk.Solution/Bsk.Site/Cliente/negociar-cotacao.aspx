@@ -4,16 +4,51 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao dados-cotacao cotacoes-cli">
-        <div class="acessos">
-            <a class="btn_card" href="buscar-servico.aspx">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Cotação
-            </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Cotações
-            </a>
-            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
-            </a>
-        </div>
+         <div class="acessos">
+             <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
+             <a class="btn_card" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+             <a class="btn_card" href="aguardando-pagamento.aspx">Pagamentos</a>
+         </div>
+     <div class="acessos-small">
+         <div class="row">
+             <div class="dropdown">
+                 <a class="btn_card" href="buscar-servico.aspx" style="margin-top: 10px;">
+                     <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações
+                 </a>
+                 <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                     <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
+                 </button>
+                 <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                     <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+                     <a class="dropdown-item" href="aguardando-pagamento.aspx">Pagamentos</a>
+                 </div>
+
+                 <script>
+                     function toggleDropdown() {
+                         var menu = document.getElementById("dropdownMenu");
+                         // Toggle between showing and hiding the dropdown
+                         menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+                     }
+
+                     // Close the dropdown if the user clicks outside of it
+                     window.onclick = function (event) {
+                         if (!event.target.matches('.dropdown-toggle')) {
+                             var dropdowns = document.getElementsByClassName("dropdown-menu");
+                             for (var i = 0; i < dropdowns.length; i++) {
+                                 var openDropdown = dropdowns[i];
+                                 if (openDropdown.style.display === 'block') {
+                                     openDropdown.style.display = 'none';
+                                 }
+                             }
+                         }
+                     }
+                 </script>
+             </div>
+         </div>
+     <div class="row">
+ 
+     </div>
+ </div>
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
                 <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
@@ -81,14 +116,14 @@
             </div>
             
 
-            <div id="divAceitar" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
-    <div style="margin-right: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
-    </div>
-    <div style="margin-left: 50px;">
-        <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
-    </div>
-</div>
+            <div id="divAceitar" runat="server" class="container" style="display: block;height: 20vh;display: flex;justify-content: center !important;align-items: center !important;">
+                <div style="margin-right: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+                </div>
+                <div style="margin-left: 50px;">
+                    <input type="button" class="btn btn-brikk btn-lg" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+                </div>
+            </div>
         
             <div class="item_content_card ">
                 <h2 class="subtitulo_card_1 subtitulo_1">Chat </h2>
@@ -252,7 +287,7 @@
 
             </div>
 
-               <div id="divAceitar2" runat="server" class="container" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
+               <div id="divAceitar2" runat="server" class="divAceitar2" style="display: flex; justify-content: center; align-items: center; height: 20vh;">
                     <div style="margin-right: 50px;">
                         <input type="button" class="btn btn-brikk btn-lg" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
                     </div>
@@ -272,16 +307,23 @@
             </div>
 
         </div>
+  </div>
+        
+    <div id="divAceitar3" runat="server" class="divAceitar3" style="display: flex; justify-content: center; align-items: flex-end; height: 20vh;">
+         <div style="margin-right: 50px;">
+             <input type="button" class="btn btn-brikk btn-lg btnAceitar" id="btnAceitar" onclick="aceitar();" value="Aceitar" style="line-height:normal;">
+         </div>
+         <div style="margin-left: 50px;">
+             <input type="button" class="btn btn-brikk btn-lg btnRecusar" id="btnRecusar" onclick="recusar();" value="Recusar" style="line-height:normal; background-color: #770e18; color:white;">
+         </div>
     </div>
 
+
+
      <style>
-         a.cotacao{
+        a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
-        }
-         .container {
-            border-top: 1px solid #770e18;
-            margin-top: 20px;
         }
 
         .card-content-chat {
@@ -482,6 +524,129 @@ div:where(.swal2-icon).swal2-info {
 }
 
 /*sweet alert style*/
+    @media (max-width: 768px) {
+        .conteudo-dash{
+            padding: 0px 0px 0px 0px !important;
+        }
+        .conteudo-dash{
+            min-height: 0px !important;
+        }
+        .card-cotacao-dados {
+            width: 410px !important;
+        }
+        .cotacoes-cli .acessos {
+            flex-wrap: unset;
+        }
+        .acessos-small {
+            display: flex; /* Exibe para telas pequenas */
+            padding: 5px 15px 15px 15px;
+            flex-direction: column;
+        }
+        .btn_card {
+            font-size: 14px;
+            width: 44% !important;
+            min-width: 0px !important;
+        }
+        .card {
+            padding: 15px!important;
+        }
+        .card-cotacao-dados {
+            width: 100% !important;
+            max-width: 410px; /* Mantenha esse limite, se necessário */
+        }
+        .dataTables_length label select{
+            left: 15px !important;
+        }
+        .total_a_receber p {
+            font-size: 25px;
+        }
+        .grid {
+            flex-direction: column;
+            margin-left: 15px;
+        }    
+        .media-cotacoes {
+            min-width: 80% !important;
+         
+        }
+        .enviar-msg {
+            width: 38%;
+        }
+        .divAceitar2{
+            bottom: 0px; 
+            right: 0px; 
+            position: absolute;  
+            border: 0px;
+        }
+        .subtitulo-com-icone {
+            width: 380px;
+        }
+        .btnAceitar{
+            background: white;
+            width: 150px;
+        }
+        .btnRecusar{
+            width: 150px;
+            margin-right: 15px;
+
+        }
+    }
+   
+
+/* Estilos para dispositivos móveis */
+    @media (max-width: 768px) {
+
+        acessos-small {
+            display: flex;
+            flex-direction: column; /* Empilha verticalmente */
+        }
+
+        .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            right: 25px; /* Alinha o menu com a borda esquerda do botão */
+        }
+
+        .dropdown-toggle::after {
+            content: none; /* Remove a setinha */
+        }
+
+        .dropdown {
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
+        
+        .divAceitar3 {
+            position: fixed !important;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 85px;
+            animation: slideUp 0.5s ease-out; /* Aplica a animação de deslizamento */
+            flex-direction: row-reverse;
+
+        }
+
+    }
 
     </style>
 
@@ -591,6 +756,105 @@ div:where(.swal2-icon).swal2-info {
             });
         }
 
+    </script>
+     <script>
+     function updateVisibility() {
+         if (window.innerWidth < 768) {
+             document.querySelector('.acessos').style.display = 'none';
+             document.querySelector('.acessos-small').style.display = 'flex';
+         } else {
+             document.querySelector('.acessos').style.display = 'flex';
+             document.querySelector('.acessos-small').style.display = 'none';
+         }
+     }
+
+     // Chama a função ao carregar a página
+     updateVisibility();
+
+     // Adiciona evento para redimensionamento da janela
+     window.addEventListener('resize', updateVisibility);
+     function toggleDropdown() {
+         var menu = document.getElementById("dropdownMenu");
+         if (menu.style.display === "none") {
+             menu.style.display = "block";
+         } else {
+             menu.style.display = "none";
+         }
+     }
+
+     // Fecha o dropdown se o usuário clicar fora dele
+     window.onclick = function (event) {
+         if (!event.target.matches('.dropdown-toggle')) {
+             var dropdowns = document.getElementsByClassName("dropdown-menu");
+             for (var i = 0; i < dropdowns.length; i++) {
+                 var openDropdown = dropdowns[i];
+                 if (openDropdown.style.display === 'block') {
+                     openDropdown.style.display = 'none';
+                 }
+             }
+         }
+     }
+     </script>
+    <script>
+        var divAceitarId = '<%= divAceitar.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar() {
+                var div = document.getElementById(divAceitarId);
+                if (div) {
+                    if (window.innerWidth < 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitarId + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar();
+            window.addEventListener('resize', updateVisibilityForDivAceitar);
+        });
+
+        var divAceitar2Id = '<%= divAceitar2.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar2() {
+                var div = document.getElementById(divAceitar2Id);
+                if (div) {
+                    if (window.innerWidth < 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitar2Id + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar2();
+            window.addEventListener('resize', updateVisibilityForDivAceitar2);
+        });
+
+        var divAceitar3Id = '<%= divAceitar3.ClientID %>'; // Obtém o ClientID
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function updateVisibilityForDivAceitar3() {
+                var div = document.getElementById(divAceitar3Id);
+                if (div) {
+                    if (window.innerWidth > 768) {
+                        div.style.display = 'none';
+                    } else {
+                        div.style.display = 'flex';
+                    }
+                } else {
+                    console.error('Elemento com ID "' + divAceitar3Id + '" não encontrado.');
+                }
+            }
+
+            updateVisibilityForDivAceitar3();
+            window.addEventListener('resize', updateVisibilityForDivAceitar3);
+        });
     </script>
 
 </asp:Content>
