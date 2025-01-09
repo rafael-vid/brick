@@ -210,6 +210,19 @@
                         <label for="estado" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estado" id="estado" runat="server" required>
                     </div>
+                    <div id="diasTrabalhoContainerFisica" class="col-md-4" style="display: none;">
+                        <label for="diasTrabalhoFisica" class="subtitulo_1">Dias de Trabalho*</label>
+                        <input type="text" name="diasTrabalhoFisica" id="diasTrabalhoFisica" class="dias-trabalho" readonly="readonly" placeholder="Selecione os dias" onclick="toggleDiasFisica()">
+                        <div id="diasOpcaoFisica" class="dias-opcao" style="display: none;">
+                            <label><input type="checkbox" value="Segunda" /> Segunda-feira</label>
+                            <label><input type="checkbox" value="Terça" /> Terça-feira</label>
+                            <label><input type="checkbox" value="Quarta" /> Quarta-feira</label>
+                            <label><input type="checkbox" value="Quinta" /> Quinta-feira</label>
+                            <label><input type="checkbox" value="Sexta" /> Sexta-feira</label>
+                            <label><input type="checkbox" value="Sábado" /> Sábado</label>
+                            <label><input type="checkbox" value="Domingo" /> Domingo</label>
+                        </div>
+                    </div>
 
                      <div class="col-md-4">
                          
@@ -297,7 +310,18 @@
                 </script>
 
                 <style>
+                    .dias-opcao {
+                        margin-top: 5px;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        background-color: #f9f9f9;
+                    }
 
+                    .dias-opcao label {
+                        display: block;
+                        margin-bottom: 5px;
+                    }
                     /*sweet alert style*/
 
                     div:where(.swal2-container).swal2-center > .swal2-popup {
@@ -449,6 +473,19 @@
                     <div class="col-md-4">
                         <label for="estadoJuridica" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estadoJuridica" id="estadoJuridica" runat="server" required>
+                    </div>
+                    <div id="diasTrabalhoContainer" class="col-md-4" style="display: none;">
+                        <label for="diasTrabalho" class="subtitulo_1">Dias de Trabalho*</label>
+                        <input type="text" name="diasTrabalho" id="diasTrabalho" class="dias-trabalho" readonly="readonly" placeholder="Selecione os dias" onclick="toggleDias()">
+                        <div id="diasOpcao" class="dias-opcao" style="display: none;">
+                            <label><input type="checkbox" value="Segunda" /> Segunda-feira</label>
+                            <label><input type="checkbox" value="Terça" /> Terça-feira</label>
+                            <label><input type="checkbox" value="Quarta" /> Quarta-feira</label>
+                            <label><input type="checkbox" value="Quinta" /> Quinta-feira</label>
+                            <label><input type="checkbox" value="Sexta" /> Sexta-feira</label>
+                            <label><input type="checkbox" value="Sábado" /> Sábado</label>
+                            <label><input type="checkbox" value="Domingo" /> Domingo</label>
+                        </div>
                     </div>
                      <div class="col-md-4">
                         <label for="senhaJuridica" class="subtitulo_1">Senha*</label>
@@ -788,6 +825,66 @@
         if (checkURLParameter('Tipo', 'cli')) {
             document.getElementById('paramLabel2').style.display = 'block';
         }
+    </script>
+    <script>
+        function toggleDias() {
+            const diasOpcao = document.getElementById('diasOpcao');
+            diasOpcao.style.display = diasOpcao.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        document.querySelectorAll('#diasOpcao input[type="checkbox"]').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const selecionados = Array.from(document.querySelectorAll('#diasOpcao input[type="checkbox"]:checked'))
+                    .map(el => el.value)
+                    .join(', ');
+                document.getElementById('diasTrabalho').value = selecionados;
+            });
+        });
+
+        function toggleDiasFisica() {
+            const diasOpcao = document.getElementById('diasOpcaoFisica');
+            diasOpcao.style.display = diasOpcao.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        document.querySelectorAll('#diasOpcaoFisica input[type="checkbox"]').forEach(function (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const selecionados = Array.from(document.querySelectorAll('#diasOpcaoFisica input[type="checkbox"]:checked'))
+                    .map(el => el.value)
+                    .join(', ');
+                document.getElementById('diasTrabalhoFisica').value = selecionados;
+            });
+        });
+        function checkTipoForFisica() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipo = urlParams.get('Tipo');
+
+            if (tipo === 'for') {
+                // Exibir o campo de dias de trabalho
+                document.getElementById('diasTrabalhoContainerFisica').style.display = 'flex';
+            } else {
+                // Ocultar o campo de dias de trabalho
+                document.getElementById('diasTrabalhoContainerFisica').style.display = 'none';
+            }
+        }
+
+        // Executar ao carregar a página
+        document.addEventListener('DOMContentLoaded', checkTipoForFisica);
+
+        function checkTipoFor() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tipo = urlParams.get('Tipo');
+
+            if (tipo === 'for') {
+                // Exibir o campo de dias de trabalho
+                document.getElementById('diasTrabalhoContainer').style.display = 'flex';
+            } else {
+                // Ocultar o campo de dias de trabalho
+                document.getElementById('diasTrabalhoContainer').style.display = 'none';
+            }
+        }
+
+        // Executar ao carregar a página
+        document.addEventListener('DOMContentLoaded', checkTipoFor);
     </script>
 
 </body>

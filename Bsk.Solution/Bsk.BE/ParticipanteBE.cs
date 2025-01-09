@@ -35,6 +35,7 @@ namespace Bsk.BE
         public string MeioPagamento { get; set; }
         public string ZoopID { get; set; }
         public string SellerID { get; set; }
+       public string DiasTrabalho { get; set; }
 
     }
 }
