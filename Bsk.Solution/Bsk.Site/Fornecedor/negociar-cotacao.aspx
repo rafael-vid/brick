@@ -40,20 +40,21 @@
                 </p>
             </div>
             <div id="divValor" runat="server">
-                <div class="valorServico">
+                <div id="divDataEntrega" runat="server" class="valorServico">
                     <h2>
                         <strong>
-                            <p>Data entrega: <strong id="entrega" runat="server" text=""></strong></p>
+                            <p>Data entrega: <strong id="entrega" runat="server"></strong></p>
                         </strong>
                     </h2>
                 </div>
-                <div class="valorServico">
+                <div id="divValorServico" runat="server" class="valorServico">
                     <h2>
                         <strong>
-                            <p>Valor do serviço: <strong id="valor" runat="server" text=""></strong></p>
+                            <p>Valor do serviço: <strong id="valor" runat="server"></strong></p>
                         </strong>
                     </h2>
                 </div>
+
             </div>
             <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12 mensagem alert" id="divTerminar" runat="server" style="width: 100%;">
                 <span class="tableTitle"><small>Mensagem do sistema:</small><br />
