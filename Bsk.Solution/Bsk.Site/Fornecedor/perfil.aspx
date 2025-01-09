@@ -89,14 +89,8 @@
             </div>
         </div>
         <div class="footer_card" style="margin-top: 36px;">
-            <button id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick" class="voltar btn">salvar
-            </button>
-            <!--
-            <a href="" class="item_notifica">
-                <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
-                <span class="notificacao">02</span>
-            </a>
-            -->
+            <button class="btn btn-brikk btn-lg center-block" style="float: right;" id="btnAlterar" runat="server" onserverclick="btnAlterar_ServerClick">Alterar dados</button>
+            <button class="btn btn-brikk btn-lg center-block" style="float: right; margin-left: 10px;" id="btnAlterarSenha" runat="server" onserverclick="btnAlterarSenha_ServerClick">Alterar Senha</button>
         </div>
     </div>
 </div>

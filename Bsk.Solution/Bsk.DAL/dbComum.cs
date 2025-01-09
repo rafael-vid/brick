@@ -23,6 +23,10 @@ namespace Bsk.DAL
         {
             return acc.execute(qry.ToLower()).ToString();
         }
+        public string ExecuteCaseSensitive(string qry)
+        {
+            return acc.execute(qry).ToString();
+        }
 
         public string Insert(string qry)
         {

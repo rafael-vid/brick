@@ -26,7 +26,7 @@ namespace Bsk.Site.Geral
                     participante.EmailConfirmado = 1;
                     _core.Participante_Update(participante, "IdParticipante = " + participante.IdParticipante);
                     var _login = _core.Participante_Get(_ParticipanteBE, $" GuidColumn='{guid}'").FirstOrDefault();
-                    //Cria a estancia do obj HttpCookie passando o nome do mesmo
+                    //Cria a instancia do obj HttpCookie passando o nome do mesmo
                     HttpCookie login = new HttpCookie("login");
                     _login.Senha = "xxx";
                     //Define o valor do cookie

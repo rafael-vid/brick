@@ -142,7 +142,44 @@ namespace Bsk.Interface
             db.Execute(sql);
             return token;
         }
-        
+        public void AlterarSenha(String senha,int ID)
+        {
+            string sql = $@"UPDATE participante set Senha='" + senha + "' WHERE idParticipante='" + ID + "'";
+            db.ExecuteCaseSensitive(sql);
+        }
+        public String ConsultaSenha(int ID)
+        {
+            try
+            {
+                // Construct the SQL query
+                String sql = $"SELECT senha FROM participante WHERE idParticipante = {ID}";
+
+                // Use the Get method to retrieve the results as a DataTable
+                DataTable dt = db.Get(sql);
+
+                // Check if the DataTable has any rows
+                if (dt.Rows.Count > 0)
+                {
+                    // Return the value from the "senha" column in the first row
+                    return dt.Rows[0]["senha"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine("Error while fetching password: " + ex.Message);
+            }
+
+            // Return null if no result is found or an exception occurs
+            return null;
+        }
+
+
+
+
+
+
+
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {
@@ -593,7 +630,7 @@ namespace Bsk.Interface
 
             Lista_lg.Add(lg);
             string sql = _base.Insert(Lista_lg, null);
-            return db.Insert(sql);
+            return db.ExecuteCaseSensitive(sql);
         }
         public void Participante_Update(ParticipanteBE lg, string filtro)
         {

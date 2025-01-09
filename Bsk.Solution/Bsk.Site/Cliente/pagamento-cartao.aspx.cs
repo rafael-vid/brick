@@ -165,7 +165,7 @@ namespace Bsk.Site.Cliente
                     {
                         if (String.IsNullOrEmpty(participanteCliente.MeioPagamento))
                         {
-                            var cadastraCartao = bskPag.cadastraCartao(nomeCartao.Value, numeroCartao.Value, codigo.Value, mes.Value, ano.Value, participanteCliente.IdParticipante.ToString(), fornecedor.SellerID);
+                            var cadastraCartao = bskPag.cadastraCartao(nomeCartao.Value, numeroCartao.Value, codigo.Value, mes.Value, ano.Value, participanteCliente.IdParticipante .ToString(), fornecedor.SellerID);
                             if (!cadastraCartao.Contains("erro"))
                             {
                                 participanteCliente.MeioPagamento = cadastraCartao;

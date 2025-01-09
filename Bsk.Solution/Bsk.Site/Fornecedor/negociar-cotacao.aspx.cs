@@ -190,8 +190,10 @@ namespace Bsk.Site.Fornecedor
                     descricao.Text = cotacao.Descricao;
                     valor.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
 
-
-
+                    if (cotacao.Status != StatusCotacao.AguardandoAvaliacao)
+                    {
+                        divAvaliar.Visible = false;
+                    }
                     if (cotacao.Status == StatusCotacao.Aberto)
                     {
                         divTerminar.Visible = false;
@@ -251,6 +253,12 @@ namespace Bsk.Site.Fornecedor
                 Response.Redirect("default.aspx");
                 return login;
             }
+        }
+        protected string Avaliar()
+        {
+            // Your logic here to determine the URL
+            string url = "avaliar.aspx?Id=" + Request.QueryString["Id"];
+            return url;
         }
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)

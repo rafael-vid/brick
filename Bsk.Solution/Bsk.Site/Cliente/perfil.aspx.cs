@@ -205,5 +205,12 @@ namespace Bsk.Site.Cliente
 
 
         }
+        protected void btnAlterarSenha_ServerClick(object sender, EventArgs e)
+        {
+            // Redirect to AlterarSenha.aspx
+            Response.Redirect("AlterarSenha.aspx");
+        }
+
+
     }
 }
