@@ -234,7 +234,7 @@
                     <tr>
                         <td><%Response.Write(item.Anexo); %></td>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                 <%if (item.Tipo == "Anexo")
                                     {%>
                             <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
@@ -279,21 +279,22 @@
 
 
             
-            <div class="footer_card">
-                <a class="voltar btn" href="em-andamento.aspx"><< voltar </a>
-                  <%var cotacoes = PegaCotacoes();
-                  foreach (var item in cotacoes) { 
-                  %>
-                <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.CotacaoFornecedorId);%>">Avaliar</a>
-                 <%  }
-                        %>
-                <!--
-                <a href="/" class="item_notifica">
-                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
-                    <span class="notificacao">02</span>
-                </a>
-                -->
+            <div id="divAvaliar" runat="server" class="footer_card">
+                <a class="voltar btn" href="em-andamento.aspx"><< voltar</a>
+                <a class="btn btn-brikk" id="avaliarLink">Avaliar</a>
             </div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var avaliarLink = document.getElementById('avaliarLink');
+
+        // Assuming you have a function that returns the URL
+        var url = '<%= Avaliar() %>';
+
+        avaliarLink.setAttribute('href', url);
+    });
+</script>
+
 
         </div>
     </div>

@@ -45,7 +45,7 @@ namespace Bsk.Site.Service
             SmtpClient oEnviar = new SmtpClient("smtp.gmail.com", 587);
             oEnviar.EnableSsl = true;
             oEnviar.UseDefaultCredentials = false;
-            System.Net.NetworkCredential cred = new System.Net.NetworkCredential("naoresponda@spsantos.com.br", "Brikk@123"); 
+            System.Net.NetworkCredential cred = new System.Net.NetworkCredential("naoresponda@spsantos.com.br", System.Configuration.ConfigurationManager.AppSettings["EmailAppPassword"]);
 
             oEnviar.Credentials = cred;
 

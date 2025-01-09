@@ -14,7 +14,7 @@ namespace Bsk.Site.Cliente
     public partial class finalizadas : System.Web.UI.Page
     {
         core _core = new core();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 

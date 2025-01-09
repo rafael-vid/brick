@@ -14,7 +14,7 @@ namespace Bsk.Site.Fornecedor
     public partial class avaliar : System.Web.UI.Page
     {
         core _core = new core();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {

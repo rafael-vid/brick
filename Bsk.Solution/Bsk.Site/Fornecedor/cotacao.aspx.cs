@@ -14,11 +14,11 @@ namespace Bsk.Site.Fornecedor
     {
         core _core = new core();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
-        CotacaoBE CotacaoBE = new CotacaoBE();
+        SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
         CotacaoFornecedorBE CotacaoFornecedorBE = new CotacaoFornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
             titulo.InnerText = cotacao.Titulo;
             descricao.InnerText = cotacao.Descricao;
             nrCotacao.InnerText = cotacao.IdCotacao.ToString();
@@ -53,7 +53,7 @@ namespace Bsk.Site.Fornecedor
             };
 
             var id = _core.CotacaoFornecedor_Insert(cotacaoFornecedorBE);
-            CotacaoBE _CotacaoBE = new CotacaoBE();
+            SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
             var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedorBE.IdCotacao).FirstOrDefault();
 
             NotificacaoBE notif = new NotificacaoBE();

@@ -601,7 +601,7 @@ div#tabela_paginate span a {
         function carregaMinhasCotacoes() {
             var url = window.location.href;
 
-            if (url.includes("cadastro-cotacao.aspx")) {
+            if (url.includes("cadastro-solicitacao.aspx")) {
                 salvarCotacaoLink("minhas-cotacoes.aspx");
             } else {
                 window.location.href = "minhas-cotacoes.aspx";
@@ -610,7 +610,7 @@ div#tabela_paginate span a {
 
         function carregaNovaCotacao() {
             var url = window.location.href;
-            if (url.includes("cadastro-cotacao.aspx")) {
+            if (url.includes("cadastro-solicitacao.aspx")) {
                 salvarCotacaoLink("buscar-servico.aspx");
             }
             else {
@@ -620,7 +620,7 @@ div#tabela_paginate span a {
 
         function carregaPerfil() {
             var url = window.location.href;
-            if (url.includes("cadastro-cotacao.aspx")) {
+            if (url.includes("cadastro-solicitacao.aspx")) {
                 salvarCotacaoLink('perfil.aspx');
             }
             else {

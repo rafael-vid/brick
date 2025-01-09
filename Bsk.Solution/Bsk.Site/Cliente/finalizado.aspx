@@ -28,20 +28,20 @@
                             if (item.Status == "Criação")
                             {%>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
                         </td>
                         <%}
                             else if (item.Status == "Aberto")
                             {%>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
                             <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
                         </td>
                         <% }
                             else if (item.Status == "Em andamento")
                             {%>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
                             <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
                             <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
                         </td>
@@ -49,7 +49,7 @@
                             else if (item.Status == "Aguardando pagamento")
                             {%>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
                             <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
                             <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
                         </td>
@@ -57,7 +57,7 @@
                             else if (item.Status == "Finalizado")
                             {%>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Serviço</a>
                             <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<%Response.Write(item.IdCotacao); %>">Cotações</a>
                             <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
                             <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.IdCotacao); %>">Avaliação</a>

@@ -14,7 +14,7 @@ namespace Bsk.Site.Fornecedor.Master
     public partial class layout : System.Web.UI.MasterPage
     {
         core _core = new core();
-        CotacaoBE CotacaoBE = new CotacaoBE();
+        SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 

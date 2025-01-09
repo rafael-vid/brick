@@ -199,5 +199,10 @@ namespace Bsk.Site.Fornecedor
                 ClientScript.RegisterStartupScript(this.GetType(), "swal", script, true);
             }
         }
+        protected void btnAlterarSenha_ServerClick(object sender, EventArgs e)
+        {
+            // Redirect to AlterarSenha.aspx
+            Response.Redirect("AlterarSenha.aspx");
+        }
     }
 }

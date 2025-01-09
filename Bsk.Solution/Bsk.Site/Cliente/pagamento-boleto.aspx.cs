@@ -13,7 +13,7 @@ namespace Bsk.Site.Cliente
     public partial class pagamento_boleto : System.Web.UI.Page
     {
         Bsk.Interface.core _core = new Interface.core();
-        Bsk.BE.CotacaoBE CotacaoBE = new BE.CotacaoBE();
+        Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
         Bsk.BE.CotacaoFornecedorBE CotacaoFornecedorBE = new BE.CotacaoFornecedorBE();
         BskPag bskPag = new BskPag();
         ClienteBE clienteBE = new ClienteBE();
@@ -21,7 +21,7 @@ namespace Bsk.Site.Cliente
         protected void Page_Load(object sender, EventArgs e)
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
             nrcotacao.InnerText = cotacao.IdCotacao.ToString();
             if (cotacao.Status != Bsk.Util.StatusCotacao.AguardandoPagamento)
             {
@@ -50,7 +50,7 @@ namespace Bsk.Site.Cliente
         {
             lbMsg.InnerText = "";
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
 
             if (valor.InnerText != String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor))
             {

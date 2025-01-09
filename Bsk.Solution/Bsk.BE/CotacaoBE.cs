@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bsk.BE
 {
-   public class CotacaoBE
+   public class SolicitacaoBE
     {
         public int IdCotacao { get; set; }
         public int IdCliente { get; set; }

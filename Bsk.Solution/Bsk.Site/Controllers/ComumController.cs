@@ -106,7 +106,7 @@ namespace Bsk.Site.Controllers
             cf.Ativo = 0;
             _core.CotacaoFornecedor_Update(cf, "IdCotacaoFornecedor=" + id);
 
-            var cotacao = _core.Cotacao_Get(new CotacaoBE(), $" IdCotacao={cf.IdCotacao}").FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(new SolicitacaoBE(), $" IdCotacao={cf.IdCotacao}").FirstOrDefault();
 
             NotificacaoBE notif = new NotificacaoBE();
 
@@ -124,8 +124,8 @@ namespace Bsk.Site.Controllers
         [HttpPost]
         public void NotaCotacao(string nota, string id)
         {
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
             cotacao.Status = StatusCotacao.Finalizado;
             cotacao.DataAvaliacao = DateTime.Now;
@@ -137,8 +137,8 @@ namespace Bsk.Site.Controllers
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.NotaFornecedor = int.Parse(nota);
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
         }
@@ -153,8 +153,8 @@ namespace Bsk.Site.Controllers
             {
                 return "O fornecedor desistiu da cotação";
             }
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.IdCotacaoFornecedor = cf.IdCotacaoFornecedor;
             cotacao.Status = StatusCotacao.AguardandoPagamento;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
@@ -206,8 +206,8 @@ namespace Bsk.Site.Controllers
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             cotacao.FinalizaCliente = int.Parse(status);
             cotacao.FinalizaFornecedor = int.Parse(status);
             ParticipanteBE participanteBE = new ParticipanteBE();
@@ -273,7 +273,7 @@ namespace Bsk.Site.Controllers
             return this.Json(new { Result = status, Liberado = cotacao.Status }, JsonRequestBehavior.AllowGet);
         }
 
-        private bool liberarPagamento(CotacaoBE cotacao, CotacaoFornecedorBE cf, ParticipanteBE fornecedor)
+        private bool liberarPagamento(SolicitacaoBE cotacao, CotacaoFornecedorBE cf, ParticipanteBE fornecedor)
         {
             //colocar liberação de pagamento
 
@@ -305,8 +305,8 @@ namespace Bsk.Site.Controllers
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
             ParticipanteBE participanteBE = new ParticipanteBE();
             var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
@@ -325,8 +325,8 @@ namespace Bsk.Site.Controllers
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
             ParticipanteBE participanteBE = new ParticipanteBE();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
@@ -359,8 +359,8 @@ namespace Bsk.Site.Controllers
         [HttpPost]
         public void SubmeterCotacao(string id)
         {
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + id).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cotacao.Status = StatusCotacao.Criacao;
             _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
         }
@@ -483,7 +483,7 @@ namespace Bsk.Site.Controllers
                 cotacaoFornecedor.Valor = 0;
             }
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
-            CotacaoBE _CotacaoBE = new CotacaoBE();
+            SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
             var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
             cotacao2.Status = "2";
             _core.Cotacao_Update(cotacao2, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
@@ -506,7 +506,7 @@ namespace Bsk.Site.Controllers
             {
                 if (cotacaoFornecedorBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != cotacaoFornecedorBE.DataEntrega)
                 {
-                    _CotacaoBE = new CotacaoBE();
+                    _CotacaoBE = new SolicitacaoBE();
                     ParticipanteBE _ParticipanteBE = new ParticipanteBE();
                     var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
                     var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();

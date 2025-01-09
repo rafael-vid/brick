@@ -13,13 +13,13 @@ namespace Bsk.Site.Cliente
     public partial class finalizado : System.Web.UI.Page
     {
         core _core = new core();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        public List<CotacaoBE> PegaCotacaoFinalizado()
+        public List<SolicitacaoBE> PegaCotacaoFinalizado()
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 

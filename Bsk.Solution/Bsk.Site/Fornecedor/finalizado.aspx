@@ -49,7 +49,7 @@
                             <th>Nº Cotação </th>
                             <th>Título</th>
                             <th>Data Atualizada</th>
-                            <th>Status</th>
+                            <th style="text-align: center;">Status</th>
                         </tr>
                     </thead>
 
@@ -61,7 +61,7 @@
 
                                 if (item.Status == "Criação")
                                 {
-                                    link = "cadastro-cotacao.aspx?Cotacao=" + item.CotacaoId;
+                                    link = "cadastro-solicitacao.aspx?Cotacao=" + item.CotacaoId;
                                 }
                                 else if (item.Status == "Aberto")
                                 {
@@ -77,7 +77,7 @@
                                 }
                                 else if (item.Status == "Finalizado")
                                 {
-                                    link = "avaliar.aspx?Id=" + item.CotacaoFornecedorId;
+                                    link = "avaliar.aspx?Id=" + item.CotacaoId;
                                 }
                                 else if (item.Status == "Aguardando aceite")
                                 {
@@ -101,42 +101,42 @@
                             <%  
                                 if (item.Status == "Criação")
                                 {%>
-                            <td>Pendente de envio
+                            <td class="status">Pendente de envio
                             </td>
                             <%}
                                 else if (item.Status == "Aberto")
                                 {%>
-                            <td>Em Solicitação 
+                            <td class="status">Em Solicitação 
                             </td>
                             <% }
                                 else if (item.Status == "Em andamento")
                                 {%>
-                            <td>Em andamento
+                            <td class="status">Em andamento
                             </td>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")
                                 {%>
-                            <td>Aguardando pagamento
+                            <td class="status">Aguardando pagamento
                             </td>
                             <%}
                                 else if (item.Status == "Finalizado")
                                 {%>
-                            <td>Finalizado
+                            <td class="status">Finalizado
                             </td>
                             <% }
                                 else if (item.Status == "Pendente de aceite do cliente")
                                 {%>
-                            <td>Aguardando aceite
+                            <td class="status">Aguardando aceite
                             </td>
                             <% }
                                 else if (item.Status == "Aguardando liberação do pagamento")
                                 {%>
-                            <td>Aguardando liberação do pagamento
+                            <td class="status">Aguardando liberação do pagamento
                             </td>
                             <% }
                                 else if (item.Status == "Avaliado")
                                 {%>
-                            <td>Avaliado
+                            <td class="status">Avaliado
                             </td>
                         </tr>
                         <%  }

@@ -224,7 +224,7 @@ namespace Bsk.Site.Geral
             _ParticipanteBE = new ParticipanteBE()
             {
                 Matriz = "0",
-                Pj = "",
+                Pj = "0",
                 Documento = cnpj.Value,
                 Nome = nomeJuridica.Value,
                 Sobrenome = sobrenomeJuridica.Value,

@@ -21,7 +21,7 @@ namespace Bsk.Site.Cliente
         ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
@@ -141,10 +141,10 @@ namespace Bsk.Site.Cliente
 
         private void mediaCotacoes()
         {
-            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
+            Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
 
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
             var lista = _core.CotacaoListaGet(cotacaoFornecedor.IdCotacao.ToString());
             if (cotacao.IdCotacaoFornecedor != 0)
             {

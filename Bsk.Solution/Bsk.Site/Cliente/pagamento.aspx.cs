@@ -17,7 +17,7 @@ namespace Bsk.Site.Cliente
     {
         core _core = new core();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         TransacaoBE _TransacaoBE = new TransacaoBE();
         protected void Page_Load(object sender, EventArgs e)

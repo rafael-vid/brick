@@ -46,8 +46,8 @@ namespace Bsk.Interface
                         F.RazaoSocial as Fornecedor,
                         CT.Nome as Categoria
                         from transacao T 
-                        INNER JOIN cotacao C on C.IdCotacao = T.IdCotacao
-                        INNER JOIN cotacaofornecedor CF on CF.IdCotacaoFornecedor = C.IdCotacaoFornecedor
+                        INNER JOIN solicitacao C on C.IdCotacao = T.IdCotacao
+                        INNER JOIN cotacao CF on CF.IdCotacaoFornecedor = C.IdCotacaoFornecedor
                         INNER JOIN cliente CL on CL.IdCliente = C.IdCliente
                         INNER JOIN fornecedor F on F.IdFornecedor = CF.IdFornecedor
                         INNER JOIN categoria CT on CT.IdCategoria = C.IdCategoria where " + filtro;
@@ -71,13 +71,13 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
+			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacao where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''
                                     END 
                                 as Mensagens
-                            FROM cotacao CT
+                            FROM solicitacao CT
                                 inner join status s
 		                            on CT.status = s.id
                             where " + filtro;
@@ -142,7 +142,44 @@ namespace Bsk.Interface
             db.Execute(sql);
             return token;
         }
-        
+        public void AlterarSenha(String senha,int ID)
+        {
+            string sql = $@"UPDATE participante set Senha='" + senha + "' WHERE idParticipante='" + ID + "'";
+            db.ExecuteCaseSensitive(sql);
+        }
+        public String ConsultaSenha(int ID)
+        {
+            try
+            {
+                // Construct the SQL query
+                String sql = $"SELECT senha FROM participante WHERE idParticipante = {ID}";
+
+                // Use the Get method to retrieve the results as a DataTable
+                DataTable dt = db.Get(sql);
+
+                // Check if the DataTable has any rows
+                if (dt.Rows.Count > 0)
+                {
+                    // Return the value from the "senha" column in the first row
+                    return dt.Rows[0]["senha"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                Console.WriteLine("Error while fetching password: " + ex.Message);
+            }
+
+            // Return null if no result is found or an exception occurs
+            return null;
+        }
+
+
+
+
+
+
+
 
         public List<NotificacaoModel> NotificacaoGet(string filtro)
         {
@@ -174,7 +211,7 @@ namespace Bsk.Interface
 
         public void AtualizaEnviaPropostaCotacao(int idCotacao)
         {
-            string sql = $@"update cotacaofornecedor set EnviarProposta = 1 where IdCotacaoFornecedor = {idCotacao}";
+            string sql = $@"update cotacao set EnviarProposta = 1 where IdCotacaoFornecedor = {idCotacao}";
             db.Execute(sql);
         }
 
@@ -194,15 +231,15 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdParticipanteFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacaofornecedor where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
+			                                    where IdParticipanteFornecedor = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacao where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''
                                     END 
                                 as Mensagens
-                            FROM cotacao CT
+                            FROM solicitacao CT
     
-                             INNER JOIN CotacaoFornecedor CF on CT.IdCotacao = CF.IdCotacao
+                             INNER JOIN Cotacao CF on CT.IdCotacao = CF.IdCotacao
     
                             where " + filtro;
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
@@ -222,9 +259,9 @@ namespace Bsk.Interface
                             CT.DataAlteracao,
                             s.Nome as StatusNome
 
-                        from cotacao CT                      
+                        from solicitacao CT                      
                         inner join participante CL on CL.IdParticipante = CT.IdParticipante
-                        left join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao
+                        left join cotacao CF on CT.IdCotacao = CF.IdCotacao
                         inner join status s on CT.status = s.id
                         where CT.IdCategoria in ({cats}) and {where}
                           order by DataAlteracao desc   ";
@@ -234,12 +271,12 @@ namespace Bsk.Interface
         public List<CotacaoListaFronecedorModel> CotacaoListaFronecedorGet(string categorias, string idFornecedor)
         {
             var sql = $@"select CT.IdCotacao, CT.Titulo, CA.Nome as Categoria
-                            from cotacao CT 
+                            from solicitacao CT 
                             inner join categoria CA on CA.IdCategoria = CT.IdCategoria
                             where CT.Status='{StatusCotacao.Aberto}' 
                             and CT.IdCotacao not in (select 
                                                         IdCotacao 
-                                                    from cotacaofornecedor where IdParticipanteFornecedor = {idFornecedor} 
+                                                    from cotacao where IdParticipanteFornecedor = {idFornecedor} 
                                                     and IdCotacao = CT.IdCotacao)
                             and CT.IdCategoria in ({categorias});";
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
@@ -248,8 +285,8 @@ namespace Bsk.Interface
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaAguardandoAceiteGet(int idFornecedor)
         {
             var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
-                        from cotacaofornecedor CF 
-                        inner join cotacao CT
+                        from cotacao CF 
+                        inner join solicitacao CT
                         on CT.IdCotacao = CF.IdCotacao
                         inner join cliente CL
                         on CL.IdCliente = CT.IdCliente
@@ -260,8 +297,8 @@ namespace Bsk.Interface
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaStatusGet(int idFornecedor, string status)
         {
             var sql = $@"select CF.IdCotacao as CotacaoId, CF.IdCotacaoFornecedor as CotacaoFornecedorId, CT.IdParticipante as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacaoFornecedor as CFId
-                        from cotacaofornecedor CF 
-                        inner join cotacao CT
+                        from cotacao CF 
+                        inner join solicitacao CT
                         on CT.IdCotacao = CF.IdCotacao
                         inner join participante CL
                         on CL.IdParticipante = CT.IdParticipante
@@ -272,8 +309,8 @@ namespace Bsk.Interface
         public CotacaoAvaliacaoModel Cotacao_Avaliacao_Get(string idCotacao)
         {
             var sql = $@"select CT.IdCotacao, CT.Titulo, CT.Descricao, CT.Depoimento, CT.DataTermino, CT.Nota, CF.Valor, CF.IdCotacaoFornecedor, FC.RazaoSocial as NomeFornecedor
-                            from cotacao CT 
-                            inner join cotacaofornecedor CF 
+                            from solicitacao CT 
+                            inner join cotacao CF 
                             on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
                             inner join Participante FC on FC.IdParticipante = CF.IdParticipanteFornecedor
                             where CT.IdCotacao= " + idCotacao;
@@ -283,8 +320,8 @@ namespace Bsk.Interface
         public CotacaoAvaliacaoFornecedorModel Cotacao_Avaliacao_Fornecedor_Get(string idCotacao)
         {
             var sql = $@"select CT.IdCotacao, CT.Titulo, CT.Descricao, CT.Observacao, CT.NotaFornecedor as Nota, CF.Valor, CF.IdCotacaoFornecedor, CL.Nome as NomeCliente, CT.DataTermino
-                            from cotacaofornecedor CF 
-                            inner join cotacao CT 
+                            from cotacao CF 
+                            inner join solicitacao CT 
                             on CF.IdCotacaoFornecedor = CT.IdCotacaoFornecedor 
                             inner join Participante CL on CL.IdParticipante = CT.IdParticipante
                             where CF.IdCotacaoFornecedor= " + idCotacao;
@@ -313,8 +350,8 @@ namespace Bsk.Interface
                                 from cotacaofornecedorchat 
                                 where IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
                                 ORDER BY IdCotacaoFornecedorChat DESC LIMIT 1) AS DataUltimaResposta
-                            from cotacao CT 
-                            inner join cotacaofornecedor CF on CT.IdCotacao = CF.IdCotacao 
+                            from solicitacao CT 
+                            inner join cotacao CF on CT.IdCotacao = CF.IdCotacao 
                             inner join participante FC on CF.IdParticipanteFornecedor = FC.IdParticipante
                                 where CT.IdCotacao = {idCotacao}";
             return _base.ToList<CotacaoListaModel>(db.Get(sql));
@@ -329,8 +366,8 @@ namespace Bsk.Interface
                                 CF.IdCotacaoFornecedor as CotacaoFornecedorId, 
                                 CF.Valor
                                 
-                            from cotacao CT 
-                            inner join cotacaofornecedor CF on CT.IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
+                            from solicitacao CT 
+                            inner join cotacao CF on CT.IdCotacaoFornecedor = CF.IdCotacaoFornecedor 
                             inner join fornecedor FC on CF.IdFornecedor = FC.IdFornecedor
                                 where CT.Status = {status} AND CT.IdCliente={idCliente}";
             return _base.ToList<CotacaoPagamentoModel>(db.Get(sql));
@@ -593,7 +630,7 @@ namespace Bsk.Interface
 
             Lista_lg.Add(lg);
             string sql = _base.Insert(Lista_lg, null);
-            return db.Insert(sql);
+            return db.ExecuteCaseSensitive(sql);
         }
         public void Participante_Update(ParticipanteBE lg, string filtro)
         {
@@ -669,32 +706,32 @@ namespace Bsk.Interface
         }
 
         ////////////////////////////////////////////// Cotacao ////////////////////////////////////////////////////////////
-        public List<CotacaoBE> Cotacao_Get(CotacaoBE lg, string _filtro)
+        public List<SolicitacaoBE> Cotacao_Get(SolicitacaoBE lg, string _filtro)
         {
-            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            List<SolicitacaoBE> Lista_lg = new List<SolicitacaoBE>();
             Lista_lg.Add(lg);
-            return _base.ToList<CotacaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+            return _base.ToList<SolicitacaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
         }
 
-        public string Cotacao_Insert(CotacaoBE lg)
+        public string Cotacao_Insert(SolicitacaoBE lg)
         {
-            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            List<SolicitacaoBE> Lista_lg = new List<SolicitacaoBE>();
             lg.DataAlteracao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             Lista_lg.Add(lg);
             return db.Insert(_base.Insert(Lista_lg, null));
         }
 
-        public void Cotacao_Update(CotacaoBE lg, string filtro)
+        public void Cotacao_Update(SolicitacaoBE lg, string filtro)
         {
-            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            List<SolicitacaoBE> Lista_lg = new List<SolicitacaoBE>();
             lg.DataAlteracao = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy HH:mm"));
             Lista_lg.Add(lg);
             db.Update(_base.Update(Lista_lg, filtro));
         }
 
-        public void Cotacao_Delete(CotacaoBE lg)
+        public void Cotacao_Delete(SolicitacaoBE lg)
         {
-            List<CotacaoBE> Lista_lg = new List<CotacaoBE>();
+            List<SolicitacaoBE> Lista_lg = new List<SolicitacaoBE>();
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }
