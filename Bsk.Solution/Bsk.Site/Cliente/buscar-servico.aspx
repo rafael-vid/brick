@@ -220,10 +220,10 @@ foreach (var item in categorias)
                                 confirmButtonColor: '#f08f00',
                                 confirmButtonText: 'Ok'
                             });
-                            e.preventDefault();  // Stop the navigation to "cadastro-cotacao.aspx"
+                            e.preventDefault();  // Stop the navigation to "cadastro-solicitacao.aspx"
                         } else {
                             // If services are selected, proceed with navigation
-                            window.location.href = "cadastro-cotacao.aspx?Id=" + selectedCategory;
+                            window.location.href = "cadastro-solicitacao.aspx?Id=" + selectedCategory;
                         }
                     });
                 </script>

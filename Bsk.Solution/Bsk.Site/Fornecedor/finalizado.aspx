@@ -61,7 +61,7 @@
 
                                 if (item.Status == "Criação")
                                 {
-                                    link = "cadastro-cotacao.aspx?Cotacao=" + item.CotacaoId;
+                                    link = "cadastro-solicitacao.aspx?Cotacao=" + item.CotacaoId;
                                 }
                                 else if (item.Status == "Aberto")
                                 {

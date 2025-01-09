@@ -16,7 +16,7 @@ namespace Bsk.Site.Cliente
     {
         core _core = new core();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         FornecedorBE _FornecedorBE = new FornecedorBE();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,8 +40,8 @@ namespace Bsk.Site.Cliente
         {
             CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
             var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            CotacaoBE cotacaoBE = new CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
 
             string titulo = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
             string link = ConfigurationManager.AppSettings["host"].ToString()+ "Fornecedor/negociar-cotacao.aspx?Id="+cf.IdCotacaoFornecedor;

@@ -15,8 +15,8 @@ namespace Bsk.Site.Cliente
         protected void Page_Load(object sender, EventArgs e)
         {
             nrCotacao.InnerText = Request.QueryString["Id"];
-            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             titulo.InnerText = cotacao.Titulo;
             descricao.Text = cotacao.Descricao;
             var lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
@@ -95,8 +95,8 @@ namespace Bsk.Site.Cliente
 
             lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
 
-            Bsk.BE.CotacaoBE cotacaoBE = new BE.CotacaoBE();
-            var cotacao = _core.Cotacao_Get(cotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             if (cotacao.IdCotacaoFornecedor != 0)
             {
 

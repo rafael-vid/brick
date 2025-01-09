@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="cadastro-cotacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" ValidateRequest="false" CodeBehind="cadastro-solicitacao.aspx.cs" Inherits="Bsk.Site.Cliente.cadastro_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cli-cotacao">
@@ -234,7 +234,7 @@
                                     <tr>
                                         <td><% Response.Write(item.Anexo); %></td>
                                         <td style="text-align: right">
-                                            <a class="btn btn-b rikk" href="cadastro-cotacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>&Del=<% Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                                            <a class="btn btn-b rikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>&Del=<% Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                             <% if (item.Tipo == "Anexo")
                                                 { %>
                                             <a class="btn btn-bri kk" href='<% Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<% Response.Write(item.Anexo); %>' target='_blank'>Visualizar</a>

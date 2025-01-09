@@ -13,8 +13,8 @@ namespace Bsk.Site.Fornecedor
     public partial class busca : System.Web.UI.Page
     {
         core _core = new core();
-        CotacaoBE CotacaoBE = new CotacaoBE();
-        List<CotacaoBE> items = new List<CotacaoBE>();
+        SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+        List<SolicitacaoBE> items = new List<SolicitacaoBE>();
 
         CategoriaBE CategoriaBE = new CategoriaBE();
         ServicoBE ServicoBE = new ServicoBE();
@@ -23,7 +23,7 @@ namespace Bsk.Site.Fornecedor
         {
             if (!String.IsNullOrEmpty(Request.QueryString["palavra"]))
             {
-                var servi = _core.Cotacao_Get(CotacaoBE, $" Titulo like '%{Request.QueryString["palavra"]}%'");
+                var servi = _core.Cotacao_Get(SolicitacaoBE, $" Titulo like '%{Request.QueryString["palavra"]}%'");
                 items = servi;
                 string categorias = "";
                 if (servi.Count > 0)

@@ -24,7 +24,7 @@ namespace Bsk.Site.Fornecedor
         ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
 
@@ -58,7 +58,7 @@ namespace Bsk.Site.Fornecedor
             }
             else
             {
-                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + redi);
+                Response.Redirect("cadastro-solicitacao.aspx?Cotacao=" + redi);
             }
         }
 
@@ -81,7 +81,7 @@ namespace Bsk.Site.Fornecedor
                     GravarArquivo(flpVideo, "Video");
                 }
 
-                CotacaoBE _CotacaoBE = new CotacaoBE();
+                SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 cotacao.Titulo = titulofornecedor.Value;
@@ -90,7 +90,7 @@ namespace Bsk.Site.Fornecedor
             }
             else
             {
-                CotacaoBE _CotacaoBE = new CotacaoBE()
+                SolicitacaoBE _CotacaoBE = new SolicitacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),

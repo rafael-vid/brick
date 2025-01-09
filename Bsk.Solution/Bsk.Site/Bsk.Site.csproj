@@ -329,6 +329,7 @@
     <Content Include="assets\imgages\souCLiente.png" />
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
+    <Content Include="Cliente\cadastro-solicitacao.aspx" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
     <Content Include="Cliente\js\sweetalert2.all.min.js" />
     <Content Include="Cliente\Master\assets\css\cadastros.css" />
@@ -621,7 +622,6 @@
     <Content Include="Cliente\cotacao-lista.aspx" />
     <Content Include="Cliente\finalizar-pagamento.aspx" />
     <Content Include="Cliente\buscar-servico.aspx" />
-    <Content Include="Cliente\cadastro-cotacao.aspx" />
     <Content Include="Cliente\cadastro.aspx" />
     <Content Include="Cliente\em-andamento.aspx" />
     <Content Include="Cliente\liberar-pagamento.aspx" />
@@ -1425,12 +1425,12 @@
     <Compile Include="Cliente\buscar-servico.aspx.designer.cs">
       <DependentUpon>buscar-servico.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\cadastro-cotacao.aspx.cs">
-      <DependentUpon>cadastro-cotacao.aspx</DependentUpon>
+    <Compile Include="Cliente\cadastro-solicitacao.aspx.cs">
+      <DependentUpon>cadastro-solicitacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\cadastro-cotacao.aspx.designer.cs">
-      <DependentUpon>cadastro-cotacao.aspx</DependentUpon>
+    <Compile Include="Cliente\cadastro-solicitacao.aspx.designer.cs">
+      <DependentUpon>cadastro-solicitacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\cadastro.aspx.cs">
       <DependentUpon>cadastro.aspx</DependentUpon>

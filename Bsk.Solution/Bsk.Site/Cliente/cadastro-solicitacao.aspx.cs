@@ -19,12 +19,12 @@ namespace Bsk.Site.Cliente
         FornecedorBE _FornecedorBE = new FornecedorBE();
         CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            CotacaoBE cotacao = new CotacaoBE();
+            SolicitacaoBE cotacao = new SolicitacaoBE();
             if (!String.IsNullOrEmpty(Request.QueryString["Cotacao"]))
             {
                 cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
@@ -43,7 +43,7 @@ namespace Bsk.Site.Cliente
             {
                 var anexo = _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacaoAnexos=" + Request.QueryString["Del"]).FirstOrDefault();
                 _core.CotacaoAnexos_Delete(anexo);
-                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + Request.QueryString["Cotacao"]);
+                Response.Redirect("cadastro-solicitacao.aspx?Cotacao=" + Request.QueryString["Cotacao"]);
             }
 
             if (!IsPostBack)
@@ -75,7 +75,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                Response.Redirect("cadastro-cotacao.aspx?Cotacao=" + redi);
+                Response.Redirect("cadastro-solicitacao.aspx?Cotacao=" + redi);
             }
         }
 
@@ -98,7 +98,7 @@ namespace Bsk.Site.Cliente
                     GravarArquivo(flpVideo, "Video");
                 }
 
-                CotacaoBE _CotacaoBE = new CotacaoBE();
+                SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
                 var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 cotacao.Titulo = titulo.Value;
@@ -107,7 +107,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                CotacaoBE _CotacaoBE = new CotacaoBE()
+                SolicitacaoBE _CotacaoBE = new SolicitacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),

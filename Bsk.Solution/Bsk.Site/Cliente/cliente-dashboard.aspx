@@ -137,7 +137,7 @@
             </div>
 
             <div class="item_card">
-                <a class="btn_card" href="cadastro-cotacao.aspx">
+                <a class="btn_card" href="cadastro-solicitacao.aspx">
                     <img src="../assets/imagens/lupa.png" alt="botão" style="width: 15px;">
                     Realizar nova cotação
                 </a>
@@ -256,7 +256,7 @@
             </div>
 
             <div class="item_card item_btn">
-                <a class="btn_card" href="cadastro-cotacao.aspx">
+                <a class="btn_card" href="cadastro-solicitacao.aspx">
                     <img src="../assets/imagens/financeiro-branco.svg" alt="botão" style="width: 15px;">
                     Quero Financiar
                 </a>
