@@ -71,7 +71,7 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from cotacao where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
+			                                    where IdCliente = 0 and IdCotacaoFornecedor in (select IdCotacaoFornecedor from solicitacao where IdCotacao=CT.IdCotacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''

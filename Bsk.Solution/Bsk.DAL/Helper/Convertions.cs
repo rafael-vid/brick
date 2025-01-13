@@ -69,7 +69,11 @@ namespace Bsk.DAL.Helper
             if (filtro != null && filtro != "")
                 filtro = " where " + filtro;
 
-            string footer = " from " + table[0].GetType().Name.Substring(0, (table[0].GetType().Name.Length - 2)) + filtro;
+            // Substituindo a inicial da tabela para 'p' minúsculo
+            string className = table[0].GetType().Name.Substring(0, table[0].GetType().Name.Length - 2);
+            string formattedTableName = char.ToLower(className[0]) + className.Substring(1); // Primeiro caractere minúsculo
+
+            string footer = " from " + formattedTableName + filtro;
 
             qry = header + container + footer;
 
