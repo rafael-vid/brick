@@ -31,6 +31,11 @@ namespace Bsk.Site.Geral
                     pj.Checked = true;
                     pf.Checked = false;
                 }
+                string tipo = Request.QueryString["Tipo"];
+                if (!string.IsNullOrEmpty(tipo))
+                {
+                    ViewState["UserType"] = tipo; // Armazena o tipo para uso posterior
+                }
             }
 
             if (!String.IsNullOrEmpty(Request.QueryString["Red"]))
@@ -88,6 +93,8 @@ namespace Bsk.Site.Geral
 
         private void salvaFisicaParticipante()
         {
+            string tipo = ViewState["UserType"]?.ToString();
+            string diasTrabalho = tipo == "for" ? Request.Form["diasTrabalhoFisica"] : null;
             string cpfValue = cpf.Value;
             if (!IsValidCPF(cpfValue))
             {
@@ -119,8 +126,8 @@ namespace Bsk.Site.Geral
                 Email = email.Value,
                 Senha = senha.Value,
                 prestaServico = 0,
-                GuidColumn = guid
-
+                GuidColumn = guid,
+                DiasTrabalho = Request.Form["diasTrabalhoFisica"]
             };
             if (
     !string.IsNullOrEmpty(cpf.Value) &&
@@ -200,6 +207,8 @@ namespace Bsk.Site.Geral
 
         private void salvaJuridicaParticipante()
         {
+            string tipo = ViewState["UserType"]?.ToString();
+            string diasTrabalho = tipo == "for" ? Request.Form["diasTrabalhoFisica"] : null;
             if (!IsValidCNPJ(cnpj.Value))
             {
                 string message = "CNPJ inválido. Por favor, verifique o número fornecido.";
@@ -230,7 +239,8 @@ namespace Bsk.Site.Geral
                 Email = emailJuridica.Value,
                 Senha = senhaJuridica.Value,
                 prestaServico = 0,
-                GuidColumn = guid
+                GuidColumn = guid,
+                DiasTrabalho = Request.Form["diasTrabalho"]
             };
             if (
     !string.IsNullOrEmpty(nomeJuridica.Value) &&

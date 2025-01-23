@@ -47,21 +47,6 @@
          
              </div>
          </div>
-    <div class="conteudo-dash cli-cotacao">
-        <div class="acessos">
-            <a class="btn_card" href="buscar-servico.aspx">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Nova Solicitação
-            </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações</a>
-            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos</a>
-        </div>
-        <div class="card">
-            <div class="titulo_card">
-                <img src="../assets/imagens/cotacao.svg" alt="ícone" style="width: 20px;">
-                <h2 class="subtitulo_1">solicitações/Nova solicitação</h2>
-            </div>
-
             <div class="item_content_card">
                 <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulo" runat="server">
@@ -303,7 +288,6 @@
                 <a class="btn enviar-cotacao" id="btnSubmeter" runat="server" onclick="cadastrar();" style="position: absolute; right: 83px; margin-top: -1px;">Enviar Cotação</a>
             </div>
         </div>
-    </div>
 
     <style>
         .card-tabela tr td a.btn {
@@ -356,7 +340,7 @@
 
          @media (max-width: 768px) {
              .conteudo-dash{
-                 padding: 0px 0px 0px 0px !important;
+                 padding: 0px 15px 15px 15px !important;
              }
              .conteudo-dash{
                  min-height: 0px !important;
@@ -369,10 +353,11 @@
              }
              .acessos-small {
                  display: flex; /* Exibe para telas pequenas */
+                 margin-bottom: 35px;
              }
              .btn_card {
                  font-size: 14px;
-                 width: 40% !important;
+                 width: 44% !important;
                  min-width: 0px !important;
              }
             .card {

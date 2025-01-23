@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="negociar-cotacao.aspx.cs" ValidateRequest="false" Inherits="Bsk.Site.Cliente.negociar_cotacao" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
-
-
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao dados-cotacao cotacoes-cli">
          <div class="acessos">
@@ -443,85 +441,85 @@
             font-weight: normal;
         }
         select-card, .input-cinza, .pesquisar_input {
-    border: 0;
-    color: #3c3c3b;
-    background: #d7d7d7;
-    font-size: 16px;
-    font-family: Rajdhani-semi, sans-serif;
-    width: 50%;
-    padding: 15px 25px;
-    outline: none;
-    -webkit-appearance: none;
-    border-radius: 30px;
-    box-sizing: border-box;
-    position: relative;
-    border: 1px solid transparent;
-    transition: 0.3s ease;
-    box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
-}
+            border: 0;
+            color: #3c3c3b;
+            background: #d7d7d7;
+            font-size: 16px;
+            font-family: Rajdhani-semi, sans-serif;
+            width: 50%;
+            padding: 15px 25px;
+            outline: none;
+            -webkit-appearance: none;
+            border-radius: 30px;
+            box-sizing: border-box;
+            position: relative;
+            border: 1px solid transparent;
+            transition: 0.3s ease;
+            box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+        }
         .select-card select {
-    width: 100%;
-    background: transparent;
-    height: 100%;
-    border: none;
-    outline: none;
-    color: #3c3c3b;
-    font-family: Rajdhani-semi, sans-serif;
-    font-size: 15px;
-}
+            width: 100%;
+            background: transparent;
+            height: 100%;
+            border: none;
+            outline: none;
+            color: #3c3c3b;
+            font-family: Rajdhani-semi, sans-serif;
+            font-size: 15px;
+        }
         .select-card::after {
-    content: "";
-    width: 1px;
-    height: 100%;
-    position: absolute;
-    background-color: #9a9a99;
-    display: inline-block;
-    right: 60px;
-    top: 0;
-}
+            content: "";
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            background-color: #9a9a99;
+            display: inline-block;
+            right: 60px;
+            top: 0;
+        }
         input#dataEntrega {
-    background: #d7d7d7;
-    border: none;
-    outline: none;
-    box-shadow: none;
+            background: #d7d7d7;
+            border: none;
+            outline: none;
+            box-shadow: none;
 
-}
+        }
         a.cotacao{
             background: #f4f3f2;
             color: #770e18 !important;
         }
 
-/*sweet alert style*/
+    /*sweet alert style*/
 
-div:where(.swal2-container).swal2-center > .swal2-popup {
-    border-radius: 40px !important;
-    font-size: 14px !important;
-}
+    div:where(.swal2-container).swal2-center > .swal2-popup {
+        border-radius: 40px !important;
+        font-size: 14px !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-    border-radius: 20px !important;
-    background-color: #770e18 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+        border-radius: 20px !important;
+        background-color: #770e18 !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-    border-radius: 20px !important;
-    background-color: #f08f00 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+        border-radius: 20px !important;
+        background-color: #f08f00 !important;
+    }
 
-div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
-    border-radius: 20px !important;
-    background-color: #f08f00 !important;
-}
+    div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+        border-radius: 20px !important;
+        background-color: #f08f00 !important;
+    }
 
-div:where(.swal2-icon).swal2-info {
-    border-color: #770e18 !important;
-    color: #770e18 !important;
-}
+    div:where(.swal2-icon).swal2-info {
+        border-color: #770e18 !important;
+        color: #770e18 !important;
+    }
 
-.swal2-icon.swal2-error {
-    border-color: #770e18 !important;
-    color: #770e18 !important;
-}
+    .swal2-icon.swal2-error {
+        border-color: #770e18 !important;
+        color: #770e18 !important;
+    }
 
 /*sweet alert style*/
     @media (max-width: 768px) {
@@ -569,7 +567,7 @@ div:where(.swal2-icon).swal2-info {
          
         }
         .enviar-msg {
-            width: 38%;
+            width: 33%;
         }
         .divAceitar2{
             bottom: 0px; 
@@ -587,8 +585,17 @@ div:where(.swal2-icon).swal2-info {
         .btnRecusar{
             width: 150px;
             margin-right: 15px;
-
         }
+        .bp {
+           max-width: 400px;
+        }
+        .bp-acoes {
+            margin-right: 1000px !important;
+        }
+        div#tabela_paginate {
+            margin-bottom: 15px;
+        }
+
     }
    
 

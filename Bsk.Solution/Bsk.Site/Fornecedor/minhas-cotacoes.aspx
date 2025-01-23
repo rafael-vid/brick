@@ -172,14 +172,14 @@
         }
 
         .total_a_receber-new {
-    width: 185px;
-    padding-top: 10px;
-}
+            width: 185px;
+            padding-top: 10px;
+        }
 
         .eleva_sifra-new {
-    top: 4px;
-    left: 5px;
-}
+            top: 4px;
+            left: 5px;
+        }
     </style>
 
     <script>

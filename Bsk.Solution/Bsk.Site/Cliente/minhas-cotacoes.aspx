@@ -56,7 +56,7 @@
             <div class="filtros_card">
 
                 <div class="select-card">
-                    <select onchange="filtraTabela();" id="slcStatus">
+                    <select onchange="filtraTabela(); filtraImitationTable();" id="slcStatus">
                         <option value="0">Selecione um status</option>
                         <% 
                             var itens = GetDashboardCliente();
@@ -90,7 +90,7 @@
 
             <div class="card-tabela " style="overflow-x: auto;">
                 
-                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover tabela-mobile">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
@@ -158,10 +158,20 @@
                         %>
                     </tbody>
                 </table>
+
+                 <div class="imitation-table" id="imitationTable">
+                    <% foreach (var item in cotacoes) { %>
+                        <div class="table-row" onclick="redirecionar('<%Response.Write(link);%>');" data-status="<%Response.Write(item.nome); %>">
+                            <div class="table-cell"><strong>Nº Cotação:</strong> <%Response.Write(item.IdCotacao); %></div>
+                            <div class="table-cell"><strong>Data de Criação:</strong> <%Response.Write(item.DataCriacao); %></div>
+                            <div class="table-cell"><strong>Título:</strong> <%Response.Write(item.Titulo); %></div>
+                            <div class="table-cell"><strong>Data Atualizada:</strong> <%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></div>
+                            <div class="table-cell"><strong>Status:</strong> <%Response.Write(item.nome); %></div>
+                        </div>
+                    <% } %>
+                </div>
+
             </div>
-
-            
-
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
                 <!--
@@ -176,6 +186,9 @@
     </div>
 
     <style>
+        div#tabela_filter::before {
+            left: 5px;
+        }
         .dropdown-toggle::after {
              content: none; /* Remove a setinha */
         }
@@ -207,13 +220,23 @@
                  width: 44% !important;
                  min-width: 0px !important;
              }
-            .card {
+             .card {
                 padding: 15px!important;
-            }
-            .card-cotacao-dados {
+             }
+             .card-cotacao-dados {
                 width: 100% !important;
-                max-width: 388px; /* Mantenha esse limite, se necessário */
-            }
+             }
+             .table-row {
+                font-family: Rajdhani-semi;
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #f9f9f9;
+                cursor: pointer;
+             }
+             .div#tabela_paginate {
+                margin-bottom: 10px !important;
+             }
          }
          .acessos-small{
              display: flex;
@@ -245,6 +268,14 @@
 
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
+        .acessos {
+            justify-content: space-evenly !important;
+            padding: 0% !important;
+        }
+        div#tabela_filter input[type="search"] {
+            height: 55px;
+            width: 100%;
         }
 
     </style>
@@ -280,7 +311,7 @@
                 table.search("Rascunho").draw();
             }
         }
-
+        
         setTimeout(function () { filtraTabela() }, 10)
 
 
@@ -288,6 +319,35 @@
 
     </script>
     <script>
+        function updateVisibility1() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.tabela-mobile').style.display = 'none';
+
+            } else {
+                document.querySelector('.tabela-mobile').style.display = 'revert-layer';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility1();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility1);
+
+        function updateVisibility2() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.filtros_card').style.display = '';
+            } else {
+                document.querySelector('.imitation-table').style.display = 'none';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility2();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility2);
+
         function updateVisibility() {
             if (window.innerWidth < 768) {
                 document.querySelector('.acessos').style.display = 'none';
@@ -327,6 +387,42 @@
             }
         }
     </script>
-    
+    <script>
+        const statusMap = {
+            0: " ",
+            1: "Status: Aguardando Cotação",
+            2: "Status: Em cotação",
+            3: "Status: Aguardando pagamento",
+            4: "Status: Finalizado", 
+            8: "Status: Rascunho"
+            // Adicione outros mapeamentos, conforme necessário
+        }; 
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("slcStatus").addEventListener('change', filtraImitationTable);
+        });
 
+        function filtraImitationTable() {
+            // Obtém o valor numérico selecionado
+            var selectedValue = document.getElementById("slcStatus").value;
+            // Mapeia para o texto correspondente
+            var searchText = statusMap[selectedValue];
+
+            console.log('Valor selecionado:', selectedValue, 'Texto de busca:', searchText);
+
+            var items = document.querySelectorAll('.imitation-table .table-row');
+
+            items.forEach(function (item) {
+                var itemStatus = item.querySelector("div.table-cell:nth-child(5)").textContent.trim();
+                console.log('Status do item:', itemStatus);
+
+                if (selectedValue === "0") {
+                    item.style.display = ''; // Mostra todos
+                } else if (itemStatus === searchText) {
+                    item.style.display = ''; // Mostra o item se corresponder
+                } else {
+                    item.style.display = 'none'; // Oculta o item se não corresponder
+                }
+            });
+        }
+    </script>
 </asp:Content>

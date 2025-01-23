@@ -6,6 +6,10 @@
             font-family: Rajdhani-semi, sans-serif;
         }
 
+        .ordenador{
+            padding: 30px;
+        }
+
         .faq-itens {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -152,7 +156,7 @@
 
 
     </style>
-        <style>
+    <style>
         .card {
             margin: 0px 30px 30px 30px;
         }
@@ -346,36 +350,38 @@
 
             <h2 class="subtitulo_card subtitulo_1">Qual serviço você precisa? </h2>
 
-            <div class="faq-itens">
-                <%var categorias = BuscaCategoria();
-
-foreach (var item in categorias)
-{%>
-<div class="item-faq">
-    <!-- Radio button for the category -->
-    <input type="radio" name="categoria" value="<%Response.Write(item.IdCategoria); %>" id="cat<%Response.Write(item.IdCategoria); %>" onchange="toggleServicesDisplay(this.value)" />
-    <label for="cat<%Response.Write(item.IdCategoria); %>" class="category-label"><%Response.Write(item.Nome); %></label>
-
-
-    <!-- Services are wrapped in a div with a class for hiding/showing, each service has a checkbox -->
-    <div class="services" id="services<%Response.Write(item.IdCategoria); %>" style="display: none;">
-        <%var servicos = PegaServicoTodos(item); %>
-        <%foreach (var j in servicos)
-        {%>
-            <div>
-                <!-- Checkbox for each service within the category -->
-                <input type="checkbox" name="service<%Response.Write(item.IdCategoria); %>" value="<%Response.Write(j.IdServico); %>" id="service<%Response.Write(j.IdServico); %>" />
-                <label for="service<%Response.Write(j.IdServico); %>"><%Response.Write(j.Nome); %></label>
+            <div class="ordenador">
+                <label for="sortOrder">Organizar por:</label>
+                <select id="sortOrder">
+                    <option value="relevance" selected>Padrão</option>
+                    <option value="alphabetical">Ordem Alfabética</option>
+                </select>
             </div>
-        <% } %>
-    </div>
-</div>
-<%} %>
 
+           <div class="faq-itens">
+                <% var categorias = BuscaCategoria(); 
+                foreach (var item in categorias) {%>
+                    <div class="item-faq" data-nome="<% Response.Write(item.Nome.ToLower()); %>">
+                        <!-- Radio button for the category -->
+                        <input type="radio" name="categoria" value="<% Response.Write(item.IdCategoria); %>" id="cat<% Response.Write(item.IdCategoria); %>" onchange="toggleServicesDisplay(this.value)" />
+                        <label for="cat<% Response.Write(item.IdCategoria); %>" class="category-label"><% Response.Write(item.Nome); %></label>
 
-
-           
+                        <!-- Services wrapped in a div -->
+                        <div class="services" id="services<% Response.Write(item.IdCategoria); %>" style="display: none;">
+                            <% var servicos = PegaServicoTodos(item); %>
+                            <% foreach (var j in servicos) {%>
+                                <div class="service-item">
+                                    <input type="checkbox" name="service<% Response.Write(item.IdCategoria); %>" value="<% Response.Write(j.IdServico); %>" id="service<% Response.Write(j.IdServico); %>" />
+                                    <label for="service<% Response.Write(j.IdServico); %>"><% Response.Write(j.Nome); %></label>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
             </div>
+
+
+
 
             <div class="footer_card">
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
@@ -421,6 +427,51 @@ foreach (var item in categorias)
                         // Optionally, reset checkboxes in hidden service divs
                         $('.services').not('#services' + selectedCategoryId).find('input[type=checkbox]').prop('checked', false);
                     }
+                </script>
+                <script>
+                    let originalCategories = [];
+
+                    function storeOriginalOrder() {
+                        const faqItens = document.querySelector('.faq-itens');
+                        originalCategories = Array.from(faqItens.children).map(category => category.outerHTML);
+                    }
+
+                    function sortCategories() {
+                        const selectedOrder = document.getElementById('sortOrder').value;
+                        const faqItens = document.querySelector('.faq-itens');
+                        const categories = Array.from(faqItens.children);
+
+                        console.log("Categorias antes da ordenação:", categories.map(category => category.querySelector('.category-label').textContent));
+
+                        if (selectedOrder === 'alphabetical') {
+                            categories.sort((a, b) => {
+                                const nameA = a.querySelector('.category-label').textContent.toLowerCase();
+                                const nameB = b.querySelector('.category-label').textContent.toLowerCase();
+                                return nameA.localeCompare(nameB);
+                            });
+                            console.log("Categorias ordenadas alfabeticamente:", categories.map(category => category.querySelector('.category-label').textContent));
+                        } else {
+                            // Se "Relevância" for escolhido, retorna à ordem original
+                            faqItens.innerHTML = ''; // Limpa o contêiner
+                            originalCategories.forEach(originalCategory => {
+                                faqItens.innerHTML += originalCategory; // Restaura a ordem original
+                            });
+                            return; // Sai da função após restaurar a ordem original
+                        }
+
+                        // Remove todas as categorias do contêiner e reapresenta na nova ordem
+                        faqItens.innerHTML = '';
+                        categories.forEach(category => {
+                            faqItens.appendChild(category);
+                        });
+                    }
+
+                    // Adicionar ouvinte de evento após o DOM ser carregado
+                    document.addEventListener('DOMContentLoaded', function () {
+                        storeOriginalOrder(); // Armazena a ordem original das categorias
+                        const sortOrderDropdown = document.getElementById('sortOrder');
+                        sortOrderDropdown.addEventListener('change', sortCategories);
+                    });
                 </script>
 
 
