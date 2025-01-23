@@ -71,8 +71,7 @@ namespace Bsk.DAL.Helper
 
             // Substituindo a inicial da tabela para 'p' minúsculo
             string className = table[0].GetType().Name.Substring(0, table[0].GetType().Name.Length - 2);
-            string formattedTableName = char.ToLower(className[0]) + className.Substring(1); // Primeiro caractere minúsculo
-
+            string formattedTableName = className.ToLower();
             string footer = " from " + formattedTableName + filtro;
 
             qry = header + container + footer;
@@ -91,7 +90,9 @@ namespace Bsk.DAL.Helper
                 filtro = filtro.Replace("''", "");
             }
 
-            string tabela = table[0].GetType().Name.Substring(0, (table[0].GetType().Name.Length - 2));
+            string tabela = table[0].GetType().Name
+                         .Substring(0, (table[0].GetType().Name.Length - 2))
+                         .ToLower();
             string qry = " INSERT INTO " + tabela + "(#COLUNAS) VALUES (#VALUES)";
 
             int countItem = table[0].GetType().GetProperties().Count();

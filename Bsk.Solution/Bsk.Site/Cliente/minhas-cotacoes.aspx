@@ -235,7 +235,10 @@
                 cursor: pointer;
              }
              .div#tabela_paginate {
-                margin-bottom: 10px !important;
+                margin-bottom: 5px !important;
+             }
+             .dataTables_paginate{
+                 margin-bottom: 5px !important;
              }
          }
          .acessos-small{
@@ -281,7 +284,6 @@
     </style>
 
     <script>
-        
 
         function redirecionar(valor) {
             window.location.href = valor;
