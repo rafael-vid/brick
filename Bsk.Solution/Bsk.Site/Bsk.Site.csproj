@@ -329,6 +329,7 @@
     <Content Include="assets\imgages\souCLiente.png" />
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
+    <Content Include="Cliente\AlterarSenha.aspx" />
     <Content Include="Cliente\cadastro-solicitacao.aspx" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
     <Content Include="Cliente\js\sweetalert2.all.min.js" />
@@ -1411,6 +1412,13 @@
       <DependentUpon>aguardando-pagamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Cliente\AlterarSenha.aspx.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\AlterarSenha.aspx.designer.cs">
+      <DependentUpon>AlterarSenha.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\avaliar.aspx.cs">
       <DependentUpon>avaliar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1819,6 +1827,7 @@
     <Content Include="Fornecedor\assets\fonts\Rajdhani-SemiBold.ttf" />
     <Content Include="Fornecedor\assets\fonts\Ubuntu-Bold.ttf" />
     <Content Include="Fornecedor\assets\fonts\Ubuntu-Regular.ttf" />
+    <Content Include="Cliente\negociar-cotacao.aspx.rej" />
     <None Include="Properties\PublishProfiles\Brikk.pubxml" />
     <Content Include="suporte\fonts\.htaccess" />
     <Content Include="suporte\fonts\fontawesome-webfont.eot" />
