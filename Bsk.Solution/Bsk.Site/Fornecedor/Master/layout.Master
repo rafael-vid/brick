@@ -310,13 +310,99 @@ a.btn.btn-brikk.mensagem {
 }
 
 /* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
- .uppercase {
-     text-transform: capitalize;
+.uppercase {
+    text-transform: capitalize;
 
-        }
+}
 /*---------------*/
 
-    </style>
+@media (max-width:780px) {
+    div#tabela_filter input[type="search"], .dataTables_length label {
+        width: 100% !important;
+    }
+    .menu-dash{
+        padding-left: 0px!important;
+    }
+    div#tabela_paginate {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+    [data-dropdow-perfil]:hover .dropdown-perfil, [data-dropdow-perfil].active-submenu .dropdown-perfil {
+        display: flex !important;
+        justify-content: flex-start !important;
+        flex-direction: row;
+    }
+    .menu-dashboard {
+        display: none !important; /* Ocultar apenas a lista de itens de menu, não o botão */
+    }
+
+    .menu-dashboard {
+        display: block !important; /* Mostrar o menu novamente ao adicionar a classe 'active' */
+    }
+
+    .menu-dashboard {
+        display: block !important; /* Manter o botão sempre visível mesmo que o resto do menu esteja oculto */
+    }
+
+    .seta {
+        margin-top: 9px !important;
+        margin-left: 6px !important;
+    }
+    /* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+    .uppercase {
+        text-transform: capitalize;
+    }
+    /*---------------*/
+    .perfil span {
+        color: #fff !important;
+    }
+    .perfilMobile{
+        background: #f4f3f2;
+        background-size: 300px 200px;
+        padding: 10px 20px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+    /* [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
+        background: transparent !important;
+    }*/
+
+    /*.dropdown-perfil {
+        margin-left: -75px !important;
+        background: transparent !important;
+    }
+    */
+    /*  [data-dropdow-perfil].active-submenu .dropdown-perfil {
+        background: transparent !important;
+    }*/
+
+    .dropdown-perfil li a {
+        color: #7b1b27 !important;
+    }
+
+    [data-dropdow-perfil].active-submenu .perfil {
+        padding: 0px;
+    }
+    .menu-itens li {
+        border-bottom: 0px;
+    }
+    #nav.active ul {
+        padding: 0px 20px;
+        height: 340px;
+        background: transparent;
+        margin-top: 40px;
+    }
+    .menu ul {
+        display: block !important;
+        width: 300% !important;
+        top: -20px !important;
+        left: -300px !important;
+        overflow-y: initial !important;
+        background: transparent;
+    }
+}
+</style>
 
 </head>
 <body>
@@ -384,7 +470,7 @@ a.btn.btn-brikk.mensagem {
 
         <section class="app">
             <nav class="menu-dashboard">
-                <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px" alt="ícone"> </a>
+                <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px; display: inline;" alt="ícone "> </a>
                 <ul class="menu-dash">
                     <li>
                         <a href="dashboard.aspx" class="dash">
@@ -392,17 +478,29 @@ a.btn.btn-brikk.mensagem {
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li><a href="minhas-cotacoes.aspx" class="cotacao">
-                        <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone"><span>Cotações</span></a>
+                    <li>
+                        <a href="minhas-cotacoes.aspx" class="cotacao">
+                            <img src="../assets/imagens/cotacao.svg" style="width: 20px;" alt="ícone">
+                            <span>Cotações</span>
+                        </a>
                     </li>
-                    <li><a href="em-andamento.aspx" class="andamento">
-                        <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Em Andamento</span></a>
+                    <li>
+                        <a href="em-andamento.aspx" class="andamento">
+                            <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone">
+                            <span>Em Andamento</span>
+                        </a>
                     </li>
-                    <li><a href="finalizado.aspx" class="finalizada">
-                        <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone"><span>Finalizado</span></a>
+                    <li>
+                        <a href="finalizado.aspx" class="finalizada">
+                            <img src="../assets/imagens/andamento.svg" style="width: 20px;" alt="ícone">
+                            <span>Finalizado</span>
+                        </a>
                     </li>
-                    <li><a href="notificacoes.aspx" class="notificacoes">
-                        <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone"><span>Notificações</span></a>
+                    <li>
+                        <a href="notificacoes.aspx" class="notificacoes">
+                            <img src="../assets/imagens/documentacao.svg" style="width: 20px;" alt="ícone">
+                            <span>Notificações</span>
+                        </a>
                     </li><!--
                     <li><a href="#" class="documentacao">
                         <img src="../assets/imagens/documentacao.svg" style="width: 20px;"
@@ -516,6 +614,20 @@ a.btn.btn-brikk.mensagem {
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
         })();
+    </script>
+    <script>
+        function handleResize() {
+           const section = document.querySelector('.app') || document.querySelector('.mini-menu');
+           if (window.innerWidth < 758) {
+            section.className = 'app mini-menu';
+           } 
+           else {
+            section.className = 'app';
+           }
+        }
+
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
     </script>
 </body>
 </html>

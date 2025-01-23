@@ -52,86 +52,86 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-    <style>
-        nav.menu-dashboard {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            flex-direction: row-reverse;
-        }
-        .acessos{
-            display:flex;
-            justify-content:space-evenly;
-            flex-wrap:wrap;
-            grid-gap:30px !important;
-        }
-        .acessos .btn_card{
-            width:250px;
-        }
-        .menu-topo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between !important;
-        }
-        .menu{
-            flex:0 !important;
-            position:absolute;
-            right:70px;
-        }
-        .menu-topo > a{
-            position:absolute;
-            left:70px;
-        }
-        .perfil > img{
-            width:57px;
-            height:57px;
-            object-fit:cover;
-        }
-        a{
-            text-decoration:none !important;
-        }
-        .lupa {
-            right: 40px;
-        }
-        footer{
-            display:flex !important;
-        }
-        .btn{
-            border-radius:20px !important;
-        }
-        .btn {
-            display: inline-flex;
-        }
+<style>
+nav.menu-dashboard {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-direction: row-reverse;
+}
+.acessos{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    grid-gap:30px !important;
+}
+.acessos .btn_card{
+    width:250px;
+}
+.menu-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
+.menu{
+    flex:0 !important;
+    position:absolute;
+    right:70px;
+}
+.menu-topo > a{
+    position:absolute;
+    left:70px;
+}
+.perfil > img{
+    width:57px;
+    height:57px;
+    object-fit:cover;
+}
+a{
+    text-decoration:none !important;
+}
+.lupa {
+    right: 40px;
+}
+footer{
+    display:flex !important;
+}
+.btn{
+    border-radius:20px !important;
+}
+.btn {
+    display: inline-flex;
+}
       
-        @media (max-width: 1151px){
-            .ul{
-                padding-left: 0rem;
-            }
-            #nav.active ul {           
-                height: 350px;
-                width: 500px;
-                visibility: visible;
-                overflow-y: auto;
-            }
-            .menu ul {
-                display: block !important;
-                width: 300% !important;
-                top: 120px !important;
-                right: 0 !important;
-                background-color: #770e18;
-                background-image: url('../imagens/fundo.png');
-                z-index: 100;
-                transition: 0.3s !important;
-                visibility: hidden;
-                overflow-y: hidden;
-            }
-        }
-        header {
-            height: 140px;
-            background-color: #770e18;
-            background-image: url('../assets/imagens/fundo.png');
-            position: relative;
-        }
+@media (max-width: 1151px){
+    .ul{
+        padding-left: 0rem;
+    }
+    #nav.active ul {           
+        height: 350px;
+        width: 500px;
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .menu ul {
+        display: block !important;
+        width: 300% !important;
+        top: 120px !important;
+        right: 0 !important;
+        background-color: #770e18;
+        background-image: url('../imagens/fundo.png');
+        z-index: 100;
+        transition: 0.3s !important;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+}
+header {
+    height: 140px;
+    background-color: #770e18;
+    background-image: url('../assets/imagens/fundo.png');
+    position: relative;
+}
         
 
         /*------------------*/
@@ -142,30 +142,30 @@ div#tabela_filter {
     top: -20px;
 }
 
-    div#tabela_filter input[type="search"] {
-        height: 55px;
-        width: 340px;
-        margin-left: -78px;
-        background: #d7d7d7;
-        border-radius: 30px;
-        border: 0;
-        outline: none;
-        top:-20px !important;
-        box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
-        padding: 15px 35px;
-        color: #3c3c3b;
-        font-family: Rajdhani-semi, sans-serif;
-        font-size: 16px;
-    }
+div#tabela_filter input[type="search"] {
+    height: 55px;
+    width: 340px;
+    margin-left: -78px;
+    background: #d7d7d7;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    top:-20px !important;
+    box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+    padding: 15px 35px;
+    color: #3c3c3b;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 16px;
+}
 
-    div#tabela_filter::before {
-        content: '🔍︎';
-        z-index: 400;
-        position: absolute;
-        top: 15px;
-        display: block;
-        left: 10px;
-    }
+div#tabela_filter::before {
+    content: '🔍︎';
+    z-index: 400;
+    position: absolute;
+    top: 15px;
+    display: block;
+    left: 10px;
+}
 
 
 .dataTables_wrapper {
@@ -268,93 +268,93 @@ div#tabela_paginate span a {
     }
 }
 
-        @media (max-width:780px) {
-            div#tabela_filter input[type="search"], .dataTables_length label {
-                width: 100% !important;
-            }
-            .menu-dash{
-                padding-left: 0px!important;
-            }
-            div#tabela_paginate {
-                justify-content: flex-start;
-                margin-top: 20px;
-            }
-            [data-dropdow-perfil]:hover .dropdown-perfil, [data-dropdow-perfil].active-submenu .dropdown-perfil {
-                display: flex !important;
-                justify-content: flex-start !important;
-                flex-direction: row;
-            }
-            .menu-dashboard {
-                display: none !important; /* Ocultar apenas a lista de itens de menu, não o botão */
-            }
+@media (max-width:780px) {
+    div#tabela_filter input[type="search"], .dataTables_length label {
+        width: 100% !important;
+    }
+    .menu-dash{
+        padding-left: 0px!important;
+    }
+    div#tabela_paginate {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+    [data-dropdow-perfil]:hover .dropdown-perfil, [data-dropdow-perfil].active-submenu .dropdown-perfil {
+        display: flex !important;
+        justify-content: flex-start !important;
+        flex-direction: row;
+    }
+    .menu-dashboard {
+        display: none !important; /* Ocultar apenas a lista de itens de menu, não o botão */
+    }
 
-            .menu-dashboard {
-                display: block !important; /* Mostrar o menu novamente ao adicionar a classe 'active' */
-            }
+    .menu-dashboard {
+        display: block !important; /* Mostrar o menu novamente ao adicionar a classe 'active' */
+    }
 
-            .menu-dashboard .open-menu {
-                display: block !important; /* Manter o botão sempre visível mesmo que o resto do menu esteja oculto */
-            }
+    .menu-dashboard .open-menu {
+        display: block !important; /* Manter o botão sempre visível mesmo que o resto do menu esteja oculto */
+    }
 
-            .seta {
-                margin-top: 9px !important;
-                margin-left: 6px !important;
-            }
-            /* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
-            .uppercase {
-                text-transform: capitalize;
-            }
-            /*---------------*/
-            .perfil span {
-                color: #fff !important;
-            }
-            .perfilMobile{
-                background: #f4f3f2;
-                background-size: 300px 200px;
-                padding: 10px 20px;
-                border-top-left-radius: 30px;
-                border-top-right-radius: 30px;
-            }
+    .seta {
+        margin-top: 9px !important;
+        margin-left: 6px !important;
+    }
+    /* CAPITALIZAÇÃO DO NOME PRÓPRIO*/
+    .uppercase {
+        text-transform: capitalize;
+    }
+    /*---------------*/
+    .perfil span {
+        color: #fff !important;
+    }
+    .perfilMobile{
+        background: #f4f3f2;
+        background-size: 300px 200px;
+        padding: 10px 20px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
 
-           /* [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
-                background: transparent !important;
-            }*/
+    /* [data-dropdow-perfil]:hover .perfil, [data-dropdow-perfil].active-submenu .perfil {
+        background: transparent !important;
+    }*/
 
-            /*.dropdown-perfil {
-                margin-left: -75px !important;
-                background: transparent !important;
-            }
-*/
-          /*  [data-dropdow-perfil].active-submenu .dropdown-perfil {
-                background: transparent !important;
-            }*/
+    /*.dropdown-perfil {
+        margin-left: -75px !important;
+        background: transparent !important;
+    }
+    */
+    /*  [data-dropdow-perfil].active-submenu .dropdown-perfil {
+        background: transparent !important;
+    }*/
 
-            .dropdown-perfil li a {
-                color: #7b1b27 !important;
-            }
+    .dropdown-perfil li a {
+        color: #7b1b27 !important;
+    }
 
-            [data-dropdow-perfil].active-submenu .perfil {
-                padding: 0px;
-            }
-            .menu-itens li {
-                border-bottom: 0px;
-            }
-            #nav.active ul {
-                padding: 0px 20px;
-                height: 340px;
-                background: transparent;
-                margin-top: 40px;
-            }
-            .menu ul {
-                display: block !important;
-                width: 300% !important;
-                top: -20px !important;
-                left: -300px !important;
-                overflow-y: initial !important;
-                background: transparent;
-            }
-        }
-    </style>
+    [data-dropdow-perfil].active-submenu .perfil {
+        padding: 0px;
+    }
+    .menu-itens li {
+        border-bottom: 0px;
+    }
+    #nav.active ul {
+        padding: 0px 20px;
+        height: 340px;
+        background: transparent;
+        margin-top: 40px;
+    }
+    .menu ul {
+        display: block !important;
+        width: 300% !important;
+        top: -20px !important;
+        left: -300px !important;
+        overflow-y: initial !important;
+        background: transparent;
+    }
+}
+</style>
 
 </head>
 <body>
@@ -421,10 +421,8 @@ div#tabela_paginate span a {
     </header>
 
     <section class="app">
-
         <nav class="menu-dashboard">
-            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone" class="seta"> 
-            </a>
+            <a class="open-menu"><img src="../assets/imagens/seta-esquerda.png" style="width: 20px; margin-right: 6px;" alt="ícone" class="seta"></a>
             <ul class="menu-dash">
                 <li>
                     <a href="cliente-dashboard.aspx" class="dash">
