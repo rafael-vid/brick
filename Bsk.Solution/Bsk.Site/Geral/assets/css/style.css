@@ -497,6 +497,11 @@ footer > div a:hover {
     visibility: visible;
     overflow-y: auto;
   }
+    @media (max-width:780px) {
+        #nav.active ul {
+            height: auto !important;
+        }
+    }
   #nav .menu-itens li a {
     padding: 1rem;
     transition: 0.3s;

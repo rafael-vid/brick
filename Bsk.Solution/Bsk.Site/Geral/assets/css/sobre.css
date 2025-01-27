@@ -228,6 +228,11 @@
     background-size: cover;
   }
 }
+@media (max-width:780px) {
+    #nav.active ul {
+        height: auto !important;
+    }
+}
 
 .titulo_sec {
   padding-left: 50px;

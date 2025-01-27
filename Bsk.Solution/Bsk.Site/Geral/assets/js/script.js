@@ -40,12 +40,19 @@ function handleClick(event){
   }
 }
 
- const menuToggle = document.querySelector('.open-menu')
-menuToggle.addEventListener('click', () => {
-   
-      const app = document.querySelector('.app')
-      app.classList.toggle('mini-menu')
-    })
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.open-menu');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            const app = document.querySelector('.app');
+            if (app) {
+                app.classList.toggle('mini-menu');
+            }
+        });
+    } else {
+        console.error("Elemento '.open-menu' não encontrado!");
+    }
+});
   
     
 function submenu(){
