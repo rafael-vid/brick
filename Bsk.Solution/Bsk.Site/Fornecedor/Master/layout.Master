@@ -49,122 +49,120 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-     <style>
-         .voltar.btn {
-            background-color: #d7d7d7;
-            color: #3c3c3b;
-            width: 115px;
-            box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
-            cursor: pointer;
-            border: none;
-            border-radius: 20px;
-            font-size: 21px;
-            font-weight: bold;
+<style>
+.voltar.btn {
+    background-color: #d7d7d7;
+    color: #3c3c3b;
+    width: 115px;
+    box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    font-size: 21px;
+    font-weight: bold;
 }
-         .btn-brikk {
-            background:#f08f00 !important;
-            border-radius: 5px !important;
-            color: #fff !important;
-            border-radius: 20px !important;
-            display: flex !important;
-            margin-bottom: 4px;
-            box-shadow: 0px 0px 0px rgb(0 0 0 / 0%);
-        }
-        .btn-brikk:hover{
-            border-radius: 20px !important;
-        }
-        .btn{
-            border-radius:20px;
-        }
-         button#btnBuscaCatSel {
-            border: none;
-            background: none;
-        }
-         .filtro .container input {
-            width: 85%;
-            height: 54px;
-            border-radius: 30px;
-            border: 2px solid #fff;
-            font-weight: bold;
-            font-size: 1.25rem;
-            outline: none;
-            background: rgba(137, 66, 80, 0.6);
-            padding: 15px 30px;
-            color: #fff;
-            transition: 0.3s ease;
-            letter-spacing: 0.1em;
-        }
-        .acessos{
-            display:flex;
-            justify-content:space-evenly;
-            flex-wrap:wrap;
-            grid-gap:30px !important;
-        }
-        .acessos .btn_card{
-            width:250px;
-        }
-        .menu-topo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between !important;
-        }
-        .menu{
-            flex:0 !important;
-            position:absolute;
-            right:70px;
-        }
-        header {
-            background-color: #770e18;
-            background-image: url('../assets/imagens/fundo.png');
-            background-repeat: repeat; /* Repete a imagem de fundo na vertical e na horizontal */
-            position: relative;
-        }
-        .menu-topo > a{
-            position:absolute;
-            left:70px;
-        }
-        .perfil > img{
-            width:57px;
-            height:57px;
-            object-fit:cover;
-        }
-        a{
-            text-decoration:none !important;
-        }
-        .lupa {
-            right: 40px;
-        }
-        footer{
-            display:flex !important;
-        }
-
-      
-        @media (max-width: 1151px){
-            #nav.active ul {
-                height: calc(100vh - 120px);
-                visibility: visible;
-                overflow-y: auto;
-            }
-            .menu ul {
-                display: block !important;
-                position: absolute !important;
-                width: 100% !important;
-                top: 120px !important;
-                right: 0 !important;
-                background: #770e18;
-                z-index: 100;
-                transition: 0.3s !important;
-                visibility: hidden;
-                overflow-y: hidden;
-            }
-        }
-        div#tabela_paginate {
-            margin-top: 20px !important;
-        }
-        div#tabela_filter {
-            top: 20px !important;
-        }
-        /*------------------*/
+.btn-brikk {
+    background:#f08f00 !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    border-radius: 20px !important;
+    display: flex !important;
+    margin-bottom: 4px;
+    box-shadow: 0px 0px 0px rgb(0 0 0 / 0%);
+}
+.btn-brikk:hover{
+    border-radius: 20px !important;
+}
+.btn{
+    border-radius:20px;
+}
+button#btnBuscaCatSel {
+    border: none;
+    background: none;
+}
+.filtro .container input {
+    width: 85%;
+    height: 54px;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    font-weight: bold;
+    font-size: 1.25rem;
+    outline: none;
+    background: rgba(137, 66, 80, 0.6);
+    padding: 15px 30px;
+    color: #fff;
+    transition: 0.3s ease;
+    letter-spacing: 0.1em;
+}
+.acessos{
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap:wrap;
+    grid-gap:30px !important;
+}
+.acessos .btn_card{
+    width:250px;
+}
+.menu-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
+.menu{
+    flex:0 !important;
+    position:absolute;
+    right:70px;
+}
+header {
+    background-color: #770e18;
+    background-image: url('../assets/imagens/fundo.png');
+    background-repeat: repeat; /* Repete a imagem de fundo na vertical e na horizontal */
+    position: relative;
+}
+.menu-topo > a{
+    position:absolute;
+    left:70px;
+}
+.perfil > img{
+    width:57px;
+    height:57px;
+    object-fit:cover;
+}
+a{
+    text-decoration:none !important;
+}
+.lupa {
+    right: 40px;
+}
+footer{
+    display:flex !important;
+}
+@media (max-width: 1151px){
+    #nav.active ul {
+        height: calc(100vh - 120px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .menu ul {
+        display: block !important;
+        position: absolute !important;
+        width: 100% !important;
+        top: 120px !important;
+        right: 0 !important;
+        background: #770e18;
+        z-index: 100;
+        transition: 0.3s !important;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+}
+div#tabela_paginate {
+    margin-top: 20px !important;
+}
+div#tabela_filter {
+    top: 20px !important;
+}
+/*------------------*/
 
 div#tabela_filter {
     position: absolute;
@@ -172,29 +170,29 @@ div#tabela_filter {
     top: -20px;
 }
 
-    div#tabela_filter input[type="search"] {
-        height: 55px;
-        width: 340px !important;
-        position: absolute;
-        margin-left: -88px;
-        background: #d7d7d7;
-        border-radius: 30px;
-        border: 0;
-        outline: none;
-        box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
-        padding: 15px 35px;
-        color: #3c3c3b;
-        font-family: Rajdhani-semi, sans-serif;
-        font-size: 16px;
-    }
+div#tabela_filter input[type="search"] {
+    height: 55px;
+    width: 340px !important;
+    position: absolute;
+    margin-left: -88px;
+    background: #d7d7d7;
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    box-shadow: 4px 4px 6px rgb(0 0 0 / 30%);
+    padding: 15px 35px;
+    color: #3c3c3b;
+    font-family: Rajdhani-semi, sans-serif;
+    font-size: 16px;
+}
 
-    div#tabela_filter::before {
-        content: '🔍︎';
-        z-index: 400;
-        position: absolute;
-        top: 16px;
-        display: block
-    }
+div#tabela_filter::before {
+    content: '🔍︎';
+    z-index: 400;
+    position: absolute;
+    top: 16px;
+    display: block
+}
 
 .dataTables_wrapper {
     position: relative;
@@ -315,6 +313,13 @@ a.btn.btn-brikk.mensagem {
 
 }
 /*---------------*/
+.menu-itens {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
 
 @media (max-width:780px) {
     div#tabela_filter input[type="search"], .dataTables_length label {
@@ -401,6 +406,26 @@ a.btn.btn-brikk.mensagem {
         overflow-y: initial !important;
         background: transparent;
     }
+    .label-fornecedor{
+        display: flex;
+        text-decoration: none;
+        flex-direction: column;
+    }
+    .menu-topo > a {
+        position: absolute;
+        left: 15px; 
+    }
+    #btn-mobile {
+        margin-right: -30px;
+        /*margin-bottom: 45px;*/
+    }
+    .menu {
+        flex: 0px !important;
+        position:initial;
+    }
+    .menu-topo {
+        height:100px;
+    }
 }
 </style>
 
@@ -409,27 +434,25 @@ a.btn.btn-brikk.mensagem {
     <form id="form1" runat="server">
         <header>
             <div class="menu-topo container">
-                <a href="dashboard.aspx" style="display: flex; align-items: center; text-decoration: none;">
-    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
-    <span id="dynamic-text" style="display: innline; color: white; margin-left: -30px; font-size:35px; font-family:rajdhani-semi">FORNECEDOR</span>
-</a>
-                  <div>
-                     
+                <a href="dashboard.aspx" class="label-fornecedor" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                    <span id="dynamic-text" style="display: innline; color: white; margin-left: -30px; font-size:25px; font-family:rajdhani-semi">FORNECEDOR</span>
+                </a>
+                 <div>  
                  </div>
                 <nav class="menu" id="nav">
                     <button id="btn-mobile">
                         Menu
-          <span id="hamburger"></span>
+                        <span id="hamburger"></span>
                     </button>
                     <ul class="menu-itens">
-
                         <li data-dropdow-perfil>
                             <div class="perfil">
                                 <img src="../assets/imagens/avatar.png" alt="avatar">
 
                                 <span class="uppercase">Olá,  <%
-                                                var usuario = RetornaUsuario();
-                                                Response.Write(usuario.nomeFantasia.Split(' ')[0]);
+                                        var usuario = RetornaUsuario();
+                                        Response.Write(usuario.nomeFantasia.Split(' ')[0]);
                                 %>.</span>
                             </div>
                             <ul class="dropdown-perfil">
@@ -454,12 +477,9 @@ a.btn.btn-brikk.mensagem {
                             </ul>
                         </li>
                     </ul>
-
                 </nav>
-
-
             </div>
-
+            <span id="dynamic-textmobile" style="color: white;margin: 0 110px;font-size: 25px;font-family: rajdhani-semi;display: flex;">FORNECEDOR</span>
             <div class="filtro">
                 <div class="container" style="display:none">
                     <input type="text" id="servico" runat="server" placeholder="Qual serviço você precisa?      ">
@@ -467,7 +487,6 @@ a.btn.btn-brikk.mensagem {
                 </div>
             </div>
         </header>
-
         <section class="app">
             <nav class="menu-dashboard">
                 <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px; display: inline;" alt="ícone "> </a>
@@ -628,6 +647,67 @@ a.btn.btn-brikk.mensagem {
 
         window.addEventListener('resize', handleResize);
         document.addEventListener('DOMContentLoaded', handleResize);
+    </script>
+    <script>
+        function handleDynamicTextVisibility() {
+            const dynamicText = document.getElementById('dynamic-text');
+            if (window.innerWidth < 758) {
+                if (dynamicText) {
+                    dynamicText.style.display = 'none';
+                }
+            } else {
+                if (dynamicText) {
+                    dynamicText.style.display = '';
+                }
+            }
+        }
+
+        // Chame a função no evento de redimensionamento e quando o DOM for carregado
+        window.addEventListener('resize', handleDynamicTextVisibility);
+        document.addEventListener('DOMContentLoaded', handleDynamicTextVisibility);
+    </script>
+    <script>
+        function handleDynamicTextVisibility2() {
+            const dynamicText = document.getElementById('dynamic-textmobile');
+            if (window.innerWidth > 758) {
+                if (dynamicText) {
+                    dynamicText.style.display = 'none';
+                }
+            } else {
+                if (dynamicText) {
+                    dynamicText.style.display = 'flex';
+                }
+            }
+        }
+
+        // Chame a função no evento de redimensionamento e quando o DOM for carregado
+        window.addEventListener('resize', handleDynamicTextVisibility2);
+        document.addEventListener('DOMContentLoaded', handleDynamicTextVisibility2);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const btnMobile = document.getElementById('btn-mobile');
+            const nav = document.getElementById('nav');
+
+            btnMobile.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+
+            const dropdowns = document.querySelectorAll('[data-dropdow-perfil]');
+            dropdowns.forEach((dropdown) => {
+                dropdown.addEventListener('click', function (event) {
+                    const submenu = this.querySelector('.dropdown-perfil');
+                    if (submenu) {
+                        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+                        event.stopPropagation(); // Evita fechar outros menus ao clicar
+                    }
+                });
+
+                document.addEventListener('click', () => {
+                    dropdown.querySelector('.dropdown-perfil').style.display = 'none';
+                });
+            });
+        });
     </script>
 </body>
 </html>
