@@ -448,17 +448,19 @@ a.btn.btn-brikk.mensagem {
                     <ul class="menu-itens">
                         <li data-dropdow-perfil>
                             <div class="perfil">
-                                <img src="../assets/imagens/avatar.png" alt="avatar">
-
-                                <span class="uppercase">Olá,  <%
+                                <img src="../assets/imagens/avatar.png" alt="avatar" />
+                                <span class="uppercase">
+                                    Olá, 
+                                    <%
                                         var usuario = RetornaUsuario();
                                         Response.Write(usuario.nomeFantasia.Split(' ')[0]);
-                                %>.</span>
+                                    %>.
+                                </span>
                             </div>
                             <ul class="dropdown-perfil">
                                 <li>
                                     <a href="perfil.aspx">
-                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone" />
                                         Meus Dados
                                     </a>
                                 </li>
@@ -470,7 +472,7 @@ a.btn.btn-brikk.mensagem {
                                 </li>-->
                                 <li>
                                     <a href="/Geral/logout.aspx">
-                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                        <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone" />
                                         Sair
                                     </a>
                                 </li>
