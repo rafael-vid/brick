@@ -91,3 +91,37 @@ function submenu(){
 
 }
 submenu()
+document.addEventListener('DOMContentLoaded', function () {
+    const btnCadastro = document.querySelector('.btn-cadastro').parentElement; // Seleciona o <li> do botão
+
+    function handleResponsiveMenu() {
+        if (window.innerWidth < 758) {
+            btnCadastro.style.display = 'none'; // Esconde o elemento
+        } else {
+            btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+        }
+    }
+
+    // Executa a função ao carregar a página
+    handleResponsiveMenu();
+
+    // Adiciona um event listener para mudanças no tamanho da tela
+    window.addEventListener('resize', handleResponsiveMenu);
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const btnCadastro = document.querySelector('.btn-cadastro-mobile'); // Seleciona o <li> do botão
+
+    function handleResponsiveMenu() {
+        if (window.innerWidth > 758) {
+            btnCadastro.style.display = 'none'; // Esconde o elemento
+        } else {
+            btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+        }
+    }
+
+    // Executa a função ao carregar a página
+    handleResponsiveMenu();
+
+    // Adiciona um event listener para mudanças no tamanho da tela
+    window.addEventListener('resize', handleResponsiveMenu);
+});

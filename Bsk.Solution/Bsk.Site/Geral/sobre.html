@@ -13,34 +13,41 @@
 </head>
 <body>
   <!-- header -->
-  <header>
-    <div class="menu-topo container">
-      <a href="index.html">
-        <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
-      </a>
-      <nav class="menu" id="nav">
-        <button id="btn-mobile">Menu
-          <span id="hamburger"></span>
-        </button>
-        <ul class="menu-itens">
-          <li>
-            <a href="sobre.html"> sobre nós</a>
-          </li>
-          <li><a href="index.html#parceiros"> para parceiros</a></li>
-          <li><a href="index.html#clientes"> PARA CLIENTES</a></li>
-          <li><a href="ajuda.html"> ajuda</a></li>
-          <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
-        </ul>
-      </nav>
-    </div>
-  
-    <div class="filtro">
-      <div class="container" style="display:none">
-        <input type="text" placeholder="Qual serviço você precisa?      ">
-        <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
-      </div>
-    </div>
-  </header>
+    <header>
+        <div class="menu-topo container">
+            <div class="menu-topo container">
+                <a href="index.html">
+                    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                </a>
+            </div>
+            <div class="conteiner-mobile">
+                <a href="login.aspx" class="btn-cadastro-mobile">ENTRAR / CADASTRAR</a>
+                <nav class="menu" id="nav">
+                    <button id="btn-mobile">
+                        Menu
+                        <span id="hamburger"></span>
+                        <span id="dynamic-text" style="display: none; color: white; margin-left: 10px; font-size:35px">FORNECEDOR</span>
+                    </button>
+                    <ul class="menu-itens">
+                        <li>
+                            <a href="sobre.html"> sobre nós</a>
+                        </li>
+                        <li><a href="index.html#parceiros"> para parceiros</a></li>
+                        <li><a href="index.html#clientes"> PARA CLIENTES</a></li>
+                        <li><a href="ajuda.html"> ajuda</a></li>
+                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="filtro">
+            <div class="container" style="display:none">
+                <input type="text" placeholder="Qual serviço você precisa?      ">
+                <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+            </div>
+        </div>
+    </header>
 
   <!-- somos a brikk -->
   <section class="somos">
@@ -102,7 +109,41 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   
   <script>
-    AOS.init();
+      AOS.init();
+      document.addEventListener('DOMContentLoaded', function () {
+          const btnCadastro = document.querySelector('.btn-cadastro').parentElement; // Seleciona o <li> do botão
+
+          function handleResponsiveMenu() {
+              if (window.innerWidth < 758) {
+                  btnCadastro.style.display = 'none'; // Esconde o elemento
+              } else {
+                  btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+              }
+          }
+
+          // Executa a função ao carregar a página
+          handleResponsiveMenu();
+
+          // Adiciona um event listener para mudanças no tamanho da tela
+          window.addEventListener('resize', handleResponsiveMenu);
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+          const btnCadastro = document.querySelector('.btn-cadastro-mobile'); // Seleciona o <li> do botão
+
+          function handleResponsiveMenu() {
+              if (window.innerWidth > 758) {
+                  btnCadastro.style.display = 'none'; // Esconde o elemento
+              } else {
+                  btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+              }
+          }
+
+          // Executa a função ao carregar a página
+          handleResponsiveMenu();
+
+          // Adiciona um event listener para mudanças no tamanho da tela
+          window.addEventListener('resize', handleResponsiveMenu);
+      });
   </script>
 </body>
 </html>

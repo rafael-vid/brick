@@ -359,7 +359,7 @@ a.btn.btn-brikk.mensagem {
     }
     /*---------------*/
     .perfil span {
-        color: #fff !important;
+        color: #770e18 !important;
     }
     .perfilMobile{
         background: #f4f3f2;
@@ -392,20 +392,6 @@ a.btn.btn-brikk.mensagem {
     .menu-itens li {
         border-bottom: 0px;
     }
-    #nav.active ul {
-        padding: 0px 20px;
-        height: 340px;
-        background: transparent;
-        margin-top: 40px;
-    }
-    .menu ul {
-        display: block !important;
-        width: 300% !important;
-        top: -20px !important;
-        left: -300px !important;
-        overflow-y: initial !important;
-        background: transparent;
-    }
     .label-fornecedor{
         display: flex;
         text-decoration: none;
@@ -425,6 +411,12 @@ a.btn.btn-brikk.mensagem {
     }
     .menu-topo {
         height:100px;
+    }
+    #nav.active ul {
+        visibility: visible;
+        overflow-y: auto;
+        height: auto !important;
+        background: #ebe4de;
     }
 }
 </style>
@@ -459,7 +451,7 @@ a.btn.btn-brikk.mensagem {
                             </div>
                             <ul class="dropdown-perfil">
                                 <li>
-                                    <a href="perfil.aspx">
+                                    <a href="perfil.aspx" style="color:#770e18">
                                         <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone" />
                                         Meus Dados
                                     </a>
@@ -477,6 +469,38 @@ a.btn.btn-brikk.mensagem {
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                    </ul>                     
+                    <ul class="dropdown-perfil-mobile" id="dropdown-perfil-mobile">
+                        <li>
+                            <div class="perfil">
+                                <img src="../assets/imagens/avatar.png" alt="avatar" />
+                                <span class="uppercase">
+                                    Olá, 
+                                    <%
+                                        usuario = RetornaUsuario();
+                                        Response.Write(usuario.nomeFantasia.Split(' ')[0]);
+                                    %>.
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="perfil.aspx">
+                                <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone" />
+                                Meus Dados
+                            </a>
+                        </li>
+                        <!--<li>
+                            <a href="meusdados.html">
+                                <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone">
+                                Configurações
+                            </a>
+                        </li>-->
+                        <li>
+                            <a href="/Geral/logout.aspx">
+                                <img style="width: 15px;" src="../assets/imagens/cotacao.svg" alt="ícone" />
+                                Sair
+                            </a>
                         </li>
                     </ul>
                 </nav>
@@ -710,6 +734,22 @@ a.btn.btn-brikk.mensagem {
                 });
             });
         });
+    </script>
+    <script>
+        function handlePhotoVisibility() {
+            const photoElement = document.getElementById('dropdown-perfil-mobile');
+            if (photoElement) {
+                if (window.innerWidth > 789) {
+                    photoElement.style.display = 'none';
+                } else {
+                    photoElement.style.display = '';
+                }
+            }
+        }
+
+        // Chame a função nos eventos necessários
+        window.addEventListener('resize', handlePhotoVisibility);
+        document.addEventListener('DOMContentLoaded', handlePhotoVisibility);
     </script>
 </body>
 </html>

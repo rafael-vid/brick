@@ -64,19 +64,14 @@
             }
         }
         @media (max-width:780px) {
-            .menu {
-                display: flex;
-                justify-content: end !important;
-                align-items: center;
-                padding: 0 20px;
+            .logo {
+                width: 140px;
+                margin: 10px 150px 0 0;
             }
 
-            #nav.active ul {
-                height: auto !important;
-            }
         }
         .menu {
-            display: flex;
+            display: grid;
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
@@ -108,13 +103,6 @@
             color: #f08f00 !important;
         }
 
-
-        .menu-topo.container {
-            display: flex; /* Enables flexbox layout */
-            align-items: center; /* Centers items vertically in the container */
-            justify-content: flex-start; /* Aligns items to the start of the container */
-        }
-
         .menu-topo .header-button {
             margin-left: 0px; /* Space between buttons and logo */
             padding: 8px 15px; /* Padding inside the button */
@@ -140,27 +128,32 @@
     <!-- header -->
     <header>
         <div class="menu-topo container">
-            <a href="index.html">
-                <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
-            </a>
-            <nav class="menu" id="nav">
-                <button id="btn-mobile">
-                    Menu
-                    <span id="hamburger"></span>
-                    <span id="dynamic-text" style="display: none; color: white; margin-left: 10px; font-size:35px">FORNECEDOR</span>
-                </button>
-                <ul class="menu-itens">
-                    <li>
-                        <a href="sobre.html"> sobre nós</a>
-                    </li>
-                    <li><a href="index.html#parceiros"> para parceiros</a></li>
-                    <li><a href="index.html#clientes"> PARA CLIENTES</a></li>
-                    <li><a href="ajuda.html"> ajuda</a></li>
-                    <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
-                </ul>
-            </nav>
+            <div class="menu-topo container">
+                <a href="index.html">
+                    <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+                </a>
+            </div>
+            <div class="conteiner-mobile">
+                <a href="login.aspx" class="btn-cadastro-mobile">ENTRAR / CADASTRAR</a>
+                <nav class="menu" id="nav">
+                    <button id="btn-mobile">
+                        Menu
+                        <span id="hamburger"></span>
+                        <span id="dynamic-text" style="display: none; color: white; margin-left: 10px; font-size:35px">FORNECEDOR</span>
+                    </button>
+                    <ul class="menu-itens">
+                        <li>
+                            <a href="sobre.html"> sobre nós</a>
+                        </li>
+                        <li><a href="index.html#parceiros"> para parceiros</a></li>
+                        <li><a href="index.html#clientes"> PARA CLIENTES</a></li>
+                        <li><a href="ajuda.html"> ajuda</a></li>
+                        <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </header>
+</header>
 
 
     <!-- capa -->
@@ -276,8 +269,7 @@
                     data-aos-duration="1000"
                     src="https://www.youtube.com/embed/P73REgj-3UE"
                     title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write;
-        encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write;encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
         </div>
     </section>
@@ -378,13 +370,40 @@
                 });
             });
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnCadastro = document.querySelector('.btn-cadastro').parentElement; // Seleciona o <li> do botão
+
+            function handleResponsiveMenu() {
+                if (window.innerWidth < 758) {
+                    btnCadastro.style.display = 'none'; // Esconde o elemento
+                } else {
+                    btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+                }
+            }
+
+            // Executa a função ao carregar a página
+            handleResponsiveMenu();
+
+            // Adiciona um event listener para mudanças no tamanho da tela
+            window.addEventListener('resize', handleResponsiveMenu);
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnCadastro = document.querySelector('.btn-cadastro-mobile'); // Seleciona o <li> do botão
+
+            function handleResponsiveMenu() {
+                if (window.innerWidth > 758) {
+                    btnCadastro.style.display = 'none'; // Esconde o elemento
+                } else {
+                    btnCadastro.style.display = ''; // Mostra o elemento (ou mantém o estilo padrão)
+                }
+            }
+
+            // Executa a função ao carregar a página
+            handleResponsiveMenu();
+
+            // Adiciona um event listener para mudanças no tamanho da tela
+            window.addEventListener('resize', handleResponsiveMenu);
+        });
     </script>
-    <style>
-        header {
-            height: 170px !important;
-        }
-    </style>
-
-
 </body>
 </html>
