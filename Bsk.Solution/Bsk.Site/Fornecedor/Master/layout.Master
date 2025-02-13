@@ -144,7 +144,6 @@ footer{
         overflow-y: auto;
     }
     .menu ul {
-        display: block !important;
         position: absolute !important;
         width: 100% !important;
         top: 120px !important;
@@ -437,7 +436,7 @@ a.btn.btn-brikk.mensagem {
                         Menu
                         <span id="hamburger"></span>
                     </button>
-                    <ul class="menu-itens">
+                    <ul class="menu-itens" id="menu-itens">
                         <li data-dropdow-perfil>
                             <div class="perfil">
                                 <img src="../assets/imagens/avatar.png" alt="avatar" />
@@ -750,6 +749,21 @@ a.btn.btn-brikk.mensagem {
         // Chame a função nos eventos necessários
         window.addEventListener('resize', handlePhotoVisibility);
         document.addEventListener('DOMContentLoaded', handlePhotoVisibility);
+
+        function handlePhotoVisibility1() {
+            const photoElement = document.getElementById('menu-itens');
+            if (photoElement) {
+                if (window.innerWidth < 789) {
+                    photoElement.style.display = 'none';
+                } else {
+                    photoElement.style.display = '';
+                }
+            }
+        }
+
+        // Chame a função nos eventos necessários
+        window.addEventListener('resize', handlePhotoVisibility1);
+        document.addEventListener('DOMContentLoaded', handlePhotoVisibility1);
     </script>
 </body>
 </html>
