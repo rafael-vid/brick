@@ -239,7 +239,7 @@ namespace Bsk.Interface
                                 as Mensagens
                             FROM solicitacao CT
     
-                             INNER JOIN Cotacao CF on CT.IdCotacao = CF.IdCotacao
+                             INNER JOIN cotacao CF on CT.IdCotacao = CF.IdCotacao
     
                             where " + filtro;
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));

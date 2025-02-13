@@ -2,102 +2,112 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
-    <style>
-        body {
-            font-family: Rajdhani-semi, sans-serif;
-        }
+<style>
+    body {
+        font-family: Rajdhani-semi, sans-serif;
+    }
 
+    .faq-itens {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .item-faq {
+        margin-top: 23px;
+        padding-bottom: 23px;
+        position: relative;
+    }
+
+    .item-faq:last-child {
+        border: none;
+    }
+
+    .item-faq form {
+        display: none;
+    }
+
+    .item-faq input:checked + .checkbox-wrapper form {
+        display: block;
+    }
+
+    .item-faq input:checked + .checkbox-wrapper form > div {
+        display: flex;
+        gap: 10px;
+        color: #3C3C3B;
+        font-size: 15px;
+        align-items: center;
+        height: 35px;
+    }
+
+    .item-faq input:checked + .checkbox-wrapper form > div:nth-child(even) {
+        background: #fff;
+    }
+
+    .item-faq h2 {
+        cursor: pointer;
+        padding-left: 30px;
+        font-size: 17px;
+        color: #771218;
+        font-family: Rajdhani-semi, sans-serif;
+    }
+
+    .item-faq h2::before {
+        content: url(../assets/imagens/escoder.svg);
+        width: 17px;
+        height: 17px;
+        display: inline-block;
+        transform: rotate(180deg);
+        transition: transform .3s ease;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .item-faq input {
+        display: none;
+    }
+
+    .servico-nome {
+        display: block !important;
+    }
+
+    .checkbox-wrapper form {
+        margin-top: 10px;
+        display: none !important;
+    }
+
+    .item-faq input:checked + .checkbox-wrapper form {
+        display: block !important;
+    }
+
+    .item-faq input:checked + .checkbox-wrapper h2::before {
+        transform: rotate(360deg);
+        top: 0;
+    }
+
+    @media (max-width: 787px) {
+
+        .titulo-faq,
         .faq-itens {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 20px;
+            width: 100%;
         }
 
-        .item-faq {
-            margin-top: 23px;
-            padding-bottom: 23px;
-            position: relative;
+        .faq {
+            background-position: right;
+            height: auto;
         }
-
-            .item-faq:last-child {
-                border: none;
-            }
-
-            .item-faq form {
-                display: none;
-            }
-
-            .item-faq input:checked + .checkbox-wrapper form {
-                display: block;
-            }
-
-                .item-faq input:checked + .checkbox-wrapper form > div {
-                    display: flex;
-                    gap: 10px;
-                    color: #3C3C3B;
-                    font-size: 15px;
-                    align-items: center;
-                    height: 35px;
-                }
-
-                    .item-faq input:checked + .checkbox-wrapper form > div:nth-child(even) {
-                        background: #fff;
-                    }
-
-            .item-faq h2 {
-                cursor: pointer;
-                padding-left: 30px;
-                font-size: 17px;
-                color: #771218;
-                font-family: Rajdhani-semi, sans-serif;
-            }
-
-                .item-faq h2::before {
-                    content: url(../assets/imagens/escoder.svg);
-                    width: 17px;
-                    height: 17px;
-                    display: inline-block;
-                    transform: rotate(180deg);
-                    transition: transform .3s ease;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                }
-
-            .item-faq input {
-                display: none;
-            }
-
-        .servico-nome {
-            display: block !important;
+        .buttons_container {
+            position: relative !important;
         }
-
-        .checkbox-wrapper form {
-            margin-top: 10px;
-            display: none !important;
+        .conteudo-dash {
+            padding: 15px !important;
         }
-
-        .item-faq input:checked + .checkbox-wrapper form {
-            display: block !important;
+        .buttons_container_mobile{
+            align-items: center;
+            justify-content: space-around;
         }
-
-        .item-faq input:checked + .checkbox-wrapper h2::before {
-            transform: rotate(360deg);
-            top: 0;
-        }
-
-        @media (max-width: 787px) {
-
-            .titulo-faq,
-            .faq-itens {
-                width: 100%;
-            }
-
-            .faq {
-                background-position: right;
-                height: auto;
-            }
-        }
+    }
     
     .category-header {
         display: flex;
@@ -123,59 +133,59 @@
         padding-left: 0;
     }
     .footer_card {
-    display: flex;
-    justify-content: space-between; /* Adjust this line */
-    align-items: center;
-    gap: 10px; /* Adjust gap between buttons */
-}
+        display: flex;
+        justify-content: space-between; /* Adjust this line */
+        align-items: center;
+        gap: 10px; /* Adjust gap between buttons */
+    }
 
 
-.btn_card {
-    margin: 0 5px; /* Adjust side margins to bring buttons closer */
-    padding: 5px 10px; /* Adjust padding as per design */
-    background-color: #f08f00; /* Example background color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor on hover */
-}
-.paginate_button {
-    outline:none;
-    border: none;
-}
-.paginacao_card{
-    display: flex;
-    justify-content: right;
-    color: #770e18;
-}
-.dynamic-page-btn {
-    margin: 0 5px; /* Adjust side margins to bring buttons closer */
-    padding: 5px 10px; /* Adjust padding as per design */
-    background-color: #f08f00; /* Example background color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    cursor: pointer; /* Change cursor on hover */
-    border-radius: 50%; /* Make the buttons round */
-    width: 30px; /* Equal width and height to ensure circular shape */
-    height: 30px;
-    display: inline-flex; /* Use flex to center the text inside the button */
-    align-items: center;
-    justify-content: center;
-}
-
-
+    .btn_card {
+        margin: 0 5px; /* Adjust side margins to bring buttons closer */
+        padding: 5px 10px; /* Adjust padding as per design */
+        background-color: #f08f00; /* Example background color */
+        color: white; /* Text color */
+        border: none; /* Remove border */
+        cursor: pointer; /* Change cursor on hover */
+    }
+    .paginate_button {
+        outline:none;
+        border: none;
+    }
+    .paginacao_card{
+        display: flex;
+        justify-content: right;
+        color: #770e18;
+    }
+    .dynamic-page-btn {
+        margin: 0 5px; /* Adjust side margins to bring buttons closer */
+        padding: 5px 10px; /* Adjust padding as per design */
+        background-color: #f08f00; /* Example background color */
+        color: white; /* Text color */
+        border: none; /* Remove border */
+        cursor: pointer; /* Change cursor on hover */
+        border-radius: 50%; /* Make the buttons round */
+        width: 30px; /* Equal width and height to ensure circular shape */
+        height: 30px;
+        display: inline-flex; /* Use flex to center the text inside the button */
+        align-items: center;
+        justify-content: center;
+    }
 </style>
     
 
 
-        <div class="conteudo-dash atuacao">
-        
-     <div class="subtitulo_card subtitulo_1" style="position: relative;">
-    <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
-    <h2 class="subtitulo_1">Serviços prestados</h2>
-    <div class="buttons_container" style="margin-top: -30px;">
+<div class="conteudo-dash atuacao">
+     <div  id="buttons_container_mobile" class="buttons_container_mobile" style="margin-top: -30px;">
         <a id="exibir/esconder" class="btn_card2" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</a>
+    </div>   
+     <div class="subtitulo_card subtitulo_1" style="position: relative;">
+        <img src="../assets/imagens/atuacao.svg" alt="ícone" style="width: 20px;">
+        <h2 class="subtitulo_1">Serviços prestados</h2>
+        <div id="buttons_container" class="buttons_container" style="margin-top: -30px;">
+            <a id="exibir/esconder" class="btn_card2" style="float: right;" onclick="toggleAllCategories(event);">Exibir/esconder todos</a>
+        </div>
     </div>
-</div>
         
         <%var areas = BuscaAreas(); %>
         <%List<string> servicoslista = new List<string>(); %>
@@ -425,7 +435,42 @@
             }
 
         </script>
+<script>
+    function BuscarMobile() {
+        const dynamicText = document.getElementById('buttons_container_mobile');
+        if (window.innerWidth > 758) {
+            if (dynamicText) {
+                dynamicText.style.display = 'none';
+            }
+        } else {
+            if (dynamicText) {
+                dynamicText.style.display = 'flex';
+            }
+        }
+    }
 
+    // Chame a função no evento de redimensionamento e quando o DOM for carregado
+    window.addEventListener('resize', BuscarMobile);
+    document.addEventListener('DOMContentLoaded', BuscarMobile);
+</script>
+<script>
+    function BuscarMobile1() {
+        const dynamicText = document.getElementById('buttons_container');
+        if (window.innerWidth < 758) {
+            if (dynamicText) {
+                dynamicText.style.display = 'none';
+            }
+        } else {
+            if (dynamicText) {
+                dynamicText.style.display = '';
+            }
+        }
+    }
+
+    // Chame a função no evento de redimensionamento e quando o DOM for carregado
+    window.addEventListener('resize', BuscarMobile1);
+    document.addEventListener('DOMContentLoaded', BuscarMobile1);
+</script>
 
 
 
