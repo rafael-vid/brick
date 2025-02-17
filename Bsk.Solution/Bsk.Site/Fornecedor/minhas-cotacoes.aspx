@@ -167,7 +167,7 @@
             color: #770e18 !important;
         }
 
-                div#tabela_paginate > span {
+        div#tabela_paginate > span {
             display: flex
         }
 
@@ -179,6 +179,11 @@
         .eleva_sifra-new {
             top: 4px;
             left: 5px;
+        }
+        @media (max-width: 768px) {
+            .conteudo-dash {
+                padding: 15px 0px;
+            }
         }
     </style>
 
