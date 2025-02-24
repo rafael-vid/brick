@@ -14,7 +14,7 @@ namespace Bsk.Site.Cliente
     public partial class em_andamento : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -31,7 +31,7 @@ namespace Bsk.Site.Cliente
         public List<SolicitacaoBE> PegaCotacaoAndamento()
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $" idParticipante=" + login.IdParticipante + " and Status in (4,5,6)");
+            var cotacoes = _core.Cotacao_Get(_SolicitacaoBE, $" idParticipante=" + login.IdParticipante + " and Status in (4,5,6)");
             foreach (var item in cotacoes)
             {
                 if(item.Status == "4")

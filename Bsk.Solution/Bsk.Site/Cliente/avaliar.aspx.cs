@@ -14,8 +14,8 @@ namespace Bsk.Site.Cliente
     public partial class avaliar : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -47,9 +47,9 @@ namespace Bsk.Site.Cliente
 
         protected void btnDepoimento_ServerClick(object sender, EventArgs e)
         {
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Id"]).FirstOrDefault();
             cotacao.Depoimento = depoimentoCliente.InnerText;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + Request.QueryString["Id"]);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + Request.QueryString["Id"]);
             //DateTime dataTermino = DateTime.Parse(Request.Form["DataAvaliacao"]);
             Response.Redirect("minhas-cotacoes.aspx");
         }

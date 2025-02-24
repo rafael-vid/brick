@@ -234,7 +234,7 @@
                     <tr>
                         <td><%Response.Write(item.Anexo); %></td>
                         <td>
-                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                            <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<%Response.Write(item.IdSolicitacao); %>&Del=<%Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                 <%if (item.Tipo == "Anexo")
                                     {%>
                             <a class="btn btn-brikk" href='<%Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<%Response.Write(item.Anexo);%>' target='_blank'>
@@ -581,7 +581,7 @@
             }).then((result) => {
                 if (result.value) {
                     var parametro = {
-                        idCotacaoFornecedor: comum.queryString("Id")
+                        IdCotacao: comum.queryString("Id")
                     };
                     comum.postAsync("Comum/TerminarServico", parametro, function (data) {
                         window.location.href = "minhas-cotacoes.aspx";
@@ -614,7 +614,7 @@
                 id: comum.queryString("Id")
             };
 
-            comum.post("Comum/AtualizaEnviarProposta?idCotacao=" + comum.queryString("Id"), null, function (data) {
+            comum.post("Comum/AtualizaEnviarProposta?IdSolicitacao=" + comum.queryString("Id"), null, function (data) {
                 $("#loadGif").hide();
 
             });

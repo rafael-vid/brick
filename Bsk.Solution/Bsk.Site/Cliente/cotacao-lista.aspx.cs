@@ -16,7 +16,7 @@ namespace Bsk.Site.Cliente
         {
             nrCotacao.InnerText = Request.QueryString["Id"];
             Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Id"]).FirstOrDefault();
             titulo.InnerText = cotacao.Titulo;
             descricao.Text = cotacao.Descricao;
             var lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
@@ -27,7 +27,7 @@ namespace Bsk.Site.Cliente
             valorMinimoCotacoes.InnerText = "R$ 0,00";
 
 
-            if (cotacao.IdCotacaoFornecedor != 0)
+            if (cotacao.IdCotacao != 0)
             {
                 decimal valor = 0;
                 decimal valorMax = 0;
@@ -96,15 +96,15 @@ namespace Bsk.Site.Cliente
             lista = _core.CotacaoListaGet(Request.QueryString["Id"]);
 
             Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
-            if (cotacao.IdCotacaoFornecedor != 0)
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            if (cotacao.IdCotacao != 0)
             {
 
                 List<CotacaoListaModel> listaCT = new List<CotacaoListaModel>();
 
                 foreach (var item in lista)
                 {
-                    if (item.CotacaoFornecedorId == cotacao.IdCotacaoFornecedor)
+                    if (item.CotacaoFornecedorId == cotacao.IdCotacao)
                     {
                         listaCT.Add(item);
                     }

@@ -22,9 +22,9 @@ namespace Bsk.Site.Fornecedor
         core _core = new core();
         FornecedorBE _FornecedorBE = new FornecedorBE();
         ParticipanteBE _ParticipanteBE = new ParticipanteBE();
-        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
 
@@ -81,16 +81,16 @@ namespace Bsk.Site.Fornecedor
                     GravarArquivo(flpVideo, "Video");
                 }
 
-                SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+                SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+                var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 cotacao.Titulo = titulofornecedor.Value;
                 cotacao.Descricao = descricao.Text;
-                _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+                _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cotacao.IdSolicitacao);
             }
             else
             {
-                SolicitacaoBE _CotacaoBE = new SolicitacaoBE()
+                SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -101,14 +101,14 @@ namespace Bsk.Site.Fornecedor
                     FinalizaFornecedor = 0,
                     IdCliente = login.IdCliente,
                     IdParticipante = login.IdCliente,
-                    IdCotacaoFornecedor = 0,
+                    IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",
                     Status = "0",
                     Titulo = titulofornecedor.Value
                 };
 
-                cot = _core.Cotacao_Insert(_CotacaoBE);
+                cot = _core.Cotacao_Insert(_SolicitacaoBE);
             }
             return cot;
         }
@@ -142,7 +142,7 @@ namespace Bsk.Site.Fornecedor
             _CotacaoAnexosBE = new CotacaoAnexosBE()
             {
                 Anexo = nome,
-                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                IdSolicitacao = int.Parse(Request.QueryString["Cotacao"]),
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
                 Tipo = tipo
             };
@@ -153,7 +153,7 @@ namespace Bsk.Site.Fornecedor
         public void CarregaCotacaoFornecedor()
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
             /*if (cotacaoFornecedor.Ativo == 0)
             {
                 Response.Redirect("minhas-cotacoes.aspx");
@@ -161,8 +161,8 @@ namespace Bsk.Site.Fornecedor
 
             if (cotacaoFornecedor != null)
             {
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                nrCotacao.InnerText = cotacao.IdCotacao.ToString();
+                var cotacao = _core.Cotacao_Get(_SolicitacaoBE, $" IdSolicitacao={cotacaoFornecedor.IdSolicitacao}").FirstOrDefault();
+                nrCotacao.InnerText = cotacao.IdSolicitacao.ToString();
                 if (cotacao != null)
                 {
                     if (cotacao.Status == StatusCotacao.Finalizado)
@@ -201,7 +201,7 @@ namespace Bsk.Site.Fornecedor
 
 
                     }
-                    else if (cotacao.IdCotacaoFornecedor != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
+                    else if (cotacao.IdCotacao != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
                         divDadosCobranca.Visible = false;
@@ -275,12 +275,12 @@ namespace Bsk.Site.Fornecedor
             var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;
 
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
 
             if (cotacaoFornecedor != null)
             {
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
-                _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
+                var cotacao = _core.Cotacao_Get(_SolicitacaoBE, $" IdSolicitacao={cotacaoFornecedor.IdSolicitacao}").FirstOrDefault();
+                _CotacaoFornecedorChatBE.IdCotacao = Convert.ToInt32(Request.QueryString["Id"]);
                 _CotacaoFornecedorChatBE.Mensagem = _msg;
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
@@ -294,7 +294,7 @@ namespace Bsk.Site.Fornecedor
                 //Atualiza data alteracao da cotação
 
                 if (cotacao != null)
-                    _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+                    _core.Cotacao_Update(cotacao, $" IdSolicitacao={cotacao.IdSolicitacao}");
 
 
 
@@ -317,7 +317,7 @@ namespace Bsk.Site.Fornecedor
 
         public List<CotacaoFornecedorChatBE> CarregaChat()
         {
-            var msg = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var msg = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacao={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
             var msgNl = msg.Where(x => x.LidaFornecedor == 0).ToList();
             foreach (var item in msgNl)
             {
@@ -373,7 +373,7 @@ namespace Bsk.Site.Fornecedor
         protected void btnSalvarDados_ServerClick(object sender, EventArgs e)
         {
             FornecedorBE login = Funcoes.PegaLoginFornecedor(Request.Cookies["LoginFornecedor"].Value);
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
             cotacaoFornecedor.DataEntrega = dataEntrega.Value;
 
             try
@@ -384,25 +384,25 @@ namespace Bsk.Site.Fornecedor
             {
                 cotacaoFornecedor.Valor = 0;
             }
-            _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
+            _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
 
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
 
             string imagem = VariaveisGlobais.Logo;
             Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdSolicitacao;
 
-            var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK. <br> <a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
-            emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
+            var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.NomeFantasia} para ver mais detalhes acesse a plataforma BRIKK. <br> <a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
+            emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização", cliente.Email);
         }
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
             try
             {
-                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
-                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
+                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
             }
             catch (Exception)
             {
@@ -423,11 +423,11 @@ namespace Bsk.Site.Fornecedor
             var video = GravarVideo(flpVideo);
             var _msg = msg.InnerHtml;
 
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]}").FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
 
             if (cotacaoFornecedor != null)
             {
-                _CotacaoFornecedorChatBE.IdCotacaoFornecedor = Convert.ToInt32(Request.QueryString["Id"]);
+                _CotacaoFornecedorChatBE.IdCotacao = Convert.ToInt32(Request.QueryString["Id"]);
                 _CotacaoFornecedorChatBE.Mensagem = _msg;
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
@@ -439,9 +439,9 @@ namespace Bsk.Site.Fornecedor
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
 
                 //Atualiza data alteracao da cotação
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, $" IdCotacao={cotacaoFornecedor.IdCotacao}").FirstOrDefault();
+                var cotacao = _core.Cotacao_Get(_SolicitacaoBE, $" IdSolicitacao={cotacaoFornecedor.IdSolicitacao}").FirstOrDefault();
                 if (cotacao != null)
-                    _core.Cotacao_Update(cotacao, $" IdCotacao={cotacao.IdCotacao}");
+                    _core.Cotacao_Update(cotacao, $" IdSolicitacao={cotacao.IdSolicitacao}");
 
 
 

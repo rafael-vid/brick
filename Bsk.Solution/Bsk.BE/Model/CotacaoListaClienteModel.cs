@@ -8,7 +8,7 @@ namespace Bsk.BE.Model
 {
     public class CotacaoListaClienteModel
     {
-        public int IdCotacao { get; set; }
+        public int IdSolicitacao { get; set; }
         public string Titulo { get; set; }
         public string DataCriacao { get; set; }
         public DateTime DataAlteracao { get; set; }
@@ -17,7 +17,7 @@ namespace Bsk.BE.Model
         public string Mensagens { get; set; }
         public int FinalizaFornecedor { get; set; }
         public int FinalizaCliente { get; set; }    
-        public int IdCotacaoFornecedor { get; set; }
+        public int IdCotacao { get; set; }
         public int EnviarProposta { get; set; }
     }
 }

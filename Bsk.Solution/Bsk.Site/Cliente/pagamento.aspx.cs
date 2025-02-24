@@ -16,16 +16,16 @@ namespace Bsk.Site.Cliente
     public partial class pagamento : System.Web.UI.Page
     {
         core _core = new core();
-        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         TransacaoBE _TransacaoBE = new TransacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
 
-            var transacao = _core.Transacao_Get(_TransacaoBE, " Status=1 AND IdCotacao=" + cotacao.IdCotacao).FirstOrDefault();
+            var transacao = _core.Transacao_Get(_TransacaoBE, " Status=1 AND IdSolicitacao=" + cotacao.IdSolicitacao).FirstOrDefault();
 
             if (transacao != null)
             {
@@ -45,7 +45,7 @@ namespace Bsk.Site.Cliente
             }
             else
             {
-                var tran = _core.Transacao_Get(_TransacaoBE, " Status=2 AND IdCotacao=" + cotacao.IdCotacao);
+                var tran = _core.Transacao_Get(_TransacaoBE, " Status=2 AND IdSolicitacao=" + cotacao.IdSolicitacao);
 
                 if (tran.Count > 0)
                 {
@@ -56,7 +56,7 @@ namespace Bsk.Site.Cliente
             }
 
             var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
-            nrCotacao.Text = cotacao.IdCotacao.ToString();
+            nrCotacao.Text = cotacao.IdSolicitacao.ToString();
             tituloServ.InnerText = cotacao.Titulo;
             valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
             fornecedorNome.InnerText = participante.nomeFantasia;
@@ -70,7 +70,7 @@ namespace Bsk.Site.Cliente
                 dtEntrega.InnerText = "-";
             }
 
-            nrServico.InnerText = cotacao.IdCotacao.ToString();
+            nrServico.InnerText = cotacao.IdSolicitacao.ToString();
         }
 
         protected void btnBoleto_ServerClick(object sender, EventArgs e)
@@ -81,15 +81,15 @@ namespace Bsk.Site.Cliente
 
         private void pagaCotacao()
         {
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             cotacao.Status = StatusCotacao.EmAndamento;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cotacao.IdSolicitacao);
             var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
 
-            string titulo = $"A cotação Nº {cotacao.IdCotacao}, teve seu status alterado para pago.";
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacaoFornecedor;
-            string mensagem = $"A cotação Nº {cotacao.IdCotacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+            string titulo = $"A cotação Nº {cotacao.IdSolicitacao}, teve seu status alterado para pago.";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
+            string mensagem = $"A cotação Nº {cotacao.IdSolicitacao}, foi liberada para iniciar. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
             EmailTemplate emailTemplate = new EmailTemplate();

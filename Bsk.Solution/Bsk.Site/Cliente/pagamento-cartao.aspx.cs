@@ -19,7 +19,7 @@ namespace Bsk.Site.Cliente
     {
         Bsk.Interface.core _core = new Interface.core();
         Bsk.BE.SolicitacaoBE SolicitacaoBE = new BE.SolicitacaoBE();
-        Bsk.BE.CotacaoFornecedorBE CotacaoFornecedorBE = new BE.CotacaoFornecedorBE();
+        Bsk.BE.CotacaoBE CotacaoBE = new BE.CotacaoBE();
         BskPag bskPag = new BskPag();
         Bsk.BE.ClienteBE clienteBE = new Bsk.BE.ClienteBE();
         Bsk.BE.FornecedorBE fornecedorBE = new Bsk.BE.FornecedorBE();
@@ -27,9 +27,9 @@ namespace Bsk.Site.Cliente
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                    var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-                    var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
-                    nrcotacao.InnerText = cotacao.IdCotacao.ToString();
+                    var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+                    var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
+                    nrcotacao.InnerText = cotacao.IdSolicitacao.ToString();
                     if (cotacao.Status != Bsk.Util.StatusCotacao.AguardandoPagamento)
                     {
                         Response.Redirect("minhas-cotacoes.aspx");
@@ -97,8 +97,8 @@ namespace Bsk.Site.Cliente
         protected void btnPagamento_ServerClick(object sender, EventArgs e)
         {
             lbMsg.InnerText = "";
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, "IdCotacaoFornecedor=" + Request.QueryString["Id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             var participanteCliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
             if (validaCartao(participanteCliente))
             {
@@ -206,7 +206,7 @@ namespace Bsk.Site.Cliente
                                     }
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        window.location.href = 'pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor + @"';
+                                        window.location.href = 'pagamento.aspx?Id=" + cotacao.IdCotacao + @"';
                                     }
                                 });
                             ";
@@ -225,7 +225,7 @@ namespace Bsk.Site.Cliente
                                 DataEnvio = DateTime.Now.ToString("yyyy-MM-dd"),
                                 DataVencimento = vencimento,
                                 GuidTransacao = guidTransacao,
-                                IdCotacao = cotacao.IdCotacao,
+                                IdSolicitacao = cotacao.IdSolicitacao,
                                 Observacao = $"Pagamento {cotacao.Titulo}",
                                 ObservacaoStatus = "",
                                 Parcelas = 1,
@@ -239,8 +239,8 @@ namespace Bsk.Site.Cliente
                             {
                                 _core.Transacao_Insert(transacaoBE);
                                 cotacao.Status = StatusCotacao.EmAndamento;
-                                _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
-                                //Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacaoFornecedor);
+                                _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cotacao.IdSolicitacao);
+                                //Response.Redirect("pagamento.aspx?Id=" + cotacao.IdCotacao);
                             }
                             //else
                             //{

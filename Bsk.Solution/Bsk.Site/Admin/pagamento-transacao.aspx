@@ -30,7 +30,7 @@
                         {
                     %>
                     <tr onclick="darBaixa(<%Response.Write(item.IdTransacao); %>);">
-                        <td>Nº<%Response.Write(item.IdCotacao); %></td>
+                        <td>Nº<%Response.Write(item.IdSolicitacao); %></td>
                         <td><%Response.Write(item.Cliente); %></td>
                         <td><%Response.Write(item.Fornecedor); %></td>
                         <td><%Response.Write(item.Titulo); %></td>

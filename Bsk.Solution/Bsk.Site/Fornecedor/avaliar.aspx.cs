@@ -14,8 +14,8 @@ namespace Bsk.Site.Fornecedor
     public partial class avaliar : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -51,11 +51,11 @@ namespace Bsk.Site.Fornecedor
 
         protected void btnDepoimento_ServerClick(object sender, EventArgs e)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor="+Request.QueryString["id"]).FirstOrDefault();
-            var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao="+Request.QueryString["id"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             cotacao.Observacao = depoimentoFornecedor.InnerText;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
             Response.Redirect("minhas-cotacoes.aspx");
         }
     }

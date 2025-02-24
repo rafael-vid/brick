@@ -10,7 +10,7 @@ namespace Bsk.BE.Pag
     {
         public int IdTransacao { get; set; }
 
-        public int IdCotacao { get; set; }
+        public int IdSolicitacao { get; set; }
 
         public string Status { get; set; }
 

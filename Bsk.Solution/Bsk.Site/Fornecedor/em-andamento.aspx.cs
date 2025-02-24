@@ -14,7 +14,7 @@ namespace Bsk.Site.Fornecedor
     public partial class em_andamento : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 

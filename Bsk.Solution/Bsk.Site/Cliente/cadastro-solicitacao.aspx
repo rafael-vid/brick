@@ -265,7 +265,7 @@
                                     <tr>
                                         <td><% Response.Write(item.Anexo); %></td>
                                         <td style="text-align: right">
-                                            <a class="btn btn-b rikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>&Del=<% Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
+                                            <a class="btn btn-b rikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>&Del=<% Response.Write(item.IdCotacaoAnexos); %>">Deletar</a>&nbsp;&nbsp;
                                             <% if (item.Tipo == "Anexo")
                                                 { %>
                                             <a class="btn btn-bri kk" href='<% Response.Write(ConfigurationManager.AppSettings["host"]);%>Anexos/Documento/<% Response.Write(item.Anexo); %>' target='_blank'>Visualizar</a>

@@ -103,7 +103,7 @@
                             {%>
                         <li>
                             <div>
-                                <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdCotacao);%>">
+                                <a href="cadastra-atuacao.aspx?Id=<%Response.Write(item.IdSolicitacao);%>">
                                     <p><%Response.Write(item.Titulo); %></p>
 
                                     <img src="../assets/imagens/lixeira.svg" alt="lixeira" style="width: 15px;">

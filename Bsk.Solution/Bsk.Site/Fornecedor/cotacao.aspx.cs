@@ -15,16 +15,16 @@ namespace Bsk.Site.Fornecedor
         core _core = new core();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-        CotacaoFornecedorBE CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        CotacaoBE CotacaoBE = new CotacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
             titulo.InnerText = cotacao.Titulo;
             descricao.InnerText = cotacao.Descricao;
-            nrCotacao.InnerText = cotacao.IdCotacao.ToString();
+            nrCotacao.InnerText = cotacao.IdSolicitacao.ToString();
 
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            var cf = _core.CotacaoFornecedor_Get(CotacaoFornecedorBE, $" IdCotacao={Request.QueryString["Cotacao"]} and IdParticipanteFornecedor={login.IdParticipante}").FirstOrDefault();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, $" IdSolicitacao={Request.QueryString["Cotacao"]} and IdParticipanteFornecedor={login.IdParticipante}").FirstOrDefault();
             if (cf != null)
             {
                 btnAdicionar.Visible = false;
@@ -34,17 +34,17 @@ namespace Bsk.Site.Fornecedor
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]);
         }
 
         protected void btnAdicionar_ServerClick(object sender, EventArgs e)
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE()
+            CotacaoBE CotacaoBE = new CotacaoBE()
             {
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                IdSolicitacao = int.Parse(Request.QueryString["Cotacao"]),
                 IdParticipanteFornecedor = login.IdParticipante,
                 Valor = 0,
                 DataEntrega = "",
@@ -52,16 +52,16 @@ namespace Bsk.Site.Fornecedor
                 Novo = 1
             };
 
-            var id = _core.CotacaoFornecedor_Insert(cotacaoFornecedorBE);
-            SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-            var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedorBE.IdCotacao).FirstOrDefault();
+            var id = _core.CotacaoFornecedor_Insert(CotacaoBE);
+            SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+            var cotacao2 = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + CotacaoBE.IdSolicitacao).FirstOrDefault();
 
             NotificacaoBE notif = new NotificacaoBE();
 
             notif.titulo = "Interesse";
             notif.mensagem = "Um novo fornecedor está interessado em sua cotação";
             notif.data = DateTime.Now;
-            notif.link = $"cotacao-lista.aspx?Id={cotacaoFornecedorBE.IdCotacao}";
+            notif.link = $"cotacao-lista.aspx?Id={CotacaoBE.IdSolicitacao}";
             notif.visualizado = "0";
             notif.idcliente = cotacao2.IdCliente;
 

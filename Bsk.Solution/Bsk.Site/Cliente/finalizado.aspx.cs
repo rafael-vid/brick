@@ -13,7 +13,7 @@ namespace Bsk.Site.Cliente
     public partial class finalizado : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -23,7 +23,7 @@ namespace Bsk.Site.Cliente
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
 
-            var cotacoes = _core.Cotacao_Get(_CotacaoBE, $"Status='{StatusCotacao.Finalizado}' AND idParticipante=" + login.IdParticipante);
+            var cotacoes = _core.Cotacao_Get(_SolicitacaoBE, $"Status='{StatusCotacao.Finalizado}' AND idParticipante=" + login.IdParticipante);
             foreach (var item in cotacoes)
             {
                 item.Status = "Finalizado";

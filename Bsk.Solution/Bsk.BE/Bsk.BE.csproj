@@ -119,8 +119,8 @@
     <Compile Include="TransacaoBE.cs" />
     <Compile Include="CotacaoAnexosBE.cs" />
     <Compile Include="CotacaoFornecedorChatBE.cs" />
-    <Compile Include="CotacaoFornecedorBE.cs" />
     <Compile Include="CotacaoBE.cs" />
+    <Compile Include="SolicitacaoBE.cs" />
     <Compile Include="AdminBE.cs" />
     <Compile Include="AlertBE.cs" />
     <Compile Include="CategoriaBE.cs" />

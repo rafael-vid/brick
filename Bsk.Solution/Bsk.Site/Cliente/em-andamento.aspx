@@ -112,7 +112,7 @@
             foreach (var item in cotacoes)
             { %>
             <tr>
-                <td><% Response.Write(item.IdCotacao); %></td>
+                <td><% Response.Write(item.IdSolicitacao); %></td>
                 <td style="display: none;"><% Response.Write(item.DataCriacao); %></td>
                 <td><% Response.Write(item.Titulo); %></td>
                 <td><% Response.Write(item.Status); %></td>
@@ -120,45 +120,45 @@
                     if (item.Status == "Criação")
                     {%>
                 <td>
-                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>">Serviço</a>
                 </td>
                 <%}
                     else if (item.Status == "Aberto")
                     {%>
                 <td>
-                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
-                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
+                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdSolicitacao); %>">Cotações</a>
                 </td>
                 <% }
                     else if (item.Status == "Em andamento" || item.Status == "Aguardando aceite" )
                     {%>
                 <td style="text-align:right">
-                    <!--<a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Serviço</a>
-                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="width: 30%">Cotações</a>-->
-                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>" style="margin-right:15px">Visualizar Cotação</a>
+                    <!--<a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>" style="width: 30%">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdSolicitacao); %>" style="width: 30%">Cotações</a>-->
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="margin-right:15px">Visualizar Cotação</a>
                 </td>
                 <%}
                 else if (item.Status == "Aguardando avaliação" )
                 {%>
                     <td style="text-align:right">
-                        <a class="btn btn-brikk" href="avaliar.aspx?Id=<% Response.Write(item.IdCotacao); %>" style="margin-right:15px">Avaliar</a>
+                        <a class="btn btn-brikk" href="avaliar.aspx?Id=<% Response.Write(item.IdSolicitacao); %>" style="margin-right:15px">Avaliar</a>
                     </td>
                 <%}
                     else if (item.Status == "Aguardando pagamento")
                     {%>
                 <td>
-                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
-                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
-                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
+                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdSolicitacao); %>">Cotações</a>
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacao); %>">Mensagens</a>
                 </td>
                 <%}
                     else if (item.Status == "Finalizado")
                     {%>
                 <td>
-                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdCotacao); %>">Serviço</a>
-                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdCotacao); %>">Cotações</a>
-                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacaoFornecedor); %>">Mensagens</a>
-                    <a class="btn btn-brikk" href="avaliar.aspx?Id=<% Response.Write(item.IdCotacao); %>">Avaliação</a>
+                    <a class="btn btn-brikk" href="cadastro-solicitacao.aspx?Cotacao=<% Response.Write(item.IdSolicitacao); %>">Serviço</a>
+                    <a class="btn btn-brikk" href="cotacao-lista.aspx?Id=<% Response.Write(item.IdSolicitacao); %>">Cotações</a>
+                    <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<% Response.Write(item.IdCotacao); %>">Mensagens</a>
+                    <a class="btn btn-brikk" href="avaliar.aspx?Id=<% Response.Write(item.IdSolicitacao); %>">Avaliação</a>
                 </td>
                 <% }%>
             </tr>

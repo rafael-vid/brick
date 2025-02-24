@@ -14,7 +14,7 @@ namespace Bsk.Site.Fornecedor
     public partial class minhas_cotacoes : System.Web.UI.Page
     {
         core _core = new core();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);

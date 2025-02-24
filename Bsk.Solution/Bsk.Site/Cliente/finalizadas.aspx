@@ -96,40 +96,40 @@
 
                                 if (item.Status == "Criação")
                                 {
-                                    link = "cadastro-solicitacao.aspx?Cotacao=" + item.IdCotacao;
+                                    link = "cadastro-solicitacao.aspx?Cotacao=" + item.IdSolicitacao;
                                 }
                                 else if (item.Status == "Aberto")
                                 {
-                                    link = "cotacao-lista.aspx?Id=" + item.IdCotacao;
+                                    link = "cotacao-lista.aspx?Id=" + item.IdSolicitacao;
                                 }
                                 else if (item.Status == "Em andamento")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacaoFornecedor;
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
                                 }
                                 else if (item.Status == "Aguardando pagamento")
                                 {
-                                    link = "pagamento.aspx?Id=" + item.IdCotacaoFornecedor;
+                                    link = "pagamento.aspx?Id=" + item.IdCotacao;
                                 }
                                 else if (item.Status == "Finalizado")
                                 {
-                                    link = "avaliar.aspx?Id=" + item.IdCotacao;
+                                    link = "avaliar.aspx?Id=" + item.IdSolicitacao;
                                 }
                                 else if (item.Status == "Aguardando aceite")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacaoFornecedor;
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
                                 }
                                 else if (item.Status == "Aguardando liberação do pagamento")
                                 {
-                                    link = "finalizar-pagamento.aspx?Id=" + item.IdCotacao;
+                                    link = "finalizar-pagamento.aspx?Id=" + item.IdSolicitacao;
                                 }
                                 else if (item.Status == "Avaliado")
                                 {
-                                    link = "avaliar.aspx?Id=" + item.IdCotacao;
+                                    link = "avaliar.aspx?Id=" + item.IdSolicitacao;
                                 }
                         %>
 
                         <tr class="cursor" onclick="redirecionar('<%Response.Write(link);%>');">
-                            <td><%Response.Write(item.IdCotacao); %></td>
+                            <td><%Response.Write(item.IdSolicitacao); %></td>
                             <td><%Response.Write(item.DataCriacao); %></td>
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>

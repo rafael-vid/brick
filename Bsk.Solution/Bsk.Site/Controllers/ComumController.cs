@@ -101,12 +101,12 @@ namespace Bsk.Site.Controllers
         [HttpPost]
         public void DesistirCotacao(string id)
         {
-            CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
+            CotacaoBE _CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(_CotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             cf.Ativo = 0;
-            _core.CotacaoFornecedor_Update(cf, "IdCotacaoFornecedor=" + id);
+            _core.CotacaoFornecedor_Update(cf, "IdCotacao=" + id);
 
-            var cotacao = _core.Cotacao_Get(new SolicitacaoBE(), $" IdCotacao={cf.IdCotacao}").FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(new SolicitacaoBE(), $" IdSolicitacao={cf.IdSolicitacao}").FirstOrDefault();
 
             NotificacaoBE notif = new NotificacaoBE();
 
@@ -125,47 +125,47 @@ namespace Bsk.Site.Controllers
         public void NotaCotacao(string nota, string id)
         {
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + id).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + id).FirstOrDefault();
             cotacao.Nota = int.Parse(nota);
             cotacao.Status = StatusCotacao.Finalizado;
             cotacao.DataAvaliacao = DateTime.Now;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + id);
         }
 
         [HttpPost]
         public void NotaCotacaoFornecedor(string nota, string id)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + id).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + id).FirstOrDefault();
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             cotacao.NotaFornecedor = int.Parse(nota);
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
         }
 
         [HttpPost]
-        public string AceitarCotacao(string idCotacaoFornecedor)
+        public string AceitarCotacao(string IdCotacao)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + IdCotacao).FirstOrDefault();
 
             if (cf.Ativo == 0)
             {
                 return "O fornecedor desistiu da cotação";
             }
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
-            cotacao.IdCotacaoFornecedor = cf.IdCotacaoFornecedor;
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
+            cotacao.IdCotacao = cf.IdCotacao;
             cotacao.Status = StatusCotacao.AguardandoPagamento;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
 
             ParticipanteBE _ParticipanteBE = new ParticipanteBE();
             var fornecedor = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
             
             var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
-            string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdCotacao}";
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
+            string titulo = $"O cliente {cliente.Nome} aceitou você para a cotação do serviço {cotacao.IdSolicitacao}";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdSolicitacao;
             string mensagem = $"Parabéns, você foi aceito para realizar o serviço {cotacao.Titulo}. Em breve você receberá um email informando que liberamos o início do serviço. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
@@ -188,7 +188,7 @@ namespace Bsk.Site.Controllers
             notif.titulo = "Cotação Aceita";
             notif.mensagem = "A cotação foi aceita pelo cliente";
             notif.data = DateTime.Now;
-            notif.link = $"negociar-cotacao.aspx?Id={cotacao.IdCotacao}";
+            notif.link = $"negociar-cotacao.aspx?Id={cotacao.IdSolicitacao}";
             notif.visualizado = "0";
             notif.idcliente = cotacao.IdCliente;
             
@@ -202,12 +202,12 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public JsonResult AceitarTermino(string idCotacaoFornecedor, string status)
+        public JsonResult AceitarTermino(string IdCotacao, string status)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + IdCotacao).FirstOrDefault();
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             cotacao.FinalizaCliente = int.Parse(status);
             cotacao.FinalizaFornecedor = int.Parse(status);
             ParticipanteBE participanteBE = new ParticipanteBE();
@@ -229,18 +229,18 @@ namespace Bsk.Site.Controllers
                 email = fornecedor.Email;
             }
 
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
 
 
             if (status == "0")
             {
                 titulo = $"O cliente {cliente.Nome} não aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} não foi aceito. Para mais informações entre em contato com o cliente.. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+                mensagem = $"O término do serviço nº{cotacao.IdSolicitacao} não foi aceito. Para mais informações entre em contato com o cliente.. Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             }
             else
             {
                 titulo = $"O cliente {cliente.Nome} aceitou o término do serviço";
-                mensagem = $"O término do serviço nº{cotacao.IdCotacao} foi aceito. Assim que o pagamento for realizado, você será notificado.:<br> <a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
+                mensagem = $"O término do serviço nº{cotacao.IdSolicitacao} foi aceito. Assim que o pagamento for realizado, você será notificado.:<br> <a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
                 cotacao.Status = StatusCotacao.AguardandoPagamento;
             }
 
@@ -265,7 +265,7 @@ namespace Bsk.Site.Controllers
                 cotacao.Status = StatusCotacao.EmAndamento;
             }
 
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
 
 
 
@@ -273,12 +273,12 @@ namespace Bsk.Site.Controllers
             return this.Json(new { Result = status, Liberado = cotacao.Status }, JsonRequestBehavior.AllowGet);
         }
 
-        private bool liberarPagamento(SolicitacaoBE cotacao, CotacaoFornecedorBE cf, ParticipanteBE fornecedor)
+        private bool liberarPagamento(SolicitacaoBE cotacao, CotacaoBE cf, ParticipanteBE fornecedor)
         {
             //colocar liberação de pagamento
 
             string titulo = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente!";
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacaoFornecedor;
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
             string mensagem = $"O pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
@@ -301,12 +301,12 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public JsonResult FinalizarPagamento(string idCotacaoFornecedor)
+        public JsonResult FinalizarPagamento(string IdCotacao)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + IdCotacao).FirstOrDefault();
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
             ParticipanteBE participanteBE = new ParticipanteBE();
             var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
@@ -321,18 +321,18 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public void TerminarServico(string idCotacaoFornecedor)
+        public void TerminarServico(string IdCotacao)
         {
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cf = _core.CotacaoFornecedor_Get(cotacaoFornecedorBE, "IdCotacaoFornecedor=" + idCotacaoFornecedor).FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + IdCotacao).FirstOrDefault();
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + cf.IdCotacao).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
             ParticipanteBE participanteBE = new ParticipanteBE();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
-            string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdCotacao}";
-            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdCotacao;
+            string titulo = $"O fornecedor {login.RazaoSocial} informou que terminou o serviço nº {cotacao.IdSolicitacao}";
+            string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cf.IdSolicitacao;
             string mensagem = $"Para confirmar o término do serviço ou entrar em contato com o fornecedor, acesse a plataforma BRIKK.:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             string email = "";
@@ -353,16 +353,16 @@ namespace Bsk.Site.Controllers
 
             cotacao.FinalizaFornecedor = 1;
             cotacao.DataTermino = DateTime.Now.ToString("yyyy-MM-dd");
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + cf.IdCotacao);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
         }
 
         [HttpPost]
         public void SubmeterCotacao(string id)
         {
             SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
-            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdCotacao=" + id).FirstOrDefault();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + id).FirstOrDefault();
             cotacao.Status = StatusCotacao.Criacao;
-            _core.Cotacao_Update(cotacao, "IdCotacao=" + id);
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + id);
         }
 
 
@@ -458,15 +458,15 @@ namespace Bsk.Site.Controllers
         public void SalvarDadosCobrancaCotacao(string data, string valor, string id)
         {
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["login"].Value);
-            CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
-            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoFornecedorBE, $" IdCotacaoFornecedor={id}").FirstOrDefault();
-            CotacaoFornecedorBE cotacaoFornecedorBE = new CotacaoFornecedorBE()
+            CotacaoBE _CotacaoBE = new CotacaoBE();
+            var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={id}").FirstOrDefault();
+            CotacaoBE CotacaoBE = new CotacaoBE()
             {
                 Valor = cotacaoFornecedor.Valor,
                 DataCriacao = cotacaoFornecedor.DataCriacao,
                 DataEntrega = cotacaoFornecedor.DataEntrega,
+                IdSolicitacao = cotacaoFornecedor.IdSolicitacao,
                 IdCotacao = cotacaoFornecedor.IdCotacao,
-                IdCotacaoFornecedor = cotacaoFornecedor.IdCotacaoFornecedor,
                 IdParticipanteFornecedor = cotacaoFornecedor.IdParticipanteFornecedor
             };
 
@@ -482,19 +482,19 @@ namespace Bsk.Site.Controllers
             {
                 cotacaoFornecedor.Valor = 0;
             }
-            _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacaoFornecedor=" + cotacaoFornecedor.IdCotacaoFornecedor);
-            SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-            var cotacao2 = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+            _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
+            SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+            var cotacao2 = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             cotacao2.Status = "2";
-            _core.Cotacao_Update(cotacao2, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
-            AtualizaEnviarProposta(cotacaoFornecedor.IdCotacaoFornecedor);
+            _core.Cotacao_Update(cotacao2, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
+            AtualizaEnviarProposta(cotacaoFornecedor.IdCotacao);
 
             NotificacaoBE notif = new NotificacaoBE();
 
             notif.titulo = "Valor e data de término";
             notif.mensagem = "O fornecedor alterou o valor e data de termino";
             notif.data = DateTime.Now;
-            notif.link = $"cotacao-lista.aspx?Id={cotacao2.IdCotacao}";
+            notif.link = $"cotacao-lista.aspx?Id={cotacao2.IdSolicitacao}";
             notif.visualizado = "0";
             notif.idcliente = cotacao2.IdCliente;
 
@@ -504,19 +504,19 @@ namespace Bsk.Site.Controllers
 
             if (!String.IsNullOrEmpty(cotacaoFornecedor.DataEntrega) && cotacaoFornecedor.Valor != 0)
             {
-                if (cotacaoFornecedorBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != cotacaoFornecedorBE.DataEntrega)
+                if (CotacaoBE.Valor != cotacaoFornecedor.Valor || cotacaoFornecedor.DataEntrega != CotacaoBE.DataEntrega)
                 {
-                    _CotacaoBE = new SolicitacaoBE();
+                    _SolicitacaoBE = new SolicitacaoBE();
                     ParticipanteBE _ParticipanteBE = new ParticipanteBE();
-                    var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + cotacaoFornecedor.IdCotacao).FirstOrDefault();
+                    var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
                     var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
                     string imagem = VariaveisGlobais.Logo;
                     Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
-                    string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;
+                    string link = ConfigurationManager.AppSettings["host"].ToString() + "Cliente/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdSolicitacao;
 
-                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.nomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
-                    emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdCotacao}: {cotacao.Titulo} recebeu uma atualização", participante.Email);
+                    var html = emailTemplate.emailPadrao($"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização", $"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização nos valores/prazo pelo fornecedor {login.nomeFantasia} para ver mais detalhes acesse a plataforma BRIKK.<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}", imagem);
+                    emailTemplate.enviaEmail(html, $"A cotação Nº{cotacao.IdSolicitacao}: {cotacao.Titulo} recebeu uma atualização", participante.Email);
 
 
                     
@@ -527,16 +527,16 @@ namespace Bsk.Site.Controllers
         }
 
         [HttpPost]
-        public void AtualizaEnviarProposta(int idCotacao)
+        public void AtualizaEnviarProposta(int IdSolicitacao)
         {
-            _core.AtualizaEnviaPropostaCotacao(idCotacao);
+            _core.AtualizaEnviaPropostaCotacao(IdSolicitacao);
         }
 
         [HttpGet]
         public string CarregaChat(string id, string tipo)
         {
             CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-            var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacaoFornecedor={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
+            var lista = _core.CotacaoFornecedorChat_Get(_CotacaoFornecedorChatBE, $" IdCotacao={Request.QueryString["Id"]} order by IdCotacaoFornecedorChat desc");
             var listaNlF = lista.Where(x => x.LidaFornecedor == 0).ToList();
             var listaNlC = lista.Where(x => x.LidaCliente == 1).ToList();
 

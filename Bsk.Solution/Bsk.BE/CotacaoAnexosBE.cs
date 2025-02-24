@@ -9,7 +9,7 @@ namespace Bsk.BE
    public class CotacaoAnexosBE
     {
         public int IdCotacaoAnexos { get; set; }
-        public int IdCotacao { get; set; }
+        public int IdSolicitacao { get; set; }
         public string Tipo { get; set; }
         public string Anexo { get; set; }
         public string DataCriacao { get; set; }

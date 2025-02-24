@@ -9,7 +9,7 @@ namespace Bsk.BE
    public class CotacaoFornecedorChatBE
     {
         public int IdCotacaoFornecedorChat { get; set; }
-        public int IdCotacaoFornecedor { get; set; }
+        public int IdCotacao { get; set; }
         public int IdCliente { get; set; }
         public int IdParticipanteFornecedor { get; set; }
         public int IdParticipante { get; set; }

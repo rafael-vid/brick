@@ -697,7 +697,7 @@
             }).then((result) => {
                 if (result.value) {
                     var parametro = {
-                        idCotacaoFornecedor: comum.queryString("Id")
+                        IdCotacao: comum.queryString("Id")
                     };
                     comum.postAsync("Comum/AceitarCotacao", parametro, function (data) {
                         if (data == "Ok") {
@@ -744,7 +744,7 @@
             }).then((result) => {
                 if (result.value) {
                     var parametro = {
-                        idCotacaoFornecedor: comum.queryString("Id"),
+                        IdCotacao: comum.queryString("Id"),
                         status: valor
                     };
                     comum.postAsync("Comum/AceitarTermino", parametro, function (data) {

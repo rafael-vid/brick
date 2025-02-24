@@ -17,9 +17,9 @@ namespace Bsk.Site.Cliente
     {
         core _core = new core();
         FornecedorBE _FornecedorBE = new FornecedorBE();
-        CotacaoFornecedorBE _CotacaoFornecedorBE = new CotacaoFornecedorBE();
+        CotacaoBE _CotacaoBE = new CotacaoBE();
         CotacaoFornecedorChatBE _CotacaoFornecedorChatBE = new CotacaoFornecedorChatBE();
-        SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
+        SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace Bsk.Site.Cliente
             SolicitacaoBE cotacao = new SolicitacaoBE();
             if (!String.IsNullOrEmpty(Request.QueryString["Cotacao"]))
             {
-                cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+                cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 if (cotacao.Status != StatusCotacao.Criacao)
                 {
@@ -98,16 +98,16 @@ namespace Bsk.Site.Cliente
                     GravarArquivo(flpVideo, "Video");
                 }
 
-                SolicitacaoBE _CotacaoBE = new SolicitacaoBE();
-                var cotacao = _core.Cotacao_Get(_CotacaoBE, "IdCotacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+                SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE();
+                var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
                 cotacao.Titulo = titulo.Value;
                 cotacao.Descricao = descricao.Text;
-                _core.Cotacao_Update(cotacao, "IdCotacao=" + cotacao.IdCotacao);
+                _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cotacao.IdSolicitacao);
             }
             else
             {
-                SolicitacaoBE _CotacaoBE = new SolicitacaoBE()
+                SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
@@ -118,21 +118,21 @@ namespace Bsk.Site.Cliente
                     FinalizaFornecedor = 0,
                     IdParticipante = login.IdParticipante,
                     IdCliente = 0,
-                    IdCotacaoFornecedor = 0,
+                    IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",
                     Status = "1",
                     Titulo = titulo.Value
                 };
 
-                cot = _core.Cotacao_Insert(_CotacaoBE);
+                cot = _core.Cotacao_Insert(_SolicitacaoBE);
             }
             return cot;
         }
 
         public List<CotacaoAnexosBE> PegaAnexo()
         {
-            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacao=" + Request.QueryString["Cotacao"]);
+            return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]);
         }
 
         public string GravarArquivo(FileUpload _flpImg, string tipo)
@@ -164,7 +164,7 @@ namespace Bsk.Site.Cliente
             _CotacaoAnexosBE = new CotacaoAnexosBE()
             {
                 Anexo = nome,
-                IdCotacao = int.Parse(Request.QueryString["Cotacao"]),
+                IdSolicitacao = int.Parse(Request.QueryString["Cotacao"]),
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd"),
                 Tipo = tipo
             };

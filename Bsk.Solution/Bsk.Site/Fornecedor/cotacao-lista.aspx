@@ -57,7 +57,7 @@
                             <td><%Response.Write(item.Titulo); %></td>
                             <td><%Response.Write(item.Categoria); %></td>
                             <td>
-                                <a class="btn btn-brikk mensagem" href="cotacao.aspx?Cotacao=<%Response.Write(item.IdCotacao); %>">Visualizar</a>
+                                <a class="btn btn-brikk mensagem" href="cotacao.aspx?Cotacao=<%Response.Write(item.IdSolicitacao); %>">Visualizar</a>
 
                             </td>
 

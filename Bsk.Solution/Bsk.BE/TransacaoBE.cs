@@ -11,7 +11,7 @@ namespace Bsk.BE
         public int IdTransacao { get; set; }
         public string GuidTransacao { get; set; }
         public string Status { get; set; }
-        public int IdCotacao { get; set; }
+        public int IdSolicitacao { get; set; }
         public string Url { get; set; }
         public string DataVencimento { get; set; }
         public string IdExterno { get; set; }
