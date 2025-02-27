@@ -401,8 +401,8 @@ namespace Bsk.Site.Fornecedor
         {
             try
             {
-                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Id"]}").FirstOrDefault();
-                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
+                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Cotacao"]}").FirstOrDefault();
+               return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
             }
             catch (Exception)
             {
