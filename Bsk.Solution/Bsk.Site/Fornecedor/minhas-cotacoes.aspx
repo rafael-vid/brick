@@ -181,10 +181,32 @@
             left: 5px;
         }
         @media (max-width: 768px) {
+            div#tabela_filter {
+                /* position: relative; */
+                display: flex;
+                /* right: 0; */
+                /* margin-top: 30px; */
+                margin-left: 20px;
+                margin-bottom: 40px;
+            }
+            div#tabela_filter::before {
+                content: '🔍︎';
+                z-index: 400;
+                position: absolute;
+                display:flex;
+                bottom: 10px;
+                top: -25px;
+                /* display: block; */
+            }
             .conteudo-dash {
                 padding: 15px 0px;
             }
+             div#tabela_filter input[type="search"], .dataTables_length label {
+                width: 100% !important;
+                bottom: 15px !important;
+            }
         }
+
     </style>
 
     <script>
