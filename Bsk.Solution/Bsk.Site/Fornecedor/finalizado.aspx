@@ -170,6 +170,40 @@
         div#tabela_paginate > span {
             display: flex
         }
+         @media (max-width: 768px) {
+             div#tabela_filter {
+                 /* position: relative; */
+                 display: flex;
+                 /* right: 0; */
+                 /* margin-top: 30px; */
+                 margin-bottom: 40px;
+             }
+             div#tabela_filter::before {
+                 content: '🔍︎';
+                 z-index: 400;
+                 position: absolute;
+                 display:flex;
+                 bottom: 10px;
+                 top: -30px;
+                 /* display: block; */
+             }
+             .conteudo-dash {
+                 padding: 15px 0px !important;
+             }
+             div#tabela_filter input[type="search"], .dataTables_length label {
+                 width: 100% !important;
+             }
+             div#tabela_filter input[type="search"] {
+                 height: 40px;
+                 margin: -40px 40px 30px -10px !important;
+             }
+             .acessos {
+                display: flex;
+                justify-content: space-evenly !important;
+                flex-wrap: wrap;
+                grid-gap: 30px !important;
+             }
+         }
     </style>
 
     <script>

@@ -572,7 +572,7 @@ div#tabela_paginate span a {
                     "sLoadingRecords": "Carregando...",
                     "sProcessing": "Processando...",
                     "sZeroRecords": "Nenhum registro encontrado",
-                    "sSearch": "Pesquisar",
+                    "sSearch": "",
                     "oPaginate": {
                         "sNext": "Próximo",
                         "sPrevious": "Anterior",

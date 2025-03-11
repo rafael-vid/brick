@@ -186,7 +186,6 @@
                 display: flex;
                 /* right: 0; */
                 /* margin-top: 30px; */
-                margin-left: 20px;
                 margin-bottom: 40px;
             }
             div#tabela_filter::before {
@@ -195,15 +194,18 @@
                 position: absolute;
                 display:flex;
                 bottom: 10px;
-                top: -25px;
+                top: -30px;
                 /* display: block; */
             }
             .conteudo-dash {
                 padding: 15px 0px;
             }
-             div#tabela_filter input[type="search"], .dataTables_length label {
+            div#tabela_filter input[type="search"], .dataTables_length label {
                 width: 100% !important;
-                bottom: 15px !important;
+            }
+            div#tabela_filter input[type="search"] {
+                height: 40px;
+                margin: -40px 40px 30px -10px !important;
             }
         }
 
