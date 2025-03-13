@@ -203,6 +203,10 @@
                 flex-wrap: wrap;
                 grid-gap: 30px !important;
              }
+            .cotacao .card {
+                min-height: 100vh;
+                min-width: 56vh;
+            }
          }
     </style>
 
