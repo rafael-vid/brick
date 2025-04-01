@@ -513,8 +513,8 @@ a.btn.btn-brikk.mensagem {
             </div>
         </header>
         <section class="app">
-            <nav class="menu-dashboard">
-                <a class="open-menu"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px; display: inline;" alt="ícone "> </a>
+            <nav class="menu-dashboard" id ="menu-dashboard">
+                <a class="open-menu" id="minimize-button"> <img src="../assets/imagens/seta-esquerda.png" style="width: 20px; display: inline;" alt="ícone "> </a>
                 <ul class="menu-dash">
                     <li>
                         <a href="dashboard.aspx" class="dash">
@@ -792,6 +792,26 @@ a.btn.btn-brikk.mensagem {
         // Chame a função nos eventos necessários
         window.addEventListener('resize', handlePhotoVisibility1);
         document.addEventListener('DOMContentLoaded', handlePhotoVisibility1);
+    </script>
+    <script>
+        document.getElementById('minimize-button').addEventListener('click', function () {
+            var menu = document.getElementById('menu-dashboard');
+            if (menu.style.width === '50%') {
+                menu.style.width = '100%';
+            } else {
+                menu.style.width = '50%';
+            }
+        });
+        function handleResize() {
+            var menu = document.getElementById('menu-dashboard');
+            if (window.innerWidth > 789) {
+                menu.style.width = '100%';
+            } else {
+                menu.style.width = '50%';
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        document.addEventListener('DOMContentLoaded', handleResize);
     </script>
 </body>
 </html>
