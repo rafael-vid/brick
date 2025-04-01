@@ -57,6 +57,7 @@ namespace Bsk.Site.Fornecedor
                     if (item.CFId != item.CotacaoFornecedorId)
                     {
                         adciona = false;
+                        lista.Add(item);
                     }
                     item.Status = "Finalizado";
                 }

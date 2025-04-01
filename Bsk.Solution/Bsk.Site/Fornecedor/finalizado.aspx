@@ -43,7 +43,7 @@
             </div>--%>
 
             <div class="card-tabela " style="overflow-x: auto;">
-                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+                <table id="tabela" data-order='[[ 2, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
@@ -211,7 +211,23 @@
     </style>
 
     <script>
-        
+        $(document).ready(function () {
+            let tabela = $("#tabela");
+
+            if (tabela.length) {
+                if ($.fn.DataTable.isDataTable("#tabela")) {
+                    tabela.DataTable().destroy();
+                }
+                tabela.DataTable({
+                    order: [[2, "asc"]],
+                    columnDefs: [
+                        { targets: "no-sort", orderable: false } // Evita erro se houver colunas sem ordenação
+                    ]
+                });
+            } else {
+                console.error("Tabela #tabela não encontrada!");
+            }
+        });
 
         function redirecionar(valor) {
             window.location.href = valor;

@@ -8,9 +8,12 @@ function toggleMenu(e) {
 }
 
 //dropfow menu
-
-btnMobile.addEventListener('click', toggleMenu)
-btnMobile.addEventListener('touchstart', toggleMenu)
+if (btnMobile) {
+    btnMobile.addEventListener("click", toggleMenu);
+    btnMobile.addEventListener("touchstart", toggleMenu);
+} else {
+    console.error("Element #btnMobile not found!");
+}
 
 const dropdowMenus = document.querySelectorAll('[data-dropdown]')
 
@@ -125,3 +128,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adiciona um event listener para mudanças no tamanho da tela
     window.addEventListener('resize', handleResponsiveMenu);
 });
+const btnMobile = document.getElementById("btnMobile");
+
