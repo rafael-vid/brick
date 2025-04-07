@@ -150,7 +150,7 @@ namespace Bsk.Site.Cliente
             {
                 foreach (var item in lista)
                 {
-                    if (item.CotacaoFornecedorId == cotacaoFornecedor.IdCotacao)
+                    if (item.RespostaCotacaoId == cotacaoFornecedor.IdCotacao)
                     {
                         valorMedioCotacoes.InnerText = string.Format("{0:C}", item.Valor);
                     }

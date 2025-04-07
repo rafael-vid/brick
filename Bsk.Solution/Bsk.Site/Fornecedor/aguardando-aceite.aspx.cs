@@ -33,7 +33,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.RespostaCotacaoId)
                     {
                         adciona = false;
                     }
@@ -46,7 +46,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.RespostaCotacaoId)
                     {
                         adciona = false;
                     }
@@ -54,7 +54,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.RespostaCotacaoId)
                     {
                         adciona = false;
                     }

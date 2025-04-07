@@ -104,7 +104,7 @@ namespace Bsk.Site.Cliente
 
                 foreach (var item in lista)
                 {
-                    if (item.CotacaoFornecedorId == cotacao.IdCotacao)
+                    if (item.RespostaCotacaoId == cotacao.IdCotacao)
                     {
                         listaCT.Add(item);
                     }

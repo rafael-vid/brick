@@ -69,11 +69,11 @@
                                 }
                                 else if (item.Status == "Em andamento")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                                    link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
                                 }
                                 else if (item.Status == "Aguardando pagamento")
                                 {
-                                    link = "pagamento.aspx?Id=" + item.CotacaoFornecedorId;
+                                    link = "pagamento.aspx?Id=" + item.RespostaCotacaoId;
                                 }
                                 else if (item.Status == "Finalizado")
                                 {
@@ -81,7 +81,7 @@
                                 }
                                 else if (item.Status == "Aguardando aceite")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                                    link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
                                 }
                                 else if (item.Status == "Aguardando liberação do pagamento")
                                 {
