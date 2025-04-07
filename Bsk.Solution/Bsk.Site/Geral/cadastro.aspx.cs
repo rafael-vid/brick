@@ -25,11 +25,18 @@ namespace Bsk.Site.Geral
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
-            {  
+            {
                 if (userType.Value == "pj")
                 {
                     pj.Checked = true;
                     pf.Checked = false;
+                    string script = "$('#pj').change(function () { $('#pessoa_fisica').hide(); $('#pessoa_juridica').show(); }); $(document).ready(function() { $('#pj').trigger('change'); });";
+                    ClientScript.RegisterStartupScript(this.GetType(), "activatePJChange", script, true);
+                }
+                else if (userType.Value == "pf") // Added condition for pf
+                {
+                    pf.Checked = true;
+                    pj.Checked = false;
                 }
                 string tipo = Request.QueryString["Tipo"];
                 if (!string.IsNullOrEmpty(tipo))
@@ -207,8 +214,9 @@ namespace Bsk.Site.Geral
 
         private void salvaJuridicaParticipante()
         {
+
             string tipo = ViewState["UserType"]?.ToString();
-            string diasTrabalho = tipo == "for" ? Request.Form["diasTrabalhoFisica"] : null;
+            string diasTrabalho = GeraStringDiasDaSemana();
             if (!IsValidCNPJ(cnpj.Value))
             {
                 string message = "CNPJ inválido. Por favor, verifique o número fornecido.";
@@ -240,7 +248,7 @@ namespace Bsk.Site.Geral
                 Senha = senhaJuridica.Value,
                 prestaServico = 0,
                 GuidColumn = guid,
-                DiasTrabalho = Request.Form["diasTrabalho"]
+                DiasTrabalho = diasTrabalho
             };
             if (
     !string.IsNullOrEmpty(nomeJuridica.Value) &&
@@ -258,7 +266,8 @@ namespace Bsk.Site.Geral
     !string.IsNullOrEmpty(cepJuridica.Value) &&
     !string.IsNullOrEmpty(cidadeJuridica.Value) &&
     !string.IsNullOrEmpty(estadoJuridica.Value) &&
-    !string.IsNullOrEmpty(senhaJuridica.Value)
+    !string.IsNullOrEmpty(senhaJuridica.Value) &&
+    diasTrabalho != "0000000"
 )
             {
                 var id = _core.Participante_Insert(_ParticipanteBE);
@@ -285,7 +294,7 @@ namespace Bsk.Site.Geral
                         ".Replace("{url}", url);
                 Email.Send(emailJuridica.Value, new List<string>(), "Email de confirmação BRIKK", htmlContent);
 
-                if (listaparticipante[0].Email == "")
+                if (listaparticipante.FirstOrDefault().Email == "")
                 {
                     msg.Text = "Estamos com problemas para efetuar o seu cadastro, por favor tente novamente mais tarde";
                 }
@@ -385,6 +394,20 @@ namespace Bsk.Site.Geral
             digit += remainder.ToString();
 
             return cnpj.EndsWith(digit);
+        }
+        public string GeraStringDiasDaSemana()
+        {
+            string bitString = string.Empty;
+
+            bitString += dia1.Checked ? "1" : "0";
+            bitString += dia2.Checked ? "1" : "0";
+            bitString += dia3.Checked ? "1" : "0";
+            bitString += dia4.Checked ? "1" : "0";
+            bitString += dia5.Checked ? "1" : "0";
+            bitString += dia6.Checked ? "1" : "0";
+            bitString += dia7.Checked ? "1" : "0";
+
+            return bitString;
         }
 
 

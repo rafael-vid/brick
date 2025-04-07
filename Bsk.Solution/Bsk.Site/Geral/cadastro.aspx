@@ -75,6 +75,24 @@
             })
         }
 
+        function togglePessoaFields() {
+            var pfFields = document.getElementById('pessoa_fisica');
+            var pjFields = document.getElementById('pessoa_juridica');
+            var pfRadio = document.getElementById('pf');
+            var pjRadio = document.getElementById('pj');
+
+            if (pfRadio.checked) {
+                pfFields.style.display = 'block';
+                pjFields.style.display = 'none';
+            } else if (pjRadio.checked) {
+                pfFields.style.display = 'none';
+                pjFields.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            togglePessoaFields();
+        });
 
     </script>
     
@@ -210,19 +228,7 @@
                         <label for="estado" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estado" id="estado" runat="server" required>
                     </div>
-                    <div id="diasTrabalhoContainerFisica" class="col-md-4" style="display: none;">
-                        <label for="diasTrabalhoFisica" class="subtitulo_1">Dias de Trabalho*</label>
-                        <input type="text" name="diasTrabalhoFisica" id="diasTrabalhoFisica" class="dias-trabalho" readonly="readonly" placeholder="Selecione os dias" onclick="toggleDiasFisica()">
-                        <div id="diasOpcaoFisica" class="dias-opcao" style="display: none;">
-                            <label><input type="checkbox" value="Segunda" /> Segunda-feira</label>
-                            <label><input type="checkbox" value="Terça" /> Terça-feira</label>
-                            <label><input type="checkbox" value="Quarta" /> Quarta-feira</label>
-                            <label><input type="checkbox" value="Quinta" /> Quinta-feira</label>
-                            <label><input type="checkbox" value="Sexta" /> Sexta-feira</label>
-                            <label><input type="checkbox" value="Sábado" /> Sábado</label>
-                            <label><input type="checkbox" value="Domingo" /> Domingo</label>
-                        </div>
-                    </div>
+                    
 
                      <div class="col-md-4">
                          
@@ -410,10 +416,20 @@
                         <label for="abertura" class="subtitulo_1">Data de Abertura*</label>
                         <input type="date" name="abertura" id="abertura" runat="server" required>
                     </div>
+
                     <div class="col-md-4">
-                        <label for="matriz" class="subtitulo_1">Matriz</label>
-                        <input type="checkbox" name="matriz" id="matriz" runat="server">
+                        <label class="subtitulo_1">Tipo*</label>
+                        <div class="form-group" style="display: flex; align-items: center;">
+                            <input type="radio" name="tipo" id="matriz" value="matriz" runat="server" required>
+                            <label for="matriz" class="radio-label" style="margin-right: 10px; display: flex; align-items: center;">Matriz</label>
+                            <input type="radio" name="tipo" id="filial" value="filial" runat="server" required>
+                            <label for="filial" class="radio-label" style="display: flex; align-items: center;">Filial</label>
+                        </div>
                     </div>
+
+
+
+
 
                     <div class="col-md-4">
                         <label for="telefoneJuridica" class="subtitulo_1">Telefone*</label>
@@ -474,25 +490,48 @@
                         <label for="estadoJuridica" class="subtitulo_1">Estado*</label>
                         <input type="text" name="estadoJuridica" id="estadoJuridica" runat="server" required>
                     </div>
-                    <div id="diasTrabalhoContainer" class="col-md-4" style="display: none;">
-                        <label for="diasTrabalho" class="subtitulo_1">Dias de Trabalho*</label>
-                        <input type="text" name="diasTrabalho" id="diasTrabalho" class="dias-trabalho" readonly="readonly" placeholder="Selecione os dias" onclick="toggleDias()">
-                        <div id="diasOpcao" class="dias-opcao" style="display: none;">
-                            <label><input type="checkbox" value="Segunda" /> Segunda-feira</label>
-                            <label><input type="checkbox" value="Terça" /> Terça-feira</label>
-                            <label><input type="checkbox" value="Quarta" /> Quarta-feira</label>
-                            <label><input type="checkbox" value="Quinta" /> Quinta-feira</label>
-                            <label><input type="checkbox" value="Sexta" /> Sexta-feira</label>
-                            <label><input type="checkbox" value="Sábado" /> Sábado</label>
-                            <label><input type="checkbox" value="Domingo" /> Domingo</label>
+                    
+                    <div class="col-md-4">
+                        <label class="subtitulo_1">Dias de Trabalho*</label>
+                        <div class="dias-semana">
+                            <div class="dias" style="display: flex;">
+                                <span style="margin-right: 19px; margin-left: 6px">D</span>
+                                <span style="margin-right: 19px;">S</span>
+                                <span style="margin-right: 19px;">T</span>
+                                <span style="margin-right: 19px;">Q</span>
+                                <span style="margin-right: 19px;">Q</span>
+                                <span style="margin-right: 19px;">S</span>
+                                <span>S</span>
+                            </div>
+                            <div class="checkboxes" style="display: flex;">
+                                <input type="checkbox" id="dia1" name="dias" value="domingo" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia2" name="dias" value="segunda" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia3" name="dias" value="terca" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia4" name="dias" value="quarta" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia5" name="dias" value="quinta" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia6" name="dias" value="sexta" style="height: auto; margin-right: 10px;" runat="server">
+                                <input type="checkbox" id="dia7" name="dias" value="sabado" style="height: auto;" runat="server">
+                            </div>
                         </div>
                     </div>
+
                      <div class="col-md-4">
                         <label for="senhaJuridica" class="subtitulo_1">Senha*</label>
                         <input type="password" name="senhaJuridica" id="senhaJuridica" runat="server" required>
                         <img id="olho3" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
 />
                     </div>
+
+                    
+                                 
+                     <div class="col-md-4">
+                        <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
+                        <input type="password" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
+                         <img id="olho4" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
+/>
+                    </div>
+                    
+
                     <script>
                         var senha3 = $('#senhaJuridica');
                         var olho3 = $("#olho3");
@@ -509,7 +548,7 @@
                         $("#olho3").mouseout(function () {
                             $("#senhaJuridica").attr("type", "password");
                         });
-                         // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
+                        // Função para verificar se as senhas coincidem e alterar a cor da fonte da senha de confirmação
                         $('#senhaJuridica, #validaSenhaJuridica').on('input', function () {
                             if ($('#senhaJuridica').val() === $('#validaSenhaJuridica').val()) {
                                 senha4.css('color', ''); // Resetar a cor
@@ -519,12 +558,6 @@
                         });
 
                     </script>
-                     <div class="col-md-4">
-                        <label for="validaSenhaJuridica" class="subtitulo_1">Confirmar senha*</label>
-                        <input type="password" name="validaSenhaJuridica" id="validaSenhaJuridica" runat="server" required>
-                         <img id="olho4" class="olho" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4jd2SvW3DMBBGbwQVKlyo4BGC4FKFS4+TATKCNxAggkeoSpHSRQbwAB7AA7hQoUKFLH6E2qQQHfgHdpo0yQHX8T3exyPR/ytlQ8kOhgV7FvSx9+xglA3lM3DBgh0LPn/onbJhcQ0bv2SHlgVgQa/suFHVkCg7bm5gzB2OyvjlDFdDcoa19etZMN8Qp7oUDPEM2KFV1ZAQO2zPMBERO7Ra4JQNpRa4K4FDS0R0IdneCbQLb4/zh/c7QdH4NL40tPXrovFpjHQr6PJ6yr5hQV80PiUiIm1OKxZ0LICS8TWvpyyOf2DBQQtcXk8Zi3+JcKfNafVsjZ0WfGgJlZZQxZjdwzX+ykf6u/UF0Fwo5Apfcq8AAAAASUVORK5CYII="
-/>
-                    </div>
                     <script>
                         var senha4 = $('#validaSenhaJuridica');
                         var olho4 = $("#olho4");
@@ -542,7 +575,8 @@
                             $("#validaSenhaJuridica").attr("type", "password");
                         });
                     </script>
-                </div>
+                    </div>
+                
                 <div style="clear:both"></div>
                 <div class="vol tar-chat">
                     <div class="subtitulo_contato" style="float:left; margin-left:25px">

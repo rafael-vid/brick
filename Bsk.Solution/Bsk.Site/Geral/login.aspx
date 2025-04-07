@@ -123,16 +123,16 @@
                 <div class="tab-content ativo">
 
                     <form>
-                        <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
-                        <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
-                        <div style="display: flex; align-items: center;">
-                            <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px; margin-right: 10px;"></asp:Label>
-                            <button id="btnMensagem" runat="server" onserverclick="btnReenviar_ServerClick" class="btn" style="visibility: hidden; border: none;">
-                                Reenviar email
-                            </button>
-                        </div>
+    <input type="text" name="usuario" runat="server" id="usuarioCliente" placeholder="Email" required>
+    <input type="password" name="senha" runat="server" id="senhaCliente" placeholder="Senha" required>
+    <div style="display: flex; align-items: center;">
+        <asp:Label ID="lblMsg" runat="server" style="color:darkred; font-size:32px; margin-right: 10px;"></asp:Label>
+        <button id="btnMensagem" runat="server" onserverclick="btnReenviar_ServerClick" class="btn" style="display: none; border: none;" disabled tabindex="-1">
+            Reenviar email
+        </button>
+    </div>
+</form>
 
-                    </form>
 
                     <div class="acessos">
                         <div>

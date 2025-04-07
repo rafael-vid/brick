@@ -33,11 +33,12 @@ namespace Bsk.Site.Geral
                 {
                     if (_login.EmailConfirmado == 0)
                     {
-                        string msg = "Seu email ainda não foi confirmado, deseja reenviar?";
-                        lblMsg.Text = msg;
-                        btnMensagem.Style["visibility"] = "visible";  // Faz o botão aparecer
-
+                        lblMsg.Text = "Seu email ainda não foi confirmado, deseja reenviar?";
+                        btnMensagem.Style["display"] = "inline-block"; // Torna o botão visível
+                        btnMensagem.Attributes.Remove("disabled");     // Habilita o botão
+                        btnMensagem.Attributes.Remove("tabindex");     // Permite foco e clique
                     }
+
                     else
                     {
                         //Cria a estancia do obj HttpCookie passando o nome do mesmo
