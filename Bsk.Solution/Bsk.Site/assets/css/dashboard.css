@@ -59,11 +59,13 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-.open-menu:hover {
-  color: #770e18;
-  opacity: 1;
-  border-color: #770e18;
-  background: #f08f00;
+@media (hover: hover) and (pointer: fine) {
+    .open-menu:hover {
+        color: #770e18;
+        opacity: 1;
+        border-color: #770e18;
+        background: #f08f00;
+    }
 }
 
 .menu ul li {
