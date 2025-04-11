@@ -83,7 +83,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    if (item.CFId != item.RespostaCotacaoId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         item.Status = "Recusado";
                     }
@@ -96,7 +96,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    if (item.CFId != item.RespostaCotacaoId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         item.Status = "Recusado";
                     }

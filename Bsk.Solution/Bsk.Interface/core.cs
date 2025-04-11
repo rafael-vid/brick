@@ -249,7 +249,7 @@ namespace Bsk.Interface
         {
             var sql = $@"select 
                             CT.IdSolicitacao as CotacaoId, 
-                            CF.IdCotacao as RespostaCotacaoId, 
+                            CF.IdCotacao as IdFornecedorDB, 
                             CT.IdParticipante as ClienteId, 
                             CL.Nome, CT.Titulo, 
                             CT.Status, 
@@ -284,7 +284,7 @@ namespace Bsk.Interface
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaAguardandoAceiteGet(int idFornecedor)
         {
-            var sql = $@"select CF.IdSolicitacao as CotacaoId, CF.IdCotacao as RespostaCotacaoId, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacao as CFId
+            var sql = $@"select CF.IdSolicitacao as CotacaoId, CF.IdCotacao as IdFornecedorDB, CT.IdCLiente as ClienteId, CL.Nome, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacao as CFId
                         from cotacao CF 
                         inner join solicitacao CT
                         on CT.IdSolicitacao = CF.IdCotacao
@@ -296,7 +296,7 @@ namespace Bsk.Interface
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaStatusGet(int idFornecedor, string status)
         {
-            var sql = $@"select CF.IdSolicitacao as CotacaoId, CF.IdCotacao as RespostaCotacaoId, CT.IdParticipante as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacao as CFId
+            var sql = $@"select CF.IdSolicitacao as CotacaoId, CF.IdCotacao as IdFornecedorDB, CT.IdParticipante as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacao as CFId
                         from cotacao CF 
                         inner join solicitacao CT
                         on CT.IdSolicitacao = CF.IdCotacao
@@ -333,7 +333,7 @@ namespace Bsk.Interface
             string sql = $@"select 
                                 CT.IdSolicitacao as CotacaoId, 
                                 FC.nomeFantasia as NomeParticipante, 
-                                CF.IdCotacao as RespostaCotacaoId, 
+                                CF.IdCotacao as IdFornecedorDB, 
                                 CF.Valor, 
                                 CF.Ativo,
                                 CF.Novo,
@@ -363,7 +363,7 @@ namespace Bsk.Interface
                                 CT.IdSolicitacao as CotacaoId, 
                                 CT.Status,
                                 FC.RazaoSocial as NomeFornecedor, 
-                                CF.IdCotacao as RespostaCotacaoId, 
+                                CF.IdCotacao as IdFornecedorDB, 
                                 CF.Valor
                                 
                             from solicitacao CT 

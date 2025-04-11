@@ -1,16 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="finalizado.aspx.cs" Inherits="Bsk.Site.Fornecedor.finalizado" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="finalizado.aspx.cs" Inherits="Bsk.Site.Fornecedor.finalizado" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-    <div class="conteudo-dash cotacao cotacoes-cli">
+    <div class="conteudo-dash cotacao">
         <div class="acessos">
             <a class="btn_card" href="buscar-servico.aspx">
                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
                 Nova Solicitação
             </a>
-            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações
-            </a>
-            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos
-            </a>
+            <a href="minhas-cotacoes.aspx" class="btn_card">Minhas Solicitações</a>
+            <a href="aguardando-pagamento.aspx" class="btn_card">Pagamentos</a>
         </div>
 
         <div class="card card-cotacao-dados">
@@ -69,11 +67,11 @@
                                 }
                                 else if (item.Status == "Em andamento")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                                 }
                                 else if (item.Status == "Aguardando pagamento")
                                 {
-                                    link = "pagamento.aspx?Id=" + item.RespostaCotacaoId;
+                                    link = "pagamento.aspx?Id=" + item.IdFornecedorDB;
                                 }
                                 else if (item.Status == "Finalizado")
                                 {
@@ -81,7 +79,7 @@
                                 }
                                 else if (item.Status == "Aguardando aceite")
                                 {
-                                    link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                                 }
                                 else if (item.Status == "Aguardando liberação do pagamento")
                                 {
@@ -196,12 +194,6 @@
              div#tabela_filter input[type="search"] {
                  height: 40px;
                  margin: -40px 40px 30px -10px !important;
-             }
-             .acessos {
-                display: flex;
-                justify-content: space-evenly !important;
-                flex-wrap: wrap;
-                grid-gap: 30px !important;
              }
             .cotacao .card {
                 min-height: 100vh;

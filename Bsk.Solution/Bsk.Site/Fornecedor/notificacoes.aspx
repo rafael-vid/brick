@@ -1,10 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="notificacoes.aspx.cs" Inherits="Bsk.Site.Fornecedor.notificacoes" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-    <div class="conteudo-dash cotacao cotacoes-cli">
-       
-
-
+    <div class="conteudo-dash cotacao">
         <div class="card card-cotacao-dados">
             <div class="titulo_card">
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
@@ -42,11 +39,8 @@
                         <%var cotacoes = Notificacoes();
                             string link = "";
                             foreach (var item in cotacoes)
-                            {
-
-                                
+                            {                      
                         %>
-
                         <tr class="cursor visualizado<%Response.Write(Convert.ToInt32(item.visualizado)); %>" onclick="window.location.href='notificacao.aspx?id=<%Response.Write(item.idnotificacao); %>&link=<%Response.Write(item.link); %>'">
                             <td><%Response.Write(item.idnotificacao); %></td>
                             <td><%Response.Write(item.titulo); %></td>
@@ -158,6 +152,10 @@
             font-weight:bold;
             color:#666 !important
         }
+        div#tabela_filter:before {
+             top: 25px;
+             left: 25px;
+        }
     </style>
 
     <script>
@@ -190,7 +188,4 @@
             }
         }
     </script>
-
-    
-
 </asp:Content>

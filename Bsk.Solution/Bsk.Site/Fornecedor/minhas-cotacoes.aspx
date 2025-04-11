@@ -4,14 +4,11 @@
 
     <div class="conteudo-dash cotacao">
         <div class="acessos">
-             <a href="minhas-cotacoes.aspx" class="btn_card">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Buscar nova cotação
+            <a href="minhas-cotacoes.aspx" class="btn_card">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
             </a>
-            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação
-            </a>
-            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
-            </a>
+            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação</a>
+            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação</a>
             <div class="total_a_receber total_a_receber-new">
                 <span>Total a receber</span>
                 <p>
@@ -69,7 +66,6 @@
                             <td>Nº Cotação</td>
                             <td>Título</td>
                             <td>Nome cliente</td>
-
                             <td>Última atualização</td>
                             <td>Status</td>
                         </tr>
@@ -85,12 +81,12 @@
                             
                             if(item.Status == "2")
                             {
-                                link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
+                                link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                             }
 
-                            if (item.RespostaCotacaoId != 0)
+                            if (item.IdFornecedorDB != 0)
                             {
-                                link = "negociar-cotacao.aspx?Id=" + item.RespostaCotacaoId;
+                                link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                             }
 
                     %>
@@ -111,31 +107,31 @@
                                 else if (item.Status == "Aberto")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Negociar</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Negociar</a>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Em andamento")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Pendente de finalização do cliente")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Finalizado")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Mensagens</a>
-                            <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.RespostaCotacaoId); %>">Avaliação</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Avaliação</a>
                             <%} %>                              
                         </td>--%>
                     </tr>

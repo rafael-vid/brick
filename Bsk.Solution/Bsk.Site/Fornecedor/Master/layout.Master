@@ -95,13 +95,18 @@ button#btnBuscaCatSel {
     letter-spacing: 0.1em;
 }
 .acessos{
-    display:flex;
-    justify-content:space-evenly;
-    flex-wrap:wrap;
-    grid-gap:30px !important;
+    display: flex;
+    flex-wrap: nowrap; /* <- NÃO PERMITE quebrar linha */
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
 }
 .acessos .btn_card{
-    width:250px;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 250px;
+    padding: 1rem 0.5rem;
+    font-size: clamp(0.8rem, 2.5vw, 1rem); /* fonte responsiva */
 }
 .menu-topo {
     display: flex;
@@ -171,9 +176,7 @@ div#tabela_filter {
 
 div#tabela_filter input[type="search"] {
     height: 55px;
-    width: 340px !important;
     position: absolute;
-    margin-left: -88px;
     background: #d7d7d7;
     border-radius: 30px;
     border: 0;
