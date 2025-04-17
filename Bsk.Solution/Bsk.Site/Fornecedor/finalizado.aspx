@@ -185,9 +185,6 @@
                  top: -30px;
                  /* display: block; */
              }
-             .conteudo-dash {
-                 padding: 15px 0px !important;
-             }
              div#tabela_filter input[type="search"], .dataTables_length label {
                  width: 100% !important;
              }

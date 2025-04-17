@@ -68,7 +68,7 @@ namespace Bsk.Site.Fornecedor
             _core.NotificacaoInsert(notif);
 
 
-            Response.Redirect("negociar-cotacao.aspx?Id=" + id);
+            Response.Redirect("negociar-cotacao.aspx?Id=" + id + "&Cotacao=" + Request.QueryString["Cotacao"]);
         }
     }
 }

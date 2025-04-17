@@ -99,7 +99,7 @@ button#btnBuscaCatSel {
     flex-wrap: nowrap; /* <- NÃO PERMITE quebrar linha */
     justify-content: space-between;
     gap: 10px;
-    padding: 10px;
+    padding: 0px 10px;
 }
 .acessos .btn_card{
     flex: 1 1 0;
@@ -303,6 +303,9 @@ div#tabela_paginate span a {
     div#tabela_paginate {
         justify-content: flex-start;
         margin-top: 20px;
+    }
+    .conteudo-dash {
+        padding: 0px 0px !important;
     }
 }
 a.btn.btn-brikk.mensagem {

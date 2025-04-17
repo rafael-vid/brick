@@ -30,6 +30,7 @@ namespace Bsk.Site.Fornecedor
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string cotURL = Request.QueryString["Cotacao"];
             if (String.IsNullOrEmpty(Request.QueryString["Id"]))
             {
                 Response.Redirect("minhas-cotacoes.aspx");
@@ -401,7 +402,8 @@ namespace Bsk.Site.Fornecedor
         {
             try
             {
-                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Cotacao"]}").FirstOrDefault();
+               var tata = Request.QueryString["Cotacao"];
+               var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdSolicitacao={Request.QueryString["Cotacao"]}").FirstOrDefault();
                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
             }
             catch (Exception)

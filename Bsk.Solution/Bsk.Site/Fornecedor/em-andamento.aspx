@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="em-andamento.aspx.cs" Inherits="Bsk.Site.Fornecedor.em_andamento" MasterPageFile="~/Fornecedor/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="conteudo-dash agendamento">
         <div class="acessos">
             <a href="minhas-cotacoes.aspx" class="btn_card">
@@ -75,7 +75,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
         $(document).ready(function () {
             var rowsPerPage = 10; // Number of rows to display per page
@@ -144,9 +144,6 @@
                 bottom: 10px;
                 top: -30px;
                 /* display: block; */
-            }
-            .conteudo-dash {
-                padding: 15px 0px;
             }
             div#tabela_filter input[type="search"], .dataTables_length label {
                 width: 100% !important;

@@ -312,7 +312,7 @@ namespace Bsk.Interface
                             from solicitacao CT 
                             inner join cotacao CF 
                             on CF.IdCotacao = CT.IdCotacao 
-                            inner join Participante FC on FC.IdParticipante = CF.IdParticipanteFornecedor
+                            inner join participante FC on FC.IdParticipante = CF.IdParticipanteFornecedor
                             where CT.IdSolicitacao= " + IdSolicitacao;
             return _base.ToList<CotacaoAvaliacaoModel>(db.Get(sql)).FirstOrDefault();
         }
@@ -323,7 +323,7 @@ namespace Bsk.Interface
                             from cotacao CF 
                             inner join solicitacao CT 
                             on CF.IdCotacao = CT.IdCotacao 
-                            inner join Participante CL on CL.IdParticipante = CT.IdParticipante
+                            inner join participante CL on CL.IdParticipante = CT.IdParticipante
                             where CF.IdCotacao= " + IdSolicitacao;
             return _base.ToList<CotacaoAvaliacaoFornecedorModel>(db.Get(sql)).FirstOrDefault();
         }
