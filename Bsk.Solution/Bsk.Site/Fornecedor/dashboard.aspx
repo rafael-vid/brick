@@ -3,7 +3,9 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
    
  <div class="conteudo-dash dashboard">
-      
+   <div class="acessos">
+         <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
+   </div>
       <div class="card">
         <div class="titulo_card">
           <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
@@ -313,6 +315,18 @@
             font-size: 15px;
             color: #3c3c3b;
             margin: 0 !important;
+        }
+        @media only screen and (max-width: 768px) {
+          .acessos {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            margin: 5px 0px 0px 0px;
+          }
+
+          .btn_card {
+            width: fit-content; /* Garante que o botão não estique demais */
+            margin: 0 auto; /* Ajuda no alinhamento se não estiver em flex */
+          }
         }
     </style>
 </asp:Content>

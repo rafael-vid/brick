@@ -56,12 +56,6 @@ textarea {
   transition: 0.3s ease;
   opacity: 0.4;
 }
-.open-menu:hover {
-  color: #770e18;
-  opacity: 1;
-  border-color: #770e18;
-  background: #f08f00;
-}
 
 .menu ul li {
   margin-left: 20px;

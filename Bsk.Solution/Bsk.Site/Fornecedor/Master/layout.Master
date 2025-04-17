@@ -424,6 +424,14 @@ a.btn.btn-brikk.mensagem {
         background: #ebe4de;
     }
 }
+@media (hover: hover) and (pointer: fine) {
+    .open-menu:hover {
+        color: #770e18;
+        opacity: 1;
+        border-color: #770e18;
+        background: #f08f00;
+    }
+}
 </style>
 
 </head>

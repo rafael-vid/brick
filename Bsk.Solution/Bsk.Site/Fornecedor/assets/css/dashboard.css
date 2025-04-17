@@ -62,14 +62,6 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-.open-menu:hover {
-  color: #770e18;
-  opacity: 1;
-  border-color: #770e18;
-  background: #f08f00;
-
-}
-
 .menu ul li {
   margin-left: 20px;
 }
@@ -844,7 +836,7 @@ button.btn.bp-cotacao {
   }
 
   .conteudo-dash {
-    min-height: 100vh;
+    min-height: 0vh;
     width: 80vw;
   }
   .app.mini-menu .conteudo-dash {
@@ -902,7 +894,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
   .conteudo-dash {
-    min-height: 58vh;
+    min-height: 0vh;
     width: 70vw;
   }
   .app.mini-menu .conteudo-dash {
@@ -989,7 +981,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
   .conteudo-dash {
-    min-height: 100vh;
+    min-height: 0vh;
     width: 70vw;
   }
 
@@ -1098,7 +1090,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
   .conteudo-dash {
-    min-height: 100vh;
+    min-height: 0vh;
     width: 70vw;
   }
 
