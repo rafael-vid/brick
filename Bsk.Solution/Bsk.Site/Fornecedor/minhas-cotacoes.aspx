@@ -346,6 +346,5 @@
         // Adiciona evento para redimensionamento da janela
         window.addEventListener('resize', updateVisibility);
     </script>
-    <body onload="filtraTabela()">
 </asp:Content>
 

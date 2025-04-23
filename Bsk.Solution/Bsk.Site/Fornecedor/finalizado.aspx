@@ -200,23 +200,24 @@
     </style>
 
     <script>
-        $(document).ready(function () {
-            let tabela = $("#tabela");
+        let datatableInstance = null;
+
+        function inicializaDataTable() {
+            const tabela = $("#tabela");
 
             if (tabela.length) {
-                if ($.fn.DataTable.isDataTable("#tabela")) {
-                    tabela.DataTable().destroy();
+                if (datatableInstance !== null) {
+                    datatableInstance.destroy();
                 }
-                tabela.DataTable({
+
+                datatableInstance = tabela.DataTable({
                     order: [[2, "asc"]],
                     columnDefs: [
-                        { targets: "no-sort", orderable: false } // Evita erro se houver colunas sem ordenação
+                        { targets: "no-sort", orderable: false }
                     ]
                 });
-            } else {
-                console.error("Tabela #tabela não encontrada!");
             }
-        });
+        }
 
         function redirecionar(valor) {
             window.location.href = valor;

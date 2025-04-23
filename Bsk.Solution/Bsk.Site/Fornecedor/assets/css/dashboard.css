@@ -1441,3 +1441,7 @@ label.subtitulo_card_1.subtitulo_1 {
 .cursor {
     cursor: pointer;
 }
+.dashboard {
+    display: flex !important;
+    flex-direction: column !important;
+}
