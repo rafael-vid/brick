@@ -193,6 +193,7 @@ div#tabela_filter::before {
     z-index: 400;
     position: absolute;
     top: 16px;
+    margin: 15px 15px 15px 23px;
     display: block
 }
 

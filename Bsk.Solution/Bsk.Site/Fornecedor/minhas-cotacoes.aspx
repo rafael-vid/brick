@@ -264,6 +264,7 @@
                 display:flex;
                 bottom: 10px;
                 top: -30px;
+                margin: 0px;
                 /* display: block; */
             }
             div#tabela_filter input[type="search"], .dataTables_length label {
