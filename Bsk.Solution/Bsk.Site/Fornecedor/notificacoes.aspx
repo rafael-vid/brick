@@ -152,10 +152,6 @@
             font-weight:bold;
             color:#666 !important
         }
-        div#tabela_filter:before {
-             top: 25px;
-             left: 25px;
-        }
     </style>
 
     <script>

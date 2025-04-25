@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <History>True|2025-04-07T18:50:16.8882663Z||;True|2024-04-04T11:04:11.6992680-03:00||;False|2024-04-04T11:03:51.3571269-03:00||;</History>
+    <History>True|2025-04-24T19:01:24.7172105Z||;True|2025-04-07T15:50:16.8882663-03:00||;True|2024-04-04T11:04:11.6992680-03:00||;False|2024-04-04T11:03:51.3571269-03:00||;</History>
     <_PublishTargetUrl>C:\Projetos\brikk-repo\Bsk.Solution\Bsk.Site\bin\app.publish\</_PublishTargetUrl>
     <LastFailureDetails />
   </PropertyGroup>
@@ -178,7 +178,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:55</publishTime>
     </File>
     <File Include="assets/css/dashboard.css">
-      <publishTime>04/07/2025 11:25:55</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="assets/css/sobre.css">
       <publishTime>04/07/2025 11:25:55</publishTime>
@@ -487,46 +487,46 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:26:00</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll">
-      <publishTime>04/07/2025 15:49:47</publishTime>
+      <publishTime>04/24/2025 16:01:07</publishTime>
     </File>
     <File Include="bin/Bsk.BE.dll.config">
       <publishTime>04/07/2025 11:25:53</publishTime>
     </File>
     <File Include="bin/Bsk.BE.pdb">
-      <publishTime>04/07/2025 15:49:47</publishTime>
+      <publishTime>04/24/2025 16:01:07</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll">
-      <publishTime>04/07/2025 15:49:50</publishTime>
+      <publishTime>04/24/2025 16:01:09</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.dll.config">
       <publishTime>04/07/2025 11:25:53</publishTime>
     </File>
     <File Include="bin/Bsk.DAL.pdb">
-      <publishTime>04/07/2025 15:49:50</publishTime>
+      <publishTime>04/24/2025 16:01:09</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll">
-      <publishTime>04/07/2025 15:49:50</publishTime>
+      <publishTime>04/24/2025 16:01:09</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.dll.config">
       <publishTime>04/07/2025 11:25:53</publishTime>
     </File>
     <File Include="bin/Bsk.Interface.pdb">
-      <publishTime>04/07/2025 15:49:50</publishTime>
+      <publishTime>04/24/2025 16:01:09</publishTime>
     </File>
     <File Include="bin/Bsk.Site.dll">
-      <publishTime>04/07/2025 15:50:01</publishTime>
+      <publishTime>04/24/2025 16:01:16</publishTime>
     </File>
     <File Include="bin/Bsk.Site.pdb">
-      <publishTime>04/07/2025 15:50:01</publishTime>
+      <publishTime>04/24/2025 16:01:16</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll">
-      <publishTime>04/07/2025 15:49:49</publishTime>
+      <publishTime>04/24/2025 16:01:08</publishTime>
     </File>
     <File Include="bin/Bsk.Util.dll.config">
       <publishTime>04/07/2025 11:25:59</publishTime>
     </File>
     <File Include="bin/Bsk.Util.pdb">
-      <publishTime>04/07/2025 15:49:49</publishTime>
+      <publishTime>04/24/2025 16:01:08</publishTime>
     </File>
     <File Include="bin/Comtele.Sdk.dll">
       <publishTime>04/07/2025 11:26:00</publishTime>
@@ -757,7 +757,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Cliente/cotacao-lista.aspx">
-      <publishTime>04/07/2025 13:21:57</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Cliente/em-andamento.aspx">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -808,7 +808,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Cliente/Master/assets/css/dashboard.css">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Cliente/Master/assets/css/sobre.css">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1102,10 +1102,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Cliente/Master/Layout.Master">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Cliente/minhas-cotacoes.aspx">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Cliente/nav.html">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1162,16 +1162,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/aguardando-aceite.aspx">
-      <publishTime>04/07/2025 13:21:57</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/aguardando-pagamento.aspx">
-      <publishTime>04/07/2025 13:21:57</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/cadastros.css">
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/dashboard.css">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/assets/css/sobre.css">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1501,13 +1501,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/dashboard.aspx">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/em-andamento.aspx">
-      <publishTime>04/07/2025 13:21:58</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/finalizado.aspx">
-      <publishTime>04/07/2025 13:21:58</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/gerenciar-servicos.aspx">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1822,13 +1822,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/Master/layout.Master">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/minhas-areas.aspx">
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/minhas-cotacoes.aspx">
-      <publishTime>04/07/2025 13:21:58</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/negociar-cotacao.aspx">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1837,7 +1837,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:25:54</publishTime>
     </File>
     <File Include="Fornecedor/notificacoes.aspx">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Fornecedor/perfil.aspx">
       <publishTime>04/07/2025 11:25:54</publishTime>
@@ -1852,7 +1852,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/07/2025 11:53:08</publishTime>
     </File>
     <File Include="Geral/assets/css/dashboard.css">
-      <publishTime>04/07/2025 11:25:54</publishTime>
+      <publishTime>04/24/2025 15:38:58</publishTime>
     </File>
     <File Include="Geral/assets/css/sobre.css">
       <publishTime>04/07/2025 11:25:54</publishTime>
