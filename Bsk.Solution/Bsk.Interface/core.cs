@@ -231,7 +231,7 @@ namespace Bsk.Interface
                                         WHEN 
 			                                    (select count(IdCotacaoFornecedorChat) 
 			                                    from cotacaofornecedorchat 
-			                                    where IdParticipanteFornecedor = 0 and IdCotacao in (select IdCotacao from cotacao where IdSolicitacao=CT.IdSolicitacao) and LidaCliente=1)  > 0 
+			                                    where IdParticipante = 0 and IdCotacao in (select IdCotacao from cotacao where IdSolicitacao=CT.IdSolicitacao) and LidaCliente=1)  > 0 
 		                                    THEN 'N'
 
                                         ELSE ''
@@ -276,7 +276,7 @@ namespace Bsk.Interface
                             where CT.Status='{StatusCotacao.Aberto}' 
                             and CT.IdSolicitacao not in (select 
                                                         IdSolicitacao 
-                                                    from cotacao where IdParticipanteFornecedor = {idFornecedor} 
+                                                    from cotacao where IdParticipante = {idFornecedor} 
                                                     and IdSolicitacao = CT.IdSolicitacao)
                             and CT.IdCategoria in ({categorias});";
             return _base.ToList<CotacaoListaFronecedorModel>(db.Get(sql));
@@ -302,7 +302,7 @@ namespace Bsk.Interface
                         on CT.IdSolicitacao = CF.IdCotacao
                         inner join participante CL
                         on CL.IdParticipante = CT.IdParticipante
-                        where CT.Status in {status} and CF.IdparticipanteFornecedor =" + idFornecedor;
+                        where CT.Status in {status} and CF.Idparticipante =" + idFornecedor;
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
@@ -312,7 +312,7 @@ namespace Bsk.Interface
                             from solicitacao CT 
                             inner join cotacao CF 
                             on CF.IdCotacao = CT.IdCotacao 
-                            inner join participante FC on FC.IdParticipante = CF.IdParticipanteFornecedor
+                            inner join participante FC on FC.IdParticipante = CF.IdParticipante
                             where CT.IdSolicitacao= " + IdSolicitacao;
             return _base.ToList<CotacaoAvaliacaoModel>(db.Get(sql)).FirstOrDefault();
         }
@@ -352,7 +352,7 @@ namespace Bsk.Interface
                                 ORDER BY IdCotacaoFornecedorChat DESC LIMIT 1) AS DataUltimaResposta
                             from solicitacao CT 
                             inner join cotacao CF on CT.IdSolicitacao = CF.IdSolicitacao 
-                            inner join participante FC on CF.IdParticipanteFornecedor = FC.IdParticipante
+                            inner join participante FC on CF.IdParticipante = FC.IdParticipante
                                 where CT.IdSolicitacao = {IdSolicitacao}";
             return _base.ToList<CotacaoListaModel>(db.Get(sql));
         }

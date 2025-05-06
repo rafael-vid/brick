@@ -112,7 +112,7 @@ namespace Bsk.Site.Cliente
                     clienteBE = new Bsk.BE.ClienteBE();
                     fornecedorBE = new Bsk.BE.FornecedorBE();
                     participanteBE = new Bsk.BE.ParticipanteBE();
-                    var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
+                    var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
 
                     string guidTransacao = Guid.NewGuid().ToString();
                     var vencimento = DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString("yyyy-MM-dd");
@@ -156,7 +156,7 @@ namespace Bsk.Site.Cliente
 
                         if (participanteCliente.ZoopID != "" && participanteCliente.ZoopID != "Erro")
                         {
-                            _core.Participante_Update(participanteCliente, "IdParticipante=" + cotacao.IdCliente);
+                            _core.Participante_Update(participanteCliente, "IdParticipante=" + cotacao.IdParticipante);
 
                         }
                     }

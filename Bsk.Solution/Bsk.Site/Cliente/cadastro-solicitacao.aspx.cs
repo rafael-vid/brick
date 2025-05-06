@@ -117,7 +117,6 @@ namespace Bsk.Site.Cliente
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
                     IdParticipante = login.IdParticipante,
-                    IdCliente = 0,
                     IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",

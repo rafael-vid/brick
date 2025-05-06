@@ -100,8 +100,7 @@ namespace Bsk.Site.Fornecedor
                     Descricao = descricao.Text,
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
-                    IdCliente = login.IdCliente,
-                    IdParticipante = login.IdCliente,
+                    IdParticipante = login.IdParticipante,
                     IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",
@@ -202,7 +201,7 @@ namespace Bsk.Site.Fornecedor
 
 
                     }
-                    else if (cotacao.IdCotacao != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
+                    else if (cotacao.IdCotacao != 0 && cotacaoFornecedor.IdParticipante == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
                         divDadosCobranca.Visible = false;
@@ -215,7 +214,7 @@ namespace Bsk.Site.Fornecedor
                     }
                 }
 
-                var cliente = _core.Cliente_Get(_ClienteBE, $" IdCliente={cotacao.IdCliente.ToString()}").FirstOrDefault();
+                var cliente = _core.Participante_Get(_ParticipanteBE, $" IdParticipante={cotacao.IdParticipante.ToString()}").FirstOrDefault();
                 if (cliente != null)
                 {
                     ClienteServ.InnerText = cliente.Nome;
@@ -286,8 +285,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdParticipante = 0; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipante = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
@@ -306,7 +304,7 @@ namespace Bsk.Site.Fornecedor
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idcliente = cotacao.IdCliente;
+                notif.idcliente = cotacao.IdParticipante;
 
                 _core.NotificacaoInsert(notif);
 
@@ -388,7 +386,7 @@ namespace Bsk.Site.Fornecedor
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
 
             var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
-            var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
             string imagem = VariaveisGlobais.Logo;
             Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
@@ -434,8 +432,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 1; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipante = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
@@ -454,7 +451,7 @@ namespace Bsk.Site.Fornecedor
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idcliente = cotacao.IdCliente;
+                notif.idcliente = cotacao.IdParticipante;
 
                 _core.NotificacaoInsert(notif);
 

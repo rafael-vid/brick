@@ -3,15 +3,30 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <div class="conteudo-dash agendamento">
-        <div class="acessos">
+        <div id="acessos" class="acessos">
             <a href="minhas-cotacoes.aspx" class="btn_card">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Buscar nova cotação
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
             </a>
-            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação
-            </a>
-            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
-            </a>        
+            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação</a>
+            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação</a>            
+        </div>
+        <div id="acessos-small" class="acessos-small">
+            <div class="row">
+                <div class="dropdown">
+                    <a href="minhas-cotacoes.aspx" class="btn_card" style="margin-top: 10px;">
+                        <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
+                    </a>
+                    <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown2()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none;">
+                        ⋮
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu2" style="display: none;">
+                        <a href="em-andamento.aspx" class="dropdown-item">Cotações em negociação</a>
+                        <a href="minhas-areas.aspx" class="dropdown-item">Minhas áreas de atuação</a>
+                        <div class="dropdown-item">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="card">
@@ -162,5 +177,69 @@
             background: #f4f3f2;
             color: #770e18 !important;
         }
+         .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            left: 50%; /* Alinha o menu com a borda esquerda do botão */
+         }
+
+        .dropdown {
+            margin: 0px 25px;
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
     </style>
+     <script>
+         function updateVisibility() {
+             if (window.innerWidth < 768) {
+                 document.querySelector('.acessos').style.display = 'none';
+                 document.querySelector('.acessos-small').style.display = 'flex';
+             } else {
+                 document.querySelector('.acessos').style.display = 'flex';
+                 document.querySelector('.acessos-small').style.display = 'none';
+             }
+         }
+
+         // Chama a função ao carregar a página
+         updateVisibility();
+
+         // Adiciona evento para redimensionamento da janela
+         window.addEventListener('resize', updateVisibility);
+     </script>
+      <script>
+          function toggleDropdown2() {
+              var menu = document.getElementById("dropdownMenu2");
+              menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+          }
+
+          // Fecha o dropdown se o usuário clicar fora
+          window.onclick = function (event) {
+              if (!event.target.closest('.dropdown-toggle')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-menu");
+                  for (var i = 0; i < dropdowns.length; i++) {
+                      var openDropdown = dropdowns[i];
+                      if (openDropdown.style.display === 'block') {
+                          openDropdown.style.display = 'none';
+                      }
+                  }
+              }
+          }
+      </script>
 </asp:Content>

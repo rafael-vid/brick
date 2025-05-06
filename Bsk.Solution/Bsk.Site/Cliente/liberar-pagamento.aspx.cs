@@ -22,7 +22,7 @@ namespace Bsk.Site.Cliente
         {
             var login = Funcoes.PegaLoginCliente(Request.Cookies["Login"].Value);
             List<CotacaoPagamentoModel> cotacaoPagamentoModels = new List<CotacaoPagamentoModel>();
-            cotacaoPagamentoModels = _core.CotacaoStatusGet(StatusCotacao.AguardandoPagamento,login.IdCliente);
+            cotacaoPagamentoModels = _core.CotacaoStatusGet(StatusCotacao.AguardandoPagamento,login.IdParticipante);
             return cotacaoPagamentoModels;
         }
     }

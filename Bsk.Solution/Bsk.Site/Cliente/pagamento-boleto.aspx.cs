@@ -59,8 +59,8 @@ namespace Bsk.Site.Cliente
             else
             {
               
-                var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
-                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+                var fornecedor = _core.Fornecedor_Get(fornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
+                var cliente = _core.Cliente_Get(clienteBE, "IdCliente=" + cotacao.IdParticipante).FirstOrDefault();
                 string guidTransacao = Guid.NewGuid().ToString();
                 var vencimento = DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString("yyyy-MM-dd");
                 if (!String.IsNullOrEmpty(cliente.ZoopID))
@@ -121,12 +121,12 @@ namespace Bsk.Site.Cliente
                         Numero = cliente.Numero,
                         Pais = "BR",
                         UF = cliente.Uf,
-                        IdUsuario = cliente.IdCliente
+                        IdUsuario = cliente.IdParticipante
                     };
 
                     Usuario usuario = new Usuario()
                     {
-                        IdCliente = cliente.IdCliente.ToString(),
+                        IdCliente = cliente.IdParticipante.ToString(),
                         BskPagID = cliente.ZoopID,
                         CPF = cliente.Cnpj,
                         DataAlteracao = DateTime.Now,
@@ -147,7 +147,7 @@ namespace Bsk.Site.Cliente
 
                     if (cliente.ZoopID != "" && cliente.ZoopID != "Erro")
                     {
-                        _core.Cliente_Update(cliente, "IdCliente=" + cotacao.IdCliente);
+                        _core.Cliente_Update(cliente, "IdCliente=" + cotacao.IdParticipante);
 
                         bskPag.Transacao(cliente, DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString(), guidTransacao, "1", "B", $"Pagamento {cotacao.Titulo}", cotacaoFornecedor.Valor.ToString(), fornecedor);
 

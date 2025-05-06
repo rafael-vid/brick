@@ -3,9 +3,9 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
    
  <div class="conteudo-dash dashboard">
-   <div class="acessos">
-         <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações</a>
-   </div>
+    <a href="minhas-cotacoes.aspx" class="btn_card">
+        <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
+    </a>
       <div class="card">
         <div class="titulo_card">
           <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
