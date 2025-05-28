@@ -100,7 +100,7 @@ namespace Bsk.Site.Cliente
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             var participanteCliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
-            if (validaCartao(participanteCliente))
+            if (validaCartao())
             {
                 if (valor.InnerText != String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor))
                 {
@@ -261,27 +261,38 @@ namespace Bsk.Site.Cliente
                 
         }
 
-        private bool validaCartao(BE.ParticipanteBE participante)
+        private bool validaCartao()
         {
-            //if (!String.IsNullOrEmpty(cliente.MeioPagamento))
-            //{
-            //    var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(bskPag.ConsultaMeioPagamento(cliente));
-            //    string cardNumber = retApi["numeroCompleto"];
-            //   int month = int.Parse(retApi["mes"]);
-            //    int year = int.Parse(retApi["ano"]);
-            //
-            //    bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
-            //    bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
-            //    string cardType = CardUtils.GetCardType(cardNumber);
-            //
-            // Optionally check for a specific card type
-            // bool isExpectedType = cardType == "Visa";
+            // Obtém os valores dos campos preenchidos pelo usuário
+            string cardNumber = numeroCartao.Value;
+            string expiryMonth = mes.Value;
+            string expiryYear = ano.Value;
 
-            //    return isValidNumber && isValidExpiry; // && isExpectedType;
-            //}
-            //return false;
-            return true;
+            // Verifica se os campos obrigatórios foram preenchidos
+            if (string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(expiryMonth) || string.IsNullOrEmpty(expiryYear))
+            {
+                return false; // Campos obrigatórios não preenchidos
+            }
+
+            // Converte os valores de mês e ano para inteiros
+            if (!int.TryParse(expiryMonth, out int month) || !int.TryParse(expiryYear, out int year))
+            {
+                return false; // Mês ou ano inválidos
+            }
+
+            // Verifica se o número do cartão é válido usando o algoritmo de Luhn
+            bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
+
+            // Verifica se a data de expiração é válida
+            bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
+
+            // Opcional: Identifica o tipo do cartão
+            string cardType = CardUtils.GetCardType(cardNumber);
+
+            // Retorna true apenas se todas as validações forem bem-sucedidas
+            return isValidNumber && isValidExpiry;
         }
+
 
 
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
