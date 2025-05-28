@@ -293,27 +293,35 @@ namespace Bsk.Site.Cliente
     {
         public static bool IsCardNumberValid(string cardNumber)
         {
-            int sum = 0;
-            bool alternate = false;
+            if (string.IsNullOrWhiteSpace(cardNumber) || !cardNumber.All(char.IsDigit))
+            {
+                return false; // Verifica se o número do cartão é nulo, vazio ou contém caracteres não numéricos
+            }
 
+            int sum = 0;
+            bool doubleDigit = false;
+
+            // Itera pelos dígitos do cartão da direita para a esquerda
             for (int i = cardNumber.Length - 1; i >= 0; i--)
             {
-                char[] digits = cardNumber.ToCharArray();
-                int n = int.Parse(digits[i].ToString());
+                int digit = int.Parse(cardNumber[i].ToString());
 
-                if (alternate)
+                if (doubleDigit)
                 {
-                    n *= 2;
-                    if (n > 9)
+                    digit *= 2;
+                    if (digit > 9)
                     {
-                        n = (n % 10) + 1;
+                        digit -= 9; // Subtrai 9 se o valor for maior que 9
                     }
                 }
-                sum += n;
-                alternate = !alternate;
+
+                sum += digit;
+                doubleDigit = !doubleDigit; // Alterna entre dobrar ou não o próximo dígito
             }
-            return (sum % 10 == 0);
+
+            return (sum % 10 == 0); // Retorna true se a soma for múltiplo de 10
         }
+
 
         public static bool IsExpiryValid(int month, int year)
         {
