@@ -173,6 +173,13 @@ namespace Bsk.Interface
             // Return null if no result is found or an exception occurs
             return null;
         }
+        public decimal ObterMultiplicador()
+        {
+            string sql = $@"SELECT grossup from grossup";
+            DataTable grossup = db.Get(sql);
+            return Convert.ToDecimal(grossup.Rows[0]["grossup"]);
+
+        }
 
 
 

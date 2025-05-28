@@ -28,6 +28,8 @@ namespace Bsk.Site.Fornecedor
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
 
+        protected decimal Taxa { get; set; }
+        protected decimal Grossup { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             string cotURL = Request.QueryString["Cotacao"];
@@ -39,12 +41,22 @@ namespace Bsk.Site.Fornecedor
             try
             {
                 CarregaCotacaoFornecedor();
-
+                Taxa = ObterMultiplicador();
+                Grossup = 100*(1 - 1 / (1 + (Taxa / 100)));
+                string script = $"var taxa = {Taxa.ToString(System.Globalization.CultureInfo.InvariantCulture)};";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SetTaxa", script, true);
             }
             catch (Exception ex)
             {
                 Response.Redirect("../Geral/login.aspx");
             }
+            
+        }
+        private decimal ObterMultiplicador()
+        {
+            // Simulação de busca no banco de dados
+            // Substitua pela lógica real de acesso ao banco
+            return _core.ObterMultiplicador(); // Exemplo: método no core para buscar o valor
         }
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
