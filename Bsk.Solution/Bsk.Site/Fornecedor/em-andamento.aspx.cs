@@ -26,7 +26,10 @@ namespace Bsk.Site.Fornecedor
             List<CotacaoFornecedorListaModel> lista = new List<CotacaoFornecedorListaModel>();
             foreach (var item in cotacoes)
             {
+                Console.WriteLine($"Cotação ID: {item.CotacaoId}, Status: {item.Status}, CFId: {item.CFId}, IdFornecedorDB: {item.IdFornecedorDB}");
+
                 bool adciona = true;
+
                 if (item.Status == StatusCotacao.Aberto)
                 {
                     item.Status = "Aberto";
@@ -37,10 +40,6 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
-                    if (item.CFId != item.IdFornecedorDB)
-                    {
-                        adciona = false;
-                    }
                     item.Status = "Em andamento";
 
                     if (item.FinalizaCliente == 0 && item.FinalizaFornecedor == 1)
@@ -50,20 +49,18 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    if (item.CFId != item.IdFornecedorDB)
-                    {
-                        adciona = false;
-                    }
                     item.Status = "Aguardando pagamento";
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    if (item.CFId != item.IdFornecedorDB)
-                    {
-                        adciona = false;
-                    }
                     item.Status = "Finalizado";
                 }
+                // **IF FALTANTE ADICIONADO AQUI**
+                else if (item.Status == StatusCotacao.AguardandoAceite)
+                {
+                    item.Status = "Aguardando Aceite";
+                }
+
                 if (adciona)
                 {
                     lista.Add(item);

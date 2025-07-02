@@ -379,6 +379,9 @@
             }
             .item_content_card {
                 width: 360px;
+                display: flex !important;
+                flex-direction: column!important;
+                align-items: stretch !important;
             }
             .dataTables_length label {
                 width: 350px !important;
