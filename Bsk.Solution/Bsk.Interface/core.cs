@@ -299,7 +299,7 @@ namespace Bsk.Interface
             var sql = $@"
                 SELECT 
                     CF.IdSolicitacao AS CotacaoId,
-                    CF.IdCotacao AS CotacaoFornecedorId,
+                    CF.IdCotacao AS IdFornecedorDB,
                     CF.IdParticipante AS FornecedorId,
                     CT.IdParticipante AS ClienteId,
                     CL.Nome,
