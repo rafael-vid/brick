@@ -59,7 +59,7 @@
                             <td>
                                 <% if (item.Status == "Recusado") { %>
                                     <center>-</center>
-                                <% } else if (item.Status == "Aberto" || item.Status == "Aguardando pagamento" || item.Status == "Em andamento" || item.Status == "Pendente de finalização do cliente" || item.Status == "Finalizado") { %>
+                                <% } else if (item.Status == "Aberto" || item.Status == "Aguardando pagamento" || item.Status == "Em andamento" || item.Status == "Aguardando Aceite" || item.Status == "Finalizado") { %>
                                     <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%: item.CotacaoId %>">Visualizar</a>
                                     <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%: item.IdFornecedorDB %>">Negociar</a>
                                 <% } %>

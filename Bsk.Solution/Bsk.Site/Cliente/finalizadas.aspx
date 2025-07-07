@@ -219,7 +219,7 @@
              .card-cotacao-dados {
                  width: 400px !important;
              }
-             .cotacoes-cli .acessos {
+             .cotacoes-cli {
                  flex-wrap: unset;
              }
              .acessos-small {

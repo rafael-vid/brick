@@ -62,7 +62,6 @@ nav.menu-dashboard {
 .acessos{
     display:flex;
     justify-content:space-evenly;
-    flex-wrap:wrap;
     grid-gap:30px !important;
 }
 .acessos .btn_card{

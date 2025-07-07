@@ -303,13 +303,23 @@ namespace Bsk.Interface
 
         public List<CotacaoFornecedorListaModel> CotacaoFornecedorListaStatusGet(int idFornecedor, string status)
         {
-            var sql = $@"select CF.IdSolicitacao as CotacaoId, CF.IdCotacao as IdFornecedorDB, CT.IdParticipante as ClienteId, CL.Nome, CT.Notafornecedor as Nota, CT.Titulo, CT.Status, CT.FinalizaCliente, CT.FinalizaFornecedor, CT.IdCotacao as CFId
-                        from cotacao CF 
-                        inner join solicitacao CT
-                        on CT.IdSolicitacao = CF.IdCotacao
-                        inner join participante CL
-                        on CL.IdParticipante = CT.IdParticipante
-                        where CT.Status in {status} and CF.Idparticipante =" + idFornecedor;
+            var sql = $@"
+                SELECT 
+                    CF.IdSolicitacao AS CotacaoId,
+                    CF.IdCotacao AS IdFornecedorDB,
+                    CF.IdParticipante AS FornecedorId,
+                    CT.IdParticipante AS ClienteId,
+                    CL.Nome,
+                    CT.Notafornecedor AS Nota,
+                    CT.Titulo,
+                    CT.Status,
+                    CT.FinalizaCliente,
+                    CT.FinalizaFornecedor
+                FROM cotacao CF
+                INNER JOIN solicitacao CT ON CF.IdSolicitacao = CT.IdSolicitacao
+                INNER JOIN participante CL ON CL.IdParticipante = CT.IdParticipante
+                WHERE CT.Status IN {status} AND CF.IdParticipante = " + idFornecedor;
+
             return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
