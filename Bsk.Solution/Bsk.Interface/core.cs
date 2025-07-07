@@ -742,6 +742,34 @@ namespace Bsk.Interface
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }
+        ////////////////////////////////////////////// Cartão ////////////////////////////////////////////////////////////
+        public List<CartaoBE> Cartao_Get(CartaoBE lg, string _filtro)
+        {
+            List<CartaoBE> Lista_lg = new List<CartaoBE>();
+            Lista_lg.Add(lg);
+            return _base.ToList<CartaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
+        }
+
+        public string Cartao_Insert(CartaoBE lg)
+        {
+            List<CartaoBE> Lista_lg = new List<CartaoBE>();
+            Lista_lg.Add(lg);
+            return db.Insert(_base.Insert(Lista_lg, null));
+        }
+
+        public void Cartao_Update(CartaoBE lg, string filtro)
+        {
+            List<CartaoBE> Lista_lg = new List<CartaoBE>();
+            Lista_lg.Add(lg);
+            db.Update(_base.Update(Lista_lg, filtro));
+        }
+
+        public void Cartao_Delete(CartaoBE lg)
+        {
+            List<CartaoBE> Lista_lg = new List<CartaoBE>();
+            Lista_lg.Add(lg);
+            db.Delete(_base.Delete(Lista_lg, null));
+        }
 
         ////////////////////////////////////////////// CotacaoFornecedor ////////////////////////////////////////////////////////////
         public List<CotacaoBE> CotacaoFornecedor_Get(CotacaoBE lg, string _filtro)
