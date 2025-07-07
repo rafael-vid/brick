@@ -184,13 +184,50 @@
                             </div>
                         </div>
 
-                        <div class="item_content_card ">
-                            <div class="subtitulo-com-icone">
-                                <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
-                                <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço </h2>
-                            </div>
-                            <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server"/>
-                        </div>
+                        <div class="item_content_card">
+    <div class="subtitulo-com-icone">
+        <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+        <h2 class="subtitulo_card_1 subtitulo_1">Informe o valor que você cobrará pelo serviço</h2>
+    </div>
+    <input type="text" class="input-cinza" id="valorServico" clientidmode="static" runat="server" onkeyup="calculateGrossup()" />
+</div>
+
+<div class="item_content_card">
+    <div class="subtitulo-com-icone">
+        <img src="../assets/imagens/financeiro.svg" alt="ícone" style="width: 20px;">
+        <h2 class="subtitulo_card_1 subtitulo_1">Valor final para o cliente (+<%= Grossup.ToString("F2") %>%)</h2>
+    </div>
+    <input type="text" class="input-cinza" id="grossup" readonly />
+</div>
+
+<script type="text/javascript">
+    
+    function calculateGrossup() {
+        // Obtém o valor do campo valorServico
+        var valorServico = document.getElementById('valorServico').value;
+
+        // Remove caracteres não numéricos (exceto vírgula e ponto)
+        valorServico = valorServico.replace(/[^0-9,]/g, '');
+
+        // Substitui vírgula por ponto para conversão numérica
+        var valor = parseFloat(valorServico.replace(',', '.'));
+
+        // Obtém o campo grossup
+        var grossupField = document.getElementById('grossup');
+
+        // Verifica se o valor é um número válido
+        if (!isNaN(valor)) {
+            // Calcula o grossup e exibe no campo com "R$ " antes do valor
+            
+            var grossup = (1+1-1/(1+(taxa/100)));
+            var grossupValue = (valor*grossup).toFixed(2);
+            grossupField.value = "R$ " + grossupValue.replace('.', ',');
+        } else {
+            // Limpa o campo grossup se o valor for inválido
+            grossupField.value = '';
+        }
+    }
+</script>
                    
                                     <hr />
                                 <div class="gravar-video" id="finalizarCotacao">

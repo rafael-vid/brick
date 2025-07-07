@@ -124,34 +124,59 @@
                 </div>
             </div>
 
-            <div class="item_content_card   ">
-                <div class="area_comentario boleto_ca">
-                    <div class="item_content_card">
-                        <h2 class="subtitulo_card_1 subtitulo_1">Nome do Cartão</h2>
-                        <input type="text" class="card-input-add" id="nomeCartao" runat="server">
-                    </div>
-                    <div class="item_content_card">
-                        <h2 class="subtitulo_card_1 subtitulo_1">Número do Cartão</h2>
-                        <input type="text" class="card-input-add" id="numeroCartao" runat="server">
-                    </div>
-                </div>
-            </div>
-            <div class="item_content_card   ">
-                <div class="area_comentario_g3">
-                    <div class="item_content_card">
-                        <h2 class="subtitulo_card_1 subtitulo_1">Mês</h2>
-                        <input type="text" class="card-input-add" id="mes" runat="server">
-                    </div>
-                    <div class="item_content_card">
-                        <h2 class="subtitulo_card_1 subtitulo_1">Ano</h2>
-                        <input type="text" class="card-input-add" id="ano" runat="server">
-                    </div>
-                    <div class="item_content_card">
-                        <h2 class="subtitulo_card_1 subtitulo_1">CVV</h2>
-                        <input type="text" class="card-input-add" id="codigo" runat="server">
-                    </div>
-                </div>
-            </div>
+            <form id="formPagamento" method="POST" data-pagarmecheckout-form="">
+
+    <div class="item_content_card">
+        <h2 class="subtitulo_card_1 subtitulo_1">Nome do Cartão</h2>
+        <input type="text" name="holder-name" data-pagarmecheckout-element="holder_name" class="card-input-add" id="nomeCartao" runat="server">
+    </div>
+    <div class="item_content_card">
+        <h2 class="subtitulo_card_1 subtitulo_1">Número do Cartão</h2>
+        <input type="text" name="card-number" data-pagarmecheckout-element="number" class="card-input-add" id="numeroCartao" runat="server" oninput="mascaraCartao(this)">>
+    </div>
+    <div class="item_content_card">
+        <h2 class="subtitulo_card_1 subtitulo_1">Mês</h2>
+        <input type="text" name="card-exp-month" data-pagarmecheckout-element="exp_month" class="card-input-add" id="mes" runat="server">
+    </div>
+    <div class="item_content_card">
+        <h2 class="subtitulo_card_1 subtitulo_1">Ano</h2>
+        <input type="text" name="card-exp-year" data-pagarmecheckout-element="exp_year" class="card-input-add" id="ano" runat="server">
+    </div>
+    <div class="item_content_card">
+        <h2 class="subtitulo_card_1 subtitulo_1">CVV</h2>
+        <input type="text" name="cvv" data-pagarmecheckout-element="cvv" class="card-input-add" id="codigo" runat="server">
+    </div>
+    <button type="submit" id="Button1" runat="server" onserverclick="btnPagamento_ServerClick" class="btn_card">Pagar</button>
+</form>
+
+<script>
+    function mascaraCartao(input) {
+        // Remove todos os caracteres que não sejam números
+        let valor = input.value.replace(/\D/g, '');
+
+        // Adiciona espaços a cada 4 dígitos
+        valor = valor.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+        // Atualiza o valor do campo
+        input.value = valor;
+    }
+</script>
+
+<script src="https://checkout.pagar.me/v1/tokenizecard.js" data-pagarmecheckout-app-id="pk_test_yYrwmmuREFL5w3X8"></script>
+
+<script>
+    function success(data) {
+        console.log('Token gerado:', data);
+        document.getElementById('formPagamento').submit();
+    }
+
+    function fail(error) {
+        console.error('Erro ao gerar token:', error);
+    }
+
+    PagarmeCheckout.init(success, fail);
+</script>
+
 
             <div class="item_content_card card_boleto_valor  ">
                 <span class="valor_" id="valor" runat="server">

@@ -106,6 +106,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dbComum.cs" />
+    <Compile Include="Entity\Adress.cs" />
+    <Compile Include="Entity\Antifraud.cs" />
+    <Compile Include="Entity\AutomaticAnticipationSettings.cs" />
+    <Compile Include="Entity\BankAccount.cs" />
+    <Compile Include="Entity\Card.cs" />
+    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\Item.cs" />
+    <Compile Include="Entity\Order.cs" />
+    <Compile Include="Entity\Payment.cs" />
+    <Compile Include="Entity\Phone.cs" />
+    <Compile Include="Entity\Recipient.cs" />
+    <Compile Include="Entity\Shipping.cs" />
+    <Compile Include="Entity\TransferSettings.cs" />
     <Compile Include="Helper\AcessoDados.cs" />
     <Compile Include="Helper\Convertions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,6 +133,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

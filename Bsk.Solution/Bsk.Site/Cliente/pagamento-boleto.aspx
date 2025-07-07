@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pagamento-boleto.aspx.cs" Inherits="Bsk.Site.Cliente.pagamento_boleto" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" Async="true" AutoEventWireup="true" CodeBehind="pagamento-boleto.aspx.cs" Inherits="Bsk.Site.Cliente.pagamento_boleto" MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
@@ -94,8 +94,21 @@
             <div class="item_content_card card_boleto_valor  ">
                 <span class="valor_" id="valor" runat="server"></span>
                 <button class="btn_card" id="btnGerar" runat="server" onserverclick="btnGerar_ServerClick">Baixar Boleto</button>
+                <asp:HiddenField ID="hfBoletoUrl" runat="server" />
                 <label id="lbMsg" runat="server" style="color: red;"></label>
             </div>
+
+            <asp:Label ID="lblApiResponse" runat="server" CssClass="api-response" ForeColor="Green"></asp:Label>
+
+            <script type="text/javascript">
+function openBoletoWindow() {
+    var url = document.getElementById('<%= hfBoletoUrl.ClientID %>').value;
+    if (url) {
+        window.open(url, '_blank');
+    }
+}
+</script>
+
 
             <div class="footer_card" style="margin-top: 36p;">
               

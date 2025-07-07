@@ -47,6 +47,7 @@
          
              </div>
          </div>
+        <asp:Literal ID="litCategoria" runat="server" />
             <div class="item_content_card">
                 <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulo" runat="server">
