@@ -74,36 +74,16 @@
 
                     </select>
                 </div>
-            <div class="filtros_card">
 
-
-
-             <div class="dataTables_length" id="tabela_length">
-                 <label>
-                     <select name="tabela_length" aria-controls="tabela" class="">
-                         <option value="10">10</option>
-                         <option value="25">25</option>
-                         <option value="50">50</option>
-                         <option value="100">100</option>
-                     </select> resultados por página
-
-                 </label>
-             </div>
-
-                <div class="pesquisar">
-                    <img src="../assets/imagens/lupa-cinza.svg" alt="lipa" style="width: 15px;">
-                    <input type="text" placeholder="Pesquisar" id="search" class="pesquisar_input">
-                </div>
-            </div>
-
-           <div class="card-tabela " style="overflow-x: auto;">
-    <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+           <div class="card-tabela">
+    <table id="tabela" data-order='[[ 2, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
         <thead id="cabecalho-tabela">
             <tr>
                 <th>Cotação</th>
                 <th>Detalhamento </th>
                 <th>Status</th>
                 <th class="centered">Ação</th>
+
             </tr>
         </thead>
 
@@ -113,7 +93,6 @@
             { %>
             <tr>
                 <td><% Response.Write(item.IdSolicitacao); %></td>
-                <td style="display: none;"><% Response.Write(item.DataCriacao); %></td>
                 <td><% Response.Write(item.Titulo); %></td>
                 <td><% Response.Write(item.Status); %></td>
                 <%  

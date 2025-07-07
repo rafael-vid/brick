@@ -330,7 +330,6 @@
     <Content Include="assets\imgages\whatsapp.png" />
     <Content Include="assets\js\script.js" />
     <Content Include="Cliente\AlterarSenha.aspx" />
-    <Content Include="Cliente\meus-cartoes.aspx" />
     <Content Include="Cliente\cadastro-solicitacao.aspx" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
     <Content Include="Cliente\js\sweetalert2.all.min.js" />
@@ -1427,13 +1426,6 @@
     <Compile Include="Cliente\avaliar.aspx.designer.cs">
       <DependentUpon>avaliar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\meus-cartoes.aspx.cs">
-      <DependentUpon>meus-cartoes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cliente\meus-cartoes.aspx.designer.cs">
-      <DependentUpon>meus-cartoes.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cliente\buscar-servico.aspx.cs">
       <DependentUpon>buscar-servico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1496,14 +1488,6 @@
     </Compile>
     <Compile Include="Cliente\finalizadas.aspx.designer.cs">
       <DependentUpon>finalizadas.aspx</DependentUpon>
-    </Compile>
-    <Content Include="Cliente\pagamento-pix.aspx" />
-    <Compile Include="Cliente\pagamento-pix.aspx.cs">
-      <DependentUpon>pagamento-pix.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cliente\pagamento-pix.aspx.designer.cs">
-      <DependentUpon>pagamento-pix.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\busca.aspx.cs">
       <DependentUpon>busca.aspx</DependentUpon>

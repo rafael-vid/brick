@@ -358,11 +358,11 @@ nav.menu-dashboard {
 }
 
 /* cotação ********************************** */
-
 .acessos {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 60px;
+    justify-content: space-evenly;
+    grid-gap: 30px !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
 }
 .acessos .btn_card {
   width: 100%;
@@ -856,7 +856,7 @@ button.btn.bp-cotacao {
     position: relative;
   }
 
-  .cotacoes-cli .acessos {
+  .cotacoes-cli{
     flex-wrap: wrap;
   }
 
@@ -923,7 +923,7 @@ button.btn.bp-cotacao {
     grid-gap: 30px;
   }
 
-  .cotacoes-cli .acessos {
+  .cotacoes-cli {
     flex-wrap: wrap;
   }
   .cli-infos-values {
@@ -1023,7 +1023,7 @@ button.btn.bp-cotacao {
     flex-direction: column;
   }
 
-  .cotacoes-cli .acessos {
+  .cotacoes-cli {
     flex-wrap: wrap;
   }
 
@@ -1138,7 +1138,7 @@ button.btn.bp-cotacao {
     flex-direction: column;
   }
 
-  .cotacoes-cli .acessos {
+  .cotacoes-cli {
     flex-wrap: wrap;
   }
 
@@ -1225,7 +1225,7 @@ button.btn.bp-cotacao {
   margin-bottom: 10px;
   margin-top: 0;
 }
-.cotacoes-cli .acessos {
+.cotacoes-cli {
   display: flex;
   justify-content: space-between;
   padding: 0 10%;
@@ -1421,7 +1421,7 @@ label.subtitulo_card_1.subtitulo_1 {
 .infos-dash li a img {
   margin-right: 10px;
 }
-.cli-cotacao .acessos {
+.cli-cotacao {
   display: flex;
   padding: 0 10%;
   margin-bottom: 30px;

@@ -1333,11 +1333,7 @@ nav.menu-dashboard {
 .dash-cliente .vertodos {
   margin-bottom: 10px;
   margin-top: 0;
-}
-.cotacoes-cli .acessos {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10%;
+}  
 }
 .cotacoes-cli .filtros_card {
   margin-top: 30px;
@@ -1556,11 +1552,6 @@ nav.menu-dashboard {
         .infos-dash li a img {
             margin-right: 10px;
         }
-
-        .cli-cotacao .acessos {
-            display: flex;
-            padding: 0 10%;
-            margin-bottom: 30px;
         }
 
         @media (max-width: 800px) {
