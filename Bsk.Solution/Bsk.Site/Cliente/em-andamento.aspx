@@ -80,7 +80,7 @@
         <thead id="cabecalho-tabela">
             <tr>
                 <th>Cotação</th>
-                <th>Detalhamento </th>
+                <th>Descrição </th>
                 <th>Status</th>
                 <th class="centered">Ação</th>
 
