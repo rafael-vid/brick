@@ -24,7 +24,7 @@ namespace Bsk.Site.Fornecedor
             nrCotacao.InnerText = cotacao.IdSolicitacao.ToString();
 
             ParticipanteBE login = Funcoes.PegaLoginParticipante(Request.Cookies["Login"].Value);
-            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, $" IdSolicitacao={Request.QueryString["Cotacao"]} and IdParticipanteFornecedor={login.IdParticipante}").FirstOrDefault();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, $" IdSolicitacao={Request.QueryString["Cotacao"]} and IdParticipante={login.IdParticipante}").FirstOrDefault();
             if (cf != null)
             {
                 btnAdicionar.Visible = false;
@@ -45,7 +45,7 @@ namespace Bsk.Site.Fornecedor
             {
                 DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                 IdSolicitacao = int.Parse(Request.QueryString["Cotacao"]),
-                IdParticipanteFornecedor = login.IdParticipante,
+                IdParticipante = login.IdParticipante,
                 Valor = 0,
                 DataEntrega = "",
                 Ativo = 1,
@@ -63,12 +63,12 @@ namespace Bsk.Site.Fornecedor
             notif.data = DateTime.Now;
             notif.link = $"cotacao-lista.aspx?Id={CotacaoBE.IdSolicitacao}";
             notif.visualizado = "0";
-            notif.idcliente = cotacao2.IdCliente;
+            notif.idcliente = cotacao2.IdParticipante;
 
             _core.NotificacaoInsert(notif);
 
 
-            Response.Redirect("negociar-cotacao.aspx?Id=" + id);
+            Response.Redirect("negociar-cotacao.aspx?Id=" + id + "&Cotacao=" + Request.QueryString["Cotacao"]);
         }
     }
 }

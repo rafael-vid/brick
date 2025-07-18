@@ -28,7 +28,7 @@ namespace Bsk.Site.Cliente
                 Response.Redirect("minhas-cotacoes.aspx");
             }
 
-            var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
+            var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
             nrCotacao.Text = cotacao.IdSolicitacao.ToString();
             titulo.Text = cotacao.Titulo;
             valor.Text = cotacaoFornecedor.Valor.ToString();
@@ -48,7 +48,7 @@ namespace Bsk.Site.Cliente
             string mensagem = $"pagamento da cotação Nº no valor de {cf.Valor} foi liberado pelo cliente! Acesse a plataforma BRIKK para mais detalhes:<br><a href='{link}'>Acesse</a><br>Caso o link acima não funcione, basta colar essa url no seu navegador:<br>{link}";
             string imagem = VariaveisGlobais.Logo;
             ClienteBE clienteBE = new ClienteBE();
-            var forn = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            var forn = _core.Fornecedor_Get(_FornecedorBE, "IdFornecedor=" + cf.IdParticipante).FirstOrDefault();
             string email = forn.Email;
 
             EmailTemplate emailTemplate = new EmailTemplate();

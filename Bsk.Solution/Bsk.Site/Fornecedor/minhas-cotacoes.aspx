@@ -3,15 +3,12 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
     <div class="conteudo-dash cotacao">
-        <div class="acessos">
-             <a href="minhas-cotacoes.aspx" class="btn_card">
-                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">
-                Buscar nova cotação
+        <div id="acessos" class="acessos">
+            <a href="minhas-cotacoes.aspx" class="btn_card">
+                <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
             </a>
-            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação
-            </a>
-            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação
-            </a>
+            <a href="em-andamento.aspx" class="btn_card">Cotações em negociação</a>
+            <a href="minhas-areas.aspx" class="btn_card">Minhas áreas de atuação</a>
             <div class="total_a_receber total_a_receber-new">
                 <span>Total a receber</span>
                 <p>
@@ -32,6 +29,79 @@
                 </div>
             </div>
         </div>
+        <div id="acessos-small" class="acessos-small">
+            <div class="row">
+                <div class="dropdown">
+                    <a href="minhas-cotacoes.aspx" class="btn_card" style="margin-top: 10px;">
+                        <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Buscar nova cotação
+                    </a>
+                    <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown2()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none;">
+                        ⋮
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu2" style="display: none;">
+                        <a href="em-andamento.aspx" class="dropdown-item">Cotações em negociação</a>
+                        <a href="minhas-areas.aspx" class="dropdown-item">Minhas áreas de atuação</a>
+                        <div class="dropdown-item">
+                            <span style="font-weight: bold;">Total a receber</span>
+                            <p><span id="Span1" runat="server"></span></p>
+<%--                            <div class="eleva_sifra eleva_sifra-new">
+                                <svg width="16" height="24" viewbox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                     <path
+                                         d="m2.32003 19.05c3.39875 19.8816 4.66035 20.4439 6.00003 20.69v21.8c6.00266 22.1324 6.13657 22.4503 6.37258 22.6844c6.60859 22.9186 6.92759 23.05 7.26004 23.05h8.82003c8.98502 23.0513 9.14863 23.0199 9.30145 22.9577c9.45426 22.8955 9.59325 22.8036 9.71038 22.6874c9.82752 22.5712 9.92047 22.4329 9.98391 22.2806c10.0474 22.1283 10.08 21.9649 10.08 21.8v20.69c11.1751 20.5061 12.2224 20.1049 13.16 19.51c13.9004 19.0616 14.5118 18.4287 14.9342 17.6732c15.3567 16.9177 15.5758 16.0655 15.57 15.1999c15.6258 14.1098 15.2688 13.0386 14.57 12.1999c13.3873 10.9185 11.7828 10.1057 10.05 9.90995v8.03996c10.1898 8.13104 10.3235 8.23125 10.45 8.33995c10.7268 8.58046 11.0835 8.70886 11.45 8.69995c11.6973 8.6867 11.9392 8.622 12.16 8.50996h12.21l13.96 7.40995c14.128 7.32534 14.2687 7.19508 14.366 7.03411c14.4633 6.87315 14.5132 6.688 14.51 6.49995c14.5157 6.35127 14.4881 6.20321 14.4293 6.06654c14.3705 5.92987 14.2819 5.80805 14.17 5.70996c13.0984 4.49587 11.6581 3.66682 10.07 3.34995v2.03996c10.0714 1.87412 10.0397 1.70966 9.97683 1.55619c9.91398 1.40272 9.82121 1.26329 9.70394 1.14602c9.58668 1.02875 9.44726 0.935997 9.29379 0.873148c9.14032 0.810299 8.97586 0.778615 8.81002 0.779948h7.25003c6.91585 0.779948 6.59536 0.912701 6.35906 1.149c6.12277 1.38529 5.99002 1.70578 5.99002 2.03996v3.29995c5.32019 3.41035 4.66789 3.60873 4.05001 3.88995c1.80001 4.88995 0.680026 6.47995 0.720026 8.54995c0.727931 9.52861 1.0505 10.4788 1.64004 11.26c2.72883 12.5981 4.28926 13.4678 6.00003 13.69v16.3899c5.33113 16.0325 4.72895 15.5623 4.22003 14.9999c4.10419 14.8448 3.95309 14.7194 3.7792 14.6342c3.60531 14.549 3.41363 14.5064 3.22003 14.51c3.00158 14.5286 2.78822 14.5862 2.59002 14.68v14.68l1.00003 15.6099c0.814799 15.7017 0.659817 15.8448 0.553461 16.022c0.447106 16.1993 0.393838 16.4033 0.400019 16.6099c0.406865 16.8674 0.502238 17.1146 0.670038 17.3099c1.13357 17.9662 1.68928 18.5523 2.32003 19.05v19.05zm1.32003 16.35l2.89004 15.43c2.98284 15.3863 3.08005 15.3528 3.18002 15.33c3.2503 15.3274 3.32009 15.3426 3.38299 15.374c3.44589 15.4055 3.49989 15.4522 3.54003 15.51c4.26398 16.3372 5.18116 16.9727 6.21002 17.3599c6.26658 17.3915 6.33026 17.408 6.39501 17.408c6.45977 17.408 6.52345 17.3915 6.58001 17.3599c6.63291 17.3228 6.67602 17.2733 6.70562 17.2159c6.73523 17.1584 6.75047 17.0946 6.75003 17.0299v13.3599c6.7487 13.2626 6.71275 13.1689 6.64862 13.0956c6.58449 13.0223 6.49636 12.9742 6.40002 12.96c4.78022 12.8235 3.28063 12.0504 2.23004 10.8099c1.74067 10.166 1.47709 9.37875 1.48004 8.56996c1.48004 6.82996 2.38001 5.56995 4.33001 4.66995c4.98844 4.37782 5.68566 4.18246 6.40002 4.08995c6.49806 4.07545 6.58754 4.02593 6.65188 3.95056c6.71623 3.87518 6.75109 3.77906 6.75003 3.67996v2.07995c6.75 1.96232 6.79602 1.84935 6.87826 1.76524c6.9605 1.68113 7.07242 1.63257 7.19003 1.62995h8.75002c8.86937 1.62995 8.98384 1.67737 9.06823 1.76176c9.15262 1.84615 9.20004 1.9606 9.20004 2.07995v3.68995c9.19857 3.78495 9.23097 3.87737 9.29144 3.95066c9.3519 4.02395 9.43647 4.07333 9.53002 4.08995c11.0793 4.32052 12.4966 5.09296 13.53 6.26995v6.26995c13.5595 6.29012 13.5839 6.31689 13.6013 6.34814c13.6186 6.37938 13.6285 6.41424 13.63 6.44995c13.63 6.44995 13.63 6.57995 13.45 6.68995l11.72 7.77995c11.6153 7.82874 11.5042 7.86241 11.39 7.87995v7.87995c11.2192 7.88492 11.0523 7.82811 10.92 7.71995c10.5746 7.41348 10.1874 7.1576 9.77001 6.95996c9.71012 6.92757 9.64313 6.91061 9.57504 6.91061c9.50695 6.91061 9.43992 6.92757 9.38003 6.95996c9.32187 6.99802 9.27406 7.04992 9.2409 7.111c9.20774 7.17209 9.19026 7.24044 9.19003 7.30995v10.24c9.18896 10.3391 9.22383 10.4352 9.28817 10.5106c9.35252 10.5859 9.44199 10.6355 9.54003 10.65c11.1969 10.7675 12.7493 11.5026 13.89 12.71c14.4463 13.3858 14.7282 14.246 14.68 15.1199c14.6846 15.8526 14.4979 16.5738 14.1384 17.2122c13.7788 17.8506 13.2589 18.3841 12.63 18.76c11.6925 19.3585 10.6336 19.7411 9.53002 19.88c9.4329 19.8946 9.34456 19.9445 9.28185 20.0201c9.21915 20.0957 9.18647 20.1918 9.19003 20.29v21.74c9.18741 21.8576 9.13885 21.9695 9.05474 22.0517c8.97063 22.1339 8.85765 22.18 8.74002 22.18h7.18002c7.06332 22.18 6.95141 22.1336 6.86889 22.0511c6.78638 21.9686 6.74002 21.8566 6.74002 21.74v20.29c6.73908 20.194 6.70457 20.1015 6.64245 20.0284c6.58033 19.9553 6.49453 19.9063 6.40002 19.8899c5.08305 19.683 3.8387 19.1502 2.78002 18.3399c2.17612 17.8966 1.64334 17.3639 1.20004 16.76v16.76c1.14929 16.7097 1.12051 16.6414 1.12002 16.57c1.12002 16.57 1.12003 16.46 1.32003 16.35v16.35z"
+                                         fill="#770e18" />
+                                     <path
+                                         d="m6.77998 7.29999c6.77923 7.23307 6.76252 7.16731 6.73121 7.10817c6.6999 7.04903 6.65491 6.99823 6.59999 6.95999c6.54161 6.92848 6.47632 6.91199 6.40998 6.91199c6.34365 6.91199 6.27836 6.92848 6.21998 6.95999h6.09999c5.76854 7.07407 5.48075 7.28838 5.2765 7.57326c5.07225 7.85813 4.96163 8.19946 4.95997 8.54999v8.54999c4.95859 8.93682 5.08397 9.31345 5.31694 9.62227c5.5499 9.93109 5.87764 10.1551 6.24998 10.26c6.29608 10.2703 6.3439 10.2703 6.39 10.26c6.47136 10.2565 6.55049 10.2325 6.61998 10.19c6.67432 10.1512 6.71889 10.1003 6.75013 10.0412c6.78138 9.98223 6.79843 9.91675 6.79997 9.84999l6.77998 7.29999zm5.95997 9.15999c5.81831 8.9967 5.74334 8.78606 5.74998 8.56999c5.74593 8.36932 5.82141 8.17519 5.95997 8.02998v9.15999z"
+                                         fill="#770e18" />
+                                     <path
+                                         d="m9.40997 17.29c9.47427 17.3356 9.55116 17.3601 9.62997 17.36c9.68567 17.3749 9.74426 17.3749 9.79996 17.36c9.93483 17.3033 10.0652 17.2365 10.19 17.16c10.5298 16.971 10.8123 16.6938 11.0076 16.3576c11.203 16.0215 11.304 15.6388 11.3 15.25c11.3049 14.8068 11.1531 14.3761 10.8713 14.0339c10.5895 13.6917 10.1959 13.4602 9.75998 13.38c9.69769 13.3622 9.63223 13.3583 9.56827 13.3687c9.50431 13.379 9.44343 13.4034 9.38998 13.44c9.3401 13.4793 9.29975 13.5295 9.27203 13.5866c9.24432 13.6438 9.22996 13.7065 9.22998 13.77v16.99c9.2353 17.0504 9.25425 17.1088 9.28543 17.1607c9.31661 17.2127 9.3592 17.2569 9.40997 17.29v17.29zm10.04 14.37c10.1853 14.4547 10.3043 14.5781 10.3837 14.7264c10.4632 14.8747 10.4999 15.0421 10.49 15.21c10.4904 15.3991 10.4504 15.5861 10.3728 15.7586c10.2952 15.931 10.1818 16.0849 10.04 16.21v14.37z"
+                                         fill="#770e18" />
+                                 </svg>
+                            </div>--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleDropdown2() {
+                var menu = document.getElementById("dropdownMenu2");
+                menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+            }
+
+            // Fecha o dropdown se o usuário clicar fora
+            window.onclick = function (event) {
+                if (!event.target.closest('.dropdown-toggle')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
+                    }
+                }
+            }
+        </script>
+
+        <script>
+            function toggleDropdown2() {
+                var menu = document.getElementById("dropdownMenu2");
+                menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+            }
+
+            // Fecha o dropdown se o usuário clicar fora
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropdown-toggle')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-menu");
+                    for (var i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.style.display === 'block') {
+                            openDropdown.style.display = 'none';
+                        }
+                    }
+                }
+            }
+        </script>
 
         <div class="card">
             <div class="titulo_card">
@@ -69,7 +139,6 @@
                             <td>Nº Cotação</td>
                             <td>Título</td>
                             <td>Nome cliente</td>
-
                             <td>Última atualização</td>
                             <td>Status</td>
                         </tr>
@@ -85,12 +154,12 @@
                             
                             if(item.Status == "2")
                             {
-                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                                link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                             }
 
-                            if (item.CotacaoFornecedorId != 0)
+                            if (item.IdFornecedorDB != 0)
                             {
-                                link = "negociar-cotacao.aspx?Id=" + item.CotacaoFornecedorId;
+                                link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
                             }
 
                     %>
@@ -111,31 +180,31 @@
                                 else if (item.Status == "Aberto")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Negociar</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Negociar</a>
                             <%}
                                 else if (item.Status == "Aguardando pagamento")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Em andamento")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Pendente de finalização do cliente")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
 
                             <%}
                                 else if (item.Status == "Finalizado")
                                 {%>
                             <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%Response.Write(item.CotacaoId); %>">Visualizar</a>
-                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Mensagens</a>
-                            <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Avaliação</a>
+                            <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Mensagens</a>
+                            <a class="btn btn-brikk" href="avaliar.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Avaliação</a>
                             <%} %>                              
                         </td>--%>
                     </tr>
@@ -195,10 +264,8 @@
                 display:flex;
                 bottom: 10px;
                 top: -30px;
+                margin: 0px;
                 /* display: block; */
-            }
-            .conteudo-dash {
-                padding: 15px 0px;
             }
             div#tabela_filter input[type="search"], .dataTables_length label {
                 width: 100% !important;
@@ -208,7 +275,34 @@
                 margin: -40px 40px 30px -10px !important;
             }
         }
+         .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            left: 50%; /* Alinha o menu com a borda esquerda do botão */
+         }
 
+        .dropdown {
+            margin: 0px 25px;
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
     </style>
 
     <script>
@@ -236,6 +330,22 @@
             }
         }
     </script>
-    <body onload="filtraTabela()">
+    <script>
+        function updateVisibility() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.acessos').style.display = 'none';
+                document.querySelector('.acessos-small').style.display = 'flex';
+            } else {
+                document.querySelector('.acessos').style.display = 'flex';
+                document.querySelector('.acessos-small').style.display = 'none';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility);
+    </script>
 </asp:Content>
 

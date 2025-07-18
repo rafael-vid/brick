@@ -65,7 +65,8 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.
+                )
                     {
                         item.Status = "Recusado";
                     }
@@ -82,7 +83,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         item.Status = "Recusado";
                     }
@@ -95,7 +96,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         item.Status = "Recusado";
                     }

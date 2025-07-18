@@ -28,8 +28,11 @@ namespace Bsk.Site.Fornecedor
         ClienteBE _ClienteBE = new ClienteBE();
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
 
+        protected decimal Taxa { get; set; }
+        protected decimal Grossup { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            string cotURL = Request.QueryString["Cotacao"];
             if (String.IsNullOrEmpty(Request.QueryString["Id"]))
             {
                 Response.Redirect("minhas-cotacoes.aspx");
@@ -38,12 +41,22 @@ namespace Bsk.Site.Fornecedor
             try
             {
                 CarregaCotacaoFornecedor();
-
+                Taxa = ObterMultiplicador();
+                Grossup = 100*(1 - 1 / (1 + (Taxa / 100)));
+                string script = $"var taxa = {Taxa.ToString(System.Globalization.CultureInfo.InvariantCulture)};";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SetTaxa", script, true);
             }
             catch (Exception ex)
             {
                 Response.Redirect("../Geral/login.aspx");
             }
+            
+        }
+        private decimal ObterMultiplicador()
+        {
+            // Simulação de busca no banco de dados
+            // Substitua pela lógica real de acesso ao banco
+            return _core.ObterMultiplicador(); // Exemplo: método no core para buscar o valor
         }
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
@@ -99,8 +112,7 @@ namespace Bsk.Site.Fornecedor
                     Descricao = descricao.Text,
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
-                    IdCliente = login.IdCliente,
-                    IdParticipante = login.IdCliente,
+                    IdParticipante = login.IdParticipante,
                     IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",
@@ -201,7 +213,7 @@ namespace Bsk.Site.Fornecedor
 
 
                     }
-                    else if (cotacao.IdCotacao != 0 && cotacaoFornecedor.IdParticipanteFornecedor == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
+                    else if (cotacao.IdCotacao != 0 && cotacaoFornecedor.IdParticipante == login.IdParticipante && cotacao.FinalizaFornecedor == 0)
                     {
                         divTerminar.Visible = true;
                         divDadosCobranca.Visible = false;
@@ -214,7 +226,7 @@ namespace Bsk.Site.Fornecedor
                     }
                 }
 
-                var cliente = _core.Cliente_Get(_ClienteBE, $" IdCliente={cotacao.IdCliente.ToString()}").FirstOrDefault();
+                var cliente = _core.Participante_Get(_ParticipanteBE, $" IdParticipante={cotacao.IdParticipante.ToString()}").FirstOrDefault();
                 if (cliente != null)
                 {
                     ClienteServ.InnerText = cliente.Nome;
@@ -285,8 +297,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdParticipante = 0; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipante = login.IdParticipante; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
@@ -305,7 +316,7 @@ namespace Bsk.Site.Fornecedor
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idcliente = cotacao.IdCliente;
+                notif.idcliente = cotacao.IdParticipante;
 
                 _core.NotificacaoInsert(notif);
 
@@ -387,7 +398,7 @@ namespace Bsk.Site.Fornecedor
             _core.CotacaoFornecedor_Update(cotacaoFornecedor, "IdCotacao=" + cotacaoFornecedor.IdCotacao);
 
             var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
-            var cliente = _core.Cliente_Get(_ClienteBE, "IdCliente=" + cotacao.IdCliente).FirstOrDefault();
+            var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
             string imagem = VariaveisGlobais.Logo;
             Bsk.Interface.Helpers.EmailTemplate emailTemplate = new Interface.Helpers.EmailTemplate();
@@ -401,7 +412,8 @@ namespace Bsk.Site.Fornecedor
         {
             try
             {
-                var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdCotacao={Request.QueryString["Cotacao"]}").FirstOrDefault();
+               var tata = Request.QueryString["Cotacao"];
+               var cotacaoFornecedor = _core.CotacaoFornecedor_Get(_CotacaoBE, $" IdSolicitacao={Request.QueryString["Cotacao"]}").FirstOrDefault();
                return _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao);
             }
             catch (Exception)
@@ -432,8 +444,7 @@ namespace Bsk.Site.Fornecedor
                 _CotacaoFornecedorChatBE.Video = video;
                 _CotacaoFornecedorChatBE.Arquivo = arquivo;
 
-                _CotacaoFornecedorChatBE.IdCliente = 1; // RETIRAR DO CODE
-                _CotacaoFornecedorChatBE.IdParticipanteFornecedor = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
+                _CotacaoFornecedorChatBE.IdParticipante = login.IdFornecedor; //cotacaoFornecedor.IdFornecedor; SEMPRE 0 PARA O QUE VAI RECEBER a MSG
                 _CotacaoFornecedorChatBE.LidaFornecedor = 0;
 
                 _core.CotacaoFornecedorChat_Insert(_CotacaoFornecedorChatBE);
@@ -452,7 +463,7 @@ namespace Bsk.Site.Fornecedor
                 notif.data = DateTime.Now;
                 notif.link = $"negociar-cotacao.aspx?Id={Request.QueryString["Id"]}";
                 notif.visualizado = "0";
-                notif.idcliente = cotacao.IdCliente;
+                notif.idcliente = cotacao.IdParticipante;
 
                 _core.NotificacaoInsert(notif);
 
@@ -477,7 +488,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.EmAndamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         adciona = false;
                     }
@@ -490,7 +501,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.AguardandoPagamento)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         adciona = false;
                     }
@@ -498,7 +509,7 @@ namespace Bsk.Site.Fornecedor
                 }
                 else if (item.Status == StatusCotacao.Finalizado)
                 {
-                    if (item.CFId != item.CotacaoFornecedorId)
+                    if (item.CFId != item.IdFornecedorDB)
                     {
                         adciona = false;
                     }

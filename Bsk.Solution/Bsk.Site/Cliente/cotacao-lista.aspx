@@ -146,7 +146,7 @@
                                 else
                                 {%>
                             <td>
-                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.CotacaoFornecedorId); %>">Visualizar</a></td>
+                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Visualizar</a></td>
 
                             <%  } %>
                         </tr>

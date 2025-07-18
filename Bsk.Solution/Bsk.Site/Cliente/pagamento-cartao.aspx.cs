@@ -100,7 +100,7 @@ namespace Bsk.Site.Cliente
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             var participanteCliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
-            if (validaCartao(participanteCliente))
+            if (validaCartao())
             {
                 if (valor.InnerText != String.Format("{0:R$#,##0.00;($#,##0.00);Zero}", cotacaoFornecedor.Valor))
                 {
@@ -112,7 +112,7 @@ namespace Bsk.Site.Cliente
                     clienteBE = new Bsk.BE.ClienteBE();
                     fornecedorBE = new Bsk.BE.FornecedorBE();
                     participanteBE = new Bsk.BE.ParticipanteBE();
-                    var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
+                    var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
 
                     string guidTransacao = Guid.NewGuid().ToString();
                     var vencimento = DateTime.Now.AddDays(VariaveisGlobais.DiasBoleto).ToString("yyyy-MM-dd");
@@ -156,7 +156,7 @@ namespace Bsk.Site.Cliente
 
                         if (participanteCliente.ZoopID != "" && participanteCliente.ZoopID != "Erro")
                         {
-                            _core.Participante_Update(participanteCliente, "IdParticipante=" + cotacao.IdCliente);
+                            _core.Participante_Update(participanteCliente, "IdParticipante=" + cotacao.IdParticipante);
 
                         }
                     }
@@ -261,27 +261,38 @@ namespace Bsk.Site.Cliente
                 
         }
 
-        private bool validaCartao(BE.ParticipanteBE participante)
+        private bool validaCartao()
         {
-            //if (!String.IsNullOrEmpty(cliente.MeioPagamento))
-            //{
-            //    var retApi = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(bskPag.ConsultaMeioPagamento(cliente));
-            //    string cardNumber = retApi["numeroCompleto"];
-            //   int month = int.Parse(retApi["mes"]);
-            //    int year = int.Parse(retApi["ano"]);
-            //
-            //    bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
-            //    bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
-            //    string cardType = CardUtils.GetCardType(cardNumber);
-            //
-            // Optionally check for a specific card type
-            // bool isExpectedType = cardType == "Visa";
+            // Obtém os valores dos campos preenchidos pelo usuário
+            string cardNumber = numeroCartao.Value;
+            string expiryMonth = mes.Value;
+            string expiryYear = ano.Value;
 
-            //    return isValidNumber && isValidExpiry; // && isExpectedType;
-            //}
-            //return false;
-            return true;
+            // Verifica se os campos obrigatórios foram preenchidos
+            if (string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(expiryMonth) || string.IsNullOrEmpty(expiryYear))
+            {
+                return false; // Campos obrigatórios não preenchidos
+            }
+
+            // Converte os valores de mês e ano para inteiros
+            if (!int.TryParse(expiryMonth, out int month) || !int.TryParse(expiryYear, out int year))
+            {
+                return false; // Mês ou ano inválidos
+            }
+
+            // Verifica se o número do cartão é válido usando o algoritmo de Luhn
+            bool isValidNumber = CardUtils.IsCardNumberValid(cardNumber);
+
+            // Verifica se a data de expiração é válida
+            bool isValidExpiry = CardUtils.IsExpiryValid(month, year);
+
+            // Opcional: Identifica o tipo do cartão
+            string cardType = CardUtils.GetCardType(cardNumber);
+
+            // Retorna true apenas se todas as validações forem bem-sucedidas
+            return isValidNumber && isValidExpiry;
         }
+
 
 
         protected void btnAlterar_ServerClick(object sender, EventArgs e)
@@ -293,27 +304,35 @@ namespace Bsk.Site.Cliente
     {
         public static bool IsCardNumberValid(string cardNumber)
         {
-            int sum = 0;
-            bool alternate = false;
+            if (string.IsNullOrWhiteSpace(cardNumber) || !cardNumber.All(char.IsDigit))
+            {
+                return false; // Verifica se o número do cartão é nulo, vazio ou contém caracteres não numéricos
+            }
 
+            int sum = 0;
+            bool doubleDigit = false;
+
+            // Itera pelos dígitos do cartão da direita para a esquerda
             for (int i = cardNumber.Length - 1; i >= 0; i--)
             {
-                char[] digits = cardNumber.ToCharArray();
-                int n = int.Parse(digits[i].ToString());
+                int digit = int.Parse(cardNumber[i].ToString());
 
-                if (alternate)
+                if (doubleDigit)
                 {
-                    n *= 2;
-                    if (n > 9)
+                    digit *= 2;
+                    if (digit > 9)
                     {
-                        n = (n % 10) + 1;
+                        digit -= 9; // Subtrai 9 se o valor for maior que 9
                     }
                 }
-                sum += n;
-                alternate = !alternate;
+
+                sum += digit;
+                doubleDigit = !doubleDigit; // Alterna entre dobrar ou não o próximo dígito
             }
-            return (sum % 10 == 0);
+
+            return (sum % 10 == 0); // Retorna true se a soma for múltiplo de 10
         }
+
 
         public static bool IsExpiryValid(int month, int year)
         {

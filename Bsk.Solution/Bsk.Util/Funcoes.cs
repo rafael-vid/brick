@@ -63,7 +63,7 @@ namespace Bsk.Util
             var ret = Newtonsoft.Json.JsonConvert.DeserializeObject<dynamic>(json);
             ClienteBE clienteBE = new ClienteBE()
             {
-                IdCliente = ret["IdCliente"],
+                IdParticipante = ret["IdParticipante"],
                 Bairro = ret["Bairro"],
                 Cep = ret["Cep"],
                 Cnpj = ret["Cnpj"],

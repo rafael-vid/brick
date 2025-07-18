@@ -8,7 +8,7 @@ namespace Bsk.BE.Model
 {
     public class CotacaoListaModel
     {
-        public int CotacaoFornecedorId { get; set; }
+        public int IdFornecedorDB { get; set; }
         public string Mensagens { get; set; }
         public decimal Valor { get; set; }
         public string DataUltimaResposta { get; set; }

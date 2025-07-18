@@ -253,7 +253,7 @@
             min-width: 150px; /* Largura do dropdown */
             top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
             right: 25px; /* Alinha o menu com a borda esquerda do botão */
-        }
+         }
 
         .dropdown {
             position: relative; /* Necessário para a posição do dropdown */

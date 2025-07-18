@@ -9,7 +9,7 @@ namespace Bsk.BE.Model
     public class CotacaoAvaliacaoFornecedorModel
     {
         public int CotacaoId { get; set; }
-        public int CotacaoFornecedorId { get; set; }
+        public int IdFornecedorDB { get; set; }
         public double Valor { get; set; }
         public string NomeCliente { get; set; }
         public string Observacao { get; set; }

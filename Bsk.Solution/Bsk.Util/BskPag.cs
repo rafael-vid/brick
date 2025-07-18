@@ -53,7 +53,7 @@ namespace Bsk.Util
                           'IdSeller': '" + seller.SellerID + @"',
                           'Empresa': '" + seller.RazaoSocial + @"',
                           'TipoPagamento': '" + tp + @"',
-                          'IdBuyer': '" + item.IdCliente + @"',
+                          'IdBuyer': '" + item.IdParticipante + @"',
                           'Email': '" + item.Email + @"',
                           'IdTransacao': 0,
                           'NomeBuyer': '" + item.Nome + @"',
@@ -100,7 +100,7 @@ namespace Bsk.Util
             usuario.Telefone = cli.Telefone;
             usuario.Email = cli.Email;
             usuario.DataNascimento = Convert.ToDateTime("01/01/1900");
-            usuario.IdCliente = cli.IdCliente.ToString();
+            usuario.IdCliente = cli.IdParticipante.ToString();
             usuario.CPF = cli.Cnpj;
 
             endereco.Pais = "br";

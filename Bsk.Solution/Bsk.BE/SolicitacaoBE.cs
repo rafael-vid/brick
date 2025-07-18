@@ -9,7 +9,6 @@ namespace Bsk.BE
    public class SolicitacaoBE
     {
         public int IdSolicitacao { get; set; }
-        public int IdCliente { get; set; }
         public int IdParticipante { get; set; }
         public int IdCategoria { get; set; }
         public string Status { get; set; }

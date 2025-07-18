@@ -9,6 +9,7 @@ namespace Bsk.Site.Cliente
 {
     using Bsk.BE;
     using Bsk.Interface;
+    using Bsk.Site.Admin;
     using Bsk.Util;
     using System.Configuration;
     using System.Runtime.Remoting.Messaging;
@@ -29,10 +30,22 @@ namespace Bsk.Site.Cliente
             {
                 cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
 
+                var categoria = cotacao.IdCategoria;
+                CategoriaBE _CategoriaBE = new CategoriaBE();
+                string filtro = $"IdCategoria = {categoria}";
+                var categorias = _core.Categoria_Get(_CategoriaBE, filtro);
+                if (categorias != null && categorias.Count > 0)
+                {
+                    string nome = categorias[0].Nome;
+                    litCategoria.Text = nome;
+                    // Use nome as needed
+                }
+                
+
                 if (cotacao.Status != StatusCotacao.Criacao)
                 {
-                    btnSalvar.Visible = false;
-                    btnSubmeter.Visible = false;
+                    //btnSalvar.Visible = false;
+                    //btnSubmeter.Visible = false;
                     divUpload.Visible = true;
                     // alerts.Visible = false;
                     // alerts2.Visible = false;
@@ -58,7 +71,7 @@ namespace Bsk.Site.Cliente
                 {
                     btnEnviarAnexo.Visible=false;
                     divUpload.Visible = true;
-                    btnSubmeter.Visible = false;
+                    //btnSubmeter.Visible = false;
                 }
             }
         }
@@ -117,7 +130,6 @@ namespace Bsk.Site.Cliente
                     FinalizaCliente = 0,
                     FinalizaFornecedor = 0,
                     IdParticipante = login.IdParticipante,
-                    IdCliente = 0,
                     IdCotacao = 0,
                     Nota = 0,
                     Observacao = "",
@@ -180,5 +192,22 @@ namespace Bsk.Site.Cliente
             // ####################################### ENVIAR PARA MSG ##########################################
             Response.Redirect("minhas-cotacoes.aspx");
         }
+        [System.Web.Services.WebMethod]
+        public static void AutoSave(string cotacao, string titulo, string descricao)
+        {
+            var core = new core();
+            var solicitacaoBE = new SolicitacaoBE();
+            if (!string.IsNullOrEmpty(cotacao))
+            {
+                var cotacaoObj = core.Cotacao_Get(solicitacaoBE, "IdSolicitacao=" + cotacao).FirstOrDefault();
+                if (cotacaoObj != null)
+                {
+                    cotacaoObj.Titulo = titulo;
+                    cotacaoObj.Descricao = descricao;
+                    core.Cotacao_Update(cotacaoObj, "IdSolicitacao=" + cotacaoObj.IdSolicitacao);
+                }
+            }
+        }
+
     }
 }

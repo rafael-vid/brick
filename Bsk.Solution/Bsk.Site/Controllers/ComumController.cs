@@ -115,7 +115,7 @@ namespace Bsk.Site.Controllers
             notif.data = DateTime.Now;
             notif.link = $"negociar-cotacao.aspx?Id={id}";
             notif.visualizado = "0";
-            notif.idcliente = cotacao.IdCliente;
+            notif.idcliente = cotacao.IdParticipante;
 
             _core.NotificacaoInsert(notif);
 
@@ -160,7 +160,7 @@ namespace Bsk.Site.Controllers
             _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
 
             ParticipanteBE _ParticipanteBE = new ParticipanteBE();
-            var fornecedor = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            var fornecedor = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cf.IdParticipante).FirstOrDefault();
             
             var cliente = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
 
@@ -190,7 +190,7 @@ namespace Bsk.Site.Controllers
             notif.data = DateTime.Now;
             notif.link = $"negociar-cotacao.aspx?Id={cotacao.IdSolicitacao}";
             notif.visualizado = "0";
-            notif.idcliente = cotacao.IdCliente;
+            notif.idcliente = cotacao.IdParticipante;
             
 
             _core.NotificacaoInsert(notif);
@@ -213,7 +213,7 @@ namespace Bsk.Site.Controllers
             ParticipanteBE participanteBE = new ParticipanteBE();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
-            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipante).FirstOrDefault();
 
             string titulo = "";
             string mensagem = "";
@@ -309,7 +309,7 @@ namespace Bsk.Site.Controllers
             var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
             FornecedorBE fornecedorBE = new FornecedorBE();
             ParticipanteBE participanteBE = new ParticipanteBE();
-            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipanteFornecedor).FirstOrDefault();
+            var fornecedor = _core.Participante_Get(participanteBE, "IdParticipante=" + cf.IdParticipante).FirstOrDefault();
             if (liberarPagamento(cotacao, cf, fornecedor))
             {
                 return this.Json(new { Result = StatusCotacao.Finalizado }, JsonRequestBehavior.AllowGet);
@@ -430,7 +430,7 @@ namespace Bsk.Site.Controllers
                         Ativo = 1,
                         DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                         Guid = Guid.NewGuid().ToString(),
-                        Id = cliente.IdCliente,
+                        Id = cliente.IdParticipante,
                         Tipo = tipo
                     };
                     _core.RedefinirSenha_Insert(redefinirSenhaBE);
@@ -467,7 +467,7 @@ namespace Bsk.Site.Controllers
                 DataEntrega = cotacaoFornecedor.DataEntrega,
                 IdSolicitacao = cotacaoFornecedor.IdSolicitacao,
                 IdCotacao = cotacaoFornecedor.IdCotacao,
-                IdParticipanteFornecedor = cotacaoFornecedor.IdParticipanteFornecedor
+                IdParticipante = cotacaoFornecedor.IdParticipante
             };
 
             cotacaoFornecedor.DataEntrega = data;
@@ -496,7 +496,7 @@ namespace Bsk.Site.Controllers
             notif.data = DateTime.Now;
             notif.link = $"cotacao-lista.aspx?Id={cotacao2.IdSolicitacao}";
             notif.visualizado = "0";
-            notif.idcliente = cotacao2.IdCliente;
+            notif.idcliente = cotacao2.IdParticipante;
 
             _core.NotificacaoInsert(notif);
 
@@ -596,7 +596,7 @@ namespace Bsk.Site.Controllers
                         video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
 
 
-                    if (item.IdCliente != 0)
+                    if (item.IdParticipante != 0)
                         conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                     else
                         conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + "<BR>" + video + "&nbsp;&nbsp;&nbsp;" + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
@@ -643,7 +643,7 @@ namespace Bsk.Site.Controllers
                         video = "<a href='" + ConfigurationManager.AppSettings["host"] + "Anexos/Video/" + item.Video + "' target='_blank'><img alt='' src='../assets/imagens/gravar.svg' style='width: 30px;' alt='anexar'></a>";
 
 
-                    if (item.IdCliente != 0)
+                    if (item.IdParticipante != 0)
                         conteudo = cliente.Replace("{{CLIENTEMSG}}", item.Mensagem + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");
                     else
                         conteudo = fornecedor.Replace("{{FORNECEDORMSG}}", item.Mensagem + video + arquivo + "<span class='pull-right'>" + item.DataCriacao + "</span>");

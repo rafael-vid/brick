@@ -55,7 +55,7 @@ namespace Bsk.Site.Cliente
                 }
             }
 
-            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
+            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
             nrCotacao.Text = cotacao.IdSolicitacao.ToString();
             tituloServ.InnerText = cotacao.Titulo;
             valorServ.InnerText = string.Format("{0:C}", cotacaoFornecedor.Valor);
@@ -85,7 +85,7 @@ namespace Bsk.Site.Cliente
             var cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             cotacao.Status = StatusCotacao.EmAndamento;
             _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cotacao.IdSolicitacao);
-            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipanteFornecedor).FirstOrDefault();
+            var participante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + cotacaoFornecedor.IdParticipante).FirstOrDefault();
 
             string titulo = $"A cotação Nº {cotacao.IdSolicitacao}, teve seu status alterado para pago.";
             string link = ConfigurationManager.AppSettings["host"].ToString() + "Fornecedor/negociar-cotacao.aspx?Id=" + cotacaoFornecedor.IdCotacao;

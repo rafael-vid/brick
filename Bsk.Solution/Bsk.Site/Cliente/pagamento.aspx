@@ -111,6 +111,9 @@
                         <div class="files-upload cotacao-dados-upload">
                             <%--<a class="btn_card" id="btnBoleto" href="pagamento-boleto.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">Boleto Bancário</a>--%>
                             <a class="btn_card" id="btnCartao" href="pagamento-cartao.aspx?&Id=<%Response.Write(Request.QueryString["Id"]); %>">Cartão de Crédito </a>
+                            <a class="btn_card" id="btnBoleto" href="pagamento-boleto.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">Boleto Bancário</a>
+                            <a class="btn_card" id="btnPix" href="pagamento-pix.aspx?Id=<%Response.Write(Request.QueryString["Id"]); %>">PIX</a>
+
                         </div>
                     </div>
 
