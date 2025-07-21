@@ -144,7 +144,10 @@ div:where(.swal2-icon).swal2-info {
     border-color: #770e18;
     color: #770e18;
 }
-
+div:where(.swal2-icon).swal2-error {
+    border-color: #770e18;
+    color: #770e18;
+}
 /* header */
 .logo {
   width: 140px;

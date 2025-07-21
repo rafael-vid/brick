@@ -65,9 +65,12 @@ namespace Bsk.Site.Cliente
 
         protected void btnSalvar_ServerClick(object sender, EventArgs e)
         {
-            
+            if (!ValidarCamposObrigatorios())
+            {
+                return; // Interrompe o processo se a validação falhar
+            }
             // ####################################### ENVIAR PARA MSG ##########################################
-             var redi = salvarCotacao();
+            var redi = salvarCotacao();
 
             if (!String.IsNullOrEmpty(hdLink.Value))
             {
@@ -172,7 +175,23 @@ namespace Bsk.Site.Cliente
 
             return link;
         }
+        protected bool ValidarCamposObrigatorios()
+        {
+            if (string.IsNullOrWhiteSpace(titulo.Value))
+            {
+                // Exibe mensagem de erro usando SweetAlert
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Título é obrigatório!' });", true);
+                return false;
+            }
 
+            if (string.IsNullOrWhiteSpace(descricao.Text)) // Corrected from descricao.Value to descricao.Text
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Descrição é obrigatório!' });", true);
+                return false;
+            }
+
+            return true;
+        }
         protected void btnSalvarMaisTarde_ServerClick(object sender, EventArgs e)
         {
             salvarCotacao();
