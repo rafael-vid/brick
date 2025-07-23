@@ -137,7 +137,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
-                            <td>Título</td>
+                            <td>Descrição</td>
                             <td>Nome cliente</td>
                             <td>Última atualização</td>
                             <td>Status</td>
@@ -213,7 +213,36 @@
                 </tbody>
                 </table>
             </div>
+            <div class="imitation-table" style="overflow-x:auto;">
 
+              <% var cotacoes2 = PegaCotacoes();
+                 foreach (var item in cotacoes2)
+                 {
+                     string link = "";
+
+                     link = "cotacao.aspx?Cotacao=" + item.CotacaoId;
+
+                     if (item.Status == "2")
+                     {
+                         link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                     }
+
+                     if (item.IdFornecedorDB != 0)
+                     {
+                         link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                     }
+              %>
+
+                    <div class="imitation-row cursor" onclick="redirecionar('<%Response.Write(link); %>')">
+                        <div><strong>Nº Cotação:</strong> <%= item.CotacaoId %></div>
+                        <div><strong>Descrição:</strong> <%= item.Titulo %></div>
+                        <div><strong>Nome cliente:</strong> <%= item.Nome %></div>
+                        <div><strong>Última atualização:</strong> <%= item.DataAlteracao %></div>
+                        <div><strong>Status:</strong> <%= item.StatusNome %></div>
+                    </div>
+
+              <% } %>
+            </div>
          
 
             <div class="footer_card">
@@ -303,31 +332,87 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        @media (max-width: 768px) {
+            /* Oculta tabela normal */
+            table#tabela {
+                display: none;
+            }
+
+            /* Mostra imitation table */
+            .imitation-table {
+                display: block !important;
+                margin: 10px;
+            }
+
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+
+            .imitation-row div {
+                margin-bottom: 6px;
+            }
+
+            .imitation-row:hover {
+                background-color: #f5f5f5;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Oculta imitation table no desktop */
+            .imitation-table {
+                display: none !important;
+            }
+        }
     </style>
 
     <script>
         function redirecionar(valor) {
             window.location.href = valor;
         }
-
         function filtraTabela() {
             var table = $('#tabela').DataTable();
 
-            if ($("#slcStatus").val() == "0") {
-                table.search("").draw();
-            } else if ($("#slcStatus").val() == "1") {
-                table.search("Aguardando Cotação").draw();
-            } else if ($("#slcStatus").val() == "2") {
-                table.search("Em cotação").draw();
-            } else if ($("#slcStatus").val() == "3") {
-                table.search("Aguardando pagamento").draw();
-            } else if ($("#slcStatus").val() == "4") {
-                table.search("Em andamento").draw();
-            } else if ($("#slcStatus").val() == "5") {
-                table.search("Pendente de finalização do cliente").draw();
-            } else if ($("#slcStatus").val() == "6") {
-                table.search("Finalizado").draw();
+            var statusValue = $("#slcStatus").val();
+            var searchText = "";
+
+            if (statusValue == "0") {
+                searchText = "";
+            } else if (statusValue == "1") {
+                searchText = "Aguardando Cotação";
+            } else if (statusValue == "2") {
+                searchText = "Em cotação";
+            } else if (statusValue == "3") {
+                searchText = "Aguardando pagamento";
+            } else if (statusValue == "4") {
+                searchText = "Em andamento";
+            } else if (statusValue == "5") {
+                searchText = "Pendente de finalização do cliente";
+            } else if (statusValue == "6") {
+                searchText = "Finalizado";
             }
+
+            // Filtra tabela tradicional via DataTables
+            table.search(searchText).draw();
+
+            // Filtra imitation table manualmente
+            var imitationRows = document.querySelectorAll('.imitation-row');
+            imitationRows.forEach(function (row) {
+                // Pega o texto do status dentro do bloco
+                var statusDiv = row.querySelector('div:nth-child(5)'); // 5ª div com status
+                if (!statusDiv) return;
+
+                var statusText = statusDiv.textContent || statusDiv.innerText;
+
+                if (searchText === "" || statusText.includes(searchText)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
         }
     </script>
     <script>
@@ -335,9 +420,13 @@
             if (window.innerWidth < 768) {
                 document.querySelector('.acessos').style.display = 'none';
                 document.querySelector('.acessos-small').style.display = 'flex';
+                document.querySelector('table#tabela').style.display = 'none';
+                document.querySelector('.imitation-table').style.display = '';
             } else {
                 document.querySelector('.acessos').style.display = 'flex';
                 document.querySelector('.acessos-small').style.display = 'none';
+                document.querySelector('table#tabela').style.display = 'table';
+                document.querySelector('.imitation-table').style.display = 'none';
             }
         }
 
