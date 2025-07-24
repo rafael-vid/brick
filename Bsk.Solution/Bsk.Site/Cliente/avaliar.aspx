@@ -3,6 +3,9 @@
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
 
     <style>
+        #form1 {
+            z-index: 1;
+        }
         .card {
             margin: 0px 30px 30px 30px;
         }
@@ -16,7 +19,6 @@
         }
 
         canvas {
-            display: block;
             position: absolute;
             top: 0;
             left: 0;
@@ -68,6 +70,7 @@
                 grid-gap: 15px !important;
             }
             .card {
+                z-index: -2 !important;
                 margin: 0px 0px 0px 0px !important;
             }
             .conteudo-dash{
