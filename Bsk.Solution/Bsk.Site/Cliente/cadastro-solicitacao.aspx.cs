@@ -180,13 +180,13 @@ namespace Bsk.Site.Cliente
             if (string.IsNullOrWhiteSpace(titulo.Value))
             {
                 // Exibe mensagem de erro usando SweetAlert
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Título é obrigatório!' });", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Descrição é obrigatório!' });", true);
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(descricao.Text)) // Corrected from descricao.Value to descricao.Text
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Descrição é obrigatório!' });", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'O campo Detalhamento é obrigatório!' });", true);
                 return false;
             }
 

@@ -81,7 +81,7 @@
                         <tr>
                             <th>Nº Cotação </th>
                             <th>Data da Criação</th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Data Atualizada</th>
                             <th style="text-align: center;">Status</th>
                         </tr>

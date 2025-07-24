@@ -377,10 +377,8 @@
 
         function updateVisibility2() {
             if (window.innerWidth < 768) {
-                document.querySelector('.filtros_card').style.display = '';
-            } else {
                 document.querySelector('.imitation-table').style.display = 'none';
-            }
+            } 
         }
 
         // Chama a função ao carregar a página

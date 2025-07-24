@@ -32,7 +32,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>ID </th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Mensagem</th>
                             <th>Data</th>
                         </tr>
