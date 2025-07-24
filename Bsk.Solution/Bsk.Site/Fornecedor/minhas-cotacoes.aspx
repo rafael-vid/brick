@@ -436,45 +436,5 @@
         // Adiciona evento para redimensionamento da janela
         window.addEventListener('resize', updateVisibility);
     </script>
-    <script>
-        var tabela = $('#tabela').DataTable();
-
-        function atualizaImitation() {
-            let dadosVisiveis = tabela.rows({ search: 'applied' }).data();
-            let container = document.querySelector(".imitation-table");
-            container.innerHTML = "";
-
-            for (var i = 0; i < dadosVisiveis.length; i++) {
-                let row = dadosVisiveis[i];
-                let tdLink = $(tabela.row(i).node()).find('td[data-link]');
-                let link = tdLink.attr("data-link") || "#";
-
-                let div = document.createElement("div");
-                div.classList.add("imitation-row");
-
-                div.innerHTML = `
-                <div class="imitation-cell"><strong>Nº Cotação:</strong> ${$(row[0]).text()}</div>
-                <div class="imitation-cell"><strong>Título:</strong> ${row[2]}</div>
-                <div class="imitation-cell"><strong>Status:</strong> ${row[4]}</div>
-                <div class="imitation-cell"><strong>Data:</strong> ${row[1]}</div>
-            `;
-
-                div.onclick = () => window.location.href = link;
-
-                container.appendChild(div);
-            }
-
-            // Oculta a imitation se não houver linhas
-            container.style.display = dadosVisiveis.length > 0 ? "block" : "none";
-        }
-
-        // Atualiza imitation sempre que a DataTable mudar
-        $('#tabela').on('draw.dt', function () {
-            atualizaImitation();
-        });
-
-        // Primeira chamada
-        atualizaImitation();
-    </script>
 </asp:Content>
 
