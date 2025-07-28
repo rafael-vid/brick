@@ -275,7 +275,13 @@ namespace Bsk.Site.Cliente
             }
 
             // Converte os valores de mês e ano para inteiros
-            if (!int.TryParse(expiryMonth, out int month) || !int.TryParse(expiryYear, out int year))
+            int month, year;
+            try
+            {
+                month = int.Parse(expiryMonth);
+                year = int.Parse(expiryYear);
+            }
+            catch
             {
                 return false; // Mês ou ano inválidos
             }

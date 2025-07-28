@@ -41,18 +41,26 @@
         }
 
         function displayPopupMessage2(message) {
+            // Obtém o parâmetro 'tipo' da URL atual
+            const params = new URLSearchParams(window.location.search);
+            const tipo = params.get('tipo');
+            let redirectUrl = "cadastrofeito.aspx";
+            
+            redirectUrl += "?tipo=" + encodeURIComponent(tipo);
+            
             Swal.fire({
-            toast: true,
-            icon: 'info',
-            title: message,
-            text: "Clique no link recebido em seu email para finalizar seu cadastro.",
-            confirmButtonText: 'OK'
+                toast: true,
+                icon: 'info',
+                title: message,
+                text: "Clique no link recebido em seu email para finalizar seu cadastro.",
+                confirmButtonText: 'OK'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "cadastrofeito.aspx";
+                    window.location.href = redirectUrl;
                 }
-            })
+            });
         }
+
 
         function displayPopupMessage3(message) {
             Swal.fire({

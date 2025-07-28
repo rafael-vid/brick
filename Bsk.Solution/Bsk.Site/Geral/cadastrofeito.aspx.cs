@@ -33,7 +33,17 @@ namespace Bsk.Site.Geral
         private void SendEmailBasedOnType(string email, string nome, string guid)
         {
 
-            string url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
+            string tipo = Request.QueryString["tipo"];
+            string url = string.Empty;
+            if (tipo == "cli")
+            {
+                url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
+            }
+            if (tipo == "for")
+            {
+                url = "http://44.198.11.245/Geral/confirmacaoemailfornecedor.aspx?guid=" + guid;
+            }
+            
             string htmlContent = @"
                     <table>
                         <tbody>
