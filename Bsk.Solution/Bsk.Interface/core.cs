@@ -173,13 +173,6 @@ namespace Bsk.Interface
             // Return null if no result is found or an exception occurs
             return null;
         }
-        public decimal ObterMultiplicador()
-        {
-            string sql = $@"SELECT grossup from grossup";
-            DataTable grossup = db.Get(sql);
-            return Convert.ToDecimal(grossup.Rows[0]["grossup"]);
-
-        }
 
 
 
@@ -305,22 +298,22 @@ namespace Bsk.Interface
         {
             var sql = $@"
                 SELECT 
-                    CF.IdSolicitacao AS CotacaoId,
-                    CF.IdCotacao AS IdFornecedorDB,
-                    CF.IdParticipante AS FornecedorId,
-                    CT.IdParticipante AS ClienteId,
-                    CL.Nome,
-                    CT.Notafornecedor AS Nota,
-                    CT.Titulo,
-                    CT.Status,
-                    CT.FinalizaCliente,
-                    CT.FinalizaFornecedor
-                FROM cotacao CF
-                INNER JOIN solicitacao CT ON CF.IdSolicitacao = CT.IdSolicitacao
-                INNER JOIN participante CL ON CL.IdParticipante = CT.IdParticipante
-                WHERE CT.Status IN {status} AND CF.IdParticipante = " + idFornecedor;
+                CF.IdSolicitacao AS CotacaoId,
+                CF.IdCotacao AS IdFornecedorDB,
+                CF.IdParticipante AS FornecedorId,
+                CT.IdParticipante AS ClienteId,
+                CL.Nome,
+                CT.Notafornecedor AS Nota,
+                CT.Titulo,
+                CT.Status,
+                CT.FinalizaCliente,
+                CT.FinalizaFornecedor
+            FROM cotacao CF
+            INNER JOIN solicitacao CT ON CF.IdSolicitacao = CT.IdSolicitacao
+            INNER JOIN participante CL ON CL.IdParticipante = CT.IdParticipante
+            WHERE CT.Status IN {status} AND CF.IdParticipante = " + idFornecedor;
 
-            return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
+                        return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
         public CotacaoAvaliacaoModel Cotacao_Avaliacao_Get(string IdSolicitacao)
@@ -749,34 +742,6 @@ namespace Bsk.Interface
         public void Cotacao_Delete(SolicitacaoBE lg)
         {
             List<SolicitacaoBE> Lista_lg = new List<SolicitacaoBE>();
-            Lista_lg.Add(lg);
-            db.Delete(_base.Delete(Lista_lg, null));
-        }
-        ////////////////////////////////////////////// Cartão ////////////////////////////////////////////////////////////
-        public List<CartaoBE> Cartao_Get(CartaoBE lg, string _filtro)
-        {
-            List<CartaoBE> Lista_lg = new List<CartaoBE>();
-            Lista_lg.Add(lg);
-            return _base.ToList<CartaoBE>(db.Get(_base.Query(Lista_lg, _filtro)));
-        }
-
-        public string Cartao_Insert(CartaoBE lg)
-        {
-            List<CartaoBE> Lista_lg = new List<CartaoBE>();
-            Lista_lg.Add(lg);
-            return db.Insert(_base.Insert(Lista_lg, null));
-        }
-
-        public void Cartao_Update(CartaoBE lg, string filtro)
-        {
-            List<CartaoBE> Lista_lg = new List<CartaoBE>();
-            Lista_lg.Add(lg);
-            db.Update(_base.Update(Lista_lg, filtro));
-        }
-
-        public void Cartao_Delete(CartaoBE lg)
-        {
-            List<CartaoBE> Lista_lg = new List<CartaoBE>();
             Lista_lg.Add(lg);
             db.Delete(_base.Delete(Lista_lg, null));
         }

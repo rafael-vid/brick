@@ -95,7 +95,7 @@
                         <tr>
                             <th>Nº Cotação </th>
                             <th>Data de Criação</th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Data Atualizada</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
@@ -159,18 +159,52 @@
                     </tbody>
                 </table>
 
-                 <div class="imitation-table" id="imitationTable">
-                    <% foreach (var item in cotacoes) { %>
-                        <div class="table-row" onclick="redirecionar('<%Response.Write(link);%>');" data-status="<%Response.Write(item.nome); %>">
-                            <div class="table-cell"><strong>Nº Cotação:</strong> <%Response.Write(item.IdSolicitacao); %></div>
-                            <div class="table-cell"><strong>Data de Criação:</strong> <%Response.Write(item.DataCriacao); %></div>
-                            <div class="table-cell"><strong>Título:</strong> <%Response.Write(item.Titulo); %></div>
-                            <div class="table-cell"><strong>Data Atualizada:</strong> <%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></div>
-                            <div class="table-cell"><strong>Status:</strong> <%Response.Write(item.nome); %></div>
+                <div class="imitation-table" id="imitationTable">
+                    <% foreach (var item in cotacoes) { 
+                        string linkImitation = "";
+                        if (item.Status == "Criação")
+                        {
+                            linkImitation = "cadastro-solicitacao.aspx?Cotacao=" + item.IdSolicitacao;
+                        }
+                        else if (item.Status == "Aberto")
+                        {
+                            linkImitation = "cotacao-lista.aspx?Id=" + item.IdSolicitacao;
+                        }
+                        else if (item.Status == "Em andamento")
+                        {
+                            linkImitation = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        }
+                        else if (item.Status == "Aguardando pagamento")
+                        {
+                            linkImitation = "pagamento.aspx?Id=" + item.IdCotacao;
+                        }
+                        else if (item.Status == "Finalizado")
+                        {
+                            linkImitation = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                        }
+                        else if (item.Status == "Aguardando aceite")
+                        {
+                            linkImitation = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        }
+                        else if (item.Status == "Aguardando liberação do pagamento")
+                        {
+                            linkImitation = "finalizar-pagamento.aspx?Id=" + item.IdSolicitacao;
+                        }
+                        else if (item.Status == "Aguardando Avaliação")
+                        {
+                            linkImitation = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                        }
+                    %>
+                        <div class="table-row" onclick="redirecionar('<%= linkImitation %>');" data-status="<%: item.nome %>">
+                            <div class="table-cell"><strong>Nº Cotação:</strong> <%: item.IdSolicitacao %></div>
+                            <div class="table-cell"><strong>Data de Criação:</strong> <%: item.DataCriacao %></div>
+                            <div class="table-cell"><strong>Descrição:</strong> <%: item.Titulo %></div>
+                            <div class="table-cell"><strong>Data Atualizada:</strong> <%: item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "") %></div>
+                            <div class="table-cell"><strong>Status:</strong> <%: item.nome %></div>
                         </div>
                     <% } %>
                 </div>
-
+                <div id="imitationPaginate" class="dataTables_paginate paging_simple_numbers" style="margin-top: 15px; text-align: center;"></div>
             </div>
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
@@ -279,6 +313,41 @@
         div#tabela_filter input[type="search"] {
             height: 55px;
             width: 100%;
+        }
+        @media (max-width: 768px) {
+            /* Oculta tabela normal */
+            table#tabela {
+                display: none;
+            }
+
+            /* Mostra imitation table */
+            .imitation-table {
+                display: block !important;
+                margin: 10px;
+            }
+
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+
+            .imitation-row div {
+                margin-bottom: 6px;
+            }
+
+            .imitation-row:hover {
+                background-color: #f5f5f5;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Oculta imitation table no desktop */
+            .imitation-table {
+                display: none !important;
+            }
         }
 
     </style>
@@ -404,27 +473,81 @@
         });
 
         function filtraImitationTable() {
-            // Obtém o valor numérico selecionado
-            var selectedValue = document.getElementById("slcStatus").value;
-            // Mapeia para o texto correspondente
-            var searchText = statusMap[selectedValue];
+            const selectedValue = document.getElementById("slcStatus").value;
+            const searchText = statusMap[selectedValue] || ""; // Obtém o texto correspondente ao status selecionado
 
-            console.log('Valor selecionado:', selectedValue, 'Texto de busca:', searchText);
+            const items = document.querySelectorAll('.imitation-table .table-row');
 
-            var items = document.querySelectorAll('.imitation-table .table-row');
+            items.forEach(item => {
+                const itemStatus = item.querySelector("div.table-cell:nth-child(5)").textContent.trim();
 
-            items.forEach(function (item) {
-                var itemStatus = item.querySelector("div.table-cell:nth-child(5)").textContent.trim();
-                console.log('Status do item:', itemStatus);
-
-                if (selectedValue === "0") {
-                    item.style.display = ''; // Mostra todos
-                } else if (itemStatus === searchText) {
-                    item.style.display = ''; // Mostra o item se corresponder
-                } else {
-                    item.style.display = 'none'; // Oculta o item se não corresponder
-                }
+                // Define a visibilidade do item com base no status selecionado
+                item.style.display = (selectedValue === "0" || itemStatus === searchText) ? '' : 'none';
             });
         }
     </script>
+<script>
+    let imitationCurrentPage = 1;
+    const rowsPerPage = 10;
+
+    function updateImitationTable() {
+        const allItems = document.querySelectorAll('.imitation-table .table-row');
+        const start = (imitationCurrentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        allItems.forEach((item, index) => {
+            item.style.display = (index >= start && index < end) ? '' : 'none';
+        });
+
+        // Atualiza texto "Mostrando de X até Y de Z"
+        const infoBox = document.querySelector('.dataTables_info');
+        if (infoBox) {
+            infoBox.textContent = `Mostrando de ${start + 1} até ${Math.min(end, allItems.length)} de ${allItems.length} registros`;
+        }
+    }
+
+    // Usando delegação de eventos
+    function setupPaginationDelegation() {
+        const paginateContainer = document.querySelector('.dataTables_paginate');
+        if (!paginateContainer) return;
+
+        paginateContainer.addEventListener('click', function (e) {
+            if (window.innerWidth >= 768) return; // Só intercepta no mobile
+
+            const btn = e.target;
+            if (!btn.classList.contains('paginate_button')) return;
+
+            e.preventDefault();
+
+            const allRows = document.querySelectorAll('.imitation-table .table-row');
+            const totalPages = Math.ceil(allRows.length / rowsPerPage);
+
+            if (btn.classList.contains('next')) {
+                if (imitationCurrentPage < totalPages) imitationCurrentPage++;
+            } else if (btn.classList.contains('previous')) {
+                if (imitationCurrentPage > 1) imitationCurrentPage--;
+            } else if (!btn.classList.contains('disabled')) {
+                const pageNum = parseInt(btn.textContent);
+                if (!isNaN(pageNum)) imitationCurrentPage = pageNum;
+            }
+
+            updateImitationTable();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth < 768) {
+            imitationCurrentPage = 1;
+            updateImitationTable();
+        }
+        setupPaginationDelegation(); // sempre ativa
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) {
+            imitationCurrentPage = 1;
+            updateImitationTable();
+        }
+    });
+</script>
 </asp:Content>
