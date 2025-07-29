@@ -213,37 +213,32 @@
                 </tbody>
                 </table>
             </div>
-            <div class="imitation-table visible-xs visible-sm" style="display: none;"></div>
+            <div class="imitation-table" id="imitationTable">
+                <% var cotacoes2 = PegaCotacoes(); int indexCot = 0;
+                   foreach (var item in cotacoes2)
+                   {
+                       string link = "";
 
-              <% var cotacoes2 = PegaCotacoes();
-                 foreach (var item in cotacoes2)
-                 {
-                     string link = "";
-
-                     link = "cotacao.aspx?Cotacao=" + item.CotacaoId;
-
-                     if (item.Status == "2")
-                     {
-                         link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
-                     }
-
-                     if (item.IdFornecedorDB != 0)
-                     {
-                         link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
-                     }
-              %>
-
-                    <div class="imitation-row cursor" onclick="redirecionar('<%Response.Write(link); %>')">
-                        <div><strong>Nº Cotação:</strong> <%= item.CotacaoId %></div>
-                        <div><strong>Descrição:</strong> <%= item.Titulo %></div>
-                        <div><strong>Nome cliente:</strong> <%= item.Nome %></div>
-                        <div><strong>Última atualização:</strong> <%= item.DataAlteracao %></div>
-                        <div><strong>Status:</strong> <%= item.StatusNome %></div>
+                       link = "cotacao.aspx?Cotacao=" + item.CotacaoId;
+                            
+                       if(item.Status == "2")
+                       {
+                           link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                       }
+                       if (item.IdFornecedorDB != 0)
+                       {
+                            link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                       }
+                            %>
+                    <div class="table-row imitation-row" onclick="redirecionar('<%= link %>')" data-status="<%: item.Status %>" data-index="<%= indexCot %>">
+                        <div><strong>Nº Cotação: </strong><span><%: item.CotacaoId %></span></div>
+                        <div><strong>Descrição: </strong><span><%: item.Titulo %></span></div>
+                        <div><strong>Nome Cliente: </strong><span><%: item.Nome %></span></div>
+                        <div><strong>Data de Alteração: </strong><span><%: item.DataAlteracao.ToString("dd/MM/yyyy") %></span></div>
+                        <div><strong>Status: </strong><span class="status status-<%: item.Status %>"><%: item.StatusNome %></span></div>
                     </div>
-
-              <% } %>
-            </div>
-         
+                <% indexCot++; } %>
+              </div>
 
             <div class="footer_card">
                 <a href="dashboard.aspx" class="voltar btn"><< voltar
@@ -337,7 +332,14 @@
             table#tabela {
                 display: none;
             }
-
+            .table-row {
+               font-family: Rajdhani-semi;
+               border: 1px solid #ccc;
+               margin-bottom: 10px;
+               padding: 10px;
+               background-color: #f9f9f9;
+               cursor: pointer;
+            }
             /* Mostra imitation table */
             .imitation-table {
                 display: block !important;
@@ -401,7 +403,7 @@
             // Filtra imitation table manualmente
             var imitationRows = document.querySelectorAll('.imitation-row');
             imitationRows.forEach(function (row) {
-                // Pega o texto do status dentro do bloco
+                // Pega o texto do status dentro do blocoAC
                 var statusDiv = row.querySelector('div:nth-child(5)'); // 5ª div com status
                 if (!statusDiv) return;
 
@@ -420,13 +422,9 @@
             if (window.innerWidth < 768) {
                 document.querySelector('.acessos').style.display = 'none';
                 document.querySelector('.acessos-small').style.display = 'flex';
-                document.querySelector('table#tabela').style.display = 'none';
-                document.querySelector('.imitation-table').style.display = '';
             } else {
                 document.querySelector('.acessos').style.display = 'flex';
                 document.querySelector('.acessos-small').style.display = 'none';
-                document.querySelector('table#tabela').style.display = 'table';
-                document.querySelector('.imitation-table').style.display = 'none';
             }
         }
 
@@ -435,6 +433,39 @@
 
         // Adiciona evento para redimensionamento da janela
         window.addEventListener('resize', updateVisibility);
+    </script>
+    <script>
+        const rowsPerPage = 5;
+
+        function sincronizarImitationTable(paginaAtual) {
+            const linhas = document.querySelectorAll('.imitation-row');
+            linhas.forEach((row, index) => {
+                row.style.display = (index >= (paginaAtual - 1) * rowsPerPage && index < paginaAtual * rowsPerPage) ? '' : 'none';
+            });
+        }
+
+        $(document).ready(function () {
+            // Espera o DataTable já estar inicializado
+            const checkReady = setInterval(function () {
+                if ($.fn.dataTable.isDataTable('#tabela')) {
+                    clearInterval(checkReady); // Para de checar
+
+                    const tabela = $('#tabela').DataTable();
+
+                    $('#tabela').on('page.dt', function () {
+                        const paginaAtual = tabela.page.info().page + 1;
+                        sincronizarImitationTable(paginaAtual);
+                    });
+
+                    tabela.on('draw', function () {
+                        const paginaAtual = tabela.page.info().page + 1;
+                        sincronizarImitationTable(paginaAtual);
+                    });
+
+                    sincronizarImitationTable(1); // Página inicial
+                }
+            }, 100); // Checa a cada 100ms até o DataTable existir
+        });
     </script>
 </asp:Content>
 

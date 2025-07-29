@@ -314,10 +314,40 @@
             height: 55px;
             width: 100%;
         }
-        .table-cell {
-            flex: 1 1 100%;
-            display: flex;
-            justify-content: space-between;
+        @media (max-width: 768px) {
+            /* Oculta tabela normal */
+            table#tabela {
+                display: none;
+            }
+
+            /* Mostra imitation table */
+            .imitation-table {
+                display: block !important;
+                margin: 10px;
+            }
+
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+
+            .imitation-row div {
+                margin-bottom: 6px;
+            }
+
+            .imitation-row:hover {
+                background-color: #f5f5f5;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Oculta imitation table no desktop */
+            .imitation-table {
+                display: none !important;
+            }
         }
 
     </style>
@@ -377,8 +407,10 @@
 
         function updateVisibility2() {
             if (window.innerWidth < 768) {
+                document.querySelector('.filtros_card').style.display = '';
+            } else {
                 document.querySelector('.imitation-table').style.display = 'none';
-            } 
+            }
         }
 
         // Chama a função ao carregar a página
