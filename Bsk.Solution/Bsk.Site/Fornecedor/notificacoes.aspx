@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
     <div class="conteudo-dash cotacao">
-        <div class="card card-cotacao-dados">
+        <div class="card">
             <div class="titulo_card">
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
                 <h2 class="subtitulo_1">Notificações</h2>
@@ -29,7 +29,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>ID </th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Mensagem</th>
                             <th>Data</th>
                         </tr>
@@ -53,7 +53,22 @@
                     </tbody>
                 </table>
             </div>
-
+            <div class="imitation-table-wrapper">
+                <% if (cotacoes.Count == 0) { %>
+                    <div class="imitation-empty">Nenhum registro encontrado</div>
+                <% } else {
+                    int index = 0;
+                    foreach (var item in cotacoes) {
+                        string classeVisualizado = "visualizado" + Convert.ToInt32(item.visualizado);
+                %>
+                    <div class="imitation-row <%= classeVisualizado %>" onclick="window.location.href='notificacao.aspx?id=<%= item.idnotificacao %>&link=<%= item.link %>'">
+                        <div class="imitation-cell"><strong>ID:</strong> <%= item.idnotificacao %></div>
+                        <div class="imitation-cell"><strong>Descrição:</strong> <%= item.titulo %></div>
+                        <div class="imitation-cell"><strong>Mensagem:</strong> <%= item.mensagem %></div>
+                        <div class="imitation-cell"><strong>Data:</strong> <%= item.data %></div>
+                    </div>
+                <%  index++; } } %>
+            </div>
             
 
             <div class="footer_card">
@@ -131,10 +146,6 @@
                 flex-wrap: wrap;
                 grid-gap: 30px !important;
              }
-            .cotacao .card {
-                min-height: 100vh;
-                min-width: 56vh;
-            }
         }
         a.notificacoes{
             background: #f4f3f2;

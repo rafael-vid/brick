@@ -88,7 +88,7 @@
                 <% foreach (var item in cotacoes) { %>
                     <div class="imitation-row">
                         <div><strong>Nº Cotação:</strong> <%: item.CotacaoId %></div>
-                        <div><strong>Detalhamento:</strong> <%: item.Titulo %></div>
+                        <div><strong>Descrição:</strong> <%: item.Titulo %></div>
                         <div><strong>Nome cliente:</strong> <%: item.Nome %></div>
                         <div><strong>Status:</strong> <%: item.Status %></div>
                         <div>

@@ -116,7 +116,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>Nº Cotação </th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Data Atualizada</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
