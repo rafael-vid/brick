@@ -195,8 +195,9 @@ namespace Bsk.Site.Cliente
                                 status = "1";
                             string script = @"
                                 Swal.fire({
+                                    toast: true,
                                     text: 'Pagamento efetuado com sucesso',
-                                    icon: 'success',
+                                    icon: 'info',
                                     confirmButtonColor: '#f08f00',
                                     confirmButtonText: 'Ok',
                                     customClass: {

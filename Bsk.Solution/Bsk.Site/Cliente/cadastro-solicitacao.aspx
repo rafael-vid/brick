@@ -60,7 +60,7 @@
                 <div class="area_comentario">
                     <div class="comentarios_area">
                         <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
-                        <asp:TextBox ID="descricao" runat="server" placeholder="Digite aqui seu depoimento" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="descricao" runat="server" placeholder="Detalhe aqui a sua solicitação" TextMode="MultiLine"></asp:TextBox>
 
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
                             Salvar dados da cotação

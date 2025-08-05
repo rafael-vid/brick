@@ -54,12 +54,12 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="tituloCot" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p id="descricaoCot" runat="server"></p>
             </div>
 
@@ -687,7 +687,7 @@
             Swal.fire({
                 toast: true,
                 title: 'Aceitar?',
-                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
+                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão recusadas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

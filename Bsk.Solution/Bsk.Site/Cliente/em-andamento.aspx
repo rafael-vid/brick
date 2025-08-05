@@ -76,7 +76,6 @@
                 </div>
 
            <div class="card-tabela">
-<<<<<<< HEAD
     <table id="tabela" data-order='[[ 2, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
         <thead id="cabecalho-tabela">
             <tr>
@@ -84,17 +83,7 @@
                 <th>Descrição </th>
                 <th>Status</th>
                 <th class="centered">Ação</th>
-=======
-            <table id="tabela" data-order='[[ 2, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
-                <thead id="cabecalho-tabela">
-                    <tr>
-                        <th>Cotação</th>
-                        <th>Descrição </th>
-                        <th>Status</th>
-                        <th class="centered">Ação</th>
->>>>>>> Benjamin
-
-                    </tr>
+             </tr>
                 </thead>
 
                 <tbody>
@@ -264,7 +253,14 @@
                  flex-direction: column; /* Empilha verticalmente */
              }
          }
-        
+         .acessos {
+                justify-content: space-evenly !important;
+                padding: 0% !important;
+         }
+         div#tabela_filter input[type="search"] {
+                height: 55px;
+                width: 100%;
+         }
          .dropdown-menu {
             position: absolute; /* Permite o posicionamento em relação ao botão */
             background-color: white;

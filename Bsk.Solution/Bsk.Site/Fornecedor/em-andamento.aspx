@@ -307,49 +307,42 @@
           }
       </script>
     <script>
+        const rowsPerPage = 5;
+
+        function sincronizarImitationTable(paginaAtual) {
+            const linhas = document.querySelectorAll('.imitation-row');
+
+            if (linhas.length === 1 && linhas[0].textContent.trim() === "Nenhum registro encontrado") {
+                linhas[0].style.display = 'block';
+                return;
+            }
+
+            linhas.forEach((row, index) => {
+                row.style.display = (index >= (paginaAtual - 1) * rowsPerPage && index < paginaAtual * rowsPerPage) ? 'block' : 'none';
+            });
+        }
+
         $(document).ready(function () {
-            var rowsPerPage = 10;
-            var rows = $('#tabela tbody tr');
-            var imitations = $('.imitation-row');
-            var rowsCount = rows.length;
-            var pageCount = Math.ceil(rowsCount / rowsPerPage);
-            var currentPage = 1;
-
-            function displayRows(page) {
-                var start = (page - 1) * rowsPerPage;
-                var end = start + rowsPerPage;
-
-                rows.hide().slice(start, end).show();
-                imitations.hide().slice(start, end).show();
-            }
-
-            function updatePagination() {
-                $('#tabela_paginate span').html('');
-                for (var i = 1; i <= pageCount; i++) {
-                    var pageLink = $('<a class="paginate_button" aria-controls="tabela" data-dt-idx="' + i + '" tabindex="0">' + i + '</a>');
-                    if (i === currentPage) {
-                        pageLink.addClass('current');
-                    }
-                    $('#tabela_paginate span').append(pageLink);
+            let tabela = $('#tabela').DataTable({
+                pageLength: rowsPerPage,
+                lengthChange: false,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
                 }
-            }
-
-            $('#tabela_paginate').on('click', '.paginate_button', function () {
-                currentPage = parseInt($(this).data('dt-idx'));
-                displayRows(currentPage);
-                updatePagination();
-                atualizarInfoTabela();
             });
 
-            function atualizarInfoTabela() {
-                var startItem = (currentPage - 1) * rowsPerPage + 1;
-                var endItem = Math.min(currentPage * rowsPerPage, rowsCount);
-                $('#tabela_info').text('Mostrando de ' + startItem + ' até ' + endItem + ' de ' + rowsCount + ' registros');
-            }
+            tabela.on('page.dt', function () {
+                const paginaAtual = tabela.page.info().page + 1;
+                sincronizarImitationTable(paginaAtual);
+            });
 
-            displayRows(currentPage);
-            updatePagination();
-            atualizarInfoTabela();
+            tabela.on('draw', function () {
+                const paginaAtual = tabela.page.info().page + 1;
+                sincronizarImitationTable(paginaAtual);
+            });
+
+            sincronizarImitationTable(1);
         });
     </script>
+
 </asp:Content>

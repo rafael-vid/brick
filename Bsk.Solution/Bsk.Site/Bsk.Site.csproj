@@ -719,6 +719,111 @@
     <Content Include="Geral\loginfornecedor.aspx" />
     <Content Include="Geral\logout.aspx" />
     <Content Include="Geral\parceiros.html" />
+    <Content Include="index.html" />
+    <Content Include="Kasafix\Geral\activate-k.aspx" />
+    <Content Include="Kasafix\Geral\ajuda-k.html" />
+    <Content Include="Kasafix\Geral\assets\css\cadastros.css" />
+    <Content Include="Kasafix\Geral\assets\css\dashboard.css" />
+    <Content Include="Kasafix\Geral\assets\css\sobre.css" />
+    <Content Include="Kasafix\Geral\assets\css\style.css" />
+    <Content Include="Kasafix\Geral\assets\css\tabsmenu.css" />
+    <Content Include="Kasafix\Geral\assets\imagens\abrir-faq.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\acompanhe.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\andamento.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\anexar.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\anexo.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\aquisicao.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\atuacao.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\avatar.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\banner1.jpg" />
+    <Content Include="Kasafix\Geral\assets\imagens\bg-faq.jpg" />
+    <Content Include="Kasafix\Geral\assets\imagens\bg-sobre.jpg" />
+    <Content Include="Kasafix\Geral\assets\imagens\bg.jpg" />
+    <Content Include="Kasafix\Geral\assets\imagens\calendario.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\celular.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\central.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\chat-icon.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\chat-notifica.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\contato-icon.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\cotacao.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\dados-icon.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\dashboard.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\documentacao.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\documento.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\escoder.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\estrela.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\facebook.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\file.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\financeiro-branco.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\financeiro.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\fundo-footer.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\fundo.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\garantia.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\gravar.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\i.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\icon-faq.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\icone-contatos.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\instagram.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\logokasafix.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\lixeira.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\logo-footer.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\logo.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\lupa-cinza.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\lupa.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\media-laranja.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\media.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\meubrikk.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\notifica.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\oportunidades.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\orcamento.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\prestador.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\real.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\recebimento.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\select.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\sino-notifica.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\sino.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\souCLiente.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\souParceiro.png" />
+    <Content Include="Kasafix\Geral\assets\imagens\Vector.svg" />
+    <Content Include="Kasafix\Geral\assets\imagens\whatsapp.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\abrir-faq.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\aquisicao.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\bg-faq.jpg" />
+    <Content Include="Kasafix\Geral\assets\imgages\bg-sobre.jpg" />
+    <Content Include="Kasafix\Geral\assets\imgages\bg.jpg" />
+    <Content Include="Kasafix\Geral\assets\imgages\celular.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\chat-icon.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\contato-icon.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\dados-icon.svg" />
+    <Content Include="Kasafix\Geral\assets\imgages\documento.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\facebook.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\fundo-footer.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\fundo.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\garantia.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\icon-faq.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\icone-contatos.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\instagram.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\logo-footer.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\logo.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\lupa.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\orcamento.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\prestador.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\real.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\recebimento.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\souCLiente.png" />
+    <Content Include="Kasafix\Geral\assets\imgages\whatsapp.png" />
+    <Content Include="Kasafix\Geral\assets\js\script.js" />
+    <Content Include="Kasafix\Geral\busca-k.aspx" />
+    <Content Include="Kasafix\Geral\cadastro-k.aspx" />
+    <Content Include="Kasafix\Geral\cadastrofeito-k.aspx" />
+    <Content Include="Kasafix\Geral\clientes-k.html" />
+    <Content Include="Kasafix\Geral\confirmacaoemail-k.aspx" />
+    <Content Include="Kasafix\Geral\esqueciasenha-k.aspx" />
+    <Content Include="Kasafix\Geral\index-k.html" />
+    <Content Include="Kasafix\Geral\login-k.aspx" />
+    <Content Include="Kasafix\Geral\logout-k.aspx" />
+    <Content Include="Kasafix\Geral\parceiros-k.html" />
+    <Content Include="Kasafix\Geral\sobre-k.html" />
     <Content Include="RepositoryImg\0.png" />
     <Content Include="Admin\img\servicoAndamento.jpg" />
     <Content Include="Admin\img\transferido.jpg" />
@@ -1766,6 +1871,62 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Kasafix\Geral\activate-k.aspx.cs">
+      <DependentUpon>activate-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\activate-k.aspx.designer.cs">
+      <DependentUpon>activate-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\busca-k.aspx.cs">
+      <DependentUpon>busca-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\busca-k.aspx.designer.cs">
+      <DependentUpon>busca-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\cadastro-k.aspx.cs">
+      <DependentUpon>cadastro-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\cadastro-k.aspx.designer.cs">
+      <DependentUpon>cadastro-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\cadastrofeito-k.aspx.cs">
+      <DependentUpon>cadastrofeito-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\cadastrofeito-k.aspx.designer.cs">
+      <DependentUpon>cadastrofeito-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\confirmacaoemail-k.aspx.cs">
+      <DependentUpon>confirmacaoemail-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\confirmacaoemail-k.aspx.designer.cs">
+      <DependentUpon>confirmacaoemail-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\esqueciasenha-k.aspx.cs">
+      <DependentUpon>esqueciasenha-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\esqueciasenha-k.aspx.designer.cs">
+      <DependentUpon>esqueciasenha-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\login-k.aspx.cs">
+      <DependentUpon>login-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\login-k.aspx.designer.cs">
+      <DependentUpon>login-k.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Kasafix\Geral\logout.aspx.cs">
+      <DependentUpon>logout-k.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kasafix\Geral\logout.aspx.designer.cs">
+      <DependentUpon>logout-k.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Email.cs" />
     <Compile Include="Site\redefinir-senha.aspx.cs">
@@ -1827,6 +1988,7 @@
     <Content Include="Fornecedor\assets\fonts\Ubuntu-Bold.ttf" />
     <Content Include="Fornecedor\assets\fonts\Ubuntu-Regular.ttf" />
     <Content Include="Cliente\negociar-cotacao.aspx.rej" />
+    <Content Include="Kasafix\Geral\assets\fonts\Orbitron-VariableFont_wght.ttf" />
     <None Include="Properties\PublishProfiles\Brikk.pubxml" />
     <Content Include="suporte\fonts\.htaccess" />
     <Content Include="suporte\fonts\fontawesome-webfont.eot" />
@@ -1961,8 +2123,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Control\" />
+    <Folder Include="Kasafix\Client\" />
     <Folder Include="Models\" />
     <Folder Include="perfil\" />
+    <Folder Include="suporte\Service\" />
     <Folder Include="suporte\_config\" />
     <Folder Include="Views\Compra\" />
     <Folder Include="Views\Estoque\" />

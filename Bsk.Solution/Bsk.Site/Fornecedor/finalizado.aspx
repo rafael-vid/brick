@@ -214,6 +214,54 @@
                     </tbody>
                 </table>
             </div>
+      <div class="imitation-table" id="imitation-tabela">
+    <% var cotacoes2 = PegaCotacoes();
+        if (cotacoes2.Count == 0)
+        { %>
+        <div class="imitation-row">Nenhum registro encontrado</div>
+    <% }
+        else
+        {
+            string link2 = "";
+            foreach (var item in cotacoes2)
+            {
+
+                if (item.Status == "Criação")
+                    link2 = "cadastro-solicitacao.aspx?Cotacao=" + item.CotacaoId;
+                else if (item.Status == "Aberto")
+                    link2 = "cotacao-lista.aspx?Id=" + item.CotacaoId;
+                else if (item.Status == "Em andamento")
+                    link2 = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                else if (item.Status == "Aguardando pagamento")
+                    link2 = "pagamento.aspx?Id=" + item.IdFornecedorDB;
+                else if (item.Status == "Finalizado")
+                    link2 = "avaliar.aspx?Id=" + item.CotacaoId;
+                else if (item.Status == "Aguardando aceite")
+                    link2 = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                else if (item.Status == "Aguardando liberação do pagamento")
+                    link2 = "finalizar-pagamento.aspx?Id=" + item.CotacaoId;
+                else if (item.Status == "Avaliado")
+                    link2 = "avaliar.aspx?Id=" + item.CotacaoId;
+
+                string statusTexto = "";
+                if (item.Status == "Criação") statusTexto = "Pendente de envio";
+                else if (item.Status == "Aberto") statusTexto = "Em Solicitação";
+                else if (item.Status == "Em andamento") statusTexto = "Em andamento";
+                else if (item.Status == "Aguardando pagamento") statusTexto = "Aguardando pagamento";
+                else if (item.Status == "Finalizado") statusTexto = "Finalizado";
+                else if (item.Status == "Pendente de aceite do cliente") statusTexto = "Aguardando aceite";
+                else if (item.Status == "Aguardando liberação do pagamento") statusTexto = "Aguardando liberação do pagamento";
+                else if (item.Status == "Avaliado") statusTexto = "Avaliado";
+            %>
+                <div class="imitation-row cursor" onclick="redirecionar('<%= link %>')">
+                    <div><strong>Nº Cotação:</strong> <%= item.CotacaoId %></div>
+                    <div><strong>Descrição:</strong> <%= item.Titulo %></div>
+                    <div><strong>Data Atualizada:</strong> <%= item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "") %></div>
+                    <div><strong>Status:</strong> <%= statusTexto %></div>
+                </div>
+            <% }
+        } %>
+        </div>
 
             
 
@@ -263,10 +311,6 @@
                  height: 40px;
                  margin: -40px 40px 30px -10px !important;
              }
-            .cotacao .card {
-                min-height: 100vh;
-                min-width: 56vh;
-            }
          }
          .dropdown-menu {
             position: absolute; /* Permite o posicionamento em relação ao botão */
@@ -296,72 +340,138 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        @media (max-width: 768px) {
+            #tabela {
+                display: none;
+            }
+
+            .imitation-table {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .imitation-row {
+                background: #f9f9f9;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+            .imitation-row div {
+                margin-bottom: 8px;
+            }
+        }
+        table-row {
+           font-family: Rajdhani-semi;
+           border: 1px solid #ccc;
+           margin-bottom: 10px;
+           padding: 10px;
+           background-color: #f9f9f9;
+           cursor: pointer;
+        }
+
+        @media (min-width: 769px) {
+            .imitation-table {
+                display: none;
+            }
+        }
     </style>
 
-    <script>
-        let datatableInstance = null;
+<script>
+    const rowsPerPage = 5;
+    let datatableInstance = null;
 
-        function inicializaDataTable() {
-            const tabela = $("#tabela");
+    function sincronizarImitationTable() {
+        if (!datatableInstance) return;
 
-            if (tabela.length) {
-                if (datatableInstance !== null) {
-                    datatableInstance.destroy();
-                }
+        const paginaAtual = datatableInstance.page.info().page + 1;
+        const linhas = document.querySelectorAll('.imitation-row');
 
-                datatableInstance = tabela.DataTable({
+        if (linhas.length === 1 && linhas[0].textContent.trim() === "Nenhum registro encontrado") {
+            linhas[0].style.display = 'block';
+            return;
+        }
+
+        linhas.forEach((row, index) => {
+            row.style.display = (index >= (paginaAtual - 1) * rowsPerPage && index < paginaAtual * rowsPerPage) ? 'block' : 'none';
+        });
+    }
+
+    function filtraTabela() {
+        if (!datatableInstance) return;
+
+        let filtro = $("#slcStatus").val();
+        let textoFiltro = "";
+
+        switch (filtro) {
+            case "1": textoFiltro = "Pendente de envio"; break;
+            case "2": textoFiltro = "Em andamento"; break;
+            case "3": textoFiltro = "Aguardando pagamento"; break;
+            case "4": textoFiltro = "Em cotação"; break;
+            case "5": textoFiltro = "Aguardando liberação do pagamento"; break;
+            case "6": textoFiltro = "Aguardando aceite"; break;
+            case "7": textoFiltro = "Finalizado"; break;
+            default: textoFiltro = ""; break;
+        }
+
+        datatableInstance.search(textoFiltro).draw();
+        sincronizarImitationTable();
+    }
+
+    function updateVisibility() {
+        if (window.innerWidth < 768) {
+            document.querySelector('.acessos').style.display = 'none';
+            document.querySelector('.acessos-small').style.display = 'flex';
+        } else {
+            document.querySelector('.acessos').style.display = 'flex';
+            document.querySelector('.acessos-small').style.display = 'none';
+        }
+    }
+
+        $(document).ready(function () {
+            try {
+                    if ($.fn.DataTable.isDataTable('#tabela')) {
+                        $('#tabela').DataTable().destroy(true);
+                        $('#tabela').empty(); // opcional, para limpar conteúdo da tabela e evitar duplicação
+                    }
+
+                datatableInstance = $('#tabela').DataTable({
+                    destroy: true,
                     order: [[2, "asc"]],
-                    columnDefs: [
-                        { targets: "no-sort", orderable: false }
-                    ]
-                });
-            }
+                    columnDefs: [{ targets: "no-sort", orderable: false }],
+                    pageLength: rowsPerPage,
+                    lengthChange: false,
+                    language: { url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json' },
+                    initComplete: function () {
+                        sincronizarImitationTable();
+                }
+            });
+
+            $("#slcStatus").off('change').on('change', filtraTabela);
+
+            datatableInstance.off('page.dt').on('page.dt', sincronizarImitationTable);
+
+            updateVisibility();
+
+            window.addEventListener('resize', updateVisibility);
         }
-
-        function redirecionar(valor) {
-            window.location.href = valor;
+        catch (e) {
+            console.error("Erro na inicialização do DataTable:", e);
         }
+    });
+</script>
 
-        function filtraTabela() {
 
-            var table = $('#tabela').DataTable();
 
-            if ($("#slcStatus").val() == "0") {
-                table.search("").draw();
-            } else if ($("#slcStatus").val() == "1") {
-                table.search("Pendente de envio").draw();
-            } else if ($("#slcStatus").val() == "2") {
-                table.search("Em andamento").draw();
-            } else if ($("#slcStatus").val() == "3") {
-                table.search("Aguardando pagamento").draw();
-            } else if ($("#slcStatus").val() == "4") {
-                table.search("Em cotação").draw();
-            } else if ($("#slcStatus").val() == "5") {
-                table.search("Aguardando liberação do pagamento").draw();
-            } else if ($("#slcStatus").val() == "6") {
-                table.search("Aguardando aceite").draw();
-            } else if ($("#slcStatus").val() == "7") {
-                table.search("Finalizado").draw();
-            }
-        }
-    </script>
-    <script>
-        function updateVisibility() {
-            if (window.innerWidth < 768) {
-                document.querySelector('.acessos').style.display = 'none';
-                document.querySelector('.acessos-small').style.display = 'flex';
-            } else {
-                document.querySelector('.acessos').style.display = 'flex';
-                document.querySelector('.acessos-small').style.display = 'none';
-            }
-        }
 
-        // Chama a função ao carregar a página
-        updateVisibility();
 
-        // Adiciona evento para redimensionamento da janela
-        window.addEventListener('resize', updateVisibility);
-    </script>
-    
 
 </asp:Content>
