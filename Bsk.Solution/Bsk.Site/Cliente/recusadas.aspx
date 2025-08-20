@@ -1,0 +1,473 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="recusadas.aspx.cs" Inherits="Bsk.Site.Cliente.recusadas" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+
+<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
+<div class="conteudo-dash cotacao cotacoes-cli">
+ <div class="acessos">
+     <a class="btn_card" href="buscar-servico.aspx"><img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitação</a>
+     <a class="btn_card" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+     <a class="btn_card" href="aguardando-pagamento.aspx">Pagamentos</a>
+ </div>
+ <div class="acessos-small">
+     <div class="row">
+         <div class="dropdown">
+             <a class="btn_card" href="buscar-servico.aspx" style="margin-top: 10px;">
+                 <img src="../assets/imagens/lupa.png" style="width: 15px;" alt="buscar">Nova Solicitações
+             </a>
+             <button type="button" class="btn_card dropdown-toggle" onclick="toggleDropdown()" style="margin-top: 10px; justify-content: right; background: white; filter: brightness(100%); box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3); border: none; cursor: pointer; appearance: none; -webkit-appearance: none; -moz-appearance: none;">
+                <i class="fas fa-ellipsis-v" style="font-size: 16px;"></i>
+            </button>
+<div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+    <a class="dropdown-item" href="minhas-cotacoes.aspx">Minhas Solicitações</a>
+    <a class="dropdown-item" href="aguardando-pagamento.aspx">Pagamentos</a>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var menu = document.getElementById("dropdownMenu");
+        // Toggle between showing and hiding the dropdown
+        menu.style.display = (menu.style.display === "none" || menu.style.display === "") ? "block" : "none";
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropdown-toggle')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === 'block') {
+                    openDropdown.style.display = 'none';
+                }
+            }
+        }
+    }
+</script>
+         </div>
+     </div>
+     <div class="row">
+         
+     </div>
+ </div>
+        <div class="card card-cotacao-dados">
+            <div class="titulo_card">
+                <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
+                <h2 class="subtitulo_1">Cotação</h2>
+            </div>
+            <div class="filtros_card">
+                <div class="select-card">
+                    <select onchange="filtraTabela();" id="slcStatus">
+                        <option value="0">Selecione um status</option>
+                        
+                        <option value="9" <% if (Request.QueryString["status"] != null && Request.QueryString["status"] == "9") { Response.Write("selected"); }  %>>Recusado</option>
+                    </select>
+                </div>
+
+                <%--<div class="pesquisar">
+                    <img src="../assets/imagens/lupa-cinza.svg" class="dash-lupa" alt="lupa" style="width: 15px;">
+                    <input type="text" placeholder="Pesquisar" class="pesquisar_input">
+                </div>--%>
+            </div>
+
+           <%-- <div class="resultado">
+                <span class="numero_card">10</span>
+
+                <p class="texto-resultado">
+                    Resultado por página
+                </p>
+            </div>--%>
+
+            <div class="card-tabela " style="overflow-x: auto;">
+                <table id="tabela" data-order='[[ 4, "asc" ]]' class="table table-condensed table-responsive table-striped table-hover">
+                    <thead id="cabecalho-tabela">
+                        <tr>
+                            <th>Nº Cotação </th>
+                            <th>Data da Criação</th>
+                            <th>Descrição</th>
+                            <th>Data Atualizada</th>
+                            <th style="text-align: center;">Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <%var cotacoes = PegaCotacoes();
+                            string link = "";
+                            foreach (var item in cotacoes)
+                            {
+
+                                if (item.Status == "Criação")
+                                {
+                                    link = "cadastro-solicitacao.aspx?Cotacao=" + item.IdSolicitacao;
+                                }
+                                else if (item.Status == "Aberto")
+                                {
+                                    link = "cotacao-lista.aspx?Id=" + item.IdSolicitacao;
+                                }
+                                else if (item.Status == "Em andamento")
+                                {
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                                }
+                                else if (item.Status == "Aguardando pagamento")
+                                {
+                                    link = "pagamento.aspx?Id=" + item.IdCotacao;
+                                }
+                                else if (item.Status == "Finalizado")
+                                {
+                                    link = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                                }
+                                else if (item.Status == "Aguardando aceite")
+                                {
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                                }
+                                else if (item.Status == "Aguardando liberação do pagamento")
+                                {
+                                    link = "finalizar-pagamento.aspx?Id=" + item.IdSolicitacao;
+                                }
+                                else if (item.Status == "Avaliado")
+                                {
+                                    link = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                                }
+                                else if (item.Status == "Recusado")
+                                {
+                                    link = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                                    System.Diagnostics.Debug.WriteLine("teste"+item.IdCotacao+" "+ item.IdSolicitacao);
+                                }
+                        %>
+
+                        <tr class="cursor" onclick="redirecionar('<%Response.Write(link);%>');">
+                            <td><%Response.Write(item.IdSolicitacao); %></td>
+                            <td><%Response.Write(item.DataCriacao); %></td>
+                            <td><%Response.Write(item.Titulo); %></td>
+                            <td><%Response.Write(item.DataAlteracao.ToString().Replace("01/01/0001 00:00:00", "")); %></td>
+
+                            <%  
+                                if (item.Status == "Criação")
+                                {%>
+                            <td>Pendente de envio
+                            </td>
+                            <%}
+                                else if (item.Status == "Aberto")
+                                {%>
+                            <td>Em Solicitação 
+                            </td>
+                            <% }
+                                else if (item.Status == "Em andamento")
+                                {%>
+                            <td>Em andamento
+                            </td>
+                            <%}
+                                else if (item.Status == "Aguardando pagamento")
+                                {%>
+                            <td>Aguardando pagamento
+                            </td>
+                            <%}
+                                else if (item.Status == "Finalizado")
+                                {%>
+                            <td>Finalizado
+                            </td>
+                            <% }
+                                else if (item.Status == "Pendente de aceite do cliente")
+                                {%>
+                            <td>Aguardando aceite
+                            </td>
+                            <% }
+                                else if (item.Status == "Aguardando liberação do pagamento")
+                                {%>
+                            <td>Aguardando liberação do pagamento
+                            </td>
+                            <% }
+                                else if (item.Status == "Avaliado")
+                                {%>
+                            <td>Avaliado
+                            </td>
+                            <% }
+                                else if (item.Status == "Recusado")
+                                {%>
+                            <td>Recusado
+                            </td>
+                        </tr>
+                        <%  }
+                            }
+                        %>
+                    </tbody>
+                </table>
+            </div>
+            <!-- TABELA MOBILE -->
+            <div class="imitation-table" id="imitationTable" style="display: none;">
+                <% int index = 0;
+                   foreach (var item in cotacoes) {
+                        string linkMobile = "";
+                        if (item.Status == "Criação")
+                            linkMobile = "cadastro-solicitacao.aspx?Cotacao=" + item.IdSolicitacao;
+                        else if (item.Status == "Aberto")
+                            linkMobile = "cotacao-lista.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Em andamento")
+                            linkMobile = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Aguardando pagamento")
+                            linkMobile = "pagamento.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Finalizado")
+                            linkMobile = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Aguardando aceite")
+                            linkMobile = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Aguardando liberação do pagamento")
+                            linkMobile = "finalizar-pagamento.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Avaliado")
+                            linkMobile = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                %>
+                <div class="table-row" data-index="<%= index++ %>">
+                    <a href="<%= linkMobile %>">
+                        <p class="table-cell" ><strong>Nº Cotação:</strong> <%= item.IdSolicitacao %></p>
+                        <p class="table-cell" ><strong>Data Criação:</strong> <%= item.DataCriacao %></p>
+                        <p class="table-cell" ><strong>Título:</strong> <%= item.Titulo %></p>
+                        <p class="table-cell" ><strong>Atualizado em:</strong> <%= item.DataAlteracao.ToString("dd/MM/yyyy") == "01/01/0001" ? "-" : item.DataAlteracao.ToString("dd/MM/yyyy") %></p>
+                        <p class="table-cell" ><strong>Status:</strong> <%= item.Status %></p>
+                    </a>
+                </div>
+                <% } %>
+            </div>
+            <div class="footer_card">
+                <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
+                <!--
+                <a href="/" class="item_notifica">
+                    <img src="../assets/imagens/chat-notifica.svg" alt="notificação" style="width: 43px;">
+                    <span class="notificacao">02</span>
+                </a>
+                -->
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+        a.finalizada{
+            background: #f4f3f2;
+            color: #770e18 !important;
+        }
+        .dropdown-toggle::after {
+            content: none; /* Remove a setinha */
+        }
+
+        div#tabela_paginate > span {
+            display: flex
+        }
+        @media (max-width: 768px) {
+             .conteudo-dash{
+                 padding: 0px 0px 0px 0px !important;
+             }
+             .conteudo-dash{
+                 min-height: 0px !important;
+             }
+             .card-cotacao-dados {
+                 width: 400px !important;
+             }
+             .cotacoes-cli {
+                 flex-wrap: unset;
+             }
+             .acessos-small {
+                 display: flex; /* Exibe para telas pequenas */
+             }
+             .btn_card {
+                 font-size: 14px;
+                 width: 40% !important;
+                 min-width: 0px !important;
+             }
+            .card {
+                padding: 15px!important;
+            }
+            .card-cotacao-dados {
+                width: 100% !important;
+            }
+         }
+         .acessos-small{
+             display: flex;
+             flex-direction: column; /* Empilha verticalmente */
+         }
+         .dropdown-menu {
+            position: absolute; /* Permite o posicionamento em relação ao botão */
+            background-color: white;
+            border: 1px solid #ccc;
+            z-index: 1;
+            min-width: 150px; /* Largura do dropdown */
+            top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
+            right: 25px; /* Alinha o menu com a borda esquerda do botão */
+        }
+
+        .dropdown {
+            position: relative; /* Necessário para a posição do dropdown */
+            display: inline-flex;
+            justify-content: space-around;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+            margin-right: 0px;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
+        }
+         .imitation-table {
+             display: flex;
+             flex-direction: column;
+             gap: 15px;
+         }
+
+         .table-row {
+             font-family: Rajdhani-semi;
+             border: 1px solid #ccc;
+             margin-bottom: 10px;
+             padding: 10px;
+             background-color: #f9f9f9;
+             cursor: pointer;
+             display: flex;
+             flex-wrap: wrap;
+             gap: 10px;
+         }
+
+         .table-cell {
+             flex: 1 1 100%;
+             display: flex;
+             justify-content: space-between;
+         }
+
+         @media(min-width: 768px) {
+             .imitation-table {
+                 display: none !important;
+             }
+         }
+
+    </style>
+
+    <script>
+        
+
+        function redirecionar(valor) {
+            window.location.href = valor;
+        }
+
+        function filtraTabela() {
+
+            var table = $('#tabela').DataTable();
+
+            if ($("#slcStatus").val() == "0") {
+                table.search("").draw();
+            } else if ($("#slcStatus").val() == "1") {
+                table.search("Pendente de envio").draw();
+            } else if ($("#slcStatus").val() == "2") {
+                table.search("Em andamento").draw();
+            } else if ($("#slcStatus").val() == "3") {
+                table.search("Aguardando pagamento").draw();
+            } else if ($("#slcStatus").val() == "4") {
+                table.search("Em cotação").draw();
+            } else if ($("#slcStatus").val() == "5") {
+                table.search("Aguardando liberação do pagamento").draw();
+            } else if ($("#slcStatus").val() == "6") {
+                table.search("Aguardando aceite").draw();
+            } else if ($("#slcStatus").val() == "7") {
+                table.search("Finalizado").draw();
+            } else if ($("#slcStatus").val() == "9") {
+                table.search("Recusado").draw();
+            }
+        }
+    </script>
+    <script>
+        function updateVisibility() {
+            if (window.innerWidth < 768) {
+                document.querySelector('.acessos').style.display = 'none';
+                document.querySelector('.acessos-small').style.display = 'flex';
+            } else {
+                document.querySelector('.acessos').style.display = 'flex';
+                document.querySelector('.acessos-small').style.display = 'none';
+            }
+        }
+
+        // Chama a função ao carregar a página
+        updateVisibility();
+
+        // Adiciona evento para redimensionamento da janela
+        window.addEventListener('resize', updateVisibility);
+        function toggleDropdown() {
+            var menu = document.getElementById("dropdownMenu");
+            if (menu.style.display === "none") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+
+        // Fecha o dropdown se o usuário clicar fora dele
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === 'block') {
+                        openDropdown.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function mostrarTabelaResponsiva() {
+            const largura = window.innerWidth;
+            const tabelaNormal = document.querySelector(".table");
+            const tabelaMobile = document.querySelector("#imitationTable");
+
+            if (largura < 768) {
+                tabelaNormal.style.display = "none";
+                tabelaMobile.style.display = "";
+            } else {
+                tabelaNormal.style.display = "";
+                tabelaMobile.style.display = "none";
+            }
+        }
+
+        mostrarTabelaResponsiva();
+        window.addEventListener("resize", mostrarTabelaResponsiva);
+</script>
+<script>
+    let pageSize = 5;
+    let currentPage = 1;
+
+    function paginarCardsMobile() {
+        let cards = document.querySelectorAll('.table-row');
+        let totalPages = Math.ceil(cards.length / pageSize);
+
+        // Garante página válida
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        cards.forEach((card, index) => {
+            card.style.display = (index >= (currentPage - 1) * pageSize && index < currentPage * pageSize) ? "" : "none";
+        });
+    }
+
+    function detectarCliqueBotoesDatatable() {
+        document.querySelectorAll('.paginate_button').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                const active = document.querySelector('.paginate_button.current');
+                if (active) {
+                    let num = parseInt(active.textContent);
+                    if (!isNaN(num)) {
+                        currentPage = num;
+                        paginarCardsMobile();
+                    }
+                }
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        paginarCardsMobile();
+        detectarCliqueBotoesDatatable();
+    });
+
+    // Reaplica listener se DataTable recriar os botões
+    $(document).on('draw.dt', function () {
+        detectarCliqueBotoesDatatable();
+        paginarCardsMobile();
+    });
+</script>
+</asp:Content>

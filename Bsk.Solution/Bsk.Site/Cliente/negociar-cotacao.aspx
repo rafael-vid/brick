@@ -717,6 +717,41 @@
                 }
             });
         }
+        function recusar() {
+            Swal.fire({
+                toast: true,
+                title: 'Recusar?',
+                text: "Você tem certeza que gostaria de recusar essa cotação? Esse processo é imediato.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Recusar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    var parametro = {
+                        IdCotacao: comum.queryString("Id")
+                    };
+                    comum.postAsync("Comum/RecusarCotacao", parametro, function (data) {
+                        if (data == "Ok") {
+                            window.location.href = "minhas-cotacoes.aspx";
+                        } else {
+                            Swal.fire({
+                                toast: true,
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data
+                            }).then((result) => {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            });
+                        }
+
+                    });
+                }
+            });
+        }
+
 
         function terminar(valor) {
             var titulo = "";
@@ -764,6 +799,7 @@
         }
 
     </script>
+
      <script>
      function updateVisibility() {
          if (window.innerWidth < 768) {

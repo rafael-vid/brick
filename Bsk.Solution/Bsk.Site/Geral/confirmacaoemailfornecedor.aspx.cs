@@ -14,7 +14,7 @@ namespace Bsk.Site.Geral
         : System.Web.UI.Page
     {
         core _core = new core();
-        FornecedorBE _FornecedorBE = new FornecedorBE();
+        ParticipanteBE _ParticipanteBE = new ParticipanteBE();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,12 +25,12 @@ namespace Bsk.Site.Geral
                 if (!string.IsNullOrEmpty(guid))
                 {
                     // Use the GUID as needed in your application, for example:
-                    var fornecedor = _core.Fornecedor_Get(_FornecedorBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
-                    fornecedor.Confirmado = 1;
-                    var _login = _core.Fornecedor_Get(_FornecedorBE, $" GuidColumn='{guid}'").FirstOrDefault();
-                    _core.Fornecedor_Update(fornecedor, "IdFornecedor = " + fornecedor.IdFornecedor);
+                    var participante = _core.Participante_Get(_ParticipanteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
+                    participante.EmailConfirmado = 1;
+                    var _login = _core.Participante_Get(_ParticipanteBE, $" GuidColumn='{guid}'").FirstOrDefault();
+                    _core.Participante_Update(participante, "IdParticipante = " + participante.IdParticipante);
                     //Cria a estancia do obj HttpCookie passando o nome do mesmo
-                    HttpCookie login = new HttpCookie("loginFornecedor");
+                    HttpCookie login = new HttpCookie("login");
                     _login.Senha = "xxx";
                     //Define o valor do cookie
                     login.Value = Newtonsoft.Json.JsonConvert.SerializeObject(_login);
@@ -47,7 +47,7 @@ namespace Bsk.Site.Geral
                     //Imprime o valor do cookie
                     //Response.Write(cookie.Value.ToString());
 
-                    Response.Redirect("../Fornecedor/dashboard.aspx");
+                    Response.Redirect("../Fornecedor/gerenciar-servicos.aspx");
                 }
                 else
                 {

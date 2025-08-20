@@ -332,6 +332,7 @@
     <Content Include="Cliente\AlterarSenha.aspx" />
     <Content Include="Cliente\cadastro-solicitacao.aspx" />
     <Content Include="Cliente\cliente-dashboard.aspx" />
+    <Content Include="Cliente\recusadas.aspx" />
     <Content Include="Cliente\js\sweetalert2.all.min.js" />
     <Content Include="Cliente\Master\assets\css\cadastros.css" />
     <Content Include="Cliente\Master\assets\css\dashboard.css" />
@@ -424,6 +425,8 @@
     <Content Include="Cliente\Master\assets\imgages\whatsapp.png" />
     <Content Include="Cliente\Master\assets\js\script.js" />
     <Content Include="Cliente\finalizadas.aspx" />
+    <Content Include="Cliente\meus-cartoes.aspx" />
+    <Content Include="Cliente\pagamento-pix.aspx" />
     <Content Include="Fornecedor\busca.aspx" />
     <Content Include="Fornecedor\gerenciar-servicos.aspx" />
     <Content Include="Fornecedor\js\sweetalert2.all.min.js" />
@@ -1573,6 +1576,13 @@
     <Compile Include="Cliente\em-andamento.aspx.designer.cs">
       <DependentUpon>em-andamento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\recusadas.aspx.cs">
+      <DependentUpon>recusadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\recusadas.aspx.designer.cs">
+      <DependentUpon>recusadas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\finalizar-pagamento.aspx.cs">
       <DependentUpon>finalizar-pagamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1593,6 +1603,20 @@
     </Compile>
     <Compile Include="Cliente\finalizadas.aspx.designer.cs">
       <DependentUpon>finalizadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\meus-cartoes.aspx.cs">
+      <DependentUpon>meus-cartoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\meus-cartoes.aspx.designer.cs">
+      <DependentUpon>meus-cartoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\pagamento-pix.aspx.cs">
+      <DependentUpon>pagamento-pix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\pagamento-pix.aspx.designer.cs">
+      <DependentUpon>pagamento-pix.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor\busca.aspx.cs">
       <DependentUpon>busca.aspx</DependentUpon>
