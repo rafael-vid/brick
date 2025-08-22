@@ -54,12 +54,12 @@
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Título </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <p id="tituloCot" runat="server"></p>
             </div>
 
             <div class="item_content_card">
-                <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
+                <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
                 <p id="descricaoCot" runat="server"></p>
             </div>
 
@@ -687,7 +687,7 @@
             Swal.fire({
                 toast: true,
                 title: 'Aceitar?',
-                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão ignoradas e você será redirecionado para uma página de pagamento.",
+                text: "Você tem certeza que gostaria de aceitar essa cotação? Todas as outras cotações serão recusadas e você será redirecionado para uma página de pagamento.",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -717,6 +717,41 @@
                 }
             });
         }
+        function recusar() {
+            Swal.fire({
+                toast: true,
+                title: 'Recusar?',
+                text: "Você tem certeza que gostaria de recusar essa cotação? Esse processo é imediato.",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Recusar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    var parametro = {
+                        IdCotacao: comum.queryString("Id")
+                    };
+                    comum.postAsync("Comum/RecusarCotacao", parametro, function (data) {
+                        if (data == "Ok") {
+                            window.location.href = "minhas-cotacoes.aspx";
+                        } else {
+                            Swal.fire({
+                                toast: true,
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: data
+                            }).then((result) => {
+                                window.location.href = "minhas-cotacoes.aspx";
+                            });
+                        }
+
+                    });
+                }
+            });
+        }
+
 
         function terminar(valor) {
             var titulo = "";
@@ -764,6 +799,7 @@
         }
 
     </script>
+
      <script>
      function updateVisibility() {
          if (window.innerWidth < 768) {

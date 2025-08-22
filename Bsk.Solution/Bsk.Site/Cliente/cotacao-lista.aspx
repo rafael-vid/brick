@@ -130,32 +130,82 @@
                             <td style="color: red; text-align: center;">
                                 <%if (!String.IsNullOrEmpty(item.Mensagens))
                                     { Response.Write("<i class='center-block glyphicon glyphicon-envelope'></i>"); } %>
-                                <span style="color: red;"><% if (item.Novo == 1)
-                                                              {
-                                                                  Response.Write("<i class='center-block glyphicon glyphicon-check'></i>");
-                                                              }  %></span>
+                                <span style="color: red;">
+                                    <% if (item.Novo == 1)
+                                       {
+                                            Response.Write("<i class='center-block glyphicon glyphicon-check'></i>");
+                                       }  
+                                    %>
+                                </span>
                             </td>
                             <td>R$<%Response.Write(item.Valor); %>
 
                             </td>
                             <td><%Response.Write(item.DataUltimaResposta); %></td>
                             <%if (item.Ativo == 0)
-                                {%>
-                            <td>Fornecedor desistiu da cotação</td>
+                              {%>
+                                    <td>Fornecedor desistiu da cotação</td>
                             <%}
-                                else
-                                {%>
-                            <td>
-                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Visualizar</a></td>
+                              else
+                              {%>
+                                    <td><a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%Response.Write(item.IdFornecedorDB); %>">Visualizar</a></td>
 
-                            <%  } %>
+                            <%} %>
                         </tr>
-                        <% }
+                        <%  }
                         %>
                     </tbody>
                 </table>
             </div>
-
+            <% var cotacaoLista2 = PegaCotacaoLista(); %>
+            <div class="imitation-table">
+                <% if (cotacaoLista2 == null || cotacaoLista2.Count == 0) { %>
+                    <div class="imitation-row">
+                        <div class="imitation-cell" style="text-align:center; width: 100%;">
+                            Nenhum registro encontrado.
+                        </div>
+                    </div>
+                <% } else {
+                    foreach (var item in cotacaoLista2) {
+                        string link = $"negociar-cotacao.aspx?Id={item.IdFornecedorDB}";
+                %>
+                    <div class="imitation-row">
+                        <div class="imitation-cell">
+                            <span class="imitation-label">Fornecedor:</span>
+                            <span class="imitation-value"><%= item.NomeParticipante %></span>
+                        </div>
+                        <div class="imitation-cell">
+                            <span class="imitation-label">Mensagem:</span>
+                            <span class="imitation-value">
+                                <% if (!String.IsNullOrEmpty(item.Mensagens)) { %>
+                                    <i class='center-block glyphicon glyphicon-envelope'></i>
+                                <% } %>
+                                <% if (item.Novo == 1) { %>
+                                    <i class='center-block glyphicon glyphicon-check'></i>
+                                <% } %>
+                            </span>
+                        </div>
+                        <div class="imitation-cell">
+                            <span class="imitation-label">Valor:</span>
+                            <span class="imitation-value">R$<%= item.Valor %></span>
+                        </div>
+                        <div class="imitation-cell">
+                            <span class="imitation-label">Última resposta:</span>
+                            <span class="imitation-value"><%= item.DataUltimaResposta %></span>
+                        </div>
+                        <div class="imitation-cell">
+                            <span class="imitation-label">Ação:</span>
+                            <span class="imitation-value">
+                                <% if (item.Ativo == 0) { %>
+                                    Fornecedor desistiu da cotação
+                                <% } else { %>
+                                    <a class="btn btn-brikk" href="<%= link %>">Visualizar</a>
+                                <% } %>
+                            </span>
+                        </div>
+                    </div>
+                <% } } %>
+            </div>
             <div class="paginas_card">
                 <p>
                     Mostrando de <span>01</span> até <span>04</span> de <span>04</span> registros
@@ -274,6 +324,39 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        .imitation-table {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .imitation-row {
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .imitation-cell {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+        .imitation-label {
+            font-weight: 600;
+            color: #555;
+        }
+        .imitation-value {
+            text-align: right;
+            color: #222;
+        }
+        @media (min-width: 768px) {
+            .imitation-table {
+                display: none;
+            }
+        }
     </style>
      <script>
          function updateVisibility() {
@@ -313,4 +396,22 @@
              }
          }
      </script>
+    <script>
+        function toggleTablesByWidth() {
+            const originalTable = document.querySelector('.card-tabela');
+            const imitationTable = document.querySelector('.imitation-table');
+
+            if (window.innerWidth < 768) {
+                if (originalTable) originalTable.style.display = 'none';
+                if (imitationTable) imitationTable.style.display = '';
+            } else {
+                if (originalTable) originalTable.style.display = '';
+                if (imitationTable) imitationTable.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', toggleTablesByWidth);
+        document.addEventListener('DOMContentLoaded', toggleTablesByWidth);
+</script>
+
 </asp:Content>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TUDO EM SUAS MÃOS! MANUTENÇÃO RÁPIDA, SEGURA E SEM DOR DE CABEÇA " />
+  <meta name="keywords" content="plataforma de contratação, manutenção, serviços, equipamentos" />
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/sobre.css">
+
+  <title>BRIKK - CONTATO</title>
+
+  <style>
+    body {
+      font-family: Rajdhani-semi, sans-serif;
+    }
+  
+    .faq {
+      padding: 20px 0;
+      background: url(./assets/imagens/bg-faq.jpg) no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 100vh;
+    }
+  
+    .faq .container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100%;
+    }
+  
+    .titulo-faq {
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      grid-gap: 12px;
+      align-items: center;
+      width: 65%;
+    }
+  
+    .titulo-faq .subtitulo_1 {
+      font-family: Rajdhani-semi, sans-serif;
+      border-bottom: 1px solid #771218;
+      padding-bottom: 10px;
+      font-size: 18px;
+    }
+  
+    .faq-itens {
+      width: 65%;
+    }
+  
+    .item-faq {
+      margin-top: 23px;
+      border-bottom: 2px solid #706f7057;
+      padding-bottom: 23px;
+      position: relative;
+    }
+  
+    .item-faq:last-child {
+      border: none;
+    }
+  
+    .item-faq p {
+      display: none;
+    }
+  
+    .item-faq input:checked+.checkbox-wrapper p {
+      display: block;
+    }
+  
+    .item-faq h2 {
+      cursor: pointer;
+      font-size: 18px;
+      color: #575756;
+      font-family: Rajdhani-semi, sans-serif;
+    }
+  
+    .item-faq h2::after {
+      content: url(assets/imagens/abrir-faq.png);
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      transform: rotate(180deg);
+      transition: transform .3s ease;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  
+    .item-faq input {
+      display: none;
+    }
+  
+    .checkbox-wrapper p {
+      margin-top: 10px;
+      display: none !important;
+    }
+  
+    .item-faq input:checked+.checkbox-wrapper p {
+      display: block !important;
+    }
+  
+    .item-faq input:checked+.checkbox-wrapper h2::after {
+      transform: rotate(-360deg) scale(1.08);
+      top: -10px;
+    }
+  
+    @media (max-width: 787px) {
+  
+      .titulo-faq,
+      .faq-itens {
+        width: 100%;
+      }
+  
+      .faq {
+        background-position: right;
+        height: auto;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- header -->
+  <header>
+    <div class="menu-topo container">
+      <a href="index.html">
+        <img src="./assets/imagens/logo.png" alt="BRIKK logomarca" class="logo">
+      </a>
+      <nav class="menu" id="nav">
+        <button id="btn-mobile">Menu
+          <span id="hamburger"></span>
+        </button>
+        <ul class="menu-itens">
+          <li>
+            <a href="sobre.html"> sobre nós</a>
+          </li>
+          <li><a href="index.html#parceiros"> para parceiros</a></li>
+          <li><a href="index.html#clientes"> PARA CLIENTES</a></li>
+          <li><a href="ajuda.html"> ajuda</a></li>
+          <li><a href="login.aspx" class="btn-cadastro">ENTRAR / CADASTRAR</a></li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="filtro">
+      <div class="container" style="display:none">
+        <input type="text" placeholder="Qual serviço você precisa?      ">
+        <img src="./assets/imagens/lupa.png" alt="lupa" class="lupa" style="width: 20px; height: 20px;">
+      </div>
+    </div>
+  </header>
+
+  <!-- faq -->
+  <section class="faq">
+    <div class="container" data-aos="zoom-in-up">
+      <div class="titulo-faq " >
+        <img src="./assets/imagens/icon-faq.png" style="width: 50px;" alt="faq">
+        <h1 class="subtitulo_1">FAQ</h1>
+      </div>
+
+      <div class="faq-itens">
+        <div class="item-faq">
+          <input type="checkbox" id="item1">
+          <div class="checkbox-wrapper">
+            <label for="item1">
+              <h2>
+                Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod.
+              </h2>
+            </label>
+            <p>
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            </p>
+          </div>
+        </div>
+        <div class="item-faq">
+          <input type="checkbox" id="item2">
+          <div class="checkbox-wrapper">
+            <label for="item2">
+              <h2>
+                Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod.
+              </h2>
+            </label>
+            <p>
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            </p>
+          </div>
+        </div>
+        <div class="item-faq">
+          <input type="checkbox" id="item3">
+          <div class="checkbox-wrapper">
+            <label for="item3">
+              <h2>
+                Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod.
+              </h2>
+            </label>
+            <p>
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            </p>
+          </div>
+        </div>
+        <div class="item-faq">
+          <input type="checkbox" id="item4">
+          <div class="checkbox-wrapper">
+            <label for="item4">
+              <h2>
+                Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod.
+              </h2>
+            </label>
+            <p>
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            </p>
+          </div>
+        </div>
+        <div class="item-faq">
+          <input type="checkbox" id="item5">
+          <div class="checkbox-wrapper">
+            <label for="item5">
+              <h2>
+                Lorem ipsum dolor sit amet, consectetuer
+                adipiscing elit, sed diam nonummy nibh euismod.
+              </h2>
+            </label>
+            <p>
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+              enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contato -->
+  <section class="contato">
+    <div class="container"> 
+      <div class="entre-em-contato" data-aos="fade-down-left">
+        <div class="subtitulo_contato">
+          <img src="assets/imagens/contato-icon.png" style="width: 40px;" alt="ícone contato">
+          <h2 class="subtitulo_1">Entre em Contato</h2>
+        </div>
+
+        <form action="#">
+          <label for="nome">Nome do Titular</label>
+          <input type="text" required id="nome">
+
+          <label for="email">E-mail</label>
+          <input type="email" required id="email">
+
+          <label for="telefone">Telefone</label>
+          <input type="text" required id="telefone">
+
+          <label for="assunto">Assunto</label>
+          <input type="text" required id="assunto">
+
+          <label for="mensagem">Mensagem</label>
+          <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
+
+          <button type="submit" class="btn">Enviar</button>
+        </form>
+      </div>
+
+      <div class="chat" data-aos="fade-down-right">
+        <div class="subtitulo_contato">
+          <img src="assets/imagens/chat-icon.png" style="width: 40px;" alt="ícone contato">
+          <span class="notificacao">2</span>
+          <h2 class="subtitulo_1">Chat</h2>
+        </div>
+
+        <div class="bp">
+          <div class="enviado">
+            <span class="simbol">✓</span>
+            <div class="avatar-msg"><span>MG</span></div>
+            <div class="conteudo-msg">
+              <h3 class="titulo-msg">Marcenaria Gomes</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscang elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+                magna aliquam erat volutpat. Ut wisi enim ad minim veniam
+              </p>
+            </div>
+          </div>
+
+          <div class="recebido">
+            <h3 class="titulo-msg">Felipe</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetuer adipiscang elit.         
+            </p>
+          </div>
+
+          <textarea class="enviar-msg" name="enviar" id="enviar" cols="30" rows="10"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar</button>
+
+        <div class="contatos">
+          <div class="subtitulo_contato">
+            <img src="assets/imagens/icone-contatos.png" style="width: 40px;" alt="ícone contato">
+            <h2 class="subtitulo_1">Contatos</h2>
+          </div>
+
+          <p>contato@brikk.com.br | faq@brikk.com.br</p>
+          <p> 11 xxx xxxxx | 11 xxxx xxxxx</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- footer -->
+  <footer>
+    <a href="/"><img src="./assets/imagens/logo-footer.png" alt="logomarca" style="width: 152px;"></a>
+    <div>
+      <a href="#"><img src="./assets/imagens/facebook.png" alt="facebook " style="width: 42px;">
+      </a>
+      <a href="#"><img src="./assets/imagens/instagram.png" alt="instagram" style="width: 42px;"></a>
+      <a href="#"><img src="./assets/imagens/whatsapp.png" alt="whatsapp" style="width: 42px;"></a>
+    </div>
+  </footer>
+
+  <script async src="assets/js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>

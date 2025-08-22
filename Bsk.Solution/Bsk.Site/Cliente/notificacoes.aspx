@@ -32,7 +32,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <th>ID </th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Mensagem</th>
                             <th>Data</th>
                         </tr>
@@ -42,9 +42,7 @@
                         <%var cotacoes = Notificacoes();
                             string link = "";
                             foreach (var item in cotacoes)
-                            {
-
-                                
+                            {                               
                         %>
 
                         <tr class="cursor visualizado<%Response.Write(Convert.ToInt32(item.visualizado)); %>" onclick="window.location.href='notificacao.aspx?id=<%Response.Write(item.idnotificacao); %>&link=<%Response.Write(item.link); %>'">
@@ -59,8 +57,30 @@
                     </tbody>
                 </table>
             </div>
+         <div class="imitation-table" id="imitationTable" style="display:none;">
+            <% 
+                var notificacoes2 = Notificacoes();
+                if (notificacoes2 == null || notificacoes2.Count == 0) {
+            %>
+                <div class="table-row">
+                    <div class="table-cell" style="justify-content: center; text-align: center;">
+                        Nenhum registro encontrado.
+                    </div>
+                </div>
+            <% } else {
+                foreach (var item in notificacoes2) { 
+                    string linkFinal = $"notificacao.aspx?id={item.idnotificacao}&link={item.link}";
+            %>
+                <div class="table-row cursor visualizado<%= Convert.ToInt32(item.visualizado) %>" onclick="redirecionar('<%= linkFinal %>')">
+                    <div class="table-cell"><strong>ID:</strong> <%= item.idnotificacao %></div>
+                    <div class="table-cell"><strong>Título:</strong> <%= item.titulo %></div>
+                    <div class="table-cell"><strong>Mensagem:</strong> <%= item.mensagem %></div>
+                    <div class="table-cell"><strong>Data:</strong> <%= item.data %></div>
+                </div>
+            <%  } 
+               } %>
+        </div>
 
-            
 
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
@@ -102,7 +122,6 @@
            }
            .card-cotacao-dados {
                width: 100% !important;
-               max-width: 388px; /* Mantenha esse limite, se necessário */
            }
            .cotacao .card {
                margin-top: 0px !important;
@@ -124,6 +143,36 @@
             font-weight:bold;
             color:#666 !important
         }
+        .imitation-table {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .table-row {
+            font-family: Rajdhani-semi;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .table-cell {
+            flex: 1 1 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media(min-width: 768px) {
+            .imitation-table {
+                display: none !important;
+            }
+        }
+
     </style>
 
     <script>
@@ -156,7 +205,24 @@
             }
         }
     </script>
+    <script>
+        function updateVisibility() {
+            if (window.innerWidth < 768) {
+                document.querySelector('#tabela').style.display = 'none';
+                document.querySelector('.imitation-table').style.display = 'flex';
+            } else {
+                document.querySelector('#tabela').style.display = 'table';
+                document.querySelector('.imitation-table').style.display = 'none';
+            }
+        }
 
+        window.addEventListener('resize', updateVisibility);
+        document.addEventListener('DOMContentLoaded', updateVisibility);
+
+        function redirecionar(valor) {
+            window.location.href = valor;
+        }
+    </script>
     
 
 </asp:Content>

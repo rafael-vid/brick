@@ -40,7 +40,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
-                            <td>Detalhamento</td>
+                            <td>Descrição</td>
                             <td>Nome cliente</td>
                             <td>Status</td>
                             <td>Ação</td>
@@ -83,7 +83,28 @@
                 </div>
                 <!-- Fim da Paginação -->
             </div>
-
+            <!-- imitation-table: versão mobile da tabela -->
+            <div class="imitation-table" id="imitation-tabela">
+                <% foreach (var item in cotacoes) { %>
+                    <div class="imitation-row">
+                        <div><strong>Nº Cotação:</strong> <%: item.CotacaoId %></div>
+                        <div><strong>Descrição:</strong> <%: item.Titulo %></div>
+                        <div><strong>Nome cliente:</strong> <%: item.Nome %></div>
+                        <div><strong>Status:</strong> <%: item.Status %></div>
+                        <div>
+                            <% if (item.Status == "Recusado") { %>
+                                <center>-</center>
+                            <% } else if (item.Status == "Aberto" || item.Status == "Aguardando pagamento" || item.Status == "Em andamento" || item.Status == "Aguardando Aceite" || item.Status == "Finalizado") { %>
+                                <a class="btn btn-brikk" href="cotacao.aspx?Cotacao=<%: item.CotacaoId %>">Visualizar</a>
+                                <a class="btn btn-brikk" href="negociar-cotacao.aspx?Id=<%: item.IdFornecedorDB %>">Negociar</a>
+                            <% } %>
+                            <% if (item.Status == "Aguardando Avaliação") { %>
+                                <a class="btn btn-brikk" href="avaliar.aspx?Id=<%: item.IdFornecedorDB %>">Avaliação</a>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
             <div class="footer_card">
                 <a class="voltar btn" href="dashboard.aspx"><< voltar </a>
             </div>
@@ -205,6 +226,49 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        @media (max-width: 768px) {
+            #tabela {
+                display: none;
+            }
+
+            .imitation-table {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .imitation-row {
+                background: #f9f9f9;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+            .imitation-row div {
+                margin-bottom: 8px;
+            }
+        }
+        table-row {
+           font-family: Rajdhani-semi;
+           border: 1px solid #ccc;
+           margin-bottom: 10px;
+           padding: 10px;
+           background-color: #f9f9f9;
+           cursor: pointer;
+        }
+
+        @media (min-width: 769px) {
+            .imitation-table {
+                display: none;
+            }
+        }
     </style>
      <script>
          function updateVisibility() {
@@ -242,4 +306,43 @@
               }
           }
       </script>
+    <script>
+        const rowsPerPage = 5;
+
+        function sincronizarImitationTable(paginaAtual) {
+            const linhas = document.querySelectorAll('.imitation-row');
+
+            if (linhas.length === 1 && linhas[0].textContent.trim() === "Nenhum registro encontrado") {
+                linhas[0].style.display = 'block';
+                return;
+            }
+
+            linhas.forEach((row, index) => {
+                row.style.display = (index >= (paginaAtual - 1) * rowsPerPage && index < paginaAtual * rowsPerPage) ? 'block' : 'none';
+            });
+        }
+
+        $(document).ready(function () {
+            let tabela = $('#tabela').DataTable({
+                pageLength: rowsPerPage,
+                lengthChange: false,
+                language: {
+                    url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json'
+                }
+            });
+
+            tabela.on('page.dt', function () {
+                const paginaAtual = tabela.page.info().page + 1;
+                sincronizarImitationTable(paginaAtual);
+            });
+
+            tabela.on('draw', function () {
+                const paginaAtual = tabela.page.info().page + 1;
+                sincronizarImitationTable(paginaAtual);
+            });
+
+            sincronizarImitationTable(1);
+        });
+    </script>
+
 </asp:Content>

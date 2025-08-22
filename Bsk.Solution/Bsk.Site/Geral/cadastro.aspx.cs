@@ -74,6 +74,19 @@ namespace Bsk.Site.Geral
             }
             return false;
         }
+        private string BuildConfirmationUrl(string guid)
+        {
+            // Read the querystring from the current request; accept both "tipo" and "Tipo"
+            var tipo = Request.QueryString["tipo"] ?? Request.QueryString["Tipo"];
+
+            // If tipo == "for" (case-insensitive), use the fornecedor confirmation page
+            var page = string.Equals(tipo, "for", StringComparison.OrdinalIgnoreCase)
+                ? "confirmacaoemailfornecedor.aspx"
+                : "confirmacaoemail.aspx";
+
+            return $"http://44.198.11.245/Geral/{page}?guid=" + guid;
+        }
+
 
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
@@ -161,7 +174,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Participante_Insert(_ParticipanteBE);
                 var listaparticipante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + id);
-                string url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
+                string url = BuildConfirmationUrl(guid);
                 string htmlContent = @"
                         <table>
                             <tbody>
@@ -280,7 +293,7 @@ namespace Bsk.Site.Geral
             {
                 var id = _core.Participante_Insert(_ParticipanteBE);
                 var listaparticipante = _core.Participante_Get(_ParticipanteBE, "IdParticipante=" + id);
-                string url = "http://44.198.11.245/Geral/confirmacaoemail.aspx?guid=" + guid;
+                string url = BuildConfirmationUrl(guid);
                 string htmlContent = @"
                         <table>
                             <tbody>

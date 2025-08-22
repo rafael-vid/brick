@@ -305,22 +305,22 @@ namespace Bsk.Interface
         {
             var sql = $@"
                 SELECT 
-                    CF.IdSolicitacao AS CotacaoId,
-                    CF.IdCotacao AS IdFornecedorDB,
-                    CF.IdParticipante AS FornecedorId,
-                    CT.IdParticipante AS ClienteId,
-                    CL.Nome,
-                    CT.Notafornecedor AS Nota,
-                    CT.Titulo,
-                    CT.Status,
-                    CT.FinalizaCliente,
-                    CT.FinalizaFornecedor
-                FROM cotacao CF
-                INNER JOIN solicitacao CT ON CF.IdSolicitacao = CT.IdSolicitacao
-                INNER JOIN participante CL ON CL.IdParticipante = CT.IdParticipante
-                WHERE CT.Status IN {status} AND CF.IdParticipante = " + idFornecedor;
+                CF.IdSolicitacao AS CotacaoId,
+                CF.IdCotacao AS IdFornecedorDB,
+                CF.IdParticipante AS FornecedorId,
+                CT.IdParticipante AS ClienteId,
+                CL.Nome,
+                CT.Notafornecedor AS Nota,
+                CT.Titulo,
+                CT.Status,
+                CT.FinalizaCliente,
+                CT.FinalizaFornecedor
+            FROM cotacao CF
+            INNER JOIN solicitacao CT ON CF.IdSolicitacao = CT.IdSolicitacao
+            INNER JOIN participante CL ON CL.IdParticipante = CT.IdParticipante
+            WHERE CT.Status IN {status} AND CF.IdParticipante = " + idFornecedor;
 
-            return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
+                        return _base.ToList<CotacaoFornecedorListaModel>(db.Get(sql));
         }
 
         public CotacaoAvaliacaoModel Cotacao_Avaliacao_Get(string IdSolicitacao)

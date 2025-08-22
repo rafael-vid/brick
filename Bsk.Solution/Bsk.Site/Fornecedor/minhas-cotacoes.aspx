@@ -137,7 +137,7 @@
                     <thead id="cabecalho-tabela">
                         <tr>
                             <td>Nº Cotação</td>
-                            <td>Título</td>
+                            <td>Descrição</td>
                             <td>Nome cliente</td>
                             <td>Última atualização</td>
                             <td>Status</td>
@@ -213,8 +213,32 @@
                 </tbody>
                 </table>
             </div>
+            <div class="imitation-table" id="imitationTable">
+                <% var cotacoes2 = PegaCotacoes(); int indexCot = 0;
+                   foreach (var item in cotacoes2)
+                   {
+                       string link = "";
 
-         
+                       link = "cotacao.aspx?Cotacao=" + item.CotacaoId;
+                            
+                       if(item.Status == "2")
+                       {
+                           link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                       }
+                       if (item.IdFornecedorDB != 0)
+                       {
+                            link = "negociar-cotacao.aspx?Id=" + item.IdFornecedorDB;
+                       }
+                            %>
+                    <div class="table-row imitation-row" onclick="redirecionar('<%= link %>')" data-status="<%: item.Status %>" data-index="<%= indexCot %>">
+                        <div><strong>Nº Cotação: </strong><span><%: item.CotacaoId %></span></div>
+                        <div><strong>Descrição: </strong><span><%: item.Titulo %></span></div>
+                        <div><strong>Nome Cliente: </strong><span><%: item.Nome %></span></div>
+                        <div><strong>Data de Alteração: </strong><span><%: item.DataAlteracao.ToString("dd/MM/yyyy") %></span></div>
+                        <div><strong>Status: </strong><span class="status status-<%: item.Status %>"><%: item.StatusNome %></span></div>
+                    </div>
+                <% indexCot++; } %>
+              </div>
 
             <div class="footer_card">
                 <a href="dashboard.aspx" class="voltar btn"><< voltar
@@ -303,31 +327,94 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+        @media (max-width: 768px) {
+            /* Oculta tabela normal */
+            table#tabela {
+                display: none;
+            }
+            .table-row {
+               font-family: Rajdhani-semi;
+               border: 1px solid #ccc;
+               margin-bottom: 10px;
+               padding: 10px;
+               background-color: #f9f9f9;
+               cursor: pointer;
+            }
+            /* Mostra imitation table */
+            .imitation-table {
+                display: block !important;
+                margin: 10px;
+            }
+
+            .imitation-row {
+                border: 1px solid #ccc;
+                padding: 12px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                background: #fff;
+            }
+
+            .imitation-row div {
+                margin-bottom: 6px;
+            }
+
+            .imitation-row:hover {
+                background-color: #f5f5f5;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Oculta imitation table no desktop */
+            .imitation-table {
+                display: none !important;
+            }
+        }
     </style>
 
     <script>
         function redirecionar(valor) {
             window.location.href = valor;
         }
-
         function filtraTabela() {
             var table = $('#tabela').DataTable();
 
-            if ($("#slcStatus").val() == "0") {
-                table.search("").draw();
-            } else if ($("#slcStatus").val() == "1") {
-                table.search("Aguardando Cotação").draw();
-            } else if ($("#slcStatus").val() == "2") {
-                table.search("Em cotação").draw();
-            } else if ($("#slcStatus").val() == "3") {
-                table.search("Aguardando pagamento").draw();
-            } else if ($("#slcStatus").val() == "4") {
-                table.search("Em andamento").draw();
-            } else if ($("#slcStatus").val() == "5") {
-                table.search("Pendente de finalização do cliente").draw();
-            } else if ($("#slcStatus").val() == "6") {
-                table.search("Finalizado").draw();
+            var statusValue = $("#slcStatus").val();
+            var searchText = "";
+
+            if (statusValue == "0") {
+                searchText = "";
+            } else if (statusValue == "1") {
+                searchText = "Aguardando Cotação";
+            } else if (statusValue == "2") {
+                searchText = "Em cotação";
+            } else if (statusValue == "3") {
+                searchText = "Aguardando pagamento";
+            } else if (statusValue == "4") {
+                searchText = "Em andamento";
+            } else if (statusValue == "5") {
+                searchText = "Pendente de finalização do cliente";
+            } else if (statusValue == "6") {
+                searchText = "Finalizado";
             }
+
+            // Filtra tabela tradicional via DataTables
+            table.search(searchText).draw();
+
+            // Filtra imitation table manualmente
+            var imitationRows = document.querySelectorAll('.imitation-row');
+            imitationRows.forEach(function (row) {
+                // Pega o texto do status dentro do blocoAC
+                var statusDiv = row.querySelector('div:nth-child(5)'); // 5ª div com status
+                if (!statusDiv) return;
+
+                var statusText = statusDiv.textContent || statusDiv.innerText;
+
+                if (searchText === "" || statusText.includes(searchText)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
         }
     </script>
     <script>
@@ -346,6 +433,39 @@
 
         // Adiciona evento para redimensionamento da janela
         window.addEventListener('resize', updateVisibility);
+    </script>
+    <script>
+        const rowsPerPage = 5;
+
+        function sincronizarImitationTable(paginaAtual) {
+            const linhas = document.querySelectorAll('.imitation-row');
+            linhas.forEach((row, index) => {
+                row.style.display = (index >= (paginaAtual - 1) * rowsPerPage && index < paginaAtual * rowsPerPage) ? '' : 'none';
+            });
+        }
+
+        $(document).ready(function () {
+            // Espera o DataTable já estar inicializado
+            const checkReady = setInterval(function () {
+                if ($.fn.dataTable.isDataTable('#tabela')) {
+                    clearInterval(checkReady); // Para de checar
+
+                    const tabela = $('#tabela').DataTable();
+
+                    $('#tabela').on('page.dt', function () {
+                        const paginaAtual = tabela.page.info().page + 1;
+                        sincronizarImitationTable(paginaAtual);
+                    });
+
+                    tabela.on('draw', function () {
+                        const paginaAtual = tabela.page.info().page + 1;
+                        sincronizarImitationTable(paginaAtual);
+                    });
+
+                    sincronizarImitationTable(1); // Página inicial
+                }
+            }, 100); // Checa a cada 100ms até o DataTable existir
+        });
     </script>
 </asp:Content>
 

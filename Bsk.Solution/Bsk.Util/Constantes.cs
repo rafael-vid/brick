@@ -89,6 +89,8 @@ namespace Bsk.Util
         public const string AguardandoAceite = "5";
         public const string AguardandoAvaliacao = "6";
         public const string Finalizado = "7";
+        public const string Rascunho = "8";
+        public const string Recusado = "9";
     }
 
     public static class VariaveisGlobais

@@ -1,417 +1,257 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="meus-cartoes.aspx.cs" Inherits="Bsk.Site.Cliente.meus_cartoes" MasterPageFile="~/Cliente/Master/Layout.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="meus-cartoes.aspx.cs" Inherits="Bsk.Site.Cliente.meus_cartoes"  MasterPageFile="~/Cliente/Master/Layout.Master" %>
 
-<asp:Content ContentPlaceHolderID="conteudo" ID="hd" runat="server">
-    <style>
-        body {
-            font-family: Rajdhani-semi, sans-serif;
+<asp:Content ContentPlaceHolderID="conteudo" ID="Content1" runat="server">
+<style>
+        :root{
+            --bg:#f2f3f3; --panel:#fff; --muted:#6b7280; --text:#111827; --brand:#6d28d9; --accent:#e5e7eb;
         }
-
-        .ordenador{
-            padding: 30px;
-        }
-
-        .faq-itens {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-gap: 20px;
-        }
-
-        .item-faq {
-            margin-top: 0px;
-            padding-bottom: 0px;
-            position: relative;
-        }
-
-        .item-faq:last-child {
-            border: none;
-        }
-
-        .item-faq form {
-            display: none;
-        }
-        .item-faq label {
-            font-size: 16px;
-            color: #771218;
-            font-family: Rajdhani-semi, sans-serif;
-        }
-
-        .item-faq input:checked + .checkbox-wrapper form {
-            display: block;
-        }
-
-        .item-faq input:checked + .checkbox-wrapper form > div {
+        html,body{height:100%;}
+        body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;color:var(--text);}        
+        .wrap {
+            min-height: calc(100vh - 320px); /* ajuste o 160px conforme a altura combinada do header + footer */
             display: flex;
-            gap: 10px;
-            color: #3C3C3B;
-            font-size: 15px;
-            align-items: center;
-            height: 35px;
-        }
-
-        .item-faq input:checked + .checkbox-wrapper form > div:nth-child(even) {
-            background: #fff;
-        }
-
-        .item-faq h2 {
-            cursor: pointer;
-            padding-left: 30px;
-            font-size: 17px;
-            color: #771218;
-            font-family: Rajdhani-semi, sans-serif;
-        }
-
-        .item-faq h2::before {
-            content: url(../assets/imagens/escoder.svg);
-            width: 17px;
-            height: 17px;
-            display: inline-block;
-            transform: rotate(180deg);
-            transition: transform .3s ease;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .item-faq input {
-            margin-right:10px
-        }
-
-        .category-label {
-        font-size: 30px !important;
-
-        }
-
-
-        .checkbox-wrapper form {
-            margin-top: 10px;
-            display: none !important;
-        }
-
-        .item-faq input:checked + .checkbox-wrapper form {
-            display: block !important;
-        }
-
-        .item-faq input:checked + .checkbox-wrapper h2::before {
-            transform: rotate(360deg);
-            top: 0;
-        }
-        a.cotacao{
-            background: #f4f3f2;
-            color: #770e18 !important;
-        }
-
-        @media (max-width: 787px) {
-
-            .titulo-faq,
-            .faq-itens {
-                width: 100%;
-            }
-
-            .faq {
-                background-position: right;
-                height: auto;
-            }
-        }
-        .services input[type="checkbox"] {
-            margin-left: 30px; /* Adjust the value as needed */
-        }
-        /*sweet alert style*/
-
-        div:where(.swal2-container).swal2-center > .swal2-popup {
-            border-radius: 40px !important;
-            font-size: 16px !important;
-            flex-direction: column !important;
-        }
-
-        .swal2-actions {
-            flex-direction: column !important;
-        }
-
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-            border-radius: 20px !important;
-            background-color: #770e18 !important;
-        }
-
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-            border-radius: 20px !important;
-            background-color: #f08f00 !important;
-        }
-
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
-            border-radius: 20px !important;
-            background-color: #f08f00 !important;
-        }
-
-        div:where(.swal2-icon).swal2-info {
-            border-color: #770e18 !important;
-            color: #770e18 !important;
-        }
-
-        .swal2-icon.swal2-error {
-            border-color: #770e18 !important;
-            color: #770e18 !important;
-        }
-
-        /*sweet alert style*/
-
-
+            flex-direction: column;
+        }        .grid{display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start;}
+        .panel{background:var(--panel);border-radius:16px;box-shadow:0 1px 2px rgba(16,24,40,.04),0 1px 3px rgba(16,24,40,.1);}        
+        .left{overflow:hidden;}
+        .cards{max-height:70vh;overflow:auto;padding:8px;}
+        .card-row{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;cursor:pointer;border:1px solid transparent;}
+        .card-row:hover{background:#fafafa;border-color:#eee;}
+        .card-row.active{background:#f4f3ff;border-color:#ddd;}
+        .thumb{width:64px;height:40px;border-radius:8px;background:linear-gradient(135deg, #5b21b6, #8b5cf6);position:relative;display:grid;place-items:center;color:#fff;font-weight:700;}
+        .thumb:after{content:"\2022\2022\2022\2022";position:absolute;bottom:6px;left:10px;font-size:10px;opacity:.85;letter-spacing:2px}
+        .meta{display:flex;flex-direction:column;line-height:1.2}
+        .meta .brand{font-weight:600}
+        .meta .last4{font-size:12px;color:var(--muted)}
+        .actions{margin-top:8px;display:flex;gap:8px}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid #e5e7eb;background:#fff;font-weight:600;cursor:pointer}
+        .btn.primary{background:#5b21b6;color:#fff;border-color:transparent}
+        .btn.danger{border-color:#fecaca;background:#fff0f0;color:#b91c1c}
+        .detail{padding:20px 24px}
+        .detail-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+        .detail-head,
+        .detail-head .actions { position: relative; z-index: 5; }
+        .detail-title{font-size:20px;font-weight:700}
+        .bigcard{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#5b21b6,#8b5cf6);color:#fff;border-radius:16px;padding:18px 20px}
+        .bigchip{width:44px;height:32px;border-radius:6px;background:rgba(255,255,255,.25)}
+        .bigmeta{display:flex;flex-direction:column;gap:6px}
+        .bigmeta .name{font-weight:700}
+        .form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+        .form .field{display:flex;flex-direction:column;gap:6px}
+        .form label{font-size:12px;color:var(--muted)}
+        .form input{border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:14px}
+        .divider{height:1px;background:var(--accent);margin:18px 0}
+        @media (max-width: 960px){.grid{grid-template-columns:1fr}.cards{max-height:none}}
     </style>
-    <style>
-        .card {
-            margin: 0px 30px 30px 30px;
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmarRemocao() {
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: 'Deseja realmente remover este cartão?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, remover',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                __doPostBack('<%= btnRemover.UniqueID %>', '');
+            }
+        });
+        return false;
+    }
+    </script>
+<script>
+    function preventDoubleSubmit(btn) {
+        if (btn.dataset.clicked) return false;   // blocks 2nd+ clicks
+        btn.dataset.clicked = "true";
+        btn.disabled = true;
+        btn.classList.add("is-loading");
+        return true; // allow the postback
+    }
+
+</script>
+<script>
+    function onSalvarClick(btn) {
+        // Prevent double submits and bypass HTML5 constraint validation
+        if (!preventDoubleSubmit(btn)) return false;
+        __doPostBack('<%= btnAdicionar.UniqueID %>', '');
+        return false; // stop native submit
+    }
+</script>
+<script>
+    function digitsOnly(el) { el.value = el.value.replace(/\D+/g, ''); }
+</script>
+<script>
+    // Formats: "1234567890123456" -> "1234 5678 9012 3456"
+    function formatCardNumber(el) {
+        const selStart = el.selectionStart;
+        const raw = el.value;
+        const digits = raw.replace(/\D/g, "").slice(0, 19); // hard limit: 19 digits
+        const grouped = digits.replace(/(.{4})/g, "$1 ").trim();
+
+        // Recompute caret: # of digits before old caret -> position with spaces
+        const digitsBefore = raw.slice(0, selStart).replace(/\D/g, "").length;
+        const newPos = digitsBefore + Math.floor(digitsBefore / 4);
+
+        el.value = grouped;
+        // guard in case of end-of-string
+        const pos = Math.min(newPos, el.value.length);
+        el.setSelectionRange(pos, pos);
+    }
+
+    // (Optional) smoother backspace when cursor is right after a space
+    function cardBackspaceHandler(e) {
+        if (e.key !== "Backspace") return;
+        const el = e.target;
+        const pos = el.selectionStart;
+        if (pos > 0 && el.value[pos - 1] === " ") {
+            e.preventDefault();
+            // delete the digit before the space
+            const before = el.value.slice(0, pos - 1);
+            const after = el.value.slice(pos);
+            el.value = (before + after);
+            formatCardNumber(el);
         }
-        .conteudo-dash {
-            min-height: 0vh !important;
-        }
-        div.chart {
-            position: relative;
-            width: 150px;
-            height: 150px;
-        }
+    }
+</script>
 
-        canvas {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-        }
 
-        span.marcacao {
-            color: #770e18;
-            display: block;
-            line-height: 150px;
-            text-align: center;
-            width: 150px;
-            font-family: sans-serif;
-            font-size: 40px;
-            font-weight: 100;
-            margin-left: 5px;
-        }
 
-        .estrelas {
-            margin-top: 10px;
-        }
-
-        .estrelas input[type=radio] {
-            display: none;
-        }
-
-        .estrelas label i.fa {
-            font-size: 2.5em;
-            cursor: pointer;
-        }
-
-        .estrelas label i.fa:before {
-            content: '\f005';
-            color: #FC0;
-        }
-
-        .estrelas input[type=radio]:checked ~ label i.fa:before {
-            color: #CCC;
-        }
-        a.cotacao{
-            background: #f4f3f2;
-            color: #770e18 !important;
-        }
-        .acessos{
-            margin-bottom: 20px;
-        }
-        @media (max-width: 768px) {
-            .subtitulo_card {
-                margin-top: 35px !important;
-            }
-            .area_comentario {
-                grid-gap: 15px !important;
-            }
-            .card {
-                margin: 0px 0px 0px 0px !important;
-            }
-            .conteudo-dash{
-                padding: 0px 0px 0px 0px !important;
-            }
-            .btn_nova_solicitacao{
-                margin-top: 5px;
-            }
-            .conteudo-dash{
-                min-height: 0px !important;
-            }
-            .card-cotacao-dados {
-                width: 400px !important;
-            }
-            .cotacoes-cli .acessos {
-                flex-wrap: unset;
-            }
-            .acessos-small {
-                display: flex; /* Exibe para telas pequenas */
-                padding: 2px 15px 15px 15px;
-                flex-direction: column;
-            }
-            .btn_card {
-                font-size: 14px;
-                width: 44% !important;
-                margin-bottom: 15px;
-                min-width: 170px;
-            }
-            btn_alterar_dados{
-                margin-left:80px !important;
-            }
-            .card {
-                z-index: 1;
-                padding: 15px !important;
-            }
-            .card-cotacao-dados {
-                width: 100% !important;
-                max-width: 388px; /* Mantenha esse limite, se necessário */
-            }
-            .card-cl2 {
-                display: flex;
-                flex-direction: column;
-            }
-            .grupo-pg-boleto{
-                 display: flex;
-                flex-direction: column;
-            }
-
-            .dataTables_length label select{
-                left: 15px !important;
-            }
-            .total_a_receber p {
-                font-size: 25px;
-            }
-            .grid {
-                flex-direction: column;
-                margin-left: 15px !important;
-            }    
-            .media-cotacoes {
-                min-width: 80% !important;
-         
-            }
-            .divAceitar2{
-                bottom: 0px; 
-                right: 0px; 
-                position: absolute; 
-                z-index: 1000; 
-                border: 0px;
-            }
-        }
-   
-
-/* Estilos para dispositivos móveis */
-        @media (max-width: 768px) {
-
-            acessos-small {
-                display: flex;
-                flex-direction: column; /* Empilha verticalmente */
-            }
-
-            .dropdown-menu {
-                position: absolute; /* Permite o posicionamento em relação ao botão */
-                background-color: white;
-                border: 1px solid #ccc;
-                z-index: 10;
-                min-width: 150px; /* Largura do dropdown */
-                top: calc(100% + 5px); /* O menu aparece logo abaixo do botão */
-                right: 25px; /* Alinha o menu com a borda esquerda do botão */
-            }
-
-            .dropdown-toggle::after {
-                content: none; /* Remove a setinha */
-            }
-
-            .dropdown {
-                position: relative; /* Necessário para a posição do dropdown */
-                display: inline-flex;
-                justify-content: space-around;
-            }
-
-            .dropdown-item {
-                display: block;
-                padding: 10px;
-                text-decoration: none;
-                color: black;
-                margin-right: 0px;
-            }
-
-            .dropdown-item:hover {
-                background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
-            }
-        }
-    </style>
-
-  
-    <!-- Corpo Site -->
-    <div class="card-tabela " style="overflow-x: auto;">
-    
-    <table id="tabela" class="table table-condensed table-responsive table-striped table-hover tabela-mobile">
-        <thead id="cabecalho-tabela">
-            <tr>
-                <th>Nome do Cartão </th>
-                <th>Nome do Titular</th>
-                <th>Número</th>
-                <th>Data de Validade</th>
-                <th>CVV</th>
-                <th></th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <%var cartoes = PegaCartoes();
-            
-                
-            %>
-            <asp:Repeater ID="rptCartoes" runat="server">
+<asp:ScriptManager runat="server" EnablePartialRendering="true" />
+        <asp:Literal runat="server" ID="litSwal" />
+        <div class="wrap">
+            <div class="grid">
+                <!-- LEFT: list of cards -->
+                <asp:UpdatePanel ID="updLeft" runat="server" UpdateMode="Conditional">
+  <ContentTemplate>
+<div class="panel left">
+    <div class="detail">
+    <div class="detail-head">
+                    <div class="cards">
+                        <asp:ListView ID="lvCartoes" runat="server" DataKeyNames="Id" OnItemCommand="lvCartoes_ItemCommand">
     <ItemTemplate>
-        <tr>
-            <td><%# Eval("NomeCartao") %></td>
-            <td><%# Eval("NomeTitular") %></td>
-            <td><%# Eval("NumeroCartao") %></td>
-            <td><%# Eval("MesExpiracao") %>/<%# Eval("AnoExpiracao") %></td>
-            <td><%# Eval("CVV") %></td>
-            <td>
-                <asp:LinkButton 
-                    ID="btnRemover" 
-                    runat="server" 
-                    CssClass="btn btn-danger btn-sm" 
-                    Style="width:70px; line-height:1;" 
-                    CommandArgument='<%# Eval("Id") %>' 
-                    OnClick="RemoverCartao">Remover</asp:LinkButton>
-            </td>
-        </tr>
+        <asp:LinkButton runat="server"
+            CommandName="selectCard"
+            CommandArgument='<%# Eval("Id") %>'
+            CssClass='<%# (Eval("Id").ToString() == SelectedId ? "card-row active" : "card-row") %>'>
+            <span class="thumb">nu</span>
+            <span class="meta">
+                <span class="brand"><%# Eval("NomeCartao") %></span>
+                <span class="last4">Cartão final •••• <%# Últimos4(Eval("NumeroCartao")) %></span>
+            </span>
+        </asp:LinkButton>
     </ItemTemplate>
-</asp:Repeater>
-
-        </tbody>
-    </table>
-
-
+</asp:ListView>
+                        <div class="detail">
+                            <div class="detail-head">
+                                <div class="actions">
+                                    <asp:Button runat="server" ID="btnNovo" Text="Adicionar cartão" CssClass="btn primary" OnClick="AbrirModoAdicionar" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
 </div>
- <form id="formCartao">
+                </div>
+  </ContentTemplate>
+  <Triggers>
+    <asp:AsyncPostBackTrigger ControlID="btnAdicionar" EventName="Click" />
+    <asp:AsyncPostBackTrigger ControlID="btnRemover" EventName="Click" />
+  </Triggers>
+</asp:UpdatePanel>
 
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">Nome do Cartão</h2>
-        <input type="text" name="holder-name" class="card-input-add" id="nomeCartao" runat="server">
-    </div>
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">Nome do Titular</h2>
-        <input type="text" name="card-name" class="card-input-add" id="nomeTItular" runat="server">
-    </div>
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">Número do Cartão</h2>
-        <input type="text" class="card-input-add" id="numeroCartao" maxlength="19" runat="server" ClientIDMode="Static" oninput="mascaraCartao(this)">
-    </div>
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">Mês</h2>
-        <input type="text" name="card-exp-month" class="card-input-add" id="mes" runat="server">
-    </div>
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">Ano</h2>
-        <input type="text" name="card-exp-year" class="card-input-add" id="ano" runat="server">
-    </div>
-    <div class="item_content_card">
-        <h2 class="subtitulo_card_1 subtitulo_1">CVV</h2>
-        <input type="text" name="cvv" class="card-input-add" id="codigo" runat="server">
-    </div>
-    <button runat="server" type="submit" id="btnAdicionar" class="btn_card" onserverclick="btnAdicionar_ServerClick">Adicionar</button>
-</form>
+
+                <!-- RIGHT: selected card details -->
+                <asp:UpdatePanel runat="server" ID="upd" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <div class="detail">
+                            <div class="detail-head">
+                                <div class="detail-title">Detalhes do cartão</div>
+                                <div class="actions">
+                                    <asp:Button ID="btnRemover" runat="server"
+                                        Text="Remover"
+                                        CssClass="btn danger"
+                                        UseSubmitBehavior="false"
+                                        CausesValidation="false"
+                                        OnClientClick="return confirmarRemocao();"
+                                        OnClick="btnRemoverSelected_Click" />
+                                </div>
+                            </div>
+                            <div class="bigcard">
+                                <div class="bigchip"></div>
+                                <div class="bigmeta">
+                                    <div class="name"><asp:Label runat="server" ID="lblNomeCartao" /></div>
+                                    <div class="num"><asp:Label runat="server" ID="lblNumeroMascarado" /></div>
+                                    <div class="holder"><asp:Label runat="server" ID="lblTitular" /></div>
+                                    <div class="exp"><asp:Label runat="server" ID="lblExp" /></div>
+                                </div>
+                            </div>
+
+                            <div class="divider"></div>
+
+                            <!-- Add / Edit form (simple add for now) -->
+                            <div id="areaAdd" runat="server" visible="false">
+                                <div class="form">
+                                    <div class="field">
+                                        <label>Apelido do cartão</label>
+                                        <input id="nomeCartao" runat="server" type="text" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Nome do titular</label>
+                                        <input id="nomeTItular" runat="server" type="text" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Número</label>
+                                        <input id="numeroCartao" runat="server"
+       type="text" inputmode="numeric"
+       maxlength="19"
+       pattern="^[0-9 ]{19}$"
+       title="Apenas números (16 dígitos), com espaço a cada 4."
+       oninput="formatCardNumber(this)"
+       onkeydown="cardBackspaceHandler(event)" />
+
+                                    </div>
+                                    <div class="field">
+                                        <label>Mês</label>
+                                        <input id="mes" runat="server"
+       type="text" inputmode="numeric" 
+       maxlength="2" pattern="(0[1-9]|1[0-2])"
+       title="Mês no formato 01 a 12."
+       oninput="digitsOnly(this)" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Ano</label>
+                                        <input id="ano" runat="server"
+       type="text" inputmode="numeric" 
+       maxlength="4" pattern="\d{4}"
+       title="Ano com 4 dígitos (ex.: 2028)."
+       oninput="digitsOnly(this)" />
+                                    </div>
+                                    <div class="field">
+                                        <label for="codigo">CVV</label>
+                                        <input id="codigo" runat="server"
+       type="text" inputmode="numeric" 
+       maxlength="4" pattern="\d{3,4}"
+       title="Código de segurança com 3 ou 4 dígitos."
+       oninput="digitsOnly(this)" />
+
+                                    </div>
+                                </div>
+                                <div class="actions">
+                                    <asp:Button ID="btnAdicionar" runat="server" Text="Salvar cartão" CssClass="btn primary" UseSubmitBehavior="false" CausesValidation="false" OnClick="btnAdicionar_Click" OnClientClick="return onSalvarClick(this);" />
+                                    <asp:Button runat="server" ID="btnCancelarAdd" Text="Cancelar" CssClass="btn" OnClick="FecharModoAdicionar" />
+                                </div>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+    <asp:AsyncPostBackTrigger ControlID="lvCartoes" EventName="ItemCommand" />
+    <asp:AsyncPostBackTrigger ControlID="btnRemover" EventName="Click" />
+    <asp:AsyncPostBackTrigger ControlID="btnAdicionar" EventName="Click" />
+    <asp:AsyncPostBackTrigger ControlID="btnNovo" EventName="Click" />
+  </Triggers>
+</asp:UpdatePanel>
+            </div>
+        </div>
 </asp:Content>

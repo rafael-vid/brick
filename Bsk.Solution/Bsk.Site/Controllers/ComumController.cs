@@ -200,6 +200,39 @@ namespace Bsk.Site.Controllers
 
             return "Ok";
         }
+        [HttpPost]
+        public string RecusarCotacao(string IdCotacao)
+        {
+            CotacaoBE CotacaoBE = new CotacaoBE();
+            var cf = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + IdCotacao).FirstOrDefault();
+
+            if (cf == null)
+            {
+                return "Cotação não encontrada";
+            }
+
+            // Se o fornecedor já tiver desistido, não há o que recusar no fluxo
+            if (cf.Ativo == 0)
+            {
+                return "O fornecedor desistiu da cotação";
+            }
+
+            SolicitacaoBE SolicitacaoBE = new SolicitacaoBE();
+            var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cf.IdSolicitacao).FirstOrDefault();
+
+            if (cotacao == null)
+            {
+                return "Solicitação não encontrada";
+            }
+
+            // Atualiza o status para Recusado
+            cotacao.Status = StatusCotacao.Recusado;
+            _core.Cotacao_Update(cotacao, "IdSolicitacao=" + cf.IdSolicitacao);
+
+
+            return "Ok";
+        }
+
 
         [HttpPost]
         public JsonResult AceitarTermino(string IdCotacao, string status)

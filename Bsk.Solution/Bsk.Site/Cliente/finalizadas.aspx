@@ -52,8 +52,7 @@
                 <img src="../assets/imagens/dados-icon.svg" alt="ícone" style="width: 20px;">
                 <h2 class="subtitulo_1">Cotação</h2>
             </div>
-            <div class="filtros_card" style="display:none">
-
+            <div class="filtros_card">
                 <div class="select-card">
                     <select onchange="filtraTabela();" id="slcStatus">
                         <option value="0">Selecione um status</option>
@@ -82,7 +81,7 @@
                         <tr>
                             <th>Nº Cotação </th>
                             <th>Data da Criação</th>
-                            <th>Título</th>
+                            <th>Descrição</th>
                             <th>Data Atualizada</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
@@ -181,9 +180,39 @@
                     </tbody>
                 </table>
             </div>
-
-            
-
+            <!-- TABELA MOBILE -->
+            <div class="imitation-table" id="imitationTable" style="display: none;">
+                <% int index = 0;
+                   foreach (var item in cotacoes) {
+                        string linkMobile = "";
+                        if (item.Status == "Criação")
+                            linkMobile = "cadastro-solicitacao.aspx?Cotacao=" + item.IdSolicitacao;
+                        else if (item.Status == "Aberto")
+                            linkMobile = "cotacao-lista.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Em andamento")
+                            linkMobile = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Aguardando pagamento")
+                            linkMobile = "pagamento.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Finalizado")
+                            linkMobile = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Aguardando aceite")
+                            linkMobile = "negociar-cotacao.aspx?Id=" + item.IdCotacao;
+                        else if (item.Status == "Aguardando liberação do pagamento")
+                            linkMobile = "finalizar-pagamento.aspx?Id=" + item.IdSolicitacao;
+                        else if (item.Status == "Avaliado")
+                            linkMobile = "avaliar.aspx?Id=" + item.IdSolicitacao;
+                %>
+                <div class="table-row" data-index="<%= index++ %>">
+                    <a href="<%= linkMobile %>">
+                        <p class="table-cell" ><strong>Nº Cotação:</strong> <%= item.IdSolicitacao %></p>
+                        <p class="table-cell" ><strong>Data Criação:</strong> <%= item.DataCriacao %></p>
+                        <p class="table-cell" ><strong>Título:</strong> <%= item.Titulo %></p>
+                        <p class="table-cell" ><strong>Atualizado em:</strong> <%= item.DataAlteracao.ToString("dd/MM/yyyy") == "01/01/0001" ? "-" : item.DataAlteracao.ToString("dd/MM/yyyy") %></p>
+                        <p class="table-cell" ><strong>Status:</strong> <%= item.Status %></p>
+                    </a>
+                </div>
+                <% } %>
+            </div>
             <div class="footer_card">
                 <a href="cliente-dashboard.aspx" class="voltar btn"><< voltar </a>
                 <!--
@@ -235,7 +264,6 @@
             }
             .card-cotacao-dados {
                 width: 100% !important;
-                max-width: 388px; /* Mantenha esse limite, se necessário */
             }
          }
          .acessos-small{
@@ -269,6 +297,36 @@
         .dropdown-item:hover {
             background-color: #f1f1f1; /* Muda a cor ao passar o mouse */
         }
+         .imitation-table {
+             display: flex;
+             flex-direction: column;
+             gap: 15px;
+         }
+
+         .table-row {
+             font-family: Rajdhani-semi;
+             border: 1px solid #ccc;
+             margin-bottom: 10px;
+             padding: 10px;
+             background-color: #f9f9f9;
+             cursor: pointer;
+             display: flex;
+             flex-wrap: wrap;
+             gap: 10px;
+         }
+
+         .table-cell {
+             flex: 1 1 100%;
+             display: flex;
+             justify-content: space-between;
+         }
+
+         @media(min-width: 768px) {
+             .imitation-table {
+                 display: none !important;
+             }
+         }
+
     </style>
 
     <script>
@@ -339,5 +397,65 @@
             }
         }
     </script>
+    <script>
+        function mostrarTabelaResponsiva() {
+            const largura = window.innerWidth;
+            const tabelaNormal = document.querySelector(".table");
+            const tabelaMobile = document.querySelector("#imitationTable");
 
+            if (largura < 768) {
+                tabelaNormal.style.display = "none";
+                tabelaMobile.style.display = "";
+            } else {
+                tabelaNormal.style.display = "";
+                tabelaMobile.style.display = "none";
+            }
+        }
+
+        mostrarTabelaResponsiva();
+        window.addEventListener("resize", mostrarTabelaResponsiva);
+</script>
+<script>
+    let pageSize = 5;
+    let currentPage = 1;
+
+    function paginarCardsMobile() {
+        let cards = document.querySelectorAll('.table-row');
+        let totalPages = Math.ceil(cards.length / pageSize);
+
+        // Garante página válida
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        cards.forEach((card, index) => {
+            card.style.display = (index >= (currentPage - 1) * pageSize && index < currentPage * pageSize) ? "" : "none";
+        });
+    }
+
+    function detectarCliqueBotoesDatatable() {
+        document.querySelectorAll('.paginate_button').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                const active = document.querySelector('.paginate_button.current');
+                if (active) {
+                    let num = parseInt(active.textContent);
+                    if (!isNaN(num)) {
+                        currentPage = num;
+                        paginarCardsMobile();
+                    }
+                }
+            });
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        paginarCardsMobile();
+        detectarCliqueBotoesDatatable();
+    });
+
+    // Reaplica listener se DataTable recriar os botões
+    $(document).on('draw.dt', function () {
+        detectarCliqueBotoesDatatable();
+        paginarCardsMobile();
+    });
+</script>
 </asp:Content>

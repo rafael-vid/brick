@@ -26,7 +26,7 @@ namespace Bsk.Site.Geral
                 {
                     // Use the GUID as needed in your application, for example:
                     var participante = _core.Participante_Get(_ParticipanteBE, "GuidColumn= '" + guid+ "'").FirstOrDefault();
-                    participante.Confirmado = 1;
+                    participante.EmailConfirmado = 1;
                     var _login = _core.Participante_Get(_ParticipanteBE, $" GuidColumn='{guid}'").FirstOrDefault();
                     _core.Participante_Update(participante, "IdParticipante = " + participante.IdParticipante);
                     //Cria a estancia do obj HttpCookie passando o nome do mesmo

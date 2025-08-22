@@ -60,7 +60,7 @@
                 <div class="area_comentario">
                     <div class="comentarios_area">
                         <h2 class="subtitulo_card_1 subtitulo_1">Detalhamento </h2>
-                        <asp:TextBox ID="descricao" runat="server" placeholder="Digite aqui seu depoimento" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="descricao" runat="server" placeholder="Detalhe aqui a sua solicitação" TextMode="MultiLine"></asp:TextBox>
 
                         <button type="button" class="btn enviar-cotacao" id="btnSalvar" onserverclick="btnSalvar_ServerClick" runat="server">
                             Salvar dados da cotação
@@ -298,23 +298,44 @@
         .dropdown-toggle::after {
             content: none; /* Remove a setinha */
         }
-        div:where(.swal2-container).swal2-center > .swal2-popup {
-            border-radius: 40px !important;
-            font-size: 15px !important;
-        }
+        /*sweet alert style*/
 
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
-            border-radius: 20px !important;
-        }
+         div:where(.swal2-container).swal2-center > .swal2-popup {
+             border-radius: 40px !important;
+             font-size: 16px !important;
+             flex-direction: row !important;
+         }
 
-        div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
-            border-radius: 20px !important;
-        }
+         .swal2-actions {
+             flex-direction: row !important;
+         }
 
-        div:where(.swal2-icon).swal2-info {
-            border-color: #770e18;
-            color: #770e18;
-        }
+         div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel {
+             border-radius: 20px !important;
+             background-color: #770e18 !important;
+         }
+
+         div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm {
+             border-radius: 20px !important;
+             background-color: #f08f00 !important;
+         }
+
+         div:where(.swal2-container) button:where(.swal2-styled).swal2-deny {
+             border-radius: 20px !important;
+             background-color: #f08f00 !important;
+         }
+
+         div:where(.swal2-icon).swal2-info {
+             border-color: #770e18 !important;
+             color: #770e18 !important;
+         }
+
+         .swal2-icon.swal2-error {
+             border-color: #770e18 !important;
+             color: #770e18 !important;
+         }
+
+         /*sweet alert style*/
 
         .btn.enviar-cotacao {
             border-radius: 30px;

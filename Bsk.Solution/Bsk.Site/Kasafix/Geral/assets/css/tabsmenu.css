@@ -1,0 +1,147 @@
+.loginCadastro {
+    background-color: #770e18;
+    height: calc(100vh - 340px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../imagens/fundo.png);
+}
+.tabs-menu {
+  width: 50%;
+  min-width: 300px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.tabs-menu nav {
+
+  display: flex;
+  gap: 5px;
+}
+.tabs-menu nav a {
+  display: flex;
+  gap: 10px;
+  background: #f4f3f2;
+  padding: 17px 15px 7px 15px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  width: 40%;
+  justify-content: center;
+}
+.tab-content.ativo nav a {
+  background: #000;
+}
+.tabs-menu nav a span {
+  font-size: 20px;
+  color: #770e18;
+  font-family: Rajdhani-semi, sans-serif;
+}
+.tab-content {
+  display: none;
+  animation: 0.5s show forwards;
+}
+
+    .tab-content.ativo {
+        display: block;
+        padding: 31px 46px 77px 48px;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+        border-radius: 0px 50px 50px 50px;
+        background-color: #f4f3f2;
+    }
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0px, 0, 0);
+  }
+}
+.tab-content form {
+  display: flex;
+  flex-direction: column;
+}
+.tab-content form input {
+  width: 100%;
+  height: 60px;
+  background: #770e18;
+  border: none;
+  outline: none;
+  margin: 17px 0;
+  font-size: 24px;
+  color: #f4f3f2;
+  font-family: Rajdhani;
+  padding: 18px 32px;
+  border-radius: 30px;
+  transition: 0.3s ease;
+}
+.tab-content form input:focus {
+  border: 2px solid #f08f00;
+  background: #770e19a1;
+}
+.tab-content form input::placeholder {
+  color: #f4f3f2;
+}
+.tab-content form > .acessos {
+  display: flex;
+  justify-content: space-between;
+}
+.acessos > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 55px;
+  font-family: Rajdhani-semi, sans-serif;
+  margin-top: 23px;
+}
+.naotemacesso,
+.esqueceusenha {
+  font-size: 18px;
+  line-height: 24px;
+  color: #575756;
+  transition: ease 0.8s;
+}
+.esqueceusenha {
+  font-size: 18px;
+  line-height: 21px;
+}
+.acessos .btn {
+  font-size: 16px;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-top: 27px;
+}
+.esqueceusenha:hover,
+.naotemacesso:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 551px) and (max-width: 899px) {
+  .tabs-menu {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .tabs-menu {
+    width: 100%;
+  }
+  .tabs-menu nav a {
+    width: 50%;
+    align-items: center;
+  }
+  .tab-content.ativo {
+    padding: 20px 20px 40px 20px;
+  }
+  .tab-content form > .acessos {
+    flex-direction: column;
+  }
+  .acessos > div {
+    margin-left: 0;
+  }
+  .tabs-menu nav a span {
+    font-size: 14px;
+  }
+}
