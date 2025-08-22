@@ -132,51 +132,6 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.HtmlControls.HtmlButton btnAlterar;
 
         /// <summary>
-        /// nomeCartao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nomeCartao;
-
-        /// <summary>
-        /// numeroCartao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numeroCartao;
-
-        /// <summary>
-        /// mes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText mes;
-
-        /// <summary>
-        /// ano control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ano;
-
-        /// <summary>
-        /// codigo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText codigo;
-
-        /// <summary>
         /// valor control.
         /// </summary>
         /// <remarks>

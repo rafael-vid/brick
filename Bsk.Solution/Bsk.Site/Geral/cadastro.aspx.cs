@@ -78,15 +78,23 @@ namespace Bsk.Site.Geral
         protected void btnFisica_ServerClick(object sender, EventArgs e)
         {
             string stremail = email.Value;
-           
-                if (IsEmailRegisteredParticipante(stremail))
+            string tipo = Request.QueryString["Tipo"];
+            if (IsEmailRegisteredParticipante(stremail))
                 {
                     if (!IsEmailConfirmedParticipante(stremail))
                     {
                     HttpCookie emailcookie = new HttpCookie("emailcookie");
                     emailcookie.Value = email.Value;
                     Response.Cookies.Add(emailcookie);
-                    Response.Redirect($"cadastro.aspx?Red=ok");
+                    if (tipo == "for")
+                    {
+                        Response.Redirect($"cadastro.aspx?Red=ok&tipo=for");
+                    }
+                    else if (tipo == "cli")
+                    {
+                        Response.Redirect($"cadastro.aspx?Red=ok&tipo=cli");
+                    }
+
                 }
                     string message = "Email já existe";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "displayPopup", "displayPopupMessage3('" + message + "');", true);
