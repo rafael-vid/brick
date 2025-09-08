@@ -124,42 +124,39 @@
             <div class="grid">
                 <!-- LEFT: list of cards -->
                 <asp:UpdatePanel ID="updLeft" runat="server" UpdateMode="Conditional">
-  <ContentTemplate>
-<div class="panel left">
-    <div class="detail">
-    <div class="detail-head">
-                    <div class="cards">
-                        <asp:ListView ID="lvCartoes" runat="server" DataKeyNames="Id" OnItemCommand="lvCartoes_ItemCommand">
-    <ItemTemplate>
-        <asp:LinkButton runat="server"
-            CommandName="selectCard"
-            CommandArgument='<%# Eval("Id") %>'
-            CssClass='<%# (Eval("Id").ToString() == SelectedId ? "card-row active" : "card-row") %>'>
-            <span class="thumb">nu</span>
-            <span class="meta">
-                <span class="brand"><%# Eval("NomeCartao") %></span>
-                <span class="last4">Cartão final •••• <%# Últimos4(Eval("NumeroCartao")) %></span>
-            </span>
-        </asp:LinkButton>
-    </ItemTemplate>
-</asp:ListView>
-                        <div class="detail">
-                            <div class="detail-head">
+                    <ContentTemplate>
+                        <div class="panel left">
+                            <div class="detail">
+                                <div class="cards">
+                                    <asp:ListView ID="lvCartoes" runat="server" DataKeyNames="Id" OnItemCommand="lvCartoes_ItemCommand">
+                                        <ItemTemplate>
+                                            <asp:LinkButton runat="server"
+                                                CommandName="selectCard"
+                                                CommandArgument='<%# Eval("Id") %>'
+                                                CssClass='<%# (Eval("Id").ToString() == SelectedId ? "card-row active" : "card-row") %>'>
+                                                <span class="thumb">nu</span>
+                                                <span class="meta">
+                                                    <span class="brand"><%# Eval("Brand") %></span>
+                                                    <span class="last4">Cartão final •••• <%# Eval("LastFourDigits") %></span>
+                                                </span>
+                                            </asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                    <asp:PlaceHolder runat="server" ID="phSemCartoes" Visible="false">
+                                        <div class="card-row">Nenhum cartão cadastrado</div>
+                                    </asp:PlaceHolder>
+                                </div>
                                 <div class="actions">
                                     <asp:Button runat="server" ID="btnNovo" Text="Adicionar cartão" CssClass="btn primary" OnClick="AbrirModoAdicionar" />
                                 </div>
                             </div>
                         </div>
-                    </div>
-            </div>
-</div>
-                </div>
-  </ContentTemplate>
-  <Triggers>
-    <asp:AsyncPostBackTrigger ControlID="btnAdicionar" EventName="Click" />
-    <asp:AsyncPostBackTrigger ControlID="btnRemover" EventName="Click" />
-  </Triggers>
-</asp:UpdatePanel>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnAdicionar" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnRemover" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
 
 
                 <!-- RIGHT: selected card details -->
@@ -193,10 +190,6 @@
                             <!-- Add / Edit form (simple add for now) -->
                             <div id="areaAdd" runat="server" visible="false">
                                 <div class="form">
-                                    <div class="field">
-                                        <label>Apelido do cartão</label>
-                                        <input id="nomeCartao" runat="server" type="text" />
-                                    </div>
                                     <div class="field">
                                         <label>Nome do titular</label>
                                         <input id="nomeTItular" runat="server" type="text" />

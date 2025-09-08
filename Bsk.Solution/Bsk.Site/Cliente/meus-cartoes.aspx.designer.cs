@@ -42,6 +42,15 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.ListView lvCartoes;
 
         /// <summary>
+        /// phSemCartoes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phSemCartoes;
+
+        /// <summary>
         /// btnNovo control.
         /// </summary>
         /// <remarks>
@@ -112,15 +121,6 @@ namespace Bsk.Site.Cliente
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl areaAdd;
-
-        /// <summary>
-        /// nomeCartao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nomeCartao;
 
         /// <summary>
         /// nomeTItular control.

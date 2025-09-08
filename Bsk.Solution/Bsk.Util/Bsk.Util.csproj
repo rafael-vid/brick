@@ -111,13 +111,14 @@
       <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BskPag.cs" />
-    <Compile Include="Constantes.cs" />
-    <Compile Include="Funcoes.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sms.cs" />
-  </ItemGroup>
+    <ItemGroup>
+      <Compile Include="BskPag.cs" />
+      <Compile Include="Constantes.cs" />
+      <Compile Include="Funcoes.cs" />
+      <Compile Include="Properties\AssemblyInfo.cs" />
+      <Compile Include="Sms.cs" />
+      <Compile Include="PagarMeWalletClient.cs" />
+    </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
