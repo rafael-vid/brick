@@ -21,6 +21,25 @@ namespace Bsk.Util
             _logger = logger ?? Console.WriteLine;
         }
 
+        public bool EnsureCustomer(string customerId, string name, string email)
+        {
+            try
+            {
+                var payload = new { name = name, email = email };
+                var json = JsonConvert.SerializeObject(payload);
+                var resp = _http.PutAsync($"customers/{customerId}",
+                    new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                var body = resp.Content.ReadAsStringAsync().Result;
+                _logger?.Invoke($"EnsureCustomer response: {(int)resp.StatusCode} - {body}");
+                return resp.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                _logger?.Invoke($"EnsureCustomer error: {ex.Message}");
+                return false;
+            }
+        }
+
         public List<PagarMeCard> ListCards(string customerId)
         {
             try
