@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Bsk.BE;
 
 namespace Bsk.Site.Cliente
 {
@@ -12,16 +13,22 @@ namespace Bsk.Site.Cliente
     {
         private readonly PagarMeWalletClient _wallet;
         private List<PagarMeCard> _cards;
+        private ParticipanteBE _login;
 
-        private string CustomerId
+        private ParticipanteBE Login
         {
             get
             {
-                var cookie = Request.Cookies["Login"];
-                var login = Funcoes.PegaLoginParticipante(cookie?.Value ?? string.Empty);
-                return login.IdParticipante.ToString();
+                if (_login == null)
+                {
+                    var cookie = Request.Cookies["Login"];
+                    _login = Funcoes.PegaLoginParticipante(cookie?.Value ?? string.Empty);
+                }
+                return _login;
             }
         }
+
+        private string CustomerId => Login.IdParticipante.ToString();
 
         private List<PagarMeCard> Cards => _cards ?? (_cards = _wallet.ListCards(CustomerId));
 
@@ -38,6 +45,7 @@ namespace Bsk.Site.Cliente
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _wallet.EnsureCustomer(CustomerId, ($"{Login.Nome} {Login.Sobrenome}").Trim(), Login.Email);
             if (!IsPostBack)
             {
                 _cards = _wallet.ListCards(CustomerId);
@@ -138,6 +146,8 @@ namespace Bsk.Site.Cliente
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
+            _wallet.EnsureCustomer(CustomerId, ($"{Login.Nome} {Login.Sobrenome}").Trim(), Login.Email);
+
             var req = new PagarMeCardCreateRequest
             {
                 HolderName = nomeTItular.Value,
