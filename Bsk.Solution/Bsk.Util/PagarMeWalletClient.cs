@@ -44,7 +44,15 @@ namespace Bsk.Util
                 var json = JsonConvert.SerializeObject(req);
                 var resp = _http.PostAsync($"customers/{customerId}/cards",
                     new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                var body = resp.Content.ReadAsStringAsync().Result;
+                Console.WriteLine($"AddCard response: {(int)resp.StatusCode} - {body}");
 
+                if (!resp.IsSuccessStatusCode) return null;
+                return JsonConvert.DeserializeObject<PagarMeCard>(body);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"AddCard error: {ex.Message}");
                 return null;
             }
         }
@@ -54,7 +62,6 @@ namespace Bsk.Util
             try
             {
                 var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
- codex/add-card-management-to-meus-cartoes-page-qvkund
                 var body = resp.Content.ReadAsStringAsync().Result;
                 Console.WriteLine($"DeleteCard response: {(int)resp.StatusCode} - {body}");
                 return resp.IsSuccessStatusCode;
@@ -62,12 +69,6 @@ namespace Bsk.Util
             catch (Exception ex)
             {
                 Console.WriteLine($"DeleteCard error: {ex.Message}");
-
-                return resp.IsSuccessStatusCode;
-            }
-            catch
-            {
- main
                 return false;
             }
         }
