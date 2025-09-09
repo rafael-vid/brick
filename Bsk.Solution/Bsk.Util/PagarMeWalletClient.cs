@@ -36,17 +36,34 @@ namespace Bsk.Util
 
         public PagarMeCard AddCard(string customerId, PagarMeCardCreateRequest req)
         {
-            var json = JsonConvert.SerializeObject(req);
-            var resp = _http.PostAsync($"customers/{customerId}/cards", new StringContent(json, Encoding.UTF8, "application/json")).Result;
-            resp.EnsureSuccessStatusCode();
-            var respJson = resp.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<PagarMeCard>(respJson);
+            try
+            {
+                var json = JsonConvert.SerializeObject(req);
+                var resp = _http.PostAsync($"customers/{customerId}/cards",
+                    new StringContent(json, Encoding.UTF8, "application/json")).Result;
+
+                if (!resp.IsSuccessStatusCode) return null;
+
+                var respJson = resp.Content.ReadAsStringAsync().Result;
+                return JsonConvert.DeserializeObject<PagarMeCard>(respJson);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
-        public void DeleteCard(string customerId, string cardId)
+        public bool DeleteCard(string customerId, string cardId)
         {
-            var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
-            resp.EnsureSuccessStatusCode();
+            try
+            {
+                var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
+                return resp.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 
