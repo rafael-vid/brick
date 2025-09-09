@@ -2,6 +2,7 @@ using Bsk.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -9,7 +10,7 @@ namespace Bsk.Site.Cliente
 {
     public partial class meus_cartoes : System.Web.UI.Page
     {
-        private readonly PagarMeWalletClient _wallet = new PagarMeWalletClient();
+        private readonly PagarMeWalletClient _wallet;
         private List<PagarMeCard> _cards;
 
         private string CustomerId
@@ -30,6 +31,11 @@ namespace Bsk.Site.Cliente
             set { ViewState[nameof(SelectedId)] = value; }
         }
 
+        public meus_cartoes()
+        {
+            _wallet = new PagarMeWalletClient(LogToConsole);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -39,6 +45,12 @@ namespace Bsk.Site.Cliente
                 EnsureSelected();
                 BindDetalhe();
             }
+        }
+
+        private void LogToConsole(string message)
+        {
+            var js = new JavaScriptSerializer().Serialize(message);
+            ScriptManager.RegisterStartupScript(this, GetType(), Guid.NewGuid().ToString(), $"console.log({js});", true);
         }
 
         private void BindCartoes()

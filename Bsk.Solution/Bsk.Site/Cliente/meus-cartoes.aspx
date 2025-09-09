@@ -73,6 +73,17 @@
 </script>
 <script>
     function onSalvarClick(btn) {
+        const nome = document.getElementById('<%= nomeTItular.ClientID %>').value.trim();
+        const numero = document.getElementById('<%= numeroCartao.ClientID %>').value.trim();
+        const m = document.getElementById('<%= mes.ClientID %>').value.trim();
+        const a = document.getElementById('<%= ano.ClientID %>').value.trim();
+        const cvv = document.getElementById('<%= codigo.ClientID %>').value.trim();
+
+        if (!nome || !numero || !m || !a || !cvv) {
+            Swal.fire({ icon: 'warning', title: 'Campos obrigatórios', text: 'Preencha todos os campos antes de salvar.' });
+            return false;
+        }
+
         // Prevent double submits and bypass HTML5 constraint validation
         if (!preventDoubleSubmit(btn)) return false;
         __doPostBack('<%= btnAdicionar.UniqueID %>', '');

@@ -11,12 +11,14 @@ namespace Bsk.Util
     public class PagarMeWalletClient
     {
         private readonly HttpClient _http;
-        public PagarMeWalletClient()
+        private readonly Action<string> _logger;
+        public PagarMeWalletClient(Action<string> logger = null)
         {
             var apiKey = ConfigurationManager.AppSettings["PagarmeApiKey"] ?? string.Empty;
             _http = new HttpClient { BaseAddress = new Uri("https://api.pagar.me/core/v5/") };
             var auth = Convert.ToBase64String(Encoding.ASCII.GetBytes(apiKey + ":"));
             _http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", auth);
+            _logger = logger ?? Console.WriteLine;
         }
 
         public List<PagarMeCard> ListCards(string customerId)
@@ -25,14 +27,14 @@ namespace Bsk.Util
             {
                 var resp = _http.GetAsync($"customers/{customerId}/cards").Result;
                 var body = resp.Content.ReadAsStringAsync().Result;
-                Console.WriteLine($"ListCards response: {(int)resp.StatusCode} - {body}");
+                _logger?.Invoke($"ListCards response: {(int)resp.StatusCode} - {body}");
 
                 if (!resp.IsSuccessStatusCode) return new List<PagarMeCard>();
                 return JsonConvert.DeserializeObject<List<PagarMeCard>>(body);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"ListCards error: {ex.Message}");
+                _logger?.Invoke($"ListCards error: {ex.Message}");
                 return new List<PagarMeCard>();
             }
         }
@@ -45,14 +47,14 @@ namespace Bsk.Util
                 var resp = _http.PostAsync($"customers/{customerId}/cards",
                     new StringContent(json, Encoding.UTF8, "application/json")).Result;
                 var body = resp.Content.ReadAsStringAsync().Result;
-                Console.WriteLine($"AddCard response: {(int)resp.StatusCode} - {body}");
+                _logger?.Invoke($"AddCard response: {(int)resp.StatusCode} - {body}");
 
                 if (!resp.IsSuccessStatusCode) return null;
                 return JsonConvert.DeserializeObject<PagarMeCard>(body);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"AddCard error: {ex.Message}");
+                _logger?.Invoke($"AddCard error: {ex.Message}");
                 return null;
             }
         }
@@ -63,12 +65,12 @@ namespace Bsk.Util
             {
                 var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
                 var body = resp.Content.ReadAsStringAsync().Result;
-                Console.WriteLine($"DeleteCard response: {(int)resp.StatusCode} - {body}");
+                _logger?.Invoke($"DeleteCard response: {(int)resp.StatusCode} - {body}");
                 return resp.IsSuccessStatusCode;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"DeleteCard error: {ex.Message}");
+                _logger?.Invoke($"DeleteCard error: {ex.Message}");
                 return false;
             }
         }
