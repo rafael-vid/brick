@@ -96,15 +96,20 @@ namespace Bsk.Site.Cliente
         protected void btnRemoverSelected_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(SelectedId)) return;
-            _wallet.DeleteCard(CustomerId, SelectedId);
-            SelectedId = string.Empty;
+            if (_wallet.DeleteCard(CustomerId, SelectedId))
+            {
+                SelectedId = string.Empty;
+                _cards = _wallet.ListCards(CustomerId);
+                BindCartoes();
+                EnsureSelected();
+                BindDetalhe();
 
-            _cards = _wallet.ListCards(CustomerId);
-            BindCartoes();
-            EnsureSelected();
-            BindDetalhe();
-
-            ScriptManager.RegisterStartupScript(this, GetType(), "swalRem", "Swal.fire({icon:'success',title:'Removido',text:'Cartão removido com sucesso!'});", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "swalRem", "Swal.fire({icon:'success',title:'Removido',text:'Cartão removido com sucesso!'});", true);
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "swalRemErr", "Swal.fire({icon:'error',title:'Erro',text:'Não foi possível remover o cartão.'});", true);
+            }
         }
 
         // Toggle add form
@@ -134,6 +139,12 @@ namespace Bsk.Site.Cliente
 
             areaAdd.Visible = false;
             nomeTItular.Value = numeroCartao.Value = mes.Value = ano.Value = codigo.Value = string.Empty;
+
+            if (added == null)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "swalAddErr", "Swal.fire({icon:'error',title:'Erro',text:'Não foi possível salvar o cartão.'});", true);
+                return;
+            }
 
             _cards = _wallet.ListCards(CustomerId);
             SelectedId = added?.Id;

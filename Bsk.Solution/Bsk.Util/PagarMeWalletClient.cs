@@ -24,29 +24,54 @@ namespace Bsk.Util
             try
             {
                 var resp = _http.GetAsync($"customers/{customerId}/cards").Result;
+                var body = resp.Content.ReadAsStringAsync().Result;
+                Console.WriteLine($"ListCards response: {(int)resp.StatusCode} - {body}");
+
                 if (!resp.IsSuccessStatusCode) return new List<PagarMeCard>();
-                var json = resp.Content.ReadAsStringAsync().Result;
-                return JsonConvert.DeserializeObject<List<PagarMeCard>>(json);
+                return JsonConvert.DeserializeObject<List<PagarMeCard>>(body);
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"ListCards error: {ex.Message}");
                 return new List<PagarMeCard>();
             }
         }
 
         public PagarMeCard AddCard(string customerId, PagarMeCardCreateRequest req)
         {
-            var json = JsonConvert.SerializeObject(req);
-            var resp = _http.PostAsync($"customers/{customerId}/cards", new StringContent(json, Encoding.UTF8, "application/json")).Result;
-            resp.EnsureSuccessStatusCode();
-            var respJson = resp.Content.ReadAsStringAsync().Result;
-            return JsonConvert.DeserializeObject<PagarMeCard>(respJson);
+            try
+            {
+                var json = JsonConvert.SerializeObject(req);
+                var resp = _http.PostAsync($"customers/{customerId}/cards",
+                    new StringContent(json, Encoding.UTF8, "application/json")).Result;
+                var respJson = resp.Content.ReadAsStringAsync().Result;
+                Console.WriteLine($"AddCard response: {(int)resp.StatusCode} - {respJson}");
+
+                if (!resp.IsSuccessStatusCode) return null;
+
+                return JsonConvert.DeserializeObject<PagarMeCard>(respJson);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"AddCard error: {ex.Message}");
+                return null;
+            }
         }
 
-        public void DeleteCard(string customerId, string cardId)
+        public bool DeleteCard(string customerId, string cardId)
         {
-            var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
-            resp.EnsureSuccessStatusCode();
+            try
+            {
+                var resp = _http.DeleteAsync($"customers/{customerId}/cards/{cardId}").Result;
+                var body = resp.Content.ReadAsStringAsync().Result;
+                Console.WriteLine($"DeleteCard response: {(int)resp.StatusCode} - {body}");
+                return resp.IsSuccessStatusCode;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"DeleteCard error: {ex.Message}");
+                return false;
+            }
         }
     }
 
