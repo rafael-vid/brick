@@ -47,7 +47,20 @@
          
              </div>
          </div>
-        <asp:Literal ID="litCategoria" runat="server" />
+        <div class="item_content_card">
+            <h2 class="subtitulo_card_1 subtitulo_1">Categoria selecionada</h2>
+            <p class="resumo-categoria">
+                <asp:Literal ID="litCategoria" runat="server" />
+            </p>
+        </div>
+
+        <div class="item_content_card" id="servicosSelecionadosContainer" runat="server">
+            <h2 class="subtitulo_card_1 subtitulo_1">Serviços selecionados</h2>
+            <ul class="lista-servicos">
+                <asp:Literal ID="litServicos" runat="server" />
+            </ul>
+        </div>
+
             <div class="item_content_card">
                 <h2 class="subtitulo_card_1 subtitulo_1">Descrição </h2>
                 <input type="text" placeholder="Digite aqui uma descrição para o serviço a ser realizado" class="card-input-add" id="titulo" runat="server">

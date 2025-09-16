@@ -24,6 +24,24 @@ namespace Bsk.Site.Cliente
         protected global::System.Web.UI.WebControls.Literal litCategoria;
 
         /// <summary>
+        /// servicosSelecionadosContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl servicosSelecionadosContainer;
+
+        /// <summary>
+        /// litServicos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litServicos;
+
+        /// <summary>
         /// titulo control.
         /// </summary>
         /// <remarks>

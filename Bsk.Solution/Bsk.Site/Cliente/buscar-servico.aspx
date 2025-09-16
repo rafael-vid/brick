@@ -384,6 +384,8 @@
 
 
             <div class="footer_card">
+                <input type="hidden" id="selectedCategory" />
+                <input type="hidden" id="selectedServices" />
                 <a class="voltar btn" href="minhas-cotacoes.aspx"><< voltar </a>
                 <!--
                 <a href="/" class="item_notifica">
@@ -395,38 +397,124 @@
                     Próximo >>
                 </a>
                 <script>
-                    $('#btnProximo').click(function (e) {
-                        // Prevent the default action if no checkboxes are selected
-                        var selectedCategory = $('input[name="categoria"]:checked').val();
-                        var servicesChecked = $('#services' + selectedCategory + ' input[type="checkbox"]:checked').length;
-
-                        if (servicesChecked === 0) {
-                            Swal.fire({
-                                toast: true,
-                                text: 'Por favor selecione pelo menos um serviço antes de continuar',
-                                icon: 'info',
-                                confirmButtonColor: '#f08f00',
-                                confirmButtonText: 'Ok'
-                            });
-                            e.preventDefault();  // Stop the navigation to "cadastro-solicitacao.aspx"
-                        } else {
-                            // If services are selected, proceed with navigation
-                            window.location.href = "cadastro-solicitacao.aspx?Id=" + selectedCategory;
+                    function updateSelectedServicesField(shouldPersist) {
+                        if (typeof shouldPersist === 'undefined') {
+                            shouldPersist = true;
                         }
-                    });
-                </script>
 
-                <script>
-                    function toggleServicesDisplay(selectedCategoryId) {
-                        // Hide all services
-                        $('.services').hide();
+                        var selectedCategory = $('input[name="categoria"]:checked').val();
+                        if (!selectedCategory) {
+                            if (shouldPersist) {
+                                sessionStorage.removeItem('buscarServicoCategoria');
+                                sessionStorage.removeItem('buscarServicoServicos');
+                            }
 
-                        // Show the services under the selected category
-                        $('#services' + selectedCategoryId).show();
+                            $('#selectedCategory').val('');
+                            $('#selectedServices').val('');
+                            return [];
+                        }
 
-                        // Optionally, reset checkboxes in hidden service divs
-                        $('.services').not('#services' + selectedCategoryId).find('input[type=checkbox]').prop('checked', false);
+                        var selectedServices = $('#services' + selectedCategory + ' input[type="checkbox"]:checked').map(function () {
+                            return $(this).val();
+                        }).get();
+
+                        $('#selectedCategory').val(selectedCategory);
+                        $('#selectedServices').val(selectedServices.join(','));
+
+                        if (shouldPersist) {
+                            sessionStorage.setItem('buscarServicoCategoria', selectedCategory);
+                            sessionStorage.setItem('buscarServicoServicos', selectedServices.join(','));
+                        }
+
+                        return selectedServices;
                     }
+
+                    function toggleServicesDisplay(selectedCategoryId, shouldPersist) {
+                        if (typeof shouldPersist === 'undefined') {
+                            shouldPersist = true;
+                        }
+
+                        $('.services').hide();
+                        $('#services' + selectedCategoryId).show();
+                        $('.services').not('#services' + selectedCategoryId).find('input[type=checkbox]').prop('checked', false);
+
+                        if (shouldPersist) {
+                            sessionStorage.setItem('buscarServicoCategoria', selectedCategoryId);
+                            sessionStorage.removeItem('buscarServicoServicos');
+                        }
+
+                        updateSelectedServicesField(shouldPersist);
+                    }
+
+                    $(document).ready(function () {
+                        var storedCategory = sessionStorage.getItem('buscarServicoCategoria');
+                        var storedServicesRaw = sessionStorage.getItem('buscarServicoServicos');
+
+                        if (storedCategory) {
+                            var categoryRadio = $('input[name="categoria"][value="' + storedCategory + '"]');
+                            if (categoryRadio.length) {
+                                categoryRadio.prop('checked', true);
+                                toggleServicesDisplay(storedCategory, false);
+
+                                if (storedServicesRaw) {
+                                    storedServicesRaw.split(',').forEach(function (serviceId) {
+                                        if (serviceId) {
+                                            $('#services' + storedCategory + ' input[value="' + serviceId + '"]').prop('checked', true);
+                                        }
+                                    });
+                                }
+
+                                updateSelectedServicesField(false);
+                            } else {
+                                sessionStorage.removeItem('buscarServicoCategoria');
+                                sessionStorage.removeItem('buscarServicoServicos');
+                            }
+                        }
+
+                        $('input[name="categoria"]').on('change', function () {
+                            toggleServicesDisplay(this.value);
+                        });
+
+                        $('.services input[type="checkbox"]').on('change', function () {
+                            updateSelectedServicesField();
+                        });
+
+                        $('#btnProximo').click(function (e) {
+                            e.preventDefault();
+
+                            var selectedCategory = $('input[name="categoria"]:checked').val();
+                            if (!selectedCategory) {
+                                Swal.fire({
+                                    toast: true,
+                                    text: 'Por favor selecione uma categoria antes de continuar',
+                                    icon: 'info',
+                                    confirmButtonColor: '#f08f00',
+                                    confirmButtonText: 'Ok'
+                                });
+                                return;
+                            }
+
+                            var selectedServices = $('#services' + selectedCategory + ' input[type="checkbox"]:checked').map(function () {
+                                return $(this).val();
+                            }).get();
+
+                            if (selectedServices.length === 0) {
+                                Swal.fire({
+                                    toast: true,
+                                    text: 'Por favor selecione pelo menos um serviço antes de continuar',
+                                    icon: 'info',
+                                    confirmButtonColor: '#f08f00',
+                                    confirmButtonText: 'Ok'
+                                });
+                                return;
+                            }
+
+                            updateSelectedServicesField();
+
+                            var servicesParam = encodeURIComponent(selectedServices.join(','));
+                            window.location.href = 'cadastro-solicitacao.aspx?Id=' + selectedCategory + '&Servicos=' + servicesParam;
+                        });
+                    });
                 </script>
                 <script>
                     let originalCategories = [];
