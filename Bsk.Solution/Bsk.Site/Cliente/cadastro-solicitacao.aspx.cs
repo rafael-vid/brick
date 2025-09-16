@@ -25,34 +25,29 @@ namespace Bsk.Site.Cliente
         CotacaoAnexosBE _CotacaoAnexosBE = new CotacaoAnexosBE();
         protected void Page_Load(object sender, EventArgs e)
         {
-            SolicitacaoBE cotacao = new SolicitacaoBE();
+            SolicitacaoBE cotacao = null;
             if (!String.IsNullOrEmpty(Request.QueryString["Cotacao"]))
             {
                 cotacao = _core.Cotacao_Get(_SolicitacaoBE, "IdSolicitacao=" + Request.QueryString["Cotacao"]).FirstOrDefault();
+            }
 
-                var categoria = cotacao.IdCategoria;
-                CategoriaBE _CategoriaBE = new CategoriaBE();
-                string filtro = $"IdCategoria = {categoria}";
-                var categorias = _core.Categoria_Get(_CategoriaBE, filtro);
-                if (categorias != null && categorias.Count > 0)
-                {
-                    string nome = categorias[0].Nome;
-                    litCategoria.Text = nome;
-                    // Use nome as needed
-                }
-                
+            if (cotacao != null)
+            {
+                BindCategoria(cotacao.IdCategoria);
+                BindServicos(cotacao.IdServico);
 
                 if (cotacao.Status != StatusCotacao.Criacao)
                 {
-                    //btnSalvar.Visible = false;
-                    //btnSubmeter.Visible = false;
                     divUpload.Visible = true;
-                    // alerts.Visible = false;
-                    // alerts2.Visible = false;
                 }
             }
+            else
+            {
+                BindCategoriaFromQuery();
+                BindServicosFromQuery();
+            }
 
-            if (Request.QueryString["Del"] != null && cotacao.Status == StatusCotacao.Criacao)
+            if (Request.QueryString["Del"] != null && cotacao != null && cotacao.Status == StatusCotacao.Criacao)
             {
                 var anexo = _core.CotacaoAnexos_Get(_CotacaoAnexosBE, "IdCotacaoAnexos=" + Request.QueryString["Del"]).FirstOrDefault();
                 _core.CotacaoAnexos_Delete(anexo);
@@ -84,6 +79,11 @@ namespace Bsk.Site.Cliente
             }
             // ####################################### ENVIAR PARA MSG ##########################################
             var redi = salvarCotacao();
+
+            if (string.IsNullOrEmpty(redi))
+            {
+                return;
+            }
 
             if (!String.IsNullOrEmpty(hdLink.Value))
             {
@@ -123,9 +123,18 @@ namespace Bsk.Site.Cliente
             }
             else
             {
+                var normalizedServices = NormalizeServiceIds(Request.QueryString["Servicos"]);
+
+                if (string.IsNullOrEmpty(normalizedServices))
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "serviceSelectionAlert", "Swal.fire({ toast: true, icon: 'info', title: 'Atenção', text: 'Selecione pelo menos um serviço na etapa anterior.' });", true);
+                    return string.Empty;
+                }
+
                 SolicitacaoBE _SolicitacaoBE = new SolicitacaoBE()
                 {
                     IdCategoria = int.Parse(Request.QueryString["Id"]),
+                    IdServico = normalizedServices,
                     DataCriacao = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
                     DataTermino = "",
                     Depoimento = "",
@@ -187,6 +196,92 @@ namespace Bsk.Site.Cliente
             _core.CotacaoAnexos_Insert(_CotacaoAnexosBE);
 
             return link;
+        }
+        private void BindCategoria(int categoriaId)
+        {
+            var categorias = _core.Categoria_Get(new CategoriaBE(), $" IdCategoria = {categoriaId}");
+            if (categorias != null && categorias.Count > 0)
+            {
+                litCategoria.Text = HttpUtility.HtmlEncode(categorias[0].Nome);
+            }
+            else
+            {
+                litCategoria.Text = string.Empty;
+            }
+        }
+
+        private void BindCategoriaFromQuery()
+        {
+            if (int.TryParse(Request.QueryString["Id"], out var categoriaId))
+            {
+                BindCategoria(categoriaId);
+            }
+            else
+            {
+                litCategoria.Text = string.Empty;
+            }
+        }
+
+        private void BindServicos(string rawServices)
+        {
+            var serviceIds = ParseServiceIds(rawServices).ToList();
+            if (!serviceIds.Any())
+            {
+                servicosSelecionadosContainer.Visible = false;
+                litServicos.Text = string.Empty;
+                return;
+            }
+
+            var filtro = $" IdServico in ({string.Join(",", serviceIds)})";
+            var servicos = _core.Servico_Get(new ServicoBE(), filtro);
+
+            if (servicos != null && servicos.Count > 0)
+            {
+                var servicosOrdenados = serviceIds
+                    .Select(id => servicos.FirstOrDefault(s => s.IdServico == id))
+                    .Where(s => s != null);
+
+                litServicos.Text = string.Join(string.Empty, servicosOrdenados.Select(s => $"<li>{HttpUtility.HtmlEncode(s.Nome)}</li>"));
+                servicosSelecionadosContainer.Visible = true;
+            }
+            else
+            {
+                servicosSelecionadosContainer.Visible = false;
+                litServicos.Text = string.Empty;
+            }
+        }
+
+        private void BindServicosFromQuery()
+        {
+            BindServicos(Request.QueryString["Servicos"]);
+        }
+
+        private IEnumerable<int> ParseServiceIds(string rawServices)
+        {
+            if (string.IsNullOrWhiteSpace(rawServices))
+            {
+                return Enumerable.Empty<int>();
+            }
+
+            var ids = new List<int>();
+            var parts = rawServices.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var part in parts)
+            {
+                var trimmed = part.Trim();
+                if (int.TryParse(trimmed, out var parsed) && !ids.Contains(parsed))
+                {
+                    ids.Add(parsed);
+                }
+            }
+
+            return ids;
+        }
+
+        private string NormalizeServiceIds(string rawServices)
+        {
+            var ids = ParseServiceIds(rawServices);
+            return string.Join(",", ids);
         }
         protected bool ValidarCamposObrigatorios()
         {
