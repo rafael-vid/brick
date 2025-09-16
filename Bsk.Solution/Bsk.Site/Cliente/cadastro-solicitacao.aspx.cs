@@ -212,7 +212,8 @@ namespace Bsk.Site.Cliente
 
         private void BindCategoriaFromQuery()
         {
-            if (int.TryParse(Request.QueryString["Id"], out var categoriaId))
+            int categoriaId;
+            if (int.TryParse(Request.QueryString["Id"], out categoriaId))
             {
                 BindCategoria(categoriaId);
             }
@@ -269,7 +270,8 @@ namespace Bsk.Site.Cliente
             foreach (var part in parts)
             {
                 var trimmed = part.Trim();
-                if (int.TryParse(trimmed, out var parsed) && !ids.Contains(parsed))
+                int parsed;
+                if (int.TryParse(trimmed, out parsed) && !ids.Contains(parsed))
                 {
                     ids.Add(parsed);
                 }
