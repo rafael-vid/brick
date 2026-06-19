@@ -74,8 +74,15 @@ namespace Bsk.Site.Cliente
             }
         }
 
-        protected async void btnGerar_ServerClick(object sender, EventArgs e)
+        protected void btnGerar_ServerClick(object sender, EventArgs e)
+        {
+            // Registra a chamada assíncrona no ponto async da página (Async="true").
+            // Sem isso, o handler async void pode renderizar a resposta antes das
+            // atualizações pós-await, gerando o boleto sem abrir a janela do PDF.
+            RegisterAsyncTask(new PageAsyncTask(GerarBoletoAsync));
+        }
 
+        private async Task GerarBoletoAsync()
         {
             lbMsg.InnerText = "";
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();

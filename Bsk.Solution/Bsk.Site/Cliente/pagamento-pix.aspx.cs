@@ -6,6 +6,7 @@ using System.Runtime.ConstrainedExecution;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using Bsk.BE;
 using Bsk.BE.Model;
 using Bsk.Interface;
@@ -64,11 +65,25 @@ namespace Bsk.Site.Cliente
             Response.Redirect("perfil.aspx?Red=pagamento-boleto&Id=" + Request.QueryString["Id"]);
         }
 
-        protected async void btnGerarPix_ServerClick(object sender, EventArgs e)
+        protected void btnGerarPix_ServerClick(object sender, EventArgs e)
+        {
+            // Registra a chamada assíncrona no ponto async da página (Async="true").
+            // Sem isso, o handler async void pode renderizar a resposta antes das
+            // atualizações pós-await (QR Code), gerando a transação sem exibir nada.
+            RegisterAsyncTask(new PageAsyncTask(GerarPixAsync));
+        }
+
+        private async Task GerarPixAsync()
         {
             var cotacaoFornecedor = _core.CotacaoFornecedor_Get(CotacaoBE, "IdCotacao=" + Request.QueryString["Id"]).FirstOrDefault();
             var cotacao = _core.Cotacao_Get(SolicitacaoBE, "IdSolicitacao=" + cotacaoFornecedor.IdSolicitacao).FirstOrDefault();
             var cliente = _core.Participante_Get(participanteBE, "IdParticipante=" + cotacao.IdParticipante).FirstOrDefault();
+
+            // Telefone somente com dígitos para evitar erros de Substring no postback.
+            var telDigits = new string((cliente.Telefone ?? "").Where(char.IsDigit).ToArray());
+            string areaCode = telDigits.Length >= 2 ? telDigits.Substring(0, 2) : "";
+            string phoneNumber = telDigits.Length > 2 ? telDigits.Substring(2) : "";
+
             // Exemplo de payload Pix
             var payload = new
             {
@@ -78,8 +93,8 @@ namespace Bsk.Site.Cliente
                 },
                 customer = new
                 {
-                    name = nomePix.InnerText,
-                    email = email.InnerText,
+                    name = cliente.Nome,
+                    email = cliente.Email,
                     type = "individual",
                     document = new string(cliente.Documento.Where(char.IsDigit).ToArray()),
                     phones = new
@@ -87,8 +102,8 @@ namespace Bsk.Site.Cliente
                         home_phone = new
                         {
                             country_code = "55",
-                            number = telefone.InnerText.Substring(2),
-                            area_code = telefone.InnerText.Substring(0, 2)
+                            number = phoneNumber,
+                            area_code = areaCode
                         }
                     }
                 },
@@ -135,7 +150,7 @@ namespace Bsk.Site.Cliente
                     string script = $"console.log('{safeMessage}'); console.log('{message2}');";
                     ClientScript.RegisterStartupScript(this.GetType(), "consoleLog", script, true);
 
-                    imgPixQrCode.Src = resp.charges[0].last_transaction.qr_code;
+                    imgPixQrCode.Src = resp.charges[0].last_transaction.qr_code_url;
                     pixCopyPaste.InnerText = resp.charges[0].last_transaction.qr_code;
                     lblApiResponse.Text = "Pix gerado com sucesso!";
                 }
